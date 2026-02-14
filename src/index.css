@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Irsan";
+  src: url("./assets/fonts/sans/IRSansWebFaNum_Bold.woff") format("woff"),
+    url("./assets/fonts/sans/IRSansWebFaNum_Bold.woff2") format("woff2"),
+    url("./assets/fonts/sans/IRSansWebFaNum_Bold.ttf") format("ttf");
+  font-display: swap;
+  font-style: normal;
+  font-weight: normal;
+}
+:root {
+font-family: 'Irsan',sans-serif 'Times New Roman', Times, serif !important;
+}
