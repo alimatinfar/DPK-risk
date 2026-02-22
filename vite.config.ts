@@ -9,15 +9,15 @@ export default defineConfig({
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "@rc-001",
       fileName: (format) => `rc-001.${format}.js`,
-      cssFileName: "rc-001"
+      cssFileName: "rc-001",
     },
     rollupOptions: {
-      external: ["react", "react-dom","react-router"],
+      external: ["react", "react-dom", "react-router"],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
-          "react-router": "ReactRouter"
+          "react-router": "ReactRouter",
         },
       },
     },
