@@ -9,13 +9,14 @@ export interface IExpandableTableProps {
   initialRowsPerPage?: number;
   className?: string;
   showRowNumber?: boolean;
-  tblClassName?:string;
-};
+  tblClassName?: string;
+}
 
 export interface IColumn {
-    field: string,
-    header: string,
-    width?: string,
-    body?: (row: any) => void,
-    bodyClassName?: string,
+  field: string;
+  id?: string;
+  header: string;
+  width?: string;
+  body?: (row: any) => void;
+  bodyClassName?: string;
 }

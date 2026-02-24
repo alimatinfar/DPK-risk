@@ -143,7 +143,7 @@ const ExpandableTable: FC<IExpandableTableProps> = ({
 
             {columns.map((col, index) => (
               <th
-                key={`${col.field}-${index}`}
+                key={`${col.field}-${col.id ? col.id : index}`}
                 className={`p-3 font-normal text-center tracking-wider relative group ${
                   index === columns.length - 1 ? "rounded-tl-lg" : ""
                 }`}
