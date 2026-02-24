@@ -13,9 +13,7 @@ const Tabs: FC<ITabsProps> = ({
   const [activeTab, setActiveTab] = useState(defaultActiveTab);
 
   return (
-    <div
-      className={`flex flex-col border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm h-full relative ${className}`}
-    >
+    <div className={`flex flex-col border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm relative ${className}`}>
       <div className="bg-primary-100 border-b border-gray-200 dark:border-gray-700 relative z-20">
         <div className="flex justify-between items-center relative">
           {isLoading && (
@@ -33,9 +31,7 @@ const Tabs: FC<ITabsProps> = ({
               <div key={tab.id} className="group relative inline-block">
                 <button
                   className={`px-4 py-3  text-sm font-medium transition-colors duration-200 ${
-                    activeTab === tab.id
-                      ? "border-b-2 border-primary text-primary"
-                      : ""
+                    activeTab === tab.id ? "border-b-2 border-primary text-primary" : ""
                   }`}
                   onClick={() => setActiveTab(tab.id)}
                   disabled={isLoading}
@@ -57,7 +53,7 @@ const Tabs: FC<ITabsProps> = ({
       </div>
 
       <div className="flex-1 flex flex-col relative z-20">
-        <div className="overflow-y-auto h-[74vh] bg-white dark:bg-gray-900">
+        <div className="overflow-y-auto bg-white dark:bg-gray-900">
           {children}
           {tabs.find((tab) => tab.id === activeTab)?.content}
 
@@ -65,9 +61,7 @@ const Tabs: FC<ITabsProps> = ({
             <div className="absolute inset-0 bg-white dark:bg-gray-900 bg-opacity-80 dark:bg-opacity-80 flex items-center justify-center">
               <div className="flex flex-col items-center">
                 <div className="w-12 h-12 border-4 border-primary-2 border-t-transparent rounded-full animate-spin mb-2"></div>
-                <span className=" text-sm text-primary">
-                  در حال بارگذاری ...{" "}
-                </span>
+                <span className=" text-sm text-primary">در حال بارگذاری ... </span>
               </div>
             </div>
           )}
@@ -75,11 +69,7 @@ const Tabs: FC<ITabsProps> = ({
           {isError && !isLoading && (
             <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg m-4">
               <div className="flex items-center text-red-600 dark:text-red-400">
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"

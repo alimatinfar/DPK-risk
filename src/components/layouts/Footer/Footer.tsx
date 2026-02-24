@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import {LabelValue} from "../../LabelValue";
+import { LabelValue } from "../../LabelValue";
 import { helper } from "../../../utils/helper";
 import { UserData, UserLogOption } from "./Footer.type";
 
@@ -29,26 +29,11 @@ const Footer: FC = () => {
   }, []);
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-50 py-3 px-4 bg-primary-50 mx-auto md:px-8 shadow-sm border-t">
-      <div className="flex items-center justify-between flex-wrap gap-4 text-xs">
-        <LabelValue
-          labelClassName="text-xs"
-          valueClassName="text-xs font-medium"
-          label="تاریخ روز"
-          value={helper.getCurrentDate()}
-        />
-        <LabelValue
-          labelClassName="text-xs"
-          valueClassName="text-xs font-medium"
-          label="تاریخ آخرین گزارش‌گیری"
-          value={user.reportDate}
-        />
-        <LabelValue
-          labelClassName="text-xs"
-          valueClassName="text-xs font-medium"
-          label="ساعت گزارش"
-          value={user.reportTime}
-        />
+    <footer className="bg-primary-50 shadow-sm border-t">
+      <div className="flex items-center justify-between flex-wrap gap-4 text-xs py-3 px-4 ">
+        <LabelValue labelClassName="text-xs" valueClassName="text-xs font-medium" label="تاریخ روز" value={helper.getCurrentDate()} />
+        <LabelValue labelClassName="text-xs" valueClassName="text-xs font-medium" label="تاریخ آخرین گزارش‌گیری" value={user.reportDate} />
+        <LabelValue labelClassName="text-xs" valueClassName="text-xs font-medium" label="ساعت گزارش" value={user.reportTime} />
         <LabelValue
           labelClassName="text-xs"
           valueClassName="text-xs font-medium"
@@ -61,12 +46,7 @@ const Footer: FC = () => {
           label="نام شعبه صادر کننده گزارش"
           value={user.branchName}
         />
-        <LabelValue
-          labelClassName="text-xs"
-          valueClassName="text-xs font-medium"
-          label="کاربر"
-          value={user.userType}
-        />
+        <LabelValue labelClassName="text-xs" valueClassName="text-xs font-medium" label="کاربر" value={user.userType} />
         <LabelValue
           labelClassName="text-xs"
           valueClassName="text-xs font-medium"

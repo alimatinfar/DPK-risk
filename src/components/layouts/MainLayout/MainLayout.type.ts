@@ -1,9 +1,8 @@
 import { PropsWithChildren } from "react";
 
 export interface IMainLayoutProps extends PropsWithChildren {
-  serverless:boolean;
   children: React.ReactNode;
-  headerTitle:string;
+  headerTitle: string;
 }
 
 export interface SidebarToggleProps {
