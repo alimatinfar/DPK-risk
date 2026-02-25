@@ -143,7 +143,7 @@ const ExpandableTable: FC<IExpandableTableProps> = ({
 
             {columns.map((col, index) => (
               <th
-                key={`${col.field}-${col.id ? col.id : index}`}
+                key={`${col.field}-${col.id || index}`}
                 className={`p-3 font-normal text-center tracking-wider relative group ${
                   index === columns.length - 1 ? "rounded-tl-lg" : ""
                 }`}
@@ -194,7 +194,7 @@ const ExpandableTable: FC<IExpandableTableProps> = ({
 
                   {columns.map((col) => (
                     <td
-                      key={`${row.id || index}-${col.field}`}
+                      key={`${col.field}-${col.id || index}`}
                       className={`p-3 text-sm text-center text-gray-700 dark:text-gray-300 ${col.bodyClassName || ""}`}
                       style={{
                         width: columnWidths[col.field] ? `${columnWidths[col.field]}px` : undefined,
