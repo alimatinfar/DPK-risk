@@ -1,6 +1,7 @@
 import axios, {type AxiosResponse} from "axios";
 import {getErrorStatus} from "./utils/getResponse.ts";
 import type {CustomResponseType} from "./types/CustomResponseType.ts";
+// import {navigateTo} from "../hooks/useSaveNavigate.ts";
 
 
 const axiosInstance = axios.create({
