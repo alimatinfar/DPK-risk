@@ -8,7 +8,7 @@ import { FC } from "react";
 
 const Header: FC<IHeaderProps> = ({ toggleSidebar, sidebarisOpen,title='عنوان سامانه ...' }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-50  shadow-sm border-b ">
+    <header className="bg-primary-50  shadow-sm border-b ">
       <div className="flex items-center justify-between py-2 px-2 mx-auto md:px-8">
         <div className="flex items-center space-x-4">
           <Link to="/">
