@@ -1,7 +1,7 @@
 'use client'
 
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import {type ChildrenAndClassNamePropsType} from "../../../types/ChildrenPropsType.tsx";
+import {type ChildrenAndClassNamePropsType} from "../../types/ChildrenPropsType.tsx";
 
 const queryClient = new QueryClient()
 

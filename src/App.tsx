@@ -1,4 +1,4 @@
-import ReactQueryProvider from "./components/Form/ClientComponents/ReactQueryProvider.tsx";
+import ReactQueryProvider from "./components/ClientComponents/ReactQueryProvider.tsx";
 
 
 function App() {
