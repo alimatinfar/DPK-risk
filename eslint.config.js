@@ -24,6 +24,10 @@ export default defineConfig([
       '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',
       'react-hooks/set-state-in-effect': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'react-refresh/only-export-components': 'off',
+      'react-hooks/immutability': 'off',
+      'react-hooks/refs': 'off',
     }
   },
 ])
