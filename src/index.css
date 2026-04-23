@@ -13,7 +13,7 @@
 @theme {
   --color-background: var(--color-gray-50);
   --color-foreground: var(--foreground);
-  --color-primary: #4D5999;
+  --color-primary: #1C39BB;
   --font-IRANYekan: IRANYekan;
 }
 
@@ -84,5 +84,5 @@
 
 html {
   direction: rtl;
-  @apply bg-background
+  @apply bg-background font-IRANYekan;
 }

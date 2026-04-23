@@ -7,6 +7,7 @@ import GeneralLayout from "../layouts/GeneralLayout.tsx";
 
 // const RemoteComponent = lazy(() => import('remoteApp/App'))
 const HomePage = lazy(() => import("../pages/HomePage.tsx"));
+const SearchPage = lazy(() => import("../pages/SearchPage.tsx"));
 
 
 const router = createBrowserRouter(
@@ -17,6 +18,10 @@ const router = createBrowserRouter(
         {
           path: ROUTER_LINKS.HOME,
           element: <HomePage/>,
+        },
+        {
+          path: ROUTER_LINKS.SEARCH,
+          element: <SearchPage/>,
         },
 
         // {
