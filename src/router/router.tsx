@@ -6,8 +6,8 @@ import {lazy} from "react";
 import GeneralLayout from "../layouts/GeneralLayout.tsx";
 
 // const RemoteComponent = lazy(() => import('remoteApp/App'))
-const HomePage = lazy(() => import("../pages/HomePage.tsx"));
-const SearchPage = lazy(() => import("../pages/SearchPage.tsx"));
+const HomePage = lazy(() => import("../pages/home/HomePage.tsx"));
+const SearchPage = lazy(() => import("../pages/search/SearchPage.tsx"));
 
 
 const router = createBrowserRouter(

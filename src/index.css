@@ -15,6 +15,9 @@
   --color-foreground: var(--foreground);
   --color-primary: #1C39BB;
   --color-primary-background: #8D91C71A;
+  --color-primary-border: #8D91C74D;
+  --color-primary-text: #0F172A;
+  --color-secondary-text: #475569;
   --font-IRANYekan: IRANYekan;
 }
 
