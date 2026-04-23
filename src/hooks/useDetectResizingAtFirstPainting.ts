@@ -1,28 +1,33 @@
 import {useEffect, useState} from "react";
 
 export type Props = {
-  element: HTMLElement | undefined | null;
+  elementRef: any;
   callback: () => void;
+  deps?: any[];
 }
 
-function useDetectResizingAtFirstPainting({element, callback}: Props) {
+function useDetectResizingAtFirstPainting({elementRef, callback, deps = []}: Props) {
 
   const [resized, setResized] = useState(false)
 
   useEffect(() => {
-    if (!element) return
+    if (!elementRef.current || resized) return
 
-    const resize_ob = new ResizeObserver(function () {
+    const resize_ob = new ResizeObserver(function (entries) {
       if (resized) return
       callback();
-      // setTimeout(() => setResized(true), 100)
+      // setTimeout(() => setResized(true), 200)
       requestAnimationFrame(() => setResized(true))
     })
 
-    resize_ob.observe(element)
+    const copyElement = elementRef.current.cloneNode(true)
 
-    return () => resize_ob.unobserve(element)
-  }, [element, resized]);
+    copyElement && resize_ob.observe(copyElement)
+
+    return () => {
+      copyElement && resize_ob.unobserve(copyElement)
+    }
+  }, [elementRef.current, resized, ...deps]);
 }
 
 export default useDetectResizingAtFirstPainting
