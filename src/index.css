@@ -11,9 +11,10 @@
 }
 
 @theme {
-  --color-background: var(--color-gray-50);
+  --color-background: var(--color-white);
   --color-foreground: var(--foreground);
   --color-primary: #1C39BB;
+  --color-primary-background: #8D91C71A;
   --font-IRANYekan: IRANYekan;
 }
 
@@ -85,4 +86,8 @@
 html {
   direction: rtl;
   @apply bg-background font-IRANYekan;
+}
+
+button {
+  @apply cursor-pointer;
 }

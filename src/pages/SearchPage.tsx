@@ -1,9 +1,10 @@
+import MainLayout from "../layouts/MainLayout/MainLayout.tsx";
 
 function SearchPage() {
   return (
-    <div>
+    <MainLayout>
       صفحه سرچ کاربران
-    </div>
+    </MainLayout>
   );
 }
 
