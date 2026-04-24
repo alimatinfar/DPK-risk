@@ -1,7 +1,22 @@
+import useGetFormErrorMessage
+  from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
+import InputForm from "../../../../../../components/Form/Input/InputForm.tsx";
+import {firstNameFieldLabel, firstNameFieldName} from "./FirstNameField.constances.ts";
 
 function FirstNameField() {
+
+  const getErrorMessage = useGetFormErrorMessage();
+  const errorMessage = getErrorMessage(firstNameFieldName);
+
   return (
-    <div></div>
+    <InputForm
+      fieldName={firstNameFieldName}
+      inputProps={{
+        errorMessage,
+        label: firstNameFieldLabel,
+        placeholder: 'برای مثال علی',
+      }}
+    />
   );
 }
 

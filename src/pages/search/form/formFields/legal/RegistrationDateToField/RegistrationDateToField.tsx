@@ -1,23 +1,20 @@
 import useGetFormErrorMessage
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
-import {
-  registrationDateFromFieldLabel,
-  registrationDateFromFieldName
-} from "../RegistrationDateFromField/RegistrationDateFromField.constances.ts";
 import WheelDateTimePickerForm from "../../../../../../components/Form/WheelDateTimePicker/WheelDateTimePickerForm.tsx";
+import {registrationDateToFieldLabel, registrationDateToFieldName} from "./RegistrationDateToField.constances.ts";
 
 
 function RegistrationDateToField() {
 
   const getErrorMessage = useGetFormErrorMessage();
-  const errorMessage = getErrorMessage(registrationDateFromFieldName);
+  const errorMessage = getErrorMessage(registrationDateToFieldName);
 
   return (
     <WheelDateTimePickerForm
-      fieldName={registrationDateFromFieldName}
-      title={registrationDateFromFieldLabel}
+      fieldName={registrationDateToFieldName}
+      title={registrationDateToFieldLabel}
       inputProps={{
-        label: registrationDateFromFieldLabel,
+        label: registrationDateToFieldLabel,
         errorMessage: errorMessage,
       }}
       wheelPickerProps={{

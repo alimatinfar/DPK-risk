@@ -13,10 +13,39 @@ import {
   shahabNumberFieldName,
   type ShahabNumberFieldType
 } from "./formFields/ShahabNumberField/ShahabNumberField.constances.ts";
+import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "./SearchPageForm.constances.ts";
+import {
+  birthCertificationNumberFieldName, type BirthCertificationNumberFieldType
+} from "./formFields/natural/BirthCertificateNumberField/BirthCertificateNumberField.constances.ts";
+import {
+  firstNameFieldName,
+  type FirstNameFieldType
+} from "./formFields/natural/FirstNameField/FirstNameField.constances.ts";
+import {
+  lastNameFieldName,
+  type LastNameFieldType
+} from "./formFields/natural/LastNameField/LastNameField.constances.ts";
+import {
+  nationalCodeFieldName,
+  type NationalCodeFieldType
+} from "./formFields/natural/NationalCodeField/NationalCodeField.constances.ts";
 
 export type SearchPageFormDataType = {
   [accountNumberFieldName]: AccountNumberFieldType;
   [customerNumberFieldName]: CustomerNumberFieldType;
   [cardNumberFieldName]: CardNumberFieldType;
   [shahabNumberFieldName]: ShahabNumberFieldType;
+
+  //natural fields
+  [birthCertificationNumberFieldName]: BirthCertificationNumberFieldType;
+  [firstNameFieldName]: FirstNameFieldType;
+  [lastNameFieldName]: LastNameFieldType;
+  [nationalCodeFieldName]: NationalCodeFieldType;
+
+  //legal fields
+
+  //foreign citizen fields
 }
+
+export type SearchPageFormPersonType =
+  typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS]['name']
