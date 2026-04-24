@@ -10,7 +10,7 @@ const SPECIFIC_LENGTH = 13
 
 function AccountNumberField() {
 
-  const requiredErrorMessage = useGetRequiredErrorMessage(accountNumberFieldLabel);
+  // const requiredErrorMessage = useGetRequiredErrorMessage(accountNumberFieldLabel);
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(accountNumberFieldName);
 
@@ -24,7 +24,7 @@ function AccountNumberField() {
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
-        required: requiredErrorMessage,
+        // required: requiredErrorMessage,
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
       }}
     />

@@ -10,7 +10,7 @@ const SPECIFIC_LENGTH = 10
 
 function CustomerNumberField() {
 
-  const requiredErrorMessage = useGetRequiredErrorMessage(customerNumberFieldLabel);
+  // const requiredErrorMessage = useGetRequiredErrorMessage(customerNumberFieldLabel);
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(customerNumberFieldName);
 
@@ -24,7 +24,7 @@ function CustomerNumberField() {
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
-        required: requiredErrorMessage,
+        // required: requiredErrorMessage,
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
       }}
     />

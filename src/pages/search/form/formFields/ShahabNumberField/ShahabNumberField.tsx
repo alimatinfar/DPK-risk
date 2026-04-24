@@ -8,7 +8,7 @@ import {shahabNumberFieldLabel, shahabNumberFieldName} from "./ShahabNumberField
 
 function ShahabNumberField() {
 
-  const requiredErrorMessage = useGetRequiredErrorMessage(shahabNumberFieldLabel);
+  // const requiredErrorMessage = useGetRequiredErrorMessage(shahabNumberFieldLabel);
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(shahabNumberFieldName);
 
@@ -21,7 +21,7 @@ function ShahabNumberField() {
         placeholder: 'برای مثال 12345789',
       }}
       rules={{
-        required: requiredErrorMessage,
+        // required: requiredErrorMessage,
       }}
     />
   );
