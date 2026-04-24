@@ -1,17 +1,22 @@
 import ReactHookFormWrapper from "../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
 import useReactHookFormWrapper
   from "../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
+import AccountNumberField from "./formFields/AccountNumberField/AccountNumberField.tsx";
+import CustomerNumberField from "./formFields/CustomerNumberField/CustomerNumberField.tsx";
+import CardNumberField from "./formFields/CardNumberField/CardNumberField.tsx";
+import ShahabNumberField from "./formFields/ShahabNumberField/ShahabNumberField.tsx";
+import type {SearchPageFormDataType} from "./SearchPageForm.types.ts";
 
 
 function SearchPageForm() {
 
-  function onSubmitHandler() {
-
+  function onSubmitHandler(formData: SearchPageFormDataType) {
+    console.log({formData})
   }
 
   const {
-
-  } = useReactHookFormWrapper({
+    formMethods, onSubmit
+  } = useReactHookFormWrapper<SearchPageFormDataType>({
     onSubmitHandler
   })
 
@@ -28,9 +33,16 @@ function SearchPageForm() {
       </div>
 
       <ReactHookFormWrapper
-        formMethods={} onSubmit={}
+        formMethods={formMethods} onSubmit={onSubmit}
+        className='grid grid-cols-4'
         >
+        <AccountNumberField />
 
+        <CustomerNumberField />
+
+        <CardNumberField />
+
+        <ShahabNumberField />
       </ReactHookFormWrapper>
     </div>
   );
