@@ -6,6 +6,9 @@ import CustomerNumberField from "./formFields/CustomerNumberField/CustomerNumber
 import CardNumberField from "./formFields/CardNumberField/CardNumberField.tsx";
 import ShahabNumberField from "./formFields/ShahabNumberField/ShahabNumberField.tsx";
 import type {SearchPageFormDataType} from "./SearchPageForm.types.ts";
+import Button from "../../../components/Form/Button/Button.tsx";
+import SearchIcon from "../../../components/svg/SearchIcon.tsx";
+import PlusIcon from "../../../components/svg/PlusIcon.tsx";
 
 
 function SearchPageForm() {
@@ -34,7 +37,7 @@ function SearchPageForm() {
 
       <ReactHookFormWrapper
         formMethods={formMethods} onSubmit={onSubmit}
-        className='grid grid-cols-4'
+        className='grid grid-cols-4 gap-x-5 gap-y-8'
         >
         <AccountNumberField />
 
@@ -43,6 +46,18 @@ function SearchPageForm() {
         <CardNumberField />
 
         <ShahabNumberField />
+
+        <div className='flex-center col-span-4'>
+          <div className='grid grid-cols-2 w-96 gap-x-5'>
+            <Button rightIcon={<SearchIcon textColor='text-white' />}>
+              جستجو
+            </Button>
+
+            <Button variant='link' rightIcon={<PlusIcon />}>
+              فیلترهای پیشرفته
+            </Button>
+          </div>
+        </div>
       </ReactHookFormWrapper>
     </div>
   );

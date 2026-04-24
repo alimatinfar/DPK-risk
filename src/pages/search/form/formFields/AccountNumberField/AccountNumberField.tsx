@@ -18,7 +18,6 @@ function AccountNumberField() {
         errorMessage,
         label: accountNumberFieldLabel,
         placeholder: 'برای مثال 12345789',
-        maxLength: 20,
       }}
       rules={{
         required: requiredErrorMessage,
