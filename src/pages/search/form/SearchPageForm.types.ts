@@ -29,6 +29,26 @@ import {
   nationalCodeFieldName,
   type NationalCodeFieldType
 } from "./formFields/natural/NationalCodeField/NationalCodeField.constances.ts";
+import {
+  legalBrandNameFieldName,
+  type LegalBrandNameFieldType
+} from "./formFields/legal/LegalBrandNameField/LegalBrandNameField.constances.ts";
+import {
+  legalCustomerNameFieldName, type LegalCustomerNameFieldType
+} from "./formFields/legal/LegalCustomerNameField/LegalCustomerNameField.constances.ts";
+import {
+  legalRegistrationNumberFieldName, type LegalRegistrationNumberFieldType
+} from "./formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
+import {
+  legalTypeFieldName,
+  type LegalTypeFieldType
+} from "./formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
+import {
+  registrationDateFromFieldName, type registrationDateFromFieldType
+} from "./formFields/legal/RegistrationDateFromField/RegistrationDateFromField.constances.ts";
+import {
+  registrationDateToFieldName, type registrationDateToFieldType
+} from "./formFields/legal/RegistrationDateToField/RegistrationDateToField.constances.ts";
 
 export type SearchPageFormDataType = {
   [accountNumberFieldName]: AccountNumberFieldType;
@@ -43,6 +63,12 @@ export type SearchPageFormDataType = {
   [nationalCodeFieldName]: NationalCodeFieldType;
 
   //legal fields
+  [legalBrandNameFieldName]: LegalBrandNameFieldType;
+  [legalCustomerNameFieldName]: LegalCustomerNameFieldType;
+  [legalRegistrationNumberFieldName]: LegalRegistrationNumberFieldType;
+  [legalTypeFieldName]: LegalTypeFieldType;
+  [registrationDateFromFieldName]: registrationDateFromFieldType;
+  [registrationDateToFieldName]: registrationDateToFieldType;
 
   //foreign citizen fields
 }
