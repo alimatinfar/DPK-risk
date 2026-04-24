@@ -70,7 +70,7 @@ function SearchPageForm() {
 
         <div className='flex-center col-span-4'>
           <div className='grid grid-cols-2 w-96 gap-x-5'>
-            <Button rightIcon={<SearchIcon textColor='text-white'/>}>
+            <Button rightIcon={<SearchIcon textColor='text-white'/>} type='submit'>
               جستجو
             </Button>
 
