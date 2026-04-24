@@ -2,6 +2,7 @@ import useGetFormErrorMessage
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
 import InputForm from "../../../../../../components/Form/Input/InputForm.tsx";
 import {nationalCodeFieldLabel, nationalCodeFieldName} from "./NationalCodeField.constances.ts";
+import FORM_PATTERNS from "../../../../../../constances/form/formPatterns.ts";
 
 const SPECIFIC_LENGTH = 10
 
@@ -19,7 +20,7 @@ function NationalCodeField() {
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
-        minLength: FORM_PATTERNS.MIN_LENGTH_CHAR(SPECIFIC_LENGTH)
+        minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
       }}
     />
   );
