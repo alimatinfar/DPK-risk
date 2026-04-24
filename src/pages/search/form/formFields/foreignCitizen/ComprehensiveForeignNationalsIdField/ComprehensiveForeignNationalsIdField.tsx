@@ -5,7 +5,9 @@ import {
   comprehensiveForeignNationalsIdFieldLabel,
   comprehensiveForeignNationalsIdFieldName
 } from "./ComprehensiveForeignNationalsIdField.constances.ts";
+import FORM_PATTERNS from "../../../../../../constances/form/formPatterns.ts";
 
+const SPECIFIC_LENGTH = 12
 
 function ComprehensiveForeignNationalsIdField() {
   const getErrorMessage = useGetFormErrorMessage();
@@ -17,7 +19,11 @@ function ComprehensiveForeignNationalsIdField() {
       inputProps={{
         errorMessage,
         label: comprehensiveForeignNationalsIdFieldLabel,
-        placeholder: 'برای مثال 12345789',
+        placeholder: 'برای مثال 666644445555',
+        maxLength: SPECIFIC_LENGTH,
+      }}
+      rules={{
+        minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
       }}
     />
   );
