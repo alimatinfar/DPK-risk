@@ -19,6 +19,7 @@ function CardNumberField() {
         errorMessage,
         label: cardNumberFieldLabel,
         placeholder: 'برای مثال 6219861911111111',
+        maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
         // required: requiredErrorMessage,
