@@ -4,4 +4,4 @@ import type {
 
 export const registrationDateFromFieldName = 'registrationDateFrom'
 export const registrationDateFromFieldLabel = 'تاریخ ثبت از'
-export type registrationDateFromFieldType = WheelDateTimePickerProps['value'];
+export type RegistrationDateFromFieldType = WheelDateTimePickerProps['value'];

@@ -44,11 +44,22 @@ import {
   type LegalTypeFieldType
 } from "./formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
 import {
-  registrationDateFromFieldName, type registrationDateFromFieldType
+  registrationDateFromFieldName, type RegistrationDateFromFieldType
 } from "./formFields/legal/RegistrationDateFromField/RegistrationDateFromField.constances.ts";
 import {
-  registrationDateToFieldName, type registrationDateToFieldType
+  registrationDateToFieldName, type RegistrationDateToFieldType
 } from "./formFields/legal/RegistrationDateToField/RegistrationDateToField.constances.ts";
+import {
+  citizenshipFieldName,
+  type CitizenshipFieldType
+} from "./formFields/foreignCitizen/CitizenshipField/CitizenshipField.constances.ts";
+import {
+  comprehensiveForeignNationalsIdFieldName, type ComprehensiveForeignNationalsIdFieldType
+} from "./formFields/foreignCitizen/ComprehensiveForeignNationalsIdField/ComprehensiveForeignNationalsIdField.constances.ts";
+import {
+  nationalityFieldName,
+  type NationalityFieldType
+} from "./formFields/foreignCitizen/NationalityField/NationalityField.constances.ts";
 
 export type SearchPageFormDataType = {
   [accountNumberFieldName]: AccountNumberFieldType;
@@ -67,10 +78,13 @@ export type SearchPageFormDataType = {
   [legalCustomerNameFieldName]: LegalCustomerNameFieldType;
   [legalRegistrationNumberFieldName]: LegalRegistrationNumberFieldType;
   [legalTypeFieldName]: LegalTypeFieldType;
-  [registrationDateFromFieldName]: registrationDateFromFieldType;
-  [registrationDateToFieldName]: registrationDateToFieldType;
+  [registrationDateFromFieldName]: RegistrationDateFromFieldType;
+  [registrationDateToFieldName]: RegistrationDateToFieldType;
 
   //foreign citizen fields
+  [citizenshipFieldName]: CitizenshipFieldType;
+  [comprehensiveForeignNationalsIdFieldName]: ComprehensiveForeignNationalsIdFieldType;
+  [nationalityFieldName]: NationalityFieldType;
 }
 
 export type SearchPageFormPersonType =
