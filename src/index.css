@@ -11,13 +11,14 @@
 }
 
 @theme {
-  --color-background: var(--color-white);
+  --color-background: rgba(248, 250, 252, 1);
   --color-foreground: var(--foreground);
   --color-primary: #29166F;
   --color-primary-background: #8D91C71A;
   --color-primary-border: #8D91C74D;
   --color-primary-text: #0F172A;
   --color-secondary-text: #475569;
+  --shadow-base: 0 0px 2px 0px rgba(16,24,40,0.06), 0px 0px 3px 0px rgba(16, 24, 40, 0.1);
   --font-IRANYekan: IRANYekan;
 }
 

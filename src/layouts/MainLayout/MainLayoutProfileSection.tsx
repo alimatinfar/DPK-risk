@@ -34,15 +34,17 @@ function MainLayoutProfileSection() {
         origin="left" offset={23}
       >
         <IconClickable
-          className="flex items-center space-x-1 px-1" rounded='rounded-md'
-          hoverClass='hover:bg-gray-200'
+          className="flex items-center justify-between gap-x-2 px-1.5 bg-white h-10 min-w-42 shadow-base" rounded='rounded-md'
+          hoverClass='hover:bg-gray-50'
         >
-          <div className='size-8 bg-primary p-1 rounded-lg'>
-            <UserIcon textColor="text-white"/>
+          <div className='flex items-center gap-x-1'>
+            <div className='size-6 bg-primary p-1 rounded-lg'>
+              <UserIcon textColor="text-white" width='100%' height='100%' />
+            </div>
+            <span className="px-1 select-none text-sm">
+              کاربر سامانه
+            </span>
           </div>
-          <span className="px-1 select-none">
-            کاربر سامانه
-          </span>
           <ArrowIcon/>
         </IconClickable>
       </DropDown>

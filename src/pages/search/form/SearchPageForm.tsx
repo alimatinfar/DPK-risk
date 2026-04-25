@@ -33,7 +33,7 @@ function SearchPageForm() {
   })
 
   return (//
-    <div className='flex flex-col gap-y-8 bg-primary-background w-full px-25 py-8'>
+    <div className='relative z-20 flex flex-col gap-y-8 w-full px-25 py-8'>
       <div className='flex flex-col gap-y-2'>
         <p className='text-2xl font-semibold'>
           سامانه مدیریت ریسک مشتریان

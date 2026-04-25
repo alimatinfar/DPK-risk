@@ -11,8 +11,8 @@ function MainLayout(
   }: Props
 ) {
   return (
-    <div className='flex flex-col'>
-      <div className='flex items-center justify-between bg-primary-background border-b border-primary-border h-16 p-4'>
+    <div className='flex flex-col relative'>
+      <div className='flex items-center justify-between h-16 p-4'>
         <SaderatLogoAndTypo />
 
         <MainLayoutProfileSection />
