@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: IRANYekan;
+  src: url('./assets/fonts/IranYekan/IRANYekanXVFaNumVF.woff2');
+}
+
+:root {
+  --foreground: #161616;
+  --toastify-color-dark: #222433;
+}
+
+@theme {
+  --color-background: rgba(248, 250, 252, 1);
+  --color-foreground: var(--foreground);
+  --color-primary: #29166F;
+  --color-primary-background: #8D91C71A;
+  --color-primary-border: #8D91C74D;
+  --color-primary-text: #0F172A;
+  --color-secondary-text: #475569;
+  --shadow-base: 0 0px 2px 0px rgba(16,24,40,0.06), 0px 0px 3px 0px rgba(16, 24, 40, 0.1);
+  --font-IRANYekan: IRANYekan;
+}
+
+@layer base {
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: theme('colors.gray.900') !important;
+  }
+
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: theme('colors.gray.900') !important;
+  }
+}
+
+@layer utilities {
+  .ltr {
+    direction: ltr !important;
+  }
+
+  .rtl {
+    direction: rtl !important;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-center-row {
+    @apply flex items-center justify-center flex-row;
+  }
+
+  .scroll-small::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scroll-thin::-webkit-scrollbar {
+    width: 3px ;
+    height: 3px ;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+  }
+
+  .hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .break-word-force {
+    word-break: break-word;
+  }
+
+  .backdrop-background {
+    @apply bg-[rgba(52,64,84,0.6)] backdrop-blur;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+html {
+  direction: rtl;
+  @apply bg-background font-IRANYekan;
+}
+
+button {
+  @apply cursor-pointer;
+}
