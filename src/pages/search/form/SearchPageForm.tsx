@@ -3,14 +3,16 @@ import useReactHookFormWrapper
   from "../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import type {SearchPageFormDataType, SearchPageFormPersonType} from "./SearchPageForm.types.ts";
 import {useState} from "react";
-import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "./SearchPageForm.constances.ts";
 import SearchPageFormSharedFields from "./SearchPageFormSharedFields.tsx";
 import SearchPageFormExtraFields from "./SearchPageFormExtraFields.tsx";
+import SearchPageFormSelectPerson from "./SearchPageFormSelectPerson.tsx";
+import Button from "../../../components/Form/Button/Button.tsx";
+import DeleteIcon from "../../../components/svg/DeleteIcon.tsx";
 
 
 function SearchPageForm() {
 
-  const [actionPersonType, setActivePersonType] = useState<SearchPageFormPersonType | undefined>(undefined)
+  const [activePersonType, setActivePersonType] = useState<SearchPageFormPersonType | undefined>(undefined)
 
   function onChangePersonTypeHandler(name: SearchPageFormPersonType) {
     setActivePersonType(prev => {
@@ -28,6 +30,10 @@ function SearchPageForm() {
   } = useReactHookFormWrapper<SearchPageFormDataType>({
     onSubmitHandler
   })
+
+  function removeAdvancedSearchSection() {
+    setActivePersonType(undefined)
+  }
 
   return (//
     <div className='relative z-20 flex flex-col gap-y-8 w-full px-25 py-8'>
@@ -48,23 +54,24 @@ function SearchPageForm() {
       >
         <SearchPageFormSharedFields />
 
-        <div className='col-span-4 w-80 grid grid-cols-3 gap-4 mx-auto'>
-          {Object.entries(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).map(([key, value]) => (
-            <div
-              onClick={() => onChangePersonTypeHandler(value.name)}
-              className={`
-                px-4 py-2 text-center cursor-pointer  duration-200 rounded-lg border select-none
-                ${actionPersonType === value.name ? 'border-primary text-primary bg-primary/10' : 'hover:bg-gray-200 border-gray-300'}
-              `}
-              key={key}
+        <SearchPageFormSelectPerson
+          activePersonType={activePersonType}
+          setActivePersonType={setActivePersonType}
+        />
+
+        <SearchPageFormExtraFields activePersonType={activePersonType} />
+
+        {activePersonType && (
+          <div>
+            <Button
+              variant='link' size='sm' color='red'
+              onClick={removeAdvancedSearchSection}
+              rightIcon={<DeleteIcon />}
             >
-              {value.label}
-            </div>
-          ))}
-        </div>
-
-        <SearchPageFormExtraFields activePersonType={actionPersonType} />
-
+              حذف فیلترهای پیشرفته
+            </Button>
+          </div>
+        )}
       </ReactHookFormWrapper>
     </div>
   );

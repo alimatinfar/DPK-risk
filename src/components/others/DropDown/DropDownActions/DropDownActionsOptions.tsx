@@ -5,7 +5,7 @@ function DropDownActionsOptions(
   {actions, minWidth, setDropDownOpen}: Pick<DropDownActionsProps, 'actions' | 'minWidth' | 'setDropDownOpen'>
 ) {
   return (
-    <div className={`py-2 px-1 rounded-lg shadow-sm ${minWidth || 'min-w-56'}`}>
+    <div className={`p-2 flex flex-col gap-y-2 rounded-lg shadow-sm ${minWidth || ''}`}>
       {
         actions.map((action, index) => {
 
@@ -20,7 +20,7 @@ function DropDownActionsOptions(
               key={index}
               className={`
               flex items-center space-x-2 p-2 hover:bg-gray-100 duration-200 cursor-pointer
-              rounded-md select-none
+              rounded-md select-none ${action.className || ''}
             `}
             >
               <div className='w-5 h-5 overflow-hidden'>

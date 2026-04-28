@@ -19,7 +19,11 @@ function SearchPageFormExtraFields(
   {activePersonType}: Props
 ) {
 
-  return activePersonType ? fieldsObject[activePersonType] : null;
+  return activePersonType ? (
+    <div className='grid grid-cols-4 gap-x-5 gap-y-2'>
+      {fieldsObject[activePersonType]}
+    </div>
+  ) : null;
 }
 
 export default SearchPageFormExtraFields;
