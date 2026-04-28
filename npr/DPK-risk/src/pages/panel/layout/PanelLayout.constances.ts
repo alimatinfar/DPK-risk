@@ -1,0 +1,5 @@
+export const PANEL_TOPBAR_HEIGHT = 'h-[138px]'
+export const PANEL_CONTENT_PADDING_TOP = 'pt-[138px]'
+export const PANEL_TOPBAR_WIDTH = 'w-[calc(100vw-256px)]'
+export const PANEL_SIDEBAR_WIDTH = 'w-[256px]'
+export const PANEL_CONTENT_PADDING_RIGHT = 'pr-[256px]'

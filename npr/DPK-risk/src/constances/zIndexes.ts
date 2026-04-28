@@ -1,6 +1,6 @@
 const Z_INDEXES = {
-  TOP_BAR: 'z-50',
-  SIDEBAR: 'z-40',
+  TOP_BAR: 'z-40',
+  SIDEBAR: 'z-50',
   OVERLAY_PAGE_LOADING: 'z-[110]',
   SELECT_DROPDOWN: 'z-40',
 

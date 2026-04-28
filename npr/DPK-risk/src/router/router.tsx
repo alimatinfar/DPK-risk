@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+    createBrowserRouter, Navigate,
 } from "react-router";
 import ROUTER_LINKS from "../constances/routerLinks.ts";
 import {lazy} from "react";
@@ -9,7 +9,7 @@ import GeneralLayout from "../layouts/GeneralLayout.tsx";
 const HomePage = lazy(() => import("../pages/home/HomePage.tsx"));
 const SearchPage = lazy(() => import("../pages/search/SearchPage.tsx"));
 
-const PanelLayout = lazy(() => import("../pages/panel/PanelLayout.tsx"));
+const PanelLayout = lazy(() => import("../pages/panel/layout/PanelLayout.tsx"));
 const PanelBasicInformationPage = lazy(() => import("../pages/panel/basic-information/PanelBasicInformationPage.tsx"));
 const PanelInquiryHistoriesPage = lazy(() => import("../pages/panel/inquiry-histories/PanelInquiryHistoriesPage.tsx"));
 const PanelEconomicInformationPage = lazy(() => import("../pages/panel/economic-information/PanelEconomicInformationPage.tsx"));
@@ -30,16 +30,23 @@ const router = createBrowserRouter(
           element: <SearchPage/>,
         },
         {
-          path: ROUTER_LINKS.PANEL,
           element: <PanelLayout/>,
           children: [
             {
-              path: ROUTER_LINKS.PANEL,
+              path: ROUTER_LINKS.PANEL_BASIC_INFORMATION,
               element:<PanelBasicInformationPage />,
             },
             {
-              path: ROUTER_LINKS.PANEL,
-              element:<PanelBasicInformationPage />,
+              path: ROUTER_LINKS.PANEL_INQUIRY_HISTORIES,
+              element:<PanelInquiryHistoriesPage />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_ECONOMIC_INFORMATION,
+              element:<PanelEconomicInformationPage />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
+              element:<PanelLegalRepresentativeInformationPage />,
             },
           ]
         },

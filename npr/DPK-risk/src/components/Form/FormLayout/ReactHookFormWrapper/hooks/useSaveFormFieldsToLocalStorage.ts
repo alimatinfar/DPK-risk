@@ -21,7 +21,7 @@ function useSaveFormFieldsToLocalStorage<FormDataType>({lsKey, setValue, getValu
       if (!defaultValues) return
       Object.keys(defaultValues).forEach(item => {
         const itemIns = item as keyof FormDataType
-        setValue(itemIns, defaultValues[itemIns])
+        setValue(itemIns as string, defaultValues[itemIns])
       })
     }, 300)
   },[])
