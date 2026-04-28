@@ -2,9 +2,6 @@ import ReactHookFormWrapper from "../../../components/Form/FormLayout/ReactHookF
 import useReactHookFormWrapper
   from "../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import type {SearchPageFormDataType, SearchPageFormPersonType} from "./SearchPageForm.types.ts";
-import Button from "../../../components/Form/Button/Button.tsx";
-import SearchIcon from "../../../components/svg/SearchIcon.tsx";
-import PlusIcon from "../../../components/svg/PlusIcon.tsx";
 import {useState} from "react";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "./SearchPageForm.constances.ts";
 import SearchPageFormSharedFields from "./SearchPageFormSharedFields.tsx";
@@ -47,7 +44,7 @@ function SearchPageForm() {
 
       <ReactHookFormWrapper
         formMethods={formMethods} onSubmit={onSubmit}
-        className='grid grid-cols-4 gap-x-5 gap-y-8'
+        className='flex flex-col gap-y-4'
       >
         <SearchPageFormSharedFields />
 
@@ -68,17 +65,6 @@ function SearchPageForm() {
 
         <SearchPageFormExtraFields activePersonType={actionPersonType} />
 
-        <div className='flex-center col-span-4'>
-          <div className='grid grid-cols-2 w-96 gap-x-5'>
-            <Button rightIcon={<SearchIcon textColor='text-white'/>} type='submit'>
-              جستجو
-            </Button>
-
-            <Button variant='link' rightIcon={<PlusIcon/>}>
-              فیلترهای پیشرفته
-            </Button>
-          </div>
-        </div>
       </ReactHookFormWrapper>
     </div>
   );
