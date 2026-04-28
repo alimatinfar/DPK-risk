@@ -7,6 +7,7 @@ export type DropDownActionType = {
   onClick: (e?: any) => void;
   icon: ChildrenPropsType['children'];
   title: string;
+  className?: string;
   titleClass?: string;
 }
 

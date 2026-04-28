@@ -1,9 +1,9 @@
 import {type ReactNode} from "react";
-import {FormProvider} from "react-hook-form";
+import {FormProvider, type UseFormReturn} from "react-hook-form";
 import HiddenButton from "./HiddenButton";
 
 export type ReactHookFormWrapperProps = {
-  formMethods: any,
+  formMethods: UseFormReturn<any, any, any>,
   onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
   className?: string;
   children: ReactNode;

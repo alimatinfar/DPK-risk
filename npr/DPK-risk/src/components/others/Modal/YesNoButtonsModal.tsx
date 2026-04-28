@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../Form/Button/Button";
-import {ButtonColorsType} from "../../Form/Button/ButtonTypes";
+import type {ButtonColorsType} from "../../Form/Button/ButtonTypes";
 
 
 type Props = {

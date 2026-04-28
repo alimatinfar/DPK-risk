@@ -3,12 +3,10 @@ import {useState} from "react";
 import MainLayoutProfileDropDown from "./MainLayoutProfileDropDown/MainLayoutProfileDropDown.tsx";
 import IconClickable from "../../components/others/Icon/IconClickable.tsx";
 import ArrowIcon from "../../components/svg/ArrowIcon.tsx";
-import UserCircleIcon from "../../components/svg/UserCircleIcon.tsx";
 import useModalOpenBoolean from "../../hooks/modal/useModalOpenBoolean.ts";
 import DisplayModal from "../../components/others/Modal/DisplayModal.tsx";
 import MainLayoutProfileDropDownDeleteModal from "./MainLayoutProfileDropDown/MainLayoutProfileDropDownDeleteModal.tsx";
 import UserIcon from "../../components/svg/UserIcon.tsx";
-import Button from "../../components/Form/Button/Button.tsx";
 
 
 function MainLayoutProfileSection() {

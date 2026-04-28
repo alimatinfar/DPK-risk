@@ -9,7 +9,7 @@ type Props = {
 
 function EmptyState({title, description, icon}: Props) {
   return (
-    <div className='py-10 px-5 flex flex-col items-center max-w-72 mx-auto'>
+    <div className='py-10 px-5 flex flex-col items-center max-w-90 mx-auto'>
       {icon && (
         <div className='mb-3'>
           {icon}
