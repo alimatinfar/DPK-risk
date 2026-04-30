@@ -7,6 +7,8 @@ import MainLayoutProfileSection from "../../../layouts/MainLayout/MainLayoutProf
 import Button from "../../../components/Form/Button/Button.tsx";
 import SearchIcon from "../../../components/svg/SearchIcon.tsx";
 import useGetPageTitleFromSideBar from "./hooks/useGetPageTitleFromSideBar.ts";
+import {Link} from "react-router";
+import ROUTER_LINKS from "../../../constances/routerLinks.ts";
 
 
 function PanelTopBar() {
@@ -31,11 +33,13 @@ function PanelTopBar() {
       <div className='flex-1 flex items-center justify-between border-y border-gray-200 bg-[#DDE8F2] px-4'>
         <span></span>
 
-        <Button
-          variant='default' color='white' rightIcon={<SearchIcon textColor='text-gray-500' />}
-        >
-          ویرایش جستجو
-        </Button>
+        <Link to={ROUTER_LINKS.SEARCH}>
+          <Button
+            variant='default' color='white' rightIcon={<SearchIcon textColor='text-gray-500' />}
+          >
+            ویرایش جستجو
+          </Button>
+        </Link>
       </div>
     </div>
   );
