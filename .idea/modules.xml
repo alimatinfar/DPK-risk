@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Dpk.Framework.React.RiskAML-UI.iml" filepath="$PROJECT_DIR$/.idea/Dpk.Framework.React.RiskAML-UI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DPK-risk.iml" filepath="$PROJECT_DIR$/.idea/DPK-risk.iml" />
     </modules>
   </component>
 </project>
