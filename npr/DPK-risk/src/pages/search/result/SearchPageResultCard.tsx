@@ -13,16 +13,19 @@ function SearchPageResultCard(
 ) {
 
   const {
-    fields
+    fields, onCardClickHandler
   } = useSearchPageResultCard({
     data
   })
 
   return (
-    <div className={`
-      flex flex-col rounded-lg gap-y-2 bg-white shadow-base cursor-pointer
-      hover:shadow-[0px_24px_48px_-12px_rgba(16,24,40,0.18)] duration-200
-    `}>
+    <div
+      className={`
+        flex flex-col rounded-lg gap-y-2 bg-white shadow-base cursor-pointer
+        hover:shadow-[0px_24px_48px_-12px_rgba(16,24,40,0.18)] duration-200
+      `}
+      onClick={onCardClickHandler}
+    >
       <div className='bg-[#ECEFF7] p-2 flex items-center justify-between'>
         <span className='font-medium'>
           {data.name}

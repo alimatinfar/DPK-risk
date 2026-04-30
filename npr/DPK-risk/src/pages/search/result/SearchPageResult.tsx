@@ -32,7 +32,6 @@ function SearchPageResult(
       >
         <div className={'flex flex-col gap-y-8 py-4'}>
           <p className='text-sm text-secondary-text'>
-            {/*TODO set this count*/}
             {resultData.length} نتیجه یافت شد
           </p>
 

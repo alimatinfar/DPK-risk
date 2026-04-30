@@ -1,5 +1,5 @@
 const LS_KEYS = {
-  // ENCRYPTED_TOKEN: 'encrypted-token',
+  PERSON_DATA: 'person-data',
 }
 
 export default LS_KEYS
