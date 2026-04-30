@@ -40,16 +40,17 @@ function SearchPageForm(
 
       <ReactHookFormWrapper
         formMethods={formMethods} onSubmit={onSubmit}
-        className='flex flex-col gap-y-4'
       >
-        <SearchPageFormSharedFields/>
+        <div className='flex flex-col gap-y-4'>
+          <SearchPageFormSharedFields/>
 
-        <SearchPageFormSelectPerson
-          activePersonType={activePersonType}
-          setActivePersonType={setActivePersonType}
-        />
+          <SearchPageFormSelectPerson
+            activePersonType={activePersonType}
+            setActivePersonType={setActivePersonType}
+          />
 
-        <SearchPageFormExtraFields activePersonType={activePersonType}/>
+          <SearchPageFormExtraFields activePersonType={activePersonType}/>
+        </div>
 
         {activePersonType && (
           <div>
