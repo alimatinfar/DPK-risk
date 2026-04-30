@@ -1,12 +1,9 @@
 import {
-  PANEL_CONTENT_PADDING_RIGHT,
   PANEL_TOPBAR_HEIGHT
 } from "./PanelLayout.constances.ts";
-import Z_INDEXES from "../../../constances/zIndexes.ts";
 import MainLayoutProfileSection from "../../../layouts/MainLayout/MainLayoutProfileSection.tsx";
 import Button from "../../../components/Form/Button/Button.tsx";
 import SearchIcon from "../../../components/svg/SearchIcon.tsx";
-import useGetPageTitleFromSideBar from "./hooks/useGetPageTitleFromSideBar.ts";
 import {Link} from "react-router";
 import ROUTER_LINKS from "../../../constances/routerLinks.ts";
 import useSearchPageResultCard from "../../search/result/hooks/useSearchPageResultCard.ts";
@@ -15,8 +12,6 @@ import getPersonIconByType from "../../search/form/utils/getPersonIconByType.ts"
 
 
 function PanelTopBar() {
-
-  const {pageTitle} = useGetPageTitleFromSideBar()
 
   const activePersonData = getActivePersonData()
 
@@ -35,11 +30,12 @@ function PanelTopBar() {
           سامانه مدیریت ریسک مشتریان
         </p>
 
-        <MainLayoutProfileSection removeShadow />
+        <MainLayoutProfileSection removeShadow/>
       </div>
 
       <div className='flex-1 py-4 px-3'>
-        <div className='h-15 rounded-lg flex items-center justify-between gap-x-4 border-y border-gray-200 bg-[#DDE8F2] px-2'>
+        <div
+          className='h-15 rounded-lg flex items-center justify-between gap-x-4 border-y border-gray-200 bg-[#DDE8F2] px-2'>
           <div className='flex items-center gap-x-8'>
             <div className='flex items-center gap-x-2'>
               {getPersonIconByType(activePersonData.type)({})}
