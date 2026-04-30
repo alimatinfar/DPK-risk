@@ -3,8 +3,7 @@ import SearchPageResult, {type SearchPageResultProps} from "./result/SearchPageR
 import SaderatLogoAndTypo from "../../components/svg/logo/SaderatLogoAndTypo.tsx";
 import MainLayoutProfileSection from "../../layouts/MainLayout/MainLayoutProfileSection.tsx";
 import ZeroAndOneBg from '../../assets/images/zero&one.svg'
-import type {SearchPageResultCardDataType} from "./result/SearchPageResult.types.ts";
-import {useMemo, useState} from "react";
+import {useState} from "react";
 import {SEARCH_PAGE_FAKE_DATA} from "./SearchPage.constances.ts";
 import useReactHookFormWrapper
   from "../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";

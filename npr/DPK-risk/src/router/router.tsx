@@ -4,6 +4,7 @@ import {
 import ROUTER_LINKS from "../constances/routerLinks.ts";
 import {lazy} from "react";
 import GeneralLayout from "../layouts/GeneralLayout.tsx";
+import {SIDEBAR_ITEMS} from "../pages/panel/layout/PanelLayout.constances.ts";
 
 // const RemoteComponent = lazy(() => import('remoteApp/App'))
 const HomePage = lazy(() => import("../pages/home/HomePage.tsx"));
@@ -32,6 +33,10 @@ const router = createBrowserRouter(
         {
           element: <PanelLayout/>,
           children: [
+            {
+              path: ROUTER_LINKS.PANEL,
+              element:<Navigate to={SIDEBAR_ITEMS?.[0]?.children?.[0]?.link || '#'} />,
+            },
             {
               path: ROUTER_LINKS.PANEL_BASIC_INFORMATION,
               element:<PanelBasicInformationPage />,
