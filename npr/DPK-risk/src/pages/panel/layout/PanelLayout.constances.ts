@@ -1,6 +1,9 @@
 import type {PanelSideBarItemsListType} from "./PanelLayout.types.ts";
 import SearchIcon from "../../../components/svg/SearchIcon.tsx";
 import ROUTER_LINKS from "../../../constances/routerLinks.ts";
+import BasicInfoIcon from "../../../components/svg/sidebar/BasicInfoIcon.tsx";
+import EconomicInfoIcon from "../../../components/svg/sidebar/EconomicInfoIcon.tsx";
+import LegalInfoIcon from "../../../components/svg/sidebar/LegalInfoIcon.tsx";
 
 export const PANEL_TOPBAR_HEIGHT = 'h-[130px]'
 export const PANEL_CONTENT_PADDING_TOP = 'pt-[130px]'
@@ -13,17 +16,17 @@ export const SIDEBAR_ITEMS: PanelSideBarItemsListType = [
     label: 'اطلاعات جامع مشتری',
     children: [
       {
-        icon: SearchIcon,
+        icon: BasicInfoIcon,
         label: 'اطلاعات پایه',
         link: ROUTER_LINKS.PANEL_BASIC_INFORMATION,
       },
       {
-        icon: SearchIcon,
+        icon: EconomicInfoIcon,
         label: 'اطلاعات اقتصادی',
         link: ROUTER_LINKS.PANEL_ECONOMIC_INFORMATION,
       },
       {
-        icon: SearchIcon,
+        icon: LegalInfoIcon,
         label: 'اطلاعات نماینده قانونی/مرتبطین',
         link: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
       },

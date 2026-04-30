@@ -47,12 +47,12 @@ function PanelSideBar() {
                   `}
                   >
                     {childItem.icon && (
-                      <childItem.icon textColor={isActive ? 'text-white' : `text-gray-500`} />
+                      <childItem.icon textColor={`${isActive ? 'text-white' : `text-gray-500`} duration-200`} />
                     )}
 
-                    <span className={`text-sm  flex-1 ${isActive ? 'text-white' : 'text-gray-700'}`}>
-                    {childItem.label}
-                  </span>
+                    <span className={`text-sm duration-200 flex-1 ${isActive ? 'text-white' : 'text-gray-700'}`}>
+                      {childItem.label}
+                    </span>
                   </Link>
                 )
               })}
