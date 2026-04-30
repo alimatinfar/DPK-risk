@@ -6,6 +6,8 @@ export type PanelSideBarItemType = {
   label: string;
 }
 
-export type PanelSideBarItemsListType = (PanelSideBarItemType & {
+export type PanelSideBarItemByChildrenType = PanelSideBarItemType & {
   children?: PanelSideBarItemType[]
-})[]
+}
+
+export type PanelSideBarItemsListType = PanelSideBarItemByChildrenType[]
