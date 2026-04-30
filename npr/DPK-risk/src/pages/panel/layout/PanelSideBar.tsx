@@ -42,8 +42,8 @@ function PanelSideBar() {
                     to={childItem.link || ''}
                     key={childIndex}
                     className={`
-                    flex items-center gap-x-2 p-2  duration-200 rounded
-                    ${isActive ? 'bg-accent' : 'hover:bg-gray-100'}
+                    flex items-center gap-x-2 p-2  rounded-l
+                    ${isActive ? 'bg-accent border-r-[3px] border-[#9E90CF]' : 'hover:bg-gray-100'}
                   `}
                   >
                     {childItem.icon && (
