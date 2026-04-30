@@ -1,25 +1,22 @@
 import type {SearchPageResultCardDataType} from "./SearchPageResult.types.ts";
 import IconClickable from "../../../components/others/Icon/IconClickable.tsx";
 import LinkIcon from "../../../components/svg/LinkIcon.tsx";
-import {useMemo} from "react";
-import {searchPageResultCardSeparatedFieldsNameLabel} from "./SearchPageResultCard.constances.ts";
+import useSearchPageResultCard from "./hooks/useSearchPageResultCard.ts";
 
 
-type Props = {
+export type SearchPageResultCardProps = {
   data: SearchPageResultCardDataType
 }
 
 function SearchPageResultCard(
-  {data}: Props
+  {data}: SearchPageResultCardProps
 ) {
 
-  const fields = useMemo(function () {
-    return Object.values(searchPageResultCardSeparatedFieldsNameLabel[data.type]).map(item => ({
-      label: item.label, value: (data as any)[item.name]
-    }))
-  }, [data])
-
-  console.log({fields})
+  const {
+    fields
+  } = useSearchPageResultCard({
+    data
+  })
 
   return (
     <div className={`
