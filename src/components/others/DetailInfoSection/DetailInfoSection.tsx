@@ -55,7 +55,7 @@ function DetailInfoSection(
                   {item.label}
                 </span>
                 <span className="text-gray-900">
-                  {item.value}
+                  {item.value || '-'}
                 </span>
               </div>
             ))}
