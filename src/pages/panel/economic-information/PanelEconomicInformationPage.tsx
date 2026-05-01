@@ -2,10 +2,12 @@ import PanelPageTitle from "../layout/PanelPageTitle.tsx";
 import Tab from "../../../components/others/Tab/Tab.tsx";
 import {
   PANEL_ECONOMIC_INFORMATION_PAGE_TABS,
-  PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS
+  PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS,
+  PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS, PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA
 } from "../basic-information/PanelEconomicInformationPage.constances.ts";
 import useActiveTab from "../../../components/others/Tab/hooks/useActiveTab.ts";
 import Card from "../../../components/others/Card/Card.tsx";
+import Table from "../../../components/others/Table/Table.tsx";
 
 function PanelEconomicInformationPage() {
 
@@ -23,7 +25,9 @@ function PanelEconomicInformationPage() {
       </div>
 
       <Card>
-
+        <Table
+          data={PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA} columns={PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS}
+        />
       </Card>
     </div>
   );
