@@ -9,7 +9,7 @@ export type TabType = { id: ItemIdType, title: string }
 export type TabsProps = {
   tabs: TabType[],
   activeTab: TabType['id'];
-  onChange: (itemId:any) => void;
+  onChange: (itemId:ItemIdType) => void;
   mobileMode?: boolean;
 }
 
