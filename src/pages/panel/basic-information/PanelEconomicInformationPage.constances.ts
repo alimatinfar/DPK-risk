@@ -1,5 +1,7 @@
 import type {TabsProps} from "../../../components/others/Tab/Tab.tsx";
-import type {TableProps} from "../../../components/others/Table/TableExports.ts";
+import type {TableColumnType} from "../../../components/others/Table/TableExports.ts";
+import TABLE_RENDER_TYPES from "../../../components/others/Table/constances/renderTypes.ts";
+
 
 export const PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS = {
   ECONOMIC_ACTIVITY: 'economicActivity',
@@ -46,7 +48,7 @@ export const PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS = {
   FROM_DATE: 'fromDate',
 } as const;
 
-export const PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS = [
+export const PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS: TableColumnType[] = [
   {
     label: 'زیر نوع وضعیت اشتغال',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYMENT_STATUS_SUBTYPE,
@@ -94,48 +96,59 @@ export const PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS = [
   {
     label: 'نام کارفرما',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYER_NAME,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'کد حوزه کاری کارفرما',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYER_INDUSTRY_CODE,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'عنوان حوزه کاری کارفرما',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYER_INDUSTRY_TITLE,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'کد اقتصادی',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.ECONOMIC_CODE,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'مجوز/پروانه کسب و کار',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.BUSINESS_LICENSE,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'شماره مجوز فعالیت',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.LICENSE_NUMBER,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'مرجع صادرکننده مجوز',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.ISSUING_AUTHORITY,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'تاریخ صدور مجوز',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.LICENSE_ISSUE_DATE,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'تاریخ اعلام',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.DECLARATION_DATE,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
     label: 'از تاریخ',
     accessor: PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE,
+    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
 ];
 
 
-export const PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA: TableProps['data'] = [
+export const PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA = [
   {
+    id: 1,
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYMENT_STATUS_SUBTYPE]: '',
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYMENT_STATUS]: '',
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.JOB_CODE]: '',
@@ -159,6 +172,7 @@ export const PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA: TableProps['data'] = [
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE]: '',
   },
   {
+    id: 2,
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYMENT_STATUS_SUBTYPE]: '',
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYMENT_STATUS]: '',
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.JOB_CODE]: '',
@@ -182,6 +196,7 @@ export const PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA: TableProps['data'] = [
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE]: '',
   },
   {
+    id: 3,
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYMENT_STATUS_SUBTYPE]: '',
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.EMPLOYMENT_STATUS]: '',
     [PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS_KEYS.JOB_CODE]: '',

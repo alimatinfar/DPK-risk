@@ -1,11 +1,13 @@
-import {type FC} from "react";
+import {type FC, useMemo} from "react";
 import {TABLE_COLUMN_SORT_KEYS, type TableColumnSortType, type TableColumnType} from "../TableExports";
 import TableSort from "../../../svg/TableSort.tsx";
 import type {TableSortStateType} from "../hooks/useTableSort.ts";
 import type {SetStateType} from "../../../../types/SetStateType.ts";
+import TABLE_RENDER_TYPES from "../constances/renderTypes.ts";
+import useGetTableMainColumns from "../hooks/useGetTableMainColumns.ts";
 
 export type TableHeadProps = {
-  columns: TableColumnType[];
+  columns: readonly TableColumnType[];
   sort?: TableSortStateType;
   setSort?: SetStateType<TableSortStateType>;
 }
@@ -31,10 +33,12 @@ const TableHead: FC<TableHeadProps> = ({columns, sort, setSort}) => {
     });
   }
 
+  const {mainColumns} = useGetTableMainColumns({columns})
+
   return (
     <thead>
     <tr className="h-9 bg-gray-100 border-b border-gray-300 select-none">
-      {columns.map(({label, accessor, hasSort}, index) => {
+      {mainColumns.map(({label, accessor, hasSort}, index) => {
         return (
           <th key={accessor} className={`h-full p-2 font-normal text-sm whitespace-nowrap text-right text-gray-700`}>
             {(sort && setSort && hasSort) ? (

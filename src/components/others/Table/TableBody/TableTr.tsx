@@ -3,11 +3,12 @@ import React from "react";
 import type {TableColumnType} from "../TableExports";
 import ArrowIcon from "../../../svg/ArrowIcon";
 import IconClickable from "../../Icon/IconClickable";
+import useGetTableMainColumns from "../hooks/useGetTableMainColumns.ts";
 
 
 export type TableTrProps = {
   isLast: boolean;
-  columns: TableColumnType[];
+  columns: readonly TableColumnType[];
   row: any;
   hasExtraTableData: boolean;
   toggleRow: () => void;
@@ -17,11 +18,14 @@ export type TableTrProps = {
 function TableTr(
   {isLast, columns, row, hasExtraTableData, toggleRow, extraTableDataIsOpen}: TableTrProps
 ) {
+
+  const {mainColumns} = useGetTableMainColumns({columns})
+
   return (
     <tr
       className={isLast ? '' : 'border-b border-gray-300'}
     >
-      {columns.map(({accessor, renderType, tdWidth}, index) => {
+      {mainColumns.map(({accessor, renderType, tdWidth}, index) => {
         const tdData =
           row[accessor] == null || row[accessor] === ""
             ? "-"

@@ -1,36 +1,34 @@
+import type {TableColumnType, TableDataType} from "../TableExports.ts";
+import {type ReactNode, useMemo} from "react";
+import TABLE_RENDER_TYPES from "../constances/renderTypes.ts";
 
-
-export type TableTrExtraDataItemType = {
-  title: string;
-  value: string;
-}
 
 export type TableTrExtraDataProps = {
-  items: TableTrExtraDataItemType[];
-  columnLength: number;
-  isLast: boolean;
+  row: TableDataType<any>;
+  columns: readonly TableColumnType[];
 }
 
-function TableTrExtraData({items, columnLength, isLast}: TableTrExtraDataProps) {
-  return (
-    <div className={`p-4 bg-gray-50 ${isLast ? 'border-t' : 'border-b'} border-gray-300`}>
-      <div className='flex items-center border-r border-gray-300 pr-2.5 space-x-10'>
-        <div className='flex flex-col space-y-6 text-gray-700'>
-          {items.map(item => (
-            <span className=''>
-              {item.title}
-            </span>
-          ))}
-        </div>
+function TableTrExtraData({row, columns}: TableTrExtraDataProps) {
 
-        <div className='flex flex-col space-y-6 text-gray-900'>
-          {items.map(item => (
-            <span className=''>
-              {item.value}
-            </span>
-          ))}
+  const extraColumns = useMemo(function () {
+    return columns.filter(column => column.renderType === TABLE_RENDER_TYPES.EXTRA_COLUMN)
+  }, [])
+
+  return (
+    <div className={`p-4 bg-gray-50 grid grid-cols-5 gap-x-4 gap-y-8`}>
+      {extraColumns.map(column => (
+        <div
+          key={column.accessor}
+          className='flex flex-col gap-y-2 text-sm border-r border-gray-300 px-4'
+        >
+          <span className='text-gray-500'>
+            {column.label}
+          </span>
+          <span className='text-gray-900'>
+            {row[column.accessor] as ReactNode || '-'}
+          </span>
         </div>
-      </div>
+      ))}
     </div>
   )
 }

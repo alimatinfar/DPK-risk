@@ -1,4 +1,4 @@
-import React, {type FC, useState} from "react";
+import React, {type FC, useMemo, useState} from "react";
 import type {TableColumnType, TableDataType} from "../TableExports";
 import TABLE_ACCESSORS from "../constances/tableAccessors";
 import TableTrExtraData from "./TableTrExtraData";
@@ -7,20 +7,21 @@ import TableEmptyState from "./TableEmptyState";
 import DisplayWithAnimation from "../../DisplayWithAnimation/DisplayWithAnimation";
 import RenderLogic from "../../RenderLogic/RenderLogic";
 import TableLoading from "./TableLoading";
+import TABLE_RENDER_TYPES from "../constances/renderTypes.ts";
 
 
 interface Props {
-  data: TableDataType[];
-  columns: TableColumnType[];
+  data: TableDataType<any>[];
+  columns: readonly TableColumnType[];
   loading?: boolean;
 }
 
 const TableBody: FC<Props> = ({data, columns, loading}) => {
 
-  const [openExtraTableDataRow, setOpenExtraTableDataRow] = useState<TableDataType['id'] | null>(null)
+  const [openExtraTableDataRow, setOpenExtraTableDataRow] = useState<TableDataType<any>['id'] | null>(null)
 
 
-  function toggleRow(rowId: TableDataType['id']) {
+  function toggleRow(rowId: TableDataType<any>['id']) {
     setOpenExtraTableDataRow((prev: any) => {
       if (prev !== rowId) return rowId
 
@@ -42,6 +43,10 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
     />
   )
 
+  const hasExtraTableData = useMemo(function () {
+    return columns.some(column => column.renderType === TABLE_RENDER_TYPES.EXTRA_COLUMN)
+  }, [columns])
+
   return (
     <RenderLogic
       isEmpty={data?.length == 0 || !data} emptyElement={emptyElement} loadingElement={loadingElement}
@@ -51,8 +56,6 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
         {data?.map((row, index) => {
 
           const isLast = index === data.length - 1;
-          const extraTableData = row[TABLE_ACCESSORS.TD_EXTRA_TABLE_DATA_ACCESSOR]
-          const hasExtraTableData = Boolean(extraTableData)
           const extraTableDataIsOpen = openExtraTableDataRow === row.id
 
           return (
@@ -69,9 +72,8 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
                     show={extraTableDataIsOpen} expandMode
                   >
                     <TableTrExtraData
-                      items={extraTableData}
-                      columnLength={columns.length}
-                      isLast={isLast}
+                      row={row}
+                      columns={columns}
                     />
                   </DisplayWithAnimation>
                 </td>
