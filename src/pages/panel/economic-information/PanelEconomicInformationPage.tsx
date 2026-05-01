@@ -26,7 +26,8 @@ function PanelEconomicInformationPage() {
 
       <Card>
         <Table
-          data={PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA} columns={PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS}
+          data={PANEL_ECONOMIC_INFORMATION_TABLE_FAKE_DATA}
+          columns={PANEL_ECONOMIC_INFORMATION_TABLE_COLUMNS}
         />
       </Card>
     </div>
