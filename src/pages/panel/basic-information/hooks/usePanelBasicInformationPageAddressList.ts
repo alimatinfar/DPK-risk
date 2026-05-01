@@ -13,7 +13,6 @@ type Props = {
   buildingName: string;
   postOfficeBox: string;
   phone: string;
-  mobile: string;
 }
 
 function usePanelBasicInformationPageAddressList(
@@ -23,7 +22,7 @@ function usePanelBasicInformationPageAddressList(
   const addressList: DetailInfoSectionProps['infoList'] = useMemo(function () {
 
     const {
-      city, buildingName, buildingNumber, floor, mobile, postalCode, address, province, unit, postOfficeBox, phone
+      city, buildingName, buildingNumber, floor, postalCode, address, province, unit, postOfficeBox, phone
     } = props
 
     return [
@@ -68,10 +67,6 @@ function usePanelBasicInformationPageAddressList(
       {
         label: 'تلفن محل سکونت',
         value: phone,
-      },
-      {
-        label: 'تلفن همراه',
-        value: mobile,
       },
     ]
   }, [props])

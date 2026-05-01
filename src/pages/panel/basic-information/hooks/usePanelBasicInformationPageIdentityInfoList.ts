@@ -68,6 +68,10 @@ function usePanelBasicInformationPageIdentityInfoList() {
       label: 'تاریخ تغییر وضعیت تاهل',
       value: '۱۳۹۲/۰۶/۲۱',
     },
+    {
+      label: 'تلفن همراه',
+      value: '09191122233',
+    },
   ]
 
   return {
