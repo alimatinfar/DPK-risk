@@ -9,7 +9,7 @@ import useSearchPage from "./hooks/useSearchPage.ts";
 function SearchPage() {
 
   const {
-    formMethods, onSubmit, resultData
+    formMethods, onSubmit, resultData, isSubmittedSuccessful
   } = useSearchPage()
 
   return (
@@ -34,7 +34,7 @@ function SearchPage() {
         </div>
 
         <div
-          className='z-10 absolute inset-0 '
+          className='z-10 absolute inset-0'
           style={{
             background: `radial-gradient(50% 398.62% at 50% 50%, #F2F4F6 0%, rgba(242, 244, 246, 0.7) 100%)`
           }}
@@ -43,7 +43,7 @@ function SearchPage() {
       </div>
 
       <SearchPageResult
-        resultData={resultData}
+        resultData={resultData} formIsSubmitted={isSubmittedSuccessful}
       />
     </>
   );

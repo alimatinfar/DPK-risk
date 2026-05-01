@@ -12,6 +12,7 @@ import type {SearchPageResultProps} from "../result/SearchPageResult.tsx";
 function useSearchPage() {
 
   const [resultData, setResultData] = useState<SearchPageResultProps['resultData']>([])
+  const [isSubmittedSuccessful, setIsSubmittedSuccessful] = useState(false)
 
   function onSubmitHandler(formData: SearchPageFormDataType) {
     if (Object.values(formData).every(value => !value))
@@ -19,6 +20,7 @@ function useSearchPage() {
 
     console.log({formData})
     setResultData(SEARCH_PAGE_FAKE_DATA)
+    setIsSubmittedSuccessful(true)
     setTimeout(() => scrollToElementById(ELEMENT_IDS.SEARCH_RESULT), 300)
   }
 
@@ -33,7 +35,7 @@ function useSearchPage() {
   // }, [])
 
   return {
-    formMethods, onSubmit, resultData
+    formMethods, onSubmit, resultData, isSubmittedSuccessful
   }
 }
 

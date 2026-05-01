@@ -38,7 +38,7 @@ function PanelTopBar() {
           className='h-15 rounded-lg flex items-center justify-between gap-x-4 border-y border-gray-200 bg-[#DDE8F2] px-2'>
           <div className='flex items-center gap-x-8'>
             <div className='flex items-center gap-x-2'>
-              {getPersonIconByType(activePersonData.type)({})}
+              {getPersonIconByType(activePersonData.type)?.({})}
 
               <span className='text-gray-900 '>
               {activePersonData?.name}

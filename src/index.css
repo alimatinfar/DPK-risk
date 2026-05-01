@@ -89,7 +89,7 @@
   }
 
   .backdrop-background {
-    @apply bg-[rgba(52,64,84,0.6)] backdrop-blur;
+    @apply bg-[rgba(52,64,84,0.6)];
   }
 
   .no-scrollbar::-webkit-scrollbar {

@@ -44,10 +44,12 @@ function SearchPageForm(
         <div className='flex flex-col gap-y-4'>
           <SearchPageFormSharedFields/>
 
-          <SearchPageFormSelectPerson
-            activePersonType={activePersonType}
-            setActivePersonType={setActivePersonType}
-          />
+          <div className='flex'>
+            <SearchPageFormSelectPerson
+              activePersonType={activePersonType}
+              setActivePersonType={setActivePersonType}
+            />
+          </div>
 
           <SearchPageFormExtraFields activePersonType={activePersonType}/>
         </div>

@@ -6,15 +6,32 @@ import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../form/SearchPageForm.constanc
 import SearchPageResultPersonCategory from "./SearchPageResultPersonCategory.tsx";
 import {SEARCH_PAGE_PADDING_X} from "../SearchPage.constances.ts";
 import type {SearchPageResultCardDataType} from "./SearchPageResult.types.ts";
+import EmptyStateIcon from "../../../components/svg/RenderLogic/EmptyStateIcon.tsx";
 
 
 export type SearchPageResultProps = {
-  resultData: SearchPageResultCardDataType[]
+  resultData: SearchPageResultCardDataType[];
+  formIsSubmitted: boolean;
 }
 
 function SearchPageResult(
-  {resultData}: SearchPageResultProps
+  {resultData, formIsSubmitted}: SearchPageResultProps
 ) {
+
+  const emptyElement = formIsSubmitted ? (
+    <EmptyState
+      icon={<FilterEmptyState/>}
+      title='نتيجه اي يافت نشد !'
+      description='لطفاً فیلترهای اعمال‌شده را بررسی کرده و در صورت نیاز، شرایط جستجو را تغییر دهید.'
+    />
+  ) : (
+    <EmptyState
+      icon={<EmptyStateIcon/>}
+      title='داده‌ای برای نمایش وجود ندارد!'
+      description='جهت نمایش اطلاعات، ابتدا فیلترهای جستجو را تکمیل و جستجو کنید'
+    />
+  )
+
   return (
     <div
       id={ELEMENT_IDS.SEARCH_RESULT}
@@ -22,13 +39,7 @@ function SearchPageResult(
     >
       <RenderLogic
         isEmpty={resultData?.length === 0}
-        emptyElement={(
-          <EmptyState
-            icon={<FilterEmptyState/>}
-            title='داده‌ای برای نمایش وجود ندارد!'
-            description='جهت نمایش اطلاعات، ابتدا فیلترهای جستجو را تکمیل و جستجو کنید'
-          />
-        )}
+        emptyElement={emptyElement}
       >
         <div className={'flex flex-col gap-y-8 py-4'}>
           <p className='text-sm text-secondary-text'>
