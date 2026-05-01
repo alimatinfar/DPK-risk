@@ -1,3 +1,3 @@
 export const legalBrandNameFieldName = 'legalBrandName'
-export const legalBrandNameFieldLabel = 'نام تجاری/اختصاصی'
+export const legalBrandNameFieldLabel = 'نام تجاری'
 export type LegalBrandNameFieldType = string;

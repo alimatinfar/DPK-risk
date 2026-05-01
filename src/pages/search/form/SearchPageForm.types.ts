@@ -60,6 +60,9 @@ import {
   nationalityFieldName,
   type NationalityFieldType
 } from "./formFields/foreignCitizen/NationalityField/NationalityField.constances.ts";
+import {
+  legalAbbreviationFieldName, type LegalAbbreviationFieldType
+} from "./formFields/legal/LegalAbbreviationField/LegalAbbreviationField.constances.ts";
 
 export type SearchPageFormDataType = {
   [accountNumberFieldName]: AccountNumberFieldType;
@@ -75,6 +78,7 @@ export type SearchPageFormDataType = {
 
   //legal fields
   [legalBrandNameFieldName]: LegalBrandNameFieldType;
+  [legalAbbreviationFieldName]: LegalAbbreviationFieldType;
   [legalCustomerNameFieldName]: LegalCustomerNameFieldType;
   [legalRegistrationNumberFieldName]: LegalRegistrationNumberFieldType;
   [legalTypeFieldName]: LegalTypeFieldType;
