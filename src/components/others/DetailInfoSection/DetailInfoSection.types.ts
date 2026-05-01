@@ -1,9 +1,11 @@
 
+export type DetailInfoSectionItemType = {
+  label: string;
+  value: string;
+  column?: number;
+}
+
 export type DetailInfoSectionProps = {
   title: string;
-  info: {
-    label: string;
-    value: string;
-    column?: number;
-  };
+  infoList: DetailInfoSectionItemType[];
 }
