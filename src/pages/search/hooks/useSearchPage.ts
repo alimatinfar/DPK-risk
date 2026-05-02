@@ -34,8 +34,8 @@ function useSearchPage() {
     if (Object.values(formData).every(value => !value))
       return toastPromise().then(toast => toast.error('تکمیل حداقل یک فیلد الزامی است'))
 
-    const bodyData: SearchFormRequestBodyData = {
-      ...activePersonType ? {customerType: getPersonTypeItem(activePersonType)?.id} : {},
+    // const bodyData: SearchFormRequestBodyData = {
+    //   ...activePersonType ? {customerType: getPersonTypeItem(activePersonType)?.id} : {},
       // accountNumber: ,
       // customerId: ,
       // shahabId: ,
@@ -44,13 +44,13 @@ function useSearchPage() {
       // firstName: "",
       // lastName: "",
       // shenasnameId:
-    }
+    // }
 
-    mutate(bodyData, {
-      onSuccess: (data, variables, onMutateResult, context) => {
-        // Boom baby!
-      },
-    })
+    // mutate(bodyData, {
+    //   onSuccess: (data, variables, onMutateResult, context) => {
+    //     // Boom baby!
+    //   },
+    // })
 
     console.log({formData})
     setResultData(SEARCH_PAGE_FAKE_DATA)
