@@ -1,6 +1,6 @@
 
 const APIS = {
-  // TRANSACTIONS_REPORT: 'WalletManagement/PartnerTransactionReport',
+  GET_CUSTOMERS: 'Customer/GetCustomers',
 }
 
 export default APIS;

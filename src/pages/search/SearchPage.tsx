@@ -9,7 +9,7 @@ import useSearchPage from "./hooks/useSearchPage.ts";
 function SearchPage() {
 
   const {
-    formMethods, onSubmit, resultData, isSubmittedSuccessful
+    formMethods, onSubmit, resultData, isSubmittedSuccessful, activePersonType, setActivePersonType
   } = useSearchPage()
 
   return (
@@ -23,6 +23,7 @@ function SearchPage() {
 
         <SearchPageForm
           formMethods={formMethods} onSubmit={onSubmit}
+          activePersonType={activePersonType} setActivePersonType={setActivePersonType}
         />
 
         <div

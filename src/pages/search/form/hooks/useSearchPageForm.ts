@@ -10,10 +10,11 @@ import type {SearchPageFormProps} from "../SearchPageForm.tsx";
 
 
 function useSearchPageForm(
-  {formMethods}: Pick<SearchPageFormProps, 'formMethods'>
+  {
+    formMethods, setActivePersonType
+  }: Pick<SearchPageFormProps, 'formMethods' | 'setActivePersonType'>
 ) {
 
-  const [activePersonType, setActivePersonType] = useState<SearchPageFormPersonType | undefined>(undefined)
 
   function removeAdvancedSearchSection() {
     setActivePersonType(undefined)
@@ -25,7 +26,7 @@ function useSearchPageForm(
   }
 
   return {
-    activePersonType, setActivePersonType, removeAdvancedSearchSection
+    removeAdvancedSearchSection
   }
 }
 

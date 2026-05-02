@@ -9,18 +9,24 @@ import DeleteIcon from "../../../components/svg/DeleteIcon.tsx";
 import useSearchPageForm from "./hooks/useSearchPageForm.ts";
 import RiskIcon from "../../../components/svg/logo/RiskIcon.tsx";
 import {SEARCH_PAGE_PADDING_X} from "../SearchPage.constances.ts";
+import type {SearchPageFormPersonType} from "./SearchPageForm.types.ts";
+import type {SetStateType} from "../../../types/SetStateType.ts";
 
+type ActivePersonType = SearchPageFormPersonType | undefined
 
-export type SearchPageFormProps = Pick<ReactHookFormWrapperProps, 'formMethods' | 'onSubmit'>
+export type SearchPageFormProps = {
+  activePersonType: ActivePersonType;
+  setActivePersonType: SetStateType<ActivePersonType>;
+} & Pick<ReactHookFormWrapperProps, 'formMethods' | 'onSubmit'>
 
 function SearchPageForm(
-  {formMethods, onSubmit}: SearchPageFormProps
+  {formMethods, onSubmit, activePersonType, setActivePersonType}: SearchPageFormProps
 ) {
 
   const {
-    activePersonType, setActivePersonType, removeAdvancedSearchSection
+    removeAdvancedSearchSection
   } = useSearchPageForm({
-    formMethods
+    formMethods, setActivePersonType
   })
 
   return (
