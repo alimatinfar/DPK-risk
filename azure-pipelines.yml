@@ -1,0 +1,202 @@
+resources:
+  - repo: self
+pool:
+  name: DockerAgents
+  demands:
+    - npm
+
+#variables:
+  # variable group :
+#  - group: Information
+#  - group: Bank
+stages:
+- stage:
+  jobs:
+  - job: GetSemVer
+    displayName: Get Semantic Version 
+#    workspace:
+#      clean: all
+    steps:
+    - powershell: |
+        $version = (node -p -e "require('./package.json').version").Trim()
+        echo "version: "
+        echo $version
+        echo "##vso[task.setvariable variable=version;isOutput=true]$version"
+        
+      displayName: Set Version Variable 
+      name: App 
+  - job: SetVersion
+    displayName: Set Build Number
+    dependsOn: GetSemVer
+    
+    timeoutInMinutes: 50
+    continueOnError: false
+    variables:
+      appVersion: $[ dependencies.GetSemVer.outputs['App.version'] ]
+      buildIncrement: $[counter(variables['appVersion'], 0)]
+      buildVersion: "$(appVersion)-$(buildIncrement)"
+    steps:
+      
+      - powershell: |
+          switch ("$(Build.SourceBranch)"){
+          "refs/heads/master" { $VersionPostFix = "" }
+          "refs/heads/test" { $VersionPostFix = "-beta" }
+          "refs/heads/develop" { $VersionPostFix = "-alpha" }
+          Default {$VersionPostFix = "-SNAPSHOT"}
+          }
+          Write-Host "appVersion: $(appVersion)"
+          echo "##vso[build.updatebuildnumber]$(buildVersion)$VersionPostFix"
+          Write-Host $(Build.BuildNumber)
+
+        displayName: 'Set Version to BuildNumber'
+
+      - powershell: |
+              switch ("$(Build.SourceBranch)"){
+                {($_ -eq "refs/heads/test") -or ($_ -eq "refs/heads/develop") -or ($_ -eq "refs/heads/master")} {
+                                 Write-Host "##vso[task.setvariable variable=ispullrequest;]true"
+                                }
+              }
+        displayName: Set Pull request condition.
+
+
+      - powershell: |
+              switch ("$(Build.SourceBranch)"){
+                {($_ -eq "refs/heads/test") -or ($_ -eq "refs/heads/master")} {
+                                 Write-Host "##vso[task.setvariable variable=sonarqube;]true"
+                                }
+              }
+        displayName: Set Sonar condition.        
+
+
+      - powershell: |
+          switch ("$(Build.SourceBranch)"){
+          "refs/heads/test" {
+                             Write-Host "##vso[task.setvariable variable=ApiUrl;]$env:APIURLTEST"  
+                             Write-Host "##vso[task.setvariable variable=AuthUrl;]$env:AUTHURLTEST"
+                             Write-Host "##vso[task.setvariable variable=HelpUrl;]$env:HELPURLTEST"
+                             Write-Host "##vso[task.setvariable variable=ClientId;]$env:CLIENTIDTEST"
+                             Write-Host "##vso[task.setvariable variable=nswagUrl;]$env:NSWAGURLTEST"
+                            }
+
+          "refs/heads/Master"  {
+                                Write-Host "##vso[task.setvariable variable=ApiUrl;]$env:APIURLMASTER"  
+                                Write-Host "##vso[task.setvariable variable=AuthUrl;]$env:AUTHURLMASTER"
+                                Write-Host "##vso[task.setvariable variable=HelpUrl;]$env:HELPURLMASTER"
+                                Write-Host "##vso[task.setvariable variable=ClientId;]$env:CLIENTIDMASTER"
+                                Write-Host "##vso[task.setvariable variable=nswagUrl;]$env:NSWAGURLMASTER"                                
+                                 
+                               }   
+
+          Default {
+                   Write-Host "##vso[task.setvariable variable=ApiUrl;]$env:APIURLDEV"  
+                   Write-Host "##vso[task.setvariable variable=AuthUrl;]$env:AUTHURLDEV"
+                   Write-Host "##vso[task.setvariable variable=HelpUrl;]$env:HELPURLDEV"
+                   Write-Host "##vso[task.setvariable variable=ClientId;]$env:CLIENTIDDEV"
+                   Write-Host "##vso[task.setvariable variable=nswagUrl;]$env:NSWAGURLDEV"
+                  }
+          }
+          
+        displayName: 'Set Api Variable'
+
+
+      - task: PythonScript@0
+        inputs:
+          scriptSource: 'inline'
+          script: |
+            import json
+            def updateJsonFile():
+                jsonFile = open("package.json", "r") # Open the JSON file for reading
+                data = json.load(jsonFile) # Read the JSON into the buffer
+                jsonFile.close() # Close the JSON file                                    
+                data["version"] = "$(Build.BuildNumber)" 
+                jsonFile = open("package.json", "w+")
+                jsonFile.write(json.dumps(data, indent=1))
+                jsonFile.close()                                    
+            updateJsonFile()
+          pythonInterpreter: '/usr/bin/python3'            
+
+
+      # - task: SonarQubePrepare@4
+      #   condition: and(succeeded(), eq(variables['sonarqube'], 'true'))
+      #   displayName: 'Prepare analysis on SonarQube'
+      #   inputs:
+      #     SonarQube: 'Sonar-UI'
+
+      #     scannerMode: CLI
+
+      #     configMode: manual
+
+      #     cliProjectKey: 'Dpk.LCP-UI'
+
+      #     cliProjectName: 'Dpk.LCP-UI'
+
+      #     cliProjectVersion: '$(Build.BuildNumber)'
+
+      #     extraProperties: |
+      #       # Additional properties that will be passed to the scanner,
+      #       # Put one key=value per line, example:
+      #       # sonar.exclusions=**/*.bin
+      #       # sonar.coverageReportPaths=coverage/LCP-ui/cobertura-coverage.xml
+      #       sonar.javascript.lcov.reportPaths=coverage/LCP-ui/lcov.info            
+
+
+      # - task: PythonScript@0
+      #   inputs:
+      #     scriptSource: 'inline'
+      #     script: |
+      #       import json
+      #       def updateJsonFile():
+      #           jsonFile = open("nswag/service.config.nswag", "r") # Open the JSON file for reading
+      #           data = json.load(jsonFile) # Read the JSON into the buffer
+      #           jsonFile.close() # Close the JSON file
+      #           data["documentGenerator"]['fromDocument']['url'] = "https://$(ApiUrl)/swagger/2.0.0/swagger.json"
+      #           jsonFile = open("nswag/service.config.nswag", "w+")
+      #           jsonFile.write(json.dumps(data, indent=1))
+      #           jsonFile.close()
+      #       updateJsonFile()                         
+
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            DOCKER_BUILDKIT=1 docker build --file Dockerfile --output out .    
+
+
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            mkdir $(Build.ArtifactStagingDirectory)/Proc1
+            rm -r $(Build.ArtifactStagingDirectory)/*                         
+            cp -r $(System.DefaultWorkingDirectory)/out/dist $(Build.ArtifactStagingDirectory) 
+
+
+
+
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: | 
+            rm -r $(System.DefaultWorkingDirectory)/out 
+            pwd
+            echo y | docker buildx prune --all    
+
+      - task: PublishBuildArtifacts@1
+        condition: and(succeeded(), eq(variables['ispullrequest'], 'true'))                
+
+  - job: Clean
+    workspace:
+      clean: all
+    dependsOn:
+    - GetSemVer
+    - SetVersion
+    condition: |
+      and
+      (
+        in(dependencies.GetSemVer.result, 'Succeeded', 'SucceededWithIssues', 'Skipped','canceled','Failed'),
+        in(dependencies.SetVersion.result, 'Succeeded', 'SucceededWithIssues', 'Skipped','canceled','Failed')
+      )
+    steps:
+    - checkout: none
+    - task: PostBuildCleanup@3         
+                  
