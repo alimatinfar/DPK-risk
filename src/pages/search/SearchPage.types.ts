@@ -11,7 +11,7 @@ export type SearchFormResponseType = {
 }
 
 export type SearchFormRequestBodyData = {
-  customerType: number;
+  customerType?: number;
   accountNumber: number;
   customerId: number;
   shahabId: number;

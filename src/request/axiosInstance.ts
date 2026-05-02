@@ -4,6 +4,7 @@ import type {CustomResponseType} from "./types/CustomResponseType.ts";
 // import {navigateTo} from "../hooks/useSaveNavigate.ts";
 
 
+
 const axiosInstance = axios.create({
   // withCredentials: true,
   headers: {
@@ -12,8 +13,17 @@ const axiosInstance = axios.create({
   },
 })
 
+export const loadConfigFile = async () => {
+  const res = await fetch('/data.json');
+  if (!res.ok) {
+    throw new Error('Failed to load config');
+  }
+  return res.json();
+};
+
 axiosInstance.interceptors.request.use(async (request: any) => {
-  request.baseURL = `${import.meta.env.VITE_PAY_MATTERS_API_ADDRESS}`
+  const config = await loadConfigFile();
+  request.baseURL = config.baseUrl
 
   request.headers["Access-Control-Allow-Origin"] = ["*"];
 

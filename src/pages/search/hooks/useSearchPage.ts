@@ -11,6 +11,16 @@ import APIS from "../../../request/constances/apis.ts";
 import useMutateData from "../../../request/hooks/useMutateData.ts";
 import type {SearchFormRequestBodyData, SearchFormResponseType} from "../SearchPage.types.ts";
 import getPersonTypeItem from "../form/utils/getPersonTypeItem.ts";
+import {accountNumberFieldName} from "../form/formFields/AccountNumberField/AccountNumberField.constances.ts";
+import {customerNumberFieldName} from "../form/formFields/CustomerNumberField/CustomerNumberField.constances.ts";
+import {shahabNumberFieldName} from "../form/formFields/ShahabNumberField/ShahabNumberField.constances.ts";
+import {cardNumberFieldName} from "../form/formFields/CardNumberField/CardNumberField.constances.ts";
+import {nationalCodeFieldName} from "../form/formFields/natural/NationalCodeField/NationalCodeField.constances.ts";
+import {firstNameFieldName} from "../form/formFields/natural/FirstNameField/FirstNameField.constances.ts";
+import {lastNameFieldName} from "../form/formFields/natural/LastNameField/LastNameField.constances.ts";
+import {
+  legalRegistrationNumberFieldName
+} from "../form/formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
 
 
 function useSearchPage() {
@@ -34,23 +44,23 @@ function useSearchPage() {
     if (Object.values(formData).every(value => !value))
       return toastPromise().then(toast => toast.error('تکمیل حداقل یک فیلد الزامی است'))
 
-    // const bodyData: SearchFormRequestBodyData = {
-    //   ...activePersonType ? {customerType: getPersonTypeItem(activePersonType)?.id} : {},
-      // accountNumber: ,
-      // customerId: ,
-      // shahabId: ,
-      // cardNumber: ,
-      // nationalID: ,
-      // firstName: "",
-      // lastName: "",
-      // shenasnameId:
-    // }
+    const bodyData: SearchFormRequestBodyData = {
+      ...activePersonType ? {customerType: getPersonTypeItem(activePersonType)?.id} : {},
+      accountNumber: Number(formData[accountNumberFieldName]),
+      customerId: Number(formData[customerNumberFieldName]),
+      shahabId: Number(formData[shahabNumberFieldName]),
+      cardNumber: Number(formData[cardNumberFieldName]),
+      nationalID: Number(formData[nationalCodeFieldName]),
+      firstName: formData[firstNameFieldName],
+      lastName: formData[lastNameFieldName],
+      shenasnameId: Number(formData[legalRegistrationNumberFieldName])
+    }
 
-    // mutate(bodyData, {
-    //   onSuccess: (data, variables, onMutateResult, context) => {
-    //     // Boom baby!
-    //   },
-    // })
+    mutate(bodyData, {
+      onSuccess: (data, variables, onMutateResult, context) => {
+        // Boom baby!
+      },
+    })
 
     console.log({formData})
     setResultData(SEARCH_PAGE_FAKE_DATA)
