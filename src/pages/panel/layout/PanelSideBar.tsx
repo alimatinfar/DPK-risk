@@ -1,4 +1,4 @@
-import {PANEL_SIDEBAR_WIDTH, SIDEBAR_ITEMS} from "./PanelLayout.constances.ts";
+import {PANEL_SIDEBAR_WIDTH, getSideBarItems} from "./PanelLayout.constances.ts";
 import Z_INDEXES from "../../../constances/zIndexes.ts";
 import SaderatLogoAndTypo from "../../../components/svg/logo/SaderatLogoAndTypo.tsx";
 import {Link, useLocation} from "react-router";
@@ -19,7 +19,7 @@ function PanelSideBar() {
       </div>
 
       <div className='flex-1 overflow-auto scroll-thin'>
-        {SIDEBAR_ITEMS.map((mainItem, mainIndex) => (
+        {getSideBarItems().map((mainItem, mainIndex) => (
           <div
             key={mainIndex}
             className={`flex flex-col gap-y-3 pt-4 ${mainIndex === 0 ? '' : 'mt-4 border-t border-gray-200'}`}

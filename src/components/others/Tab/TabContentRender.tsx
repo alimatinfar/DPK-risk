@@ -1,5 +1,6 @@
 import type {TabType} from "./Tab.tsx";
 import type {ReactNode} from "react";
+import SuspenseLoading from "../Loading/SuspenseLoading.tsx";
 
 
 type Props = {
@@ -10,7 +11,11 @@ type Props = {
 function TabContentRender(
   {renderObject, activeTab}: Props
 ) {
-  return renderObject[activeTab] || null
+  return (
+    <SuspenseLoading>
+      {renderObject[activeTab] || null}
+    </SuspenseLoading>
+  )
 }
 
 export default TabContentRender;

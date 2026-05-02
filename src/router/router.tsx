@@ -4,7 +4,6 @@ import {
 import ROUTER_LINKS from "../constances/routerLinks.ts";
 import {lazy} from "react";
 import GeneralLayout from "../layouts/GeneralLayout.tsx";
-import {SIDEBAR_ITEMS} from "../pages/panel/layout/PanelLayout.constances.ts";
 import getFirstSideBarLink from "../pages/panel/layout/utils/getFirstSideBarLink.ts";
 
 // const RemoteComponent = lazy(() => import('remoteApp/App'))

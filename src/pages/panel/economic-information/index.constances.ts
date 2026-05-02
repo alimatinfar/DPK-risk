@@ -1,6 +1,4 @@
 import type {TabsProps} from "../../../components/others/Tab/Tab.tsx";
-import type {TableColumnType} from "../../../components/others/Table/TableExports.ts";
-import TABLE_RENDER_TYPES from "../../../components/others/Table/constances/renderTypes.ts";
 
 
 export const PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS = {

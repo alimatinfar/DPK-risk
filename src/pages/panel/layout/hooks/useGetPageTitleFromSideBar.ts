@@ -1,4 +1,4 @@
-import {SIDEBAR_ITEMS} from "../PanelLayout.constances.ts";
+import {getSideBarItems} from "../PanelLayout.constances.ts";
 import type {PanelSideBarItemsListType} from "../PanelLayout.types.ts";
 import {useLocation} from "react-router";
 import {useEffect, useMemo} from "react";
@@ -20,7 +20,7 @@ function useGetPageTitleFromSideBar() {
       })
     }
 
-    findPageTitle(SIDEBAR_ITEMS)
+    findPageTitle(getSideBarItems())
 
     return title
   }
