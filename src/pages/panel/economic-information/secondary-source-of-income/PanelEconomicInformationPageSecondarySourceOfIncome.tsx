@@ -1,16 +1,63 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import Table from "../../../../components/others/Table/Table.tsx";
 import {
   PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS,
-  PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_FAKE_DATA
+  PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS,
 } from "./index.constances.ts";
+import getActivePersonData from "../../utils/getActivePersonData.ts";
+import useFetchData from "../../../../request/hooks/useFetchData.ts";
+import APIS from "../../../../request/constances/apis.ts";
+import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
+import type {PanelEconomicInformationSecondarySourceOfIncomeResponseType} from "./index.types.ts";
+import withSeparator from "../../../../utils/separator/withSeparator.ts";
 
 function PanelEconomicInformationPageSecondarySourceOfIncome() {
+
+  const {getActivePersonNationalId} = getActivePersonData()
+
+  const {
+    data, isFetching, error
+  } = useFetchData<PanelEconomicInformationSecondarySourceOfIncomeResponseType>({
+    axiosConfig: {
+      url: APIS.GET_SECONDARY_INCOME_INFO,
+      params: {
+        nationalID: getActivePersonNationalId()
+      }
+    }
+  })
+
+  const tableData = useMemo(function () {
+    if (!data?.data) return []
+
+    return data?.data?.map((item, index) => ({
+      id: index,
+      [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.INCOME_SOURCE_TITLE]:
+        item?.sourceOfIncomeTitle,
+      [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.ANNUAL_INCOME_MAX]:
+      withSeparator(item?.maxAnnualIncomeAmount),
+      [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.TRANSACTION_ORIGIN_DEST]:
+      item?.expectedTranOriginAndDestinTypes,
+      [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.ANNOUNCEMENT_DATE]:
+      item?.announcementDate,
+      [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE]:
+      item?.validityStartDate,
+      [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.TO_DATE]:
+      item?.validityEndDate,
+      [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.REGISTRATION_DATE]:
+      item?.registrationDate,
+    }))
+
+  }, [data])
+
   return (
-    <Table
-      columns={PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS}
-      data={PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_FAKE_DATA}
-    />
+    <RenderLogic
+      isLoading={isFetching} error={error}
+    >
+      <Table
+        columns={PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS}
+        data={tableData}
+      />
+    </RenderLogic>
   );
 }
 
