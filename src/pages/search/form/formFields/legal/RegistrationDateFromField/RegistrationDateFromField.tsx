@@ -18,7 +18,7 @@ function RegistrationDateFromField() {
         errorMessage: errorMessage,
       }}
       wheelPickerProps={{
-        // mode: 'time'
+        mode: 'date'
       }}
     />
   )

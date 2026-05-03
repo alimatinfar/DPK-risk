@@ -10,32 +10,24 @@ import type {SearchPageResultProps} from "../result/SearchPageResult.tsx";
 import APIS from "../../../request/constances/apis.ts";
 import useMutateData from "../../../request/hooks/useMutateData.ts";
 import type {SearchFormRequestBodyData, SearchFormResponseType} from "../SearchPage.types.ts";
-import getPersonTypeItem from "../form/utils/getPersonTypeItem.ts";
-import {accountNumberFieldName} from "../form/formFields/AccountNumberField/AccountNumberField.constances.ts";
-import {customerNumberFieldName} from "../form/formFields/CustomerNumberField/CustomerNumberField.constances.ts";
-import {shahabNumberFieldName} from "../form/formFields/ShahabNumberField/ShahabNumberField.constances.ts";
-import {cardNumberFieldName} from "../form/formFields/CardNumberField/CardNumberField.constances.ts";
-import {nationalCodeFieldName} from "../form/formFields/natural/NationalCodeField/NationalCodeField.constances.ts";
-import {firstNameFieldName} from "../form/formFields/natural/FirstNameField/FirstNameField.constances.ts";
-import {lastNameFieldName} from "../form/formFields/natural/LastNameField/LastNameField.constances.ts";
-import {
-  legalRegistrationNumberFieldName
-} from "../form/formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
+import useSearchPageBodyData from "./useSearchPageBodyData.ts";
 
 
 function useSearchPage() {
 
   const [activePersonType, setActivePersonType] = useState<SearchPageFormPersonType | undefined>(undefined)
 
+  const {getBodyData} = useSearchPageBodyData({
+    activePersonType
+  })
+
   const {
     mutate, data, error
   } = useMutateData<SearchFormResponseType, SearchFormRequestBodyData>({
     axiosConfig: {
-      url: APIS.GET_CUSTOMERS
+      url: APIS.GET_CUSTOMERS, method: 'POST'
     }
   })
-
-  console.log({data})
 
   const [resultData, setResultData] = useState<SearchPageResultProps['resultData']>([])
   const [isSubmittedSuccessful, setIsSubmittedSuccessful] = useState(false)
@@ -44,28 +36,15 @@ function useSearchPage() {
     if (Object.values(formData).every(value => !value))
       return toastPromise().then(toast => toast.error('تکمیل حداقل یک فیلد الزامی است'))
 
-    const bodyData: SearchFormRequestBodyData = {
-      customerType: activePersonType ? getPersonTypeItem(activePersonType)?.id : 0,
-      accountNumber: Number(formData[accountNumberFieldName]),
-      customerId: Number(formData[customerNumberFieldName]),
-      shahabId: Number(formData[shahabNumberFieldName]),
-      cardNumber: Number(formData[cardNumberFieldName]),
-      nationalID: Number(formData[nationalCodeFieldName]),
-      firstName: formData[firstNameFieldName],
-      lastName: formData[lastNameFieldName],
-      shenasnameId: Number(formData[legalRegistrationNumberFieldName])
-    }
+    const bodyData = getBodyData(formData)
 
-    mutate(bodyData, {
+      mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
-        // Boom baby!
+        setResultData(SEARCH_PAGE_FAKE_DATA)
+        setIsSubmittedSuccessful(true)
+        setTimeout(() => scrollToElementById(ELEMENT_IDS.SEARCH_RESULT), 300)
       },
     })
-
-    console.log({formData})
-    setResultData(SEARCH_PAGE_FAKE_DATA)
-    setIsSubmittedSuccessful(true)
-    setTimeout(() => scrollToElementById(ELEMENT_IDS.SEARCH_RESULT), 300)
   }
 
   const {

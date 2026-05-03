@@ -23,7 +23,7 @@ export const loadConfigFile = async () => {
 
 axiosInstance.interceptors.request.use(async (request: any) => {
   const config = await loadConfigFile();
-  request.baseURL = config.baseUrl
+  request.baseURL = `${config.baseUrl}api/`
 
   request.headers["Access-Control-Allow-Origin"] = ["*"];
 
