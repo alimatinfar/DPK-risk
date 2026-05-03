@@ -14,7 +14,7 @@ import usePanelBasicInformationPageOfficeAddressList from "./usePanelBasicInform
 function usePanelBasicInformationPage() {
 
   const {
-    getActivePersonNationalId, isLegalBool
+    getActivePersonNationalId, isLegalBool, isForeignCitizenBool, isNaturalBool
   } = getActivePersonData()
 
   //natural
@@ -25,7 +25,10 @@ function usePanelBasicInformationPage() {
       url: APIS.GET_NATURAL_CUSTOMER_INFO,
       params: {
         nationalID: getActivePersonNationalId()
-      }
+      },
+    },
+    options: {
+      enabled: isNaturalBool
     }
   })
 
@@ -38,6 +41,9 @@ function usePanelBasicInformationPage() {
       params: {
         nationalID: getActivePersonNationalId()
       }
+    },
+    options: {
+      enabled: isLegalBool
     }
   })
 
@@ -50,6 +56,9 @@ function usePanelBasicInformationPage() {
       params: {
         nationalID: getActivePersonNationalId()
       }
+    },
+    options: {
+      enabled: isForeignCitizenBool
     }
   })
 
@@ -78,7 +87,9 @@ function usePanelBasicInformationPage() {
   })
 
   return {
-    identityInfoList, homeAddressList, officeAddressList, workplaceAddressList, isLegalBool
+    identityInfoList, homeAddressList, officeAddressList, workplaceAddressList, isLegalBool,
+    loading: naturalIsFetching || legalIsFetching || foreignCitizenIsFetching,
+    error: naturalError || legalError || foreignCitizenError
   }
 }
 
