@@ -1,153 +1,167 @@
 import type {DetailInfoSectionProps} from "../../../../components/others/DetailInfoSection";
 import {useMemo} from "react";
-import getActivePersonDataType from "../../utils/getActivePersonDataType.ts";
+import getActivePersonData from "../../utils/getActivePersonData.ts";
+import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
 
-function usePanelBasicInformationPageIdentityInfoListNatural() {
+
+function usePanelBasicInformationPageIdentityInfoListNatural(
+  {
+    naturalData, foreignCitizenData
+  }: Pick<BasicInfoDataTypeForEachPersonType, 'naturalData' | 'foreignCitizenData'>
+) {
 
   const {
-    isLegal, isForeignCitizen
-  } = getActivePersonDataType()
+    isLegal, isForeignCitizen, activePersonData
+  } = getActivePersonData()
 
   const naturalOrForeignCitizenInfoList: DetailInfoSectionProps['infoList'] = useMemo(function () {
-    if (isLegal) return []
+    const isForeignCitizenBool = isForeignCitizen(activePersonData)
+    if (
+      isLegal(activePersonData) ||
+      (isForeignCitizenBool && !foreignCitizenData?.data) ||
+      (!isForeignCitizenBool && !naturalData?.data)
+    ) return []
+
+    const customerData = isForeignCitizenBool ? foreignCitizenData?.data.customer : naturalData?.data
+    const foreignCitizenSpecificData = isForeignCitizenBool ? foreignCitizenData?.data?.nonCitizenData : null
 
     return [
       {
         label: 'نام',
-        value: 'محمدرضا',
+        value: customerData?.firstName,
       },
       {
         label: 'نام خانوادگی',
-        value: 'احمدی'
+        value: customerData?.lastName
       },
       {
         label: 'نام پدر',
-        value: 'علی',
+        value: customerData?.fathername,
       },
 
-      ...isForeignCitizen ? [{
+      ...isForeignCitizen(activePersonData) ? [{
         label: 'نام جد',
-        value: 'بهرام',
+        value: foreignCitizenSpecificData?.ancestorsName,
       }] : [],
 
       {
         label: 'جنسیت',
-        value: 'مرد',
+        value: customerData?.genderTitle,
       },
-      ...isForeignCitizen ? [
+      ...isForeignCitizen(activePersonData) ? [
         {
           label: 'شناسه فراگیر',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.nationalID,
         },
         {
           label: 'نوع مدرک شناسایی',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.identificationDocumentTypeTitle,
         },
         {
           label: 'شناسه مدرک شناسایی',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.identificationDocumentNumber,
         },
         {
           label: 'تاریخ صدور مدرک شناسایی',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.issueDateOfCertificate,
         },
         {
           label: 'تاریخ انقضا مدرک شناسایی',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.expirationDateOfCertificate,
         },
         {
           label: 'نوع گذرنامه',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.passportType,
         },
         {
           label: 'شماره پروانه اقامت/روادید',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.residencePermitOrVisaNumber,
         },
         {
           label: 'تاریخ صدور پروانه اقامت/روادید',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.licenseIssuanceDate,
         },
         {
           label: 'تاریخ انقضا پروانه اقامت/روادید',
-          value: '1234567890',
+          value: foreignCitizenSpecificData?.licenseExpirationDate,
         },
       ] : [
         {
           label: 'کدملی',
-          value: '1234567890',
+          value: customerData?.nationalID,
         },
         {
           label: 'شماره شناسنامه',
-          value: '1234567890',
+          value: customerData?.shenasnameId,
         },
         {
           label: 'سری و سریال شناسنامه',
-          value: ' الف/۱۲۳۴۵۶',
+          value: `${customerData?.shenasnameSeries} - ${customerData?.shenasnameSerial}`,
         },
       ],
 
       {
         label: 'تاریخ تولد',
-        value: '۱۳۶۷/۰۵/۱۴',
+        value: customerData?.birthDate,
       },
       {
         label: 'کشور محل تولد',
-        value: 'ایران',
+        value: customerData?.countryOfBirth,
       },
       {
         label: 'شهر محل تولد',
-        value: 'تهران',
+        value: customerData?.cityOfBirth,
       },
 
-      ...isForeignCitizen ? [
+      ...isForeignCitizen(activePersonData) ? [
         {
           label: 'ملیت',
-          value: 'افغانستانی',
+          value: foreignCitizenSpecificData?.nationalityTitle,
         },
         {
           label: 'تابعیت',
-          value: 'افغانستان',
+          value: foreignCitizenSpecificData?.citizenship,
         },
         {
           label: 'تاریخ آخرین ورود به کشور',
-          value: '2024-12-01',
+          value: foreignCitizenSpecificData?.dateOfLastEntryIntoTheCountry,
         },
       ] : [],
 
       {
         label: 'وضعیت حیات',
-        value: 'زنده',
+        value: customerData?.lifeStatus,
       },
       {
         label: 'تاریخ وفات',
-        value: '',
+        value: customerData?.deathDate,
       },
       {
         label: 'سن',
-        value: '38',
+        value: customerData?.age,
       },
       {
         label: 'تحصیلات',
-        value: 'کارشناسی ارشد',
+        value: customerData?.educationLevelTitle,
       },
       {
         label: 'رشته تحصیلی',
-        value: 'مهندسی صنایع',
+        value: customerData?.studyField,
       },
       {
         label: 'وضعیت تاهل',
-        value: 'متاهل',
+        value: customerData?.maritalStatusTitle,
       },
       {
         label: 'تاریخ تغییر وضعیت تاهل',
-        value: '۱۳۹۲/۰۶/۲۱',
+        value: customerData?.maritalStatusChangeDate,
       },
       {
         label: 'تلفن همراه',
-        value: '09191122233',
+        value: customerData?.mobile,
       },
     ]
-  }, [isLegal, isForeignCitizen])
+  }, [isLegal, isForeignCitizen, activePersonData, naturalData, foreignCitizenData])
 
   return {
     naturalOrForeignCitizenInfoList

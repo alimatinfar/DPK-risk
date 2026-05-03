@@ -13,6 +13,7 @@ type Props = {
   buildingName: string;
   postOfficeBox: string;
   phone: string;
+  disabled?: boolean;
 }
 
 function usePanelBasicInformationPageAddressList(
@@ -22,8 +23,10 @@ function usePanelBasicInformationPageAddressList(
   const addressList: DetailInfoSectionProps['infoList'] = useMemo(function () {
 
     const {
-      city, buildingName, buildingNumber, floor, postalCode, address, province, unit, postOfficeBox, phone
+      city, buildingName, buildingNumber, floor, postalCode, address, province, unit, postOfficeBox, phone, disabled
     } = props
+
+    if (disabled) return []
 
     return [
       {

@@ -13,7 +13,7 @@ import getPersonIconByType from "../../search/form/utils/getPersonIconByType.ts"
 
 function PanelTopBar() {
 
-  const activePersonData = getActivePersonData()
+  const {activePersonData} = getActivePersonData()
 
   const {
     fields

@@ -14,20 +14,20 @@ import {
 } from "../form/formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
 import {legalTypeFieldName} from "../form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
 
-type SearchPageResultCardDataTypeNatural = {
+export type SearchPageResultCardDataTypeNatural = {
   type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name;
   [nationalCodeFieldName]: string;
   [birthCertificationNumberFieldName]: string;
 }
 
-type SearchPageResultCardDataTypeForeignCitizen = {
+export type SearchPageResultCardDataTypeForeignCitizen = {
   type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name;
   [comprehensiveForeignNationalsIdFieldName]: string;
   [nationalityFieldName]: string;
   [citizenshipFieldName]: string;
 }
 
-type SearchPageResultCardDataTypeLegal = {
+export type SearchPageResultCardDataTypeLegal = {
   type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name;
   [legalBrandNameFieldName]: string;
   [legalRegistrationNumberFieldName]: string;

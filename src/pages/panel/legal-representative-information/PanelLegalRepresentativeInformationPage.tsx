@@ -1,7 +1,6 @@
 import React, {lazy, useMemo} from "react";
 import PanelPageTitle from "../layout/PanelPageTitle.tsx";
 import Card from "../../../components/others/Card/Card.tsx";
-import getActivePersonDataType from "../utils/getActivePersonDataType.ts";
 import Tab from "../../../components/others/Tab/Tab.tsx";
 import {
   PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS,
@@ -9,6 +8,7 @@ import {
 } from "./index.constances.ts";
 import useActiveTab from "../../../components/others/Tab/hooks/useActiveTab.ts";
 import TabContentRender from "../../../components/others/Tab/TabContentRender.tsx";
+import getActivePersonData from "../utils/getActivePersonData.ts";
 
 const PanelLegalRepresentativeInformationPageBoardMembers = lazy(() => import(
   "./boardMembers/PanelLegalRepresentativeInformationPageBoardMembers.tsx"
@@ -33,9 +33,9 @@ const PanelLegalRepresentativeInformationPageLegalRepresentative = lazy(() => im
 function PanelLegalRepresentativeInformationPage() {
 
 
-  const {isLegal} = getActivePersonDataType()
+  const {isLegal, activePersonData} = getActivePersonData()
   const [activeTab, setActiveTab] = useActiveTab(
-    isLegal ?
+    isLegal(activePersonData) ?
       PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.BOARD_MEMBERS :
       PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.LEGAL_REPRESENTATIVE
   )
@@ -68,7 +68,7 @@ function PanelLegalRepresentativeInformationPage() {
       <div className='flex items-center justify-between'>
         <PanelPageTitle/>
 
-        {isLegal && (
+        {isLegal(activePersonData) && (
           <Tab
             tabs={PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS}
             activeTab={activeTab} onChange={setActiveTab}

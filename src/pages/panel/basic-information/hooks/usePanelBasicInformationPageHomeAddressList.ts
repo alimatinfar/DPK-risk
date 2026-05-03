@@ -1,14 +1,35 @@
 import usePanelBasicInformationPageAddressList from "./usePanelBasicInformationPageAddressList.ts";
+import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
+import getActivePersonData from "../../utils/getActivePersonData.ts";
 
 
-function usePanelBasicInformationPageHomeAddressList() {
+function usePanelBasicInformationPageHomeAddressList(
+  {
+    naturalData, foreignCitizenData
+  }: Pick<BasicInfoDataTypeForEachPersonType, 'naturalData' | 'foreignCitizenData'>
+) {
+
+  const {
+    isLegalBool, isForeignCitizenBool
+  } = getActivePersonData()
+
+  const homeResponseData = isForeignCitizenBool ?
+    foreignCitizenData?.data?.customer : naturalData?.data
 
   const {
     addressList: homeAddressList
   } = usePanelBasicInformationPageAddressList({
-    address: 'خيابان شريعتي، کوچه الف', city: 'تهران', province: 'تهران',
-    floor: '3', buildingName: 'ساختمان الف', postalCode: '1234567890',
-    unit: '206', postOfficeBox: '021-123456789', buildingNumber: '30', phone: '021-1234567890'
+    disabled: isLegalBool,
+    address: homeResponseData?.homeAddress || '',
+    city: homeResponseData?.homeCity || '',
+    province: homeResponseData?.homeProvince || '',
+    floor: String(homeResponseData?.homeFloor) || '',
+    buildingName: homeResponseData?.homeBuildingName || '',
+    postalCode: String(homeResponseData?.homePostalCode) || '',
+    unit: String(homeResponseData?.homeUnit) || '',
+    postOfficeBox: homeResponseData?.homeMailbox || '',
+    buildingNumber: homeResponseData?.homePlate || '',
+    phone: homeResponseData?.homePhone || ''
   })
 
   return {

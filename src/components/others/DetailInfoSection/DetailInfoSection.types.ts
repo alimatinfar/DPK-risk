@@ -1,7 +1,7 @@
 
 export type DetailInfoSectionItemType = {
   label: string;
-  value: string;
+  value: string | number | undefined | null;
   column?: number;
 }
 

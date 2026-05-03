@@ -1,107 +1,114 @@
 import {useMemo} from 'react';
-import getActivePersonDataType from "../../utils/getActivePersonDataType.ts";
 import type {DetailInfoSectionProps} from "../../../../components/others/DetailInfoSection";
+import getActivePersonData from "../../utils/getActivePersonData.ts";
+import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
 
-function usePanelBasicInformationPageIdentityInfoListLegal() {
+function usePanelBasicInformationPageIdentityInfoListLegal(
+  {legalData}: Pick<BasicInfoDataTypeForEachPersonType, 'legalData'>
+) {
 
   const {
-    isLegal, isForeignCitizen
-  } = getActivePersonDataType()
+    isLegal, activePersonData
+  } = getActivePersonData()
 
   const legalInfoList: DetailInfoSectionProps['infoList'] = useMemo(function () {
-    if (!isLegal) return []
+    const data = legalData?.data
+    if (
+      !isLegal(activePersonData) || !data
+    ) return []
+
 
     return [
       {
         label: 'نام شخصیت حقوقی',
-        value: 'محمدرضا',
+        value: data?.legalName,
       },
       {
         label: 'نام تجاری',
-        value: 'توسن سیستم',
+        value: data?.tradeName,
       },
       {
         label: 'نام اختصاری',
-        value: 'توسن',
+        value: data?.abbreviationName,
       },
       {
         label: 'نوع شخصیت حقوقی',
-        value: 'شرکت سهامی خاص',
+        value: data?.legalType,
       },
       {
         label: 'تاریخ تاسیس',
-        value: '2010-06-15',
+        value: data?.establishmentDate,
       },
       {
         label: 'شناسه ملی',
-        value: '10320198765',
+        value: data?.nationalID,
       },
       {
         label: 'وضعیت شناسه ملی',
-        value: 'معتبر',
+        value: data?.nationalIdStatus,
       },
       {
         label: 'وضعیت شخصیت حقوقی',
-        value: 'فعال',
+        value: data?.legalEntityStatus,
       },
       {
         label: 'شماره مجوز',
-        value: '12345/ت/۱۰',
+        value: data?.licenseNumber,
       },
       {
         label: 'تاریخ مجوز',
-        value: '2009-12-01',
+        value: data?.licenseDate,
       },
       {
         label: 'استان محل ثبت',
-        value: 'تهران',
+        value: data?.registrationProvince,
       },
       {
         label: 'شهر/شهرستان محل ثبت',
-        value: 'تهران',
+        value: data?.registrationCity,
       },
       {
         label: 'مرجع ثبت کننده',
-        value: 'اداره ثبت شرکت‌های تهران',
+        value: data?.registeringAuthority,
       },
       {
         label: 'شماره ثبت',
-        value: '456789',
+        value: data?.registrationNumber,
       },
       {
         label: 'تاریخ ثبت',
-        value: '2010-07-20',
+        value: data?.registrationDate,
       },
       {
         label: 'واحد ثبتی',
-        value: 'تهران - واحد ۱',
+        value: data?.registrationUnit,
       },
       {
         label: 'وضعیت نماد اعتماد الکترونیکی',
-        value: 'فعال',
+        value: data?.eNamadStatus,
       },
       {
         label: 'تاریخ انحلال',
-        value: '',
+        value: data?.dissolutionDate,
       },
       {
         label: 'تاریخ ختم تصفیه',
-        value: '',
+        value: data?.completionDate,
       },
       {
         label: 'تاریخ تعلیق',
-        value: '',
+        value: data?.suspensionDate,
       },
       {
         label: 'پست الکترونیکی',
-        value: 'info@tosansystem.ir',
+        value: data?.emailAddress,
       },
       {
         label: 'وبگاه',
-        value: 'www.tosansystem.ir',
+        value: data?.webSite,
       },
     ]
-  }, [isLegal])
+  }, [activePersonData, isLegal, legalData])
 
   return {
     legalInfoList

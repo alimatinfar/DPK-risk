@@ -5,9 +5,7 @@ import usePanelBasicInformationPage from "./hooks/usePanelBasicInformationPage.t
 function PanelBasicInformationPage() {
 
   const {
-    identityInfoList,
-    homeAddressList,
-    workplaceAddressList
+    identityInfoList, homeAddressList, officeAddressList, workplaceAddressList, isLegalBool
   } = usePanelBasicInformationPage()
 
   return (
@@ -20,12 +18,12 @@ function PanelBasicInformationPage() {
       />
 
       <DetailInfoSection
-        title='اطلاعات محل سکونت'
-        infoList={homeAddressList}
+        title={isLegalBool ? 'اطلاعات دفتر مرکزی' : 'اطلاعات محل سکونت'}
+        infoList={isLegalBool ? officeAddressList : homeAddressList}
       />
 
       <DetailInfoSection
-        title='اطلاعات محل کار'
+        title={isLegalBool ? 'اطلاعات محل فعالیت' : 'اطلاعات محل کار'}
         infoList={workplaceAddressList}
       />
     </div>
