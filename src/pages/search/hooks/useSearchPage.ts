@@ -45,7 +45,7 @@ function useSearchPage() {
       return toastPromise().then(toast => toast.error('تکمیل حداقل یک فیلد الزامی است'))
 
     const bodyData: SearchFormRequestBodyData = {
-      ...activePersonType ? {customerType: getPersonTypeItem(activePersonType)?.id} : {},
+      customerType: activePersonType ? getPersonTypeItem(activePersonType)?.id : 0,
       accountNumber: Number(formData[accountNumberFieldName]),
       customerId: Number(formData[customerNumberFieldName]),
       shahabId: Number(formData[shahabNumberFieldName]),

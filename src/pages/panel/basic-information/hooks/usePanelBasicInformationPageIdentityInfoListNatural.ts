@@ -94,12 +94,12 @@ function usePanelBasicInformationPageIdentityInfoListNatural() {
         label: 'کشور محل تولد',
         value: 'ایران',
       },
+      {
+        label: 'شهر محل تولد',
+        value: 'تهران',
+      },
 
       ...isForeignCitizen ? [
-        {
-          label: 'شهر محل تولد',
-          value: 'تهران',
-        },
         {
           label: 'ملیت',
           value: 'افغانستانی',
