@@ -4,13 +4,17 @@ import useActiveTab from "../../../components/others/Tab/hooks/useActiveTab.ts";
 import Card from "../../../components/others/Card/Card.tsx";
 import {PANEL_ECONOMIC_INFORMATION_PAGE_TABS, PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS} from "./index.constances.ts";
 import TabContentRender from "../../../components/others/Tab/TabContentRender.tsx";
-import {useMemo} from "react";
-import PanelEconomicInformationPageEconomicActivity
-  from "./economic-activity/PanelEconomicInformationPageEconomicActivity.tsx";
-import PanelEconomicInformationPagePrimarySourceOfIncome
-  from "./primary-source-of-income/PanelEconomicInformationPagePrimarySourceOfIncome.tsx";
-import PanelEconomicInformationPageSecondarySourceOfIncome
-  from "./secondary-source-of-income/PanelEconomicInformationPageSecondarySourceOfIncome.tsx";
+import {lazy, useMemo} from "react";
+
+const PanelEconomicInformationPageEconomicActivity = lazy(() => import(
+  "./economic-activity/PanelEconomicInformationPageEconomicActivity.tsx"
+  ))
+const PanelEconomicInformationPagePrimarySourceOfIncome = lazy(() => import(
+  "./primary-source-of-income/PanelEconomicInformationPagePrimarySourceOfIncome.tsx"
+  ))
+const PanelEconomicInformationPageSecondarySourceOfIncome = lazy(() => import(
+  "./secondary-source-of-income/PanelEconomicInformationPageSecondarySourceOfIncome.tsx"
+  ))
 
 function PanelEconomicInformationPage() {
 
@@ -22,10 +26,10 @@ function PanelEconomicInformationPage() {
         <PanelEconomicInformationPageEconomicActivity/>
       ),
       [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.PRIMARY_SOURCE_OF_INCOME]: (
-        <PanelEconomicInformationPagePrimarySourceOfIncome />
+        <PanelEconomicInformationPagePrimarySourceOfIncome/>
       ),
       [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.SECONDARY_SOURCE_OF_INCOME]: (
-        <PanelEconomicInformationPageSecondarySourceOfIncome />
+        <PanelEconomicInformationPageSecondarySourceOfIncome/>
       ),
     }
   }, [])
