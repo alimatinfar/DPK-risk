@@ -1,28 +1,44 @@
 import Table from "../../../../components/others/Table/Table.tsx";
 import {
-  PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS,
-  PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_FAKE_DATA
+  PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS
 } from "./index.contances.ts";
 import {
-  PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS,
-  PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_FAKE_DATA
+  PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS
 } from "./index.legal.constances.ts";
 import getActivePersonData from "../../utils/getActivePersonData.ts";
+import usePanelEconomicInformationPageEconomicActivityLegal
+  from "./hooks/usePanelEconomicInformationPageEconomicActivityLegal.ts";
+import usePanelEconomicInformationPageEconomicActivityNatural
+  from "./hooks/usePanelEconomicInformationPageEconomicActivityNatural.ts";
+import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 
 
 function PanelEconomicInformationPageEconomicActivity() {
 
-  const {isLegal, activePersonData} = getActivePersonData()
+  const {isLegalBool} = getActivePersonData()
+
+  const {
+    legalTableData, legalLoading, legalError
+  } = usePanelEconomicInformationPageEconomicActivityLegal()
+
+  const {
+    naturalTableData, naturalLoading, naturalError
+  } = usePanelEconomicInformationPageEconomicActivityNatural()
 
   return (
-    <Table
-      columns={
-      isLegal(activePersonData) ? PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS : PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS
-      }
-      data={
-      isLegal(activePersonData) ? PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_FAKE_DATA : PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_FAKE_DATA
-      }
-    />
+    <RenderLogic
+      error={legalError || naturalError}
+      isLoading={legalLoading || naturalLoading}
+    >
+      <Table
+        columns={
+          isLegalBool ? PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS : PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS
+        }
+        data={
+          isLegalBool ? legalTableData : naturalTableData
+        }
+      />
+    </RenderLogic>
   );
 }
 
