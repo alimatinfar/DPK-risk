@@ -6,7 +6,13 @@ import Button from "../../../components/Form/Button/Button.tsx";
 import SearchIcon from "../../../components/svg/SearchIcon.tsx";
 
 
-function SearchPageFormSharedFields() {
+type Props = {
+  loading: boolean;
+}
+
+function SearchPageFormSharedFields(
+  {loading}: Props
+) {
   return (
     <div className='flex items-center gap-x-5'>
       <div className='flex-1 grid grid-cols-4 gap-x-5'>
@@ -25,6 +31,7 @@ function SearchPageFormSharedFields() {
           className={{
             extra: 'h-11'
           }}
+          loading={loading}
         >
           جستجو
         </Button>

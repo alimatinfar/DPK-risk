@@ -1,16 +1,15 @@
 import {useState} from "react";
-import {SEARCH_PAGE_FAKE_DATA} from "../SearchPage.constances.ts";
 import useReactHookFormWrapper
   from "../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import type {SearchPageFormDataType, SearchPageFormPersonType} from "../form/SearchPageForm.types.ts";
 import scrollToElementById from "../../../utils/scrollToElementById.ts";
 import {ELEMENT_IDS} from "../../../constances/elementIDs.ts";
 import toastPromise from "../../../utils/toastPromise.ts";
-import type {SearchPageResultProps} from "../result/SearchPageResult.tsx";
 import APIS from "../../../request/constances/apis.ts";
 import useMutateData from "../../../request/hooks/useMutateData.ts";
 import type {SearchFormRequestBodyData, SearchFormResponseType} from "../SearchPage.types.ts";
 import useSearchPageBodyData from "./useSearchPageBodyData.ts";
+import useSearchPageResultData from "./useSearchPageResultData.ts";
 
 
 function useSearchPage() {
@@ -22,14 +21,13 @@ function useSearchPage() {
   })
 
   const {
-    mutate, data, error
+    mutate, data, error, isPending
   } = useMutateData<SearchFormResponseType, SearchFormRequestBodyData>({
     axiosConfig: {
       url: APIS.GET_CUSTOMERS, method: 'POST'
     }
   })
 
-  const [resultData, setResultData] = useState<SearchPageResultProps['resultData']>([])
   const [isSubmittedSuccessful, setIsSubmittedSuccessful] = useState(false)
 
   function onSubmitHandler(formData: SearchPageFormDataType) {
@@ -38,9 +36,8 @@ function useSearchPage() {
 
     const bodyData = getBodyData(formData)
 
-      mutate(bodyData, {
+    mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
-        setResultData(SEARCH_PAGE_FAKE_DATA)
         setIsSubmittedSuccessful(true)
         setTimeout(() => scrollToElementById(ELEMENT_IDS.SEARCH_RESULT), 300)
       },
@@ -53,12 +50,15 @@ function useSearchPage() {
     onSubmitHandler
   })
 
-  // const resultData: SearchPageResultProps['resultData'] = useMemo(function () {
-  //   return
-  // }, [])
+  const {
+    resultData
+  } = useSearchPageResultData({
+    data
+  })
 
   return {
-    formMethods, onSubmit, resultData, isSubmittedSuccessful, activePersonType, setActivePersonType
+    formMethods, onSubmit, resultData, isSubmittedSuccessful, activePersonType, setActivePersonType,
+    error, isPending
   }
 }
 

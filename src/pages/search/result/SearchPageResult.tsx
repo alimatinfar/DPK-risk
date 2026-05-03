@@ -1,4 +1,4 @@
-import RenderLogic from "../../../components/others/RenderLogic/RenderLogic.tsx";
+import RenderLogic, {type RenderLogicProps} from "../../../components/others/RenderLogic/RenderLogic.tsx";
 import EmptyState from "../../../components/others/RenderLogic/EmptyState.tsx";
 import FilterEmptyState from "../../../components/svg/RenderLogic/FilterEmptyState.tsx";
 import {ELEMENT_IDS} from "../../../constances/elementIDs.ts";
@@ -12,10 +12,11 @@ import EmptyStateIcon from "../../../components/svg/RenderLogic/EmptyStateIcon.t
 export type SearchPageResultProps = {
   resultData: SearchPageResultCardDataType[];
   formIsSubmitted: boolean;
+  error: RenderLogicProps['error'];
 }
 
 function SearchPageResult(
-  {resultData, formIsSubmitted}: SearchPageResultProps
+  {resultData, formIsSubmitted, error}: SearchPageResultProps
 ) {
 
   const emptyElement = formIsSubmitted ? (
@@ -40,6 +41,7 @@ function SearchPageResult(
       <RenderLogic
         isEmpty={resultData?.length === 0}
         emptyElement={emptyElement}
+        error={error}
       >
         <div className={'flex flex-col gap-y-8 py-4'}>
           <p className='text-sm text-secondary-text'>

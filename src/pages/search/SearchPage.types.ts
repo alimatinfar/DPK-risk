@@ -7,6 +7,8 @@ export type SearchFormResponseType = {
     shenasnameId: number;
   }[];
   nonCitizenCustomers: {
+    firstName: string;
+    lastName: string;
     customerId: number;
     nationalID: number;
     nationalityTitle: string;

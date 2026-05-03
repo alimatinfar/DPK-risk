@@ -14,7 +14,7 @@ const CustomRenderLogicDefaultContainer = ({children, renderLogicDefaultContaine
 }
 
 export type RenderLogicProps = {
-  error?: Error | null | string,
+  error?: Error | null,
   isLoading?: boolean,
   loadingElement?: ReactNode,
   children: ReactNode,

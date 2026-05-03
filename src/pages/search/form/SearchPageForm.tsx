@@ -17,10 +17,13 @@ type ActivePersonType = SearchPageFormPersonType | undefined
 export type SearchPageFormProps = {
   activePersonType: ActivePersonType;
   setActivePersonType: SetStateType<ActivePersonType>;
+  loading: boolean;
 } & Pick<ReactHookFormWrapperProps, 'formMethods' | 'onSubmit'>
 
 function SearchPageForm(
-  {formMethods, onSubmit, activePersonType, setActivePersonType}: SearchPageFormProps
+  {
+    formMethods, onSubmit, activePersonType, setActivePersonType, loading
+  }: SearchPageFormProps
 ) {
 
   const {
@@ -48,7 +51,7 @@ function SearchPageForm(
         formMethods={formMethods} onSubmit={onSubmit}
       >
         <div className='flex flex-col gap-y-4'>
-          <SearchPageFormSharedFields/>
+          <SearchPageFormSharedFields loading={loading} />
 
           <div className='flex'>
             <SearchPageFormSelectPerson
