@@ -4,8 +4,11 @@ import type {ReactNode} from "react";
 import {getResponseErrorMessage} from "../../../request/utils/getResponse.ts";
 import RenderLogicDefaultContainer from "./RenderLogicDefaultContainer.tsx";
 import FilterEmptyState from "../../svg/RenderLogic/FilterEmptyState.tsx";
+import ErrorStateIcon from "../../svg/RenderLogic/ErrorStateIcon.tsx";
 
-const CustomRenderLogicDefaultContainer = ({children, renderLogicDefaultContainerMinHeight}: { children: ReactNode } & Pick<RenderLogicProps, 'renderLogicDefaultContainerMinHeight'>) => {
+const CustomRenderLogicDefaultContainer = ({children, renderLogicDefaultContainerMinHeight}: {
+  children: ReactNode
+} & Pick<RenderLogicProps, 'renderLogicDefaultContainerMinHeight'>) => {
   return (
     <RenderLogicDefaultContainer minHeight={renderLogicDefaultContainerMinHeight}>
       {children}
@@ -36,9 +39,13 @@ function RenderLogic(
     return (
       <CustomRenderLogicDefaultContainer renderLogicDefaultContainerMinHeight={renderLogicDefaultContainerMinHeight}>
         {errorComponent || (
-          <span className='text-red-500'>
-            {getResponseErrorMessage(error) || 'دریافت اطلاعات با خطا مواجه شد'}
-          </span>
+          <div className='flex flex-col gap-y-4'>
+            <ErrorStateIcon/>
+
+            <span className='text-red-500'>
+              {getResponseErrorMessage(error) || 'دریافت اطلاعات با خطا مواجه شد'}
+            </span>
+          </div>
         )}
       </CustomRenderLogicDefaultContainer>
     )
