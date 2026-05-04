@@ -21,5 +21,7 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
+    sourcemap: true,
+    assetsInlineLimit: 0
   }
 })
