@@ -46,17 +46,17 @@ export const getSideBarItems: () => PanelSideBarItemsListType = function () {
         {
           icon: SearchIcon,
           label: 'اطلاعات بانکي انفرادي',
-          link: '#',
+          link: ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION,
         },
         {
           icon: SearchIcon,
           label: 'اطلاعات بانکي مشترک',
-          link: '#',
+          link: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,
         },
         {
           icon: SearchIcon,
           label: 'اطلاعات بانکي حساب هاي داراي شرايط برداشت',
-          link: '#',
+          link: ROUTER_LINKS.PANEL_BANKING_INFORMATION_FOR_ACCOUNTS_WITH_WITHDRAWAL_CONDITIONS,
         },
       ]
     },
@@ -66,17 +66,17 @@ export const getSideBarItems: () => PanelSideBarItemsListType = function () {
         {
           icon: SearchIcon,
           label: 'ريسک مشتري',
-          link: '#',
+          link: ROUTER_LINKS.PANEL_CUSTOMER_RISK,
         },
         {
           icon: SearchIcon,
           label: 'ريسک سابقه خدمت',
-          link: '#',
+          link: ROUTER_LINKS.PANEL_SERVICE_HISTORY_RISK,
         },
         {
           icon: SearchIcon,
           label: 'ريسک منطقه',
-          link: '#',
+          link: ROUTER_LINKS.PANEL_REGIONAL_RISK,
         },
       ]
     },

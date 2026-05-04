@@ -15,6 +15,7 @@ const PanelBasicInformationPage = lazy(() => import("../pages/panel/basic-inform
 const PanelInquiryHistoriesPage = lazy(() => import("../pages/panel/inquiry-histories/PanelInquiryHistoriesPage.tsx"));
 const PanelEconomicInformationPage = lazy(() => import("../pages/panel/economic-information/PanelEconomicInformationPage.tsx"));
 const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/panel/legal-representative-information/PanelLegalRepresentativeInformationPage.tsx"));
+const DevelopingSection = lazy(() => import("../components/others/RenderLogic/DevelopingSection.tsx"));
 
 
 const router = createBrowserRouter(
@@ -52,6 +53,30 @@ const router = createBrowserRouter(
             {
               path: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
               element:<PanelLegalRepresentativeInformationPage />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION,
+              element:<DevelopingSection />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,
+              element:<DevelopingSection />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_BANKING_INFORMATION_FOR_ACCOUNTS_WITH_WITHDRAWAL_CONDITIONS,
+              element:<DevelopingSection />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_CUSTOMER_RISK,
+              element:<DevelopingSection />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_SERVICE_HISTORY_RISK,
+              element:<DevelopingSection />,
+            },
+            {
+              path: ROUTER_LINKS.PANEL_REGIONAL_RISK,
+              element:<DevelopingSection />,
             },
           ]
         },
