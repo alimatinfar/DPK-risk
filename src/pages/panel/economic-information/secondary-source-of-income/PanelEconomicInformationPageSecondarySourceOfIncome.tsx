@@ -10,6 +10,7 @@ import APIS from "../../../../request/constances/apis.ts";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {PanelEconomicInformationSecondarySourceOfIncomeResponseType} from "./index.types.ts";
 import withSeparator from "../../../../utils/separator/withSeparator.ts";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 function PanelEconomicInformationPageSecondarySourceOfIncome() {
 
@@ -38,13 +39,13 @@ function PanelEconomicInformationPageSecondarySourceOfIncome() {
       [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.TRANSACTION_ORIGIN_DEST]:
       item?.expectedTranOriginAndDestinTypes,
       [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.ANNOUNCEMENT_DATE]:
-      item?.announcementDate,
+      displayDate(item?.announcementDate),
       [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE]:
-      item?.validityStartDate,
+      displayDate(item?.validityStartDate),
       [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.TO_DATE]:
-      item?.validityEndDate,
+      displayDate(item?.validityEndDate),
       [PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.REGISTRATION_DATE]:
-      item?.registrationDate,
+      displayDate(item?.registrationDate),
     }))
 
   }, [data])

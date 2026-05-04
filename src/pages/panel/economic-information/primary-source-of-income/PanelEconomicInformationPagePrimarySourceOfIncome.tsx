@@ -10,6 +10,7 @@ import type {PanelEconomicInformationPrimarySourceOfIncomeResponseType} from "./
 import {useMemo} from "react";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 import withSeparator from "../../../../utils/separator/withSeparator.ts";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 
 function PanelEconomicInformationPagePrimarySourceOfIncome() {
@@ -37,10 +38,10 @@ function PanelEconomicInformationPagePrimarySourceOfIncome() {
       [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.PER_TRANSACTION_MAX]: withSeparator(item?.maxAmountOfEachTran),
       [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.MAIN_INCOME_MAX]: withSeparator(item?.maxAmountOfIncomeFromMainJob),
       [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.TRANSACTION_ORIGIN_DEST]: item?.expectedTranOriginAndDestinTypes,
-      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.ANNOUNCEMENT_DATE]: item?.announcementDate,
-      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE]: item?.validityStartDate,
-      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.TO_DATE]: item?.validityEndDate,
-      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.REGISTRATION_DATE]: item?.registrationDate,
+      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.ANNOUNCEMENT_DATE]: displayDate(item?.announcementDate),
+      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE]: displayDate(item?.validityStartDate),
+      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.TO_DATE]: displayDate(item?.validityEndDate),
+      [PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS_KEYS.REGISTRATION_DATE]: displayDate(item?.registrationDate),
     }))
   }, [data])
 
