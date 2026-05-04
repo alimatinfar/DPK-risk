@@ -17,6 +17,8 @@ import {legalTypeFieldName} from "./form/formFields/legal/LegalTypeField/LegalTy
 
 export const SEARCH_PAGE_PADDING_X = 'px-25'
 
+export const SEARCH_PAGE_MAX_WIDTH = 'max-w-[1550px] mx-auto'
+
 export const SEARCH_PAGE_FAKE_DATA: SearchPageResultCardDataType[] = [
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
