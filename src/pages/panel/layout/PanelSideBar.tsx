@@ -10,7 +10,7 @@ function PanelSideBar() {
   return (
     <div
       className={`
-        ${PANEL_SIDEBAR_WIDTH} ${Z_INDEXES.SIDEBAR} fixed right-0 top-0 h-dvh 
+        ${PANEL_SIDEBAR_WIDTH} ${Z_INDEXES.SIDEBAR} h-dvh 
         py-8 px-4 flex flex-col bg-gray-50 border-l border-gray-200
       `}
     >
