@@ -8,7 +8,7 @@ import {PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS_KEYS} from "../index.c
 
 function usePanelEconomicInformationPageEconomicActivityNatural() {
 
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {getActivePersonNationalId, isLegalBool} = getActivePersonData()
 
   //natural or foreign citizen
   const {
@@ -19,6 +19,9 @@ function usePanelEconomicInformationPageEconomicActivityNatural() {
       params: {
         nationalID: getActivePersonNationalId()
       }
+    },
+    options: {
+      enabled: !isLegalBool
     }
   })
 

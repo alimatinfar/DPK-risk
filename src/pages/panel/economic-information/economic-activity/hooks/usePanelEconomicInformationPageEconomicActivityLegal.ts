@@ -8,7 +8,7 @@ import {PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS_KEYS} from "../i
 
 function usePanelEconomicInformationPageEconomicActivityLegal() {
 
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {getActivePersonNationalId, isLegalBool} = getActivePersonData()
 
   const {
     data, isFetching, error
@@ -18,6 +18,9 @@ function usePanelEconomicInformationPageEconomicActivityLegal() {
       params: {
         nationalID: getActivePersonNationalId()
       }
+    },
+    options: {
+      enabled: isLegalBool
     }
   })
 
