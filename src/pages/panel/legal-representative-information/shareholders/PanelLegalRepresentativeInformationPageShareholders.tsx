@@ -52,6 +52,7 @@ function PanelLegalRepresentativeInformationPageShareholders() {
   return (
     <RenderLogic
       error={error} isLoading={isFetching}
+      isEmpty={tableData?.length === 0}
     >
       <Table
         columns={PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS}

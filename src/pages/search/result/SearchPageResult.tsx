@@ -13,10 +13,13 @@ export type SearchPageResultProps = {
   resultData: SearchPageResultCardDataType[];
   formIsSubmitted: boolean;
   error: RenderLogicProps['error'];
+  loading: boolean;
 }
 
 function SearchPageResult(
-  {resultData, formIsSubmitted, error}: SearchPageResultProps
+  {
+    resultData, formIsSubmitted, error, loading
+  }: SearchPageResultProps
 ) {
 
   const emptyElement = formIsSubmitted ? (
@@ -42,6 +45,7 @@ function SearchPageResult(
         isEmpty={resultData?.length === 0}
         emptyElement={emptyElement}
         error={error}
+        isLoading={loading}
       >
         <div className={'flex flex-col gap-y-8 py-4'}>
           <p className='text-sm text-secondary-text'>

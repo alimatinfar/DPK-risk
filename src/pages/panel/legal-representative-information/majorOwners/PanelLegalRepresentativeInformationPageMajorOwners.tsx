@@ -52,6 +52,7 @@ function PanelLegalRepresentativeInformationPageMajorOwners() {
   return (
     <RenderLogic
       error={error} isLoading={isFetching}
+      isEmpty={tableData?.length === 0}
     >
       <Table
         columns={PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS}

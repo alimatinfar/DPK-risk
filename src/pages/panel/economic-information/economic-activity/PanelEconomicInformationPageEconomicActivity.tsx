@@ -25,18 +25,19 @@ function PanelEconomicInformationPageEconomicActivity() {
     naturalTableData, naturalLoading, naturalError
   } = usePanelEconomicInformationPageEconomicActivityNatural()
 
+  const tableData = isLegalBool ? legalTableData : naturalTableData
+
   return (
     <RenderLogic
       error={legalError || naturalError}
       isLoading={legalLoading || naturalLoading}
+      isEmpty={tableData?.length === 0}
     >
       <Table
         columns={
           isLegalBool ? PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS : PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS
         }
-        data={
-          isLegalBool ? legalTableData : naturalTableData
-        }
+        data={tableData}
       />
     </RenderLogic>
   );

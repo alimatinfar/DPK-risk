@@ -47,6 +47,7 @@ function PanelEconomicInformationPagePrimarySourceOfIncome() {
   return (
     <RenderLogic
       isLoading={isFetching} error={error}
+      isEmpty={tableData?.length === 0}
     >
       <Table
         columns={PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS}

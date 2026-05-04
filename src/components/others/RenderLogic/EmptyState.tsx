@@ -1,4 +1,5 @@
 import type {ReactNode} from 'react';
+import EmptyStateIcon from "../../svg/RenderLogic/EmptyStateIcon.tsx";
 
 
 type Props = {
@@ -10,11 +11,9 @@ type Props = {
 function EmptyState({title, description, icon}: Props) {
   return (
     <div className='py-10 px-5 flex flex-col items-center max-w-90 mx-auto'>
-      {icon && (
-        <div className='mb-3'>
-          {icon}
-        </div>
-      )}
+      <div className='mb-3'>
+        {icon || <EmptyStateIcon />}
+      </div>
 
       <p className='text-sm font-medium text-center'>
         {title || 'نتيجه اي يافت نشد!'}

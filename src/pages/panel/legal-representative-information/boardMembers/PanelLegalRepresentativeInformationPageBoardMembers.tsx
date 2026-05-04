@@ -47,6 +47,7 @@ function PanelLegalRepresentativeInformationPageBoardMembers() {
   return (
     <RenderLogic
       isLoading={isFetching} error={error}
+      isEmpty={tableData?.length === 0}
     >
       <Table
         columns={PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS}
