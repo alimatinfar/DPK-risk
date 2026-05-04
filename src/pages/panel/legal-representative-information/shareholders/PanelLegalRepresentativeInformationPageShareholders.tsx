@@ -9,6 +9,7 @@ import APIS from "../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {PanelLegalRepresentativeInfoShareholdersResponseType} from "./index.types.ts";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 
 function PanelLegalRepresentativeInformationPageShareholders() {
@@ -39,8 +40,8 @@ function PanelLegalRepresentativeInformationPageShareholders() {
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.MANAGEMENT_SEAT_STATUS]: item?.managementStatus,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NUMBER_OF_SHARES]: item?.sharesNumber,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.SHARE_PERCENTAGE]: item?.percentageOfTotalShares,
-      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.FROM_DATE]: item?.fromDate,
-      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.TO_DATE]: item?.toDate,
+      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.FROM_DATE]: displayDate(item?.fromDate),
+      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.TO_DATE]: displayDate(item?.toDate),
     }))
   }, [data])
 

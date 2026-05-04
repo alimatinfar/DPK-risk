@@ -9,6 +9,7 @@ import APIS from "../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import type {PanelLegalRepresentativeStatutoryAuditorResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 
 function PanelLegalRepresentativeInformationPageStatutoryAuditor() {
@@ -35,8 +36,8 @@ function PanelLegalRepresentativeInformationPageStatutoryAuditor() {
       [PANEL_LEGAL_REPRESENTATIVE_STATUTORY_AUDITOR_TABLE_COLUMNS_KEYS.FIRST_NAME]: item?.firstName,
       [PANEL_LEGAL_REPRESENTATIVE_STATUTORY_AUDITOR_TABLE_COLUMNS_KEYS.LAST_NAME]: item?.lastName,
       [PANEL_LEGAL_REPRESENTATIVE_STATUTORY_AUDITOR_TABLE_COLUMNS_KEYS.NATIONAL_CODE]: item?.nationalID,
-      [PANEL_LEGAL_REPRESENTATIVE_STATUTORY_AUDITOR_TABLE_COLUMNS_KEYS.FROM_DATE]: item?.fromDate,
-      [PANEL_LEGAL_REPRESENTATIVE_STATUTORY_AUDITOR_TABLE_COLUMNS_KEYS.TO_DATE]: item?.toDate,
+      [PANEL_LEGAL_REPRESENTATIVE_STATUTORY_AUDITOR_TABLE_COLUMNS_KEYS.FROM_DATE]: displayDate(item?.fromDate),
+      [PANEL_LEGAL_REPRESENTATIVE_STATUTORY_AUDITOR_TABLE_COLUMNS_KEYS.TO_DATE]: displayDate(item?.toDate),
     }))
   }, [data])
 

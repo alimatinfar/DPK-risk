@@ -9,6 +9,7 @@ import APIS from "../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import type {PanelLegalRepresentativeInformationResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 
 function PanelLegalRepresentativeInformationPageLegalRepresentative() {
@@ -42,8 +43,8 @@ function PanelLegalRepresentativeInformationPageLegalRepresentative() {
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.AUTHENTICATION_CODE]: item?.authenticationCode,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.ISSUING_AUTHORITY]: item?.issuingAuthority,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.PLACE_OF_ISSUE]: item?.issuancePlace,
-      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.ISSUE_DATE]: item?.dateOfIssuance,
-      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.EXPIRATION_DATE]: item?.expirationDate,
+      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.ISSUE_DATE]: displayDate(item?.dateOfIssuance),
+      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.EXPIRATION_DATE]: displayDate(item?.expirationDate),
     }))
   }, [data])
 

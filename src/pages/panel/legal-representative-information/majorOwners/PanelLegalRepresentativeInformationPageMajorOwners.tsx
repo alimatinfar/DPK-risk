@@ -10,6 +10,7 @@ import APIS from "../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {PanelLegalRepresentativeInfoMajorOwnersResponseType} from "./index.types.ts";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 
 function PanelLegalRepresentativeInformationPageMajorOwners() {
@@ -40,8 +41,8 @@ function PanelLegalRepresentativeInformationPageMajorOwners() {
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.MANAGEMENT_SEAT_STATUS]: item?.managementStatus,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.CAPITAL_AMOUNT]: item?.capitalAmount,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.OWNERSHIP_PERCENTAGE]: item?.ownershipPercentage,
-      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.FROM_DATE]: item?.fromDate,
-      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.TO_DATE]: item?.toDate,
+      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.FROM_DATE]: displayDate(item?.fromDate),
+      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.TO_DATE]: displayDate(item?.toDate),
     }))
   }, [data])
 
