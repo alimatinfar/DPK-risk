@@ -9,7 +9,7 @@ function PanelLayout() {
       <PanelSideBar />
 
       <div className={`
-        ${PANEL_CONTENT_PADDING_RIGHT} bg-white
+        ${PANEL_CONTENT_PADDING_RIGHT} bg-white overflow-y-auto max-h-dvh
       `}>
         <PanelTopBar />
 
