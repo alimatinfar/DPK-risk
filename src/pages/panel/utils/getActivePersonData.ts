@@ -23,19 +23,19 @@ function getActivePersonData() {
   function isNatural(
     data: SearchPageResultCardDataType
   ): data is SearchPageResultCardDataTypeNatural & { name: string } {
-    return data.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name
+    return data?.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name
   }
 
   function isForeignCitizen(
     data: SearchPageResultCardDataType
   ): data is SearchPageResultCardDataTypeForeignCitizen & { name: string } {
-    return data.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name
+    return data?.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name
   }
 
   function isLegal(
     data: SearchPageResultCardDataType
   ): data is SearchPageResultCardDataTypeLegal & { name: string } {
-    return data.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name
+    return data?.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name
   }
 
   function getActivePersonNationalId() {
