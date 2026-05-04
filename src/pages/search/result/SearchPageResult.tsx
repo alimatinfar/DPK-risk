@@ -24,13 +24,13 @@ function SearchPageResult(
 
   const emptyElement = formIsSubmitted ? (
     <EmptyState
-      icon={<FilterEmptyState/>}
+      icon={<EmptyStateIcon/>}
       title='نتيجه اي يافت نشد !'
       description='لطفاً فیلترهای اعمال‌شده را بررسی کرده و در صورت نیاز، شرایط جستجو را تغییر دهید.'
     />
   ) : (
     <EmptyState
-      icon={<EmptyStateIcon/>}
+      icon={<FilterEmptyState/>}
       title='داده‌ای برای نمایش وجود ندارد!'
       description='جهت نمایش اطلاعات، ابتدا فیلترهای جستجو را تکمیل و جستجو کنید'
     />
