@@ -8,7 +8,7 @@ import Button from "../../../components/Form/Button/Button.tsx";
 import DeleteIcon from "../../../components/svg/DeleteIcon.tsx";
 import useSearchPageForm from "./hooks/useSearchPageForm.ts";
 import RiskIcon from "../../../components/svg/logo/RiskIcon.tsx";
-import {SEARCH_PAGE_PADDING_X} from "../SearchPage.constances.ts";
+import {SEARCH_PAGE_MAX_WIDTH, SEARCH_PAGE_PADDING_X} from "../SearchPage.constances.ts";
 import type {SearchPageFormPersonType} from "./SearchPageForm.types.ts";
 import type {SetStateType} from "../../../types/SetStateType.ts";
 
@@ -33,7 +33,7 @@ function SearchPageForm(
   })
 
   return (
-    <div className={`relative z-20 flex flex-col gap-y-8 w-full py-8 ${SEARCH_PAGE_PADDING_X}`}>
+    <div className={`relative z-20 flex flex-col gap-y-8 w-full py-8 ${SEARCH_PAGE_PADDING_X} ${SEARCH_PAGE_MAX_WIDTH}`}>
       <div className='flex flex-col items-center gap-y-2 text-center'>
         <RiskIcon/>
 

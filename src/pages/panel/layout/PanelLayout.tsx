@@ -5,11 +5,11 @@ import {PANEL_CONTENT_PADDING_RIGHT} from "./PanelLayout.constances.ts";
 
 function PanelLayout() {
   return (
-    <>
+    <div className='flex items-start w-full max-w-[1920px] mx-auto'>
       <PanelSideBar />
 
       <div className={`
-        ${PANEL_CONTENT_PADDING_RIGHT} bg-white
+        bg-white overflow-y-auto max-h-dvh flex-1
       `}>
         <PanelTopBar />
 
@@ -17,7 +17,7 @@ function PanelLayout() {
           <Outlet />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

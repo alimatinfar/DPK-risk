@@ -1,8 +1,14 @@
 export type PanelLegalRepresentativeBoardMembersResponseType = {
-  nationalID: number;
+  customerId: number;
   personalityType: number;
   companyName: string;
   boardPosition: string;
   boardStartDate: number;
   boardEndDate: number;
+  nationalID: number;
+  firstName: string;
+  lastName: string;
+  nationality: string;
+  nationalityTitle: string;
+  legalName: string;
 }[]

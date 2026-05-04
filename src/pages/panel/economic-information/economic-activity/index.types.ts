@@ -19,8 +19,8 @@ export type PanelEconomicInformationActivityNaturalResponseType = {
   businessLicense: null,
   activityLicenseNumber: null,
   licensingAuthority: null,
-  licenseIssuanceDate: null,
-  licenseExpirationDate: null,
+  licenseIssuanceDate: number,
+  licenseExpirationDate: number,
   announcementDate: number;
   fromDate: number;
   registrationDate: number;

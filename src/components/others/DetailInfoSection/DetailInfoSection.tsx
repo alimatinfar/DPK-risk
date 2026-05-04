@@ -1,5 +1,6 @@
 import type {DetailInfoSectionProps} from "./DetailInfoSection.types.ts";
 import {useMemo} from "react";
+import NoDataTag from "../Tag/inheritedTags/noDataTag.tsx";
 
 function DetailInfoSection(
   {title, infoList}: DetailInfoSectionProps
@@ -55,7 +56,7 @@ function DetailInfoSection(
                   {item.label}
                 </span>
                 <span className="text-gray-900">
-                  {item.value || '-'}
+                  {item.value || <NoDataTag />}
                 </span>
               </div>
             ))}

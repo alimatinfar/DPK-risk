@@ -1,5 +1,5 @@
 export type PanelLegalRepresentativeInformationResponseType = {
-  nationalID: number;
+  customerId: number;
   ratio: string;
   certificateType: number;
   certificateNumber: number;
@@ -8,4 +8,10 @@ export type PanelLegalRepresentativeInformationResponseType = {
   dateOfIssuance: number;
   expirationDate: number;
   issuancePlace: string;
-}
+  nationalID: number;
+  firstName: string;
+  lastName: string;
+  nationality: string;
+  nationalityTitle: string;
+  legalName: string;
+}[]

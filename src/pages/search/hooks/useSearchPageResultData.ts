@@ -33,12 +33,14 @@ function useSearchPageResultData(
     return [
       ...data.data.actualCustomers.map(item => ({
         type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
+        customerId: item.customerId,
         name: `${item.firstName} ${item.lastName}`,
         [nationalCodeFieldName]: String(item.nationalID),
         [birthCertificationNumberFieldName]: String(item.shenasnameId),
       })),
       ...data.data.nonCitizenCustomers.map(item => ({
         type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
+        customerId: item.customerId,
         name: `${item.firstName} ${item.lastName}`,
         [comprehensiveForeignNationalsIdFieldName]: String(item.nationalID),
         [nationalityFieldName]: item.nationalityTitle,
@@ -46,6 +48,7 @@ function useSearchPageResultData(
       })),
       ...data.data.legalCustomers.map(item => ({
         type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
+        customerId: item.customerId,
         name: item.legalName,
         [legalBrandNameFieldName]: item.tradeName,
         [legalRegistrationNumberFieldName]: String(item.legalNationalID),

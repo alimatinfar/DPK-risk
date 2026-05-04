@@ -46,6 +46,7 @@ function SearchPage() {
 
       <SearchPageResult
         resultData={resultData} formIsSubmitted={isSubmittedSuccessful} error={error}
+        loading={isPending}
       />
     </>
   );

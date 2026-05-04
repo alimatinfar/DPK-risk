@@ -46,7 +46,7 @@ export type BasicInformationNaturalResponseType = {
   workPostalCode: number;
   workMailbox: number;
   lifeStatus: number;
-  deathDate: null;
+  deathDate: number | string;
 }
 
 export type BasicInformationForeignCitizenResponseType = {
@@ -91,9 +91,9 @@ export type BasicInformationLegalResponseType = {
   nationalIdStatus: number;
   legalEntityStatus: number;
   eNamadStatus: string;
-  dissolutionDate: null,
-  completionDate: null,
-  suspensionDate: null,
+  dissolutionDate: number | string,
+  completionDate: number | string,
+  suspensionDate: number | string,
   emailAddress: string;
   webSite: string;
   workPhone: string;

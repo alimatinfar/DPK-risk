@@ -2,6 +2,7 @@ import {useMemo} from 'react';
 import type {DetailInfoSectionProps} from "../../../../components/others/DetailInfoSection";
 import getActivePersonData from "../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 function usePanelBasicInformationPageIdentityInfoListLegal(
   {legalData}: Pick<BasicInfoDataTypeForEachPersonType, 'legalData'>
@@ -37,7 +38,7 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'تاریخ تاسیس',
-        value: data?.establishmentDate,
+        value: displayDate(data?.establishmentDate),
       },
       {
         label: 'شناسه ملی',
@@ -57,7 +58,7 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'تاریخ مجوز',
-        value: data?.licenseDate,
+        value: displayDate(data?.licenseDate),
       },
       {
         label: 'استان محل ثبت',
@@ -77,7 +78,7 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'تاریخ ثبت',
-        value: data?.registrationDate,
+        value: displayDate(data?.registrationDate),
       },
       {
         label: 'واحد ثبتی',
@@ -89,15 +90,15 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'تاریخ انحلال',
-        value: data?.dissolutionDate,
+        value: displayDate(data?.dissolutionDate),
       },
       {
         label: 'تاریخ ختم تصفیه',
-        value: data?.completionDate,
+        value: displayDate(data?.completionDate),
       },
       {
         label: 'تاریخ تعلیق',
-        value: data?.suspensionDate,
+        value: displayDate(data?.suspensionDate),
       },
       {
         label: 'پست الکترونیکی',

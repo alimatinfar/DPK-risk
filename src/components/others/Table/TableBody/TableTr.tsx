@@ -4,6 +4,7 @@ import type {TableColumnType} from "../TableExports";
 import ArrowIcon from "../../../svg/ArrowIcon";
 import IconClickable from "../../Icon/IconClickable";
 import useGetTableMainColumns from "../hooks/useGetTableMainColumns.ts";
+import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
 
 
 export type TableTrProps = {
@@ -13,22 +14,25 @@ export type TableTrProps = {
   hasExtraTableData: boolean;
   toggleRow: () => void;
   extraTableDataIsOpen: boolean;
+  isEven: boolean;
 }
 
 function TableTr(
-  {isLast, columns, row, hasExtraTableData, toggleRow, extraTableDataIsOpen}: TableTrProps
+  {isLast, columns, row, hasExtraTableData, toggleRow, extraTableDataIsOpen, isEven}: TableTrProps
 ) {
 
   const {mainColumns} = useGetTableMainColumns({columns})
 
   return (
     <tr
-      className={isLast ? '' : 'border-b border-gray-300'}
+      className={`
+        ${isLast ? '' : 'border-b border-gray-300'} ${isEven ? '' : 'bg-gray-50'}
+      `}
     >
       {mainColumns.map(({accessor, renderType, tdWidth}, index) => {
         const tdData =
           row[accessor] == null || row[accessor] === ""
-            ? "-"
+            ? <NoDataTag />
             : row[accessor];
 
         const isFirstColumn = index === 0;

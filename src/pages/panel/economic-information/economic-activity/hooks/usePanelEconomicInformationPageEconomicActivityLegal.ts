@@ -4,11 +4,12 @@ import APIS from "../../../../../request/constances/apis.ts";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import {useMemo} from "react";
 import {PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS_KEYS} from "../index.legal.constances.ts";
+import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
 
 
 function usePanelEconomicInformationPageEconomicActivityLegal() {
 
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {activePersonData, isLegalBool} = getActivePersonData()
 
   const {
     data, isFetching, error
@@ -16,8 +17,11 @@ function usePanelEconomicInformationPageEconomicActivityLegal() {
     axiosConfig: {
       url: APIS.GET_ECONOMIC_ACTIVITY_INFO_LEGAL,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
+    },
+    options: {
+      enabled: isLegalBool
     }
   })
 
@@ -37,11 +41,11 @@ function usePanelEconomicInformationPageEconomicActivityLegal() {
       [PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS_KEYS.COMMERCIAL_CARD_NUMBER]:
       item?.commercialCardNumber,
       [PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS_KEYS.DECLARATION_DATE]:
-      item?.announcementDate,
+      displayDate(item?.announcementDate),
       [PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS_KEYS.FROM_DATE]:
-      item?.validityStartDate,
+      displayDate(item?.validityStartDate),
       [PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS_KEYS.REGISTRATION_DATE]:
-      item?.validityEndDate,
+      displayDate(item?.validityEndDate),
     }))
 
   }, [data])

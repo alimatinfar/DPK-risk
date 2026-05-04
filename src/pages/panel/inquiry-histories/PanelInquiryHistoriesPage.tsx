@@ -1,8 +1,8 @@
+import DevelopingSection from "../../../components/others/RenderLogic/DevelopingSection.tsx";
+
 function PanelInquiryHistoriesPage() {
   return (
-    <div>
-      PanelInquiryHistoriesPage
-    </div>
+    <DevelopingSection />
   );
 }
 

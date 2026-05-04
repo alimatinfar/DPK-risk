@@ -57,13 +57,14 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
 
           const isLast = index === data.length - 1;
           const extraTableDataIsOpen = openExtraTableDataRow === row.id
+          const isEven = index % 2 === 0
 
           return (
             <>
               <TableTr
                 key={row.id} columns={columns} row={row} isLast={isLast}
                 hasExtraTableData={hasExtraTableData} extraTableDataIsOpen={extraTableDataIsOpen}
-                toggleRow={() => toggleRow(row.id)}
+                toggleRow={() => toggleRow(row.id)} isEven={isEven}
               />
 
               {(hasExtraTableData) && (

@@ -1,6 +1,6 @@
 
 export type PanelLegalRepresentativeInfoShareholdersResponseType = {
-  nationalID: string;
+  customerId: number;
   personalityType: number;
   companyName: string;
   managementStatus: number;
@@ -8,4 +8,10 @@ export type PanelLegalRepresentativeInfoShareholdersResponseType = {
   percentageOfTotalShares: number;
   fromDate: number;
   toDate: number;
-}
+  nationalID: number;
+  firstName: string;
+  lastName: string;
+  nationality: string;
+  nationalityTitle: string;
+  legalName: string;
+}[]
