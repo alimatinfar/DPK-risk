@@ -6,7 +6,6 @@ export const PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS = {
   CUSTOMER_NUMBER: 'customerNumber',
   PERSON_TYPE: 'personType',
   NATIONALITY: 'nationality',
-  NATIONAL_CODE_OR_FOREIGN_ID: 'nationalCodeOrForeignId',
   NATIONAL_ID: 'nationalId',
   MANAGEMENT_SEAT_STATUS: 'managementSeatStatus',
   CAPITAL_AMOUNT: 'capitalAmount',
@@ -29,15 +28,11 @@ export const PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS: TableColumnT
     accessor: PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NATIONALITY,
   },
   {
-    label: 'نام و نام خانوادگی | نام شرکت/موسسه',
+    label: 'نام و نام خانوادگی / نام شرکت/موسسه',
     accessor: PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NAME,
   },
   {
-    label: 'کدملی/شناسه فراگیر اتباع',
-    accessor: PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NATIONAL_CODE_OR_FOREIGN_ID,
-  },
-  {
-    label: 'شناسه ملی',
+    label: 'کدملی/شناسه فراگیر اتباع/شناسه ملی',
     accessor: PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NATIONAL_ID,
   },
   {

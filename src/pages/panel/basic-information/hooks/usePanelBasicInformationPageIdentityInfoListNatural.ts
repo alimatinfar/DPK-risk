@@ -2,6 +2,7 @@ import type {DetailInfoSectionProps} from "../../../../components/others/DetailI
 import {useMemo} from "react";
 import getActivePersonData from "../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
+import displayDate from "../../../../utils/dateAndTIme/displayDate.ts";
 
 
 function usePanelBasicInformationPageIdentityInfoListNatural(
@@ -63,11 +64,11 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
         },
         {
           label: 'تاریخ صدور مدرک شناسایی',
-          value: foreignCitizenSpecificData?.issueDateOfCertificate,
+          value: displayDate(foreignCitizenSpecificData?.issueDateOfCertificate),
         },
         {
           label: 'تاریخ انقضا مدرک شناسایی',
-          value: foreignCitizenSpecificData?.expirationDateOfCertificate,
+          value: displayDate(foreignCitizenSpecificData?.expirationDateOfCertificate),
         },
         {
           label: 'نوع گذرنامه',
@@ -79,11 +80,11 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
         },
         {
           label: 'تاریخ صدور پروانه اقامت/روادید',
-          value: foreignCitizenSpecificData?.licenseIssuanceDate,
+          value: displayDate(foreignCitizenSpecificData?.licenseIssuanceDate),
         },
         {
           label: 'تاریخ انقضا پروانه اقامت/روادید',
-          value: foreignCitizenSpecificData?.licenseExpirationDate,
+          value: displayDate(foreignCitizenSpecificData?.licenseExpirationDate),
         },
       ] : [
         {
@@ -102,7 +103,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
 
       {
         label: 'تاریخ تولد',
-        value: customerData?.birthDate,
+        value: displayDate(customerData?.birthDate),
       },
       {
         label: 'کشور محل تولد',
@@ -124,7 +125,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
         },
         {
           label: 'تاریخ آخرین ورود به کشور',
-          value: foreignCitizenSpecificData?.dateOfLastEntryIntoTheCountry,
+          value: displayDate(foreignCitizenSpecificData?.dateOfLastEntryIntoTheCountry),
         },
       ] : [],
 
@@ -134,7 +135,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       },
       {
         label: 'تاریخ وفات',
-        value: customerData?.deathDate,
+        value: displayDate(customerData?.deathDate),
       },
       {
         label: 'سن',
@@ -154,7 +155,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       },
       {
         label: 'تاریخ تغییر وضعیت تاهل',
-        value: customerData?.maritalStatusChangeDate,
+        value: displayDate(customerData?.maritalStatusChangeDate),
       },
       {
         label: 'تلفن همراه',
