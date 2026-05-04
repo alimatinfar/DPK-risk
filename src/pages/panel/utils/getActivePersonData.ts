@@ -2,7 +2,7 @@ import Ls from "../../../utils/customLocalStorage.ts";
 import LS_KEYS from "../../../constances/localStorageKeys.ts";
 import type {
   SearchPageResultCardDataType, SearchPageResultCardDataTypeForeignCitizen,
-  SearchPageResultCardDataTypeLegal, SearchPageResultCardDataTypeNatural
+  SearchPageResultCardDataTypeLegal, SearchPageResultCardDataTypeNatural, SearchPageResultCardDataTypeShareFields
 } from "../../search/result/SearchPageResult.types.ts";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../search/form/SearchPageForm.constances.ts";
 import {
@@ -22,19 +22,19 @@ function getActivePersonData() {
 
   function isNatural(
     data: SearchPageResultCardDataType
-  ): data is SearchPageResultCardDataTypeNatural & { name: string } {
+  ): data is SearchPageResultCardDataTypeNatural & SearchPageResultCardDataTypeShareFields {
     return data.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name
   }
 
   function isForeignCitizen(
     data: SearchPageResultCardDataType
-  ): data is SearchPageResultCardDataTypeForeignCitizen & { name: string } {
+  ): data is SearchPageResultCardDataTypeForeignCitizen & SearchPageResultCardDataTypeShareFields {
     return data.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name
   }
 
   function isLegal(
     data: SearchPageResultCardDataType
-  ): data is SearchPageResultCardDataTypeLegal & { name: string } {
+  ): data is SearchPageResultCardDataTypeLegal & SearchPageResultCardDataTypeShareFields {
     return data.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name
   }
 

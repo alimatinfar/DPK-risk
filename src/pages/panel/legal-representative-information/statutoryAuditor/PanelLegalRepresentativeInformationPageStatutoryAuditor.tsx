@@ -13,16 +13,15 @@ import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.t
 
 function PanelLegalRepresentativeInformationPageStatutoryAuditor() {
 
-
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {activePersonData} = getActivePersonData()
 
   const {
     data, isFetching, error
   } = useFetchData<PanelLegalRepresentativeStatutoryAuditorResponseType>({
     axiosConfig: {
-      url: APIS.GET_LEGAL_INSPECTOR_INFO,
+      url: APIS.GET_STATUTORY_AUDITOR_INFO,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     }
   })

@@ -8,7 +8,7 @@ import {PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS_KEYS} from "../i
 
 function usePanelEconomicInformationPageEconomicActivityLegal() {
 
-  const {getActivePersonNationalId, isLegalBool} = getActivePersonData()
+  const {activePersonData, isLegalBool} = getActivePersonData()
 
   const {
     data, isFetching, error
@@ -16,7 +16,7 @@ function usePanelEconomicInformationPageEconomicActivityLegal() {
     axiosConfig: {
       url: APIS.GET_ECONOMIC_ACTIVITY_INFO_LEGAL,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     },
     options: {

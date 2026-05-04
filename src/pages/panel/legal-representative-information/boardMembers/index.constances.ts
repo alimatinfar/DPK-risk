@@ -2,13 +2,11 @@ import type { TableColumnType } from "../../../../components/others/Table/TableE
 
 
 export const PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS = {
+  NAME: 'name',
   CUSTOMER_NUMBER: 'customerNumber',
   PERSON_TYPE: 'personType',
   NATIONALITY: 'nationality',
-  FIRST_NAME: 'firstName',
-  LAST_NAME: 'lastName',
   NATIONAL_CODE_OR_FOREIGN_ID: 'nationalCodeOrForeignId',
-  COMPANY_OR_INSTITUTE_NAME: 'companyOrInstituteName',
   NATIONAL_ID: 'nationalId',
   BOARD_POSITION: 'boardPosition',
   BOARD_START_DATE: 'boardStartDate',
@@ -29,20 +27,12 @@ export const PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS: TableColumn
     accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NATIONALITY,
   },
   {
-    label: 'نام',
-    accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.FIRST_NAME,
-  },
-  {
-    label: 'نام خانوادگی',
-    accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.LAST_NAME,
+    label: 'نام و نام خانوادگی | نام شرکت/موسسه',
+    accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NAME,
   },
   {
     label: 'کدملی/شناسه فراگیر اتباع',
     accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NATIONAL_CODE_OR_FOREIGN_ID,
-  },
-  {
-    label: 'نام شرکت/موسسه',
-    accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.COMPANY_OR_INSTITUTE_NAME,
   },
   {
     label: 'شناسه ملی',

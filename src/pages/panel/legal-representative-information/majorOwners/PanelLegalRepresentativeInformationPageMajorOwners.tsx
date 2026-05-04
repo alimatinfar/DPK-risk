@@ -14,15 +14,15 @@ import type {PanelLegalRepresentativeInfoMajorOwnersResponseType} from "./index.
 
 function PanelLegalRepresentativeInformationPageMajorOwners() {
 
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {activePersonData} = getActivePersonData()
 
   const {
     data, isFetching, error
   } = useFetchData<PanelLegalRepresentativeInfoMajorOwnersResponseType>({
     axiosConfig: {
-      url: APIS.GET_LEGAL_INSPECTOR_INFO,
+      url: APIS.GET_MAJOR_OWNERS_INFO,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     }
   })

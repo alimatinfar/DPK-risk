@@ -14,7 +14,7 @@ import withSeparator from "../../../../utils/separator/withSeparator.ts";
 
 function PanelEconomicInformationPagePrimarySourceOfIncome() {
 
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {activePersonData} = getActivePersonData()
 
   const {
     data, isFetching, error
@@ -22,7 +22,7 @@ function PanelEconomicInformationPagePrimarySourceOfIncome() {
     axiosConfig: {
       url: APIS.GET_MAIN_INCOME_INFO,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     }
   })

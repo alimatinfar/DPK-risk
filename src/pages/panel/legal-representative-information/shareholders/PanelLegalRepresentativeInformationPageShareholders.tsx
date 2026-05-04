@@ -13,16 +13,15 @@ import type {PanelLegalRepresentativeInfoShareholdersResponseType} from "./index
 
 function PanelLegalRepresentativeInformationPageShareholders() {
 
-
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {activePersonData} = getActivePersonData()
 
   const {
     data, isFetching, error
   } = useFetchData<PanelLegalRepresentativeInfoShareholdersResponseType>({
     axiosConfig: {
-      url: APIS.GET_LEGAL_INSPECTOR_INFO,
+      url: APIS.GET_SHAREHOLDERS_INFO,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     }
   })

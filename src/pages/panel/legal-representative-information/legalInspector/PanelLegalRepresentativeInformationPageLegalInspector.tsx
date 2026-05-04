@@ -13,7 +13,7 @@ import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.t
 
 function PanelLegalRepresentativeInformationPageLegalInspector() {
 
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {activePersonData} = getActivePersonData()
 
   const {
     data, isFetching, error
@@ -21,7 +21,7 @@ function PanelLegalRepresentativeInformationPageLegalInspector() {
     axiosConfig: {
       url: APIS.GET_LEGAL_INSPECTOR_INFO,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     }
   })

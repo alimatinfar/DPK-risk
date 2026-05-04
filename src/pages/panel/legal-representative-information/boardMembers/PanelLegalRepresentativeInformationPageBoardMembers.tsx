@@ -12,15 +12,15 @@ import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.t
 
 function PanelLegalRepresentativeInformationPageBoardMembers() {
 
-  const {getActivePersonNationalId} = getActivePersonData()
+  const {activePersonData} = getActivePersonData()
 
   const {
     data, isFetching, error
   } = useFetchData<PanelLegalRepresentativeBoardMembersResponseType>({
     axiosConfig: {
-      url: APIS.GET_MAIN_INCOME_INFO,
+      url: APIS.GET_BOARD_MEMBERS_INFO,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     }
   })

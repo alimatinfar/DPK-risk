@@ -8,7 +8,7 @@ import {PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS_KEYS} from "../index.c
 
 function usePanelEconomicInformationPageEconomicActivityNatural() {
 
-  const {getActivePersonNationalId, isLegalBool} = getActivePersonData()
+  const {activePersonData, isLegalBool} = getActivePersonData()
 
   //natural or foreign citizen
   const {
@@ -17,7 +17,7 @@ function usePanelEconomicInformationPageEconomicActivityNatural() {
     axiosConfig: {
       url: APIS.GET_ECONOMIC_ACTIVITY_INFO_NATURAL,
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     },
     options: {

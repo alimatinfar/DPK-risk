@@ -34,6 +34,9 @@ export type SearchPageResultCardDataTypeLegal = {
   [legalTypeFieldName]: string;
 }
 
-export type SearchPageResultCardDataType = {
+export type SearchPageResultCardDataTypeShareFields = {
   name: string;
-} & (SearchPageResultCardDataTypeNatural | SearchPageResultCardDataTypeForeignCitizen | SearchPageResultCardDataTypeLegal)
+  customerId: string | number;
+}
+
+export type SearchPageResultCardDataType = SearchPageResultCardDataTypeShareFields & (SearchPageResultCardDataTypeNatural | SearchPageResultCardDataTypeForeignCitizen | SearchPageResultCardDataTypeLegal)
