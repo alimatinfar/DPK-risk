@@ -3,16 +3,16 @@ import {useMemo} from "react";
 
 
 type Props = {
-  postalCode: string;
-  province: string;
-  city: string;
-  address: string;
-  buildingNumber: string;
-  floor: string;
-  unit: string;
-  buildingName: string;
-  postOfficeBox: string;
-  phone: string;
+  postalCode: string | number;
+  province: string | number;
+  city: string | number;
+  address: string | number;
+  buildingNumber: string | number;
+  floor: string | number;
+  unit: string | number;
+  buildingName: string | number;
+  postOfficeBox: string | number;
+  phone: string | number;
   disabled?: boolean;
 }
 

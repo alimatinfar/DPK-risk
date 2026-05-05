@@ -20,11 +20,11 @@ function usePanelBasicInformationPageWorkplaceAddressList(
     address: workResponseData?.workAddress || '',
     city: workResponseData?.workCity || '',
     province: workResponseData?.workProvince || '',
-    floor: String(workResponseData?.workFloor) || '',
+    floor: workResponseData?.workFloor || '',
     buildingName: workResponseData?.workBuildingName || '',
-    postalCode: String(workResponseData?.workPostalCode) || '',
-    unit: String(workResponseData?.workUnit) || '',
-    postOfficeBox: String(workResponseData?.workMailbox) || '',
+    postalCode: workResponseData?.workPostalCode || '',
+    unit: workResponseData?.workUnit || '',
+    postOfficeBox: workResponseData?.workMailbox || '',
     buildingNumber: workResponseData?.workPlate || '',
     phone: workResponseData?.workPhone || ''
   })
