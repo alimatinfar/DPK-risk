@@ -9,11 +9,11 @@ function PanelLayout() {
       <PanelSideBar />
 
       <div className={`
-        bg-white overflow-y-auto max-h-dvh flex-1
+        bg-white max-h-dvh flex-1 flex flex-col
       `}>
         <PanelTopBar />
 
-        <div className='p-4'>
+        <div className='flex-1 p-4 overflow-y-auto'>
           <Outlet />
         </div>
       </div>

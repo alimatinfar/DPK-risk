@@ -23,7 +23,7 @@ function PanelTopBar() {
 
   return (
     <div className={`
-      ${PANEL_TOPBAR_HEIGHT} w-full flex flex-col
+      w-full flex flex-col
     `}>
       <div className='flex items-center justify-between h-15 px-4 py-2 border-b border-gray-200'>
         <p className='text-primary font-semibold text-xl'>
@@ -33,7 +33,7 @@ function PanelTopBar() {
         <MainLayoutProfileSection removeShadow/>
       </div>
 
-      <div className='flex-1 py-4 px-3'>
+      <div className='flex-1 pt-4 px-3'>
         <div
           className='h-15 rounded-lg flex items-center justify-between gap-x-4 border-y border-gray-200 bg-[#DDE8F2] px-2'>
           <div className='flex items-center gap-x-8'>
