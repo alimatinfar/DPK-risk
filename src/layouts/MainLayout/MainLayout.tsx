@@ -12,7 +12,7 @@ function MainLayout(
 ) {
   return (
     <div className='flex flex-col relative'>
-      <div className='flex items-center justify-between h-16 p-4'>
+      <div className='flex items-center justify-between h-16 p-4 z-30'>
         <SaderatLogoAndTypo />
 
         <MainLayoutProfileSection />

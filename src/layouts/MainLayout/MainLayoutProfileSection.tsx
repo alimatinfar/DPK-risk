@@ -7,6 +7,7 @@ import useModalOpenBoolean from "../../hooks/modal/useModalOpenBoolean.ts";
 import DisplayModal from "../../components/others/Modal/DisplayModal.tsx";
 import MainLayoutProfileDropDownDeleteModal from "./MainLayoutProfileDropDown/MainLayoutProfileDropDownDeleteModal.tsx";
 import UserIcon from "../../components/svg/UserIcon.tsx";
+import {MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} from "./MainLayoutProfileDropDown/index.constances";
 
 
 type Props = {
@@ -35,14 +36,14 @@ function MainLayoutProfileSection(
             openLogoutModalHandler={openLogoutModalHandler}
           />
         }
-        origin="left" offset={23}
+        origin="left" offset={5}
       >
         <IconClickable
           className={`
-            flex items-center justify-between gap-x-2 px-1.5 bg-white h-10 min-w-42 
+            flex items-center justify-between gap-x-2 px-1.5 bg-white h-10 ${MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} 
             ${removeShadow ? '' : 'shadow-base'}
           `}
-          rounded='rounded-md'
+          rounded='rounded-lg'
           hoverClass='hover:bg-gray-50'
         >
           <div className='flex items-center gap-x-1'>
@@ -50,7 +51,7 @@ function MainLayoutProfileSection(
               <UserIcon textColor="text-white" width='100%' height='100%' />
             </div>
             <span className="px-1 select-none text-sm">
-              کاربر سامانه
+              کاربر سامانه (99589)
             </span>
           </div>
           <ArrowIcon/>

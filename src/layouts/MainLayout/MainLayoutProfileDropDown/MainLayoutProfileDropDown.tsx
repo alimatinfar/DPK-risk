@@ -1,7 +1,6 @@
-import MainLayoutProfileDropDownLink from "./MainLayoutProfileDropDownLink.tsx";
-import {Link} from "react-router";
-import useMainLayoutProfileDropDown from "./hooks/useMainLayoutProfileDropDown.tsx";
-
+import LogoutIcon from "../../../components/svg/LogoutIcon"
+import BankIcon from "../../../components/svg/BankIcon"
+import {MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} from "./index.constances";
 
 export type ProfileDropDownProps = {
   closeDropDown: () => void;
@@ -10,51 +9,41 @@ export type ProfileDropDownProps = {
 
 function MainLayoutProfileDropDown({closeDropDown, openLogoutModalHandler}: ProfileDropDownProps) {
 
-  const {
-    dropDownItems
-  } = useMainLayoutProfileDropDown({
-    openLogoutModalHandler
-  })
+  function logoutOnClick() {
+    openLogoutModalHandler()
+    closeDropDown();
+  }
 
   return (
-    <div className="flex flex-col bg-white border border-gray-300 rounded-lg py-2 px-1 space-y-1 min-w-64">
-      <MainLayoutProfileDropDownLink/>
+    <div className={`flex flex-col p-2 gap-y-2 w-full ${MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH}`}>
+      <div className='bg-gray-100 flex flex-col gap-y-2 p-2'>
+        <p className='text-sm text-gray-700 pb-2 mb-2 border-b border-gray-200'>
+          رئیس شعبه
+        </p>
 
-      {dropDownItems.map((item, index) => {
-        function onClickHandler(e: any) {
-          if (item.onClick) {
-            e.preventDefault();
-            item.onClick();
-          }
+        <div className='flex flex-col gap-y-1'>
+          <div className='flex items-center gap-x-1'>
+            <BankIcon/>
 
-          closeDropDown();
-        }
-
-        const isLast = index === dropDownItems.length - 1;
-
-        return (
-          <div key={index} className='flex flex-col space-y-1'>
-            {isLast && <div className="w-full h-px bg-gray-300"></div>}
-            <Link
-              to={item.link || "#"}
-              onClick={(e) => {
-                onClickHandler(e);
-                console.log({item});
-              }}
-            >
-              <button
-                className={`
-                  flex items-center gap-x-2 p-2 text-gray-900 duration-200 cursor-pointer
-                  hover:bg-gray-50 whitespace-nowrap min-w-42.5 select-none w-full rounded-md
-                `}
-              >
-                <span className="overflow-hidden">{item.icon}</span>
-                <span>{item.name}</span>
-              </button>
-            </Link>
+            <span className='text-[11px] text-gray-700'>
+              شعبه آزاد شهر (1293)
+            </span>
           </div>
-        );
-      })}
+
+          <p className='text-gray-500 text-[11px]'>
+            مدیریت شعب خراسان رضوی 09
+          </p>
+        </div>
+      </div>
+
+      <div
+        className='flex items-center gap-x-1 hover:bg-red-50 duration-200 cursor-pointer p-2 rounded-lg'
+        onClick={logoutOnClick}
+      >
+        <LogoutIcon className="h-5 w-5"/>
+
+        <span className="text-red-500 text-sm">خروج از حساب کاربری</span>
+      </div>
     </div>
   );
 }

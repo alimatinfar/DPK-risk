@@ -1,0 +1,1 @@
+export const MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH = 'min-w-55'

@@ -16,7 +16,7 @@ function SearchPage() {
   return (
     <>
       <div className='relative'>
-        <div className='relative z-20 flex items-center justify-between h-16 p-4'>
+        <div className='relative z-30 flex items-center justify-between h-16 p-4'>
           <SaderatLogoAndTypo/>
 
           <MainLayoutProfileSection/>
