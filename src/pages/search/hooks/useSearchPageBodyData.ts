@@ -29,6 +29,7 @@ import {
 } from "../form/formFields/legal/RegistrationDateToField/RegistrationDateToField.constances.ts";
 import getBodyDataNumberField from "../../../request/utils/getBodyDataNumberField.ts";
 import type {SearchFormRequestBodyData} from "../SearchPage.types.ts";
+import getBodyDataDateField from "../../../request/utils/getBodyDataDateField";
 
 
 type Props = {
@@ -60,9 +61,9 @@ function useSearchPageBodyData(
       //TODO set select option type id
       legalType: getBodyDataNumberField(formData[legalTypeFieldName]),
       //TODO set date as number format
-      fromRegistrationDate: getBodyDataNumberField(formData[registrationDateFromFieldName]),
+      fromRegistrationDate: getBodyDataDateField(formData[registrationDateFromFieldName]),
       //TODO set date as number format
-      toRegistrationDate: getBodyDataNumberField(formData[registrationDateToFieldName]),
+      toRegistrationDate: getBodyDataDateField(formData[registrationDateToFieldName]),
     }) satisfies SearchFormRequestBodyData
   }
 
