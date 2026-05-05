@@ -1,8 +1,7 @@
 import {type Moment} from "moment-jalaali";
 
 function getBodyDataDateField(value: Moment) {
-  console.log(value)
-  return ''
+  return value ? Number(value.format('YYYYMMDD')) : ''
 }
 
 export default getBodyDataDateField;
