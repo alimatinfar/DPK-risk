@@ -4,6 +4,8 @@ const PANEL = '/panel'
 const ROUTER_LINKS = {
   REMOTE: '/remote',
 
+  SSO_LOGIN: '/auth/sso-login',
+
   HOME: '/',
   SEARCH: '/search',
 
