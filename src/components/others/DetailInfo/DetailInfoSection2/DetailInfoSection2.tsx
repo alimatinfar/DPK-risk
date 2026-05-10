@@ -5,12 +5,12 @@ function DetailInfoSection2(
   {infoList}: DetailInfoSection2Props
 ) {
   return (
-    <div className='flex items-center w-full bg-[#E2E8ED] px-5 py-4'>
+    <div className='flex items-center w-full bg-[#E2E8ED] px-5 py-4 rounded-lg'>
       {infoList.map((item, index) => (
         <div
           key={index}
           className={`
-            flex flex-col gap-y-2 text-sm
+            flex flex-col gap-y-2 text-sm grow px-4
             ${index === 0 ? '' : 'border-r border-gray-300'}
           `}
         >
