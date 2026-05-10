@@ -5,10 +5,28 @@ import {
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS,
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS
 } from "./index.constances.ts";
-import {useMemo} from "react";
+import {lazy, useMemo} from "react";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
 import PanelIndividualBankingInfoTop from "./PanelIndividualBankingInfoTop.tsx";
+const PanelIndividualBankingInfoTransactionHistory = lazy(() => import(
+  "./transactionHistory/PanelIndividualBankingInfoTransactionHistory.tsx"
+  ))
+const PanelIndividualBankingInfoFacilities = lazy(() => import(
+  "./facilities/PanelIndividualBankingInfoFacilities.tsx"
+  ))
+const PanelIndividualBankingInfoEServicePortal = lazy(() => import(
+  "./eServicePortal/PanelIndividualBankingInfoEServicePortal.tsx"
+  ))
+const PanelIndividualBankingInfoCommitments = lazy(() => import(
+  "./commitments/PanelIndividualBankingInfoCommitments.tsx"
+  ))
+const PanelIndividualBankingInfoCard = lazy(() => import(
+  "./card/PanelIndividualBankingInfoCard.tsx"
+  ))
+const PanelIndividualBankingInfoAccount = lazy(() => import(
+  "./account/PanelIndividualBankingInfoAccount.tsx"
+  ))
 
 
 function PanelIndividualBankingInfo() {
@@ -18,22 +36,22 @@ function PanelIndividualBankingInfo() {
   const renderObject = useMemo(function () {
       return {
         [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.ACCOUNT]: (
-          <div></div>
+          <PanelIndividualBankingInfoAccount />
         ),
         [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.CARD]: (
-          <div></div>
+          <PanelIndividualBankingInfoCard />
         ),
         [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.FACILITIES]: (
-          <div></div>
+          <PanelIndividualBankingInfoFacilities />
         ),
         [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.COMMITMENTS]: (
-          <div></div>
+          <PanelIndividualBankingInfoCommitments />
         ),
         [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.E_SERVICE_PORTAL]: (
-          <div></div>
+          <PanelIndividualBankingInfoEServicePortal />
         ),
         [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.TRANSACTION_HISTORY]: (
-          <div></div>
+          <PanelIndividualBankingInfoTransactionHistory />
         ),
       }
     }, [])
@@ -50,7 +68,7 @@ function PanelIndividualBankingInfo() {
         />
       </div>
 
-      <Card>
+      <Card className='flex flex-col gap-y-4'>
         <PanelIndividualBankingInfoTop />
 
         <TabContentRender
