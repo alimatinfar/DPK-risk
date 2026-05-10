@@ -3,8 +3,7 @@ import TABLE_RENDER_TYPES from "../../../../../components/others/Table/constance
 import Tag from "../../../../../components/others/Tag/Tag.tsx";
 import ACTIONS_COLUMN from "../../../../../components/others/Table/constances/actionsColumn.ts";
 import TABLE_ACCESSORS from "../../../../../components/others/Table/constances/tableAccessors.ts";
-import ArrowIcon from "../../../../../components/svg/ArrowIcon.tsx";
-import ArrowBack from "../../../../../components/svg/ArrowBack.tsx";
+import ArrowIcon2 from "../../../../../components/svg/ArrowIcon2.tsx";
 
 export const PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS = {
   ACCOUNT_NUMBER: 'accountNumber',
@@ -101,8 +100,8 @@ export const PANEL_INDIVIDUAL_BANK_INFO_TABLE_FAKE_DATA = [
     [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
       {
         onClick: (e?: any) => console.log('salam'),
-        icon: <ArrowBack/>,
-        title: 'action',
+        icon: <ArrowIcon2 width='100%' height='100%' />,
+        title: 'جزئیات',
       }
     ],
 
@@ -125,8 +124,8 @@ export const PANEL_INDIVIDUAL_BANK_INFO_TABLE_FAKE_DATA = [
     [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
       {
         onClick: (e?: any) => console.log('salam'),
-        icon: <ArrowBack/>,
-        title: 'action',
+        icon: <ArrowIcon2 width='100%' height='100%' />,
+        title: 'جزئیات',
       }
     ],
   },
