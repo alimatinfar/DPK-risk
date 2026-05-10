@@ -11,10 +11,10 @@ const HomePage = lazy(() => import("../pages/home/HomePage.tsx"));
 const SearchPage = lazy(() => import("../pages/search/SearchPage.tsx"));
 
 const PanelLayout = lazy(() => import("../pages/panel/layout/PanelLayout.tsx"));
-const PanelBasicInformationPage = lazy(() => import("../pages/panel/basic-information/PanelBasicInformationPage.tsx"));
-const PanelInquiryHistoriesPage = lazy(() => import("../pages/panel/inquiry-histories/PanelInquiryHistoriesPage.tsx"));
-const PanelEconomicInformationPage = lazy(() => import("../pages/panel/economic-information/PanelEconomicInformationPage.tsx"));
-const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/panel/legal-representative-information/PanelLegalRepresentativeInformationPage.tsx"));
+const PanelBasicInformationPage = lazy(() => import("../pages/panel/comprehensive-info/basic-information/PanelBasicInformationPage.tsx"));
+const PanelInquiryHistoriesPage = lazy(() => import("../pages/panel/comprehensive-info/inquiry-histories/PanelInquiryHistoriesPage.tsx"));
+const PanelEconomicInformationPage = lazy(() => import("../pages/panel/comprehensive-info/economic-information/PanelEconomicInformationPage.tsx"));
+const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/panel/comprehensive-info/legal-representative-information/PanelLegalRepresentativeInformationPage.tsx"));
 const DevelopingSection = lazy(() => import("../components/others/RenderLogic/DevelopingSection.tsx"));
 
 

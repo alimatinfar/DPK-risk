@@ -9,7 +9,7 @@ function PanelLayout() {
       <PanelSideBar />
 
       <div className={`
-        bg-white max-h-dvh flex-1 flex flex-col
+        bg-white max-h-dvh flex-1 flex flex-col overflow-x-auto
       `}>
         <PanelTopBar />
 

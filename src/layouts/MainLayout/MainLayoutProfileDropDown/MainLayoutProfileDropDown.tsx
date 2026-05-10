@@ -16,7 +16,7 @@ function MainLayoutProfileDropDown({closeDropDown, openLogoutModalHandler}: Prof
 
   return (
     <div className={`flex flex-col p-2 gap-y-2 w-full ${MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH}`}>
-      <div className='bg-gray-100 flex flex-col gap-y-2 p-2'>
+      <div className='bg-gray-100 flex flex-col p-2'>
         <p className='text-sm text-gray-700 pb-2 mb-2 border-b border-gray-200'>
           رئیس شعبه
         </p>
