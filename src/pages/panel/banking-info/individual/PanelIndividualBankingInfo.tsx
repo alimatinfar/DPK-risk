@@ -8,6 +8,7 @@ import {
 import {useMemo} from "react";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
+import PanelIndividualBankingInfoTop from "./PanelIndividualBankingInfoTop.tsx";
 
 
 function PanelIndividualBankingInfo() {
@@ -49,8 +50,9 @@ function PanelIndividualBankingInfo() {
         />
       </div>
 
-
       <Card>
+        <PanelIndividualBankingInfoTop />
+
         <TabContentRender
           renderObject={renderObject} activeTab={activeTab}
         />

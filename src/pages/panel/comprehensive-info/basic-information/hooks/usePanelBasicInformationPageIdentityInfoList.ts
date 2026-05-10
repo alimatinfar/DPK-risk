@@ -1,4 +1,4 @@
-import type {DetailInfoSectionProps} from "../../../../../components/others/DetailInfoSection";
+import type {DetailInfoSectionProps} from "../../../../../components/others/DetailInfo/DetailInfoSection";
 import {useMemo} from "react";
 import usePanelBasicInformationPageIdentityInfoListNatural
   from "./usePanelBasicInformationPageIdentityInfoListNatural.ts";
