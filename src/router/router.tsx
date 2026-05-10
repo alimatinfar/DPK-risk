@@ -10,11 +10,18 @@ import getFirstSideBarLink from "../pages/panel/layout/utils/getFirstSideBarLink
 const HomePage = lazy(() => import("../pages/home/HomePage.tsx"));
 const SearchPage = lazy(() => import("../pages/search/SearchPage.tsx"));
 
+//comprehensive info
 const PanelLayout = lazy(() => import("../pages/panel/layout/PanelLayout.tsx"));
 const PanelBasicInformationPage = lazy(() => import("../pages/panel/comprehensive-info/basic-information/PanelBasicInformationPage.tsx"));
 const PanelInquiryHistoriesPage = lazy(() => import("../pages/panel/comprehensive-info/inquiry-histories/PanelInquiryHistoriesPage.tsx"));
 const PanelEconomicInformationPage = lazy(() => import("../pages/panel/comprehensive-info/economic-information/PanelEconomicInformationPage.tsx"));
 const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/panel/comprehensive-info/legal-representative-information/PanelLegalRepresentativeInformationPage.tsx"));
+
+//banking info
+const PanelIndividualBankingInfo = lazy(() => import("../pages/panel/banking-info/individual/PanelIndividualBankingInfo.tsx"));
+const PanelJointBankingInfo = lazy(() => import("../pages/panel/banking-info/joint/PanelJointBankingInfo.tsx"));
+const PanelBankingInfoWithWithdrawalConditions = lazy(() => import("../pages/panel/banking-info/with-withdrawal-conditions/PanelBankingInfoWithWithdrawalConditions.tsx"));
+
 const DevelopingSection = lazy(() => import("../components/others/RenderLogic/DevelopingSection.tsx"));
 
 
@@ -56,15 +63,15 @@ const router = createBrowserRouter(
             },
             {
               path: ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION,
-              element:<DevelopingSection />,
+              element:<PanelIndividualBankingInfo />,
             },
             {
               path: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,
-              element:<DevelopingSection />,
+              element:<PanelJointBankingInfo />,
             },
             {
               path: ROUTER_LINKS.PANEL_BANKING_INFORMATION_FOR_ACCOUNTS_WITH_WITHDRAWAL_CONDITIONS,
-              element:<DevelopingSection />,
+              element:<PanelBankingInfoWithWithdrawalConditions />,
             },
             {
               path: ROUTER_LINKS.PANEL_CUSTOMER_RISK,
