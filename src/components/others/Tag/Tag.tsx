@@ -1,17 +1,18 @@
-import React from "react";
-import type {PartialRecord} from "../../../types/PartialRecord";
+import React, { type ReactNode } from "react";
+import type { PartialRecord } from "../../../types/PartialRecord";
 import joinObjectValues from "../../../utils/joinObjectValues";
 
-export type TagColorsType = 'primary' | 'green' | 'yellow' | 'red' | 'orange' | 'gray' | 'blue' | 'violet'
+export type TagColorsType = 'primary' | 'green' | 'yellow' | 'red' | 'orange' | 'gray' | 'blue' | 'violet' | 'cyan'
 export type TagVariantsType = 'filled' | 'fade'
 
 export type TagProps = {
   text: string;
   color?: TagColorsType;
   variant?: TagVariantsType;
+  rightIcon?: ReactNode,
 };
 
-function Tag({text, color = 'primary', variant = 'filled'}: TagProps) {
+function Tag({ text, color = 'primary', variant = 'filled', rightIcon }: TagProps) {
 
   const colorStyles: Record<TagVariantsType, PartialRecord<TagColorsType, string>> = {
     filled: {
@@ -23,6 +24,7 @@ function Tag({text, color = 'primary', variant = 'filled'}: TagProps) {
       yellow: 'bg-yellow-500 text-white',
       green: 'bg-green-500 text-white',
       orange: 'bg-orange-500 text-white',
+      cyan: 'bg-cyan-500 text-white'
     },
     fade: {
       primary: 'bg-primary-50 text-primary',
@@ -33,18 +35,20 @@ function Tag({text, color = 'primary', variant = 'filled'}: TagProps) {
       yellow: 'bg-yellow-50 text-yellow-600',
       green: 'bg-green-50 text-green-600',
       orange: 'bg-orange-50 text-orange-500',
+      cyan: 'bg-cyan-50 text-cyan-800'
     }
   }
 
   const styles = {
-    default: 'px-1 py-0.5 text-sm rounded',
+    default: 'px-1 py-0.5 text-sm rounded flex gap-1 items-center',
     color: colorStyles[variant][color] || colorStyles.filled.primary
   }
 
   return (
-    <span className={joinObjectValues(styles)}>
-      {text}
-    </span>
+      <span className={joinObjectValues(styles)}>
+        {rightIcon}
+        {text}
+      </span>
   )
 }
 
