@@ -9,7 +9,7 @@ import type {
   BasicInformationLegalResponseType, BasicInformationNaturalResponseType
 } from "../index.constances.ts";
 import usePanelBasicInformationPageOfficeAddressList from "./usePanelBasicInformationPageOfficeAddressList.ts";
-
+import usePanelBasicInformationHistoryList from "./usePanelBasicInformationHistoryList.ts";
 
 function usePanelBasicInformationPage() {
 
@@ -86,10 +86,12 @@ function usePanelBasicInformationPage() {
     naturalData, legalData, foreignCitizenData
   })
 
+  const { infoHistoryList } = usePanelBasicInformationHistoryList()
+
   return {
-    identityInfoList, homeAddressList, officeAddressList, workplaceAddressList, isLegalBool,
+    identityInfoList, homeAddressList, officeAddressList, workplaceAddressList, isLegalBool, infoHistoryList,
     loading: naturalIsFetching || legalIsFetching || foreignCitizenIsFetching,
-    error: naturalError || legalError || foreignCitizenError
+    error: naturalError || legalError || foreignCitizenError,
   }
 }
 
