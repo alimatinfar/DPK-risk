@@ -51,8 +51,6 @@ function PanelSideBar() {
           items={accordionItems}
           activeLink={location.pathname}
           defaultOpenItems={getDefaultOpenItems()}
-          variant="default"
-          className="gap-y-1"
         />
       </div>
     </div>
