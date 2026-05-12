@@ -19,12 +19,12 @@ function useButtonStylesColors({readOnly, longPress}: Props) {
          disabled:bg-primary-50 disabled:border-primary-200 disabled:text-primary-200`,
     },
     'secondary': {
-      'filled': `text-white border-transparent bg-secondary disabled:bg-secondary-300 ${readOnly ? '' : 'enabled:hover:bg-secondary-600'}`,
-      'link': `text-secondary border-transparent bg-transparent disabled:text-secondary-300 ${readOnly ? '' : 'enabled:hover:bg-secondary-50'}`,
-      'default': `text-gray-900 border-secondary-200 bg-secondary-50 disabled:text-gray-300 ${readOnly ? '' : 'enabled:hover:bg-secondary-100'}`,
+      'filled': `text-white border-transparent bg-secondary disabled:bg-secondary/30 ${readOnly ? '' : 'enabled:hover:bg-secondary/60'}`,
+      'link': `text-secondary border-transparent bg-transparent disabled:text-secondary/30 ${readOnly ? '' : 'enabled:hover:bg-secondary/5'}`,
+      'default': `text-gray-900 border-secondary/20 bg-secondary/5 disabled:text-gray-300 ${readOnly ? '' : 'enabled:hover:bg-secondary/10'}`,
       'outlined':
-        `text-secondary border-secondary bg-transparent ${readOnly ? '' : 'enabled:hover:bg-secondary-50'} 
-         disabled:bg-secondary-50 disabled:border-secondary-200 disabled:text-secondary-200`,
+        `text-secondary border-secondary bg-transparent ${readOnly ? '' : 'enabled:hover:bg-secondary/5'} 
+         disabled:bg-secondary/5 disabled:border-secondary/20 disabled:text-secondary/20`,
     },
     'red': {
       'filled': `text-white border-transparent bg-red-500 disabled:bg-red-300 ${readOnly ? '' : 'enabled:hover:bg-red-600'}`,
@@ -36,7 +36,7 @@ function useButtonStylesColors({readOnly, longPress}: Props) {
     },
     'white': {
       'default': defaultButtonClass,
-      'link': `text-gray-900 border-transparent bg-transparent disabled:text-gray-300 ${readOnly ? '' : 'enabled:hover:bg-secondary-50'}`,
+      'link': `text-gray-900 border-transparent bg-transparent disabled:text-gray-300 ${readOnly ? '' : 'enabled:hover:bg-secondary/5'}`,
     },
   }
 

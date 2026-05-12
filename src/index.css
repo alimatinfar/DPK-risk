@@ -19,6 +19,8 @@
   --color-primary-border: #8D91C74D;
   --color-primary-text: #0F172A;
 
+  --color-secondary: var(--color-gray-900);
+
   --color-accent: #4E4181;
 
   --color-secondary-text: #475569;

@@ -3,7 +3,7 @@ import Tag from "../../../../components/others/Tag/Tag";
 import CalendarIcon from "../../../../components/svg/CalendarIcon";
 import ClockBackwardIcon from "../../../../components/svg/ClockBackwardIcon";
 import VectorIcon from "../../../../components/svg/VectorIcon";
-import type { HistoryDataType } from "./index.constances";
+import type {HistoryDataType} from "./index.constances";
 
 export type PanelBasicInformationPageHistoryProps = {
   openHistoryModalHandler: () => void;
@@ -11,38 +11,38 @@ export type PanelBasicInformationPageHistoryProps = {
 };
 
 function PanelBasicInformationPageHistory(
-    {openHistoryModalHandler, activeHistory}: PanelBasicInformationPageHistoryProps
+  {openHistoryModalHandler, activeHistory}: PanelBasicInformationPageHistoryProps
 ) {
-    return (
-        <>
-            {
-                activeHistory &&
-                <div className="flex-1 flex gap-2">
-                    <Tag
-                        text={activeHistory.date}
-                        variant="fade"
-                        color="cyan"
-                        rightIcon={<CalendarIcon />}
-                    />
-                    <Tag
-                        text={activeHistory.location}
-                        variant="fade"
-                        color="blue"
-                        rightIcon={<VectorIcon />}
-                    />
-                </div>
-            }
-            <Button
-                variant="link"
-                color="secondary"
-                size="sm"
-                rightIcon={<ClockBackwardIcon width={15} height={15}/>}
-                onClick={openHistoryModalHandler}
-            >
-                مشاهده تاریخچه
-            </Button>
-        </>
-    );
+  return (
+    <>
+      {
+        activeHistory &&
+          <div className="flex-1 flex items-center gap-2">
+              <Tag
+                  text={activeHistory.date}
+                  variant="fade"
+                  color="cyan"
+                  rightIcon={<CalendarIcon/>}
+              />
+              <Tag
+                  text={activeHistory.location}
+                  variant="fade"
+                  color="blue"
+                  rightIcon={<VectorIcon/>}
+              />
+          </div>
+      }
+      <Button
+        variant="link"
+        color="secondary"
+        size="sm"
+        rightIcon={<ClockBackwardIcon width={15} height={15}/>}
+        onClick={openHistoryModalHandler}
+      >
+        مشاهده تاریخچه
+      </Button>
+    </>
+  );
 }
 
 export default PanelBasicInformationPageHistory;

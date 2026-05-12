@@ -1,5 +1,5 @@
-import React, { type ReactNode } from "react";
-import type { PartialRecord } from "../../../types/PartialRecord";
+import React, {type ReactNode} from "react";
+import type {PartialRecord} from "../../../types/PartialRecord";
 import joinObjectValues from "../../../utils/joinObjectValues";
 
 export type TagColorsType = 'primary' | 'green' | 'yellow' | 'red' | 'orange' | 'gray' | 'blue' | 'violet' | 'cyan'
@@ -12,7 +12,7 @@ export type TagProps = {
   rightIcon?: ReactNode,
 };
 
-function Tag({ text, color = 'primary', variant = 'filled', rightIcon }: TagProps) {
+function Tag({text, color = 'primary', variant = 'filled', rightIcon}: TagProps) {
 
   const colorStyles: Record<TagVariantsType, PartialRecord<TagColorsType, string>> = {
     filled: {
@@ -28,7 +28,7 @@ function Tag({ text, color = 'primary', variant = 'filled', rightIcon }: TagProp
     },
     fade: {
       primary: 'bg-primary-50 text-primary',
-      blue: 'bg-blue-50 text-blue-500',
+      blue: 'bg-blue-50 text-blue-800',
       violet: 'bg-violet-50 text-violet-600',
       gray: 'bg-gray-100 text-gray-500',
       red: 'bg-red-50 text-red-500',
@@ -40,15 +40,15 @@ function Tag({ text, color = 'primary', variant = 'filled', rightIcon }: TagProp
   }
 
   const styles = {
-    default: 'px-1 py-0.5 text-sm rounded flex gap-1 items-center',
+    default: `p-1 text-sm rounded gap-1 ${rightIcon ? 'flex items-center' : ''}`,
     color: colorStyles[variant][color] || colorStyles.filled.primary
   }
 
   return (
-      <span className={joinObjectValues(styles)}>
-        {rightIcon}
-        {text}
-      </span>
+    <span className={joinObjectValues(styles)}>
+      {rightIcon}
+      {text}
+    </span>
   )
 }
 
