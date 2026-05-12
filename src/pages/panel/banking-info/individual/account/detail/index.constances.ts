@@ -1,4 +1,4 @@
-import type {TabsProps} from "../../../../../components/others/Tab/Tab.tsx";
+import type {TabsProps} from "../../../../../../components/others/Tab/Tab.tsx";
 
 export const PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS = {
   ACCOUNT_TRANSACTION_INFORMATION: 'accountTransactionInformation',

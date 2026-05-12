@@ -19,7 +19,7 @@ const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/pane
 
 //banking info
 const PanelIndividualBankingInfo = lazy(() => import("../pages/panel/banking-info/individual/PanelIndividualBankingInfo.tsx"));
-const PanelIndividualBankingInfoDetail = lazy(() => import("../pages/panel/banking-info/individual/detail/PanelIndividualBankingInfoDetail.tsx"));
+const PanelIndividualBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/individual/account/detail/PanelIndividualBankingInfoAccountDetail"));
 const PanelJointBankingInfo = lazy(() => import("../pages/panel/banking-info/joint/PanelJointBankingInfo.tsx"));
 const PanelBankingInfoWithWithdrawalConditions = lazy(() => import("../pages/panel/banking-info/with-withdrawal-conditions/PanelBankingInfoWithWithdrawalConditions.tsx"));
 
@@ -68,8 +68,8 @@ const router = createBrowserRouter(
 
             },
             {
-              path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION}/:id`,
-              element:<PanelIndividualBankingInfoDetail />,
+              path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT}/:id`,
+              element:<PanelIndividualBankingInfoAccountDetail />,
             },
             {
               path: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,

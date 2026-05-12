@@ -97,14 +97,6 @@ export const PANEL_INDIVIDUAL_BANK_INFO_TABLE_FAKE_DATA = [
     [PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS.OPEN_REGION_NAME]: 'منطقه مرکزی',
     [PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS.OPENER_PERSONNEL_CODE]: '45872',
     [PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS.OPENER_NAME]: 'علی محمدی',
-    [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
-      {
-        onClick: (e?: any) => console.log('salam'),
-        icon: <ArrowIcon2 width='100%' height='100%' />,
-        title: 'جزئیات',
-      }
-    ],
-
   },
   {
     id: 2,
@@ -121,12 +113,5 @@ export const PANEL_INDIVIDUAL_BANK_INFO_TABLE_FAKE_DATA = [
     [PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS.OPEN_REGION_NAME]: 'منطقه غرب',
     [PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS.OPENER_PERSONNEL_CODE]: '56321',
     [PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS.OPENER_NAME]: 'مریم رضایی',
-    [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
-      {
-        onClick: (e?: any) => console.log('salam'),
-        icon: <ArrowIcon2 width='100%' height='100%' />,
-        title: 'جزئیات',
-      }
-    ],
   },
 ];
