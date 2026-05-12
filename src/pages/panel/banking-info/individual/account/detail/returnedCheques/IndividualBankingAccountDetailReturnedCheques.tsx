@@ -10,7 +10,6 @@ function IndividualBankingAccountDetailReturnedCheques() {
     <Table
       columns={INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS}
       data={INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_FAKE_DATA}
-      // loading
     />
   );
 }
