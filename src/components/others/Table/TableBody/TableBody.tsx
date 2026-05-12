@@ -50,7 +50,7 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
   return (
     <RenderLogic
       isEmpty={data?.length == 0 || !data} emptyElement={emptyElement} loadingElement={loadingElement}
-      isLoading={loading}
+      isLoading={loading} removeContainer
     >
       <tbody className="bg-white overflow-x-auto">
         {data?.map((row, index) => {

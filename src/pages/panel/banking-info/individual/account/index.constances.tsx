@@ -2,8 +2,7 @@ import type {TableColumnType} from "../../../../../components/others/Table/Table
 import TABLE_RENDER_TYPES from "../../../../../components/others/Table/constances/renderTypes.ts";
 import Tag from "../../../../../components/others/Tag/Tag.tsx";
 import ACTIONS_COLUMN from "../../../../../components/others/Table/constances/actionsColumn.ts";
-import TABLE_ACCESSORS from "../../../../../components/others/Table/constances/tableAccessors.ts";
-import ArrowIcon2 from "../../../../../components/svg/ArrowIcon2.tsx";
+
 
 export const PANEL_INDIVIDUAL_BANK_INFO_TABLE_COLUMNS_KEYS = {
   ACCOUNT_NUMBER: 'accountNumber',

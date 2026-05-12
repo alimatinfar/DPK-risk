@@ -5,6 +5,8 @@ import ROUTER_LINKS from "../constances/routerLinks.ts";
 import {lazy} from "react";
 import GeneralLayout from "../layouts/GeneralLayout.tsx";
 import getFirstSideBarLink from "../pages/panel/layout/utils/getFirstSideBarLink.ts";
+import ErrorStateIcon from "../components/svg/RenderLogic/ErrorStateIcon.tsx";
+import ErrorPage from "../components/svg/RenderLogic/ErrorStatePage.tsx";
 
 // const RemoteComponent = lazy(() => import('remoteApp/App'))
 const HomePage = lazy(() => import("../pages/home/HomePage.tsx"));
@@ -30,6 +32,7 @@ const router = createBrowserRouter(
   [
     {
       element: <GeneralLayout />,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: ROUTER_LINKS.HOME,
