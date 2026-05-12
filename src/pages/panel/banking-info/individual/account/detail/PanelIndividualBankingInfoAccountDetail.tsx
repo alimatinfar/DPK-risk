@@ -3,20 +3,28 @@ import {
   PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS
 } from "./index.constances.ts";
 import useActiveTab from "../../../../../../components/others/Tab/hooks/useActiveTab.ts";
-import {useMemo} from "react";
+import {lazy, useMemo} from "react";
 import PanelPageTitle from "../../../../layout/PanelPageTitle.tsx";
 import Tab from "../../../../../../components/others/Tab/Tab.tsx";
 import Card from "../../../../../../components/others/Card/Card.tsx";
 import TabContentRender from "../../../../../../components/others/Tab/TabContentRender.tsx";
-import IndividualBankingAccountDetailTransactionInformation
-  from "./accountTransactionInformation/IndividualBankingAccountDetailTransactionInformation.tsx";
-import IndividualBankingAccountDetailBlockHistory from "./blockHistory/IndividualBankingAccountDetailBlockHistory.tsx";
-import IndividualBankingAccountDetailReturnedCheques from "./returnedCheques/IndividualBankingAccountDetailReturnedCheques.tsx";
-import IndividualBankingAccountDetailSaptaMobileNumbers
-  from "./saptaMobileNumbers/IndividualBankingAccountDetailSaptaMobileNumbers.tsx";
-import IndividualBankingAccountDetailSpecialInstructions
-  from "./specialInstructions/IndividualBankingAccountDetailSpecialInstructions.tsx";
 import {useParams} from "react-router";
+
+const IndividualBankingAccountDetailTransactionInformation = lazy(() => import(
+  "./accountTransactionInformation/IndividualBankingAccountDetailTransactionInformation.tsx"
+  ));
+const IndividualBankingAccountDetailBlockHistory = lazy(() => import(
+  "./blockHistory/IndividualBankingAccountDetailBlockHistory.tsx"
+  ));
+const IndividualBankingAccountDetailReturnedCheques = lazy(() => import(
+  "./returnedCheques/IndividualBankingAccountDetailReturnedCheques.tsx"
+  ));
+const IndividualBankingAccountDetailSaptaMobileNumbers = lazy(() => import(
+  "./saptaMobileNumbers/IndividualBankingAccountDetailSaptaMobileNumbers.tsx"
+  ));
+const IndividualBankingAccountDetailSpecialInstructions = lazy(() => import(
+  "./specialInstructions/IndividualBankingAccountDetailSpecialInstructions.tsx"
+  ));
 
 
 function PanelIndividualBankingInfoAccountDetail() {
