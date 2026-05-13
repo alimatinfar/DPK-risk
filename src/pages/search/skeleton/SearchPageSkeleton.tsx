@@ -17,8 +17,8 @@ const SearchPageSkeleton = (): JSX.Element => {
       <div className="flex flex-col p-2 gap-2">
         {[...Array(rows)].map((_, idx) => (
           <div key={idx} className="flex justify-between items-center">
-            <Skeleton size="w-[104px] h-[25px] rounded-sm" bgClass="bg-gray-200" />
-            <Skeleton size="w-[104px] h-[25px] rounded-sm" bgClass="bg-gray-200" />
+            <Skeleton size="w-[62px] h-[20px] rounded-sm" bgClass="bg-gray-200" />
+            <Skeleton size="w-[62px] h-[20px] rounded-sm" bgClass="bg-gray-200" />
           </div>
         ))}
       </div>
