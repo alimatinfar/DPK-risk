@@ -7,6 +7,7 @@ import SearchPageResultPersonCategory from "./SearchPageResultPersonCategory.tsx
 import {SEARCH_PAGE_MAX_WIDTH, SEARCH_PAGE_PADDING_X} from "../SearchPage.constances.ts";
 import type {SearchPageResultCardDataType} from "./SearchPageResult.types.ts";
 import EmptyStateIcon from "../../../components/svg/RenderLogic/EmptyStateIcon.tsx";
+import SearchPageSkeleton from "../skeleton/SearchPageSkeleton.tsx";
 
 
 export type SearchPageResultProps = {
@@ -46,6 +47,7 @@ function SearchPageResult(
         emptyElement={emptyElement}
         error={error}
         isLoading={loading}
+        loadingElement={<SearchPageSkeleton />}
       >
         <div className={'flex flex-col gap-y-8 py-4'}>
           <p className='text-sm text-secondary-text'>
