@@ -7,7 +7,7 @@ import type {HistoryDataType} from "./index.constances";
 
 export type PanelBasicInformationPageHistoryProps = {
   openHistoryModalHandler: () => void;
-  activeHistory: HistoryDataType;
+  activeHistory?: HistoryDataType;
 };
 
 function PanelBasicInformationPageHistory(
