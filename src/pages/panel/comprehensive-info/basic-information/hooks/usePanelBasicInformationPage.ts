@@ -86,6 +86,7 @@ function usePanelBasicInformationPage() {
     naturalData, legalData, foreignCitizenData
   })
 
+  // TODO add api call and loading and error handle in ui
   const { infoHistoryList } = usePanelBasicInformationHistoryList()
 
   return {

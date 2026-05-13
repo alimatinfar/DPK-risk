@@ -62,7 +62,7 @@ function PanelBasicInformationPage() {
         <PanelBasicInfoHistoryModal
           onClose={closeHistoryModalHandler}
           open={historyModalOpen}
-          infoHistoryList={infoHistoryList}
+          infoHistoryList={infoHistoryList ? infoHistoryList : []}
           setHistoryItemClick={setActiveHistory}
           activeItemId={activeHistory ? activeHistory.id : "1"}
         />
