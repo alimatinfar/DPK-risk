@@ -14,7 +14,7 @@ export type MenuProps = {
 function Menu({ items, activeLink, onToggle, defaultOpenItems = [], isExpanded, className }: MenuProps) {
   const { openItems, toggleItem } = useMenu({
     items,
-    defaultOpenItems,
+    defaultOpenItems: [0, 1, 2],
     onToggle,
   });
 

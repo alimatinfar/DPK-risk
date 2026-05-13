@@ -12,7 +12,7 @@ function SidebarToggle({ className, textColor, onClick, isOpen }: Props) {
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={`${isOpen ? "rotate-180" : "rotate-0"} cursor-pointer duration-200 ${{ ...(className && { className }) }} `}
+        className={`${isOpen ? "rotate-180" : "rotate-0"} cursor-pointer transition-transform duration-200 ${{ ...(className && { className }) }} `}
         {...(onClick && { onClick })}
       >
         <path
