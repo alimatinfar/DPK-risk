@@ -1,6 +1,5 @@
 import type {TableColumnType} from "../../../../../components/others/Table/TableExports.ts";
 import Tag from "../../../../../components/others/Tag/Tag.tsx";
-import ACTIONS_COLUMN from "../../../../../components/others/Table/constances/actionsColumn.ts";
 import {
   PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS,
   PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS
