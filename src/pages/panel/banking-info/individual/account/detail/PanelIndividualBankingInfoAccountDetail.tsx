@@ -1,6 +1,6 @@
 import {
-  PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS,
-  PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS
+  PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS,
+  PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS
 } from "./index.constances.ts";
 import useActiveTab from "../../../../../../components/others/Tab/hooks/useActiveTab.ts";
 import {lazy, useMemo} from "react";
@@ -31,23 +31,23 @@ function PanelIndividualBankingInfoAccountDetail() {
 
   const {id} = useParams()
 
-  const [activeTab, setActiveTab] = useActiveTab(PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS.RETURNED_CHEQUES)
+  const [activeTab, setActiveTab] = useActiveTab(PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.RETURNED_CHEQUES)
 
   const renderObject = useMemo(function () {
     return {
-      [PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS.ACCOUNT_TRANSACTION_INFORMATION]: (
+      [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.ACCOUNT_TRANSACTION_INFORMATION]: (
         <IndividualBankingAccountDetailTransactionInformation />
       ),
-      [PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS.BLOCK_HISTORY]: (
+      [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.BLOCK_HISTORY]: (
         <IndividualBankingAccountDetailBlockHistory />
       ),
-      [PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS.RETURNED_CHEQUES]: (
+      [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.RETURNED_CHEQUES]: (
         <IndividualBankingAccountDetailReturnedCheques />
       ),
-      [PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS.SAPTA_MOBILE_NUMBERS]: (
+      [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.SAPTA_MOBILE_NUMBERS]: (
         <IndividualBankingAccountDetailSaptaMobileNumbers />
       ),
-      [PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS_KEYS.SPECIAL_INSTRUCTIONS]: (
+      [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.SPECIAL_INSTRUCTIONS]: (
         <IndividualBankingAccountDetailSpecialInstructions />
       ),
     }
@@ -61,7 +61,7 @@ function PanelIndividualBankingInfoAccountDetail() {
         />
 
         <Tab
-          tabs={PANEL_INDIVIDUAL_BANKING_INFO_DETAIL_TABS}
+          tabs={PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS}
           activeTab={activeTab} onChange={setActiveTab}
         />
       </div>
