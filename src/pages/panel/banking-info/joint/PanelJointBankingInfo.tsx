@@ -3,7 +3,6 @@ import {lazy, useMemo} from "react";
 import PanelPageTitle from "../../layout/PanelPageTitle.tsx";
 import Tab from "../../../../components/others/Tab/Tab.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
-import PanelIndividualBankingInfoTop from "../individual/PanelIndividualBankingInfoTop.tsx";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import {
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS,

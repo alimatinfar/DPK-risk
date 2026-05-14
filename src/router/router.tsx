@@ -23,7 +23,11 @@ const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/pane
 const PanelIndividualBankingInfo = lazy(() => import("../pages/panel/banking-info/individual/PanelIndividualBankingInfo.tsx"));
 const PanelIndividualBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/individual/account/detail/PanelIndividualBankingInfoAccountDetail"));
 const PanelIndividualBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/individual/commitments/detail/PanelIndividualBankingInfoCommitmentsDetail.tsx"));
+
 const PanelJointBankingInfo = lazy(() => import("../pages/panel/banking-info/joint/PanelJointBankingInfo.tsx"));
+const PanelJointBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/joint/account/detail/PanelJointBankingInfoAccountDetail.tsx"));
+const PanelJointBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/joint/commitments/detail/PanelJointBankingInfoCommitmentsDetail.tsx"));
+
 const PanelBankingInfoWithWithdrawalConditions = lazy(() => import("../pages/panel/banking-info/with-withdrawal-conditions/PanelBankingInfoWithWithdrawalConditions.tsx"));
 
 const DevelopingSection = lazy(() => import("../components/others/RenderLogic/DevelopingSection.tsx"));
@@ -66,6 +70,7 @@ const router = createBrowserRouter(
               path: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
               element:<PanelLegalRepresentativeInformationPage />,
             },
+
             {
               path: ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION,
               element:<PanelIndividualBankingInfo />,
@@ -78,10 +83,20 @@ const router = createBrowserRouter(
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS}/:id`,
               element:<PanelIndividualBankingInfoCommitmentsDetail />,
             },
+
             {
               path: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,
               element:<PanelJointBankingInfo />,
             },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_ACCOUNT}/:id`,
+              element:<PanelJointBankingInfoAccountDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_COMMITMENTS}/:id`,
+              element:<PanelJointBankingInfoCommitmentsDetail />,
+            },
+
             {
               path: ROUTER_LINKS.PANEL_BANKING_INFORMATION_FOR_ACCOUNTS_WITH_WITHDRAWAL_CONDITIONS,
               element:<PanelBankingInfoWithWithdrawalConditions />,
