@@ -1,19 +1,24 @@
-import {Outlet} from "react-router";
+import {Outlet, useNavigate} from "react-router";
 import useSaveNavigate from "../hooks/useSaveNavigate.ts";
-import SSOAuthenticationProvider from "./login/SSOAuthenticationProvider";
-import AuthenticationHandlerProvider from "./login/AuthenticationHandlerProvider";
+import {useEffect} from "react";
+import getToken from "../utils/authentication/getToken.ts";
+import ROUTER_LINKS from "../constances/routerLinks.ts";
 
 
 function GeneralLayout() {
 
   useSaveNavigate()
 
+  const navigate = useNavigate()
+
+  useEffect(function () {
+    const savedToken = getToken()
+
+    if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
+  }, [])
+
   return (
-    <SSOAuthenticationProvider>
-      <AuthenticationHandlerProvider>
-        <Outlet/>
-      </AuthenticationHandlerProvider>
-    </SSOAuthenticationProvider>
+    <Outlet/>
   )
 }
 
