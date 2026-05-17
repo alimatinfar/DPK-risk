@@ -1,6 +1,6 @@
-import type {DetailInfoSectionProps} from "./DetailInfoSection.types.ts";
+import type {DetailInfoSectionProps} from "./index.types.ts";
 import {useMemo} from "react";
-import NoDataTag from "../Tag/inheritedTags/noDataTag.tsx";
+import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
 
 function DetailInfoSection(
   {title, infoList}: DetailInfoSectionProps

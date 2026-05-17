@@ -1,5 +1,5 @@
 import {useMemo} from 'react';
-import type {DetailInfoSectionProps} from "../../../../../components/others/DetailInfoSection";
+import type {DetailInfoSectionProps} from "../../../../../components/others/DetailInfo/DetailInfoSection";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
 import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";

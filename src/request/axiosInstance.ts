@@ -1,6 +1,7 @@
 import axios, {type AxiosResponse} from "axios";
 import {getErrorStatus} from "./utils/getResponse.ts";
 import type {CustomResponseType} from "./types/CustomResponseType.ts";
+import getToken from "../utils/authentication/getToken.ts";
 // import {navigateTo} from "../hooks/useSaveNavigate.ts";
 
 
@@ -27,12 +28,11 @@ axiosInstance.interceptors.request.use(async (request: any) => {
 
   request.headers["Access-Control-Allow-Origin"] = ["*"];
 
-  //TODO get token from sso
-  // const token = getToken();
-  //
-  // if (token) {
-  //   request.headers.Authorization = `Bearer ${token}`;
-  // }
+  const token = getToken();
+
+  if (token) {
+    request.headers.Authorization = `Bearer ${token}`;
+  }
 
   return request;
 });
