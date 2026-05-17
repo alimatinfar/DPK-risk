@@ -4,7 +4,7 @@ import type {ReactNode} from "react";
 import {getResponseErrorMessage} from "../../../request/utils/getResponse.ts";
 import RenderLogicDefaultContainer from "./RenderLogicDefaultContainer.tsx";
 import FilterEmptyState from "../../svg/RenderLogic/FilterEmptyState.tsx";
-import ErrorStateIcon from "../../svg/RenderLogic/ErrorStateIcon.tsx";
+import ErrorState from "../../svg/RenderLogic/ErrorState.tsx";
 
 const CustomRenderLogicDefaultContainer = ({children, renderLogicDefaultContainerMinHeight}: {
   children: ReactNode
@@ -17,50 +17,42 @@ const CustomRenderLogicDefaultContainer = ({children, renderLogicDefaultContaine
 }
 
 export type RenderLogicProps = {
-  error?: Error | null,
-  isLoading?: boolean,
-  loadingElement?: ReactNode,
-  children: ReactNode,
-  errorComponent?: ReactNode,
-  isEmpty?: boolean,
-  emptyText?: string,
-  emptyElement?: any,
-  renderLogicDefaultContainerMinHeight?: string,
-  hasFilter?: boolean,
+  error?: Error | null;
+  isLoading?: boolean;
+  loadingElement?: ReactNode;
+  children: ReactNode;
+  errorComponent?: ReactNode;
+  isEmpty?: boolean;
+  emptyText?: string;
+  emptyElement?: any;
+  renderLogicDefaultContainerMinHeight?: string;
+  hasFilter?: boolean;
+  removeContainer?: boolean;
 }
 
 function RenderLogic(
   {
     error, isLoading, loadingElement, children, isEmpty, emptyText, errorComponent,
-    emptyElement, renderLogicDefaultContainerMinHeight, hasFilter
+    emptyElement, renderLogicDefaultContainerMinHeight, hasFilter, removeContainer
   }: RenderLogicProps
 ) {
-  if (error) {
-    return (
-      <CustomRenderLogicDefaultContainer renderLogicDefaultContainerMinHeight={renderLogicDefaultContainerMinHeight}>
-        {errorComponent || (
-          <div className='flex flex-col gap-y-4'>
-            <ErrorStateIcon/>
 
-            <span className='text-red-500'>
-              {getResponseErrorMessage(error) || 'دریافت اطلاعات با خطا مواجه شد'}
-            </span>
-          </div>
-        )}
-      </CustomRenderLogicDefaultContainer>
-    )
-  } else if (isLoading) {
-    return (
+  if (error || isLoading || isEmpty) {
+    const content = error ? (
+      errorComponent || (
+        <ErrorState error={getResponseErrorMessage(error) || 'دریافت اطلاعات با خطا مواجه شد'}/>
+      )
+    ) : isLoading ? (
+      loadingElement || <Loading/>
+    ) : isEmpty ? (
+      hasFilter ? (
+        <EmptyState icon={<FilterEmptyState/>}/>
+      ) : emptyElement || <EmptyState title={emptyText}/>
+    ) : null
+
+    return removeContainer ? content : (
       <CustomRenderLogicDefaultContainer renderLogicDefaultContainerMinHeight={renderLogicDefaultContainerMinHeight}>
-        {loadingElement || <Loading/>}
-      </CustomRenderLogicDefaultContainer>
-    )
-  } else if (isEmpty) {
-    return (
-      <CustomRenderLogicDefaultContainer renderLogicDefaultContainerMinHeight={renderLogicDefaultContainerMinHeight}>
-        {hasFilter ? (
-          <EmptyState icon={<FilterEmptyState/>}/>
-        ) : emptyElement || <EmptyState title={emptyText}/>}
+        {content}
       </CustomRenderLogicDefaultContainer>
     )
   } else {
