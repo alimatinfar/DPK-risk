@@ -5,8 +5,8 @@ import {useLocation, useNavigate} from "react-router";
 import getToken from "../../utils/authentication/getToken.ts";
 import ROUTER_LINKS from "../../constances/routerLinks.ts";
 import OverContainerLoading from "../../components/others/Loading/OverContainerLoading.tsx";
-import generateUUID from "../../utils/generateUUID.ts";
 import {loadConfigFile} from "../../request/axiosInstance.ts";
+import getSSOConfigs from "../../utils/authentication/getSSOConfigs.ts";
 
 
 function SSOLoginPage() {
@@ -20,17 +20,9 @@ function SSOLoginPage() {
   const login = async () => {
     const config = await loadConfigFile();
     setLoading(true)
-    const params = new URLSearchParams({
-      // client_id: config.client_id,
-      client_id: '87fdee9bdef647aa9c4cf820650fd2db',
-      response_type: "id_token",
-      // scope: config.scope,
-      scope: 'openid profile',
-      // redirect_uri: `${import.meta.env.DEV ? 'http://localhost:3030/' : config.frontBaseUrl}auth/sso-login`,
-      redirect_uri: `${import.meta.env.DEV ? 'http://localhost:3030/' : 'http://172.16.20.35:8284/'}auth/sso-login`,
-      nonce: generateUUID(),
-      state: generateUUID()
-    });
+
+    const ssoConfigs = await getSSOConfigs()
+    const params = new URLSearchParams(ssoConfigs);
 
     window.location.href = `${config.ssoUrl}connect/authorize?` + params;
   }
