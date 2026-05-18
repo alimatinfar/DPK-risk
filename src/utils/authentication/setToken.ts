@@ -3,7 +3,7 @@ import {encrypt} from "./EncryptDecrypt";
 import COOKIE_KEYS from "../../constances/cookieKeys.ts";
 
 
-async function setToken(token:string, isMainServer?: boolean) {
+function setToken(token:string, isMainServer?: boolean) {
   if (!token) return
   // const encryptedToken = encrypt(JSON.stringify(token));
 

@@ -35,11 +35,15 @@ function SSOLoginPage() {
     window.location.href = `${config.ssoUrl}connect/authorize?` + params;
   }
 
+  function navigateToSearchPage() {
+    navigate(ROUTER_LINKS.SEARCH)
+  }
+
   useEffect(function () {
     const savedToken = getToken()
 
     if (savedToken) {
-      navigate(ROUTER_LINKS.SEARCH)
+      navigateToSearchPage()
     } else {
       const hash = location.hash.replace("#", "");
       const params = new URLSearchParams(hash);
@@ -47,9 +51,10 @@ function SSOLoginPage() {
       const idToken = params.get(QUERY_PARAMS.ID_TOKEN);
 
       if (idToken) {
-        setToken(idToken).then()
+        setToken(idToken)
+        navigateToSearchPage()
       } else {
-        login()
+        login().then()
       }
     }
   }, [])
