@@ -2,6 +2,7 @@ import axios, {type AxiosResponse} from "axios";
 import {getErrorStatus} from "./utils/getResponse.ts";
 import type {CustomResponseType} from "./types/CustomResponseType.ts";
 import getToken from "../utils/authentication/getToken.ts";
+import type {ConfigFileType} from "../types/ConfigFileType.ts";
 // import {navigateTo} from "../hooks/useSaveNavigate.ts";
 
 
@@ -19,7 +20,7 @@ export const loadConfigFile = async () => {
   if (!res.ok) {
     throw new Error('Failed to load config');
   }
-  return res.json();
+  return res.json() as Promise<ConfigFileType>;
 };
 
 axiosInstance.interceptors.request.use(async (request: any) => {
