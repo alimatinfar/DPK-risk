@@ -5,6 +5,7 @@ import {useLocation, useNavigate} from "react-router";
 import getToken from "../../utils/authentication/getToken.ts";
 import ROUTER_LINKS from "../../constances/routerLinks.ts";
 import OverContainerLoading from "../../components/others/Loading/OverContainerLoading.tsx";
+import generateUUID from "../../utils/generateUUID.ts";
 
 
 function SSOLoginPage() {
@@ -22,8 +23,8 @@ function SSOLoginPage() {
       response_type: "id_token",
       scope: "openid profile",
       redirect_uri: "http://localhost:3030/auth/sso-login",
-      nonce: crypto.randomUUID(),
-      state: crypto.randomUUID()
+      nonce: generateUUID(),
+      state: generateUUID()
     });
 
     window.location.href =

@@ -10,7 +10,6 @@ function getToken(): string | undefined {
   try {
     // const decryptedToken = decrypt(cookieToken)
     // return JSON.parse(cookieToken)
-    console.log({cookieToken})
     return cookieToken
   } catch (err) {
     return
