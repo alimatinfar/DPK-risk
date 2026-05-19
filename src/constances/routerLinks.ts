@@ -14,6 +14,8 @@ const PANEL_JOINT_BANKING_INFORMATION_COMMITMENTS = `${PANEL_JOINT_BANKING_INFOR
 const ROUTER_LINKS = {
   REMOTE: '/remote',
 
+  SSO_LOGIN: '/auth/sso-login',
+
   HOME: '/',
   SEARCH: '/search',
 

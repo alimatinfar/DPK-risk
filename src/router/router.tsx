@@ -11,6 +11,7 @@ import ErrorPage from "../components/svg/RenderLogic/ErrorStatePage.tsx";
 // const RemoteComponent = lazy(() => import('remoteApp/App'))
 const HomePage = lazy(() => import("../pages/home/HomePage.tsx"));
 const SearchPage = lazy(() => import("../pages/search/SearchPage.tsx"));
+const SSOLoginPage = lazy(() => import("../pages/sso-login/SSOLoginPage"));
 
 //comprehensive info
 const PanelLayout = lazy(() => import("../pages/panel/layout/PanelLayout.tsx"));
@@ -46,6 +47,10 @@ const router = createBrowserRouter(
         {
           path: ROUTER_LINKS.SEARCH,
           element: <SearchPage/>,
+        },
+        {
+          path: ROUTER_LINKS.SSO_LOGIN,
+          element: <SSOLoginPage/>,
         },
         {
           element: <PanelLayout/>,

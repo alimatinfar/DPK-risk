@@ -1,3 +1,7 @@
 {
-  "baseUrl": "http://172.16.20.35:8285/"
+  "baseUrl": "http://172.16.20.35:8285/",
+  "client_id": "87fdee9bdef647aa9c4cf820650fd2db",
+  "scope": "openid profile",
+  "frontBaseUrl": "http://172.16.20.35:8284/",
+  "ssoUrl": "https://iip-server.dpkharazmi.com/"
 }
