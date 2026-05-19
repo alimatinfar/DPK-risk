@@ -62,7 +62,7 @@ function useSearchPageBodyData(
       legalType: getBodyDataNumberField(formData[legalTypeFieldName]),
       fromRegistrationDate: getBodyDataDateField(formData[registrationDateFromFieldName]),
       // toRegistrationDate: getBodyDataDateField(formData[registrationDateToFieldName]),
-      toRegistrationDate: 'getBodyDataDateField(formData[registrationDateToFieldName])',
+      toRegistrationDate: getBodyDataDateField(formData[registrationDateToFieldName]),
     }) satisfies SearchFormRequestBodyData
   }
 
