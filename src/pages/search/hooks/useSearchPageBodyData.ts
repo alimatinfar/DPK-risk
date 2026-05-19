@@ -60,10 +60,9 @@ function useSearchPageBodyData(
       abbreviationName: formData[legalAbbreviationFieldName],
       //TODO set select option type id
       legalType: getBodyDataNumberField(formData[legalTypeFieldName]),
-      //TODO set date as number format
       fromRegistrationDate: getBodyDataDateField(formData[registrationDateFromFieldName]),
-      //TODO set date as number format
-      toRegistrationDate: getBodyDataDateField(formData[registrationDateToFieldName]),
+      // toRegistrationDate: getBodyDataDateField(formData[registrationDateToFieldName]),
+      toRegistrationDate: 'getBodyDataDateField(formData[registrationDateToFieldName])',
     }) satisfies SearchFormRequestBodyData
   }
 

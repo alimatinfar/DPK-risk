@@ -4,7 +4,7 @@ export const getResponseErrorCode = (error: any) => {
 };
 
 export const getResponseErrorMessage = (error: any, defaultErrorMessage?: string) => {
-  return error?.response?.data?.message?.description || error?.data?.message?.description || (defaultErrorMessage || "خطای نامشخص")
+  return error?.data?.messages?.[0]?.description || (defaultErrorMessage || "خطای نامشخص")
 };
 
 export const getErrorStatus = (error: any) => {
