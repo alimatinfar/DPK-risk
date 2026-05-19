@@ -11,9 +11,6 @@ export const PANEL_SIDEBAR_WIDTH = 'w-[256px]'
 export const PANEL_CONTENT_PADDING_RIGHT = 'pr-[256px]'
 
 export const getSideBarItems: () => PanelSideBarItemsListType = function () {
-
-  const {isLegal, activePersonData} = getActivePersonData()
-
   return [
     {
       label: 'اطلاعات جامع مشتری',
@@ -30,7 +27,7 @@ export const getSideBarItems: () => PanelSideBarItemsListType = function () {
         },
         {
           icon: LegalInfoIcon,
-          label: `اطلاعات نماینده قانونی${isLegal(activePersonData) ? '/مرتبطین' : ''}`,
+          label: `اطلاعات نماینده قانونی/مرتبطین`,
           link: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
         },
         {

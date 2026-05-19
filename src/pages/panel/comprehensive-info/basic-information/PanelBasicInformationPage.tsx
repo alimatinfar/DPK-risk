@@ -1,5 +1,5 @@
 import PanelPageTitle from "../../layout/PanelPageTitle.tsx";
-import { DetailInfoSection } from "../../../../components/others/DetailInfoSection";
+import {DetailInfoSection} from "../../../../components/others/DetailInfo/DetailInfoSection";
 import usePanelBasicInformationPage from "./hooks/usePanelBasicInformationPage.ts";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 import PanelBasicInformationPageHistory from "./PanelBasicInformationPageHistory.tsx";

@@ -14,6 +14,7 @@ const APIS = {
   GET_LEGAL_REPRESENTATIVE_INFO: 'Customer/GetLegalRepresentativeInfo',
   GET_MAJOR_OWNERS_INFO: 'Customer/GetOwnersOfCapitalInfo',
   GET_SHAREHOLDERS_INFO: 'Customer/GetShareHoldersInfo',
+  GET_TOKEN_DATA: 'Account/GetTokenData',
 }
 
 export default APIS;

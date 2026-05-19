@@ -1,6 +1,9 @@
 import axios, {type AxiosResponse} from "axios";
 import {getErrorStatus} from "./utils/getResponse.ts";
 import type {CustomResponseType} from "./types/CustomResponseType.ts";
+import getToken from "../utils/authentication/getToken.ts";
+import type {ConfigFileType} from "../types/ConfigFileType.ts";
+import logoutHandler from "../utils/authentication/logoutHandler.ts";
 // import {navigateTo} from "../hooks/useSaveNavigate.ts";
 
 
@@ -18,7 +21,7 @@ export const loadConfigFile = async () => {
   if (!res.ok) {
     throw new Error('Failed to load config');
   }
-  return res.json();
+  return res.json() as Promise<ConfigFileType>;
 };
 
 axiosInstance.interceptors.request.use(async (request: any) => {
@@ -27,12 +30,11 @@ axiosInstance.interceptors.request.use(async (request: any) => {
 
   request.headers["Access-Control-Allow-Origin"] = ["*"];
 
-  //TODO get token from sso
-  // const token = getToken();
-  //
-  // if (token) {
-  //   request.headers.Authorization = `Bearer ${token}`;
-  // }
+  const token = getToken();
+
+  if (token) {
+    request.headers.Authorization = `Bearer ${token}`;
+  }
 
   return request;
 });
@@ -50,9 +52,7 @@ axiosInstance.interceptors.response.use(
     // fireResponseErrorMessage(err)
     const errorStatus = getErrorStatus(err)
     if ([403, 401].includes(errorStatus)) {
-      //TODO logout logic should be set
-      // removeToken()
-      // navigateTo(ROUTER_LINKS.AUTH)
+      logoutHandler()
       return
     }
 
