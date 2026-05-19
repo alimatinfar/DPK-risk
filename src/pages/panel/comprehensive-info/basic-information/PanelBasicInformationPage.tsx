@@ -28,14 +28,10 @@ function PanelBasicInformationPage() {
       <div className='flex flex-col gap-y-4'>
         <PanelPageTitle
           children={
-            <RenderLogic
-              isLoading={loading}
-            >
-              <PanelBasicInformationPageHistory
-                openHistoryModalHandler={openHistoryModalHandler}
-                activeHistory={activeHistory}
-              />
-            </RenderLogic>
+            <PanelBasicInformationPageHistory
+              openHistoryModalHandler={openHistoryModalHandler}
+              activeHistory={activeHistory}
+            />
           }
         />
 
