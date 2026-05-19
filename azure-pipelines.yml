@@ -4,6 +4,13 @@ pool:
   name: DockerAgents
   demands:
     - npm
+    
+trigger:
+    branches:
+      include:
+      - develop
+      - master 
+      - test     
 
 #variables:
   # variable group :

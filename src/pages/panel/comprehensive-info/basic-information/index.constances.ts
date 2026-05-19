@@ -125,3 +125,10 @@ export type BasicInfoDataTypeForEachPersonType = {
   legalData: CustomResponseType<BasicInformationLegalResponseType> | undefined;
   foreignCitizenData: CustomResponseType<BasicInformationForeignCitizenResponseType> | undefined;
 }
+
+export type HistoryDataType = {
+  id: string
+  date: string
+  location: string
+  isLasted: boolean
+}
