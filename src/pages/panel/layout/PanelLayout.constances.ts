@@ -33,7 +33,7 @@ export const getSideBarItems: () => PanelSideBarItemsListType = function () {
         },
         {
           icon: LegalInfoIcon,
-          label: `اطلاعات نماینده قانونی${isLegal(activePersonData) ? "/مرتبطین" : ""}`,
+          label: `اطلاعات نماینده قانونی/مرتبطین`,
           link: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
         },
         {

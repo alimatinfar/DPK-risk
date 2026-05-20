@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: IRANYekan;
-  src: url("./assets/fonts/IranYekan/IRANYekanXVFaNumVF.woff2");
+  src: url('./assets/fonts/IranYekan/IRANYekanXVFaNumVF.woff2');
 }
 
 :root {
@@ -14,28 +14,31 @@
   --color-background: rgba(248, 250, 252, 1);
   --color-foreground: var(--foreground);
 
-  --color-primary: #29166f;
-  --color-primary-background: #8d91c71a;
-  --color-primary-border: #8d91c74d;
-  --color-primary-text: #0f172a;
+  --color-primary: #29166F;
+  --color-primary-background: #8D91C71A;
+  --color-primary-border: #8D91C74D;
+  --color-primary-text: #0F172A;
 
-  --color-accent: #4e4181;
+  --color-secondary: var(--color-gray-900);
+
+  --color-accent: #4E4181;
 
   --color-secondary-text: #475569;
 
-  --shadow-base: 0 0px 2px 0px rgba(16, 24, 40, 0.06), 0px 0px 3px 0px rgba(16, 24, 40, 0.1);
+
+  --shadow-base: 0 0px 2px 0px rgba(16,24,40,0.06), 0px 0px 3px 0px rgba(16, 24, 40, 0.1);
   --font-IRANYekan: IRANYekan;
 }
 
 @layer base {
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: theme("colors.gray.900") !important;
+    -webkit-text-fill-color: theme('colors.gray.900') !important;
   }
 
   input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    -webkit-text-fill-color: theme("colors.gray.900") !important;
+    -webkit-text-fill-color: theme('colors.gray.900') !important;
   }
 }
 
@@ -67,11 +70,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #d1d5db;
+    background: #D1D5DB;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #d1d5db;
+    background: #D1D5DB;
   }
 
   .hide-scroll::-webkit-scrollbar {
