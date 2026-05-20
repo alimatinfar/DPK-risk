@@ -1,17 +1,17 @@
 import { type MenuItemType } from "./MenuItem";
 import useMenu from "./hooks/useMenu";
 import MenuItem from "./MenuItem";
+import SaderatLogoAndTypo from "../../svg/logo/SaderatLogoAndTypo";
 
 export type MenuProps = {
   items: MenuItemType[];
   isExpanded: boolean;
   activeLink?: string;
   onToggle?: (id: string | number, isOpen: boolean) => void;
-  defaultOpenItems?: (string | number)[];
   className?: string;
 };
 
-function Menu({ items, activeLink, onToggle, defaultOpenItems = [], isExpanded, className }: MenuProps) {
+function Menu({ items, activeLink, onToggle, isExpanded, className }: MenuProps) {
   const { openItems, toggleItem } = useMenu({
     items,
     defaultOpenItems: [0, 1, 2],
@@ -19,7 +19,10 @@ function Menu({ items, activeLink, onToggle, defaultOpenItems = [], isExpanded, 
   });
 
   return (
-    <div className={`flex flex-col pt-4  ${className}`}>
+    <div className={`flex flex-col   ${className}`}>
+      <div className="pb-4">
+        <SaderatLogoAndTypo />
+      </div>
       {items.map((item) => (
         <MenuItem
           key={item.id}

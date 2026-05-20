@@ -5,6 +5,9 @@ import BasicInfoIcon from "../../../components/svg/sidebar/BasicInfoIcon.tsx";
 import EconomicInfoIcon from "../../../components/svg/sidebar/EconomicInfoIcon.tsx";
 import LegalInfoIcon from "../../../components/svg/sidebar/LegalInfoIcon.tsx";
 import getActivePersonData from "../utils/getActivePersonData.ts";
+import WithdrawalIcon from "../../../components/svg/sidebar/WithdrawalIcon.tsx";
+import JointIcon from "../../../components/svg/sidebar/JointIcon.tsx";
+import IndividualIcon from "../../../components/svg/sidebar/IndividualIcon.tsx";
 
 export const PANEL_TOPBAR_HEIGHT = "h-[130px]";
 export const PANEL_SIDEBAR_WIDTH_OPEN = "w-[256px]";
@@ -44,17 +47,17 @@ export const getSideBarItems: () => PanelSideBarItemsListType = function () {
       label: "اطلاعات بانکی مشتری",
       children: [
         {
-          icon: SearchIcon,
+          icon: IndividualIcon,
           label: "اطلاعات بانکي انفرادي",
           link: ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION,
         },
         {
-          icon: SearchIcon,
+          icon: JointIcon,
           label: "اطلاعات بانکي مشترک",
           link: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,
         },
         {
-          icon: SearchIcon,
+          icon: WithdrawalIcon,
           label: "اطلاعات بانکي حساب هاي داراي شرايط برداشت",
           link: ROUTER_LINKS.PANEL_BANKING_INFORMATION_FOR_ACCOUNTS_WITH_WITHDRAWAL_CONDITIONS,
         },
