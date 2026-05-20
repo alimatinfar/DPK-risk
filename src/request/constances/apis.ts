@@ -1,6 +1,9 @@
 
 const APIS = {
+  //search page
   GET_CUSTOMERS: 'Customer/GetCustomers',
+
+  //comprehensive-info
   GET_NATURAL_CUSTOMER_INFO: 'Customer/GetCustomerInfo',
   GET_FOREIGN_CITIZEN_CUSTOMER_INFO: 'Customer/GetNonCitizenCustomerInfo',
   GET_LEGAL_CUSTOMER_INFO: 'Customer/GetLegalCustomerInfo',
@@ -14,6 +17,25 @@ const APIS = {
   GET_LEGAL_REPRESENTATIVE_INFO: 'Customer/GetLegalRepresentativeInfo',
   GET_MAJOR_OWNERS_INFO: 'Customer/GetOwnersOfCapitalInfo',
   GET_SHAREHOLDERS_INFO: 'Customer/GetShareHoldersInfo',
+
+  //banking-info
+  BANK_INFO_GET_CUSTOMER_ACCOUNTS: 'BankInfo/GetCustomerAccounts',
+  BANK_INFO_GET_CUSTOMER_SHARE_ACCOUNTS: 'BankInfo/GetCustomerShareAccounts',
+  BANK_INFO_GET_CUSTOMER_CARDS: 'BankInfo/GetCustomerCards',
+  BANK_INFO_GET_CUSTOMER_FACILITIES: 'BankInfo/GetCustomerFacilities',
+  BANK_INFO_GET_CUSTOMER_OBLIGATIONS: 'BankInfo/GetCustomerObligations',
+  BANK_INFO_GET_CUSTOMER_OBLIGATIONS_BENEFICIARY: 'BankInfo/GetCustomerObligationsBeneficiary',
+  BANK_INFO_GET_CUSTOMER_OBLIGATIONS_GUARANTORS: 'BankInfo/GetCustomerObligationsGuarantor',
+  BANK_INFO_GET_ACCOUNT_CHEQUES: 'BankInfo/GetAccountCheqs',
+  BANK_INFO_GET_ACCOUNT_RETURN_CHEQUES: 'BankInfo/GetAccountReturnCheqs',
+  BANK_INFO_GET_ACCOUNT_SPECIAL_INSTRUCTIONS: 'BankInfo/GetAccountSpecialInstructions',
+  BANK_INFO_GET_ACCOUNT_SIGNATORS: 'BankInfo/GetAccountSignatories',
+  BANK_INFO_GET_ACCOUNT_BLOCKED_HISTORY: 'BankInfo/GetAccountBlockedHistory',
+  BANK_INFO_GET_ACCOUNT_SAPTA_MOBILE: 'BankInfo/GetAccountSaptaMobile',
+  BANK_INFO_GET_SPECIAL_CONDITIONS_ACCOUNTS: 'BankInfo/GetSpecialConditionsAccounts',
+  BANK_INFO_GET_SPECIAL_CONDITIONS_CARDS: 'BankInfo/GetSpecialConditionsCards',
+
+  //authentication
   GET_TOKEN_DATA: 'Account/GetTokenData',
 }
 

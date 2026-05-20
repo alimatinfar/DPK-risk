@@ -24,8 +24,10 @@ function PanelSideBar() {
   return (
     <div
       className={` transition-all duration-200
-        ${isExpanded ? SIDEBAR_WIDTHS.EXPANDED : SIDEBAR_WIDTHS.COLLAPSED} ${Z_INDEXES.SIDEBAR} h-dvh 
-        py-4 px-1.5 flex flex-col bg-gray-50 border-l border-gray-200
+        ${isExpanded ? SIDEBAR_WIDTHS.EXPANDED : SIDEBAR_WIDTHS.COLLAPSED} 
+        ${isExpanded ? 'px-4' : 'px-1.5'} 
+        ${Z_INDEXES.SIDEBAR} 
+        h-dvh py-4 flex flex-col bg-gray-50 border-l border-gray-200
       `}
     >
       <div className="flex-1 overflow-auto scroll-thin">

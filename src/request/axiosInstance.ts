@@ -48,8 +48,6 @@ axiosInstance.interceptors.response.use(
     return response
   },
   err => {
-    //TODO error handling should be set
-    // fireResponseErrorMessage(err)
     const errorStatus = getErrorStatus(err)
     if ([403, 401].includes(errorStatus)) {
       logoutHandler()
