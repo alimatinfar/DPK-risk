@@ -13,6 +13,7 @@ import APIS from "../../../../../request/constances/apis.ts";
 import type {PanelIndividualBankingInfoCommitmentsResponseType} from "./index.types.ts";
 import withSeparator from "../../../../../utils/separator/withSeparator.ts";
 import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 
 
 function PanelIndividualBankingInfoCommitments() {
@@ -59,7 +60,7 @@ function PanelIndividualBankingInfoCommitments() {
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         {
           onClick: () => navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS_DETAIL(item.obligationsNo)),
-          icon: <ArrowIcon2 width='100%' height='100%' />,
+          icon: <ArrowIcon2 width='100%' height='100%'/>,
           title: 'جزئیات',
         }
       ],
@@ -67,10 +68,15 @@ function PanelIndividualBankingInfoCommitments() {
   }, [data])
 
   return (
-    <Table
-      columns={PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS}
-      data={tableData}
-    />
+    <RenderLogic
+      isLoading={isFetching} error={error}
+      isEmpty={tableData?.length === 0}
+    >
+      <Table
+        columns={PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS}
+        data={tableData}
+      />
+    </RenderLogic>
   );
 }
 

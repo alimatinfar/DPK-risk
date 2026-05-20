@@ -7,10 +7,11 @@ import {
 
 function PanelIndividualBankingInfoEServicePortal() {
   return (
-    <Table
-      columns={PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS}
-      data={PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_FAKE_DATA}
-    />
+    <div></div>
+    // <Table
+    //   columns={PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS}
+    //   data={PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_FAKE_DATA}
+    // />
   );
 }
 
