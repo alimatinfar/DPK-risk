@@ -2,7 +2,7 @@ import React, {type ReactNode} from "react";
 import type {PartialRecord} from "../../../types/PartialRecord";
 import joinObjectValues from "../../../utils/joinObjectValues";
 
-export type TagColorsType = 'primary' | 'green' | 'yellow' | 'red' | 'orange' | 'gray' | 'blue' | 'violet' | 'cyan'
+export type TagColorsType = 'primary' | 'green' | 'yellow' | 'red' | 'orange' | 'gray' | 'blue' | 'violet' | 'cyan' | 'amber'
 export type TagVariantsType = 'filled' | 'fade'
 
 export type TagProps = {
@@ -24,7 +24,8 @@ function Tag({text, color = 'primary', variant = 'filled', rightIcon}: TagProps)
       yellow: 'bg-yellow-500 text-white',
       green: 'bg-green-500 text-white',
       orange: 'bg-orange-500 text-white',
-      cyan: 'bg-cyan-500 text-white'
+      cyan: 'bg-cyan-500 text-white',
+      amber: 'bg-amber-600 text-white',
     },
     fade: {
       primary: 'bg-primary-50 text-primary',
@@ -35,7 +36,8 @@ function Tag({text, color = 'primary', variant = 'filled', rightIcon}: TagProps)
       yellow: 'bg-yellow-50 text-yellow-600',
       green: 'bg-green-50 text-green-600',
       orange: 'bg-orange-50 text-orange-500',
-      cyan: 'bg-cyan-50 text-cyan-800'
+      cyan: 'bg-cyan-50 text-cyan-800',
+      amber: 'bg-amber-50 text-amber-800',
     }
   }
 

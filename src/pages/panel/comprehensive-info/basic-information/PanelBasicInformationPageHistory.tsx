@@ -17,30 +17,41 @@ function PanelBasicInformationPageHistory(
     <>
       {
         activeHistory &&
-          <div className="flex-1 flex items-center gap-2">
-              <Tag
-                  text={activeHistory.date}
-                  variant="fade"
-                  color="cyan"
-                  rightIcon={<CalendarIcon/>}
-              />
-              <Tag
-                  text={activeHistory.location}
-                  variant="fade"
-                  color="blue"
-                  rightIcon={<VectorIcon/>}
-              />
-          </div>
+        <div className="flex-1 flex items-center gap-2">
+          <Tag
+            text={activeHistory.date}
+            variant="fade"
+            color="cyan"
+            rightIcon={<CalendarIcon/>}
+          />
+          <Tag
+            text={activeHistory.location}
+            variant="fade"
+            color="blue"
+            rightIcon={<VectorIcon/>}
+          />
+        </div>
       }
-      <Button
-        variant="link"
-        color="secondary"
-        size="sm"
-        rightIcon={<ClockBackwardIcon width={15} height={15}/>}
-        onClick={openHistoryModalHandler}
-      >
-        مشاهده تاریخچه
-      </Button>
+      <div className="flex divide-x divide-gray-300 items-center">
+        {
+          activeHistory && !activeHistory.isLasted &&
+          <div className="pl-2">
+            <Tag
+              text={"اطلاعات قديمي"}
+              color="amber"
+            />
+          </div>
+        }
+        <Button
+          variant="link"
+          color="secondary"
+          size="sm"
+          rightIcon={<ClockBackwardIcon width={15} height={15}/>}
+          onClick={openHistoryModalHandler}
+        >
+          مشاهده تاریخچه
+        </Button>
+      </div>
     </>
   );
 }
