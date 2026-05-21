@@ -5,7 +5,7 @@ import SkeletonSection from "./SkeletonSection.tsx";
 
 function SearchPageSkeleton(): JSX.Element {
   return (
-    <div className={`${SEARCH_PAGE_MAX_WIDTH} w-full`}>
+    <div className={`${SEARCH_PAGE_MAX_WIDTH} w-full pb-4`}>
       <div className="py-4 px-2.5">
         <Skeleton size="w-[104px] h-[25px] rounded-sm" bgClass="bg-gray-200" />
       </div>
