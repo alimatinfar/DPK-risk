@@ -20,11 +20,8 @@ export const PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS: TabsProps['tabs']
 export const PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS = {
   CUSTOMER_NUMBER: 'customerNumber',
   CUSTOMER_TYPE: 'customerType',
-  FIRST_NAME: 'firstName',
-  LAST_NAME: 'lastName',
+  NAME: 'name',
   NATIONAL_ID: 'nationalId',
-  COMPANY_NAME: 'companyName',
-  NATIONAL_COMPANY_ID: 'nationalCompanyId',
 } as const;
 
 export const PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS: TableColumnType[] = [
@@ -37,23 +34,11 @@ export const PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS: TableColumnType[]
     accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.CUSTOMER_TYPE,
   },
   {
-    label: 'نام',
-    accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.FIRST_NAME,
+    label: 'نام و نام خانوادگی / نام شرکت',
+    accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NAME,
   },
   {
-    label: 'نام خانوادگی',
-    accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.LAST_NAME,
-  },
-  {
-    label: 'کدملی/شناسه فراگیر اتباع',
+    label: 'کدملی/شناسه فراگیر اتباع/شناسه ملی',
     accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NATIONAL_ID,
-  },
-  {
-    label: 'نام شرکت /موسسه',
-    accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.COMPANY_NAME,
-  },
-  {
-    label: 'شناسه ملی',
-    accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NATIONAL_COMPANY_ID,
   },
 ]
