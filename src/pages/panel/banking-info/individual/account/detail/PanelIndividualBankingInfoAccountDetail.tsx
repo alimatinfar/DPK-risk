@@ -8,7 +8,7 @@ import PanelIndividualBankingInfoAccountDetailRender from "./PanelIndividualBank
 function PanelIndividualBankingInfoAccountDetail() {
   return (
     <PanelIndividualBankingInfoAccountDetailRender
-      defaultState={PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.RETURNED_CHEQUES}
+      defaultState={PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.ISSUED_CHEQUES}
       renderObject={PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_RENDER_OBJECT}
       tabs={PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS}
     />
