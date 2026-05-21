@@ -3,13 +3,13 @@ import type {ReactNode} from "react";
 import SuspenseLoading from "../Loading/SuspenseLoading.tsx";
 
 
-type Props = {
+export type TabContentRenderProps = {
   renderObject: Record<TabType['id'], ReactNode>;
   activeTab: TabType['id'];
 }
 
 function TabContentRender(
-  {renderObject, activeTab}: Props
+  {renderObject, activeTab}: TabContentRenderProps
 ) {
   return (
     <SuspenseLoading>

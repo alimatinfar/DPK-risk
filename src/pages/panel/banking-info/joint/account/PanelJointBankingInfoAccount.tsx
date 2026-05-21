@@ -57,7 +57,7 @@ function PanelJointBankingInfoAccount() {
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPENER_NAME]: item.bankPersonnelName,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         {
-          onClick: () => navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT_DETAIL(item.accountNumber)),
+          onClick: () => navigate(ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_ACCOUNT_DETAIL(item.accountNumber)),
           icon: <ArrowIcon2 width='100%' height='100%' />,
           title: 'جزئیات',
         }
