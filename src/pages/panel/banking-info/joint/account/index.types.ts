@@ -1,5 +1,6 @@
 
 export type PanelJointBankingInfoAccountResponseType = {
+  shareCustomerId: number;
   accountNumber: number;
   accountStatus: number;
   subAccount: number;

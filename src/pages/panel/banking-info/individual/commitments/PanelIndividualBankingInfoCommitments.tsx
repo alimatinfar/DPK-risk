@@ -20,7 +20,6 @@ function PanelIndividualBankingInfoCommitments() {
 
   const navigate = useNavigate()
 
-
   const {activePersonData} = getActivePersonData();
 
   const {

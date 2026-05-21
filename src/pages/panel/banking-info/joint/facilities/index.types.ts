@@ -1,6 +1,7 @@
 
-export type PanelIndividualBankingInfoFacilitiesResponseType = {
+export type PanelJointBankingInfoFacilitiesResponseType = {
   customerId: number;
+  shareCustomerId: number;
   number: number;
   amount: number;
   totalAmount: number;

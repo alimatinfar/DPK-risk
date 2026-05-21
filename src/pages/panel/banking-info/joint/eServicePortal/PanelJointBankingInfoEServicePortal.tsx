@@ -6,10 +6,11 @@ import {
 
 function PanelJointBankingInfoEServicePortal() {
   return (
-    <Table
-      columns={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_COLUMNS}
-      data={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_FAKE_DATA}
-    />
+    // <Table
+    //   columns={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_COLUMNS}
+    //   data={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_FAKE_DATA}
+    // />
+    <div></div>
   );
 }
 

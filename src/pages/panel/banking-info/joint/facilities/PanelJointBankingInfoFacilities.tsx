@@ -5,12 +5,12 @@ import {
 } from "./index.constances.tsx";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import useFetchData from "../../../../../request/hooks/useFetchData.ts";
-import type {PanelIndividualBankingInfoFacilitiesResponseType} from "../../individual/facilities/index.types.ts";
 import APIS from "../../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import withSeparator from "../../../../../utils/separator/withSeparator.ts";
 import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import type {PanelJointBankingInfoFacilitiesResponseType} from "./index.types.ts";
 
 
 function PanelJointBankingInfoFacilities() {
@@ -19,7 +19,7 @@ function PanelJointBankingInfoFacilities() {
 
   const {
     data, isFetching, error
-  } = useFetchData<PanelIndividualBankingInfoFacilitiesResponseType>({
+  } = useFetchData<PanelJointBankingInfoFacilitiesResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_CUSTOMER_FACILITIES,
       method: "POST",
@@ -34,7 +34,7 @@ function PanelJointBankingInfoFacilities() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item.shareCustomerId,
+      [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item?.shareCustomerId,
       [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.FACILITY_NUMBER]: item.number,
       [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.FACILITY_AMOUNT]: withSeparator(item.amount),
       [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.TOTAL_FACILITY_AMOUNT]: withSeparator(item.totalAmount),
