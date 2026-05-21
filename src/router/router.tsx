@@ -26,8 +26,6 @@ const PanelIndividualBankingInfoAccountDetail = lazy(() => import("../pages/pane
 const PanelIndividualBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/individual/commitments/detail/PanelIndividualBankingInfoCommitmentsDetail.tsx"));
 
 const PanelJointBankingInfo = lazy(() => import("../pages/panel/banking-info/joint/PanelJointBankingInfo.tsx"));
-const PanelJointBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/joint/account/detail/PanelJointBankingInfoAccountDetail.tsx"));
-const PanelJointBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/joint/commitments/detail/PanelJointBankingInfoCommitmentsDetail.tsx"));
 
 const PanelBankingInfoWithWithdrawalConditions = lazy(() => import("../pages/panel/banking-info/with-withdrawal-conditions/PanelBankingInfoWithWithdrawalConditions.tsx"));
 
@@ -92,14 +90,6 @@ const router = createBrowserRouter(
             {
               path: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,
               element:<PanelJointBankingInfo />,
-            },
-            {
-              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_ACCOUNT}/:id`,
-              element:<PanelJointBankingInfoAccountDetail />,
-            },
-            {
-              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_COMMITMENTS}/:id`,
-              element:<PanelJointBankingInfoCommitmentsDetail />,
             },
 
             {
