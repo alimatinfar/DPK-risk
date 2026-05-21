@@ -1,6 +1,7 @@
 
 export type PanelIndividualBankingInfoFacilitiesResponseType = {
   customerId: number;
+  shareCustomerId: number;
   number: number;
   amount: number;
   totalAmount: number;
@@ -12,7 +13,7 @@ export type PanelIndividualBankingInfoFacilitiesResponseType = {
   subFacilities: number;
   allocationDate: number;
   endDate: number;
-  branchCode: string;
+  branchCode: number;
   branchName: string;
   areaCode: string;
   areaName: string;
