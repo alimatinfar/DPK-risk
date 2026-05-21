@@ -50,6 +50,7 @@ function PanelIndividualBankingInfoCard() {
       [PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUER_NAME]: item.bankPersonnelName,
     }))
   }, [data])
+
   return (
     <RenderLogic
       isLoading={isFetching} error={error}
