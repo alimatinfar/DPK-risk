@@ -35,7 +35,7 @@ function PanelBasicInformationPageHistory(
       <div className="flex divide-x divide-gray-300 items-center">
         {
           activeHistory && !activeHistory.isLasted &&
-          <div className="pl-2">
+          <div className="pl-2 ml-2">
             <Tag
               text={"اطلاعات قديمي"}
               color="amber"

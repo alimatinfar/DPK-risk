@@ -1,7 +1,6 @@
 import Table from "../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS, PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS,
-  PANEL_INDIVIDUAL_FACILITIES_TABLE_FAKE_DATA
 } from "./index.constances.tsx";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import useFetchData from "../../../../../request/hooks/useFetchData.ts";

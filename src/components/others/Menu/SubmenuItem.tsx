@@ -54,8 +54,8 @@ function SubmenuItem({ isOpen, children, activeLink, isExpanded }: MenuContentPr
             to={child.link}
             className={`
               flex items-center gap-2 rounded-bl-sm rounded-tl-sm
-              text-right transition-all duration-200 p-2
-              ${isActive ? "bg-accent border-r-[3px] border-[#9E90CF]" : "hover:bg-gray-100"}
+              text-right p-2 border-r-[3px]
+              ${isActive ? "bg-accent border-[#9E90CF]" : "hover:bg-gray-100 border-transparent"}
               ${child.className || ""}
             `}
           >
