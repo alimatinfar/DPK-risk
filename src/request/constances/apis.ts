@@ -30,6 +30,7 @@ const APIS = {
   BANK_INFO_GET_CUSTOMER_OBLIGATIONS_BENEFICIARY: 'BankInfo/GetCustomerObligationsBeneficiary',
   BANK_INFO_GET_CUSTOMER_OBLIGATIONS_GUARANTORS: 'BankInfo/GetCustomerObligationsGuarantor',
   BANK_INFO_GET_ACCOUNT_CHEQUES: 'BankInfo/GetAccountCheqs',
+  BANK_INFO_GET_ACCOUNT_SHARE_MEMBERS: 'Customer/GetShareCustomerInfo',
   BANK_INFO_GET_ACCOUNT_RETURN_CHEQUES: 'BankInfo/GetAccountReturnCheqs',
   BANK_INFO_GET_ACCOUNT_SPECIAL_INSTRUCTIONS: 'BankInfo/GetAccountSpecialInstructions',
   BANK_INFO_GET_ACCOUNT_SIGNATORS: 'BankInfo/GetAccountSignatories',
