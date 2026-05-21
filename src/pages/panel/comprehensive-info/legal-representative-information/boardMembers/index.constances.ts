@@ -30,7 +30,7 @@ export const PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS: TableColumn
     accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NAME,
   },
   {
-    label: 'کدملی/شناسه فراگیر اتباع/شناسه ملی',
+    label: 'کدملی / شناسه فراگیر اتباع / شناسه ملی',
     accessor: PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID,
   },
   {
