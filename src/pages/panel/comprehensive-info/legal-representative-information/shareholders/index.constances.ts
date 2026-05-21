@@ -28,7 +28,7 @@ export const PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS: TableColumnT
     accessor: PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NATIONALITY,
   },
   {
-    label: 'نام و نام خانوادگی / نام شرکت/موسسه',
+    label: 'نام و نام خانوادگی / نام شرکت',
     accessor: PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NAME,
   },
   {
