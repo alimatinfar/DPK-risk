@@ -12,6 +12,7 @@ import useFetchData from "../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../request/constances/apis.ts";
 import type {PanelJointBankingInfoAccountResponseType} from "./index.types.ts";
 import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 
 function PanelJointBankingInfoAccount() {
 
@@ -66,10 +67,15 @@ function PanelJointBankingInfoAccount() {
   }, [data])
 
   return (
+    <RenderLogic
+      isLoading={isFetching} error={error}
+      isEmpty={tableData?.length === 0}
+    >
     <Table
       columns={PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS}
       data={tableData}
     />
+    </RenderLogic>
   );
 }
 
