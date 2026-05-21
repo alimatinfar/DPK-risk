@@ -10,6 +10,7 @@ import {useMemo} from "react";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {PanelLegalRepresentativeInfoShareholdersResponseType} from "./index.types.ts";
 import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import displayAvailableValues from "../../../../../utils/displayAvailableValues.ts";
 
 
 function PanelLegalRepresentativeInformationPageShareholders() {
@@ -35,7 +36,7 @@ function PanelLegalRepresentativeInformationPageShareholders() {
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerId,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.PERSON_TYPE]: item?.personalityType,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
-      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NAME]: `${item?.firstName || ''} ${item?.lastName || ''} ${item?.companyName || ''}`.trim(),
+      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.companyName),
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: item?.nationalID,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.MANAGEMENT_SEAT_STATUS]: item?.managementStatus,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NUMBER_OF_SHARES]: item?.sharesNumber,
