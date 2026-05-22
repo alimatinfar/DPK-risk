@@ -1,6 +1,7 @@
 
 export type PanelJointBankingInfoCommitmentsResponseType = {
   shareCustomerId: number;
+  shareCustomerIdStr: string;
   obligationsNo: number;
   indirectObligations: number;
   obligationsAmount: number;

@@ -40,7 +40,7 @@ function PanelJointBankingInfoCommitments() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item?.shareCustomerId,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item?.shareCustomerIdStr,
       [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.INDIRECT_COMMITMENT]: item?.indirectObligations,
       [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.COMMITMENT_NUMBER]: item?.obligationsNo,
       [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.PRINCIPAL_AMOUNT]: withSeparator(item?.obligationsAmount),

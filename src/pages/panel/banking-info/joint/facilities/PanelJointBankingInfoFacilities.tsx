@@ -34,7 +34,7 @@ function PanelJointBankingInfoFacilities() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item?.shareCustomerId,
+      [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item?.shareCustomerIdStr,
       [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.FACILITY_NUMBER]: item?.number,
       [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.FACILITY_AMOUNT]: withSeparator(item?.amount),
       [PANEL_JOINT_FACILITIES_TABLE_COLUMNS_KEYS.TOTAL_FACILITY_AMOUNT]: withSeparator(item?.totalAmount),

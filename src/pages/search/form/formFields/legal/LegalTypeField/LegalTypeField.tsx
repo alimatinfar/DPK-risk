@@ -1,7 +1,7 @@
 import useGetFormErrorMessage
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
 import SelectForm from "../../../../../../components/Form/Select/SelectForm.tsx";
-import {LEGAL_TYPE_OPTIONS, legalTypeFieldLabel, legalTypeFieldName} from "./LegalTypeField.constances.ts";
+import {legalTypeFieldLabel, legalTypeFieldName} from "./LegalTypeField.constances.ts";
 import APIS from "../../../../../../request/constances/apis.ts";
 
 
@@ -20,9 +20,6 @@ function LegalTypeField() {
       }}
       selectProps={{
         apiAddress: APIS.GET_LEGAL_TYPES
-      }}
-      rules={{
-        // required: requiredErrorMessage,
       }}
     />
   );

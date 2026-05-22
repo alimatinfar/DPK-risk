@@ -1,8 +1,6 @@
 import useGetFormErrorMessage
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
-import InputForm from "../../../../../../components/Form/Input/InputForm.tsx";
 import {nationalityFieldLabel, nationalityFieldName} from "./NationalityField.constances.ts";
-import {legalTypeFieldLabel, legalTypeFieldName} from "../../legal/LegalTypeField/LegalTypeField.constances.ts";
 import APIS from "../../../../../../request/constances/apis.ts";
 import SelectForm from "../../../../../../components/Form/Select/SelectForm.tsx";
 

@@ -1,7 +1,7 @@
 import useGetFormErrorMessage
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
-import InputForm from "../../../../../../components/Form/Input/InputForm.tsx";
 import {citizenshipFieldLabel, citizenshipFieldName} from "./CitizenshipField.constances.ts";
+import SelectForm from "../../../../../../components/Form/Select/SelectForm.tsx";
 
 
 function CitizenshipField() {
@@ -9,12 +9,15 @@ function CitizenshipField() {
   const errorMessage = getErrorMessage(citizenshipFieldName);
 
   return (
-    <InputForm
+    <SelectForm
       fieldName={citizenshipFieldName}
       inputProps={{
         errorMessage,
         label: citizenshipFieldLabel,
-        placeholder: 'انتخاب کنید',
+      }}
+      selectProps={{
+        options: []
+        // apiAddress: APIS.GET_LEGAL_TYPES
       }}
     />
   );

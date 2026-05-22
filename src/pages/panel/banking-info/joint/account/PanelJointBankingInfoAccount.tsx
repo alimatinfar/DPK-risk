@@ -40,7 +40,7 @@ function PanelJointBankingInfoAccount() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item?.shareCustomerId,
+      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.SHARED_CUSTOMER_NUMBER]: item?.shareCustomerIdStr,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_NUMBER]: item?.accountNumberStr,
       // TODO set tag for this field instead only value
       // [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_STATUS]:
