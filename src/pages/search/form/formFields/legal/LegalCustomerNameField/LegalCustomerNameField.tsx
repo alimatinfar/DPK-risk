@@ -14,7 +14,7 @@ function LegalCustomerNameField() {
       inputProps={{
         errorMessage,
         label: legalCustomerNameFieldLabel,
-        placeholder: 'برای مثال دیجی',
+        placeholder: 'برای مثال سرمایه گذاری خوارزمی',
       }}
     />
   );
