@@ -11,6 +11,9 @@ import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogi
 import type {PanelLegalRepresentativeInfoShareholdersResponseType} from "./index.types.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
 import displayAvailableValues from "../../../../../utils/display/displayAvailableValues.ts";
+import displayForeignCitizenNationalId from "../../../../../utils/display/displayForeignCitizenNationalId.ts";
+import displayLegalNationalId from "../../../../../utils/display/displayLegalNationalId.ts";
+import displayNaturalNationalId from "../../../../../utils/display/displayNaturalNationalId.ts";
 
 
 function PanelLegalRepresentativeInformationPageShareholders() {
@@ -37,7 +40,9 @@ function PanelLegalRepresentativeInformationPageShareholders() {
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.PERSON_TYPE]: item?.personalityType,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.companyName),
-      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: item?.nationalID,
+      [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: item?.nationality ?
+        displayForeignCitizenNationalId(item?.nationalID) : item?.legalName ?
+          displayLegalNationalId(item?.nationalID) : displayNaturalNationalId(item?.nationalID),
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.MANAGEMENT_SEAT_STATUS]: item?.managementStatus,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.NUMBER_OF_SHARES]: item?.sharesNumber,
       [PANEL_LEGAL_REPRESENTATIVE_SHAREHOLDERS_TABLE_COLUMNS_KEYS.SHARE_PERCENTAGE]: item?.percentageOfTotalShares,
