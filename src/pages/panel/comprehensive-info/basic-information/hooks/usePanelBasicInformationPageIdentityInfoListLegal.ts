@@ -3,6 +3,7 @@ import type {DetailInfoSectionProps} from "../../../../../components/others/Deta
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
+import displayLegalNationalId from "../../../../../utils/display/displayLegalNationalId.ts";
 
 function usePanelBasicInformationPageIdentityInfoListLegal(
   {legalData}: Pick<BasicInfoDataTypeForEachPersonType, 'legalData'>
@@ -42,7 +43,7 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'شناسه ملی',
-        value: data?.nationalID,
+        value: displayLegalNationalId(data?.nationalID),
       },
       {
         label: 'وضعیت شناسه ملی',
