@@ -5,6 +5,7 @@ const APIS = {
 
   // primary information
   GET_LEGAL_TYPES: 'PrimaryInformation/GetLegalType',
+  GET_NATIONALITIES: 'PrimaryInformation/GetNationality',
 
   //comprehensive-info
   GET_NATURAL_CUSTOMER_INFO: 'Customer/GetCustomerInfo',

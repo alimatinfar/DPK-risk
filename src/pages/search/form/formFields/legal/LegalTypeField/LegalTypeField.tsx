@@ -19,7 +19,6 @@ function LegalTypeField() {
         label: legalTypeFieldLabel,
       }}
       selectProps={{
-        // options: LEGAL_TYPE_OPTIONS,
         apiAddress: APIS.GET_LEGAL_TYPES
       }}
       rules={{
