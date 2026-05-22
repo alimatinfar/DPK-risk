@@ -9,6 +9,9 @@ import type {IndividualBankingCommitmentsDetailBeneficiariesResponseType} from "
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import displayAvailableValues from "../../../../../../../utils/display/displayAvailableValues.ts";
 import {useParams} from "react-router";
+import displayForeignCitizenNationalId from "../../../../../../../utils/display/displayForeignCitizenNationalId.ts";
+import displayNaturalNationalId from "../../../../../../../utils/display/displayNaturalNationalId.ts";
+import displayLegalNationalId from "../../../../../../../utils/display/displayLegalNationalId.ts";
 
 
 function IndividualBankingCommitmentsDetailBeneficiaries() {
@@ -35,7 +38,10 @@ function IndividualBankingCommitmentsDetailBeneficiaries() {
       [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerId,
       [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.CUSTOMER_TYPE]: item?.legalTypeTitle,
       [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName || ''),
-      [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(item?.nationalID, item?.shenasnameId),
+      [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(
+        item?.nationality ? displayForeignCitizenNationalId(item?.nationalID) : displayNaturalNationalId(item?.nationalID),
+        displayLegalNationalId(item?.legalNationalID)
+      ),
     }))
   }, [data])
 
