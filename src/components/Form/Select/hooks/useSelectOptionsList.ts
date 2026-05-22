@@ -1,5 +1,10 @@
 import {useEffect, useMemo, useState} from "react";
-import type {SelectDropDownScrollPagination, SelectOptionType, SelectProps} from "../select-exports";
+import type {
+  SelectDropDownScrollPagination,
+  SelectOptionsListResponseType,
+  SelectOptionType,
+  SelectProps
+} from "../select-exports";
 import fetchOptions from "../fakeOptionsAPI";
 import useCallFuncWithDelayAfterOnChange from "../../../../hooks/useCallFuncByDelayAfterOnChange";
 import useSelectDropDownRef from "./useSelectDropDownRef";
@@ -27,7 +32,7 @@ type Props = {
 }
 
 function useSelectOptionsList(
-  {options, apiAddress, loadingFromParent}: Props
+  {options, apiAddress, loadingFromParent, apiOptionValue, apiOptionKey}: Props
 ) {
 
   const selectDropDownRef = useSelectDropDownRef()
@@ -41,8 +46,8 @@ function useSelectOptionsList(
 
   const {
     data: responseData,
-    // isFetching: listLoading, error: listError
-  } = useFetchData<any[]>({
+    isFetching: listLoading, error: listError
+  } = useFetchData<SelectOptionsListResponseType>({
     axiosConfig: {
       url: apiAddress || '',
     },
@@ -53,12 +58,12 @@ function useSelectOptionsList(
 
   useEffect(() => {
     if (!responseData) return
-    // const mappedList = responseData?.data?.map((item: any) => ({
-    //   id: item?.[apiOptionKey || 'id'] || '',
-    //   name: item?.[apiOptionValue || 'name'] || '',
-    // }))
-    //
-    // setOptionsList(mappedList)
+    const mappedList = responseData?.data?.map((item: any) => ({
+      id: item?.[apiOptionKey || 'id'] || '',
+      name: item?.[apiOptionValue || 'name'] || '',
+    }))
+
+    setOptionsList(mappedList)
   }, [responseData]);
 
   const setQueryWithDelay = useCallFuncWithDelayAfterOnChange({
@@ -144,7 +149,7 @@ function useSelectOptionsList(
     allCount = listResponse?.allCount
     setPage = setPageState
     setQuery = setQueryWithDelay
-    loading = paginationLoading
+    loading = paginationLoading || listLoading
     // loading = listResponse?.loading
   }
 

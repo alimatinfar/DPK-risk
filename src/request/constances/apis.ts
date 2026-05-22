@@ -1,7 +1,10 @@
 
 const APIS = {
-  //search page
+  // search page
   GET_CUSTOMERS: 'Customer/GetCustomers',
+
+  // primary information
+  GET_LEGAL_TYPES: 'PrimaryInformation/GetLegalType',
 
   //comprehensive-info
   GET_NATURAL_CUSTOMER_INFO: 'Customer/GetCustomerInfo',

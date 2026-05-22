@@ -32,3 +32,9 @@ export type SelectProps = {
 export type SelectOptionOnClickType = (e: any, selectValue: SelectOptionType) => void
 
 export const SELECT_PLACEHOLDER = 'انتخاب کنید'
+
+export type SelectOptionsListResponseType = {
+  id: number;
+  code: number;
+  name: string;
+}[]
