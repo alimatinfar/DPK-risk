@@ -40,7 +40,7 @@ function PanelIndividualBankingInfoCommitments() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.INDIRECT_COMMITMENT]: INDIRECT_COMMITMENT_KEYS?.[item?.indirectObligations],
+      [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.INDIRECT_COMMITMENT]: INDIRECT_COMMITMENT_KEYS?.[item?.indirectObligations ? 1 : 0],
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.COMMITMENT_NUMBER]: item?.obligationsNo,
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.PRINCIPAL_AMOUNT]: withSeparator(item?.obligationsAmount),
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.TOTAL_AMOUNT]: withSeparator(item?.obligationsTotalAmount),
