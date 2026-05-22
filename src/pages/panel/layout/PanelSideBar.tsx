@@ -1,10 +1,10 @@
 import { getSideBarItems } from "./PanelLayout.constances.ts";
 import Z_INDEXES from "../../../constances/zIndexes.ts";
-import SaderatLogoAndTypo from "../../../components/svg/logo/SaderatLogoAndTypo.tsx";
 import { useLocation } from "react-router";
 import type { MenuItemType } from "../../../components/others/Menu/MenuItem.tsx";
 import useSidebar, { SIDEBAR_WIDTHS } from "./hooks/useSidebar.tsx";
 import Menu from "../../../components/others/Menu/Menu.tsx";
+
 
 function PanelSideBar() {
   const location = useLocation();

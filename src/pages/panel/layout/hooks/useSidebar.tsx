@@ -11,7 +11,7 @@ export const SIDEBAR_WIDTHS = {
 const useSidebar = () => {
   const [isExpanded, setIsExpanded] = useState(() => {
     const saved = Ls.get(LS_KEYS.SIDEBAR_EXPANDED);
-    return saved !== null ? saved === "true" : true;
+    return saved != null ? saved === "true" : true;
   });
 
   const toggleSidebar = () => {
