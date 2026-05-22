@@ -1,8 +1,4 @@
-import Table from "../../../../../components/others/Table/Table.tsx";
-import {
-  PANEL_JOINT_E_SERVICE_PORTAL_TABLE_COLUMNS,
-  PANEL_JOINT_E_SERVICE_PORTAL_TABLE_FAKE_DATA
-} from "./index.constances.tsx";
+import DevelopingSection from "../../../../../components/others/RenderLogic/DevelopingSection.tsx";
 
 function PanelJointBankingInfoEServicePortal() {
   return (
@@ -10,7 +6,7 @@ function PanelJointBankingInfoEServicePortal() {
     //   columns={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_COLUMNS}
     //   data={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_FAKE_DATA}
     // />
-    <div></div>
+    <DevelopingSection />
   );
 }
 

@@ -1,8 +1,9 @@
+import DevelopingSection from "../../../../../components/others/RenderLogic/DevelopingSection.tsx";
 
 
 function PanelIndividualBankingInfoTransactionHistory() {
   return (
-    <div></div>
+    <DevelopingSection />
   );
 }
 
