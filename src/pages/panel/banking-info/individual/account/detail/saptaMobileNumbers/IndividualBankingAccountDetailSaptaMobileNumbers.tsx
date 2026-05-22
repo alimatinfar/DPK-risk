@@ -35,7 +35,7 @@ function IndividualBankingAccountDetailSaptaMobileNumbers() {
       [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.MOBILE_NUMBER]: item?.mobileNo,
       [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.OWNER_TYPE]: item?.legalTypeTitle,
       [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName),
-      [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(item?.nationalIDStr, item?.legalNationalID),
+      [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(item?.nationalIDStr, item?.legalNationalIDStr),
     }))
   }, [data])
 

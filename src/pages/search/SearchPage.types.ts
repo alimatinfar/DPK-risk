@@ -19,6 +19,7 @@ export type SearchFormResponseType = {
   legalCustomers: {
     customerId: string;
     legalNationalID: number;
+    legalNationalIDStr: string;
     legalName: string;
     tradeName: string;
     abbreviationName: string;

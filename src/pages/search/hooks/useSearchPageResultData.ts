@@ -51,7 +51,7 @@ function useSearchPageResultData(
         customerId: item?.customerId,
         name: item?.legalName,
         [legalBrandNameFieldName]: item?.tradeName,
-        [legalRegistrationNumberFieldName]: String(item?.legalNationalID),
+        [legalRegistrationNumberFieldName]: String(item?.legalNationalIDStr),
         [legalTypeFieldName]: item?.legalType,
       })),
     ]

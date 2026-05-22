@@ -11,6 +11,7 @@ export type IndividualBankingAccountDetailSaptaMobileNumbersResponseType = {
   nationalityTitle: string;
   citizenshipTitle: string;
   legalNationalID: number;
+  legalNationalIDStr: string;
   legalCustomerId: number;
   legalName: string;
   tradeName: string;

@@ -10,6 +10,7 @@ export type IndividualBankingCommitmentsDetailGuarantorsResponseType = {
   nationalityTitle: string;
   citizenshipTitle: string;
   legalNationalID: number;
+  legalNationalIDStr: string;
   legalCustomerId: number;
   legalName: string;
   tradeName: string;
