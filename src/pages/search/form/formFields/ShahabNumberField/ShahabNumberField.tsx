@@ -8,7 +8,6 @@ const SPECIFIC_LENGTH = 16
 
 function ShahabNumberField() {
 
-  // const requiredErrorMessage = useGetRequiredErrorMessage(shahabNumberFieldLabel);
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(shahabNumberFieldName);
 
@@ -18,11 +17,10 @@ function ShahabNumberField() {
       inputProps={{
         errorMessage,
         label: shahabNumberFieldLabel,
-        placeholder: 'برای مثال 12345789',
+        placeholder: 'برای مثال 1234567890123456',
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
-        // required: requiredErrorMessage,
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
       }}
     />

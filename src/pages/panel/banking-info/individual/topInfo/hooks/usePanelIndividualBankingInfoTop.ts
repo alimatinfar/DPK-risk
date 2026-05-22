@@ -17,7 +17,7 @@ function usePanelIndividualBankingInfoTop() {
         value: commonCustomerData?.customerId,
       },
       {
-        label: 'شماره شهاب',
+        label: 'شناسه شهاب',
         // TODO set from api response
         value: null,
       },

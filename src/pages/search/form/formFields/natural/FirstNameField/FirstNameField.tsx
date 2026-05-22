@@ -14,7 +14,7 @@ function FirstNameField() {
       inputProps={{
         errorMessage,
         label: firstNameFieldLabel,
-        placeholder: 'برای مثال علی',
+        placeholder: 'برای مثال احمد',
       }}
     />
   );

@@ -1,3 +1,3 @@
 export const shahabNumberFieldName = 'shahabNumber'
-export const shahabNumberFieldLabel = 'شماره شهاب'
+export const shahabNumberFieldLabel = 'شناسه شهاب'
 export type ShahabNumberFieldType = string;

@@ -8,7 +8,6 @@ const SPECIFIC_LENGTH = 16
 
 function CardNumberField() {
 
-  // const requiredErrorMessage = useGetRequiredErrorMessage(cardNumberFieldLabel);
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(cardNumberFieldName);
 
@@ -18,11 +17,10 @@ function CardNumberField() {
       inputProps={{
         errorMessage,
         label: cardNumberFieldLabel,
-        placeholder: 'برای مثال 6219861911111111',
+        placeholder: 'برای مثال 6037991234567890',
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
-        // required: requiredErrorMessage,
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
       }}
     />

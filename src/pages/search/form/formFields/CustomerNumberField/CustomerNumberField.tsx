@@ -1,5 +1,3 @@
-import useGetRequiredErrorMessage
-  from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetRequiredErrorMessage.ts";
 import useGetFormErrorMessage
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
 import InputForm from "../../../../../components/Form/Input/InputForm.tsx";
@@ -10,7 +8,6 @@ const SPECIFIC_LENGTH = 10
 
 function CustomerNumberField() {
 
-  // const requiredErrorMessage = useGetRequiredErrorMessage(customerNumberFieldLabel);
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(customerNumberFieldName);
 
@@ -20,11 +17,10 @@ function CustomerNumberField() {
       inputProps={{
         errorMessage,
         label: customerNumberFieldLabel,
-        placeholder: 'برای مثال 12345789',
+        placeholder: 'برای مثال 1234567890',
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
-        // required: requiredErrorMessage,
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
       }}
     />
