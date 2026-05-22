@@ -31,7 +31,7 @@ function PanelBankingInfoWithWithdrawalConditionsAccount() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_NUMBER]: item?.accountNumber,
+      [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_NUMBER]: item?.accountNumberStr,
       // TODO display tag instead only value
       // [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_STATUS]: (
       //   <Tag text='فعال' color='green' variant='fade'/>

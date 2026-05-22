@@ -1,7 +1,7 @@
 
 export type PanelIndividualBankingInfoCommitmentsResponseType = {
   obligationsNo: number;
-  indirectObligations: number;
+  indirectObligations: boolean;
   obligationsAmount: number;
   obligationsTotalAmount: number;
   interestRate: number;

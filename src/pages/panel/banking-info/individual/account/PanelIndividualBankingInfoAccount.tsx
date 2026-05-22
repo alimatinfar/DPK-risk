@@ -13,6 +13,8 @@ import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {PanelIndividualBankingInfoAccountResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import displayDate from "../../../../../utils/display/displayDate.ts";
+import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
+import getUrlWithParams from "../../../../../utils/getUrlWithParams.ts";
 
 
 function PanelIndividualBankingInfoAccount() {
@@ -38,7 +40,7 @@ function PanelIndividualBankingInfoAccount() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_NUMBER]: item?.accountNumber,
+      [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_NUMBER]: item?.accountNumberStr,
       // TODO display tag instead only value
       // [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_STATUS]: (
       //   <Tag text='فعال' color='green' variant='fade'/>
@@ -58,7 +60,13 @@ function PanelIndividualBankingInfoAccount() {
       [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPENER_NAME]: item?.bankPersonnelName,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         {
-          onClick: () => navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT_DETAIL(item?.accountNumber)),
+          onClick: () => {
+            const params = {
+              [QUERY_PARAMS.ACCOUNT_NUMBER_STR]: item?.accountNumberStr
+            }
+            const url = getUrlWithParams(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT_DETAIL(item?.accountNumber), params)
+            navigate(url)
+          },
           icon: <ArrowIcon2 width='100%' height='100%'/>,
           title: 'جزئیات',
         }

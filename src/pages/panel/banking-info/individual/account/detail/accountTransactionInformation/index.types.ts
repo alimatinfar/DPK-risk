@@ -1,6 +1,7 @@
 
 export type IndividualBankingAccountDetailTransactionInformationResponseType = {
   accountNumber: number;
+  accountNumberStr: string;
   totalCredit: number;
   totalDebit: number;
   totalCreditTotalDebit: number;

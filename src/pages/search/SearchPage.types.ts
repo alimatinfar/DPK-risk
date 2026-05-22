@@ -27,6 +27,7 @@ export type SearchFormResponseType = {
 export type SearchFormRequestBodyData = {
   customerType: number;
   accountNumber?: number;
+  accountNumberStr?: string;
   customerId?: number;
   shahabId?: number;
   cardNumber?: number;

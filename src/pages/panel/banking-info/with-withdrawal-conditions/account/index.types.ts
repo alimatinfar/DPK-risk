@@ -1,6 +1,7 @@
 
 export type PanelBankingInfoWithWithdrawalConditionsAccountResponseType = {
   accountNumber: number;
+  accountNumberStr: string;
   accountStatus: number;
   accountSubType: number;
   sayahId: number;

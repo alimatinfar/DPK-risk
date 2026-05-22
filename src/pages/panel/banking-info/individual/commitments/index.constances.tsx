@@ -78,3 +78,8 @@ export const PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS: TableColumnType[] = [
   },
   ACTIONS_COLUMN,
 ]
+
+export const INDIRECT_COMMITMENT_KEYS = {
+  true: 'غیر مستقیم',
+  false: 'مستقیم',
+}

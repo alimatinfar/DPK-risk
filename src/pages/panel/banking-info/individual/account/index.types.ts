@@ -1,6 +1,7 @@
 
 export type PanelIndividualBankingInfoAccountResponseType = {
   accountNumber: number;
+  accountNumberStr: string;
   accountStatus: number;
   accountSubType: number;
   sayahId: number;

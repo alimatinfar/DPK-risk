@@ -6,6 +6,8 @@ import TabContentRender, {
 } from "../../../../../../components/others/Tab/TabContentRender.tsx";
 import {useParams} from "react-router";
 import useActiveTab from "../../../../../../components/others/Tab/hooks/useActiveTab.ts";
+import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
+import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
 
 
 type Props = {
@@ -18,7 +20,7 @@ function PanelIndividualBankingInfoAccountDetailRender(
   }: Props
 ) {
 
-  const {id} = useParams()
+  const accountNumberStr = useGetQueryParam(QUERY_PARAMS.ACCOUNT_NUMBER_STR)
 
   const [activeTab, setActiveTab] = useActiveTab(defaultState)
 
@@ -26,7 +28,7 @@ function PanelIndividualBankingInfoAccountDetailRender(
     <div className='flex flex-col gap-y-4'>
       <div className='flex items-center justify-between'>
         <PanelPageTitle
-          title={`حساب “${id}”`} hasBack
+          title={`حساب “${accountNumberStr}”`} hasBack
         />
 
         <Tab

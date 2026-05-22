@@ -1,5 +1,6 @@
 import Table from "../../../../../components/others/Table/Table.tsx";
 import {
+  INDIRECT_COMMITMENT_KEYS,
   PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS, PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS,
 } from "./index.constances.tsx";
 import {useNavigate} from "react-router";
@@ -39,7 +40,7 @@ function PanelIndividualBankingInfoCommitments() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.INDIRECT_COMMITMENT]: item?.indirectObligations,
+      [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.INDIRECT_COMMITMENT]: INDIRECT_COMMITMENT_KEYS?.[item?.indirectObligations],
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.COMMITMENT_NUMBER]: item?.obligationsNo,
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.PRINCIPAL_AMOUNT]: withSeparator(item?.obligationsAmount),
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.TOTAL_AMOUNT]: withSeparator(item?.obligationsTotalAmount),
