@@ -45,22 +45,22 @@ function PanelJointBankingInfoCommitments() {
       [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.COMMITMENT_NUMBER]: item?.obligationsNo,
       [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.PRINCIPAL_AMOUNT]: withSeparator(item?.obligationsAmount),
       [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.TOTAL_AMOUNT]: withSeparator(item?.obligationsTotalAmount),
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.INTEREST_RATE]: `${item.interestRate}%`,
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.COMMITMENT_TYPE]: item.obligationsType,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.INTEREST_RATE]: `${item?.interestRate}%`,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.COMMITMENT_TYPE]: item?.obligationsType,
       // // TODO display tag instead only value
       // [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.STATUS]: (
       //   <Tag text='فعال' color='green' variant='fade'/>
       // ),
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.STATUS]: item.status,
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.CENTRAL_BANK_CONTRACT_NUMBER]: item.centralBankNumber,
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.ALLOCATION_DATE]: displayDate(item.allocationDate),
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.END_DATE]: displayDate(item.endDate),
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.BRANCH_CODE]: item.branchCode,
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.BRANCH_NAME]: item.branchName,
-      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.REGION_NAME]: item.areaName,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.STATUS]: item?.status,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.CENTRAL_BANK_CONTRACT_NUMBER]: item?.centralBankNumber,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.ALLOCATION_DATE]: displayDate(item?.allocationDate),
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.END_DATE]: displayDate(item?.endDate),
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.BRANCH_CODE]: item?.branchCode,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.BRANCH_NAME]: item?.branchName,
+      [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.REGION_NAME]: item?.areaName,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         {
-          onClick: () => navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS_DETAIL(item.obligationsNo)),
+          onClick: () => navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS_DETAIL(item?.obligationsNo)),
           icon: <ArrowIcon2 width='100%' height='100%'/>,
           title: 'جزئیات',
         }

@@ -32,12 +32,12 @@ function IndividualBankingAccountDetailBlockHistory() {
     if (!data?.data) return []
 
     return data?.data?.map((item, index) => ({
-      id: item.id,
-      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_AMOUNT]: withSeparator(item.amount),
-      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_APPLY_DATE]: displayDate(item.doneDate),
-      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_REMOVE_DATE]: displayDate(item.deleteDate),
-      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.REASON_CODE]: item.reasonCode,
-      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_REASON_DESCRIPTION]: item.reasonDescription,
+      id: item?.id,
+      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_AMOUNT]: withSeparator(item?.amount),
+      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_APPLY_DATE]: displayDate(item?.doneDate),
+      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_REMOVE_DATE]: displayDate(item?.deleteDate),
+      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.REASON_CODE]: item?.reasonCode,
+      [INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS_KEYS.BLOCK_REASON_DESCRIPTION]: item?.reasonDescription,
     }))
   }, [data])
 

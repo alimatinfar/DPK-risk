@@ -32,9 +32,9 @@ function IndividualBankingAccountDetailIssuedCheques() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS_KEYS.CHECK_NUMBER]: item.cheqNumber,
-      [INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS_KEYS.CHECK_AMOUNT]: withSeparator(item.amount),
-      [INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS_KEYS.CHECK_DATE]: displayDate(item.doneDate),
+      [INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS_KEYS.CHECK_NUMBER]: item?.cheqNumber,
+      [INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS_KEYS.CHECK_AMOUNT]: withSeparator(item?.amount),
+      [INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS_KEYS.CHECK_DATE]: displayDate(item?.doneDate),
     }))
   }, [data])
 
