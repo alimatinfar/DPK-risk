@@ -9,6 +9,9 @@ import {useMemo} from "react";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {IndividualBankingAccountDetailSaptaMobileNumbersResponseType} from "./index.types.ts";
 import displayAvailableValues from "../../../../../../../utils/display/displayAvailableValues.ts";
+import displayForeignCitizenNationalId from "../../../../../../../utils/display/displayForeignCitizenNationalId.ts";
+import displayNaturalNationalId from "../../../../../../../utils/display/displayNaturalNationalId.ts";
+import displayLegalNationalId from "../../../../../../../utils/display/displayLegalNationalId.ts";
 
 
 function IndividualBankingAccountDetailSaptaMobileNumbers() {
@@ -35,7 +38,10 @@ function IndividualBankingAccountDetailSaptaMobileNumbers() {
       [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.MOBILE_NUMBER]: item?.mobileNo,
       [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.OWNER_TYPE]: item?.legalTypeTitle,
       [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName),
-      [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(item?.nationalID, item?.shenasnameId),
+      [INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(
+        item?.nationality ? displayForeignCitizenNationalId(item?.nationalID) : displayNaturalNationalId(item?.nationalID),
+        displayLegalNationalId(item?.legalNationalID)
+      ),
     }))
   }, [data])
 
@@ -44,10 +50,10 @@ function IndividualBankingAccountDetailSaptaMobileNumbers() {
       isLoading={isFetching} error={error}
       isEmpty={tableData?.length === 0}
     >
-    <Table
-      columns={INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS}
-      data={tableData}
-    />
+      <Table
+        columns={INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS}
+        data={tableData}
+      />
     </RenderLogic>
   );
 }
