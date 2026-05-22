@@ -3,8 +3,6 @@ import {useMemo} from "react";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
-import displayForeignCitizenNationalId from "../../../../../utils/display/displayForeignCitizenNationalId.ts";
-import displayNaturalNationalId from "../../../../../utils/display/displayNaturalNationalId.ts";
 
 
 function usePanelBasicInformationPageIdentityInfoListNatural(
@@ -54,7 +52,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       ...isForeignCitizen(activePersonData) ? [
         {
           label: 'شناسه فراگیر',
-          value: displayForeignCitizenNationalId(foreignCitizenSpecificData?.nationalID),
+          value: foreignCitizenSpecificData?.nationalID,
         },
         {
           label: 'نوع مدرک شناسایی',
@@ -91,7 +89,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       ] : [
         {
           label: 'کد ملی',
-          value: displayNaturalNationalId(customerData?.nationalID),
+          value: customerData?.nationalID,
         },
         {
           label: 'شماره شناسنامه',

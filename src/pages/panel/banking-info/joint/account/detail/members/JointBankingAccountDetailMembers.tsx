@@ -10,9 +10,8 @@ import type {JointBankingAccountDetailMembersResponseType} from "./index.types.t
 import displayAvailableValues from "../../../../../../../utils/display/displayAvailableValues.ts";
 import displayDate from "../../../../../../../utils/display/displayDate.ts";
 import getActivePersonData from "../../../../../utils/getActivePersonData.ts";
-import displayForeignCitizenNationalId from "../../../../../../../utils/display/displayForeignCitizenNationalId.ts";
-import displayNaturalNationalId from "../../../../../../../utils/display/displayNaturalNationalId.ts";
-import displayLegalNationalId from "../../../../../../../utils/display/displayLegalNationalId.ts";
+
+
 
 function JointBankingAccountDetailMembers() {
 
@@ -38,10 +37,7 @@ function JointBankingAccountDetailMembers() {
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_TYPE]: item?.customerTypeTitle,
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName),
-      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.IDENTIFICATION_CODE]: displayAvailableValues(
-        item?.nationality ? displayForeignCitizenNationalId(item?.nationalID) : displayNaturalNationalId(item?.nationalID),
-        displayLegalNationalId(item?.legalNationalID)
-      ),
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.IDENTIFICATION_CODE]: displayAvailableValues(item?.nationalID, item?.legalNationalID),
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.SHEHAB_ID]: item?.shahabId,
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.LAST_CUSTOMER_UPDATE_DATE]: displayDate(item?.changeLastDate),
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_BRANCH_CODE]: item?.branchCode,

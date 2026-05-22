@@ -10,9 +10,6 @@ import {useMemo} from "react";
 import displayAvailableValues from "../../../../../../../utils/display/displayAvailableValues.ts";
 import type {IndividualBankingAccountDetailAccountSignatoriesResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
-import displayForeignCitizenNationalId from "../../../../../../../utils/display/displayForeignCitizenNationalId.ts";
-import displayNaturalNationalId from "../../../../../../../utils/display/displayNaturalNationalId.ts";
-import displayLegalNationalId from "../../../../../../../utils/display/displayLegalNationalId.ts";
 
 
 function IndividualBankingAccountDetailAccountSignatories() {
@@ -40,10 +37,7 @@ function IndividualBankingAccountDetailAccountSignatories() {
       [PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerId,
       [PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS_KEYS.CUSTOMER_TYPE]: item?.legalTypeTitle,
       [PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName || ''),
-      [PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(
-        item?.nationality ? displayForeignCitizenNationalId(item?.nationalID) : displayNaturalNationalId(item?.nationalID),
-        displayLegalNationalId(item?.legalNationalID)
-      ),
+      [PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(item?.nationalID, item?.legalNationalID),
     }))
   }, [data])
 

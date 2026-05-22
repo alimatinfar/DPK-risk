@@ -10,9 +10,6 @@ import {useMemo} from "react";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import displayDate from "../../../../../utils/display/displayDate.ts";
 import displayAvailableValues from "../../../../../utils/display/displayAvailableValues.ts";
-import displayLegalNationalId from "../../../../../utils/display/displayLegalNationalId.ts";
-import displayForeignCitizenNationalId from "../../../../../utils/display/displayForeignCitizenNationalId.ts";
-import displayNaturalNationalId from "../../../../../utils/display/displayNaturalNationalId.ts";
 
 
 function PanelLegalRepresentativeInformationPageBoardMembers() {
@@ -39,9 +36,7 @@ function PanelLegalRepresentativeInformationPageBoardMembers() {
       [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.PERSON_TYPE]: item?.personalityType,
       [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
       [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.companyName),
-      [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: item?.nationality ?
-        displayForeignCitizenNationalId(item?.nationalID) : item?.legalName ?
-          displayLegalNationalId(item?.nationalID) : displayNaturalNationalId(item?.nationalID),
+      [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: item?.nationalID,
       [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.BOARD_POSITION]: item?.boardPosition,
       [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.BOARD_START_DATE]: displayDate(item?.boardStartDate),
       [PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS.BOARD_END_DATE]: displayDate(item?.boardEndDate),
