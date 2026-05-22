@@ -80,6 +80,7 @@ export const PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS: TableColumnType[] = [
 ]
 
 export const INDIRECT_COMMITMENT_KEYS = {
-  true: 'غیر مستقیم',
-  false: 'مستقیم',
+  //TODO ????????????
+  false: 'غیر مستقیم',
+  true: 'مستقیم',
 }
