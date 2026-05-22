@@ -35,3 +35,14 @@ export const INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS: TableColumnType[
     accessor: INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TO_DATE,
   },
 ]
+
+export const PERIOD_ID_LABELS = {
+  1: 'سه ماهه',
+  2: 'شش ماهه',
+  3: 'نه ماهه',
+  4: 'یک ساله',
+  5: 'دو ساله',
+  6: 'سه ساله',
+  7: 'چهار ساله',
+  8: 'پنج ساله',
+}

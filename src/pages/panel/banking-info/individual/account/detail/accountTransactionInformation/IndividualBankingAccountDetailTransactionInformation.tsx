@@ -1,6 +1,7 @@
 import Table from "../../../../../../../components/others/Table/Table.tsx";
 import {
   INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS, INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS,
+  PERIOD_ID_LABELS,
 } from "./index.constances.ts";
 import {useParams} from "react-router";
 import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
@@ -34,7 +35,11 @@ function IndividualBankingAccountDetailTransactionInformation() {
     return data?.data?.map((item, index) => ({
       id: index,
       //TODO set this field from api
-      [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TRANSACTION_PERIOD]: null,
+      [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TRANSACTION_PERIOD]: (
+        <span className='font-medium'>
+          {PERIOD_ID_LABELS?.[item?.periodId]}
+        </span>
+      ) ,
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TOTAL_CREDIT]: withSeparator(item?.totalCredit),
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TOTAL_DEBIT]: withSeparator(item?.totalDebit),
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.BALANCE_DIFFERENCE]: withSeparator(item?.totalCreditTotalDebit),
