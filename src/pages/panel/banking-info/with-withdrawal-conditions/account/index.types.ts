@@ -2,12 +2,12 @@
 export type PanelBankingInfoWithWithdrawalConditionsAccountResponseType = {
   accountNumber: number;
   accountStatus: number;
-  subAccount: number;
+  accountSubType: number;
   sayahId: number;
   openingDate: number;
   targetOpening: string;
   isCommercial: boolean,
-  dateCommercial: number;
+  commercialDate: number;
   branchCode: number;
   branchName: string;
   areaCode: string;

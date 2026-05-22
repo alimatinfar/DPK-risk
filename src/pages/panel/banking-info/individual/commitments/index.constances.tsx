@@ -21,7 +21,7 @@ export const PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS = {
 
 export const PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS: TableColumnType[] = [
   {
-    label: 'تعهدات غیرمستقیم',
+    label: 'مستقیم/غیرمستقیم',
     accessor: PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.INDIRECT_COMMITMENT,
   },
   {

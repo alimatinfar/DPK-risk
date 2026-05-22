@@ -3,12 +3,12 @@ export type PanelJointBankingInfoAccountResponseType = {
   shareCustomerId: number;
   accountNumber: number;
   accountStatus: number;
-  subAccount: number;
+  accountSubType: number;
   sayahId: number;
   openingDate: number;
   targetOpening: string;
   isCommercial: true,
-  dateCommercial: number;
+  commercialDate: number;
   branchCode: number;
   branchName: string;
   areaCode: string;

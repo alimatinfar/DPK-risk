@@ -12,6 +12,7 @@ export const PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS = {
   OPEN_DATE: 'openDate',
   OPEN_PURPOSE: 'openPurpose',
   BUSINESS_TYPE: 'businessType',
+  COMMERCIAL_DATE: 'commercialDate',
   OPEN_BRANCH_CODE: 'openBranchCode',
   OPEN_BRANCH_NAME: 'openBranchName',
   OPEN_REGION_CODE: 'openRegionCode',
@@ -48,6 +49,10 @@ export const PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_COMMON_TABLE_COLUMNS: TableColum
   {
     label: 'تجاری/غیرتجاری',
     accessor: PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.BUSINESS_TYPE,
+  },
+  {
+    label: 'تاریخ تجاری',
+    accessor: PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.COMMERCIAL_DATE,
   },
   {
     label: 'کد شعبه افتتاح',

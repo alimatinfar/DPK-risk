@@ -13,6 +13,7 @@ import APIS from "../../../../../request/constances/apis.ts";
 import type {PanelJointBankingInfoAccountResponseType} from "./index.types.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
+import {PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS} from "../../individual/account/index.constances.tsx";
 
 function PanelJointBankingInfoAccount() {
 
@@ -44,11 +45,12 @@ function PanelJointBankingInfoAccount() {
       //   <Tag text='فعال' color='green' variant='fade'/>
       // ,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_STATUS]: item?.accountStatus,
-      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_SUB_TYPE]: item?.subAccount,
+      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_SUB_TYPE]: item?.accountSubType,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.SAYYAH_ID]: item?.sayahId,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_DATE]: displayDate(item?.openingDate),
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_PURPOSE]: item?.targetOpening,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.BUSINESS_TYPE]: `${item?.isCommercial ? '' : 'غیر'}تجاری`,
+      [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.COMMERCIAL_DATE]: displayDate(item?.commercialDate),
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_BRANCH_CODE]: item?.branchCode,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_BRANCH_NAME]: item?.branchName,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_REGION_CODE]: item?.areaCode,
