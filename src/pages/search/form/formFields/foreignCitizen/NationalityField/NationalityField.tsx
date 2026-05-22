@@ -14,7 +14,7 @@ function NationalityField() {
       inputProps={{
         errorMessage,
         label: nationalityFieldLabel,
-        placeholder: 'برای مثال افغانستان',
+        placeholder: 'انتخاب کنید',
       }}
     />
   );

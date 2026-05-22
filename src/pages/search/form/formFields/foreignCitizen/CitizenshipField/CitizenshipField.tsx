@@ -14,7 +14,7 @@ function CitizenshipField() {
       inputProps={{
         errorMessage,
         label: citizenshipFieldLabel,
-        placeholder: 'برای مثال ایران',
+        placeholder: 'انتخاب کنید',
       }}
     />
   );
