@@ -17,7 +17,7 @@ function CardNumberField() {
       inputProps={{
         errorMessage,
         label: cardNumberFieldLabel,
-        placeholder: 'برای مثال 6037991234567890',
+        placeholder: 'برای مثال 6037691234567891',
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
