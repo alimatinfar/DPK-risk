@@ -43,7 +43,7 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'شناسه ملی',
-        value: data?.nationalID,
+        value: data?.nationalIDStr,
       },
       {
         label: 'وضعیت شناسه ملی',

@@ -9,6 +9,7 @@ export type PanelLegalRepresentativeInfoShareholdersResponseType = {
   fromDate: number;
   toDate: number;
   nationalID: number;
+  nationalIDStr: string;
   firstName: string;
   lastName: string;
   nationality: string;

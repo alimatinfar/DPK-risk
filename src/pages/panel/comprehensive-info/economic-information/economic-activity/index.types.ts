@@ -1,5 +1,6 @@
 export type PanelEconomicInformationActivityNaturalResponseType = {
   nationalID: number;
+  nationalIDStr: string;
   employmentStatusType: number;
   employmentStatus: number;
   jobCode: number;
@@ -28,6 +29,7 @@ export type PanelEconomicInformationActivityNaturalResponseType = {
 
 export type PanelEconomicInformationActivityLegalResponseType = {
   nationalID: number;
+  nationalIDStr: string;
   companyType: number;
   activatyType: number;
   activityClassification: string;

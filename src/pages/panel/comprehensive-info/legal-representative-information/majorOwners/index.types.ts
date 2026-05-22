@@ -8,6 +8,7 @@ export type PanelLegalRepresentativeInfoMajorOwnersResponseType = {
   fromDate: number;
   toDate: string;
   nationalID: number;
+  nationalIDStr: string;
   firstName: string;
   lastName: string;
   nationality: string;

@@ -3,6 +3,7 @@ import type {CustomResponseType} from "../../../../request/types/CustomResponseT
 export type BasicInformationNaturalResponseType = {
   customerId: number;
   nationalID: number;
+  nationalIDStr: string;
   firstName: string;
   lastName: string;
   shenasnameId: number;
@@ -69,6 +70,7 @@ export type BasicInformationForeignCitizenResponseType = {
   nonCitizenData: {
     customerId: number;
     nationalID: number;
+    nationalIDStr: string;
     ancestorsName: string;
     nationality: number;
     nationalityTitle: string;
@@ -90,6 +92,7 @@ export type BasicInformationForeignCitizenResponseType = {
 export type BasicInformationLegalResponseType = {
   customerId: number;
   nationalID: number;
+  nationalIDStr: string;
   legalName: string;
   tradeName: string;
   abbreviationName: string;

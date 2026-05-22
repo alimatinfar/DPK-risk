@@ -52,7 +52,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       ...isForeignCitizen(activePersonData) ? [
         {
           label: 'شناسه فراگیر',
-          value: foreignCitizenSpecificData?.nationalID,
+          value: foreignCitizenSpecificData?.nationalIDStr,
         },
         {
           label: 'نوع مدرک شناسایی',
@@ -89,7 +89,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       ] : [
         {
           label: 'کد ملی',
-          value: customerData?.nationalID,
+          value: customerData?.nationalIDStr,
         },
         {
           label: 'شماره شناسنامه',

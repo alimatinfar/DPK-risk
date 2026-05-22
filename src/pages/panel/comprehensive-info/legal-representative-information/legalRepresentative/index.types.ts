@@ -9,6 +9,7 @@ export type PanelLegalRepresentativeInformationResponseType = {
   expirationDate: number;
   issuancePlace: string;
   nationalID: number;
+  nationalIDStr: string;
   firstName: string;
   lastName: string;
   nationality: string;

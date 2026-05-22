@@ -6,6 +6,7 @@ export type PanelLegalRepresentativeBoardMembersResponseType = {
   boardStartDate: number;
   boardEndDate: number;
   nationalID: number;
+  nationalIDStr: string;
   firstName: string;
   lastName: string;
   nationality: string;
