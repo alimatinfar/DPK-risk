@@ -36,7 +36,6 @@ function RenderLogic(
     emptyElement, renderLogicDefaultContainerMinHeight, hasFilter, removeContainer
   }: RenderLogicProps
 ) {
-  console.log({error})
   if (error || isLoading || isEmpty) {
     const content = error ? (
       errorComponent || (
