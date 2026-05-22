@@ -17,7 +17,7 @@ function ShahabNumberField() {
       inputProps={{
         errorMessage,
         label: shahabNumberFieldLabel,
-        placeholder: 'برای مثال 1234567890123456',
+        placeholder: 'برای مثال 8572193405687124',
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{

@@ -16,7 +16,7 @@ function NationalCodeField() {
       inputProps={{
         errorMessage,
         label: nationalCodeFieldLabel,
-        placeholder: 'برای مثال 1234567889',
+        placeholder: 'برای مثال 0065432107',
         maxLength: SPECIFIC_LENGTH,
       }}
       rules={{
