@@ -12,6 +12,9 @@ import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogi
 import type {PanelLegalRepresentativeInfoMajorOwnersResponseType} from "./index.types.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
 import displayAvailableValues from "../../../../../utils/display/displayAvailableValues.ts";
+import displayForeignCitizenNationalId from "../../../../../utils/display/displayForeignCitizenNationalId.ts";
+import displayLegalNationalId from "../../../../../utils/display/displayLegalNationalId.ts";
+import displayNaturalNationalId from "../../../../../utils/display/displayNaturalNationalId.ts";
 
 
 function PanelLegalRepresentativeInformationPageMajorOwners() {
@@ -38,7 +41,9 @@ function PanelLegalRepresentativeInformationPageMajorOwners() {
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.PERSON_TYPE]: item?.personalityType,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.companyName),
-      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: item?.nationalID,
+      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NATIONAL_ID]: item?.nationality ?
+        displayForeignCitizenNationalId(item?.nationalID) : item?.legalName ?
+          displayLegalNationalId(item?.nationalID) : displayNaturalNationalId(item?.nationalID),
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.MANAGEMENT_SEAT_STATUS]: item?.managementStatus,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.CAPITAL_AMOUNT]: item?.capitalAmount,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.OWNERSHIP_PERCENTAGE]: item?.ownershipPercentage,
