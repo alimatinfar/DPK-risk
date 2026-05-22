@@ -20,7 +20,7 @@ function SearchPageResultPersonCategory(
     resultData, personTypeItem
   })
 
-  return (
+  return dataList?.length ? (
     <div className='p-4 flex flex-col gap-y-4 rounded-lg bg-[#F2F4F6]'>
       <div
         onClick={toggleOpen}
@@ -56,7 +56,7 @@ function SearchPageResultPersonCategory(
         </>
       )}
     </div>
-  )
+  ) : null
 }
 
 export default SearchPageResultPersonCategory;
