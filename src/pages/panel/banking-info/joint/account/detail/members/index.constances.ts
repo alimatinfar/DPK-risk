@@ -33,7 +33,7 @@ export const JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS: TableColumnType[
     accessor: JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.NAME,
   },
   {
-    label: 'کدملی / شناسه فراگیر اتباع / شناسه ملی',
+    label: 'کد ملی / شناسه فراگیر اتباع / شناسه ملی',
     accessor: JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.IDENTIFICATION_CODE,
   },
   {

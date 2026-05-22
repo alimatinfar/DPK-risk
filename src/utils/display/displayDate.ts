@@ -1,5 +1,5 @@
 
-function displayDate(value: string | number | undefined) {
+function displayDate(value: string | number | undefined | null) {
   const valueString = String(value)
   if (!value) return ''
   const year = valueString.slice(0, 4)

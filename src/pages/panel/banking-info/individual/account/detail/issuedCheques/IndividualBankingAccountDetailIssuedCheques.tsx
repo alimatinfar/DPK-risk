@@ -6,7 +6,7 @@ import APIS from "../../../../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import {INDIVIDUAL_ACCOUNT_RETURNED_CHEQUES_TABLE_COLUMNS_KEYS} from "../returnedCheques/index.constances.ts";
 import withSeparator from "../../../../../../../utils/separator/withSeparator.ts";
-import displayDate from "../../../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../../../utils/display/displayDate.ts";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {IndividualBankingAccountDetailIssuedChequesResponseType} from "./index.types.ts";
 

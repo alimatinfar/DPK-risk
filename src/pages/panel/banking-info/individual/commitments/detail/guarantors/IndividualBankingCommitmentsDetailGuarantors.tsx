@@ -6,7 +6,7 @@ import {useParams} from "react-router";
 import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../../../request/constances/apis.ts";
 import {useMemo} from "react";
-import displayAvailableValues from "../../../../../../../utils/displayAvailableValues.ts";
+import displayAvailableValues from "../../../../../../../utils/display/displayAvailableValues.ts";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {IndividualBankingCommitmentsDetailGuarantorsResponseType} from "./index.types.ts";
 

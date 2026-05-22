@@ -31,7 +31,7 @@ export const PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS: TableColumnType[] = [
     accessor: PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.LAST_NAME,
   },
   {
-    label: 'کد ملی/شناسه فراگیر اتباع',
+    label: 'کد ملی / شناسه فراگیر اتباع',
     accessor: PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.NATIONAL_CODE_OR_FOREIGN_ID,
   },
   {

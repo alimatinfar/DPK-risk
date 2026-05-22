@@ -8,7 +8,7 @@ import APIS from "../../../../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {IndividualBankingAccountDetailSpecialInstructionsResponseType} from "./index.types.ts";
-import displayDate from "../../../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../../../utils/display/displayDate.ts";
 
 
 function IndividualBankingAccountDetailSpecialInstructions() {

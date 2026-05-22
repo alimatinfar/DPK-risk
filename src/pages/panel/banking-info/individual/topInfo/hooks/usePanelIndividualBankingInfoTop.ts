@@ -1,7 +1,7 @@
 import type {DetailInfoSection2Props} from "../../../../../../components/others/DetailInfo/DetailInfoSection2";
 import {useMemo} from "react";
 import useFetchCustomerInfo from "../../../../comprehensive-info/basic-information/hooks/useFetchCustomerInfo.ts";
-import displayDate from "../../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../../utils/display/displayDate.ts";
 
 
 function usePanelIndividualBankingInfoTop() {

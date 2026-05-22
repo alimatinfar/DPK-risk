@@ -4,7 +4,7 @@ import APIS from "../../../../../../request/constances/apis.ts";
 import getActivePersonData from "../../../../utils/getActivePersonData.ts";
 import {useMemo} from "react";
 import {PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS_KEYS} from "../index.contances.ts";
-import displayDate from "../../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../../utils/display/displayDate.ts";
 
 
 function usePanelEconomicInformationPageEconomicActivityNatural() {

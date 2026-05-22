@@ -38,7 +38,7 @@ export const PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS: TableColumnType[]
     accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NAME,
   },
   {
-    label: 'کدملی / شناسه فراگیر اتباع / شناسه ملی',
+    label: 'کد ملی / شناسه فراگیر اتباع / شناسه ملی',
     accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NATIONAL_ID,
   },
 ]

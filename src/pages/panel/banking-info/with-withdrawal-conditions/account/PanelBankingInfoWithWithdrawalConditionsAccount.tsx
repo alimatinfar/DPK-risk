@@ -6,7 +6,7 @@ import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import useFetchData from "../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../request/constances/apis.ts";
 import {useMemo} from "react";
-import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../utils/display/displayDate.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {PanelBankingInfoWithWithdrawalConditionsAccountResponseType} from "./index.types.ts";
 

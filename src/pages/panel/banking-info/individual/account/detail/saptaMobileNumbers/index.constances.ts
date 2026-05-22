@@ -21,7 +21,7 @@ export const INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS: TableColumnT
     accessor: INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NAME,
   },
   {
-    label: 'کدملی / شناسه فراگیر اتباع / شناسه ملی',
+    label: 'کد ملی / شناسه فراگیر اتباع / شناسه ملی',
     accessor: INDIVIDUAL_ACCOUNT_SAPTA_MOBILE_NUMBERS_TABLE_COLUMNS_KEYS.NATIONAL_ID,
   },
 ]

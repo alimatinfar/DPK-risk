@@ -2,7 +2,7 @@ import type {DetailInfoSectionProps} from "../../../../../components/others/Deta
 import {useMemo} from "react";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
-import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../utils/display/displayDate.ts";
 
 
 function usePanelBasicInformationPageIdentityInfoListNatural(
@@ -88,7 +88,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
         },
       ] : [
         {
-          label: 'کدملی',
+          label: 'کد ملی',
           value: customerData?.nationalID,
         },
         {

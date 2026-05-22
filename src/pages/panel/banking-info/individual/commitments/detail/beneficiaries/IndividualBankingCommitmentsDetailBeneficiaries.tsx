@@ -7,7 +7,7 @@ import APIS from "../../../../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import type {IndividualBankingCommitmentsDetailBeneficiariesResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
-import displayAvailableValues from "../../../../../../../utils/displayAvailableValues.ts";
+import displayAvailableValues from "../../../../../../../utils/display/displayAvailableValues.ts";
 import {useParams} from "react-router";
 
 

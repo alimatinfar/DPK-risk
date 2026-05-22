@@ -12,7 +12,7 @@ import {useMemo} from "react";
 import type {IndividualBankingAccountDetailReturnedChequesResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import withSeparator from "../../../../../../../utils/separator/withSeparator.ts";
-import displayDate from "../../../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../../../utils/display/displayDate.ts";
 
 
 function IndividualBankingAccountDetailReturnedCheques() {

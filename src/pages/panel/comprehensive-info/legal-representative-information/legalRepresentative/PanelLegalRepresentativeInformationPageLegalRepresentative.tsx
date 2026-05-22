@@ -9,12 +9,15 @@ import APIS from "../../../../../request/constances/apis.ts";
 import {useMemo} from "react";
 import type {PanelLegalRepresentativeInformationResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
-import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../utils/display/displayDate.ts";
+import displayLegalNationalId from "../../../../../utils/display/displayLegalNationalId.ts";
+import displayNaturalNationalId from "../../../../../utils/display/displayNaturalNationalId.ts";
+import displayForeignCitizenNationalId from "../../../../../utils/display/displayForeignCitizenNationalId.ts";
 
 
 function PanelLegalRepresentativeInformationPageLegalRepresentative() {
 
-  const {activePersonData} = getActivePersonData()
+  const {activePersonData, isLegalBool, isNaturalBool} = getActivePersonData()
 
   const {
     data, isFetching, error
@@ -35,7 +38,10 @@ function PanelLegalRepresentativeInformationPageLegalRepresentative() {
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerId,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.FIRST_NAME]: item?.firstName,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.LAST_NAME]: item?.lastName,
-      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.NATIONAL_CODE_OR_FOREIGN_ID]: item?.nationalID,
+      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.NATIONAL_CODE_OR_FOREIGN_ID]:
+        isLegalBool ? displayLegalNationalId(item?.nationalID) :
+          isNaturalBool ? displayNaturalNationalId(item?.nationalID) :
+            displayForeignCitizenNationalId(item?.nationalID),
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.RELATION]: item?.ratio,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.DOCUMENT_TYPE]: item?.certificateType,
@@ -46,7 +52,7 @@ function PanelLegalRepresentativeInformationPageLegalRepresentative() {
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.ISSUE_DATE]: displayDate(item?.dateOfIssuance),
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.EXPIRATION_DATE]: displayDate(item?.expirationDate),
     }))
-  }, [data])
+  }, [data, isLegalBool, isNaturalBool])
 
 
   return (

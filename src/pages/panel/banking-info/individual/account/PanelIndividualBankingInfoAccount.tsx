@@ -12,7 +12,7 @@ import APIS from "../../../../../request/constances/apis.ts";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {PanelIndividualBankingInfoAccountResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
-import displayDate from "../../../../../utils/dateAndTIme/displayDate.ts";
+import displayDate from "../../../../../utils/display/displayDate.ts";
 
 
 function PanelIndividualBankingInfoAccount() {
