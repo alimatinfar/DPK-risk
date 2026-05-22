@@ -1,5 +1,5 @@
 import usePanelBasicInformationPageAddressList from "./usePanelBasicInformationPageAddressList.ts";
-import type {BasicInfoDataTypeForEachPersonType} from "../index.constances.ts";
+import type {BasicInfoDataTypeForEachPersonType} from "../index.types.ts";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 
 

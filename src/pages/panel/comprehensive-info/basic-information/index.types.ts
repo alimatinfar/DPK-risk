@@ -155,8 +155,14 @@ export type BasicInfoDataTypeForEachPersonType = {
 }
 
 export type HistoryDataType = {
-  id: string
-  date: string
-  location: string
-  isLasted: boolean
+  id: string | number;
+  date: string;
+  location: string;
+  isLasted: boolean;
 }
+
+export type PanelBasicInfoHistoriesResponseType = {
+  changeLastDate: number;
+  changeLastReason: string;
+  id: number;
+}[]

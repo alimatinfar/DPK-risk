@@ -3,7 +3,7 @@ import Tag from "../../../../components/others/Tag/Tag";
 import CalendarIcon from "../../../../components/svg/CalendarIcon";
 import ClockBackwardIcon from "../../../../components/svg/ClockBackwardIcon";
 import VectorIcon from "../../../../components/svg/VectorIcon";
-import type {HistoryDataType} from "./index.constances";
+import type {HistoryDataType} from "./index.types.ts";
 
 export type PanelBasicInformationPageHistoryProps = {
   openHistoryModalHandler: () => void;

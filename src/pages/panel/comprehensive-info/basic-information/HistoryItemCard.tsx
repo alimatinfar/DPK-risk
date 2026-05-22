@@ -2,11 +2,12 @@ import Card from "../../../../components/others/Card/Card.tsx";
 import Tag from "../../../../components/others/Tag/Tag.tsx";
 import ArrowIcon from "../../../../components/svg/ArrowIcon.tsx";
 import VectorIcon from "../../../../components/svg/VectorIcon.tsx";
-import type {HistoryDataType} from "./index.constances.ts";
+import type {HistoryDataType} from "./index.types.ts";
+import type {PanelBasicInfoHistoryModalProps} from "./PanelBasicInfoHistoryModal.tsx";
 
 export type HistoryItemCardProps = {
   onItemClick: (item: HistoryDataType) => void;
-  activeId: string;
+  activeId: PanelBasicInfoHistoryModalProps['activeItemId'];
   item: HistoryDataType;
 }
 

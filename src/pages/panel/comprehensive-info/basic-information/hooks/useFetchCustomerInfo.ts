@@ -1,27 +1,42 @@
 import type {
   BasicInformationForeignCitizenResponseType,
   BasicInformationLegalResponseType, BasicInformationNaturalResponseType
-} from "../index.constances.ts";
+} from "../index.types.ts";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import useFetchData from "../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../request/constances/apis.ts";
+import type {UsePanelBasicInformationPageProps} from "./usePanelBasicInformationPage.ts";
+import {useMemo} from "react";
 
 
-function useFetchCustomerInfo() {
+function useFetchCustomerInfo(
+  {activeHistory}: Pick<UsePanelBasicInformationPageProps, 'activeHistory'>
+) {
 
   const {
     getActivePersonNationalId, isLegalBool, isForeignCitizenBool, isNaturalBool
   } = getActivePersonData()
 
+  const isDefaultApi = !activeHistory || activeHistory?.isLasted
+
+  const queryKey = [activeHistory?.id]
+
+  const apiParams = useMemo(function () {
+    return isDefaultApi ? {
+      nationalID: getActivePersonNationalId()
+    } : {
+      id: activeHistory?.id
+    }
+  }, [isDefaultApi, activeHistory?.id])
+
   //natural
   const {
     data: naturalData, isFetching: naturalIsFetching, error: naturalError
   } = useFetchData<BasicInformationNaturalResponseType>({
+    queryKey,
     axiosConfig: {
-      url: APIS.GET_NATURAL_CUSTOMER_INFO,
-      params: {
-        nationalID: getActivePersonNationalId()
-      },
+      url: isDefaultApi ? APIS.GET_NATURAL_CUSTOMER_INFO : APIS.GET_NATURAL_CUSTOMER_INFO_BY_HISTORY_ID,
+      params: apiParams,
     },
     options: {
       enabled: isNaturalBool
@@ -32,11 +47,10 @@ function useFetchCustomerInfo() {
   const {
     data: legalData, isFetching: legalIsFetching, error: legalError
   } = useFetchData<BasicInformationLegalResponseType>({
+    queryKey,
     axiosConfig: {
-      url: APIS.GET_LEGAL_CUSTOMER_INFO,
-      params: {
-        nationalID: getActivePersonNationalId()
-      }
+      url: isDefaultApi ? APIS.GET_LEGAL_CUSTOMER_INFO : APIS.GET_LEGAL_CUSTOMER_INFO_BY_HISTORY_ID,
+      params: apiParams
     },
     options: {
       enabled: isLegalBool
@@ -47,11 +61,10 @@ function useFetchCustomerInfo() {
   const {
     data: foreignCitizenData, isFetching: foreignCitizenIsFetching, error: foreignCitizenError
   } = useFetchData<BasicInformationForeignCitizenResponseType>({
+    queryKey,
     axiosConfig: {
-      url: APIS.GET_FOREIGN_CITIZEN_CUSTOMER_INFO,
-      params: {
-        nationalID: getActivePersonNationalId()
-      }
+      url: isDefaultApi ? APIS.GET_FOREIGN_CITIZEN_CUSTOMER_INFO : APIS.GET_FOREIGN_CITIZEN_CUSTOMER_INFO_BY_HISTORY_ID,
+      params: apiParams
     },
     options: {
       enabled: isForeignCitizenBool

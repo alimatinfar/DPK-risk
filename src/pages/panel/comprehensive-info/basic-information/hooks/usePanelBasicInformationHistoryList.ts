@@ -1,45 +1,48 @@
 import { useMemo } from "react";
-import type { HistoryDataType } from "../index.constances.ts";
+import type {
+  HistoryDataType,
+  PanelBasicInfoHistoriesResponseType,
+} from "../index.types.ts";
+import getActivePersonData from "../../../utils/getActivePersonData.ts";
+import APIS from "../../../../../request/constances/apis.ts";
+import useFetchData from "../../../../../request/hooks/useFetchData.ts";
+import displayDate from "../../../../../utils/display/displayDate.ts";
+
 
 function usePanelBasicInformationHistoryList() {
-  const infoHistoryList: HistoryDataType[] = useMemo(function () {
 
-    return [
-      {
-        id: "1",
-        date: "1405/01/01",
-        location: "بانک مرکزی",
-        isLasted: true
-      },
-      {
-        id: "2",
-        date: "1404/01/01",
-        location: "شعبه",
-        isLasted: false
-      },
-      {
-        id: "3",
-        date: "1403/01/01",
-        location: "بانک مرکزی",
-        isLasted: false
-      },
-      {
-        id: "4",
-        date: "1402/01/01",
-        location: "شعبه",
-        isLasted: false
-      },
-      {
-        id: "5",
-        date: "1401/01/01",
-        location: "بانک مرکزی",
-        isLasted: false
-      },
-    ]
-  }, [])
+  const {getActivePersonNationalId, isLegalBool, isNaturalBool} = getActivePersonData()
+
+  const apiUrl = isNaturalBool ? APIS.GET_NATURAL_CUSTOMER_HISTORY :
+    isLegalBool ? APIS.GET_LEGAL_CUSTOMER_HISTORY : APIS.GET_FOREIGN_CITIZEN_CUSTOMER_HISTORY
+
+  const {
+    data, isFetching, error
+  } = useFetchData<PanelBasicInfoHistoriesResponseType>({
+    axiosConfig: {
+      url: apiUrl,
+      method: "GET",
+      params: {
+        nationalID: getActivePersonNationalId()
+      }
+    }
+  })
+
+  const infoHistoryList: HistoryDataType[] = useMemo(function () {
+    const historiesList = data?.data
+
+    if (!historiesList) return []
+
+    return [...historiesList]?.reverse()?.map((item, index) => ({
+      id: item.id,
+      date: displayDate(item.changeLastDate),
+      location: item.changeLastReason,
+      isLasted: index === 0
+    }))
+  }, [data])
 
   return {
-    infoHistoryList
+    infoHistoryList, historiesLoading: isFetching, historiesError: error
   }
 }
 

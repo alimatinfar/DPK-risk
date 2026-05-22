@@ -4,12 +4,21 @@ import usePanelBasicInformationPageWorkplaceAddressList from "./usePanelBasicInf
 import usePanelBasicInformationPageOfficeAddressList from "./usePanelBasicInformationPageOfficeAddressList.ts";
 import usePanelBasicInformationHistoryList from "./usePanelBasicInformationHistoryList.ts";
 import useFetchCustomerInfo from "./useFetchCustomerInfo.ts";
+import type {HistoryDataType} from "../index.types.ts";
 
-function usePanelBasicInformationPage() {
+export type UsePanelBasicInformationPageProps = {
+  activeHistory?: HistoryDataType;
+}
+
+function usePanelBasicInformationPage(
+  {activeHistory}: UsePanelBasicInformationPageProps
+) {
 
   const {
     naturalData, legalData, foreignCitizenData, isLegalBool, loading, error
-  } = useFetchCustomerInfo()
+  } = useFetchCustomerInfo({
+    activeHistory
+  })
 
   const {
     identityInfoList

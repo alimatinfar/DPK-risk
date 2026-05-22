@@ -9,7 +9,7 @@ import type {
   BasicInfoDataTypeForEachPersonType,
   BasicInformationForeignCitizenResponseType,
   BasicInformationLegalResponseType, BasicInformationNaturalResponseType
-} from "../index.constances.ts";
+} from "../index.types.ts";
 
 
 function usePanelBasicInformationPageIdentityInfoList(

@@ -10,12 +10,16 @@ import useSelectActiveHistory from "./hooks/useSelectActiveHistory.ts";
 
 function PanelBasicInformationPage() {
 
-  const {activeHistory, setActiveHistory} = useSelectActiveHistory();
+  const {
+    activeHistory, setActiveHistory, historiesError, historiesLoading
+  } = useSelectActiveHistory();
 
   const {
     identityInfoList, homeAddressList, officeAddressList, workplaceAddressList, isLegalBool, infoHistoryList,
     loading, error
-  } = usePanelBasicInformationPage()
+  } = usePanelBasicInformationPage({
+    activeHistory
+  })
 
   const {
     openModalHandler: openHistoryModalHandler,
@@ -28,10 +32,15 @@ function PanelBasicInformationPage() {
       <div className='flex flex-col gap-y-4'>
         <PanelPageTitle
           children={
-            <PanelBasicInformationPageHistory
-              openHistoryModalHandler={openHistoryModalHandler}
-              activeHistory={activeHistory}
-            />
+            <RenderLogic
+              removeContainer
+              isLoading={historiesLoading} error={historiesError}
+            >
+              <PanelBasicInformationPageHistory
+                openHistoryModalHandler={openHistoryModalHandler}
+                activeHistory={activeHistory}
+              />
+            </RenderLogic>
           }
         />
 
@@ -60,7 +69,7 @@ function PanelBasicInformationPage() {
           open={historyModalOpen}
           infoHistoryList={infoHistoryList ? infoHistoryList : []}
           setHistoryItemClick={setActiveHistory}
-          activeItemId={activeHistory ? activeHistory.id : "1"}
+          activeItemId={activeHistory?.id}
         />
       </DisplayModal>
     </>

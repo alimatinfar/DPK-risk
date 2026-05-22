@@ -3,12 +3,13 @@ import Modal from "../../../../components/others/Modal/Modal.tsx";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 import type {SetStateType} from "../../../../types/SetStateType.ts";
 import HistoryItemCard from "./HistoryItemCard.tsx";
-import type {HistoryDataType} from "./index.constances.ts";
+import type {HistoryDataType} from "./index.types.ts";
+
 
 export type PanelBasicInfoHistoryModalProps = ModalProps & {
-  infoHistoryList: HistoryDataType[]
-  setHistoryItemClick: SetStateType<HistoryDataType | undefined>
-  activeItemId: string
+  infoHistoryList: HistoryDataType[];
+  setHistoryItemClick: SetStateType<HistoryDataType | undefined>;
+  activeItemId: string | number | undefined;
 }
 
 function PanelBasicInfoHistoryModal(

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import type { HistoryDataType } from "../index.constances";
+import type { HistoryDataType } from "../index.types.ts";
 import usePanelBasicInformationHistoryList from "./usePanelBasicInformationHistoryList";
 
 function useSelectActiveHistory() {
 
   const [activeHistory, setActiveHistory] = useState<HistoryDataType>()
 
-  const { infoHistoryList } = usePanelBasicInformationHistoryList()
+  const {
+    infoHistoryList, historiesError, historiesLoading
+  } = usePanelBasicInformationHistoryList()
 
   useEffect(function () {
     if (infoHistoryList.length > 0) {
@@ -15,7 +17,7 @@ function useSelectActiveHistory() {
   }, [infoHistoryList])
 
   return {
-    activeHistory, setActiveHistory, infoHistoryList
+    activeHistory, setActiveHistory, infoHistoryList, historiesError, historiesLoading
   }
 }
 

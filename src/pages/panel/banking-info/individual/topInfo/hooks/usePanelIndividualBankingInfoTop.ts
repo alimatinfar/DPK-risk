@@ -8,7 +8,7 @@ function usePanelIndividualBankingInfoTop() {
 
   const {
     loading, error, commonCustomerData
-  } = useFetchCustomerInfo()
+  } = useFetchCustomerInfo({})
 
   const infoList: DetailInfoSection2Props['infoList'] = useMemo(function () {
     return [
