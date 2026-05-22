@@ -2,6 +2,7 @@
 export type IndividualBankingAccountDetailSaptaMobileNumbersResponseType = {
   mobileNo: string;
   customerId: number;
+  customerIdStr: string;
   nationalID: number;
   nationalIDStr: string;
   firstName: string;

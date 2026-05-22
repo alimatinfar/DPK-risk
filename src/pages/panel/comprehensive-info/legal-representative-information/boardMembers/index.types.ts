@@ -1,5 +1,6 @@
 export type PanelLegalRepresentativeBoardMembersResponseType = {
   customerId: number;
+  customerIdStr: string;
   personalityType: number;
   companyName: string;
   boardPosition: string;

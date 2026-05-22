@@ -32,7 +32,7 @@ function PanelLegalRepresentativeInformationPageLegalRepresentative() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerId,
+      [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerIdStr,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.FIRST_NAME]: item?.firstName,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.LAST_NAME]: item?.lastName,
       [PANEL_LEGAL_REPRESENTATIVE_TABLE_COLUMNS_KEYS.NATIONAL_CODE_OR_FOREIGN_ID]: item?.nationalIDStr,

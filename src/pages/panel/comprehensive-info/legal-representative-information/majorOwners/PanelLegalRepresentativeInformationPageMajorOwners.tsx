@@ -34,7 +34,7 @@ function PanelLegalRepresentativeInformationPageMajorOwners() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerId,
+      [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerIdStr,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.PERSON_TYPE]: item?.personalityType,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
       [PANEL_LEGAL_REPRESENTATIVE_MAJOR_OWNERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.companyName),

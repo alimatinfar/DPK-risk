@@ -1,6 +1,7 @@
 
 export type PanelIndividualBankingInfoFacilitiesResponseType = {
   customerId: number;
+  customerIdStr: string;
   number: number;
   amount: number;
   totalAmount: number;

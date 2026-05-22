@@ -1,5 +1,6 @@
 export type PanelLegalRepresentativeInfoMajorOwnersResponseType = {
   customerId: number;
+  customerIdStr: string;
   personalityType: number;
   companyName: string;
   managementStatus: number;

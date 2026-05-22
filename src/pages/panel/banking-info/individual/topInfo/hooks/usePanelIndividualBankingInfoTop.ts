@@ -14,7 +14,7 @@ function usePanelIndividualBankingInfoTop() {
     return [
       {
         label: 'شماره مشتری',
-        value: commonCustomerData?.customerId,
+        value: commonCustomerData?.customerIdStr,
       },
       {
         label: 'شناسه شهاب',

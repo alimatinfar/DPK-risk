@@ -1,5 +1,6 @@
 export type PanelLegalRepresentativeInformationResponseType = {
   customerId: number;
+  customerIdStr: string;
   ratio: string;
   certificateType: number;
   certificateNumber: number;

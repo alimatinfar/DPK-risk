@@ -1,6 +1,7 @@
 export type SearchFormResponseType = {
   actualCustomers: {
     customerId: number;
+    customerIdStr: string;
     nationalID: number;
     nationalIDStr: string;
     firstName: string;
@@ -11,6 +12,7 @@ export type SearchFormResponseType = {
     firstName: string;
     lastName: string;
     customerId: number;
+    customerIdStr: string;
     nationalID: number;
     nationalIDStr: string;
     nationalityTitle: string;
@@ -18,6 +20,7 @@ export type SearchFormResponseType = {
   }[];
   legalCustomers: {
     customerId: string;
+    customerIdStr: string;
     legalNationalID: number;
     legalNationalIDStr: string;
     legalName: string;
@@ -32,6 +35,7 @@ export type SearchFormRequestBodyData = {
   accountNumber?: number;
   accountNumberStr?: string;
   customerId?: number;
+  customerIdStr?: string;
   shahabId?: number;
   cardNumber?: number;
   nationalID?: number;

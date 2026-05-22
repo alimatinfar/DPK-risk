@@ -1,6 +1,7 @@
 
 export type IndividualBankingCommitmentsDetailGuarantorsResponseType = {
   customerId: number;
+  customerIdStr: string;
   nationalID: number;
   nationalIDStr: string;
   firstName: string;

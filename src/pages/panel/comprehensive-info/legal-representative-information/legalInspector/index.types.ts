@@ -1,6 +1,7 @@
 
 export type PanelLegalRepresentativeLegalInspectorResponseType = {
   customerId: number,
+  customerIdStr: string,
   fromDate: number,
   toDate: number,
   nationalID: number,

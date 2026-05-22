@@ -1,5 +1,6 @@
 export type PanelLegalRepresentativeStatutoryAuditorResponseType = {
   customerId: number;
+  customerIdStr: string;
   fromDate: number;
   toDate: number;
   nationalID: number;

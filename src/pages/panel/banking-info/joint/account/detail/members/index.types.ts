@@ -1,6 +1,7 @@
 
 export type JointBankingAccountDetailMembersResponseType = {
   customerId: number;
+  customerIdStr: string;
   shareCustomerId: number;
   shareCustomerIdStr: string;
   shahabId: number;

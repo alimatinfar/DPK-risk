@@ -33,7 +33,7 @@ function JointBankingAccountDetailMembers() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerId,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerIdStr,
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_TYPE]: item?.customerTypeTitle,
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationality,
       [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName),

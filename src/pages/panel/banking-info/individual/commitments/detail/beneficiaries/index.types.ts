@@ -1,6 +1,7 @@
 
 export type IndividualBankingCommitmentsDetailBeneficiariesResponseType = {
   customerId: number;
+  customerIdStr: string;
   nationalID: number;
   nationalIDStr: string;
   firstName: string;
