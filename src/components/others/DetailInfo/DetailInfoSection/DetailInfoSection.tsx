@@ -56,7 +56,7 @@ function DetailInfoSection(
                   {item.label}
                 </span>
                 <span className="text-gray-900">
-                  {item.value || <NoDataTag />}
+                  {item?.value || <NoDataTag />}
                 </span>
               </div>
             ))}

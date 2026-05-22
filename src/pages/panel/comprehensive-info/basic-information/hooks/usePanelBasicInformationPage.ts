@@ -8,8 +8,7 @@ import useFetchCustomerInfo from "./useFetchCustomerInfo.ts";
 function usePanelBasicInformationPage() {
 
   const {
-    naturalData, legalData, foreignCitizenData, isLegalBool, naturalIsFetching,
-    legalIsFetching, foreignCitizenIsFetching, naturalError, legalError, foreignCitizenError
+    naturalData, legalData, foreignCitizenData, isLegalBool, loading, error
   } = useFetchCustomerInfo()
 
   const {
@@ -41,8 +40,7 @@ function usePanelBasicInformationPage() {
 
   return {
     identityInfoList, homeAddressList, officeAddressList, workplaceAddressList, isLegalBool, infoHistoryList,
-    loading: naturalIsFetching || legalIsFetching || foreignCitizenIsFetching,
-    error: naturalError || legalError || foreignCitizenError,
+    loading, error,
   }
 }
 

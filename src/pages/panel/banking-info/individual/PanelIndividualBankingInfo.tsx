@@ -8,7 +8,8 @@ import {
 import {lazy, useMemo} from "react";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
-import PanelIndividualBankingInfoTop from "./PanelIndividualBankingInfoTop.tsx";
+import PanelIndividualBankingInfoTop from "./topInfo/PanelIndividualBankingInfoTop.tsx";
+
 const PanelIndividualBankingInfoTransactionHistory = lazy(() => import(
   "./transactionHistory/PanelIndividualBankingInfoTransactionHistory.tsx"
   ))

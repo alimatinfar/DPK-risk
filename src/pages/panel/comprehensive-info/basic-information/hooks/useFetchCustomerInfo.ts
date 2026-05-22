@@ -58,9 +58,14 @@ function useFetchCustomerInfo() {
     }
   })
 
+  const commonCustomerData = isForeignCitizenBool ?
+    foreignCitizenData?.data?.customer : isLegalBool ? legalData?.data : naturalData?.data
+
   return {
-    naturalData, legalData, foreignCitizenData, isLegalBool, naturalIsFetching,
-    legalIsFetching, foreignCitizenIsFetching, naturalError, legalError, foreignCitizenError
+    naturalData, legalData, foreignCitizenData, isLegalBool, naturalIsFetching, commonCustomerData,
+    legalIsFetching, foreignCitizenIsFetching, naturalError, legalError, foreignCitizenError,
+    loading: naturalIsFetching || legalIsFetching || foreignCitizenIsFetching,
+    error: naturalError || legalError || foreignCitizenError,
   }
 }
 

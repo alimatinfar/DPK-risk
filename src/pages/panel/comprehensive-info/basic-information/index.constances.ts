@@ -1,4 +1,3 @@
-import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../search/form/SearchPageForm.constances.ts";
 import type {CustomResponseType} from "../../../../request/types/CustomResponseType.ts";
 
 export type BasicInformationNaturalResponseType = {
@@ -18,12 +17,16 @@ export type BasicInformationNaturalResponseType = {
   age: number;
   customerType: number;
   customerTypeTitle: string;
+  customerSubType: string;
+
   educationLevel: number;
   educationLevelTitle: string;
   studyField: number;
+
   maritalStatus: number;
   maritalStatusTitle: string;
-  maritalStatusChangeDate: number;
+  maritalStatusChangeDate: number | null;
+
   mobile: string;
   homePhone: string;
   homeProvince: string;
@@ -35,19 +38,31 @@ export type BasicInformationNaturalResponseType = {
   homeBuildingName: string;
   homePostalCode: number;
   homeMailbox: string;
-  workPhone: string;
-  workProvince: string;
-  workCity: string;
-  workAddress: string;
-  workPlate: string;
-  workFloor: number;
-  workUnit: number;
-  workBuildingName: string;
-  workPostalCode: number;
-  workMailbox: number;
+
+  workPhone: string | null;
+  workProvince: string | null;
+  workCity: string | null;
+  workAddress: string | null;
+  workPlate: string | null;
+  workFloor: number | null;
+  workUnit: number | null;
+  workBuildingName: string | null;
+  workPostalCode: number | null;
+  workMailbox: number | null;
+
   lifeStatus: number;
-  deathDate: number | string;
-}
+  deathDate: number | string | null;
+
+  changeLastDate: number;
+  changeLastReason: string | null;
+
+  branchCode: number;
+  branchName: string;
+
+  areaCode: string;
+  areaName: string;
+};
+
 
 export type BasicInformationForeignCitizenResponseType = {
   customer: BasicInformationNaturalResponseType;
@@ -91,11 +106,14 @@ export type BasicInformationLegalResponseType = {
   nationalIdStatus: number;
   legalEntityStatus: number;
   eNamadStatus: string;
-  dissolutionDate: number | string,
-  completionDate: number | string,
-  suspensionDate: number | string,
+
+  dissolutionDate: number | string | null;
+  completionDate: number | string | null;
+  suspensionDate: number | string | null;
+
   emailAddress: string;
   webSite: string;
+
   workPhone: string;
   workFax: string;
   workProvince: string;
@@ -106,7 +124,8 @@ export type BasicInformationLegalResponseType = {
   workUnit: number;
   workBuildingName: string;
   workPostalCode: number;
-  workMailbox: number;
+  workMailbox: string | number;
+
   officePhone: string;
   officeFax: string;
   officeProvince: string;
@@ -117,8 +136,17 @@ export type BasicInformationLegalResponseType = {
   officeUnit: number;
   officeBuildingName: string;
   officePostalCode: number;
-  officeMailbox: 101
-}
+  officeMailbox: string | number;
+
+  changeLastDate: number;
+
+  customerSubType: string;
+  branchCode: number;
+  branchName: string;
+  areaCode: string;
+  areaName: string;
+};
+
 
 export type BasicInfoDataTypeForEachPersonType = {
   naturalData: CustomResponseType<BasicInformationNaturalResponseType> | undefined;
