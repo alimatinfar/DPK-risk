@@ -177,9 +177,6 @@ stages:
             rm -r $(Build.ArtifactStagingDirectory)/*                         
             cp -r $(System.DefaultWorkingDirectory)/out/dist $(Build.ArtifactStagingDirectory) 
 
-
-
-
       - task: Bash@3
         inputs:
           targetType: 'inline'
@@ -190,6 +187,33 @@ stages:
 
       - task: PublishBuildArtifacts@1
         condition: and(succeeded(), eq(variables['ispullrequest'], 'true'))                
+
+      - script: |
+          set -e  
+
+          echo "[Clean] $(Build.BinariesDirectory)"
+
+          if [ -d "$(Build.BinariesDirectory)" ]; then
+
+            chmod -R u+rwX "$(Build.BinariesDirectory)" || true
+
+            rm -rf "$(Build.BinariesDirectory)"/* "$(Build.BinariesDirectory)"/.[!.]* "$(Build.BinariesDirectory)"/..?* || true
+          fi
+
+          echo "[Clean] $(System.DefaultWorkingDirectory)"
+          if [ -d "$(System.DefaultWorkingDirectory)" ]; then
+            chmod -R u+rwX "$(System.DefaultWorkingDirectory)" || true
+            rm -rf "$(System.DefaultWorkingDirectory)"/* "$(System.DefaultWorkingDirectory)"/.[!.]* "$(System.DefaultWorkingDirectory)"/..?* || true
+          fi
+
+          echo "[Clean] $(Build.ArtifactStagingDirectory)"
+          if [ -d "$(Build.ArtifactStagingDirectory)" ]; then
+            chmod -R u+rwX "$(Build.ArtifactStagingDirectory)" || true
+            rm -rf "$(Build.ArtifactStagingDirectory)"/* "$(Build.ArtifactStagingDirectory)"/.[!.]* "$(Build.ArtifactStagingDirectory)"/..?* || true
+          fi
+        displayName: 'Deep clean (Linux – incl. .git, hidden)'
+        condition: always()
+
 
   - job: Clean
     workspace:
