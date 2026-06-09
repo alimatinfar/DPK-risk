@@ -35,7 +35,7 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'نوع شخصیت حقوقی',
-        value: data?.legalType,
+        value: data?.legalTypeTitle,
       },
       {
         label: 'تاریخ تاسیس',

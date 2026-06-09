@@ -100,6 +100,7 @@ export type BasicInformationLegalResponseType = {
   tradeName: string;
   abbreviationName: string;
   legalType: number;
+  legalTypeTitle: string;
   registrationUnit: string;
   registrationNumber: number;
   registrationDate: number;

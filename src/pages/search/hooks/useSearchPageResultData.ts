@@ -52,7 +52,7 @@ function useSearchPageResultData(
         name: item?.legalName,
         [legalBrandNameFieldName]: item?.tradeName,
         [legalRegistrationNumberFieldName]: String(item?.legalNationalIDStr),
-        [legalTypeFieldName]: item?.legalType,
+        [legalTypeFieldName]: item?.legalTypeTitle,
       })),
     ]
   }, [data])

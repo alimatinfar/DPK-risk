@@ -27,6 +27,7 @@ export type SearchFormResponseType = {
     tradeName: string;
     abbreviationName: string;
     legalType: string;
+    legalTypeTitle: string;
   }[];
 }
 
