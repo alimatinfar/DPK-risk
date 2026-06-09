@@ -4,6 +4,7 @@ import ArrowIcon from "../../../components/svg/ArrowIcon.tsx";
 import type {SearchPageResultProps} from "./SearchPageResult.tsx";
 import SearchPageResultCard from "./SearchPageResultCard.tsx";
 import useSearchPageResultPersonCategory from "./hooks/useSearchPageResultPersonCategory.ts";
+import ArrowIcon2 from "../../../components/svg/ArrowIcon2.tsx";
 
 
 export type SearchPageResultPersonCategoryProps = {
@@ -48,7 +49,10 @@ function SearchPageResultPersonCategory(
 
           {hasLoadMoreButton && (
             <div className='flex-center'>
-              <Button variant='link' size='sm' onClick={loadMoreHandler}>
+              <Button
+                variant='link' size='sm' onClick={loadMoreHandler}
+                rightIcon={<ArrowIcon2 className='-rotate-90' />}
+              >
                 نتایج بیشتر
               </Button>
             </div>
