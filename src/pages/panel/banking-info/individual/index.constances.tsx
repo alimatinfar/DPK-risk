@@ -1,6 +1,7 @@
 import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
 
+
 const PanelIndividualBankingInfoAccount = lazy(() => import(
   "./account/PanelIndividualBankingInfoAccount.tsx"
   ))
