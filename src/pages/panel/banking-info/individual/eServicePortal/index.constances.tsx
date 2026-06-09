@@ -1,6 +1,6 @@
 import type {TableColumnType} from "../../../../../components/others/Table/TableExports.ts";
 import Tag from "../../../../../components/others/Tag/Tag.tsx";
-import ACTIONS_COLUMN from "../../../../../components/others/Table/constances/actionsColumn.ts";
+
 
 export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS = {
   E_SERVICE_PORTAL: 'electronicServiceGateway',

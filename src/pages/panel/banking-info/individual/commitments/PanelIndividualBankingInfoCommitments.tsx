@@ -7,7 +7,6 @@ import {useNavigate} from "react-router";
 import {useMemo} from "react";
 import TABLE_ACCESSORS from "../../../../../components/others/Table/constances/tableAccessors.ts";
 import ROUTER_LINKS from "../../../../../constances/routerLinks.ts";
-import ArrowIcon2 from "../../../../../components/svg/ArrowIcon2.tsx";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import useFetchData from "../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../request/constances/apis.ts";
@@ -15,6 +14,7 @@ import type {PanelIndividualBankingInfoCommitmentsResponseType} from "./index.ty
 import withSeparator from "../../../../../utils/separator/withSeparator.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
+import {TableDetailAction} from "../../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
 
 
 function PanelIndividualBankingInfoCommitments() {
@@ -58,11 +58,9 @@ function PanelIndividualBankingInfoCommitments() {
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.BRANCH_NAME]: item?.branchName,
       [PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS.REGION_NAME]: item?.areaName,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
-        {
-          onClick: () => navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS_DETAIL(item?.obligationsNo)),
-          icon: <ArrowIcon2 width='100%' height='100%'/>,
-          title: 'جزئیات',
-        }
+        TableDetailAction(() => {
+          navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS_DETAIL(item?.obligationsNo))
+        })
       ],
     }))
   }, [data])

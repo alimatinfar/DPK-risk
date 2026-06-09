@@ -38,9 +38,12 @@ const TableHead: FC<TableHeadProps> = ({columns, sort, setSort}) => {
   return (
     <thead>
     <tr className="h-9 bg-gray-100 border-b border-gray-300 select-none">
-      {mainColumns.map(({label, accessor, hasSort}, index) => {
+      {mainColumns.map(({label, accessor, hasSort, textAlign}, index) => {
         return (
-          <th key={accessor} className={`h-full p-2 font-normal text-sm whitespace-nowrap text-right text-gray-700`}>
+          <th
+            key={accessor}
+            className={`h-full p-2 font-normal text-sm whitespace-nowrap text-gray-700 ${textAlign || 'text-right'}`}
+          >
             {(sort && setSort && hasSort) ? (
               <div className='flex items-center space-x-1'>
                 <span>{label}</span>

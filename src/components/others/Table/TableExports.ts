@@ -9,6 +9,7 @@ export type TableColumnType = {
   renderType?: ColumnsRenderTypes;
   tdWidth?: string;
   hasSort?: boolean;
+  textAlign?: string;
 };
 
 type AccessorUnion<T extends readonly TableColumnType[]> =

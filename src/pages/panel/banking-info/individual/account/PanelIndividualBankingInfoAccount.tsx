@@ -4,7 +4,6 @@ import {
 } from "./index.constances.tsx";
 import {useMemo} from "react";
 import TABLE_ACCESSORS from "../../../../../components/others/Table/constances/tableAccessors.ts";
-import ArrowIcon2 from "../../../../../components/svg/ArrowIcon2.tsx";
 import {useNavigate} from "react-router";
 import ROUTER_LINKS from "../../../../../constances/routerLinks.ts";
 import useFetchData from "../../../../../request/hooks/useFetchData.ts";
@@ -15,6 +14,7 @@ import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogi
 import displayDate from "../../../../../utils/display/displayDate.ts";
 import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../../utils/getUrlWithParams.ts";
+import {TableDetailAction} from "../../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
 
 
 function PanelIndividualBankingInfoAccount() {
@@ -59,17 +59,13 @@ function PanelIndividualBankingInfoAccount() {
       [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPENER_PERSONNEL_CODE]: item?.bankPersonnelCode,
       [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPENER_NAME]: item?.bankPersonnelName,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
-        {
-          onClick: () => {
-            const params = {
-              [QUERY_PARAMS.ACCOUNT_NUMBER_STR]: item?.accountNumberStr
-            }
-            const url = getUrlWithParams(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT_DETAIL(item?.accountNumber), params)
-            navigate(url)
-          },
-          icon: <ArrowIcon2 width='100%' height='100%'/>,
-          title: 'جزئیات',
-        }
+        TableDetailAction(() => {
+          const params = {
+            [QUERY_PARAMS.ACCOUNT_NUMBER_STR]: item?.accountNumberStr
+          }
+          const url = getUrlWithParams(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT_DETAIL(item?.accountNumber), params)
+          navigate(url)
+        })
       ],
     }))
   }, [data])

@@ -1,7 +1,6 @@
 import type {TableColumnType} from "../../../../../components/others/Table/TableExports.ts";
 import TABLE_RENDER_TYPES from "../../../../../components/others/Table/constances/renderTypes.ts";
-import Tag from "../../../../../components/others/Tag/Tag.tsx";
-import ACTIONS_COLUMN from "../../../../../components/others/Table/constances/actionsColumn.ts";
+import ACTIONS_COLUMN from "../../../../../components/others/Table/constances/actions/actionsColumn.ts";
 
 export const PANEL_INDIVIDUAL_COMMITMENTS_TABLE_COLUMNS_KEYS = {
   INDIRECT_COMMITMENT: 'indirectCommitment',
