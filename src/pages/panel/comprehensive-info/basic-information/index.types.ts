@@ -53,6 +53,7 @@ export type BasicInformationNaturalResponseType = {
   workMailbox: number | null;
 
   lifeStatus: number;
+  lifeStatusTitle: string;
   deathDate: number | string | null;
 
   changeLastDate: number;

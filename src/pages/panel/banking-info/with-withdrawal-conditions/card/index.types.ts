@@ -3,6 +3,7 @@ export type PanelBankingInfoWithWithdrawalConditionsCardResponseType = {
   cardNumber: number;
   cardAccount: number;
   cardState: number;
+  cardStateTitle: string;
   cardType: number;
   issueDate: number;
   expirDate: number;

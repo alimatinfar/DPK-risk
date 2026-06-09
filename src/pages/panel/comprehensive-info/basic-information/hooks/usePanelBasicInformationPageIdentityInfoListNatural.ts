@@ -131,7 +131,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
 
       {
         label: 'وضعیت حیات',
-        value: customerData?.lifeStatus,
+        value: customerData?.lifeStatusTitle,
       },
       {
         label: 'تاریخ وفات',
