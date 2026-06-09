@@ -21,7 +21,7 @@ function PanelPageTitle(
       <p className='text-lg font-semibold'>
         {title || pageTitle || ''}
       </p>
-      <div className="flex flex-1">
+      <div className="flex justify-end flex-1">
         {children}
       </div>
     </div>
