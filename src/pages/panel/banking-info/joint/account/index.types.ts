@@ -5,6 +5,7 @@ export type PanelJointBankingInfoAccountResponseType = {
   accountNumber: number;
   accountNumberStr: string;
   accountStatus: number;
+  accountStatusTitle: string;
   accountSubType: number;
   sayahId: number;
   openingDate: number;
