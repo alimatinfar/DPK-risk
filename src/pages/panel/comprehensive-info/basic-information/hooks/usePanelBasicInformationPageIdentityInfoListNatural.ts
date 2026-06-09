@@ -121,7 +121,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
         },
         {
           label: 'تابعیت',
-          value: foreignCitizenSpecificData?.citizenship,
+          value: foreignCitizenSpecificData?.citizenshipTitle,
         },
         {
           label: 'تاریخ آخرین ورود به کشور',

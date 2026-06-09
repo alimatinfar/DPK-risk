@@ -77,6 +77,7 @@ export type BasicInformationForeignCitizenResponseType = {
     nationality: number;
     nationalityTitle: string;
     citizenship: number;
+    citizenshipTitle: string;
     passportType: number;
     passportDate: number;
     identificationDocumentType: number;
