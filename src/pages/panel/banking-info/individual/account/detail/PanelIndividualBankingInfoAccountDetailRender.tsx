@@ -4,7 +4,6 @@ import Card from "../../../../../../components/others/Card/Card.tsx";
 import TabContentRender, {
   type TabContentRenderProps
 } from "../../../../../../components/others/Tab/TabContentRender.tsx";
-import {useParams} from "react-router";
 import useActiveTab from "../../../../../../components/others/Tab/hooks/useActiveTab.ts";
 import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";

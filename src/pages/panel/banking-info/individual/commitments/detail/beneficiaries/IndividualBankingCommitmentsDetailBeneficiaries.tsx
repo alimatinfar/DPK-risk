@@ -1,7 +1,7 @@
 import Table from "../../../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS, PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS,
-} from "../index.constances.ts";
+} from "../index.constances.tsx";
 import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../../../request/constances/apis.ts";
 import {useMemo} from "react";

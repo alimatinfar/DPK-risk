@@ -1,5 +1,14 @@
 import type {TableColumnType} from "../../../../../../components/others/Table/TableExports.ts";
 import type {TabsProps} from "../../../../../../components/others/Tab/Tab.tsx";
+import {lazy} from "react";
+
+const IndividualBankingCommitmentsDetailBeneficiaries = lazy(() => import(
+  "./beneficiaries/IndividualBankingCommitmentsDetailBeneficiaries.tsx"
+  ))
+const IndividualBankingCommitmentsDetailGuarantors = lazy(() => import(
+  "./guarantors/IndividualBankingCommitmentsDetailGuarantors.tsx"
+  ))
+
 
 export const PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS = {
   BENEFICIARIES: 'beneficiaries',
@@ -42,3 +51,12 @@ export const PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS: TableColumnType[]
     accessor: PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NATIONAL_ID,
   },
 ]
+
+export const PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_RENDER_OBJECT = {
+  [PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS.BENEFICIARIES]: (
+    <IndividualBankingCommitmentsDetailBeneficiaries/>
+  ),
+  [PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS.GUARANTORS]: (
+    <IndividualBankingCommitmentsDetailGuarantors/>
+  ),
+}

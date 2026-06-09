@@ -1,38 +1,21 @@
 import {useParams} from "react-router";
 import useActiveTab from "../../../../../../components/others/Tab/hooks/useActiveTab.ts";
-import {lazy, useMemo} from "react";
 import PanelPageTitle from "../../../../layout/PanelPageTitle.tsx";
 import Tab from "../../../../../../components/others/Tab/Tab.tsx";
 import Card from "../../../../../../components/others/Card/Card.tsx";
 import TabContentRender from "../../../../../../components/others/Tab/TabContentRender.tsx";
 import {
+  PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_RENDER_OBJECT,
   PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS,
   PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS
-} from "./index.constances.ts";
+} from "./index.constances.tsx";
 
-const IndividualBankingCommitmentsDetailBeneficiaries = lazy(() => import(
-  "./beneficiaries/IndividualBankingCommitmentsDetailBeneficiaries.tsx"
-  ))
-const IndividualBankingCommitmentsDetailGuarantors = lazy(() => import(
-  "./guarantors/IndividualBankingCommitmentsDetailGuarantors.tsx"
-  ))
 
 function PanelIndividualBankingInfoCommitmentsDetail() {
 
   const {id} = useParams()
 
   const [activeTab, setActiveTab] = useActiveTab(PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS.BENEFICIARIES)
-
-  const renderObject = useMemo(function () {
-    return {
-      [PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS.BENEFICIARIES]: (
-        <IndividualBankingCommitmentsDetailBeneficiaries/>
-      ),
-      [PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS.GUARANTORS]: (
-        <IndividualBankingCommitmentsDetailGuarantors/>
-      ),
-    }
-  }, [])
 
   return (
     <div className='flex flex-col gap-y-4'>
@@ -49,7 +32,8 @@ function PanelIndividualBankingInfoCommitmentsDetail() {
 
       <Card className='flex flex-col gap-y-4'>
         <TabContentRender
-          renderObject={renderObject} activeTab={activeTab}
+          renderObject={PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_RENDER_OBJECT}
+          activeTab={activeTab}
         />
       </Card>
     </div>

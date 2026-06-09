@@ -1,6 +1,6 @@
 import {
   PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS, PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS
-} from "../index.constances.ts";
+} from "../index.constances.tsx";
 import Table from "../../../../../../../components/others/Table/Table.tsx";
 import {useParams} from "react-router";
 import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
