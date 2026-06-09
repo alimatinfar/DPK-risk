@@ -39,7 +39,7 @@ function PanelIndividualBankingInfoCard() {
       //   <Tag text='فعال' color='green' variant='fade'/>
       // ),
       [PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.CARD_STATUS]: item?.cardStateTitle,
-      [PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.CARD_TYPE]: item?.cardType,
+      [PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.CARD_TYPE]: item?.cardTypeTitle,
       [PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUE_DATE]: displayDate(item?.issueDate),
       [PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.EXPIRY_DATE]: displayDate(item?.expirDate),
       [PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUE_BRANCH_CODE]: item?.branchCode,

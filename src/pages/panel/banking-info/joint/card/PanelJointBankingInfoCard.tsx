@@ -40,7 +40,7 @@ function PanelJointBankingInfoCard() {
       //   <Tag text='فعال' color='green' variant='fade'/>
       // ),
       [PANEL_JOINT_CARD_INFO_TABLE_COLUMNS_KEYS.CARD_STATUS]: item?.cardStateTitle,
-      [PANEL_JOINT_CARD_INFO_TABLE_COLUMNS_KEYS.CARD_TYPE]: item?.cardType,
+      [PANEL_JOINT_CARD_INFO_TABLE_COLUMNS_KEYS.CARD_TYPE]: item?.cardTypeTitle,
       [PANEL_JOINT_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUE_DATE]: displayDate(item?.issueDate),
       [PANEL_JOINT_CARD_INFO_TABLE_COLUMNS_KEYS.EXPIRY_DATE]: displayDate(item?.expirDate),
       [PANEL_JOINT_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUE_BRANCH_CODE]: item?.branchCode,

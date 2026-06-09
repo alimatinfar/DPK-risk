@@ -5,6 +5,7 @@ export type PanelJointBankingInfoCardResponseType = {
   cardState: number;
   cardStateTitle: string;
   cardType: number;
+  cardTypeTitle: string;
   issueDate: number;
   expirDate: number;
   branchCode: number;
