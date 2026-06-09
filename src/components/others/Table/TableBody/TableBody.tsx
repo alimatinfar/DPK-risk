@@ -75,6 +75,7 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
                     <TableTrExtraData
                       row={row}
                       columns={columns}
+                      isLast={isLast}
                     />
                   </DisplayWithAnimation>
                 </td>

@@ -6,16 +6,22 @@ import TABLE_RENDER_TYPES from "../constances/renderTypes.ts";
 export type TableTrExtraDataProps = {
   row: TableDataType<any>;
   columns: readonly TableColumnType[];
+  isLast: boolean;
 }
 
-function TableTrExtraData({row, columns}: TableTrExtraDataProps) {
+function TableTrExtraData(
+  {row, columns, isLast}: TableTrExtraDataProps
+) {
 
   const extraColumns = useMemo(function () {
     return columns.filter(column => column.renderType === TABLE_RENDER_TYPES.EXTRA_COLUMN)
   }, [])
 
   return (
-    <div className={`p-4 bg-gray-50 grid grid-cols-5 gap-x-4 gap-y-8`}>
+    <div className={`
+      p-4 bg-gray-50 grid grid-cols-5 gap-x-4 gap-y-8
+      ${isLast ? 'border-t' : 'border-b'} border-gray-300
+    `}>
       {extraColumns.map((column, index) => {
 
         const is5X = index % 5 === 0
@@ -28,12 +34,12 @@ function TableTrExtraData({row, columns}: TableTrExtraDataProps) {
                ${is5X ? '' : 'border-r border-gray-300'}
             `}
           >
-          <span className='text-gray-500'>
-            {column.label}
-          </span>
+            <span className='text-gray-500'>
+              {column.label}
+            </span>
             <span className='text-gray-900'>
-            {row[column.accessor] as ReactNode || '-'}
-          </span>
+              {row[column.accessor] as ReactNode || '-'}
+            </span>
           </div>
         )
       })}
