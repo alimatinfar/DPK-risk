@@ -7,7 +7,7 @@ import TabContentRender from "../../../../components/others/Tab/TabContentRender
 import {
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS,
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS
-} from "../individual/index.constances.ts";
+} from "../individual/index.constances.tsx";
 
 const PanelJointBankingInfoTransactionHistory = lazy(() => import(
   "./transactionHistory/PanelJointBankingInfoTransactionHistory.tsx"

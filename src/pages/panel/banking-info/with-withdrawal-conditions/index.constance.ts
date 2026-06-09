@@ -1,5 +1,5 @@
 import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
-import {PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS} from "../individual/index.constances.ts";
+import {PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS} from "../individual/index.constances.tsx";
 
 export const PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_TABS: TabsProps['tabs'] = [
   {

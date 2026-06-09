@@ -1,7 +1,7 @@
 import useActiveTab from "../../../../components/others/Tab/hooks/useActiveTab.ts";
 import {
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS
-} from "../individual/index.constances.ts";
+} from "../individual/index.constances.tsx";
 import {lazy, useMemo} from "react";
 import PanelPageTitle from "../../layout/PanelPageTitle.tsx";
 import Tab from "../../../../components/others/Tab/Tab.tsx";

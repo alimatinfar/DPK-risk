@@ -4,7 +4,7 @@ import useActiveTab from "../../../../components/others/Tab/hooks/useActiveTab.t
 import {
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS,
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS
-} from "./index.constances.ts";
+} from "./index.constances.tsx";
 import {lazy, useMemo} from "react";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
