@@ -11,7 +11,8 @@ export type PanelJointBankingInfoAccountResponseType = {
   sayahId: number;
   openingDate: number;
   targetOpening: string;
-  isCommercial: true,
+  isCommercial: boolean,
+  isCommercialTitle: string,
   commercialDate: number;
   branchCode: number;
   branchName: string;
