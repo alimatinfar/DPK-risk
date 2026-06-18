@@ -85,6 +85,14 @@ const router = createBrowserRouter(
               element:<PanelIndividualBankingInfoAccountDetail />,
             },
             {
+              path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId`,
+              element:<>periodId</>,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId/:branchId`,
+              element:<>branchId</>,
+            },
+            {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS}/:id`,
               element:<PanelIndividualBankingInfoCommitmentsDetail />,
             },
