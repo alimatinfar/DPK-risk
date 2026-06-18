@@ -34,7 +34,6 @@ function IndividualBankingAccountDetailTransactionInformation() {
 
     return data?.data?.map((item, index) => ({
       id: index,
-      //TODO set this field from api
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TRANSACTION_PERIOD]: (
         <span className='font-medium'>
           {PERIOD_ID_LABELS?.[item?.periodId]}
