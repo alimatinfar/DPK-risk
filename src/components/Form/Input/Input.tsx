@@ -14,17 +14,17 @@ function Input(
     inputClassName, labelClassName, errorMessage, onChange, onBlur, onKeyDown, inputRef, endAdornment, startAdornment,
     onClick, inputWrapperOnClick, justSelectOnClick, fileInput, endAdornmentOnClick, inputLtr, description, info,
     onKeyPress, rows, required, readOnly, hiddenErrorMessage, endAdornmentType, resizable, hasError, justEnglishLetter,
-    justNumber, onEnter, maxLength, bySeparator, useTrim, hasDotKey, size='md', onFocus, autoCapitalize,
+    justNumber, onEnter, maxLength, bySeparator, useTrim, hasDotKey, size = 'md', onFocus, autoCapitalize,
     justUpperCaseEnglish, upperCaseEnglish, isConflict, decimalCounts, endAdornmentClassName, endErrorMessage,
-    autoCompleteNewPassword
+    autoCompleteNewPassword, isRowLabel
   }: InputProps
 ) {
 
   const {
-    fieldWrapperStyles, inputStyles, inputWrapperStyles
+    fieldWrapperStyles, fieldLabelWrapperStyles, inputStyles, inputWrapperStyles, finalLabelMarginClass
   } = useInputStyles({
     wrapperClassName, inputClassName, errorMessage, inputLtr, size, disabled, resizable, rows, readOnly, hasError,
-    isConflict
+    isConflict, isRowLabel
   })
 
   const {
@@ -38,55 +38,61 @@ function Input(
 
   return (
     <div
-      className={joinObjectValues(fieldWrapperStyles)}>
+      className={joinObjectValues(fieldLabelWrapperStyles)}
+    >
       {label && (
         <InputLabel
           {...{label, name, required, disabled, info, readOnly}}
           classObject={labelClassName}
+          marginClass={finalLabelMarginClass}
         />
       )}
 
       <div
-        id={inputWrapperId}
-        {...inputWrapperOnClick && {onClick: inputWrapperOnClick}}
-        className={joinObjectValues(inputWrapperStyles)}
+        className={joinObjectValues(fieldWrapperStyles)}
       >
-        {startAdornment && (
-          <div
-            className={`h-full pr-2 flex items-center justify-center overflow-hidden`}>
-            <div className='w-5 h-5'>
-              {startAdornment}
+        <div
+          id={inputWrapperId}
+          {...inputWrapperOnClick && {onClick: inputWrapperOnClick}}
+          className={joinObjectValues(inputWrapperStyles)}
+        >
+          {startAdornment && (
+            <div
+              className={`h-full pr-2 flex items-center justify-center overflow-hidden`}>
+              <div className='w-5 h-5'>
+                {startAdornment}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {rows ? (
-          <textarea {...inputProps} />
-        ) : <input {...inputProps} />}
+          {rows ? (
+            <textarea {...inputProps} />
+          ) : <input {...inputProps} />}
 
-        {fileInput || null}
+          {fileInput || null}
 
-        {(endAdornment) && (
-          <InputEndAdornment
-            {...{
-              endAdornment, endAdornmentOnClick, endAdornmentType, disabled: Boolean(disabled), endAdornmentClassName,
-            }}
-          />
-        )}
+          {(endAdornment) && (
+            <InputEndAdornment
+              {...{
+                endAdornment, endAdornmentOnClick, endAdornmentType, disabled: Boolean(disabled), endAdornmentClassName,
+              }}
+            />
+          )}
 
-        {justSelectOnClick && (
-          <div
-            {...typeof justSelectOnClick === 'function' && {onClick: justSelectOnClick}} tabIndex={0}
+          {justSelectOnClick && (
+            <div
+              {...typeof justSelectOnClick === 'function' && {onClick: justSelectOnClick}} tabIndex={0}
               className={`w-full h-full absolute inset-0 cursor-pointer  border-1 rounded-lg duration-200 focus:border-primary/50
              ${errorMessage ? `border-red-500` : `border-gray-300 hover:border-gray-400 `}    `}/>
+          )}
+        </div>
+
+        {!hiddenErrorMessage && (
+          <InputErrorMessage
+            {...{errorMessage, description, endErrorMessage}}
+          />
         )}
       </div>
-
-      {!hiddenErrorMessage && (
-        <InputErrorMessage
-          {...{errorMessage, description, endErrorMessage}}
-        />
-      )}
     </div>
   );
 }

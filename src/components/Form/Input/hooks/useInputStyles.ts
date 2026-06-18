@@ -8,17 +8,23 @@ export const inputSizes = {
 
 function useInputStyles(
   {
-    wrapperClassName, errorMessage, inputClassName, inputLtr,
+    wrapperClassName, errorMessage, inputClassName, inputLtr, isRowLabel,
     size = 'md', disabled, resizable, rows, readOnly, hasError, isConflict
   }: Pick<InputProps,
     'wrapperClassName' | 'errorMessage' | 'inputClassName' | 'inputLtr' | 'size' | 'disabled' | 'resizable' | 'rows' |
-    'readOnly' | 'hasError' | 'isConflict'
+    'readOnly' | 'hasError' | 'isConflict' | 'isRowLabel'
   >
 ) {
 
+  const fieldLabelWrapperStyles = useMemo(() => ({
+    default: `flex ${isRowLabel ? 'flex-row items-start' : 'flex-col'}`,
+  }), [isRowLabel]);
+
   const fieldWrapperStyles = useMemo(() => ({
-    default: `flex flex-col`,
+    default: `flex flex-col relative`,
   }), []);
+
+  const finalLabelMarginClass = isRowLabel ? 'ml-2 pt-2.5' : ''
 
   const inputWrapperStyles = useMemo(() => ({
     default: `
@@ -51,7 +57,7 @@ function useInputStyles(
   }), [inputLtr, resizable, inputClassName])
 
   return {
-    fieldWrapperStyles, inputWrapperStyles, inputStyles
+    fieldWrapperStyles, fieldLabelWrapperStyles, inputWrapperStyles, inputStyles, finalLabelMarginClass
   }
 }
 

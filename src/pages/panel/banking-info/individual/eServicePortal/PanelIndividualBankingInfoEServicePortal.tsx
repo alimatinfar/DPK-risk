@@ -1,13 +1,18 @@
-import DevelopingSection from "../../../../../components/others/RenderLogic/DevelopingSection.tsx";
+import PanelIndividualBankingInfoEServicePortalRender from "./PanelIndividualBankingInfoEServicePortalRender.tsx";
+import usePanelIndividualBankingInfoEServicePortalRender
+  from "./hooks/usePanelIndividualBankingInfoEServicePortalRender.ts";
 
 
 function PanelIndividualBankingInfoEServicePortal() {
+
+  const {
+    selectedCustomerNumber, setSelectedCustomerNumber
+  } = usePanelIndividualBankingInfoEServicePortalRender()
+
   return (
-    <DevelopingSection />
-    // <Table
-    //   columns={PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS}
-    //   data={PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_FAKE_DATA}
-    // />
+    <PanelIndividualBankingInfoEServicePortalRender
+      selectedCustomerNumber={selectedCustomerNumber} setSelectedCustomerNumber={setSelectedCustomerNumber}
+    />
   );
 }
 

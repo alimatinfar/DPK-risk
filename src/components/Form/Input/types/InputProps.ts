@@ -53,6 +53,7 @@ export type InputProps = {
   inputClassName?: InputClassNameType;
   labelClassName?: LabelClassNameType;
   hasRemoveValueIcon?: boolean;
+  isRowLabel?: boolean;
 
   inputRef?: any;
   endErrorMessage?: ReactNode;
