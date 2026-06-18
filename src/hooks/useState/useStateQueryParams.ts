@@ -1,34 +1,48 @@
 import {useSearchParams} from "react-router";
-import {useEffect, useState} from "react";
-import type {SetStateType} from "../../types/SetStateType";
-
+import {useMemo, useCallback} from "react";
 
 type Props<T> = {
-  initialState: T,
-  queryParamKey: string
-}
+  initialState: T;
+  queryParamKey: string;
+};
 
-function useStateQueryParams<T>({initialState, queryParamKey}: Props<T>): [state:T, setState: SetStateType<T>] {
+function useStateQueryParams<T>(
+  {
+    initialState,
+    queryParamKey,
+  }: Props<T>): [T, (value: T) => void] {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  function updateSearchParams(key:string, value: string, options: any){
-    const updatedParams = new URLSearchParams(searchParams);
-    updatedParams.set(key, value);
-    setSearchParams(updatedParams, options);
-  };
+  const state = useMemo<T>(() => {
+    const value = searchParams.get(queryParamKey);
 
-  const queryParamsValue = searchParams.get(queryParamKey)
+    if (!value) return initialState;
 
-  const [state, setState] = useState<T>(
-    queryParamsValue ? (JSON.parse(queryParamsValue) as T) : initialState
-  )
+    try {
+      return JSON.parse(value) as T;
+    } catch {
+      return initialState;
+    }
+  }, [searchParams, queryParamKey, initialState]);
 
-  useEffect(() => {
-    updateSearchParams(queryParamKey, JSON.stringify(state), {replace: true})
-  }, [state]);
+  const setState = useCallback(
+    (value: T) => {
+      setSearchParams(prev => {
+        const updated = new URLSearchParams(prev);
 
-  return [state, setState]
+        updated.set(
+          queryParamKey,
+          JSON.stringify(value)
+        );
+
+        return updated;
+      }, {replace: true});
+    },
+    [setSearchParams, queryParamKey]
+  );
+
+  return [state, setState];
 }
 
 export default useStateQueryParams;
