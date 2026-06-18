@@ -3,10 +3,10 @@ import useStateQueryParams from "../../../../hooks/useState/useStateQueryParams.
 import QUERY_PARAMS from "../../../../constances/queryParams.ts";
 
 
-function useActiveTab(defaultState: TabType['id']) {
+function useActiveTab(defaultState: TabType['id'], customQueryParamKey?: string) {
   const [activeTab, setActiveTab] = useStateQueryParams<TabType['id']>({
     initialState: defaultState,
-    queryParamKey: QUERY_PARAMS.ACTIVE_TAB
+    queryParamKey: customQueryParamKey || QUERY_PARAMS.ACTIVE_TAB
   })
 
   return [activeTab, setActiveTab] as const
