@@ -25,6 +25,8 @@ const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/pane
 const PanelIndividualBankingInfo = lazy(() => import("../pages/panel/banking-info/individual/PanelIndividualBankingInfo.tsx"));
 const PanelIndividualBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/individual/account/detail/PanelIndividualBankingInfoAccountDetail"));
 const PanelIndividualBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/individual/commitments/detail/PanelIndividualBankingInfoCommitmentsDetail.tsx"));
+const PanelTransactionHistoryByPeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/periodDetail/PanelTransactionHistoryByPeriodDetail.tsx"));
+const PanelTransactionHistoryByBranchDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/branchDetail/PanelTransactionHistoryByBranchDetail.tsx"));
 
 const PanelJointBankingInfo = lazy(() => import("../pages/panel/banking-info/joint/PanelJointBankingInfo.tsx"));
 const PanelJointBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/joint/account/detail/PanelJointBankingInfoAccountDetail.tsx"));
@@ -86,11 +88,11 @@ const router = createBrowserRouter(
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId`,
-              element:<>periodId</>,
+              element:<PanelTransactionHistoryByPeriodDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId/:branchId`,
-              element:<>branchId</>,
+              element:<PanelTransactionHistoryByBranchDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS}/:id`,
