@@ -1,12 +1,18 @@
-import DevelopingSection from "../../../../../components/others/RenderLogic/DevelopingSection.tsx";
+import usePanelIndividualBankingInfoEServicePortalRender
+  from "../../individual/eServicePortal/hooks/usePanelIndividualBankingInfoEServicePortalRender.ts";
+import PanelIndividualBankingInfoEServicePortalRender
+  from "../../individual/eServicePortal/PanelIndividualBankingInfoEServicePortalRender.tsx";
 
 function PanelJointBankingInfoEServicePortal() {
+
+  const {
+    selectedCustomerNumber, setSelectedCustomerNumber
+  } = usePanelIndividualBankingInfoEServicePortalRender()
+
   return (
-    // <Table
-    //   columns={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_COLUMNS}
-    //   data={PANEL_JOINT_E_SERVICE_PORTAL_TABLE_FAKE_DATA}
-    // />
-    <DevelopingSection />
+    <PanelIndividualBankingInfoEServicePortalRender
+      selectedCustomerNumber={selectedCustomerNumber} setSelectedCustomerNumber={setSelectedCustomerNumber}
+    />
   );
 }
 
