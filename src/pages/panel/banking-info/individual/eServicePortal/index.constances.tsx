@@ -1,6 +1,7 @@
 import type {TableColumnType} from "../../../../../components/others/Table/TableExports.ts";
 import Tag from "../../../../../components/others/Tag/Tag.tsx";
 import type {SelectOptionType} from "../../../../../components/Form/Select/select-exports.ts";
+import ACTIONS_COLUMN from "../../../../../components/others/Table/constances/actions/actionsColumn.ts";
 
 
 export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS = {
@@ -32,6 +33,7 @@ export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS: TableColumnType[] 
     label: 'تاریخ آخرین غیرفعالسازی/جمع‌آوری',
     accessor: PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS.DEACTIVATION_DATE,
   },
+  ACTIONS_COLUMN
 ];
 
 export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_FAKE_DATA = [

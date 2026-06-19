@@ -24,6 +24,7 @@ const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/pane
 //banking info
 const PanelIndividualBankingInfo = lazy(() => import("../pages/panel/banking-info/individual/PanelIndividualBankingInfo.tsx"));
 const PanelIndividualBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/individual/account/detail/PanelIndividualBankingInfoAccountDetail"));
+const PanelIndividualBankingInfoEServicePortalDetail = lazy(() => import("../pages/panel/banking-info/individual/eServicePortal/history/PanelIndividualBankingInfoEServicePortalHistory.tsx"));
 const PanelIndividualBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/individual/commitments/detail/PanelIndividualBankingInfoCommitmentsDetail.tsx"));
 const PanelTransactionHistoryByPeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/periodDetail/PanelTransactionHistoryByPeriodDetail.tsx"));
 const PanelTransactionHistoryByBranchDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/branchDetail/PanelTransactionHistoryByBranchDetail.tsx"));
@@ -85,6 +86,10 @@ const router = createBrowserRouter(
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT}/:id`,
               element:<PanelIndividualBankingInfoAccountDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_E_SERVICE_PORTAL}/:id`,
+              element:<PanelIndividualBankingInfoEServicePortalDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId`,

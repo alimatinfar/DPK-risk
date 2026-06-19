@@ -5,6 +5,7 @@ const QUERY_PARAMS = {
   ID_TOKEN: 'id_token',
   ACTIVE_TAB: 'activeTab',
   ACCOUNT_NUMBER_STR: 'accountNumberStr',
+  NAME: 'name',
 }
 
 export default QUERY_PARAMS
