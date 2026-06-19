@@ -10,11 +10,17 @@ import TABLE_ACCESSORS from "../../../../../../components/others/Table/constance
 import {TableDetailAction} from "../../../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
 import ROUTER_LINKS from "../../../../../../constances/routerLinks.ts";
 import Card from "../../../../../../components/others/Card/Card.tsx";
+import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
+import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
+import type {PanelTransactionHistoryPeriodObjectType} from "../onSiteMaxCount/index.types.ts";
 
 
 function PanelTransactionHistoryByPeriodDetail() {
 
   const {periodId} = useParams()
+
+  const periodDateObject = useGetQueryParam(QUERY_PARAMS.PERIOD_DATE_OBJECT)
+  const {fromDate, toDate, monthName} = periodDateObject ? JSON.parse(periodDateObject) as unknown as PanelTransactionHistoryPeriodObjectType : {}
 
   const navigate = useNavigate()
 
@@ -33,7 +39,7 @@ function PanelTransactionHistoryByPeriodDetail() {
   return (
     <div className='flex flex-col gap-y-4'>
       <PanelPageTitle
-        title={`بازه‌ی ${periodId}`} hasBack
+        title={`مجموع تراکنش‌های "${`${monthName} (${fromDate} , ${toDate})`}" به تفکیک شعب`} hasBack
       />
 
       <Card>
