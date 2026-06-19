@@ -28,6 +28,8 @@ const PanelIndividualBankingInfoEServicePortalDetail = lazy(() => import("../pag
 const PanelIndividualBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/individual/commitments/detail/PanelIndividualBankingInfoCommitmentsDetail.tsx"));
 const PanelTransactionHistoryByPeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/periodDetail/PanelTransactionHistoryByPeriodDetail.tsx"));
 const PanelTransactionHistoryByBranchDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/branchDetail/PanelTransactionHistoryByBranchDetail.tsx"));
+const PanelTransactionHistoryEServiceDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/eService/detail/PanelTransactionHistoryEServiceDetail.tsx"));
+const PanelTransactionHistoryEServicePeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/eService/periodDetail/PanelTransactionHistoryEServicePeriodDetail.tsx"));
 
 const PanelJointBankingInfo = lazy(() => import("../pages/panel/banking-info/joint/PanelJointBankingInfo.tsx"));
 const PanelJointBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/joint/account/detail/PanelJointBankingInfoAccountDetail.tsx"));
@@ -60,74 +62,82 @@ const router = createBrowserRouter(
           children: [
             {
               path: ROUTER_LINKS.PANEL,
-              element:<Navigate to={getFirstSideBarLink()} />,
+              element: <Navigate to={getFirstSideBarLink()} />,
             },
             {
               path: ROUTER_LINKS.PANEL_BASIC_INFORMATION,
-              element:<PanelBasicInformationPage />,
+              element: <PanelBasicInformationPage />,
             },
             {
               path: ROUTER_LINKS.PANEL_INQUIRY_HISTORIES,
-              element:<PanelInquiryHistoriesPage />,
+              element: <PanelInquiryHistoriesPage />,
             },
             {
               path: ROUTER_LINKS.PANEL_ECONOMIC_INFORMATION,
-              element:<PanelEconomicInformationPage />,
+              element: <PanelEconomicInformationPage />,
             },
             {
               path: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
-              element:<PanelLegalRepresentativeInformationPage />,
+              element: <PanelLegalRepresentativeInformationPage />,
             },
 
             {
               path: ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION,
-              element:<PanelIndividualBankingInfo />,
+              element: <PanelIndividualBankingInfo />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_ACCOUNT}/:id`,
-              element:<PanelIndividualBankingInfoAccountDetail />,
+              element: <PanelIndividualBankingInfoAccountDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_E_SERVICE_PORTAL}/:id`,
-              element:<PanelIndividualBankingInfoEServicePortalDetail />,
+              element: <PanelIndividualBankingInfoEServicePortalDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId`,
-              element:<PanelTransactionHistoryByPeriodDetail />,
+              element: <PanelTransactionHistoryByPeriodDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId/:branchId`,
-              element:<PanelTransactionHistoryByBranchDetail />,
+              element: <PanelTransactionHistoryByBranchDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE}/:eServiceId`,
+              element: <PanelTransactionHistoryEServiceDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE}/:eServiceId/:periodId`,
+              element: <PanelTransactionHistoryEServicePeriodDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS}/:id`,
-              element:<PanelIndividualBankingInfoCommitmentsDetail />,
+              element: <PanelIndividualBankingInfoCommitmentsDetail />,
             },
 
             {
               path: ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION,
-              element:<PanelJointBankingInfo />,
+              element: <PanelJointBankingInfo />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_ACCOUNT}/:id`,
-              element:<PanelJointBankingInfoAccountDetail />,
+              element: <PanelJointBankingInfoAccountDetail />,
             },
 
             {
               path: ROUTER_LINKS.PANEL_BANKING_INFORMATION_FOR_ACCOUNTS_WITH_WITHDRAWAL_CONDITIONS,
-              element:<PanelBankingInfoWithWithdrawalConditions />,
+              element: <PanelBankingInfoWithWithdrawalConditions />,
             },
             {
               path: ROUTER_LINKS.PANEL_CUSTOMER_RISK,
-              element:<DevelopingSection />,
+              element: <DevelopingSection />,
             },
             {
               path: ROUTER_LINKS.PANEL_SERVICE_HISTORY_RISK,
-              element:<DevelopingSection />,
+              element: <DevelopingSection />,
             },
             {
               path: ROUTER_LINKS.PANEL_REGIONAL_RISK,
-              element:<DevelopingSection />,
+              element: <DevelopingSection />,
             },
           ]
         },
