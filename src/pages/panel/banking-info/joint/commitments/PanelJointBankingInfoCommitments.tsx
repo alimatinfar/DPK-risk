@@ -60,7 +60,7 @@ function PanelJointBankingInfoCommitments() {
       [PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS_KEYS.REGION_NAME]: item?.areaName,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          navigate(ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS_DETAIL(item?.obligationsNo))
+          navigate(ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_COMMITMENTS_DETAIL(item?.obligationsNo))
         })
       ],
     }))

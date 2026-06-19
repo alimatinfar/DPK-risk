@@ -12,6 +12,7 @@ function PanelJointBankingInfoEServicePortal() {
   return (
     <PanelIndividualBankingInfoEServicePortalRender
       selectedCustomerNumber={selectedCustomerNumber} setSelectedCustomerNumber={setSelectedCustomerNumber}
+      isJoint
     />
   );
 }

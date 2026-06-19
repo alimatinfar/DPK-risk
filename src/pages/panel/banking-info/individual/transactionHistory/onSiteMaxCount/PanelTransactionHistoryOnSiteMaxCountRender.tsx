@@ -14,7 +14,13 @@ import getUrlWithParams from "../../../../../../utils/getUrlWithParams.ts";
 import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
 
 
-function PanelTransactionHistoryOnSiteMaxCountRender() {
+type Props = {
+  isJoint?: boolean;
+}
+
+function PanelTransactionHistoryOnSiteMaxCountRender(
+  {isJoint}: Props
+) {
 
   const navigate = useNavigate()
 
@@ -24,7 +30,7 @@ function PanelTransactionHistoryOnSiteMaxCountRender() {
       ...item,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          const url = ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL(String(item.id))
+          const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL(String(item.id)) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL(String(item.id))
           const periodDateObject: PanelTransactionHistoryPeriodObjectType = {
             monthName: item[PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS_KEYS.MONTH],
             fromDate: item[PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS_KEYS.FROM_DATE],

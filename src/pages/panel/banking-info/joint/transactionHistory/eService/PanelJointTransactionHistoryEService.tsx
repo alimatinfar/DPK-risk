@@ -3,7 +3,7 @@ import PanelTransactionHistoryEServiceRender
 
 function PanelJointTransactionHistoryEService() {
   return (
-    <PanelTransactionHistoryEServiceRender/>
+    <PanelTransactionHistoryEServiceRender isJoint />
   );
 }
 

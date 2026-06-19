@@ -3,8 +3,15 @@ import useGetQueryParam from "../../../../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../../../../constances/queryParams.ts";
 import useGetTransactionHistoryPeriodDateObject
   from "../../periodDetail/hooks/useGetTransactionHistoryPeriodDateObject.ts";
+import Card from "../../../../../../../components/others/Card/Card.tsx";
+import Table from "../../../../../../../components/others/Table/Table.tsx";
+import {
+  PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_COLUMNS,
+  PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_FAKE_DATA
+} from "./index.constances.ts";
 
-function PanelTransactionHistoryEServicePeriodDetail() {
+
+function PanelTransactionHistoryEServicePeriodDetailRender() {
 
   const eServiceLabel = useGetQueryParam(QUERY_PARAMS.NAME)
 
@@ -17,8 +24,15 @@ function PanelTransactionHistoryEServicePeriodDetail() {
       <PanelPageTitle
         title={`تراکنش های ${eServiceLabel} ${`${monthName}${isCurrentMonth ? ' (ماه جاری)' : ''}`}`} hasBack
       />
+
+      <Card>
+        <Table
+          columns={PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_COLUMNS}
+          data={PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_FAKE_DATA}
+        />
+      </Card>
     </div>
   );
 }
 
-export default PanelTransactionHistoryEServicePeriodDetail;
+export default PanelTransactionHistoryEServicePeriodDetailRender;

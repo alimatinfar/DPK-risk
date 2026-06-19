@@ -16,7 +16,13 @@ import type {PanelTransactionHistoryPeriodObjectType} from "../../onSiteMaxCount
 import getUrlWithParams from "../../../../../../../utils/getUrlWithParams.ts";
 
 
-function PanelTransactionHistoryEServiceDetail() {
+type Props = {
+  isJoint?: boolean;
+}
+
+function PanelTransactionHistoryEServiceDetailRender(
+  {isJoint}: Props
+) {
 
   const eServiceLabel = useGetQueryParam(QUERY_PARAMS.NAME)
 
@@ -30,7 +36,7 @@ function PanelTransactionHistoryEServiceDetail() {
       ...item,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          const url = ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL(String(eServiceId), String(item.id))
+          const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL(String(eServiceId), String(item.id)) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL(String(eServiceId), String(item.id))
           const periodDateObject: Partial<PanelTransactionHistoryPeriodObjectType> = {
             monthName: item[PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.MONTH],
             isCurrentMonth: index === 0
@@ -61,4 +67,4 @@ function PanelTransactionHistoryEServiceDetail() {
   );
 }
 
-export default PanelTransactionHistoryEServiceDetail;
+export default PanelTransactionHistoryEServiceDetailRender;

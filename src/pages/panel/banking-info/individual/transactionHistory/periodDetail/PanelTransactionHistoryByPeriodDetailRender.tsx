@@ -17,7 +17,13 @@ import getUrlWithParams from "../../../../../../utils/getUrlWithParams.ts";
 import type {TransactionHistoryBranchObjectType} from "./index.types.ts";
 
 
-function PanelTransactionHistoryByPeriodDetail() {
+type Props = {
+  isJoint?: boolean
+}
+
+function PanelTransactionHistoryByPeriodDetailRender(
+  {isJoint}: Props
+) {
 
   const {periodId} = useParams()
 
@@ -32,7 +38,7 @@ function PanelTransactionHistoryByPeriodDetail() {
       ...item,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          const url = ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_BRANCH_DETAIL(String(periodId), String(item.id))
+          const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_BRANCH_DETAIL(String(periodId), String(item.id)) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_BRANCH_DETAIL(String(periodId), String(item.id))
           const branchObject: TransactionHistoryBranchObjectType = {
             [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.BRANCH_CODE]: item[PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.BRANCH_CODE],
             [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.BRANCH_NAME]: item[PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.BRANCH_NAME],
@@ -65,4 +71,4 @@ function PanelTransactionHistoryByPeriodDetail() {
   );
 }
 
-export default PanelTransactionHistoryByPeriodDetail;
+export default PanelTransactionHistoryByPeriodDetailRender;

@@ -18,7 +18,8 @@ import useGetTransactionHistoryPeriodDateObject
 import type {TransactionHistoryBranchObjectType} from "../periodDetail/index.types.ts";
 
 
-function PanelTransactionHistoryByBranchDetail() {
+
+function PanelTransactionHistoryByBranchDetailRender() {
 
   const {branchId} = useParams()
 
@@ -81,4 +82,4 @@ function PanelTransactionHistoryByBranchDetail() {
   );
 }
 
-export default PanelTransactionHistoryByBranchDetail;
+export default PanelTransactionHistoryByBranchDetailRender;

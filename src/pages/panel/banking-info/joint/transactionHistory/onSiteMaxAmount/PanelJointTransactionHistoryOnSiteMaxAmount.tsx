@@ -4,7 +4,7 @@ import PanelTransactionHistoryOnSiteMaxCountRender
 
 function PanelJointTransactionHistoryOnSiteMaxAmount() {
   return (
-    <PanelTransactionHistoryOnSiteMaxCountRender />
+    <PanelTransactionHistoryOnSiteMaxCountRender isJoint />
   );
 }
 

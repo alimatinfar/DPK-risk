@@ -4,7 +4,14 @@ import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../../../utils/getUrlWithParams.ts";
 import {Link} from "react-router";
 
-function PanelTransactionHistoryEServiceRender() {
+
+type Props = {
+  isJoint?: boolean;
+}
+
+function PanelTransactionHistoryEServiceRender(
+  {isJoint}: Props
+) {
   return (
     <div className='flex flex-col gap-y-4'>
       <p>
@@ -14,7 +21,7 @@ function PanelTransactionHistoryEServiceRender() {
       <div className='flex flex-wrap justify-center gap-3'>
         {PANEL_TRANSACTION_HISTORY_E_SERVICE_PORTALS.map(item => {
 
-          const linkUrl = ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_DETAIL(item.name)
+          const linkUrl = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_DETAIL(item.name) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_DETAIL(item.name)
           const params = {
             [QUERY_PARAMS.NAME]: item.label
           }

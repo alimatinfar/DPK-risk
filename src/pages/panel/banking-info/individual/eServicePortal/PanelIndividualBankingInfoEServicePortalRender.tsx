@@ -15,10 +15,14 @@ import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../../utils/getUrlWithParams.ts";
 
 
+type Props = {
+  isJoint?: boolean;
+} & Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber' | 'setSelectedCustomerNumber'>
+
 function PanelIndividualBankingInfoEServicePortalRender(
   {
-    selectedCustomerNumber, setSelectedCustomerNumber
-  }: Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber' | 'setSelectedCustomerNumber'>
+    selectedCustomerNumber, setSelectedCustomerNumber, isJoint
+  }: Props
 ) {
 
   const navigate = useNavigate()
@@ -28,7 +32,7 @@ function PanelIndividualBankingInfoEServicePortalRender(
       ...item,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          const url = ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_E_SERVICE_PORTAL_DETAIL(item?.id)
+          const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_E_SERVICE_PORTAL_DETAIL(item?.id) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_E_SERVICE_PORTAL_DETAIL(item?.id)
           const params = {
             [QUERY_PARAMS.NAME]: item[PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS.E_SERVICE_PORTAL]
           }

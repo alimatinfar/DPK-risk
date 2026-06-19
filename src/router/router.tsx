@@ -24,15 +24,22 @@ const PanelLegalRepresentativeInformationPage = lazy(() => import("../pages/pane
 //banking info
 const PanelIndividualBankingInfo = lazy(() => import("../pages/panel/banking-info/individual/PanelIndividualBankingInfo.tsx"));
 const PanelIndividualBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/individual/account/detail/PanelIndividualBankingInfoAccountDetail"));
-const PanelIndividualBankingInfoEServicePortalDetail = lazy(() => import("../pages/panel/banking-info/individual/eServicePortal/history/PanelIndividualBankingInfoEServicePortalHistory.tsx"));
+const PanelIndividualBankingInfoEServicePortalHistory = lazy(() => import("../pages/panel/banking-info/individual/eServicePortal/history/PanelIndividualBankingInfoEServicePortalHistory.tsx"));
 const PanelIndividualBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/individual/commitments/detail/PanelIndividualBankingInfoCommitmentsDetail.tsx"));
-const PanelTransactionHistoryByPeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/periodDetail/PanelTransactionHistoryByPeriodDetail.tsx"));
-const PanelTransactionHistoryByBranchDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/branchDetail/PanelTransactionHistoryByBranchDetail.tsx"));
-const PanelTransactionHistoryEServiceDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/eService/detail/PanelTransactionHistoryEServiceDetail.tsx"));
-const PanelTransactionHistoryEServicePeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/eService/periodDetail/PanelTransactionHistoryEServicePeriodDetail.tsx"));
+const PanelIndividualTransactionHistoryByPeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/periodDetail/PanelIndividualTransactionHistoryByPeriodDetail.tsx"));
+const PanelIndividualTransactionHistoryByBranchDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/branchDetail/PanelIndividualTransactionHistoryByBranchDetail.tsx"));
+const PanelIndividualTransactionHistoryEServiceDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/eService/detail/PanelIndividualTransactionHistoryEServiceDetail.tsx"));
+const PanelIndividualTransactionHistoryEServicePeriodDetail = lazy(() => import("../pages/panel/banking-info/individual/transactionHistory/eService/periodDetail/PanelIndividualTransactionHistoryEServicePeriodDetail.tsx"));
 
 const PanelJointBankingInfo = lazy(() => import("../pages/panel/banking-info/joint/PanelJointBankingInfo.tsx"));
 const PanelJointBankingInfoAccountDetail = lazy(() => import("../pages/panel/banking-info/joint/account/detail/PanelJointBankingInfoAccountDetail.tsx"));
+const PanelJointBankingInfoEServicePortalHistory = lazy(() => import("../pages/panel/banking-info/joint/eServicePortal/history/PanelJointBankingInfoEServicePortalHistory.tsx"));
+const PanelJointBankingInfoCommitmentsDetail = lazy(() => import("../pages/panel/banking-info/joint/commitments/detail/PanelJointBankingInfoCommitmentsDetail.tsx"));
+const PanelJointTransactionHistoryByPeriodDetail = lazy(() => import("../pages/panel/banking-info/joint/transactionHistory/periodDetail/PanelJointTransactionHistoryByPeriodDetail.tsx"));
+const PanelJointTransactionHistoryByBranchDetail = lazy(() => import("../pages/panel/banking-info/joint/transactionHistory/branchDetail/PanelJointTransactionHistoryByBranchDetail.tsx"));
+const PanelJointTransactionHistoryEServiceDetail = lazy(() => import("../pages/panel/banking-info/joint/transactionHistory/eService/detail/PanelJointTransactionHistoryEServiceDetail.tsx"));
+const PanelJointTransactionHistoryEServicePeriodDetail = lazy(() => import("../pages/panel/banking-info/joint/transactionHistory/eService/periodDetail/PanelJointTransactionHistoryEServicePeriodDetail.tsx"));
+
 
 const PanelBankingInfoWithWithdrawalConditions = lazy(() => import("../pages/panel/banking-info/with-withdrawal-conditions/PanelBankingInfoWithWithdrawalConditions.tsx"));
 
@@ -91,23 +98,23 @@ const router = createBrowserRouter(
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_E_SERVICE_PORTAL}/:id`,
-              element: <PanelIndividualBankingInfoEServicePortalDetail />,
+              element: <PanelIndividualBankingInfoEServicePortalHistory />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId`,
-              element: <PanelTransactionHistoryByPeriodDetail />,
+              element: <PanelIndividualTransactionHistoryByPeriodDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId/:branchId`,
-              element: <PanelTransactionHistoryByBranchDetail />,
+              element: <PanelIndividualTransactionHistoryByBranchDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE}/:eServiceId`,
-              element: <PanelTransactionHistoryEServiceDetail />,
+              element: <PanelIndividualTransactionHistoryEServiceDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE}/:eServiceId/:periodId`,
-              element: <PanelTransactionHistoryEServicePeriodDetail />,
+              element: <PanelIndividualTransactionHistoryEServicePeriodDetail />,
             },
             {
               path: `${ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_COMMITMENTS}/:id`,
@@ -121,6 +128,30 @@ const router = createBrowserRouter(
             {
               path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_ACCOUNT}/:id`,
               element: <PanelJointBankingInfoAccountDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_E_SERVICE_PORTAL}/:id`,
+              element: <PanelJointBankingInfoEServicePortalHistory />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId`,
+              element: <PanelJointTransactionHistoryByPeriodDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY}/:periodId/:branchId`,
+              element: <PanelJointTransactionHistoryByBranchDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE}/:eServiceId`,
+              element: <PanelJointTransactionHistoryEServiceDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE}/:eServiceId/:periodId`,
+              element: <PanelJointTransactionHistoryEServicePeriodDetail />,
+            },
+            {
+              path: `${ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_COMMITMENTS}/:id`,
+              element: <PanelJointBankingInfoCommitmentsDetail />,
             },
 
             {
