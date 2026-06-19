@@ -20,7 +20,9 @@ function PanelTransactionHistoryByPeriodDetail() {
   const {periodId} = useParams()
 
   const periodDateObject = useGetQueryParam(QUERY_PARAMS.PERIOD_DATE_OBJECT)
-  const {fromDate, toDate, monthName} = periodDateObject ? JSON.parse(periodDateObject) as unknown as PanelTransactionHistoryPeriodObjectType : {}
+  const {
+    monthName, isCurrentMonth
+  } = periodDateObject ? JSON.parse(periodDateObject) as unknown as PanelTransactionHistoryPeriodObjectType : {}
 
   const navigate = useNavigate()
 
@@ -39,7 +41,7 @@ function PanelTransactionHistoryByPeriodDetail() {
   return (
     <div className='flex flex-col gap-y-4'>
       <PanelPageTitle
-        title={`مجموع تراکنش‌های "${`${monthName} (${fromDate} , ${toDate})`}" به تفکیک شعب`} hasBack
+        title={`مجموع تراکنش‌های ${`${monthName}${isCurrentMonth ? ' (ماه جاری)' : ''}`} به تفکیک شعب`} hasBack
       />
 
       <Card>

@@ -29,6 +29,7 @@ function PanelTransactionHistoryOnSiteMaxCountRender() {
             monthName: item[PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS_KEYS.MONTH],
             fromDate: item[PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS_KEYS.FROM_DATE],
             toDate: item[PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS_KEYS.TO_DATE],
+            isCurrentMonth: index === 0
           }
           const params = {
             [QUERY_PARAMS.PERIOD_DATE_OBJECT]: JSON.stringify(periodDateObject)
