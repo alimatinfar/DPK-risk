@@ -7,6 +7,7 @@ const QUERY_PARAMS = {
   ACCOUNT_NUMBER_STR: 'accountNumberStr',
   NAME: 'name',
   PERIOD_DATE_OBJECT: 'periodDateObject',
+  BRANCH_OBJECT: 'branchObject',
 }
 
 export default QUERY_PARAMS
