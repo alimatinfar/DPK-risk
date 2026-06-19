@@ -17,7 +17,7 @@ export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS: TableColumnType[] 
     accessor: PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS.E_SERVICE_PORTAL,
   },
   {
-    label: 'تاریخ فعالسازی',
+    label: 'تاریخ اولین فعالسازی',
     accessor: PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS.ACTIVATION_DATE,
   },
   {
@@ -29,7 +29,7 @@ export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS: TableColumnType[] 
     accessor: PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS.LAST_ACTIVITY_DATE,
   },
   {
-    label: 'تاریخ غیرفعالسازی/جمع‌آوری',
+    label: 'تاریخ آخرین غیرفعالسازی/جمع‌آوری',
     accessor: PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS.DEACTIVATION_DATE,
   },
 ];
