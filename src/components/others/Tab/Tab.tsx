@@ -30,7 +30,7 @@ function Tab({ tabs, activeTab, onChange, mobileMode }: TabsProps) {
   // useDetectResizingAtFirstPainting({element: filterRef2?.current, callback: () => console.log('wrapper'), index: 10})
 
   return (
-    <div className={`flex ${mobileMode ? 'w-full' : ''}`}>
+    <div className={`flex overflow-x-auto ${mobileMode ? 'w-full' : ''}`}>
       <div className={`bg-gray-100 p-1 border border-gray-300 rounded-lg relative ${mobileMode ? 'w-full' : ''}`}>
         <div
           className={`

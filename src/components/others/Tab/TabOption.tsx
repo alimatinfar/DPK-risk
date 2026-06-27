@@ -43,7 +43,7 @@ function TabOption(
       type='button'
       title={title}
       onClick={onClick} className={`
-       py-1 px-2 flex-shrink-0 cursor-pointer z-10 select-none snap-start text-center truncate duration-200
+       py-1 px-2 flex-shrink-0 cursor-pointer z-10 select-none snap-start text-center truncate duration-200 outline-0
        relative ${isActive ? 'font-medium text-gray-900' : 'text-gray-700'} ${className || ''}`}
       ref={(el) => {
         buttonRef.current = el as HTMLButtonElement
