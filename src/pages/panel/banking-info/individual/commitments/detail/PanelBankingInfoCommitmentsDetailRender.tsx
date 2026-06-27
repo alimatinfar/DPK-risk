@@ -9,6 +9,7 @@ import {
   PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS,
   PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS
 } from "./index.constances.tsx";
+import PanelPageTitleWithTab from "../../../../layout/PanelPageTitleWithTab.tsx";
 
 
 function PanelBankingInfoCommitmentsDetailRender() {
@@ -19,16 +20,19 @@ function PanelBankingInfoCommitmentsDetailRender() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <div className='flex items-center justify-between'>
-        <PanelPageTitle
-          title={`تعهد شماره “${id}”`} hasBack
-        />
-
-        <Tab
-          tabs={PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS}
-          activeTab={activeTab} onChange={setActiveTab}
-        />
-      </div>
+      <PanelPageTitleWithTab
+        titleElement={(
+          <PanelPageTitle
+            title={`تعهد شماره “${id}”`} hasBack
+          />
+        )}
+        tabElement={(
+          <Tab
+            tabs={PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS}
+            activeTab={activeTab} onChange={setActiveTab}
+          />
+        )}
+      />
 
       <Card className='flex flex-col gap-y-4'>
         <TabContentRender

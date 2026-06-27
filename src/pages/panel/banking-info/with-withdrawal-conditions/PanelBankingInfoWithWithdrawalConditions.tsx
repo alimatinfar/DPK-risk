@@ -10,6 +10,7 @@ import {
   PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_RENDER_OBJECT,
   PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_TABS
 } from "./index.constance.tsx";
+import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
 
 
 function PanelBankingInfoWithWithdrawalConditions() {
@@ -18,14 +19,17 @@ function PanelBankingInfoWithWithdrawalConditions() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <div className='flex items-center justify-between'>
-        <PanelPageTitle/>
-
-        <Tab
-          tabs={PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_TABS}
-          activeTab={activeTab} onChange={setActiveTab}
-        />
-      </div>
+      <PanelPageTitleWithTab
+        titleElement={(
+          <PanelPageTitle/>
+        )}
+        tabElement={(
+          <Tab
+            tabs={PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_TABS}
+            activeTab={activeTab} onChange={setActiveTab}
+          />
+        )}
+      />
 
       <Card className='flex flex-col gap-y-4'>
         <TabContentRender

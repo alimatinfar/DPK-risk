@@ -7,22 +7,26 @@ import {
   PANEL_ECONOMIC_INFORMATION_PAGE_TABS, PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS
 } from "./index.constances.tsx";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
+ import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
 
 
 function PanelEconomicInformationPage() {
 
   const [activeTab, setActiveTab] = useActiveTab(PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.ECONOMIC_ACTIVITY)
-
+  console.log({tabs: PANEL_ECONOMIC_INFORMATION_PAGE_TABS})
   return (
     <div className='flex flex-col gap-y-4'>
-      <div className='flex items-center justify-between'>
-        <PanelPageTitle/>
-
-        <Tab
-          tabs={PANEL_ECONOMIC_INFORMATION_PAGE_TABS}
-          activeTab={activeTab} onChange={setActiveTab}
-        />
-      </div>
+      <PanelPageTitleWithTab
+        titleElement={(
+          <PanelPageTitle/>
+        )}
+        tabElement={(
+          <Tab
+            tabs={PANEL_ECONOMIC_INFORMATION_PAGE_TABS}
+            activeTab={activeTab} onChange={setActiveTab}
+          />
+        )}
+      />
 
       <Card>
         <TabContentRender

@@ -9,7 +9,7 @@ import {
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
 import PanelIndividualBankingInfoTop from "./topInfo/PanelIndividualBankingInfoTop.tsx";
-
+import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
 
 
 function PanelIndividualBankingInfo() {
@@ -18,17 +18,20 @@ function PanelIndividualBankingInfo() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <div className='flex items-center justify-between'>
-        <PanelPageTitle/>
-
-        <Tab
-          tabs={PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS}
-          activeTab={activeTab} onChange={setActiveTab}
-        />
-      </div>
+      <PanelPageTitleWithTab
+        titleElement={(
+          <PanelPageTitle/>
+        )}
+        tabElement={(
+          <Tab
+            tabs={PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS}
+            activeTab={activeTab} onChange={setActiveTab}
+          />
+        )}
+      />
 
       <Card className='flex flex-col gap-y-4'>
-        <PanelIndividualBankingInfoTop />
+        <PanelIndividualBankingInfoTop/>
 
         <TabContentRender
           renderObject={PANEL_INDIVIDUAL_BANKING_INFO_PAGE_RENDER_OBJECT}

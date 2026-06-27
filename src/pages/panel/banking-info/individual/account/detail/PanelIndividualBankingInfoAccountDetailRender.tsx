@@ -7,6 +7,7 @@ import TabContentRender, {
 import useActiveTab from "../../../../../../components/others/Tab/hooks/useActiveTab.ts";
 import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
+import PanelPageTitleWithTab from "../../../../layout/PanelPageTitleWithTab.tsx";
 
 
 type Props = {
@@ -25,16 +26,19 @@ function PanelIndividualBankingInfoAccountDetailRender(
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <div className='flex items-center justify-between'>
-        <PanelPageTitle
-          title={`حساب “${accountNumberStr}”`} hasBack
-        />
-
-        <Tab
-          tabs={tabs}
-          activeTab={activeTab} onChange={setActiveTab}
-        />
-      </div>
+      <PanelPageTitleWithTab
+        titleElement={(
+          <PanelPageTitle
+            title={`حساب “${accountNumberStr}”`} hasBack
+          />
+        )}
+        tabElement={(
+          <Tab
+            tabs={tabs}
+            activeTab={activeTab} onChange={setActiveTab}
+          />
+        )}
+      />
 
       <Card className='flex flex-col gap-y-4'>
         <TabContentRender

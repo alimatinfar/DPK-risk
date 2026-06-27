@@ -8,6 +8,7 @@ import {
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS
 } from "../individual/index.constances.tsx";
 import {PANEL_JOINT_BANKING_INFO_RENDER_OBJECT} from "./index.constances.tsx";
+import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
 
 
 function PanelJointBankingInfo() {
@@ -16,14 +17,17 @@ function PanelJointBankingInfo() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <div className='flex items-center justify-between'>
-        <PanelPageTitle/>
-
-        <Tab
-          tabs={PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS}
-          activeTab={activeTab} onChange={setActiveTab}
-        />
-      </div>
+      <PanelPageTitleWithTab
+        titleElement={(
+          <PanelPageTitle/>
+        )}
+        tabElement={(
+          <Tab
+            tabs={PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS}
+            activeTab={activeTab} onChange={setActiveTab}
+          />
+        )}
+      />
 
       <Card className='flex flex-col gap-y-4'>
         <TabContentRender
