@@ -26,7 +26,8 @@ function usePanelBasicInformationPageWorkplaceAddressList(
     unit: workResponseData?.workUnit || '',
     postOfficeBox: workResponseData?.workMailbox || '',
     buildingNumber: workResponseData?.workPlate || '',
-    phone: workResponseData?.workPhone || ''
+    phone: workResponseData?.workPhone || '',
+    phoneLabel: isLegalBool ? 'تلفن محل فعالیت' : 'تلفن محل کار'
   })
 
   return {

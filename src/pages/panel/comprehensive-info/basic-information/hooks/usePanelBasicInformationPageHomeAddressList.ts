@@ -29,7 +29,8 @@ function usePanelBasicInformationPageHomeAddressList(
     unit: String(homeResponseData?.homeUnit) || '',
     postOfficeBox: homeResponseData?.homeMailbox || '',
     buildingNumber: homeResponseData?.homePlate || '',
-    phone: homeResponseData?.homePhone || ''
+    phone: homeResponseData?.homePhone || '',
+    phoneLabel: 'تلفن محل سکونت'
   })
 
   return {

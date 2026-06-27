@@ -26,7 +26,8 @@ function usePanelBasicInformationPageOfficeAddressList(
     unit: String(data?.officeUnit) || '',
     postOfficeBox: String(data?.officeMailbox) || '',
     buildingNumber: data?.officePlate || '',
-    phone: data?.officePhone || ''
+    phone: data?.officePhone || '',
+    phoneLabel: 'تلفن دفتر مرکزی'
   })
 
   return {
