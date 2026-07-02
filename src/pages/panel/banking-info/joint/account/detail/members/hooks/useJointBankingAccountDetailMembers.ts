@@ -1,0 +1,50 @@
+import getActivePersonData from "../../../../../../utils/getActivePersonData.ts";
+import type {JointBankingAccountDetailMembersResponseType} from "../index.types.ts";
+import useFetchData from "../../../../../../../../request/hooks/useFetchData.ts";
+import APIS from "../../../../../../../../request/constances/apis.ts";
+import {useMemo} from "react";
+import {JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS} from "../index.constances.ts";
+import displayAvailableValues from "../../../../../../../../utils/display/displayAvailableValues.ts";
+import displayDate from "../../../../../../../../utils/display/displayDate.ts";
+
+
+function useJointBankingAccountDetailMembers() {
+
+  const {activePersonData} = getActivePersonData();
+
+  const {
+    data, isFetching, error
+  } = useFetchData<JointBankingAccountDetailMembersResponseType>({
+    axiosConfig: {
+      url: APIS.BANK_INFO_GET_ACCOUNT_SHARE_MEMBERS,
+      params: {
+        customerId: activePersonData?.customerId
+      }
+    }
+  })
+
+  const tableData = useMemo(function () {
+    if (!data?.data) return []
+
+    return data?.data?.map((item, index) => ({
+      id: index,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerIdStr,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_TYPE]: item?.customerTypeTitle,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.NATIONALITY]: item?.nationalityTitle,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName),
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.IDENTIFICATION_CODE]: displayAvailableValues(item?.nationalIDStr, item?.legalNationalIDStr),
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.SHEHAB_ID]: item?.shahabId,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.LAST_CUSTOMER_UPDATE_DATE]: displayDate(item?.changeLastDate),
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_BRANCH_CODE]: item?.branchCode,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.BRANCH_NAME]: item?.branchName,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.CUSTOMER_REGION_CODE]: item?.areaCode,
+      [JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS.REGION_NAME]: item?.areaName,
+    }))
+  }, [data])
+
+  return {
+    isFetching, error, tableData
+  }
+}
+
+export default useJointBankingAccountDetailMembers;
