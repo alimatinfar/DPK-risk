@@ -5,7 +5,7 @@ import {useLocation, useNavigate} from "react-router";
 import getToken from "../../utils/authentication/getToken.ts";
 import ROUTER_LINKS from "../../constances/routerLinks.ts";
 import OverContainerLoading from "../../components/others/Loading/OverContainerLoading.tsx";
-import {loadConfigFile} from "../../request/axiosInstance.ts";
+import {loadConfigFile} from "../../request/loadConfigFile/loadConfigFile.ts";
 import getSSOConfigs from "../../utils/authentication/getSSOConfigs.ts";
 
 

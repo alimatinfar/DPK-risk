@@ -12,10 +12,9 @@ function GeneralLayout() {
   const navigate = useNavigate()
 
   useEffect(function () {
-    //TODO uncomment login with sso
-    // const savedToken = getToken()
-    //
-    // if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
+    const savedToken = getToken()
+
+    if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
   }, [])
 
   return (

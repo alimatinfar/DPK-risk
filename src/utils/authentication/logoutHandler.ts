@@ -1,6 +1,5 @@
 import removeToken from "./removeToken.ts";
-import {loadConfigFile} from "../../request/axiosInstance.ts";
-import getToken from "./getToken.ts";
+import {loadConfigFile} from "../../request/loadConfigFile/loadConfigFile.ts";
 import getSSOConfigs from "./getSSOConfigs.ts";
 
 
@@ -16,7 +15,6 @@ async function logoutHandler() {
   removeToken()
 
   if (!window?.location) return
-  console.log({finalUrl: `${config.ssoUrl}connect/endsession?` + params, params})
   window.location.href = `${config.ssoUrl}connect/endsession?` + params
 }
 
