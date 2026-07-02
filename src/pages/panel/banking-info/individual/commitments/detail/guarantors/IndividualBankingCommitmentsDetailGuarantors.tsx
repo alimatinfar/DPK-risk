@@ -1,44 +1,17 @@
 import {
-  PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS, PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS
+  PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS
 } from "../index.constances.tsx";
 import Table from "../../../../../../../components/others/Table/Table.tsx";
-import {useParams} from "react-router";
-import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
-import APIS from "../../../../../../../request/constances/apis.ts";
-import {useMemo} from "react";
-import displayAvailableValues from "../../../../../../../utils/display/displayAvailableValues.ts";
 import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
-import type {IndividualBankingCommitmentsDetailGuarantorsResponseType} from "./index.types.ts";
-
+import useIndividualBankingCommitmentsDetailGuarantors
+  from "./hooks/useIndividualBankingCommitmentsDetailGuarantors.ts";
 
 
 function IndividualBankingCommitmentsDetailGuarantors() {
 
-  const {id: commitmentId} = useParams()
-
   const {
-    data, isFetching, error
-  } = useFetchData<IndividualBankingCommitmentsDetailGuarantorsResponseType>({
-    axiosConfig: {
-      url: APIS.BANK_INFO_GET_CUSTOMER_OBLIGATIONS_GUARANTORS,
-      method: "POST",
-      params: {
-        obligationsNo: commitmentId
-      }
-    }
-  })
-
-  const tableData = useMemo(function () {
-    if (!data?.data) return []
-
-    return data?.data?.map((item, index) => ({
-      id: index,
-      [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.CUSTOMER_NUMBER]: item?.customerIdStr,
-      [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.CUSTOMER_TYPE]: item?.legalTypeTitle,
-      [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NAME]: displayAvailableValues(item?.firstName, item?.lastName, item?.legalName || ''),
-      [PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS_KEYS.NATIONAL_ID]: displayAvailableValues(item?.nationalIDStr, item?.legalNationalIDStr),
-    }))
-  }, [data])
+    isFetching, error, tableData
+  } = useIndividualBankingCommitmentsDetailGuarantors()
 
   return (
     <RenderLogic
