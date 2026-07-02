@@ -13,7 +13,7 @@ import TabContentRender from "../../../../components/others/Tab/TabContentRender
 function PanelEconomicInformationPage() {
 
   const [activeTab, setActiveTab] = useActiveTab(PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.ECONOMIC_ACTIVITY)
-  console.log({tabs: PANEL_ECONOMIC_INFORMATION_PAGE_TABS})
+
   return (
     <div className='flex flex-col gap-y-4'>
       <PanelPageTitleWithTab

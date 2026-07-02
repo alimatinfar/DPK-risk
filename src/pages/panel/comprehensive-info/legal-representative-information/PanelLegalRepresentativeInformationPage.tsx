@@ -1,4 +1,3 @@
-import React, {lazy, useMemo} from "react";
 import PanelPageTitle from "../../layout/PanelPageTitle.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
 import Tab from "../../../../components/others/Tab/Tab.tsx";
@@ -15,8 +14,8 @@ import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
 
 function PanelLegalRepresentativeInformationPage() {
 
-
   const {isLegal, activePersonData} = getActivePersonData()
+
   const [activeTab, setActiveTab] = useActiveTab(
     isLegal(activePersonData) ?
       PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.BOARD_MEMBERS :
