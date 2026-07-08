@@ -86,20 +86,17 @@ stages:
                             }
 
           "refs/heads/Master"  {
-                                Write-Host "##vso[task.setvariable variable=ApiUrl;]$env:APIURLMASTER"  
-                                Write-Host "##vso[task.setvariable variable=AuthUrl;]$env:AUTHURLMASTER"
-                                Write-Host "##vso[task.setvariable variable=HelpUrl;]$env:HELPURLMASTER"
-                                Write-Host "##vso[task.setvariable variable=ClientId;]$env:CLIENTIDMASTER"
-                                Write-Host "##vso[task.setvariable variable=nswagUrl;]$env:NSWAGURLMASTER"                                
-                                 
+                                Write-Host "##vso[task.setvariable variable=baseUrl;]$env:BASEURLMASTER"  
+                                Write-Host "##vso[task.setvariable variable=client_id;]$env:CLIENT_IDMASTER"
+                                Write-Host "##vso[task.setvariable variable=frontBaseUrl;]$env:FRONTBASEURLMASTER"
+                                Write-Host "##vso[task.setvariable variable=ssoUrl;]$env:SSOURLMASTER"                                 
                                }   
 
           Default {
                    Write-Host "##vso[task.setvariable variable=baseUrl;]$env:BASEURLDEV"  
                    Write-Host "##vso[task.setvariable variable=client_id;]$env:CLIENT_IDDEV"
                    Write-Host "##vso[task.setvariable variable=frontBaseUrl;]$env:FRONTBASEURLDEV"
-                   Write-Host "##vso[task.setvariable variable=ssoUrl;]$env:SSOURLDEV"
-                   Write-Host "##vso[task.setvariable variable=nswagUrl;]$env:NSWAGURLDEV"
+                   Write-Host "##vso[task.setvariable variable=ssoUrl;]$env:SSOURLDEV"                   
                   }
           }
           
