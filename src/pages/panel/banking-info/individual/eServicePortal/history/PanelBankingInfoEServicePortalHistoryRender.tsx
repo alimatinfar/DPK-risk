@@ -1,6 +1,5 @@
 import PanelPageTitle from "../../../../layout/PanelPageTitle.tsx";
 import {useParams} from "react-router";
-import Table from "../../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_COLUMNS,
   PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_FAKE_DATA
@@ -8,6 +7,7 @@ import {
 import Card from "../../../../../../components/others/Card/Card.tsx";
 import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
+import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 function PanelBankingInfoEServicePortalHistoryRender() {
@@ -23,9 +23,15 @@ function PanelBankingInfoEServicePortalHistoryRender() {
       />
 
       <Card>
-        <Table
-          columns={PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_COLUMNS}
-          data={PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_FAKE_DATA}
+        <TableRenderLogic
+          renderLogicProps={{
+            error: null,
+            isLoading: false
+          }}
+          tableProps={{
+            data: PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_FAKE_DATA,
+            columns: PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_COLUMNS
+          }}
         />
       </Card>
     </div>
