@@ -34,13 +34,12 @@ function PanelBankingInfoCommitmentsDetailRender() {
         )}
       />
 
-      //TODO tabs should changed
-      {/*<Card className='flex flex-col gap-y-4'>*/}
-      {/*  <TabContentRender*/}
-      {/*    renderObject={PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_RENDER_OBJECT}*/}
-      {/*    activeTab={activeTab}*/}
-      {/*  />*/}
-      {/*</Card>*/}
+      <Card className='flex flex-col gap-y-4'>
+        <TabContentRender
+          renderObject={PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_RENDER_OBJECT}
+          activeTab={activeTab}
+        />
+      </Card>
     </div>
   );
 }

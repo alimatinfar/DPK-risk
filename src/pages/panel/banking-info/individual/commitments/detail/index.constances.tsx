@@ -1,6 +1,9 @@
 import type {TableColumnType} from "../../../../../../components/others/Table/TableExports.ts";
 import type {TabsProps} from "../../../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
+import TableSuspense from "../../../../../../components/others/RenderLogic/TableSuspense.tsx";
+import IndividualBankingCommitmentsDetailBeneficiariesLoading
+  from "./beneficiaries/IndividualBankingCommitmentsDetailBeneficiariesLoading.tsx";
 
 const IndividualBankingCommitmentsDetailBeneficiaries = lazy(() => import(
   "./beneficiaries/IndividualBankingCommitmentsDetailBeneficiaries.tsx"
@@ -54,9 +57,13 @@ export const PANEL_INDIVIDUAL_COMMITMENT_DETAIL_TABLE_COLUMNS: TableColumnType[]
 
 export const PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_RENDER_OBJECT = {
   [PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS.BENEFICIARIES]: (
-    <IndividualBankingCommitmentsDetailBeneficiaries/>
+    <TableSuspense fallback={<IndividualBankingCommitmentsDetailBeneficiariesLoading />}>
+      <IndividualBankingCommitmentsDetailBeneficiaries/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS.GUARANTORS]: (
-    <IndividualBankingCommitmentsDetailGuarantors/>
+    <TableSuspense fallback={<div>salam</div>}>
+      <IndividualBankingCommitmentsDetailGuarantors/>
+    </TableSuspense>
   ),
 }
