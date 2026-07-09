@@ -9,6 +9,8 @@ import PanelLegalRepresentativeInformationPageMajorOwnersLoading
   from "./majorOwners/PanelLegalRepresentativeInformationPageMajorOwnersLoading.tsx";
 import PanelLegalRepresentativeInformationPageStatutoryAuditorLoading
   from "./statutoryAuditor/PanelLegalRepresentativeInformationPageStatutoryAuditorLoading.tsx";
+import PanelLegalRepresentativeInformationPageLegalRepresentativeLoading
+  from "./legalRepresentative/PanelLegalRepresentativeInformationPageLegalRepresentativeLoading.tsx";
 
 const PanelLegalRepresentativeInformationPageBoardMembers = lazy(() => import(
   "./boardMembers/PanelLegalRepresentativeInformationPageBoardMembers.tsx"
@@ -92,7 +94,7 @@ export const PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.LEGAL_REPRESENTATIVE]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<PanelLegalRepresentativeInformationPageLegalRepresentativeLoading />}>
       <PanelLegalRepresentativeInformationPageLegalRepresentative/>
     </TableSuspense>
   ),
