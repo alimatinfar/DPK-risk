@@ -33,11 +33,10 @@ function PanelIndividualBankingInfo() {
       <Card className='flex flex-col gap-y-4'>
         <PanelIndividualBankingInfoTop/>
 
-        //TODO tabs should changed
-        {/*<TabContentRender*/}
-        {/*  renderObject={PANEL_INDIVIDUAL_BANKING_INFO_PAGE_RENDER_OBJECT}*/}
-        {/*  activeTab={activeTab}*/}
-        {/*/>*/}
+        <TabContentRender
+          renderObject={PANEL_INDIVIDUAL_BANKING_INFO_PAGE_RENDER_OBJECT}
+          activeTab={activeTab}
+        />
       </Card>
     </div>
   );

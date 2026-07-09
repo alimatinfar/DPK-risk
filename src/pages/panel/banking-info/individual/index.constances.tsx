@@ -1,5 +1,9 @@
 import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
+import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
+import PanelIndividualBankingInfoAccountLoading from "./account/PanelIndividualBankingInfoAccountLoading.tsx";
+import PanelIndividualBankingInfoCardLoading from "./card/PanelIndividualBankingInfoCardLoading.tsx";
+import PanelIndividualBankingInfoFacilitiesLoading from "./facilities/PanelIndividualBankingInfoFacilitiesLoading.tsx";
 
 
 const PanelIndividualBankingInfoAccount = lazy(() => import(
@@ -60,21 +64,33 @@ export const PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS: TabsProps['tabs'] = [
 
 export const PANEL_INDIVIDUAL_BANKING_INFO_PAGE_RENDER_OBJECT = {
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.ACCOUNT]: (
-    <PanelIndividualBankingInfoAccount />
+    <TableSuspense fallback={<PanelIndividualBankingInfoAccountLoading />}>
+      <PanelIndividualBankingInfoAccount />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.CARD]: (
-    <PanelIndividualBankingInfoCard />
+    <TableSuspense fallback={<PanelIndividualBankingInfoCardLoading />}>
+      <PanelIndividualBankingInfoCard />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.FACILITIES]: (
-    <PanelIndividualBankingInfoFacilities />
+    <TableSuspense fallback={<PanelIndividualBankingInfoFacilitiesLoading />}>
+      <PanelIndividualBankingInfoFacilities />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.COMMITMENTS]: (
-    <PanelIndividualBankingInfoCommitments />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelIndividualBankingInfoCommitments />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.E_SERVICE_PORTAL]: (
-    <PanelIndividualBankingInfoEServicePortal />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelIndividualBankingInfoEServicePortal />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.TRANSACTION_HISTORY]: (
-    <PanelIndividualBankingInfoTransactionHistory />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelIndividualBankingInfoTransactionHistory />
+    </TableSuspense>
   ),
 }

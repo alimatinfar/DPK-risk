@@ -1,9 +1,8 @@
-import Table from "../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS
 } from "./index.constances.tsx";
-import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import usePanelIndividualBankingInfoAccount from "./hooks/usePanelIndividualBankingInfoAccount.ts";
+import TableRenderLogic from "../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 function PanelIndividualBankingInfoAccount() {
@@ -13,15 +12,16 @@ function PanelIndividualBankingInfoAccount() {
   } = usePanelIndividualBankingInfoAccount()
 
   return (
-    <RenderLogic
-      isLoading={isFetching} error={error}
-      isEmpty={tableData?.length === 0}
-    >
-      <Table
-        columns={PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS}
-        data={tableData}
-      />
-    </RenderLogic>
+    <TableRenderLogic
+      renderLogicProps={{
+        error,
+        isLoading: isFetching
+      }}
+      tableProps={{
+        data: tableData,
+        columns: PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS
+      }}
+    />
   );
 }
 
