@@ -1,5 +1,4 @@
-import Loading from "../Loading/Loading.tsx";
-import {type ReactNode, Suspense} from "react";
+import {type ReactNode} from "react";
 
 
 type Props = {
