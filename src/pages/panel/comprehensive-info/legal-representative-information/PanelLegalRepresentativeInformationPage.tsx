@@ -34,12 +34,13 @@ function PanelLegalRepresentativeInformationPage() {
         ) : null}
       />
 
-      <Card>
-        <TabContentRender
-          renderObject={PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_RENDER_OBJECT}
-          activeTab={activeTab}
-        />
-      </Card>
+      //TODO tabs should changed
+      {/*<Card>*/}
+      {/*  <TabContentRender*/}
+      {/*    renderObject={PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_RENDER_OBJECT}*/}
+      {/*    activeTab={activeTab}*/}
+      {/*  />*/}
+      {/*</Card>*/}
     </div>
   );
 }

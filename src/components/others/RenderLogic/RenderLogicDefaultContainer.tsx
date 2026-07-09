@@ -9,14 +9,12 @@ type Props = {
 
 function RenderLogicDefaultContainer({children, minHeight}: Props) {
   return (
-    <Suspense fallback={<Loading size='sm' />}>
-      <div className={`
-        flex-1 w-full h-full flex items-center justify-center text-center
-        ${minHeight || 'min-h-[300px]'}
-      `}>
-        {children}
-      </div>
-    </Suspense>
+    <div className={`
+      flex-1 w-full h-full flex items-center justify-center text-center
+      ${minHeight || 'min-h-[300px]'}
+    `}>
+      {children}
+    </div>
   )
 }
 

@@ -29,11 +29,12 @@ function PanelJointBankingInfo() {
         )}
       />
 
-      <Card className='flex flex-col gap-y-4'>
-        <TabContentRender
-          renderObject={PANEL_JOINT_BANKING_INFO_RENDER_OBJECT} activeTab={activeTab}
-        />
-      </Card>
+      //TODO tabs should changed
+      {/*<Card className='flex flex-col gap-y-4'>*/}
+      {/*  <TabContentRender*/}
+      {/*    renderObject={PANEL_JOINT_BANKING_INFO_RENDER_OBJECT} activeTab={activeTab}*/}
+      {/*  />*/}
+      {/*</Card>*/}
     </div>
   );
 }

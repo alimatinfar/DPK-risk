@@ -1,6 +1,6 @@
 import EmptyState from "./EmptyState";
 import Loading from "../Loading/Loading";
-import type {ReactNode} from "react";
+import {type ReactNode, Suspense} from "react";
 import {getResponseErrorMessage} from "../../../request/utils/getResponse.ts";
 import RenderLogicDefaultContainer from "./RenderLogicDefaultContainer.tsx";
 import FilterEmptyState from "../../svg/RenderLogic/FilterEmptyState.tsx";
@@ -36,6 +36,8 @@ function RenderLogic(
     emptyElement, renderLogicDefaultContainerMinHeight, hasFilter, removeContainer
   }: RenderLogicProps
 ) {
+  let allContent;
+
   if (error || isLoading || isEmpty) {
     const content = error ? (
       errorComponent || (
@@ -49,15 +51,22 @@ function RenderLogic(
       ) : emptyElement || <EmptyState title={emptyText}/>
     ) : null
 
-    return removeContainer ? content : (
+    allContent = removeContainer ? content : (
       <CustomRenderLogicDefaultContainer renderLogicDefaultContainerMinHeight={renderLogicDefaultContainerMinHeight}>
         {content}
       </CustomRenderLogicDefaultContainer>
     )
   } else {
-    return children
+    allContent = children
   }
 
+  return (
+    <Suspense fallback={
+      loadingElement || <Loading size='sm' />
+    }>
+      {allContent}
+    </Suspense>
+  )
 }
 
 export default RenderLogic;
