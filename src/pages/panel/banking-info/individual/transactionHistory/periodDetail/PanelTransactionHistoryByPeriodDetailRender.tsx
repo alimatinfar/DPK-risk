@@ -1,10 +1,10 @@
 import PanelPageTitle from "../../../../layout/PanelPageTitle.tsx";
-import Table from "../../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS
 } from "./index.constances.tsx";
 import Card from "../../../../../../components/others/Card/Card.tsx";
 import usePanelTransactionHistoryByPeriodDetailRender from "./hooks/usePanelTransactionHistoryByPeriodDetailRender.ts";
+import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 export type PanelTransactionHistoryByPeriodDetailRenderProps = {
@@ -28,9 +28,15 @@ function PanelTransactionHistoryByPeriodDetailRender(
       />
 
       <Card>
-        <Table
-          columns={PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS}
-          data={tableData}
+        <TableRenderLogic
+          renderLogicProps={{
+            error: null,
+            isLoading: false
+          }}
+          tableProps={{
+            data: tableData,
+            columns: PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS
+          }}
         />
       </Card>
     </div>
