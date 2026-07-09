@@ -11,6 +11,10 @@ import IndividualBankingAccountDetailBlockHistoryLoading
   from "./blockHistory/IndividualBankingAccountDetailBlockHistoryLoading.tsx";
 import IndividualBankingAccountDetailSaptaMobileNumbersLoading
   from "./saptaMobileNumbers/IndividualBankingAccountDetailSaptaMobileNumbersLoading.tsx";
+import IndividualBankingAccountDetailAccountSignatoriesLoading
+  from "./accountSignatories/IndividualBankingAccountDetailAccountSignatoriesLoading.tsx";
+import IndividualBankingAccountDetailSpecialInstructionsLoading
+  from "./specialInstructions/IndividualBankingAccountDetailSpecialInstructionsLoading.tsx";
 
 const IndividualBankingAccountDetailTransactionInformation = lazy(() => import(
   "./accountTransactionInformation/IndividualBankingAccountDetailTransactionInformation.tsx"
@@ -97,7 +101,7 @@ export const PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.ACCOUNT_SIGNATORIES]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<IndividualBankingAccountDetailAccountSignatoriesLoading />}>
       <IndividualBankingAccountDetailAccountSignatories />
     </TableSuspense>
   ),
@@ -107,7 +111,7 @@ export const PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.SPECIAL_INSTRUCTIONS]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<IndividualBankingAccountDetailSpecialInstructionsLoading />}>
       <IndividualBankingAccountDetailSpecialInstructions />
     </TableSuspense>
   ),

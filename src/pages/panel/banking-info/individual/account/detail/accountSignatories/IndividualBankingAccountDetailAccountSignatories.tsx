@@ -1,10 +1,9 @@
-import Table from "../../../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS,
 } from "./index.constances.ts";
-import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import useIndividualBankingAccountDetailAccountSignatories
   from "./hooks/useIndividualBankingAccountDetailAccountSignatories.ts";
+import TableRenderLogic from "../../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 function IndividualBankingAccountDetailAccountSignatories() {
@@ -14,15 +13,16 @@ function IndividualBankingAccountDetailAccountSignatories() {
   } = useIndividualBankingAccountDetailAccountSignatories()
 
   return (
-    <RenderLogic
-      isLoading={isFetching} error={error}
-      isEmpty={tableData?.length === 0}
-    >
-      <Table
-        columns={PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS}
-        data={tableData}
-      />
-    </RenderLogic>
+    <TableRenderLogic
+      renderLogicProps={{
+        error,
+        isLoading: isFetching
+      }}
+      tableProps={{
+        data: tableData,
+        columns: PANEL_INDIVIDUAL_ACCOUNT_DETAIL_SIGNATORIES_TABLE_COLUMNS
+      }}
+    />
   );
 }
 
