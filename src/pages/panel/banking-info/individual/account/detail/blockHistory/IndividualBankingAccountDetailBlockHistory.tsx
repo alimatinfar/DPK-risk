@@ -1,9 +1,8 @@
-import Table from "../../../../../../../components/others/Table/Table.tsx";
 import {
   INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS,
 } from "./index.constances.ts";
-import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import useIndividualBankingAccountDetailBlockHistory from "./hooks/useIndividualBankingAccountDetailBlockHistory.ts";
+import TableRenderLogic from "../../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 function IndividualBankingAccountDetailBlockHistory() {
@@ -13,15 +12,16 @@ function IndividualBankingAccountDetailBlockHistory() {
   } = useIndividualBankingAccountDetailBlockHistory()
 
   return (
-    <RenderLogic
-      isLoading={isFetching} error={error}
-      isEmpty={tableData?.length === 0}
-    >
-    <Table
-      columns={INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS}
-      data={tableData}
+    <TableRenderLogic
+      renderLogicProps={{
+        error,
+        isLoading: isFetching
+      }}
+      tableProps={{
+        data: tableData,
+        columns: INDIVIDUAL_ACCOUNT_BLOCK_HISTORY_TABLE_COLUMNS
+      }}
     />
-    </RenderLogic>
   );
 }
 

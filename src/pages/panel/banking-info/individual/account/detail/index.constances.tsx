@@ -7,6 +7,8 @@ import IndividualBankingAccountDetailReturnedChequesLoading
   from "./returnedCheques/IndividualBankingAccountDetailReturnedChequesLoading.tsx";
 import IndividualBankingAccountDetailTransactionInformationLoading
   from "./accountTransactionInformation/IndividualBankingAccountDetailTransactionInformationLoading.tsx";
+import IndividualBankingAccountDetailBlockHistoryLoading
+  from "./blockHistory/IndividualBankingAccountDetailBlockHistoryLoading.tsx";
 
 const IndividualBankingAccountDetailTransactionInformation = lazy(() => import(
   "./accountTransactionInformation/IndividualBankingAccountDetailTransactionInformation.tsx"
@@ -88,7 +90,7 @@ export const PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.BLOCK_HISTORY]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<IndividualBankingAccountDetailBlockHistoryLoading />}>
       <IndividualBankingAccountDetailBlockHistory />
     </TableSuspense>
   ),
