@@ -3,6 +3,8 @@ import {lazy} from "react";
 import TableSuspense from "../../../../../../components/others/RenderLogic/TableSuspense.tsx";
 import IndividualBankingAccountDetailIssuedChequesLoading
   from "./issuedCheques/IndividualBankingAccountDetailIssuedChequesLoading.tsx";
+import IndividualBankingAccountDetailReturnedChequesLoading
+  from "./returnedCheques/IndividualBankingAccountDetailReturnedChequesLoading.tsx";
 
 const IndividualBankingAccountDetailTransactionInformation = lazy(() => import(
   "./accountTransactionInformation/IndividualBankingAccountDetailTransactionInformation.tsx"
@@ -74,7 +76,7 @@ export const PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.RETURNED_CHEQUES]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<IndividualBankingAccountDetailReturnedChequesLoading />}>
       <IndividualBankingAccountDetailReturnedCheques />
     </TableSuspense>
   ),
