@@ -3,6 +3,8 @@ import {lazy} from "react";
 import PanelLegalRepresentativeInformationPageBoardMembersLoading
   from "./boardMembers/PanelLegalRepresentativeInformationPageBoardMembersLoading.tsx";
 import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
+import PanelLegalRepresentativeInformationPageShareholdersLoading
+  from "./shareholders/PanelLegalRepresentativeInformationPageShareholdersLoading.tsx";
 
 const PanelLegalRepresentativeInformationPageBoardMembers = lazy(() => import(
   "./boardMembers/PanelLegalRepresentativeInformationPageBoardMembers.tsx"
@@ -66,7 +68,7 @@ export const PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.SHAREHOLDERS]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<PanelLegalRepresentativeInformationPageShareholdersLoading />}>
       <PanelLegalRepresentativeInformationPageShareholders/>
     </TableSuspense>
   ),
