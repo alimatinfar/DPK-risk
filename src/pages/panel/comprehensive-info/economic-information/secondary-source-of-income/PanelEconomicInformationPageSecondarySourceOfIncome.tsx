@@ -1,10 +1,10 @@
-import Table from "../../../../../components/others/Table/Table.tsx";
-import {
-  PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS,
-} from "./index.constances.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import usePanelEconomicInformationPageSecondarySourceOfIncome
   from "./hooks/usePanelEconomicInformationPageSecondarySourceOfIncome.ts";
+import PanelEconomicInformationPageSecondarySourceOfIncomeTable
+  from "./PanelEconomicInformationPageSecondarySourceOfIncomeTable.tsx";
+import PanelEconomicInformationPageSecondarySourceOfIncomeLoading
+  from "./PanelEconomicInformationPageSecondarySourceOfIncomeLoading.tsx";
 
 
 function PanelEconomicInformationPageSecondarySourceOfIncome() {
@@ -17,11 +17,9 @@ function PanelEconomicInformationPageSecondarySourceOfIncome() {
     <RenderLogic
       isLoading={isFetching} error={error}
       isEmpty={tableData?.length === 0}
+      loadingElement={<PanelEconomicInformationPageSecondarySourceOfIncomeLoading />}
     >
-      <Table
-        columns={PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS}
-        data={tableData}
-      />
+      <PanelEconomicInformationPageSecondarySourceOfIncomeTable data={tableData}/>
     </RenderLogic>
   );
 }

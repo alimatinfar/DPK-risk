@@ -1,12 +1,14 @@
 import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
-import {lazy, Suspense} from "react";
+import {lazy} from "react";
 import PanelEconomicInformationPageEconomicActivityLoading
   from "./economic-activity/PanelEconomicInformationPageEconomicActivityLoading.tsx";
 import PanelEconomicInformationPagePrimarySourceOfIncomeLoading
   from "./primary-source-of-income/PanelEconomicInformationPagePrimarySourceOfIncomeLoading.tsx";
-import RenderLogicDefaultContainer from "../../../../components/others/RenderLogic/RenderLogicDefaultContainer.tsx";
 import SuspenseRenderLogicDefaultContainer
   from "../../../../components/others/RenderLogic/SuspenseRenderLogicDefaultContainer.tsx";
+import PanelEconomicInformationPageSecondarySourceOfIncomeLoading
+  from "./secondary-source-of-income/PanelEconomicInformationPageSecondarySourceOfIncomeLoading.tsx";
+
 
 const PanelEconomicInformationPageEconomicActivity = lazy(() => import(
   "./economic-activity/PanelEconomicInformationPageEconomicActivity.tsx"
@@ -52,7 +54,7 @@ export const PANEL_ECONOMIC_INFORMATION_PAGE_RENDER_OBJECT = {
     </SuspenseRenderLogicDefaultContainer>
   ),
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.SECONDARY_SOURCE_OF_INCOME]: (
-    <SuspenseRenderLogicDefaultContainer fallback={<div>salam</div>}>
+    <SuspenseRenderLogicDefaultContainer fallback={<PanelEconomicInformationPageSecondarySourceOfIncomeLoading />}>
       <PanelEconomicInformationPageSecondarySourceOfIncome/>
     </SuspenseRenderLogicDefaultContainer>
   ),
