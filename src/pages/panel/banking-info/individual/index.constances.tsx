@@ -93,8 +93,6 @@ export const PANEL_INDIVIDUAL_BANKING_INFO_PAGE_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.TRANSACTION_HISTORY]: (
-    <TableSuspense fallback={<div>salam</div>}>
-      <PanelIndividualBankingInfoTransactionHistory />
-    </TableSuspense>
+    <PanelIndividualBankingInfoTransactionHistory />
   ),
 }

@@ -1,5 +1,8 @@
 import {type TabsProps} from "../../../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
+import TableSuspense from "../../../../../../components/others/RenderLogic/TableSuspense.tsx";
+import IndividualBankingAccountDetailIssuedChequesLoading
+  from "./issuedCheques/IndividualBankingAccountDetailIssuedChequesLoading.tsx";
 
 const IndividualBankingAccountDetailTransactionInformation = lazy(() => import(
   "./accountTransactionInformation/IndividualBankingAccountDetailTransactionInformation.tsx"
@@ -66,24 +69,38 @@ export const PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS: TabsProps['tabs'] = [
 
 export const PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_RENDER_OBJECT = {
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.ISSUED_CHEQUES]: (
-    <IndividualBankingAccountDetailIssuedCheques />
+    <TableSuspense fallback={<IndividualBankingAccountDetailIssuedChequesLoading />}>
+      <IndividualBankingAccountDetailIssuedCheques />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.RETURNED_CHEQUES]: (
-    <IndividualBankingAccountDetailReturnedCheques />
+    <TableSuspense fallback={<div>salam</div>}>
+      <IndividualBankingAccountDetailReturnedCheques />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.ACCOUNT_TRANSACTION_INFORMATION]: (
-    <IndividualBankingAccountDetailTransactionInformation />
+    <TableSuspense fallback={<div>salam</div>}>
+      <IndividualBankingAccountDetailTransactionInformation />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.BLOCK_HISTORY]: (
-    <IndividualBankingAccountDetailBlockHistory />
+    <TableSuspense fallback={<div>salam</div>}>
+      <IndividualBankingAccountDetailBlockHistory />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.ACCOUNT_SIGNATORIES]: (
-    <IndividualBankingAccountDetailAccountSignatories />
+    <TableSuspense fallback={<div>salam</div>}>
+      <IndividualBankingAccountDetailAccountSignatories />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.SAPTA_MOBILE_NUMBERS]: (
-    <IndividualBankingAccountDetailSaptaMobileNumbers />
+    <TableSuspense fallback={<div>salam</div>}>
+      <IndividualBankingAccountDetailSaptaMobileNumbers />
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_ACCOUNT_DETAIL_TABS_KEYS.SPECIAL_INSTRUCTIONS]: (
-    <IndividualBankingAccountDetailSpecialInstructions />
+    <TableSuspense fallback={<div>salam</div>}>
+      <IndividualBankingAccountDetailSpecialInstructions />
+    </TableSuspense>
   ),
 }

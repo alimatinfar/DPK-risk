@@ -40,13 +40,12 @@ function PanelIndividualBankingInfoAccountDetailRender(
         )}
       />
 
-      //TODO tabs should changed
-      {/*<Card className='flex flex-col gap-y-4'>*/}
-      {/*  <TabContentRender*/}
-      {/*    renderObject={renderObject}*/}
-      {/*    activeTab={activeTab}*/}
-      {/*  />*/}
-      {/*</Card>*/}
+      <Card className='flex flex-col gap-y-4'>
+        <TabContentRender
+          renderObject={renderObject}
+          activeTab={activeTab}
+        />
+      </Card>
     </div>
   );
 }

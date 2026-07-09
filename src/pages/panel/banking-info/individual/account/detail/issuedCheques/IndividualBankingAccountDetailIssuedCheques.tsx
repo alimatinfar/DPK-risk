@@ -1,7 +1,6 @@
-import Table from "../../../../../../../components/others/Table/Table.tsx";
-import {INDIVIDUAL_ACCOUNT_ISSUED_CHEQUES_TABLE_COLUMNS} from "./index.constances.ts";
-import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import useIndividualBankingAccountDetailIssuedCheques from "./hooks/useIndividualBankingAccountDetailIssuedCheques.ts";
+import TableRenderLogic from "../../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
+import {INDIVIDUAL_ACCOUNT_ISSUED_CHEQUES_TABLE_COLUMNS} from "./index.constances.ts";
 
 
 function IndividualBankingAccountDetailIssuedCheques() {
@@ -11,15 +10,16 @@ function IndividualBankingAccountDetailIssuedCheques() {
   } = useIndividualBankingAccountDetailIssuedCheques()
 
   return (
-    <RenderLogic
-      isLoading={isFetching} error={error}
-      isEmpty={tableData?.length === 0}
-    >
-    <Table
-      columns={INDIVIDUAL_ACCOUNT_ISSUED_CHEQUES_TABLE_COLUMNS}
-      data={tableData}
+    <TableRenderLogic
+      renderLogicProps={{
+        error,
+        isLoading: isFetching
+      }}
+      tableProps={{
+        data: tableData,
+        columns: INDIVIDUAL_ACCOUNT_ISSUED_CHEQUES_TABLE_COLUMNS
+      }}
     />
-    </RenderLogic>
   );
 }
 
