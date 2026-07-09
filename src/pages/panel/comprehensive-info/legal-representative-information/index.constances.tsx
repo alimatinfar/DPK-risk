@@ -5,6 +5,8 @@ import PanelLegalRepresentativeInformationPageBoardMembersLoading
 import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
 import PanelLegalRepresentativeInformationPageShareholdersLoading
   from "./shareholders/PanelLegalRepresentativeInformationPageShareholdersLoading.tsx";
+import PanelLegalRepresentativeInformationPageMajorOwnersLoading
+  from "./majorOwners/PanelLegalRepresentativeInformationPageMajorOwnersLoading.tsx";
 
 const PanelLegalRepresentativeInformationPageBoardMembers = lazy(() => import(
   "./boardMembers/PanelLegalRepresentativeInformationPageBoardMembers.tsx"
@@ -73,7 +75,7 @@ export const PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.MAJOR_OWNERS]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<PanelLegalRepresentativeInformationPageMajorOwnersLoading />}>
       <PanelLegalRepresentativeInformationPageMajorOwners/>
     </TableSuspense>
   ),
