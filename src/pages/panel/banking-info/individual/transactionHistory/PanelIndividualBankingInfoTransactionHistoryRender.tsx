@@ -26,11 +26,10 @@ function PanelIndividualBankingInfoTransactionHistoryRender(
         activeTab={activeTab} onChange={setActiveTab}
       />
 
-      //TODO tabs should changed
-      {/*<TabContentRender*/}
-      {/*  renderObject={renderObject}*/}
-      {/*  activeTab={activeTab}*/}
-      {/*/>*/}
+      <TabContentRender
+        renderObject={renderObject}
+        activeTab={activeTab}
+      />
     </>
   );
 }

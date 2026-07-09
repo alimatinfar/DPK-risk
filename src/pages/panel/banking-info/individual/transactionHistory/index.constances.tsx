@@ -1,5 +1,8 @@
 import type {TabsProps} from "../../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
+import TableSuspense from "../../../../../components/others/RenderLogic/TableSuspense.tsx";
+import PanelTransactionHistoryOnSiteMaxCountLoading
+  from "./onSiteMaxCount/PanelTransactionHistoryOnSiteMaxCountLoading.tsx";
 
 const PanelTransactionHistoryOnSiteMaxCount = lazy(() => import(
   "./onSiteMaxCount/PanelTransactionHistoryOnSiteMaxCount.tsx"
@@ -37,9 +40,13 @@ export const PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_RENDER_OBJECT = {
     <PanelTransactionHistoryEService/>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE_MAX_COUNT]: (
-    <PanelTransactionHistoryOnSiteMaxCount/>
+    <TableSuspense fallback={<PanelTransactionHistoryOnSiteMaxCountLoading />}>
+      <PanelTransactionHistoryOnSiteMaxCount/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE_MAX_AMOUNT]: (
-    <PanelTransactionHistoryOnSiteMaxAmount/>
+    <TableSuspense fallback={<PanelTransactionHistoryOnSiteMaxCountLoading />}>
+      <PanelTransactionHistoryOnSiteMaxAmount/>
+    </TableSuspense>
   ),
 }

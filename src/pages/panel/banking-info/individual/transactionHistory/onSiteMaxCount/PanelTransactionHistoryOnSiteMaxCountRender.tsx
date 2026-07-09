@@ -1,8 +1,8 @@
 import {
   PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS,
 } from "./index.constances.tsx";
-import Table from "../../../../../../components/others/Table/Table.tsx";
 import usePanelTransactionHistoryOnSiteMaxCountRender from "./hooks/usePanelTransactionHistoryOnSiteMaxCountRender.ts";
+import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 export type PanelTransactionHistoryOnSiteMaxCountRenderProps = {
@@ -20,9 +20,15 @@ function PanelTransactionHistoryOnSiteMaxCountRender(
   })
 
   return (
-    <Table
-      columns={PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS}
-      data={tableData}
+    <TableRenderLogic
+      renderLogicProps={{
+        error: null,
+        isLoading: false
+      }}
+      tableProps={{
+        data: tableData,
+        columns: PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS
+      }}
     />
   );
 }
