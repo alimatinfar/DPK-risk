@@ -4,11 +4,11 @@ import QUERY_PARAMS from "../../../../../../../constances/queryParams.ts";
 import useGetTransactionHistoryPeriodDateObject
   from "../../periodDetail/hooks/useGetTransactionHistoryPeriodDateObject.ts";
 import Card from "../../../../../../../components/others/Card/Card.tsx";
-import Table from "../../../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_COLUMNS,
   PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_FAKE_DATA
 } from "./index.constances.ts";
+import TableRenderLogic from "../../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 function PanelTransactionHistoryEServicePeriodDetailRender() {
@@ -26,9 +26,15 @@ function PanelTransactionHistoryEServicePeriodDetailRender() {
       />
 
       <Card>
-        <Table
-          columns={PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_COLUMNS}
-          data={PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_FAKE_DATA}
+        <TableRenderLogic
+          renderLogicProps={{
+            error: null,
+            isLoading: false
+          }}
+          tableProps={{
+            data: PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_FAKE_DATA,
+            columns: PANEL_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL_TABLE_COLUMNS
+          }}
         />
       </Card>
     </div>
