@@ -6,6 +6,10 @@ import {
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import usePanelEconomicInformationPagePrimarySourceOfIncome
   from "./hooks/usePanelEconomicInformationPagePrimarySourceOfIncome.ts";
+import PanelEconomicInformationPagePrimarySourceOfIncomeTable
+  from "./PanelEconomicInformationPagePrimarySourceOfIncomeTable.tsx";
+import PanelEconomicInformationPagePrimarySourceOfIncomeLoading
+  from "./PanelEconomicInformationPagePrimarySourceOfIncomeLoading.tsx";
 
 
 function PanelEconomicInformationPagePrimarySourceOfIncome() {
@@ -18,11 +22,9 @@ function PanelEconomicInformationPagePrimarySourceOfIncome() {
     <RenderLogic
       isLoading={isFetching} error={error}
       isEmpty={tableData?.length === 0}
+      loadingElement={<PanelEconomicInformationPagePrimarySourceOfIncomeLoading />}
     >
-      <Table
-        columns={PANEL_ECONOMIC_PRIMARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS}
-        data={tableData}
-      />
+      <PanelEconomicInformationPagePrimarySourceOfIncomeTable data={tableData}/>
     </RenderLogic>
   );
 }

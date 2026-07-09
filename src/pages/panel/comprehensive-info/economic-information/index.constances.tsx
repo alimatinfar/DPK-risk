@@ -2,6 +2,8 @@ import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
 import {lazy, Suspense} from "react";
 import PanelEconomicInformationPageEconomicActivityLoading
   from "./economic-activity/PanelEconomicInformationPageEconomicActivityLoading.tsx";
+import PanelEconomicInformationPagePrimarySourceOfIncomeLoading
+  from "./primary-source-of-income/PanelEconomicInformationPagePrimarySourceOfIncomeLoading.tsx";
 
 const PanelEconomicInformationPageEconomicActivity = lazy(() => import(
   "./economic-activity/PanelEconomicInformationPageEconomicActivity.tsx"
@@ -42,7 +44,7 @@ export const PANEL_ECONOMIC_INFORMATION_PAGE_RENDER_OBJECT = {
     </Suspense>
   ),
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.PRIMARY_SOURCE_OF_INCOME]: (
-    <Suspense fallback={<div>salam</div>}>
+    <Suspense fallback={<PanelEconomicInformationPagePrimarySourceOfIncomeLoading />}>
       <PanelEconomicInformationPagePrimarySourceOfIncome/>
     </Suspense>
   ),
