@@ -1,10 +1,7 @@
-import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import usePanelEconomicInformationPageSecondarySourceOfIncome
   from "./hooks/usePanelEconomicInformationPageSecondarySourceOfIncome.ts";
-import PanelEconomicInformationPageSecondarySourceOfIncomeTable
-  from "./PanelEconomicInformationPageSecondarySourceOfIncomeTable.tsx";
-import PanelEconomicInformationPageSecondarySourceOfIncomeLoading
-  from "./PanelEconomicInformationPageSecondarySourceOfIncomeLoading.tsx";
+import TableRenderLogic from "../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
+import {PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS} from "./index.constances.ts";
 
 
 function PanelEconomicInformationPageSecondarySourceOfIncome() {
@@ -14,13 +11,16 @@ function PanelEconomicInformationPageSecondarySourceOfIncome() {
   } = usePanelEconomicInformationPageSecondarySourceOfIncome()
 
   return (
-    <RenderLogic
-      isLoading={isFetching} error={error}
-      isEmpty={tableData?.length === 0}
-      loadingElement={<PanelEconomicInformationPageSecondarySourceOfIncomeLoading />}
-    >
-      <PanelEconomicInformationPageSecondarySourceOfIncomeTable data={tableData}/>
-    </RenderLogic>
+    <TableRenderLogic
+      renderLogicProps={{
+        error,
+        isLoading: isFetching
+      }}
+      tableProps={{
+        data: tableData,
+        columns: PANEL_ECONOMIC_SECONDARY_SOURCE_OF_INCOME_INFORMATION_TABLE_COLUMNS,
+      }}
+    />
   );
 }
 
