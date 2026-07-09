@@ -1,12 +1,12 @@
 import EServicePortalSharedCustomerNumberField, {
   type EServicePortalSharedCustomerNumberFieldProps
 } from "./EServicePortalSharedCustomerNumberField.tsx";
-import Table from "../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS
 } from "./index.constances.tsx";
 import usePanelIndividualBankingInfoEServicePortalRenderLogic
   from "./hooks/usePanelIndividualBankingInfoEServicePortalRenderLogic.ts";
+import TableRenderLogic from "../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 export type PanelIndividualBankingInfoEServicePortalRenderProps = {
@@ -32,9 +32,15 @@ function PanelIndividualBankingInfoEServicePortalRender(
         setSelectedCustomerNumber={setSelectedCustomerNumber}
       />
 
-      <Table
-        columns={PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS}
-        data={tableData}
+      <TableRenderLogic
+        renderLogicProps={{
+          error: null,
+          isLoading: false
+        }}
+        tableProps={{
+          data: tableData,
+          columns: PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS
+        }}
       />
     </div>
   );

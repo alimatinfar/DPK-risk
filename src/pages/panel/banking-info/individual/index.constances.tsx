@@ -6,6 +6,8 @@ import PanelIndividualBankingInfoCardLoading from "./card/PanelIndividualBanking
 import PanelIndividualBankingInfoFacilitiesLoading from "./facilities/PanelIndividualBankingInfoFacilitiesLoading.tsx";
 import PanelIndividualBankingInfoCommitmentsLoading
   from "./commitments/PanelIndividualBankingInfoCommitmentsLoading.tsx";
+import PanelIndividualBankingInfoEServicePortalLoading
+  from "./eServicePortal/PanelIndividualBankingInfoEServicePortalLoading.tsx";
 
 
 const PanelIndividualBankingInfoAccount = lazy(() => import(
@@ -86,7 +88,7 @@ export const PANEL_INDIVIDUAL_BANKING_INFO_PAGE_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.E_SERVICE_PORTAL]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<PanelIndividualBankingInfoEServicePortalLoading />}>
       <PanelIndividualBankingInfoEServicePortal />
     </TableSuspense>
   ),
