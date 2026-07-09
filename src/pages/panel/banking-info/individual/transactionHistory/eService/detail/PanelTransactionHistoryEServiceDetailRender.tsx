@@ -1,9 +1,9 @@
 import PanelPageTitle from "../../../../../layout/PanelPageTitle.tsx";
 import Card from "../../../../../../../components/others/Card/Card.tsx";
-import Table from "../../../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS} from "./index.constances.ts";
 import usePanelTransactionHistoryEServiceDetailRender from "./hooks/usePanelTransactionHistoryEServiceDetailRender.ts";
+import TableRenderLogic from "../../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 export type PanelTransactionHistoryEServiceDetailRenderProps = {
@@ -27,9 +27,15 @@ function PanelTransactionHistoryEServiceDetailRender(
       />
 
       <Card>
-        <Table
-          columns={PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS}
-          data={tableData}
+        <TableRenderLogic
+          renderLogicProps={{
+            error: null,
+            isLoading: false
+          }}
+          tableProps={{
+            data: tableData,
+            columns: PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS
+          }}
         />
       </Card>
     </div>
