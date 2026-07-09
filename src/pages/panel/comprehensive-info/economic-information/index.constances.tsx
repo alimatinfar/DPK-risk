@@ -4,10 +4,9 @@ import PanelEconomicInformationPageEconomicActivityLoading
   from "./economic-activity/PanelEconomicInformationPageEconomicActivityLoading.tsx";
 import PanelEconomicInformationPagePrimarySourceOfIncomeLoading
   from "./primary-source-of-income/PanelEconomicInformationPagePrimarySourceOfIncomeLoading.tsx";
-import SuspenseRenderLogicDefaultContainer
-  from "../../../../components/others/RenderLogic/SuspenseRenderLogicDefaultContainer.tsx";
 import PanelEconomicInformationPageSecondarySourceOfIncomeLoading
   from "./secondary-source-of-income/PanelEconomicInformationPageSecondarySourceOfIncomeLoading.tsx";
+import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
 
 
 const PanelEconomicInformationPageEconomicActivity = lazy(() => import(
@@ -44,18 +43,18 @@ export const PANEL_ECONOMIC_INFORMATION_PAGE_TABS: TabsProps['tabs'] = [
 
 export const PANEL_ECONOMIC_INFORMATION_PAGE_RENDER_OBJECT = {
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.ECONOMIC_ACTIVITY]: (
-    <SuspenseRenderLogicDefaultContainer fallback={<PanelEconomicInformationPageEconomicActivityLoading />}>
+    <TableSuspense fallback={<PanelEconomicInformationPageEconomicActivityLoading />}>
       <PanelEconomicInformationPageEconomicActivity/>
-    </SuspenseRenderLogicDefaultContainer>
+    </TableSuspense>
   ),
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.PRIMARY_SOURCE_OF_INCOME]: (
-    <SuspenseRenderLogicDefaultContainer fallback={<PanelEconomicInformationPagePrimarySourceOfIncomeLoading />}>
+    <TableSuspense fallback={<PanelEconomicInformationPagePrimarySourceOfIncomeLoading />}>
       <PanelEconomicInformationPagePrimarySourceOfIncome/>
-    </SuspenseRenderLogicDefaultContainer>
+    </TableSuspense>
   ),
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.SECONDARY_SOURCE_OF_INCOME]: (
-    <SuspenseRenderLogicDefaultContainer fallback={<PanelEconomicInformationPageSecondarySourceOfIncomeLoading />}>
+    <TableSuspense fallback={<PanelEconomicInformationPageSecondarySourceOfIncomeLoading />}>
       <PanelEconomicInformationPageSecondarySourceOfIncome/>
-    </SuspenseRenderLogicDefaultContainer>
+    </TableSuspense>
   ),
 }

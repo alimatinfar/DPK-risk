@@ -1,5 +1,8 @@
 import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
+import PanelLegalRepresentativeInformationPageBoardMembersLoading
+  from "./boardMembers/PanelLegalRepresentativeInformationPageBoardMembersLoading.tsx";
+import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
 
 const PanelLegalRepresentativeInformationPageBoardMembers = lazy(() => import(
   "./boardMembers/PanelLegalRepresentativeInformationPageBoardMembers.tsx"
@@ -58,21 +61,33 @@ export const PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS: TabsProps['tabs'] = [
 
 export const PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_RENDER_OBJECT = {
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.BOARD_MEMBERS]: (
-    <PanelLegalRepresentativeInformationPageBoardMembers />
+    <TableSuspense fallback={<PanelLegalRepresentativeInformationPageBoardMembersLoading/>}>
+      <PanelLegalRepresentativeInformationPageBoardMembers/>
+    </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.SHAREHOLDERS]: (
-    <PanelLegalRepresentativeInformationPageShareholders />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelLegalRepresentativeInformationPageShareholders/>
+    </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.MAJOR_OWNERS]: (
-    <PanelLegalRepresentativeInformationPageMajorOwners />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelLegalRepresentativeInformationPageMajorOwners/>
+    </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.STATUTORY_AUDITOR]: (
-    <PanelLegalRepresentativeInformationPageStatutoryAuditor />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelLegalRepresentativeInformationPageStatutoryAuditor/>
+    </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.LEGAL_INSPECTOR]: (
-    <PanelLegalRepresentativeInformationPageLegalInspector />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelLegalRepresentativeInformationPageLegalInspector/>
+    </TableSuspense>
   ),
   [PANEL_LEGAL_REPRESENTATIVE_INFO_PAGE_TABS_KEYS.LEGAL_REPRESENTATIVE]: (
-    <PanelLegalRepresentativeInformationPageLegalRepresentative />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelLegalRepresentativeInformationPageLegalRepresentative/>
+    </TableSuspense>
   ),
 }

@@ -1,10 +1,10 @@
-import Table from "../../../../../components/others/Table/Table.tsx";
-import {
-  PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS, PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS_KEYS,
-} from "./index.constances.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import usePanelLegalRepresentativeInformationPageBoardMembers
   from "./hooks/usePanelLegalRepresentativeInformationPageBoardMembers.ts";
+import PanelLegalRepresentativeInformationPageBoardMembersTable
+  from "./PanelLegalRepresentativeInformationPageBoardMembersTable.tsx";
+import PanelLegalRepresentativeInformationPageBoardMembersLoading
+  from "./PanelLegalRepresentativeInformationPageBoardMembersLoading.tsx";
 
 
 function PanelLegalRepresentativeInformationPageBoardMembers() {
@@ -17,11 +17,9 @@ function PanelLegalRepresentativeInformationPageBoardMembers() {
     <RenderLogic
       isLoading={isFetching} error={error}
       isEmpty={tableData?.length === 0}
+      loadingElement={<PanelLegalRepresentativeInformationPageBoardMembersLoading />}
     >
-      <Table
-        columns={PANEL_LEGAL_REPRESENTATIVE_BOARD_MEMBERS_TABLE_COLUMNS}
-        data={tableData}
-      />
+      <PanelLegalRepresentativeInformationPageBoardMembersTable data={tableData} />
     </RenderLogic>
   );
 }

@@ -1,18 +1,17 @@
 import {type ReactNode, Suspense} from "react";
-import type {ChildrenAndClassNamePropsType} from "../../../types/ChildrenPropsType.tsx";
-import RenderLogicDefaultContainer from "./RenderLogicDefaultContainer.tsx";
+import RenderLogicDefaultContainer, {type RenderLogicDefaultContainerProps} from "./RenderLogicDefaultContainer.tsx";
 
 
-type Props = {
-  fallback: ReactNode
-} & Pick<ChildrenAndClassNamePropsType, 'children'>
+export type SuspenseRenderLogicDefaultContainerProps = {
+  fallback: ReactNode;
+} & Pick<RenderLogicDefaultContainerProps, 'children' | 'align'>
 
 function SuspenseRenderLogicDefaultContainer(
-  {fallback, children}: Props
+  {fallback, children, align}: SuspenseRenderLogicDefaultContainerProps
 ) {
   return (
     <Suspense fallback={(
-      <RenderLogicDefaultContainer>
+      <RenderLogicDefaultContainer align={align}>
         {fallback}
       </RenderLogicDefaultContainer>
     )}>
