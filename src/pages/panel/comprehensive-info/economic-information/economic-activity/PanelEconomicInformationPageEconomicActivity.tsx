@@ -11,6 +11,9 @@ import usePanelEconomicInformationPageEconomicActivityLegal
 import usePanelEconomicInformationPageEconomicActivityNatural
   from "./hooks/usePanelEconomicInformationPageEconomicActivityNatural.ts";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
+import PanelEconomicInformationPageEconomicActivityTable from "./PanelEconomicInformationPageEconomicActivityTable.tsx";
+import PanelEconomicInformationPageEconomicActivityLoading
+  from "./PanelEconomicInformationPageEconomicActivityLoading.tsx";
 
 
 function PanelEconomicInformationPageEconomicActivity() {
@@ -30,15 +33,11 @@ function PanelEconomicInformationPageEconomicActivity() {
   return (
     <RenderLogic
       error={legalError || naturalError}
-      isLoading={legalLoading || naturalLoading}
       isEmpty={tableData?.length === 0}
+      isLoading={legalLoading || naturalLoading}
+      loadingElement={<PanelEconomicInformationPageEconomicActivityLoading />}
     >
-      <Table
-        columns={
-          isLegalBool ? PANEL_ECONOMIC_ACTIVITY_LEGAL_INFORMATION_TABLE_COLUMNS : PANEL_ECONOMIC_ACTIVITY_INFORMATION_TABLE_COLUMNS
-        }
-        data={tableData}
-      />
+      <PanelEconomicInformationPageEconomicActivityTable data={tableData} />
     </RenderLogic>
   );
 }

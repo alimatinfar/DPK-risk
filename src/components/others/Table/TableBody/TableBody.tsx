@@ -38,7 +38,7 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
   const loadingElement = (
     <TableLoading
       rowLength={data.length || 5}
-      columnsLength={columns.length}
+      columnsLength={columns.filter(column => column.renderType !== TABLE_RENDER_TYPES.EXTRA_COLUMN)?.length}
       hasActionsColumn={columns.some(column => column.accessor === TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR)}
     />
   )

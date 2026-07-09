@@ -1,5 +1,7 @@
 import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
-import {lazy} from "react";
+import {lazy, Suspense} from "react";
+import PanelEconomicInformationPageEconomicActivityLoading
+  from "./economic-activity/PanelEconomicInformationPageEconomicActivityLoading.tsx";
 
 const PanelEconomicInformationPageEconomicActivity = lazy(() => import(
   "./economic-activity/PanelEconomicInformationPageEconomicActivity.tsx"
@@ -35,12 +37,18 @@ export const PANEL_ECONOMIC_INFORMATION_PAGE_TABS: TabsProps['tabs'] = [
 
 export const PANEL_ECONOMIC_INFORMATION_PAGE_RENDER_OBJECT = {
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.ECONOMIC_ACTIVITY]: (
-    <PanelEconomicInformationPageEconomicActivity/>
+    <Suspense fallback={<PanelEconomicInformationPageEconomicActivityLoading />}>
+      <PanelEconomicInformationPageEconomicActivity/>
+    </Suspense>
   ),
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.PRIMARY_SOURCE_OF_INCOME]: (
-    <PanelEconomicInformationPagePrimarySourceOfIncome/>
+    <Suspense fallback={<div>salam</div>}>
+      <PanelEconomicInformationPagePrimarySourceOfIncome/>
+    </Suspense>
   ),
   [PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS.SECONDARY_SOURCE_OF_INCOME]: (
-    <PanelEconomicInformationPageSecondarySourceOfIncome/>
+    <Suspense fallback={<div>salam</div>}>
+      <PanelEconomicInformationPageSecondarySourceOfIncome/>
+    </Suspense>
   ),
 }

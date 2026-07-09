@@ -28,13 +28,12 @@ function PanelEconomicInformationPage() {
         )}
       />
 
-      //TODO tabs should changed
-      {/*<Card>*/}
-      {/*  <TabContentRender*/}
-      {/*    renderObject={PANEL_ECONOMIC_INFORMATION_PAGE_RENDER_OBJECT}*/}
-      {/*    activeTab={activeTab}*/}
-      {/*  />*/}
-      {/*</Card>*/}
+      <Card>
+        <TabContentRender
+          renderObject={PANEL_ECONOMIC_INFORMATION_PAGE_RENDER_OBJECT}
+          activeTab={activeTab}
+        />
+      </Card>
     </div>
   );
 }
