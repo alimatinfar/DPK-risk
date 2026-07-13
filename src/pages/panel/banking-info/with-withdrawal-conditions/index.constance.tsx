@@ -1,6 +1,9 @@
 import type {TabsProps} from "../../../../components/others/Tab/Tab.tsx";
 import {PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS} from "../individual/index.constances.tsx";
 import {lazy} from "react";
+import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
+import PanelIndividualBankingInfoAccountLoading
+  from "../individual/account/PanelIndividualBankingInfoAccountLoading.tsx";
 const PanelBankingInfoWithWithdrawalConditionsAccount = lazy(() => import(
   "./account/PanelBankingInfoWithWithdrawalConditionsAccount.tsx"
   ));
@@ -21,9 +24,13 @@ export const PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_TABS: TabsProps[
 
 export const PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_RENDER_OBJECT = {
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.ACCOUNT]: (
-    <PanelBankingInfoWithWithdrawalConditionsAccount/>
+    <TableSuspense fallback={<PanelIndividualBankingInfoAccountLoading />}>
+      <PanelBankingInfoWithWithdrawalConditionsAccount/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.CARD]: (
-    <PanelBankingInfoWithWithdrawalConditionsCard/>
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelBankingInfoWithWithdrawalConditionsCard/>
+    </TableSuspense>
   ),
 }
