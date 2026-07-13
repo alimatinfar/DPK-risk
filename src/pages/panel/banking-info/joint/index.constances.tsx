@@ -27,33 +27,29 @@ const PanelJointBankingInfoTransactionHistory = lazy(() => import(
 
 export const PANEL_JOINT_BANKING_INFO_RENDER_OBJECT = {
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.ACCOUNT]: (
-    <TableSuspense fallback={<PanelJointBankingInfoAccountLoading />}>
+    <TableSuspense fallback={<PanelJointBankingInfoAccountLoading/>}>
       <PanelJointBankingInfoAccount/>
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.CARD]: (
-    <TableSuspense fallback={<PanelJointBankingInfoCardLoading />}>
+    <TableSuspense fallback={<PanelJointBankingInfoCardLoading/>}>
       <PanelJointBankingInfoCard/>
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.FACILITIES]: (
-    <TableSuspense fallback={<PanelJointBankingInfoFacilitiesLoading />}>
+    <TableSuspense fallback={<PanelJointBankingInfoFacilitiesLoading/>}>
       <PanelJointBankingInfoFacilities/>
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.COMMITMENTS]: (
-    <TableSuspense fallback={<PanelJointBankingInfoCommitmentsLoading />}>
+    <TableSuspense fallback={<PanelJointBankingInfoCommitmentsLoading/>}>
       <PanelJointBankingInfoCommitments/>
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.E_SERVICE_PORTAL]: (
-    <TableSuspense fallback={<div>salam</div>}>
-      <PanelJointBankingInfoEServicePortal/>
-    </TableSuspense>
+    <PanelJointBankingInfoEServicePortal/>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.TRANSACTION_HISTORY]: (
-    <TableSuspense fallback={<div>salam</div>}>
-      <PanelJointBankingInfoTransactionHistory/>
-    </TableSuspense>
+    <PanelJointBankingInfoTransactionHistory/>
   ),
 }
