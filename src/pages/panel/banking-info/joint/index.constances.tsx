@@ -1,5 +1,6 @@
 import {PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS} from "../individual/index.constances.tsx";
 import {lazy} from "react";
+import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
 
 const PanelJointBankingInfoAccount = lazy(() => import(
   "./account/PanelJointBankingInfoAccount.tsx"
@@ -22,21 +23,33 @@ const PanelJointBankingInfoTransactionHistory = lazy(() => import(
 
 export const PANEL_JOINT_BANKING_INFO_RENDER_OBJECT = {
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.ACCOUNT]: (
-    <PanelJointBankingInfoAccount />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelJointBankingInfoAccount/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.CARD]: (
-    <PanelJointBankingInfoCard />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelJointBankingInfoCard/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.FACILITIES]: (
-    <PanelJointBankingInfoFacilities />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelJointBankingInfoFacilities/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.COMMITMENTS]: (
-    <PanelJointBankingInfoCommitments />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelJointBankingInfoCommitments/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.E_SERVICE_PORTAL]: (
-    <PanelJointBankingInfoEServicePortal />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelJointBankingInfoEServicePortal/>
+    </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.TRANSACTION_HISTORY]: (
-    <PanelJointBankingInfoTransactionHistory />
+    <TableSuspense fallback={<div>salam</div>}>
+      <PanelJointBankingInfoTransactionHistory/>
+    </TableSuspense>
   ),
 }
