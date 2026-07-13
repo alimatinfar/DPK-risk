@@ -3,6 +3,7 @@ import {lazy} from "react";
 import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
 import PanelJointBankingInfoAccountLoading from "./account/PanelJointBankingInfoAccountLoading.tsx";
 import PanelJointBankingInfoCardLoading from "./card/PanelJointBankingInfoCardLoading.tsx";
+import PanelJointBankingInfoFacilitiesLoading from "./facilities/PanelJointBankingInfoFacilitiesLoading.tsx";
 
 const PanelJointBankingInfoAccount = lazy(() => import(
   "./account/PanelJointBankingInfoAccount.tsx"
@@ -35,7 +36,7 @@ export const PANEL_JOINT_BANKING_INFO_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.FACILITIES]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<PanelJointBankingInfoFacilitiesLoading />}>
       <PanelJointBankingInfoFacilities/>
     </TableSuspense>
   ),
