@@ -1,10 +1,9 @@
-import Table from "../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS
 } from "../../individual/card/index.constances.tsx";
-import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import usePanelBankingInfoWithWithdrawalConditionsCard
   from "./hooks/usePanelBankingInfoWithWithdrawalConditionsCard.ts";
+import TableRenderLogic from "../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 function PanelBankingInfoWithWithdrawalConditionsCard() {
 
@@ -13,15 +12,16 @@ function PanelBankingInfoWithWithdrawalConditionsCard() {
   } = usePanelBankingInfoWithWithdrawalConditionsCard()
 
   return (
-    <RenderLogic
-      isLoading={isFetching} error={error}
-      isEmpty={tableData?.length === 0}
-    >
-      <Table
-        columns={PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS}
-        data={tableData}
-      />
-    </RenderLogic>
+    <TableRenderLogic
+      renderLogicProps={{
+        error,
+        isLoading: isFetching
+      }}
+      tableProps={{
+        data: tableData,
+        columns: PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS
+      }}
+    />
   );
 }
 

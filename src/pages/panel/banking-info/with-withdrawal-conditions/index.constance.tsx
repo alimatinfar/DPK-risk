@@ -4,6 +4,7 @@ import {lazy} from "react";
 import TableSuspense from "../../../../components/others/RenderLogic/TableSuspense.tsx";
 import PanelIndividualBankingInfoAccountLoading
   from "../individual/account/PanelIndividualBankingInfoAccountLoading.tsx";
+import PanelIndividualBankingInfoCardLoading from "../individual/card/PanelIndividualBankingInfoCardLoading.tsx";
 const PanelBankingInfoWithWithdrawalConditionsAccount = lazy(() => import(
   "./account/PanelBankingInfoWithWithdrawalConditionsAccount.tsx"
   ));
@@ -29,7 +30,7 @@ export const PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_RENDER_OBJECT = 
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.CARD]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<PanelIndividualBankingInfoCardLoading />}>
       <PanelBankingInfoWithWithdrawalConditionsCard/>
     </TableSuspense>
   ),
