@@ -107,7 +107,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       },
       {
         label: 'کشور محل تولد',
-        value: customerData?.countryOfBirth,
+        value: customerData?.countryOfBirthTitle,
       },
       {
         label: 'شهر محل تولد',

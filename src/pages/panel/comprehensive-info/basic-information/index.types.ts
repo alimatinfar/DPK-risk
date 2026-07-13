@@ -14,6 +14,7 @@ export type BasicInformationNaturalResponseType = {
   shenasnameSeries: string;
   shenasnameSerial: string;
   countryOfBirth: string;
+  countryOfBirthTitle: string;
   cityOfBirth: string;
   birthDate: number;
   age: number;
