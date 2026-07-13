@@ -4,6 +4,7 @@ import TableSuspense from "../../../../components/others/RenderLogic/TableSuspen
 import PanelJointBankingInfoAccountLoading from "./account/PanelJointBankingInfoAccountLoading.tsx";
 import PanelJointBankingInfoCardLoading from "./card/PanelJointBankingInfoCardLoading.tsx";
 import PanelJointBankingInfoFacilitiesLoading from "./facilities/PanelJointBankingInfoFacilitiesLoading.tsx";
+import PanelJointBankingInfoCommitmentsLoading from "./commitments/PanelJointBankingInfoCommitmentsLoading.tsx";
 
 const PanelJointBankingInfoAccount = lazy(() => import(
   "./account/PanelJointBankingInfoAccount.tsx"
@@ -41,7 +42,7 @@ export const PANEL_JOINT_BANKING_INFO_RENDER_OBJECT = {
     </TableSuspense>
   ),
   [PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS.COMMITMENTS]: (
-    <TableSuspense fallback={<div>salam</div>}>
+    <TableSuspense fallback={<PanelJointBankingInfoCommitmentsLoading />}>
       <PanelJointBankingInfoCommitments/>
     </TableSuspense>
   ),

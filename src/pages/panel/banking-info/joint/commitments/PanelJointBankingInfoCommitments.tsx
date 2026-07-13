@@ -1,9 +1,8 @@
-import Table from "../../../../../components/others/Table/Table.tsx";
 import {
   PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS
 } from "./index.constances.tsx";
-import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import usePanelJointBankingInfoCommitments from "./hooks/usePanelJointBankingInfoCommitments.ts";
+import TableRenderLogic from "../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
 function PanelJointBankingInfoCommitments() {
@@ -13,15 +12,16 @@ function PanelJointBankingInfoCommitments() {
   } = usePanelJointBankingInfoCommitments()
 
   return (
-    <RenderLogic
-      isLoading={isFetching} error={error}
-      isEmpty={tableData?.length === 0}
-    >
-      <Table
-        columns={PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS}
-        data={tableData}
-      />
-    </RenderLogic>
+    <TableRenderLogic
+      renderLogicProps={{
+        error,
+        isLoading: isFetching
+      }}
+      tableProps={{
+        data: tableData,
+        columns: PANEL_JOINT_COMMITMENTS_TABLE_COLUMNS
+      }}
+    />
   );
 }
 
