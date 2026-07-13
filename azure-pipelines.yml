@@ -86,20 +86,17 @@ stages:
                             }
 
           "refs/heads/Master"  {
-                                Write-Host "##vso[task.setvariable variable=ApiUrl;]$env:APIURLMASTER"  
-                                Write-Host "##vso[task.setvariable variable=AuthUrl;]$env:AUTHURLMASTER"
-                                Write-Host "##vso[task.setvariable variable=HelpUrl;]$env:HELPURLMASTER"
-                                Write-Host "##vso[task.setvariable variable=ClientId;]$env:CLIENTIDMASTER"
-                                Write-Host "##vso[task.setvariable variable=nswagUrl;]$env:NSWAGURLMASTER"                                
-                                 
+                                Write-Host "##vso[task.setvariable variable=baseUrl;]$env:BASEURLMASTER"  
+                                Write-Host "##vso[task.setvariable variable=client_id;]$env:CLIENT_IDMASTER"
+                                Write-Host "##vso[task.setvariable variable=frontBaseUrl;]$env:FRONTBASEURLMASTER"
+                                Write-Host "##vso[task.setvariable variable=ssoUrl;]$env:SSOURLMASTER"                                 
                                }   
 
           Default {
-                   Write-Host "##vso[task.setvariable variable=ApiUrl;]$env:APIURLDEV"  
-                   Write-Host "##vso[task.setvariable variable=AuthUrl;]$env:AUTHURLDEV"
-                   Write-Host "##vso[task.setvariable variable=HelpUrl;]$env:HELPURLDEV"
-                   Write-Host "##vso[task.setvariable variable=ClientId;]$env:CLIENTIDDEV"
-                   Write-Host "##vso[task.setvariable variable=nswagUrl;]$env:NSWAGURLDEV"
+                   Write-Host "##vso[task.setvariable variable=baseUrl;]$env:BASEURLDEV"  
+                   Write-Host "##vso[task.setvariable variable=client_id;]$env:CLIENT_IDDEV"
+                   Write-Host "##vso[task.setvariable variable=frontBaseUrl;]$env:FRONTBASEURLDEV"
+                   Write-Host "##vso[task.setvariable variable=ssoUrl;]$env:SSOURLDEV"                   
                   }
           }
           
@@ -160,7 +157,26 @@ stages:
       #           jsonFile = open("nswag/service.config.nswag", "w+")
       #           jsonFile.write(json.dumps(data, indent=1))
       #           jsonFile.close()
-      #       updateJsonFile()                         
+      #       updateJsonFile()   
+
+      - task: PythonScript@0
+        inputs:
+          scriptSource: 'inline'
+          script: |
+            import json
+            def updateJsonFile():
+                jsonFile = open("$(configjson)", "r") # Open the JSON file for reading
+                data = json.load(jsonFile) # Read the JSON into the buffer
+                jsonFile.close() # Close the JSON file
+                data["baseUrl"] = "$(baseUrl)" 
+                data["client_id"] = "$(client_id)" 
+                data["frontBaseUrl"] = "$(frontBaseUrl)" 
+                data["ssoUrl"] = "$(ssoUrl)"                 
+                jsonFile = open("$(configjson)", "w+")
+                jsonFile.write(json.dumps(data, indent=1))
+                jsonFile.close()
+            updateJsonFile()
+          pythonInterpreter: '/usr/bin/python3'                            
 
       - task: Bash@3
         inputs:
