@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { PANEL_SIDEBAR_WIDTH_CLOSE, PANEL_SIDEBAR_WIDTH_OPEN } from "../PanelLayout.constances";
-import Ls from "../../../../utils/customLocalStorage";
-import LS_KEYS from "../../../../constances/localStorageKeys";
+import Ls from "../../../utils/customLocalStorage.ts";
+import LS_KEYS from "../../../constances/localStorageKeys.ts";
+import {DASHBOARD_SIDEBAR_WIDTH_OPEN, DASHBOARD_SIDEBAR_WIDTH_CLOSE} from "../index.constances.ts";
 
 export const SIDEBAR_WIDTHS = {
-  EXPANDED: PANEL_SIDEBAR_WIDTH_OPEN,
-  COLLAPSED: PANEL_SIDEBAR_WIDTH_CLOSE,
+  EXPANDED: DASHBOARD_SIDEBAR_WIDTH_OPEN,
+  COLLAPSED: DASHBOARD_SIDEBAR_WIDTH_CLOSE,
 } as const;
 
-const useSidebar = () => {
+const useDashboardSidebar = () => {
   const [isExpanded, setIsExpanded] = useState(() => {
     const saved = Ls.get(LS_KEYS.SIDEBAR_EXPANDED);
     return saved != null ? saved === "true" : true;
@@ -44,4 +44,4 @@ const useSidebar = () => {
   };
 };
 
-export default useSidebar;
+export default useDashboardSidebar;

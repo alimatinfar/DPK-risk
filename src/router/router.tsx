@@ -4,7 +4,7 @@ import {
 import ROUTER_LINKS from "../constances/routerLinks.ts";
 import {lazy} from "react";
 import GeneralLayout from "../layouts/GeneralLayout.tsx";
-import getFirstSideBarLink from "../pages/panel/layout/utils/getFirstSideBarLink.ts";
+import getFirstPanelSideBarLink from "../pages/panel/layout/utils/getFirstPanelSideBarLink.ts";
 import ErrorPage from "../components/svg/RenderLogic/ErrorStatePage.tsx";
 import comprehensiveInfoRouter from "./comprehensiveInfoRouter.tsx";
 import bankingInfoRouter from "./bankingInfoRouter.tsx";
@@ -48,7 +48,7 @@ const router = createBrowserRouter(
           children: [
             {
               path: ROUTER_LINKS.PANEL,
-              element: <Navigate to={getFirstSideBarLink()} />,
+              element: <Navigate to={getFirstPanelSideBarLink()} />,
             },
 
             ...comprehensiveInfoRouter,

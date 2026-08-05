@@ -9,7 +9,7 @@ import {
   PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS,
   PANEL_INDIVIDUAL_BANKING_COMMITMENTS_DETAIL_TABS_KEYS
 } from "./index.constances.tsx";
-import PanelPageTitleWithTab from "../../../../layout/PanelPageTitleWithTab.tsx";
+import DashboardPageTitleWithTab from "../../../../../../layouts/DashboardLayout/DashboardPageTitleWithTab.tsx";
 
 
 function PanelBankingInfoCommitmentsDetailRender() {
@@ -20,7 +20,7 @@ function PanelBankingInfoCommitmentsDetailRender() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <PanelPageTitleWithTab
+      <DashboardPageTitleWithTab
         titleElement={(
           <PanelPageTitle
             title={`تعهد شماره “${id}”`} hasBack

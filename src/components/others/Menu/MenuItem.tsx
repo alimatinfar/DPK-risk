@@ -77,7 +77,7 @@ function MenuItem({ item, isOpen, onToggle, activeLink, isExpanded }: MenuItemPr
 
   return (
     <>
-      {showExpanded && <div className="animate-in fade-in duration-200  border-t border-gray-200">{expandedHeader}</div>}
+      {(showExpanded && item.label) && <div className="animate-in fade-in duration-200  border-t border-gray-200">{expandedHeader}</div>}
       {showCollapsed && <div className="animate-in fade-in duration-200 border-t border-gray-200">{collapsedHeader}</div>}
       <SubmenuItem isOpen={shouldShowChildren} children={item.children} activeLink={activeLink} isExpanded={isExpanded} />
     </>

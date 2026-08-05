@@ -1,22 +1,15 @@
-import type { PanelSideBarItemsListType } from "./PanelLayout.types.ts";
 import SearchIcon from "../../../components/svg/SearchIcon.tsx";
 import ROUTER_LINKS from "../../../constances/routerLinks.ts";
 import BasicInfoIcon from "../../../components/svg/sidebar/BasicInfoIcon.tsx";
 import EconomicInfoIcon from "../../../components/svg/sidebar/EconomicInfoIcon.tsx";
 import LegalInfoIcon from "../../../components/svg/sidebar/LegalInfoIcon.tsx";
-import getActivePersonData from "../utils/getActivePersonData.ts";
 import WithdrawalIcon from "../../../components/svg/sidebar/WithdrawalIcon.tsx";
 import JointIcon from "../../../components/svg/sidebar/JointIcon.tsx";
 import IndividualIcon from "../../../components/svg/sidebar/IndividualIcon.tsx";
+import type {DashboardSideBarItemsListType} from "../../../layouts/DashboardLayout/index.types.ts";
 
-export const PANEL_TOPBAR_HEIGHT = "h-[130px]";
-export const PANEL_SIDEBAR_WIDTH_OPEN = "w-[256px]";
-export const PANEL_SIDEBAR_WIDTH_CLOSE = "w-[64px]";
-export const PANEL_CONTENT_PADDING_RIGHT = "pr-[256px]";
 
-export const getSideBarItems: () => PanelSideBarItemsListType = function () {
-  const { isLegal, activePersonData } = getActivePersonData();
-
+export const getPanelSideBarItems: () => DashboardSideBarItemsListType = function () {
   return [
     {
       label: "اطلاعات جامع مشتری",

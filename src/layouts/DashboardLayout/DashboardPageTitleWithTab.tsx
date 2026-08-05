@@ -6,7 +6,7 @@ type Props = {
   tabElement?: ReactNode;
 }
 
-function PanelPageTitleWithTab(
+function DashboardPageTitleWithTab(
   {titleElement, tabElement}: Props
 ) {
   return (
@@ -22,4 +22,4 @@ function PanelPageTitleWithTab(
   );
 }
 
-export default PanelPageTitleWithTab;
+export default DashboardPageTitleWithTab;

@@ -8,7 +8,7 @@ import {
   PANEL_INDIVIDUAL_BANKING_INFO_PAGE_TABS_KEYS
 } from "../individual/index.constances.tsx";
 import {PANEL_JOINT_BANKING_INFO_RENDER_OBJECT} from "./index.constances.tsx";
-import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
+import DashboardPageTitleWithTab from "../../../../layouts/DashboardLayout/DashboardPageTitleWithTab.tsx";
 
 
 function PanelJointBankingInfo() {
@@ -17,7 +17,7 @@ function PanelJointBankingInfo() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <PanelPageTitleWithTab
+      <DashboardPageTitleWithTab
         titleElement={(
           <PanelPageTitle/>
         )}

@@ -1,4 +1,3 @@
-import MainLayoutProfileSection from "../../../layouts/MainLayout/MainLayoutProfileSection.tsx";
 import Button from "../../../components/Form/Button/Button.tsx";
 import SearchIcon from "../../../components/svg/SearchIcon.tsx";
 import { Link } from "react-router";
@@ -6,37 +5,17 @@ import ROUTER_LINKS from "../../../constances/routerLinks.ts";
 import useSearchPageResultCard from "../../search/result/hooks/useSearchPageResultCard.ts";
 import getActivePersonData from "../utils/getActivePersonData.ts";
 import getPersonIconByType from "../../search/form/utils/getPersonIconByType.ts";
-import SidebarToggle from "../../../components/svg/sidebar/SidebarToggle.tsx";
-import useSidebar from "./hooks/useSidebar.tsx";
+import DashboardTopBar from "../../../layouts/DashboardLayout/DashboardTopBar.tsx";
 
 function PanelTopBar() {
   const { activePersonData } = getActivePersonData();
-  const { toggleSidebar } = useSidebar();
 
   const { fields } = useSearchPageResultCard({
     data: activePersonData,
   });
 
   return (
-    <div
-      className={`
-      w-full flex flex-col
-    `}
-    >
-      <div className="flex items-center justify-between h-15 pl-4 py-2 border-b border-gray-200">
-        <div className="flex items-center justify-between gap-2">
-          <SidebarToggle
-            onClick={() => {
-              toggleSidebar();
-            }}
-          />
-
-          <p className="text-primary font-semibold text-xl">سامانه مدیریت ریسک مشتریان</p>
-        </div>
-
-        <MainLayoutProfileSection removeShadow />
-      </div>
-
+    <DashboardTopBar title='سامانه مدیریت ریسک مشتریان' >
       <div className="flex-1 pt-4 px-3">
         <div className="h-15 rounded-lg flex items-center justify-between gap-x-4 border-y border-gray-200 bg-[#DDE8F2] px-2">
           <div className="flex items-center gap-x-8">
@@ -63,7 +42,7 @@ function PanelTopBar() {
           </Link>
         </div>
       </div>
-    </div>
+    </DashboardTopBar>
   );
 }
 

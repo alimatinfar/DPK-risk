@@ -1,15 +1,23 @@
-import { getSideBarItems } from "./PanelLayout.constances.ts";
-import Z_INDEXES from "../../../constances/zIndexes.ts";
+import Z_INDEXES from "../../constances/zIndexes.ts";
 import { useLocation } from "react-router";
-import type { MenuItemType } from "../../../components/others/Menu/MenuItem.tsx";
-import useSidebar, { SIDEBAR_WIDTHS } from "./hooks/useSidebar.tsx";
-import Menu from "../../../components/others/Menu/Menu.tsx";
+import type { MenuItemType } from "../../components/others/Menu/MenuItem.tsx";
+import useDashboardSidebar, { SIDEBAR_WIDTHS } from "./hooks/useDashboardSidebar.tsx";
+import Menu from "../../components/others/Menu/Menu.tsx";
+import type {DashboardSideBarItemsListType} from "./index.types.ts";
 
 
-function PanelSideBar() {
+export type DashboardSideBarProps = {
+  sideBarItems: DashboardSideBarItemsListType;
+}
+
+function DashboardSideBar(
+  {
+    sideBarItems
+  }: DashboardSideBarProps
+) {
   const location = useLocation();
-  const { isExpanded } = useSidebar();
-  const accordionItems: MenuItemType[] = getSideBarItems().map((mainItem, index) => ({
+  const { isExpanded } = useDashboardSidebar();
+  const accordionItems: MenuItemType[] = sideBarItems.map((mainItem, index) => ({
     id: index,
     label: mainItem.label,
     icon: mainItem.icon,
@@ -37,4 +45,4 @@ function PanelSideBar() {
   );
 }
 
-export default PanelSideBar;
+export default DashboardSideBar;

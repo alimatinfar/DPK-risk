@@ -1,8 +1,8 @@
-import type {PanelSideBarItemsListType} from "../../panel/layout/PanelLayout.types.ts";
 import BasicInfoIcon from "../../../components/svg/sidebar/BasicInfoIcon.tsx";
 import ROUTER_LINKS from "../../../constances/routerLinks.ts";
+import type {DashboardSideBarItemsListType} from "../../../layouts/DashboardLayout/index.types.ts";
 
-export const getAdminSideBarItems: () => PanelSideBarItemsListType = function () {
+export const getAdminSideBarItems: () => DashboardSideBarItemsListType = function () {
   return [
     {
       label: "",

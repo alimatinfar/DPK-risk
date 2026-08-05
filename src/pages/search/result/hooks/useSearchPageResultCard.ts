@@ -4,7 +4,7 @@ import type {SearchPageResultCardProps} from "../SearchPageResultCard.tsx";
 import Ls from "../../../../utils/customLocalStorage.ts";
 import LS_KEYS from "../../../../constances/localStorageKeys.ts";
 import {useNavigate} from "react-router";
-import getFirstSideBarLink from "../../../panel/layout/utils/getFirstSideBarLink.ts";
+import getFirstPanelSideBarLink from "../../../panel/layout/utils/getFirstPanelSideBarLink.ts";
 
 
 function useSearchPageResultCard(
@@ -15,7 +15,7 @@ function useSearchPageResultCard(
 
   function onCardClickHandler() {
     Ls.add(LS_KEYS.PERSON_DATA, data)
-    navigate(getFirstSideBarLink())
+    navigate(getFirstPanelSideBarLink())
   }
 
   const fields = useMemo(function () {

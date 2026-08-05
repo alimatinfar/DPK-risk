@@ -7,7 +7,7 @@ import TabContentRender, {
 import useActiveTab from "../../../../../../components/others/Tab/hooks/useActiveTab.ts";
 import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
-import PanelPageTitleWithTab from "../../../../layout/PanelPageTitleWithTab.tsx";
+import DashboardPageTitleWithTab from "../../../../../../layouts/DashboardLayout/DashboardPageTitleWithTab.tsx";
 
 
 type Props = {
@@ -26,7 +26,7 @@ function PanelIndividualBankingInfoAccountDetailRender(
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <PanelPageTitleWithTab
+      <DashboardPageTitleWithTab
         titleElement={(
           <PanelPageTitle
             title={`حساب “${accountNumberStr}”`} hasBack

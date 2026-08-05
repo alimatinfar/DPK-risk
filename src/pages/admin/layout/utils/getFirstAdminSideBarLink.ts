@@ -1,8 +1,9 @@
 import {getAdminSideBarItems} from "../index.constances.ts";
+import getFirstDashboardSideBarLink from "../../../../layouts/DashboardLayout/utils/getFirstDashboardSideBarLink.ts";
 
 
 function getFirstAdminSideBarLink() {
-  return getAdminSideBarItems()?.[0]?.children?.[0]?.link || '#'
+  return getFirstDashboardSideBarLink({sideBarItems: getAdminSideBarItems()})
 }
 
 export default getFirstAdminSideBarLink;

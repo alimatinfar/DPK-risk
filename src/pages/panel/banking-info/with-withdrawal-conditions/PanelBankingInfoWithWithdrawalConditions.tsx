@@ -10,7 +10,7 @@ import {
   PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_RENDER_OBJECT,
   PANEL_BANKING_INFO_WITH_WITHDRAWAL_CONDITIONS_PAGE_TABS
 } from "./index.constance.tsx";
-import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
+import DashboardPageTitleWithTab from "../../../../layouts/DashboardLayout/DashboardPageTitleWithTab.tsx";
 
 
 function PanelBankingInfoWithWithdrawalConditions() {
@@ -19,7 +19,7 @@ function PanelBankingInfoWithWithdrawalConditions() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <PanelPageTitleWithTab
+      <DashboardPageTitleWithTab
         titleElement={(
           <PanelPageTitle/>
         )}

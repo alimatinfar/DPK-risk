@@ -7,7 +7,7 @@ import {
   PANEL_ECONOMIC_INFORMATION_PAGE_TABS, PANEL_ECONOMIC_INFORMATION_PAGE_TABS_KEYS
 } from "./index.constances.tsx";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
- import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
+ import DashboardPageTitleWithTab from "../../../../layouts/DashboardLayout/DashboardPageTitleWithTab.tsx";
 
 
 function PanelEconomicInformationPage() {
@@ -16,7 +16,7 @@ function PanelEconomicInformationPage() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <PanelPageTitleWithTab
+      <DashboardPageTitleWithTab
         titleElement={(
           <PanelPageTitle/>
         )}

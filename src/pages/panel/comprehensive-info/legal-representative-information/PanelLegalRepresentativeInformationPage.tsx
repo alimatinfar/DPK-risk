@@ -9,7 +9,7 @@ import {
 import useActiveTab from "../../../../components/others/Tab/hooks/useActiveTab.ts";
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import getActivePersonData from "../../utils/getActivePersonData.ts";
-import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
+import DashboardPageTitleWithTab from "../../../../layouts/DashboardLayout/DashboardPageTitleWithTab.tsx";
 
 
 function PanelLegalRepresentativeInformationPage() {
@@ -24,7 +24,7 @@ function PanelLegalRepresentativeInformationPage() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <PanelPageTitleWithTab
+      <DashboardPageTitleWithTab
         titleElement={<PanelPageTitle/>}
         tabElement={isLegal(activePersonData) ? (
           <Tab

@@ -9,7 +9,7 @@ import {
 import TabContentRender from "../../../../components/others/Tab/TabContentRender.tsx";
 import Card from "../../../../components/others/Card/Card.tsx";
 import PanelIndividualBankingInfoTop from "./topInfo/PanelIndividualBankingInfoTop.tsx";
-import PanelPageTitleWithTab from "../../layout/PanelPageTitleWithTab.tsx";
+import DashboardPageTitleWithTab from "../../../../layouts/DashboardLayout/DashboardPageTitleWithTab.tsx";
 
 
 function PanelIndividualBankingInfo() {
@@ -18,7 +18,7 @@ function PanelIndividualBankingInfo() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <PanelPageTitleWithTab
+      <DashboardPageTitleWithTab
         titleElement={(
           <PanelPageTitle/>
         )}

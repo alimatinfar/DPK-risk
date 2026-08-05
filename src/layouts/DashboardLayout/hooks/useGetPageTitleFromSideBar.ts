@@ -1,17 +1,19 @@
-import {getSideBarItems} from "../PanelLayout.constances.ts";
-import type {PanelSideBarItemsListType} from "../PanelLayout.types.ts";
 import {useLocation} from "react-router";
 import {useEffect, useMemo} from "react";
+import type {DashboardSideBarProps} from "../DashboardSideBar.tsx";
+import type {DashboardSideBarItemsListType} from "../index.types.ts";
 
 
-function useGetPageTitleFromSideBar() {
+function useGetPageTitleFromSideBar(
+  {sideBarItems}: Pick<DashboardSideBarProps, 'sideBarItems'>
+) {
 
   const location = useLocation()
 
   function getPageTitleFromSideBarHandle() {
     let title = ''
 
-    function findPageTitle(items: PanelSideBarItemsListType) {
+    function findPageTitle(items: DashboardSideBarItemsListType) {
       items.forEach(item => {
         if (item.link && location.pathname.includes(item.link || '')) {
           title = item.label
@@ -20,7 +22,7 @@ function useGetPageTitleFromSideBar() {
       })
     }
 
-    findPageTitle(getSideBarItems())
+    findPageTitle(sideBarItems)
 
     return title
   }
