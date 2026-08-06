@@ -4,15 +4,17 @@ import type { MenuItemType } from "../../components/others/Menu/MenuItem.tsx";
 import useDashboardSidebar, { SIDEBAR_WIDTHS } from "./hooks/useDashboardSidebar.tsx";
 import Menu from "../../components/others/Menu/Menu.tsx";
 import type {DashboardSideBarItemsListType} from "./index.types.ts";
+import type {ReactNode} from "react";
 
 
 export type DashboardSideBarProps = {
   sideBarItems: DashboardSideBarItemsListType;
+  endAdornment?: ReactNode;
 }
 
 function DashboardSideBar(
   {
-    sideBarItems
+    sideBarItems, endAdornment
   }: DashboardSideBarProps
 ) {
   const location = useLocation();
@@ -41,6 +43,8 @@ function DashboardSideBar(
       <div className="flex-1 overflow-auto scroll-thin">
         <Menu isExpanded={isExpanded} items={accordionItems} activeLink={location.pathname} />
       </div>
+
+      {endAdornment || null}
     </div>
   );
 }

@@ -5,16 +5,20 @@ import type {ReactNode} from "react";
 
 type Props = {
   topBar: ReactNode;
+  sideBarEndAdornment?: DashboardSideBarProps['endAdornment'];
 } & Pick<DashboardSideBarProps, 'sideBarItems'>
 
 function DashboardLayout(
   {
-    sideBarItems, topBar
+    sideBarItems, topBar, sideBarEndAdornment
   }: Props
 ) {
   return (
     <div className='flex items-start w-full max-w-[1920px] mx-auto'>
-      <DashboardSideBar sideBarItems={sideBarItems}/>
+      <DashboardSideBar
+        sideBarItems={sideBarItems}
+        endAdornment={sideBarEndAdornment}
+      />
 
       <div className={`
         bg-white max-h-dvh flex-1 flex flex-col overflow-x-auto

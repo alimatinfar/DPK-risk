@@ -9,6 +9,7 @@ export type MenuItemProps = {
   onToggle: () => void;
   activeLink?: string;
   isExpanded?: boolean;
+  isFirstItem?: boolean;
 };
 
 export type MenuItemType = {
@@ -21,7 +22,11 @@ export type MenuItemType = {
   titleClass?: string;
 };
 
-function MenuItem({ item, isOpen, onToggle, activeLink, isExpanded }: MenuItemProps) {
+function MenuItem(
+  {
+    item, isOpen, onToggle, activeLink, isExpanded, isFirstItem
+  }: MenuItemProps
+) {
   const Icon = item.icon;
   const [showExpanded, setShowExpanded] = useState(isExpanded);
   const [showCollapsed, setShowCollapsed] = useState(!isExpanded);
@@ -49,8 +54,8 @@ function MenuItem({ item, isOpen, onToggle, activeLink, isExpanded }: MenuItemPr
       key="expanded"
       onClick={onToggle}
       className={`
-        w-full flex items-center justify-between p-2 my-2 bg-gray-50 hover:bg-gray-100
-        ${item.className || ""}
+        w-full flex items-center justify-between p-2 mb-2 bg-gray-50 hover:bg-gray-100
+        ${item.className || ""} ${isFirstItem ? '' : 'mt-2'}
       `}
     >
       <div className="flex items-center gap-2 flex-1">
@@ -77,9 +82,22 @@ function MenuItem({ item, isOpen, onToggle, activeLink, isExpanded }: MenuItemPr
 
   return (
     <>
-      {(showExpanded && item.label) && <div className="animate-in fade-in duration-200  border-t border-gray-200">{expandedHeader}</div>}
-      {showCollapsed && <div className="animate-in fade-in duration-200 border-t border-gray-200">{collapsedHeader}</div>}
-      <SubmenuItem isOpen={shouldShowChildren} children={item.children} activeLink={activeLink} isExpanded={isExpanded} />
+      {(showExpanded && item.label) && (
+        <div className={`animate-in fade-in duration-200 ${!isFirstItem ? 'border-t border-gray-200' : ''}`}>
+          {expandedHeader}
+        </div>
+      )}
+
+      {showCollapsed && (
+        <div className="animate-in fade-in duration-200 border-t border-gray-200">
+          {collapsedHeader}
+        </div>
+      )}
+
+      <SubmenuItem
+        isOpen={shouldShowChildren} children={item.children} activeLink={activeLink} isExpanded={isExpanded}
+        removeLinkPaddingRight={!item.label}
+      />
     </>
   );
 }

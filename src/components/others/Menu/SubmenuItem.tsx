@@ -1,5 +1,5 @@
-import { Link } from "react-router";
-import { useEffect, useState } from "react";
+import {Link} from "react-router";
+import {useEffect, useState} from "react";
 
 export type MenuChildType = {
   link: string;
@@ -14,9 +14,14 @@ export type MenuContentProps = {
   children: MenuChildType[];
   activeLink?: string;
   isExpanded?: boolean;
+  removeLinkPaddingRight?: boolean;
 };
 
-function SubmenuItem({ isOpen, children, activeLink, isExpanded }: MenuContentProps) {
+function SubmenuItem(
+  {
+    isOpen, children, activeLink, isExpanded, removeLinkPaddingRight
+  }: MenuContentProps
+) {
   const [showExpanded, setShowExpanded] = useState(isExpanded);
   const [showCollapsed, setShowCollapsed] = useState(!isExpanded);
 
@@ -43,7 +48,7 @@ function SubmenuItem({ isOpen, children, activeLink, isExpanded }: MenuContentPr
   if (!isOpen) return null;
 
   const expandedContent = (
-    <div className="pr-4 gap-2 mb-2 flex flex-col border-gray-200">
+    <div className={`${removeLinkPaddingRight ? '' : 'pr-4'} gap-2 mb-2 flex flex-col border-gray-200`}>
       {children.map((child, childIndex) => {
         const isActive = isChildActive(child.link);
         const ChildIcon = child.icon;
@@ -60,9 +65,11 @@ function SubmenuItem({ isOpen, children, activeLink, isExpanded }: MenuContentPr
             `}
           >
             {ChildIcon && (
-              <ChildIcon textColor={`${isActive ? "text-white" : "text-gray-500"} duration-200`} className="w-4 h-4 shrink-0" />
+              <ChildIcon textColor={`${isActive ? "text-white" : "text-gray-500"} duration-200`}
+                         className="w-4 h-4 shrink-0"/>
             )}
-            <span className={`flex-1 duration-200 text-sm ${isActive ? "text-white" : "text-gray-700"} ${child.titleClass || ""}`}>
+            <span
+              className={`flex-1 duration-200 text-sm ${isActive ? "text-white" : "text-gray-700"} ${child.titleClass || ""}`}>
               {child.label}
             </span>
           </Link>
@@ -89,7 +96,8 @@ function SubmenuItem({ isOpen, children, activeLink, isExpanded }: MenuContentPr
             title={child.label}
           >
             {ChildIcon && (
-              <ChildIcon textColor={`${isActive ? "text-white" : "text-gray-500"} duration-200`} className="w-5 h-5 shrink-0" />
+              <ChildIcon textColor={`${isActive ? "text-white" : "text-gray-500"} duration-200`}
+                         className="w-5 h-5 shrink-0"/>
             )}
           </Link>
         );

@@ -20,10 +20,10 @@ function Menu({ items, activeLink, onToggle, isExpanded, className }: MenuProps)
 
   return (
     <div className={`flex flex-col   ${className}`}>
-      <div className="pb-4">
+      <div className="pb-4 mb-4 border-b border-gray-200">
         <SaderatLogoAndTypo />
       </div>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <MenuItem
           key={item.id}
           item={item}
@@ -31,6 +31,7 @@ function Menu({ items, activeLink, onToggle, isExpanded, className }: MenuProps)
           onToggle={() => toggleItem(item.id)}
           activeLink={activeLink}
           isExpanded={isExpanded}
+          isFirstItem={index === 0}
         />
       ))}
     </div>
