@@ -44,7 +44,7 @@ function DashboardSideBar(
         <Menu isExpanded={isExpanded} items={accordionItems} activeLink={location.pathname} />
       </div>
 
-      {endAdornment || null}
+      {isExpanded ? endAdornment || null : null}
     </div>
   );
 }

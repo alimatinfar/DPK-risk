@@ -1,5 +1,3 @@
-import TableRenderLogic from "../../../components/others/RenderLogic/TableRenderLogic.tsx";
-import {ADMIN_HIGH_RISK_INDIVIDUAL_TABLE_COLUMNS} from "./index.constances.ts";
 import AdminPageTitle from "../layout/AdminPageTitle.tsx";
 import AddButton from "../../../components/Form/Button/inheritedButtons/AddButton.tsx";
 import Card from "../../../components/others/Card/Card.tsx";
@@ -7,12 +5,13 @@ import Tab from "../../../components/others/Tab/Tab.tsx";
 import useActiveTab from "../../../components/others/Tab/hooks/useActiveTab.ts";
 import {
   ADMIN_HIGH_RISK_INDIVIDUALS_TABS,
-  ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS
-} from "./individuals/index.constances.ts";
+  ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS, ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT
+} from "./index.constances.tsx";
 import Button from "../../../components/Form/Button/Button.tsx";
 import SearchIcon from "../../../components/svg/SearchIcon.tsx";
+import TabContentRender from "../../../components/others/Tab/TabContentRender.tsx";
 
-function AdminHighRiskIndividualPage() {
+function AdminHighRiskIndividualsPage() {
 
   const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS)
 
@@ -26,7 +25,7 @@ function AdminHighRiskIndividualPage() {
         )}/>
       </div>
 
-      <Card className='flex flex-col'>
+      <Card className='flex flex-col gap-y-4'>
         <div className='flex items-center justify-between'>
           <Tab
             tabs={ADMIN_HIGH_RISK_INDIVIDUALS_TABS}
@@ -43,19 +42,13 @@ function AdminHighRiskIndividualPage() {
           </div>
         </div>
 
-        <TableRenderLogic
-          renderLogicProps={{
-            error: null,
-            isLoading: false
-          }}
-          tableProps={{
-            data: [],
-            columns: ADMIN_HIGH_RISK_INDIVIDUAL_TABLE_COLUMNS
-          }}
+        <TabContentRender
+          renderObject={ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT}
+          activeTab={activeTab}
         />
       </Card>
     </div>
   );
 }
 
-export default AdminHighRiskIndividualPage;
+export default AdminHighRiskIndividualsPage;

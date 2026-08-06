@@ -83,13 +83,13 @@ function MenuItem(
   return (
     <>
       {(showExpanded && item.label) && (
-        <div className={`animate-in fade-in duration-200 ${!isFirstItem ? 'border-t border-gray-200' : ''}`}>
+        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200'}`}>
           {expandedHeader}
         </div>
       )}
 
       {showCollapsed && (
-        <div className="animate-in fade-in duration-200 border-t border-gray-200">
+        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200'}`}>
           {collapsedHeader}
         </div>
       )}
