@@ -21,7 +21,7 @@ const PanelLayout = lazy(() => import("../pages/panel/layout/PanelLayout.tsx"));
 
 //admin
 const AdminLayout = lazy(() => import("../pages/admin/layout/AdminLayout.tsx"));
-const AdminHighRiskIndividualPage = lazy(() => import("../pages/admin/high-risk-individual/AdminHighRiskIndividualPage.tsx"));
+const AdminHighRiskIndividualPage = lazy(() => import("../pages/admin/high-risk-individuals/AdminHighRiskIndividualPage.tsx"));
 
 
 
