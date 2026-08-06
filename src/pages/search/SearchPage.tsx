@@ -10,6 +10,7 @@ import {USER_ROLES} from "../../utils/authentication/userRoles/index.constances.
 import Button from "../../components/Form/Button/Button.tsx";
 import {Link} from "react-router";
 import ROUTER_LINKS from "../../constances/routerLinks.ts";
+import SettingIcon from "../../components/svg/SettingIcon.tsx";
 
 
 function SearchPage() {
@@ -32,8 +33,8 @@ function SearchPage() {
             {isAdmin && (
               <Link to={ROUTER_LINKS.ADMIN}>
                 <Button
-                  variant='outlined'
-                  // TODO set rightIcon
+                  variant='outlined' size='sm' className={{extra: 'h-10'}}
+                  rightIcon={<SettingIcon />}
                 >
                   ورود به مدیریت سامانه ریسک
                 </Button>
