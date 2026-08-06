@@ -42,7 +42,7 @@ function useStateQueryParams<T>(
     [setSearchParams, queryParamKey]
   );
 
-  return [state, setState];
+  return [state, setState] as const;
 }
 
 export default useStateQueryParams;

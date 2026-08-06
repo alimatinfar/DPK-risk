@@ -3,6 +3,15 @@ import {lazy, Suspense} from "react";
 import TableSuspense from "../../../components/others/RenderLogic/TableSuspense.tsx";
 import AdminHighRiskIndividualsLettersTableLoading from "./letters/AdminHighRiskIndividualsLettersTableLoading.tsx";
 import AdminHighRiskIndividualsCardsLoading from "./individuals/AdminHighRiskIndividualsCardsLoading.tsx";
+import type {UseFilterReturnProps} from "../../../components/Form/FilterForm/hooks/useFilter.ts";
+
+
+const AdminHighRiskIndividualsFilter = lazy(() => import(
+  "./individuals/AdminHighRiskIndividualsFilter.tsx"
+  ));
+const AdminHighRiskIndividualsLettersFilter = lazy(() => import(
+  "./letters/AdminHighRiskIndividualsLettersFilter.tsx"
+  ));
 
 const AdminHighRiskIndividualsLettersTable = lazy(() => import(
   "./letters/AdminHighRiskIndividualsLettersTable"
@@ -28,9 +37,18 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS: TabsProps['tabs'] = [
   },
 ]
 
+export const ADMIN_HIGH_RISK_INDIVIDUALS_FILTERS_TABS_RENDER_OBJECT = (props: Pick<UseFilterReturnProps<any>, 'filters' | 'setFilters'>) => ({
+  [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS]: (
+    <AdminHighRiskIndividualsFilter {...props} />
+  ),
+  [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.INDIVIDUALS]: (
+    <AdminHighRiskIndividualsLettersFilter {...props} />
+  ),
+})
+
 export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT = {
   [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS]: (
-    <TableSuspense fallback={<AdminHighRiskIndividualsLettersTableLoading />}>
+    <TableSuspense fallback={<AdminHighRiskIndividualsLettersTableLoading/>}>
       <AdminHighRiskIndividualsLettersTable/>
     </TableSuspense>
   ),
