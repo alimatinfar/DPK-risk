@@ -42,7 +42,7 @@ function FilterForm<T extends object>(
 
       {!modalShouldBeRemoved && (
         <Modal
-          title='فیلترها'
+          title='فیلترها' width='w-[570px]'
           open={modalOpen} onClose={closeModalHandler}
         >
           <ReactHookFormWrapper

@@ -39,10 +39,10 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS: TabsProps['tabs'] = [
 
 export const ADMIN_HIGH_RISK_INDIVIDUALS_FILTERS_TABS_RENDER_OBJECT = (props: Pick<UseFilterReturnProps<any>, 'filters' | 'setFilters'>) => ({
   [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS]: (
-    <AdminHighRiskIndividualsFilter {...props} />
+    <AdminHighRiskIndividualsLettersFilter {...props} />
   ),
   [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.INDIVIDUALS]: (
-    <AdminHighRiskIndividualsLettersFilter {...props} />
+    <AdminHighRiskIndividualsFilter {...props} />
   ),
 })
 
