@@ -2,7 +2,7 @@ import {useMemo, useState} from "react";
 import type {SearchPageResultPersonCategoryProps} from "../SearchPageResultPersonCategory.tsx";
 
 
-function useSearchPageResultPersonCategory(
+function useResultPersonCategory(
   {
     resultData, personTypeItem
   }: Pick<SearchPageResultPersonCategoryProps, 'resultData' | 'personTypeItem'>
@@ -36,4 +36,4 @@ function useSearchPageResultPersonCategory(
   }
 }
 
-export default useSearchPageResultPersonCategory;
+export default useResultPersonCategory;

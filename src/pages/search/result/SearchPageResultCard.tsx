@@ -1,11 +1,11 @@
-import type {SearchPageResultCardDataType} from "./SearchPageResult.types.ts";
+import type {ResultCardDataType} from "./ResultCard.types.ts";
 import IconClickable from "../../../components/others/Icon/IconClickable.tsx";
 import LinkIcon from "../../../components/svg/LinkIcon.tsx";
 import useSearchPageResultCard from "./hooks/useSearchPageResultCard.ts";
 
 
 export type SearchPageResultCardProps = {
-  data: SearchPageResultCardDataType
+  data: ResultCardDataType
 }
 
 function SearchPageResultCard(

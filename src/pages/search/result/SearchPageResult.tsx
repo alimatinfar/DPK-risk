@@ -5,13 +5,13 @@ import {ELEMENT_IDS} from "../../../constances/elementIDs.ts";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../form/SearchPageForm.constances.ts";
 import SearchPageResultPersonCategory from "./SearchPageResultPersonCategory.tsx";
 import {SEARCH_PAGE_MAX_WIDTH, SEARCH_PAGE_PADDING_X} from "../SearchPage.constances.ts";
-import type {SearchPageResultCardDataType} from "./SearchPageResult.types.ts";
+import type {ResultCardDataType} from "./ResultCard.types.ts";
 import EmptyStateIcon from "../../../components/svg/RenderLogic/EmptyStateIcon.tsx";
 import SearchPageSkeleton from "../skeleton/SearchPageSkeleton.tsx";
 
 
 export type SearchPageResultProps = {
-  resultData: SearchPageResultCardDataType[];
+  resultData: ResultCardDataType[];
   formIsSubmitted: boolean;
   error: RenderLogicProps['error'];
   loading: boolean;

@@ -14,29 +14,32 @@ import {
 } from "../form/formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
 import {legalTypeFieldName} from "../form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
 
-export type SearchPageResultCardDataTypeNatural = {
+export type ResultCardDataTypeNatural = {
   type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name;
   [nationalCodeFieldName]: string;
   [birthCertificationNumberFieldName]: string;
 }
 
-export type SearchPageResultCardDataTypeForeignCitizen = {
+export type ResultCardDataTypeForeignCitizen = {
   type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name;
   [comprehensiveForeignNationalsIdFieldName]: string;
   [nationalityFieldName]: string;
   [citizenshipFieldName]: string;
 }
 
-export type SearchPageResultCardDataTypeLegal = {
+export type ResultCardDataTypeLegal = {
   type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name;
   [legalBrandNameFieldName]: string;
   [legalRegistrationNumberFieldName]: string;
   [legalTypeFieldName]: string;
 }
 
-export type SearchPageResultCardDataTypeShareFields = {
+
+export const customerIdFieldName = 'customerId'
+
+export type ResultCardDataTypeShareFields = {
   name: string;
-  customerId: string | number;
+  [customerIdFieldName]: string | number;
 }
 
-export type SearchPageResultCardDataType = SearchPageResultCardDataTypeShareFields & (SearchPageResultCardDataTypeNatural | SearchPageResultCardDataTypeForeignCitizen | SearchPageResultCardDataTypeLegal)
+export type ResultCardDataType = ResultCardDataTypeShareFields & (ResultCardDataTypeNatural | ResultCardDataTypeForeignCitizen | ResultCardDataTypeLegal)

@@ -5,6 +5,7 @@ import Ls from "../../../../utils/customLocalStorage.ts";
 import LS_KEYS from "../../../../constances/localStorageKeys.ts";
 import {useNavigate} from "react-router";
 import getFirstPanelSideBarLink from "../../../panel/layout/utils/getFirstPanelSideBarLink.ts";
+import useResultPersonCategoryFields from "./useResultPersonCategoryFields.ts";
 
 
 function useSearchPageResultCard(
@@ -18,11 +19,9 @@ function useSearchPageResultCard(
     navigate(getFirstPanelSideBarLink())
   }
 
-  const fields = useMemo(function () {
-    return Object.values(searchPageResultCardSeparatedFieldsNameLabel[data.type]).map(item => ({
-      label: item.label, value: (data as any)[item.name]
-    }))
-  }, [data])
+  const {fields} = useResultPersonCategoryFields({
+    separatedFieldsName: searchPageResultCardSeparatedFieldsNameLabel, data
+  })
 
   return {
     fields, onCardClickHandler
