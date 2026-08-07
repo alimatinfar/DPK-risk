@@ -88,9 +88,9 @@ function MenuItem(
         </div>
       )}
 
-      {showCollapsed && (
-        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200'}`}>
-          {collapsedHeader}
+      {(showCollapsed && item.label) && (
+        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200 pt-2'}`}>
+          {/*{collapsedHeader}*/}
         </div>
       )}
 

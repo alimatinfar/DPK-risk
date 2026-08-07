@@ -79,7 +79,7 @@ function SubmenuItem(
   );
 
   const collapsedContent = (
-    <div className="px-1 gap-1 mb-4 flex flex-col border-gray-200">
+    <div className="px-1 gap-1 mb-2 flex flex-col items-center border-gray-200">
       {children.map((child, childIndex) => {
         const isActive = isChildActive(child.link);
         const ChildIcon = child.icon;
