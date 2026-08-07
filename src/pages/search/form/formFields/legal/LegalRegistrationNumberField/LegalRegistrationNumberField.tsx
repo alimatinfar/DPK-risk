@@ -21,6 +21,7 @@ function LegalRegistrationNumberField() {
         label: legalRegistrationNumberFieldLabel,
         placeholder: 'برای مثال 10101389936',
         maxLength: SPECIFIC_LENGTH,
+        justNumber: true
       }}
       rules={{
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)

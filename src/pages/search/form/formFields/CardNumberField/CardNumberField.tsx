@@ -19,6 +19,7 @@ function CardNumberField() {
         label: cardNumberFieldLabel,
         placeholder: 'برای مثال 6037691234567891',
         maxLength: SPECIFIC_LENGTH,
+        justNumber: true
       }}
       rules={{
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)

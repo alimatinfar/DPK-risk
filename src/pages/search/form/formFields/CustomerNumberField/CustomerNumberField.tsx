@@ -19,6 +19,7 @@ function CustomerNumberField() {
         label: customerNumberFieldLabel,
         placeholder: 'برای مثال 0397812345',
         maxLength: SPECIFIC_LENGTH,
+        justNumber: true
       }}
       rules={{
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)

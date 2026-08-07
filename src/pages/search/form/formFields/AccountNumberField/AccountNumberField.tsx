@@ -19,6 +19,7 @@ function AccountNumberField() {
         label: accountNumberFieldLabel,
         placeholder: 'برای مثال 0312345678921',
         maxLength: SPECIFIC_LENGTH,
+        justNumber: true
       }}
       rules={{
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)

@@ -18,6 +18,7 @@ function NationalCodeField() {
         label: nationalCodeFieldLabel,
         placeholder: 'برای مثال 0065432107',
         maxLength: SPECIFIC_LENGTH,
+        justNumber: true
       }}
       rules={{
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)

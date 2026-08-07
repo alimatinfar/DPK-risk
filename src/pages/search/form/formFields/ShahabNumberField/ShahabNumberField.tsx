@@ -19,6 +19,7 @@ function ShahabNumberField() {
         label: shahabNumberFieldLabel,
         placeholder: 'برای مثال 8572193405687124',
         maxLength: SPECIFIC_LENGTH,
+        justNumber: true
       }}
       rules={{
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)

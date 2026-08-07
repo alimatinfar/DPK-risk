@@ -21,6 +21,7 @@ function ComprehensiveForeignNationalsIdField() {
         label: comprehensiveForeignNationalsIdFieldLabel,
         placeholder: 'برای مثال 000330100456789',
         maxLength: SPECIFIC_LENGTH,
+        justNumber: true
       }}
       rules={{
         minLength: FORM_PATTERNS.SPECIFIC_LENGTH_CHAR(SPECIFIC_LENGTH)
