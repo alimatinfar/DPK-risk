@@ -3,10 +3,6 @@ import {letterNumberFieldName, letterNumberFieldLabel} from "./index.constances.
 
 
 function LetterNumberField() {
-
-  // const getErrorMessage = useGetFormErrorMessage();
-  // const errorMessage = getErrorMessage(letterNumberFieldName);
-
   return (
     <InputForm
       fieldName={letterNumberFieldName}
@@ -14,6 +10,7 @@ function LetterNumberField() {
         // errorMessage,
         label: letterNumberFieldLabel,
         placeholder: 'برای مثال 16897651231',
+        justNumber: true
       }}
     />
   );

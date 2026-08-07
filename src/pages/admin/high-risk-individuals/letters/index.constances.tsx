@@ -2,6 +2,16 @@ import type {TableColumnType} from "../../../../components/others/Table/TableExp
 import ACTIONS_COLUMN from "../../../../components/others/Table/constances/actions/actionsColumn.ts";
 import type {AdminHighRiskIndividualsLettersFilterType} from "./index.types.ts";
 import type {FilterType} from "../../../../components/Form/FilterForm/index.types.ts";
+import {letterNumberFieldName, type LetterNumberFieldType} from "../FormFields/LetterNumberField/index.constances.ts";
+import {
+  announceReferenceFieldName,
+  type AnnounceReferenceFieldType
+} from "../FormFields/AnnouncingReferenceField/index.constances.ts";
+import {
+  letterFromDateFieldName,
+  type LetterFromDateFieldType
+} from "../FormFields/LetterFromDateField/index.constances.ts";
+import {letterToDateFieldName, type LetterToDateFieldType} from "../FormFields/LetterToDateField/index.constances.ts";
 
 
 export const ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS = {
@@ -47,4 +57,9 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_FAKE_DATA = [
   },
 ];
 
-export const adminHighRiskIndividualsLettersDefaultFilters: AdminHighRiskIndividualsLettersFilterType = {}
+export const adminHighRiskIndividualsLettersDefaultFilters: AdminHighRiskIndividualsLettersFilterType = {
+  [letterNumberFieldName]: '',
+  [announceReferenceFieldName]: '',
+  [letterFromDateFieldName]: undefined,
+  [letterToDateFieldName]: undefined,
+}

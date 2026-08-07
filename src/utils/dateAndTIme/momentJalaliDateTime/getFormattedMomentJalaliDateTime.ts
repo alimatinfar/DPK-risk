@@ -1,4 +1,5 @@
 import type {Moment} from "moment-jalaali";
+import moment from "moment-jalaali";
 
 const MODES = {
   DATE_TIME: 'dateTime',
@@ -21,14 +22,15 @@ const FORMATS = {
 }
 
 export type GetFormattedMomentJalaliDateTimeProps = {
-  date: Moment;
+  date: Moment | string;
   mode: typeof MODES[keyof typeof MODES];
 }
 
 function getFormattedMomentJalaliDateTime(
   {date, mode}: GetFormattedMomentJalaliDateTimeProps
 ) {
-  return date.format(FORMATS[mode])
+  const value = typeof date === 'string' ? moment(date) : date
+  return value.format(FORMATS[mode])
 }
 
 export default getFormattedMomentJalaliDateTime;

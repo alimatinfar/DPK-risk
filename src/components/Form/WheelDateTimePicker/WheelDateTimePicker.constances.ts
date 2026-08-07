@@ -10,6 +10,6 @@ export type WheelDateTimePickerModesType = typeof WHEEL_DATE_TIME_PICKER_MODES[k
 
 export type WheelDateTimePickerProps = {
   onChange: (date: Moment) => void;
-  value: Moment;
+  value: Moment | string;
   mode?: WheelDateTimePickerModesType;
 }

@@ -28,15 +28,17 @@ function useFilterForm<T extends object>(
 
   function resetFilters() {
     closeModalHandler()
-    setInitialFormData(initialFilterData.data)
+    setInitialFormData(initialFilterData)
     setFilters({
       ...filters,
-      data: initialFilterData.data,
+      data: initialFilterData,
       currentPage: 1
     })
   }
 
+  console.log({filtersData: filters.data})
   function setFiltersValuesToInputs() {
+    console.log({data: filters.data})
     setInitialFormData(filters.data)
   }
 
