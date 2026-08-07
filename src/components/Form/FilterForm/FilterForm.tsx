@@ -10,7 +10,7 @@ import useFilterForm from "./hooks/useFilterForm.ts";
 export type FilterFormProps<T> = {
   filters: FilterType<T>;
   setFilters: (value: FilterType<T>) => void;
-  initialFilterData: FilterType<T>;
+  initialFilterData: T;
 } & PropsWithChildren
 
 function FilterForm<T extends object>(
@@ -33,7 +33,7 @@ function FilterForm<T extends object>(
           rightIcon={<SearchIcon/>} fullWidth
           variant='default' color='white' onClick={openModalHandler}
           className={{
-            default: activeFilterCount ? 'bg-[#F1F1F3]' : ''
+            // default: activeFilterCount ? 'bg-[#F1F1F3]' : ''
           }}
         >
           {`جستجو${activeFilterCount ? ` (${activeFilterCount})` : ''}`}

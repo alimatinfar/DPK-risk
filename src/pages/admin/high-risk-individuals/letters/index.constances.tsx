@@ -47,8 +47,4 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_FAKE_DATA = [
   },
 ];
 
-export const adminHighRiskIndividualsLettersDefaultFilters: FilterType<AdminHighRiskIndividualsLettersFilterType> = {
-  data: {},
-  currentPage: 1,
-  rowsPerPage: 10,
-}
+export const adminHighRiskIndividualsLettersDefaultFilters: AdminHighRiskIndividualsLettersFilterType = {}
