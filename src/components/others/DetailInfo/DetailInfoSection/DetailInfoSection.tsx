@@ -3,7 +3,7 @@ import {useMemo} from "react";
 import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
 
 function DetailInfoSection(
-  {title, infoList}: DetailInfoSectionProps
+  {title, infoList, customGridColsClass}: DetailInfoSectionProps
 ) {
 
   const rows = useMemo(function () {
@@ -42,7 +42,7 @@ function DetailInfoSection(
           <div
             key={rowsIndex}
             className={`
-              grid grid-cols-5
+              grid ${customGridColsClass || 'grid-cols-5'}
               ${rowsIndex === 0 ? '' : 'border-t border-gray-200  pt-3 mt-3'}
             `}
           >

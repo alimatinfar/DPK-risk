@@ -8,4 +8,5 @@ export type DetailInfoSectionItemType = {
 export type DetailInfoSectionProps = {
   title: string;
   infoList: DetailInfoSectionItemType[];
+  customGridColsClass?: string;
 }

@@ -10,6 +10,7 @@ import comprehensiveInfoRouter from "./comprehensiveInfoRouter.tsx";
 import bankingInfoRouter from "./bankingInfoRouter.tsx";
 import businessInteractionRiskRouter from "./businessInteractionRiskRouter.tsx";
 import getFirstAdminSideBarLink from "../pages/admin/layout/utils/getFirstAdminSideBarLink.ts";
+import adminRouter from "./adminRouter.tsx";
 
 
 // const RemoteComponent = lazy(() => import('remoteApp/App'))
@@ -58,18 +59,10 @@ const router = createBrowserRouter(
             ...businessInteractionRiskRouter,
           ]
         },
+
         {
           element: <AdminLayout/>,
-          children: [
-            {
-              path: ROUTER_LINKS.ADMIN,
-              element: <Navigate to={getFirstAdminSideBarLink()} />,
-            },
-            {
-              path: ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL,
-              element: <AdminHighRiskIndividualPage />,
-            },
-          ]
+          children: adminRouter
         },
       ]
     }

@@ -1,0 +1,34 @@
+import type {TabsProps} from "../../../../../components/others/Tab/Tab.tsx";
+import {lazy} from "react";
+
+const AdminHighRiskIndividualsLettersDetailDocuments = lazy(() => import(
+  "./documents/AdminHighRiskIndividualsLettersDetailDocuments.tsx"
+  ))
+const AdminHighRiskIndividualsLettersDetailIndividuals = lazy(() => import(
+  "./individuals/AdminHighRiskIndividualsLettersDetailIndividuals.tsx"
+  ))
+
+export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS = {
+  DOCUMENTS: 'documents',
+  INDIVIDUALS: 'individuals',
+}
+
+export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS: TabsProps['tabs'] = [
+  {
+    id: ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS,
+    title: 'توضیحات و مستندات'
+  },
+  {
+    id: ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.INDIVIDUALS,
+    title: 'افراد اضافه شده'
+  },
+]
+
+export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_RENDER_OBJECT = {
+  [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS]: (
+    <AdminHighRiskIndividualsLettersDetailDocuments/>
+  ),
+  [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.INDIVIDUALS]: (
+    <AdminHighRiskIndividualsLettersDetailIndividuals/>
+  ),
+}
