@@ -1,6 +1,7 @@
-import type {DetailInfoSectionProps} from "../../../../../../../components/others/DetailInfo/DetailInfoSection";
 import useAdminHighRiskIndividualsLettersDetailDocumentsDescription
   from "./useAdminHighRiskIndividualsLettersDetailDocumentsDescription.ts";
+import useAdminHighRiskIndividualsLettersDetailDocumentsDocs
+  from "./useAdminHighRiskIndividualsLettersDetailDocumentsDocs.ts";
 
 function useAdminHighRiskIndividualsLettersDetailDocuments() {
 
@@ -8,8 +9,12 @@ function useAdminHighRiskIndividualsLettersDetailDocuments() {
     descriptionItems
   } = useAdminHighRiskIndividualsLettersDetailDocumentsDescription()
 
+  const {
+    documents
+  } = useAdminHighRiskIndividualsLettersDetailDocumentsDocs()
+
   return {
-    descriptionItems
+    descriptionItems, documents
   }
 }
 

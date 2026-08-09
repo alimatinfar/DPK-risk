@@ -2,6 +2,7 @@ import type {DetailInfoSectionProps} from "./index.types.ts";
 import {useMemo} from "react";
 import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
 import CardWithHeader from "../../Card/CardWithHeader/CardWithHeader.tsx";
+import DetailInfoSectionLabelValue from "./DetailInfoSectionLabelValue.tsx";
 
 function DetailInfoSection(
   {title, infoList, customGridColsClass}: DetailInfoSectionProps
@@ -43,18 +44,12 @@ function DetailInfoSection(
             `}
         >
           {row.map((item, rowItemIndex) => (
-            <div
+            <DetailInfoSectionLabelValue
               key={rowItemIndex}
-              className='flex flex-col gap-y-2 col-span-2'
               style={{gridColumn: `span ${item.column} / span ${item.column}`}}
-            >
-              <span className="text-sm text-gray-500">
-                {item.label}
-              </span>
-              <span className="text-gray-900">
-                {item?.value || <NoDataTag/>}
-              </span>
-            </div>
+              className='col-span-2'
+              label={item.label} value={item.value}
+            />
           ))}
         </div>
       ))}
