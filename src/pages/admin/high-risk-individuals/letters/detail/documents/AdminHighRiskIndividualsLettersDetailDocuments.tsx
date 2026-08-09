@@ -3,6 +3,7 @@ import {
 } from "../../../../../../components/others/DetailInfo/DetailInfoSection";
 import useAdminHighRiskIndividualsLettersDetailDocuments
   from "./hooks/useAdminHighRiskIndividualsLettersDetailDocuments.ts";
+import CardWithHeader from "../../../../../../components/others/Card/CardWithHeader/CardWithHeader.tsx";
 
 function AdminHighRiskIndividualsLettersDetailDocuments() {
 
@@ -16,6 +17,13 @@ function AdminHighRiskIndividualsLettersDetailDocuments() {
         title={'توضیحات'} customGridColsClass='grid-cols-3'
         infoList={descriptionItems}
       />
+
+      <CardWithHeader
+        title='تایم لاین تغییرات'
+        headerEndAdornment={<div>salam</div>}
+      >
+        محتوای تایم لاین
+      </CardWithHeader>
     </div>
   );
 }

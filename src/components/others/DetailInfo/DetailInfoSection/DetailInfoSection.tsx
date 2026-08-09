@@ -1,6 +1,7 @@
 import type {DetailInfoSectionProps} from "./index.types.ts";
 import {useMemo} from "react";
 import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
+import CardWithHeader from "../../Card/CardWithHeader/CardWithHeader.tsx";
 
 function DetailInfoSection(
   {title, infoList, customGridColsClass}: DetailInfoSectionProps
@@ -30,40 +31,34 @@ function DetailInfoSection(
   }, [infoList])
 
   return (
-    <div className='flex flex-col border border-gray-200 rounded-lg overflow-hidden'>
-      <div className='flex items-center bg-gray-50 h-15 px-4'>
-        <span className='font-medium'>
-          {title}
-        </span>
-      </div>
-
-      <div className='bg-white p-4'>
-        {rows.map((row, rowsIndex) => (
-          <div
-            key={rowsIndex}
-            className={`
+    <CardWithHeader
+      title={title}
+    >
+      {rows.map((row, rowsIndex) => (
+        <div
+          key={rowsIndex}
+          className={`
               grid ${customGridColsClass || 'grid-cols-5'}
               ${rowsIndex === 0 ? '' : 'border-t border-gray-200  pt-3 mt-3'}
             `}
-          >
-            {row.map((item, rowItemIndex) => (
-              <div
-                key={rowItemIndex}
-                className='flex flex-col gap-y-2 col-span-2'
-                style={{ gridColumn: `span ${item.column} / span ${item.column}` }}
-              >
-                <span className="text-sm text-gray-500">
-                  {item.label}
-                </span>
-                <span className="text-gray-900">
-                  {item?.value || <NoDataTag />}
-                </span>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
+        >
+          {row.map((item, rowItemIndex) => (
+            <div
+              key={rowItemIndex}
+              className='flex flex-col gap-y-2 col-span-2'
+              style={{gridColumn: `span ${item.column} / span ${item.column}`}}
+            >
+              <span className="text-sm text-gray-500">
+                {item.label}
+              </span>
+              <span className="text-gray-900">
+                {item?.value || <NoDataTag/>}
+              </span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </CardWithHeader>
   );
 }
 
