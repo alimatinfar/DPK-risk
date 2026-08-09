@@ -1,33 +1,35 @@
 import Button from "../../../components/Form/Button/Button.tsx";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../form/SearchPageForm.constances.ts";
 import ArrowIcon from "../../../components/svg/ArrowIcon.tsx";
-import SearchPageResultCard from "./SearchPageResultCard.tsx";
 import useResultPersonCategory from "./hooks/useResultPersonCategory.ts";
 import ArrowIcon2 from "../../../components/svg/ArrowIcon2.tsx";
 import type {ResultCardDataType} from "./ResultCard.types.ts";
 import type {ReactNode} from "react";
 
+type ResultDataType = Pick<ResultCardDataType, 'type'> & any
 
 export type ResultPersonCategoryProps = {
   personTypeItem: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS];
-  resultData: ResultCardDataType[];
+  resultData: ResultDataType[];
   wrapperBackground?: string;
   headerClassName?: string;
   headerBorderBottomClassName?: string;
-  CardElement: (props: {data: ResultCardDataType}) => ReactNode;
+  CardElement?: (props: {data: ResultDataType}) => ReactNode;
+  showAllItems?: boolean;
+  customContent?: (visibleItems: ResultDataType[]) => ReactNode;
 }
 
 function ResultPersonCategory(
   {
     personTypeItem, resultData, wrapperBackground, headerClassName, headerBorderBottomClassName,
-    CardElement
+    CardElement, showAllItems, customContent
   }: ResultPersonCategoryProps
 ) {
 
   const {
     open, toggleOpen, dataList, visibleItems, hasLoadMoreButton, loadMoreHandler
   } = useResultPersonCategory({
-    resultData, personTypeItem
+    resultData, personTypeItem, showAllItems
   })
 
   return dataList?.length ? (
@@ -53,12 +55,12 @@ function ResultPersonCategory(
         <ArrowIcon className={open ? 'rotate-180' : ''}/>
       </div>
 
-      {open && (
+      {open ? customContent ? customContent(visibleItems) : (
         <div className='flex flex-col p-4'>
           <div className='grid grid-cols-4 gap-4'>
-            {visibleItems.map((item, index) => (
+            {visibleItems.map((item, index) => CardElement ? (
               <CardElement key={index} data={item}/>
-            ))}
+            ) : null)}
           </div>
 
           {hasLoadMoreButton && (
@@ -72,7 +74,7 @@ function ResultPersonCategory(
             </div>
           )}
         </div>
-      )}
+      ) : null}
     </div>
   ) : null
 }

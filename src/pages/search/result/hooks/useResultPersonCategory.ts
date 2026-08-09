@@ -1,11 +1,11 @@
 import {useMemo, useState} from "react";
-import type {SearchPageResultPersonCategoryProps} from "../SearchPageResultPersonCategory.tsx";
+import type {ResultPersonCategoryProps} from "../ResultPersonCategory.tsx";
 
 
 function useResultPersonCategory(
   {
-    resultData, personTypeItem
-  }: Pick<SearchPageResultPersonCategoryProps, 'resultData' | 'personTypeItem'>
+    resultData, personTypeItem, showAllItems
+  }: Pick<ResultPersonCategoryProps, 'resultData' | 'personTypeItem' | 'showAllItems'>
 ) {
 
   const [open, setOpen] = useState(true);
@@ -26,8 +26,8 @@ function useResultPersonCategory(
 
 
   const visibleItems = useMemo(function () {
-    return dataList.slice(0, visibleCount)
-  }, [dataList, visibleCount])
+    return showAllItems ? dataList : dataList.slice(0, visibleCount)
+  }, [dataList, visibleCount, showAllItems])
 
   const hasLoadMoreButton = visibleCount < dataList.length
 
