@@ -15,7 +15,7 @@ function AdminHighRiskIndividualsLettersDetailPage() {
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <AdminPageTitle title={`نامه ${id}`}>
+      <AdminPageTitle title={`نامه ${id}`} hasBack>
         <Tab
           tabs={ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS}
           activeTab={activeTab} onChange={setActiveTab}
