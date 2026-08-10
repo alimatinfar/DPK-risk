@@ -10,7 +10,8 @@ import DetailInfoSectionLabelValue
 import Button from "../../../../../../components/Form/Button/Button.tsx";
 import DeleteIcon from "../../../../../../components/svg/DeleteIcon.tsx";
 import DownloadIcon from "../../../../../../components/svg/DownloadIcon.tsx";
-import SearchIcon from "../../../../../../components/svg/SearchIcon.tsx";
+import EditIcon from "../../../../../../components/svg/EditIcon.tsx";
+
 
 function AdminHighRiskIndividualsLettersDetailDocuments() {
 
@@ -54,18 +55,17 @@ function AdminHighRiskIndividualsLettersDetailDocuments() {
                 <Button
                   justIcon variant='default' color='red'
                 >
-                  <DeleteIcon textColor='text-red-500' />
+                  <DeleteIcon textColor='text-red-500'/>
                 </Button>
 
                 <Button
                   justIcon variant='default' color='white'
                 >
-                  {/*TODO should be changed*/}
-                  <SearchIcon />
+                  <EditIcon/>
                 </Button>
 
                 <Button
-                  rightIcon={<DownloadIcon />} variant='outlined'
+                  rightIcon={<DownloadIcon/>} variant='outlined'
                 >
                   دریافت فایل
                 </Button>
