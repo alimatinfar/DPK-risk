@@ -1,6 +1,5 @@
 import type {DetailInfoSectionProps} from "./index.types.ts";
 import {useMemo} from "react";
-import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
 import CardWithHeader from "../../Card/CardWithHeader/CardWithHeader.tsx";
 import DetailInfoSectionLabelValue from "./DetailInfoSectionLabelValue.tsx";
 
