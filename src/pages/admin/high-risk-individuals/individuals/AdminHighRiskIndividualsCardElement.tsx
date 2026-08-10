@@ -5,6 +5,9 @@ import DeleteIcon from "../../../../components/svg/DeleteIcon.tsx";
 import IconClickable from "../../../../components/others/Icon/IconClickable.tsx";
 import Button from "../../../../components/Form/Button/Button.tsx";
 import DownloadIcon from "../../../../components/svg/DownloadIcon.tsx";
+import {useMemo} from "react";
+import CardTitleValue, {type CardTitleValueProps} from "../../../../components/others/Card/CardTitleValue.tsx";
+import DetailIcon from "../../../../components/svg/DetailIcon.tsx";
 
 
 type Props = {
@@ -19,7 +22,20 @@ function AdminHighRiskIndividualsCardElement(
     separatedFieldsName: adminHighRiskIndividualsCardSeparatedFieldsNameLabel, data
   })
 
-  console.log({fields})
+  const shareFields: CardTitleValueProps[] = useMemo(function () {
+    return [
+      {
+        label: 'تعداد نامه‌ها',
+        value: '3'
+      },
+      {
+        label: 'تعداد مستندات',
+        value: '3'
+      },
+    ]
+  }, [])
+
+  const categoryFields = [fields, shareFields]
 
   return (
     <div className='rounded-lg border border-gray-200 flex flex-col overflow-hidden'>
@@ -30,35 +46,27 @@ function AdminHighRiskIndividualsCardElement(
 
         <IconClickable
           onClick={() => console.log('salam')}
-          hoverClass='hover:bg-red-100'
+          hoverClass='hover:bg-white'
         >
-          <DeleteIcon strokeClass='stroke-[1.5]' textColor='text-red-500'/>
+          <DetailIcon />
         </IconClickable>
       </div>
 
       <div className='p-2 flex flex-col'>
-        <div className='flex flex-col gap-y-2 py-2'>
-          {fields.map((field, index) => {
-            return (
-              <div
-                key={index}
-                className='flex items-center justify-between text-sm text-secondary-text'
-              >
-                <span>{field.label}</span>
-                <span>{field.value}</span>
-              </div>
-            )
-          })}
-        </div>
-
-        <div className='pt-2 border-t border-gray-200'>
-          <Button
-            variant='link' fullWidth size='sm'
-            rightIcon={<DownloadIcon />}
-          >
-            دریافت مستندات
-          </Button>
-        </div>
+        {categoryFields.map((fields, categoryIndex) => {
+          return (
+            <div
+              key={categoryIndex}
+              className={`flex flex-col gap-y-2 py-2 ${categoryIndex === 0 ? '' : 'border-t border-gray-200'}`}
+            >
+              {fields.map(({label, value}, index) => (
+                <CardTitleValue
+                  key={index} label={label} value={value}
+                />
+              ))}
+            </div>
+          )
+        })}
       </div>
     </div>
   );
