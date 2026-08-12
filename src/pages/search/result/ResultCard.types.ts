@@ -42,4 +42,4 @@ export type ResultCardDataTypeShareFields = {
   [customerIdFieldName]: string | number;
 }
 
-export type ResultCardDataType = ResultCardDataTypeShareFields & (ResultCardDataTypeNatural | ResultCardDataTypeForeignCitizen | ResultCardDataTypeLegal)
+export type ResultPersonCardDataType = ResultCardDataTypeShareFields & (ResultCardDataTypeNatural | ResultCardDataTypeForeignCitizen | ResultCardDataTypeLegal)

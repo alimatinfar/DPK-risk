@@ -1,4 +1,4 @@
-import type {ResultCardDataType} from "../../../search/result/ResultCard.types.ts";
+import type {ResultPersonCardDataType} from "../../../search/result/ResultCard.types.ts";
 import useResultPersonCategoryFields from "../../../search/result/hooks/useResultPersonCategoryFields.ts";
 import {adminHighRiskIndividualsCardSeparatedFieldsNameLabel} from "./index.constances.ts";
 import DeleteIcon from "../../../../components/svg/DeleteIcon.tsx";
@@ -11,7 +11,7 @@ import DetailIcon from "../../../../components/svg/DetailIcon.tsx";
 
 
 type Props = {
-  data: ResultCardDataType
+  data: ResultPersonCardDataType
 }
 
 function AdminHighRiskIndividualsCardElement(

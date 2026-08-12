@@ -3,20 +3,20 @@ import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../form/SearchPageForm.constanc
 import ArrowIcon from "../../../components/svg/ArrowIcon.tsx";
 import useResultPersonCategory from "./hooks/useResultPersonCategory.ts";
 import ArrowIcon2 from "../../../components/svg/ArrowIcon2.tsx";
-import type {ResultCardDataType} from "./ResultCard.types.ts";
+import type {ResultPersonCardDataType} from "./ResultCard.types.ts";
 import type {ReactNode} from "react";
 
-type ResultDataType = Pick<ResultCardDataType, 'type'> & any
+// type ResultDataType = Pick<ResultPersonCardDataType, 'type'> & {[key: string]: unknown;}
 
 export type ResultPersonCategoryProps = {
   personTypeItem: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS];
-  resultData: ResultDataType[];
+  resultData: ResultPersonCardDataType[];
   wrapperBackground?: string;
   headerClassName?: string;
   headerBorderBottomClassName?: string;
-  CardElement?: (props: {data: ResultDataType}) => ReactNode;
+  CardElement?: (props: {data: ResultPersonCardDataType}) => ReactNode;
   showAllItems?: boolean;
-  customContent?: (visibleItems: ResultDataType[]) => ReactNode;
+  customContent?: (visibleItems: ResultPersonCardDataType[]) => ReactNode;
 }
 
 function ResultPersonCategory(

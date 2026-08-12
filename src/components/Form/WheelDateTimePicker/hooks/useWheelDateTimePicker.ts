@@ -7,17 +7,19 @@ function useWheelDateTimePicker(
   {onChange, value}: Pick<WheelDateTimePickerProps, 'onChange' | 'value'>
 ) {
 
+  const momentValue = typeof value === "string" ? moment(value) : value
+
   const today = useMemo(() => moment(), [])
 
-  const year = useMemo(() => value.jYear(), [value])
-  const month = useMemo(() => (value.jMonth() + 1), [value])
-  const day = useMemo(() => value.jDate(), [value])
-  const hour = useMemo(() => value.hour(), [value])
-  const minute = useMemo(() => value.minute(), [value])
+  const year = useMemo(() => momentValue.jYear(), [momentValue])
+  const month = useMemo(() => (momentValue.jMonth() + 1), [momentValue])
+  const day = useMemo(() => momentValue.jDate(), [momentValue])
+  const hour = useMemo(() => momentValue.hour(), [momentValue])
+  const minute = useMemo(() => momentValue.minute(), [momentValue])
 
   const updateHandler = useCallback(function (fn:(prevValue: Moment) => Moment) {
-    onChange(fn(value || today).clone())
-  }, [onChange, value, today])
+    onChange(fn(momentValue || today).clone())
+  }, [onChange, momentValue, today])
 
   const setYear = useCallback(function (currentValue: number) {
     updateHandler((prevValue) => prevValue.jYear(currentValue))

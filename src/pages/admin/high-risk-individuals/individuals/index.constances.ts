@@ -2,7 +2,7 @@ import type {AdminHighRiskIndividualsFilterType} from "./index.types.ts";
 import {nationalCodeFieldName} from "../FormFields/NationalCodeField/index.constances.ts";
 import {firstNameFieldName} from "../FormFields/FirstNameField/index.constances.ts";
 import {lastNameFieldName} from "../FormFields/LastNameField/index.constances.ts";
-import {customerIdFieldName, type ResultCardDataType} from "../../../search/result/ResultCard.types.ts";
+import {customerIdFieldName, type ResultPersonCardDataType} from "../../../search/result/ResultCard.types.ts";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../search/form/SearchPageForm.constances.ts";
 import {
   birthCertificationNumberFieldLabel,
@@ -48,7 +48,7 @@ export const adminHighRiskIndividualsDefaultFilters: AdminHighRiskIndividualsFil
   [lastNameFieldName]: '',
 }
 
-export const FAKE_DATA: ResultCardDataType[] = [
+export const FAKE_DATA: ResultPersonCardDataType[] = [
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
     name: 'حسین مبینی',

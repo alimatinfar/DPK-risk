@@ -8,11 +8,14 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
       {Object.values(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).map(category => (
         <ResultPersonCategory2
           key={category.name} personTypeItem={category} resultData={FAKE_DATA}
-          customContent={(visibleItems) => visibleItems.map((item, itemIndex) => (
-            <div key={itemIndex}>
-              {item.type}
-            </div>
-          ))}
+          customContent={(visibleItems) => visibleItems.map((item, itemIndex) => {
+            console.log({item})
+            return (
+              <div key={itemIndex}>
+                {item.type}
+              </div>
+            )
+          })}
         />
       ))}
     </div>

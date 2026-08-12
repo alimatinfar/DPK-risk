@@ -1,11 +1,11 @@
 import {useMemo} from "react";
 import type {SearchPageFormPersonType} from "../../form/SearchPageForm.types.ts";
-import type {ResultCardDataType} from "../ResultCard.types.ts";
+import type {ResultPersonCardDataType} from "../ResultCard.types.ts";
 
 
 type Props = {
   separatedFieldsName: Record<SearchPageFormPersonType, {name: any, label: string}[]>;
-  data: ResultCardDataType;
+  data: ResultPersonCardDataType;
 }
 
 function useResultPersonCategoryFields(
