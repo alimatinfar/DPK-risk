@@ -44,7 +44,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
       >
         <DescriptionField/>
 
-        <div className='grid grid-cols-2 gap-x-4'>
+        <div className='grid grid-cols-2 gap-x-4 mt-2'>
           <Button
             variant='default' color='white'
           >
@@ -52,7 +52,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
           </Button>
 
           <Button
-            color='red'
+            color='red' type='submit'
           >
             حذف
           </Button>

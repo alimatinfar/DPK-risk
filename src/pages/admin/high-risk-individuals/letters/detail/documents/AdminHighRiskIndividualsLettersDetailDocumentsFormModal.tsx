@@ -9,7 +9,6 @@ import {fileTypeFieldName, type FileTypeFieldType} from "../../../FormFields/Fil
 import {descriptionFieldName, type DescriptionFieldType} from "../../../FormFields/DescriptionField/index.constances";
 import DescriptionField from "../../../FormFields/DescriptionField/DescriptionField";
 import Button from "../../../../../../components/Form/Button/Button";
-import UploadBox from "../../../../../../components/others/UploadBox/UploadBox";
 import UploadFileField from "../../../FormFields/UploadFileField/UploadFileField";
 
 
