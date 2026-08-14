@@ -34,8 +34,6 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
     onSubmitHandler
   })
 
-  const isEditMode = typeof modalState !== 'boolean'
-
   useEffect(function () {
     if (typeof modalState === 'boolean') return
 
@@ -50,7 +48,7 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
   }, [modalState])
 
   return {
-    isEditMode, formMethods, onSubmit
+    formMethods, onSubmit
   }
 }
 
