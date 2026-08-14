@@ -9,6 +9,9 @@ const AdminHighRiskIndividualsPage = lazy(() => import(
 const AdminHighRiskIndividualsLettersDetailPage = lazy(() => import(
   "../pages/admin/high-risk-individuals/letters/detail/AdminHighRiskIndividualsLettersDetailPage.tsx"
   ))
+const AdminHighRiskIndividualsDetailPage = lazy(() => import(
+  "../pages/admin/high-risk-individuals/individuals/detail/AdminHighRiskIndividualsDetailPage.tsx"
+  ))
 
 
 const adminRouter = [
@@ -19,6 +22,10 @@ const adminRouter = [
   {
     path: ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL,
     element: <AdminHighRiskIndividualsPage/>,
+  },
+  {
+    path: `${ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL}/:id`,
+    element: <AdminHighRiskIndividualsDetailPage/>,
   },
   {
     path: `${ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER}/:id`,
