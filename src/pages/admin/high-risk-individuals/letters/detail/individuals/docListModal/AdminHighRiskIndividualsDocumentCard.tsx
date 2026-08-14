@@ -2,11 +2,16 @@ import IconClickable from "../../../../../../../components/others/Icon/IconClick
 import DeleteIcon from "../../../../../../../components/svg/DeleteIcon.tsx";
 import EditIcon2 from "../../../../../../../components/svg/EditIcon2.tsx";
 import FileDataCard from "../../../../../../../components/others/FileDataCard/FileDataCard.tsx";
-import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "../../documents/index.types.ts";
+import type {
+  AdminHighRiskIndividualsDocumentFormDataType
+} from "../../documents/formModal/AdminHighRiskIndividualsDocumentFormFields.tsx";
+import {fileTypeFieldName} from "../../../../FormFields/FileTypeField/index.constances.ts";
+import {uploadFileFieldName} from "../../../../FormFields/UploadFileField/index.constances.ts";
+import {descriptionFieldName} from "../../../../FormFields/DescriptionField/index.constances.ts";
 
 
 type Props = {
-  document: AdminHighRiskIndividualsLettersDetailDocumentType;
+  document: AdminHighRiskIndividualsDocumentFormDataType;
   editAction?: () => void;
   deleteAction?: () => void;
 }
@@ -18,12 +23,11 @@ function AdminHighRiskIndividualsDocumentCard(
 ) {
   return (
     <div
-      key={document.id}
       className='rounded-lg bg-gray-100 p-2 flex flex-col gap-y-2'
     >
       <div className='flex items-center justify-between gap-x-4'>
         <p>
-          {document.fileType?.name}
+          {document?.[fileTypeFieldName] ? document?.[fileTypeFieldName]?.name : ''}
         </p>
 
         {(editAction || deleteAction) && (
@@ -50,11 +54,11 @@ function AdminHighRiskIndividualsDocumentCard(
       </div>
 
       <p className='text-sm text-gray-500'>
-        {document.description}
+        {document?.[descriptionFieldName]}
       </p>
 
       <FileDataCard
-        fileData={document.fileData}
+        fileData={document?.[uploadFileFieldName]}
       />
     </div>
   );

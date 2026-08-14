@@ -11,12 +11,11 @@ import type {
 import {useEffect} from "react";
 import setDefaultValuesFromObject
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
-
-
-type FormDataType = {
-  [fileTypeFieldName]: FileTypeFieldType;
-  [descriptionFieldName]: DescriptionFieldType;
-}
+import {
+  uploadFileFieldName,
+  type UploadFileFieldType
+} from "../../../../../FormFields/UploadFileField/index.constances.ts";
+import type {AdminHighRiskIndividualsDocumentFormDataType} from "../AdminHighRiskIndividualsDocumentFormFields.tsx";
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
   {
@@ -24,7 +23,7 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
   }: Pick<AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps, 'modalState'>
 ) {
 
-  function onSubmitHandler(formData: FormDataType) {
+  function onSubmitHandler(formData: AdminHighRiskIndividualsDocumentFormDataType) {
     console.log({formData})
   }
 

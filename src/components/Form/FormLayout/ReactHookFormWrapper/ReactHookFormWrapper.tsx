@@ -12,7 +12,7 @@ export type ReactHookFormWrapperProps = {
 
 function ReactHookFormWrapper({formMethods, onSubmit, className, children, hiddenButton}: ReactHookFormWrapperProps) {
   return (
-    <FormProvider {...formMethods}>
+    <FormProvider {...formMethods} >
       <form onSubmit={onSubmit} className={className || ''}>
         {children}
 

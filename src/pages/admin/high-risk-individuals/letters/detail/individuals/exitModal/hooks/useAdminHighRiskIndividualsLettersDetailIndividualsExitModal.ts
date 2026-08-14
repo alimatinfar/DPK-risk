@@ -12,6 +12,10 @@ import {useWatch} from "react-hook-form";
 import {
   type AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps
 } from "../AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx";
+import type {
+  AdminHighRiskIndividualsDocumentFormDataType
+} from "../../../documents/formModal/AdminHighRiskIndividualsDocumentFormFields.tsx";
+import toastPromise from "../../../../../../../../utils/toastPromise.ts";
 
 type FormDataType = {
   [exitReasonTypeFieldName]: ExitReasonTypeFieldType
@@ -30,6 +34,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   })
 
   const [currentStep, setCurrentStep] = useState<number>(1)
+
+  const [documentsList, setDocumentsList] = useState<AdminHighRiskIndividualsDocumentFormDataType[]>([])
 
   function prevHandler() {
     if (currentStep === 1) return onClose()
@@ -62,8 +68,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
       } else {
         nextHandler()
       }
-    } else {
-      console.log('exit citing the letter')
+    } else if (currentStep === 3) {
+      if (documentsList.length === 0) return toastPromise().then(toast => toast.error('حداقل یک سند اضافه کنید'))
     }
   }
 
@@ -75,7 +81,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
 
   return {
     personTitle, formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep, reasonIsUserMistake,
-    description
+    description, documentsList, setDocumentsList
   }
 }
 

@@ -31,7 +31,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
 
   const {
     personTitle, formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep,
-    reasonIsUserMistake, description
+    reasonIsUserMistake, description, documentsList, setDocumentsList
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModal({
     modalState, onClose
   })
@@ -40,8 +40,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
     1: <AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep1 />,
     2: <AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2
       reasonIsUserMistake={!!reasonIsUserMistake}
-    />,
-    3: <AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3 />,
+    />
   }
 
   return (
@@ -49,31 +48,39 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
       open={open} onClose={onClose} title={`خروج ${personTitle}`}
       description={description}
     >
-      <ReactHookFormWrapper
-        formMethods={formMethods} onSubmit={onSubmit}
-      >
-        <SuspenseRenderLogicDefaultContainer fallback={<Loading />}>
-          {stepsRender?.[(currentStep as keyof typeof stepsRender)] || null}
-        </SuspenseRenderLogicDefaultContainer>
-
-        <div className='mt-2 grid grid-cols-2 gap-x-4'>
-          <Button
-            onClick={prevHandler}
-            variant='default'
-            color='white'
-            children={isFirstStep ? 'انصراف' : 'مرحله قبل'}
+      <div className='h-full relative overflow-auto'>
+        {currentStep === 3 && (
+          <AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3
+            documentsList={documentsList} setDocumentsList={setDocumentsList}
           />
+        )}
 
-          <Button
-            type='submit'
-            {...isLastStep && {
-              color: 'red'
-            }}
-          >
-            {isLastStep ? 'ثبت و خروج کاربر' : 'ثبت و ادامه'}
-          </Button>
-        </div>
-      </ReactHookFormWrapper>
+        <ReactHookFormWrapper
+          formMethods={formMethods} onSubmit={onSubmit}
+        >
+          <SuspenseRenderLogicDefaultContainer fallback={<Loading />}>
+            {stepsRender?.[(currentStep as keyof typeof stepsRender)] || null}
+          </SuspenseRenderLogicDefaultContainer>
+
+          <div className='mt-2 grid grid-cols-2 gap-x-4 bottom-0 sticky'>
+            <Button
+              onClick={prevHandler}
+              variant='default'
+              color='white'
+              children={isFirstStep ? 'انصراف' : 'مرحله قبل'}
+            />
+
+            <Button
+              type='submit'
+              {...isLastStep && {
+                color: 'red'
+              }}
+            >
+              {isLastStep ? 'ثبت و خروج کاربر' : 'ثبت و ادامه'}
+            </Button>
+          </div>
+        </ReactHookFormWrapper>
+      </div>
     </Modal>
   );
 }

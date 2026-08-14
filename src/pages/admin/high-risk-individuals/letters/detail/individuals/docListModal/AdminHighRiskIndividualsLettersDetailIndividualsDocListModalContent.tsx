@@ -17,6 +17,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent(
     <div className='flex flex-col gap-y-4'>
       {documentsList.map((document) => (
         <AdminHighRiskIndividualsDocumentCard
+          key={document.id}
           document={document}
           editAction={() => setRenderState({
             data: document,

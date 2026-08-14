@@ -7,7 +7,7 @@ type Props<FormValues> = {
 
 function useReactHookFormWrapper<FormValues extends object>({onSubmitHandler, defaultValues}: Props<FormValues>) {
 
-  const formMethods = useForm<FormValues>({defaultValues} as UseFormProps<FormValues, any> | undefined)
+  const formMethods = useForm<FormValues>({defaultValues, } as UseFormProps<FormValues, any> | undefined)
   const {handleSubmit} = formMethods
   const onSubmit = handleSubmit(onSubmitHandler)
 
