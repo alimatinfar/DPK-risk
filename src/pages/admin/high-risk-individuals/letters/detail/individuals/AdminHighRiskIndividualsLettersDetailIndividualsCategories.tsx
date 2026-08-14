@@ -91,7 +91,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                             </Button>
                           </>
                         )}
-                        bottomField={{
+                        bottomFields={[{
                           label: 'دلیل ورود',
                           value: (
                             <div className='flex flex-wrap gap-x-2'>
@@ -100,7 +100,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                               ))}
                             </div>
                           )
-                        }}
+                        }]}
                       />
 
                       {item?.exitLetter && (
@@ -117,10 +117,10 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                                 لیست مستندات
                               </Button>
                             )}
-                            bottomField={{
+                            bottomFields={[{
                               label: 'توضیحات',
                               value: 'حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. '
-                            }}
+                            }]}
                           />
                         </CardRightRed>
                       )}

@@ -8,11 +8,11 @@ import type {ReactNode} from "react";
 type Props = {
   fields: DetailInfoSectionLabelValueProps[];
   actions: ReactNode;
-  bottomField: DetailInfoSectionLabelValueProps;
+  bottomFields: DetailInfoSectionLabelValueProps[];
 }
 
 function AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions(
-  {fields, actions, bottomField}: Props
+  {fields, actions, bottomFields}: Props
 ) {
   return (
     <div className={`flex flex-col gap-y-4`}>
@@ -28,9 +28,9 @@ function AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions(
         </div>
       </div>
 
-      <DetailInfoSectionLabelValue
-        {...bottomField}
-      />
+      {bottomFields.map((field, fieldIndex) => (
+        <DetailInfoSectionLabelValue key={fieldIndex} {...field}/>
+      ))}
     </div>
   );
 }

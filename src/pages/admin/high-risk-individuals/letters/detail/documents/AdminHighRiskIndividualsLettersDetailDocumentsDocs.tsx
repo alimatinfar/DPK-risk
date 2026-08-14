@@ -8,6 +8,8 @@ import EditIcon from "../../../../../../components/svg/EditIcon.tsx";
 import CardWithHeader from "../../../../../../components/others/Card/CardWithHeader/CardWithHeader.tsx";
 import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "./index.types.ts";
 import type {SetStateType} from "../../../../../../types/SetStateType.ts";
+import {fileTypeFieldName} from "../../../FormFields/FileTypeField/index.constances.ts";
+import {descriptionFieldName} from "../../../FormFields/DescriptionField/index.constances.ts";
 
 
 type Props = {
@@ -37,7 +39,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
         >
           <div className='flex items-center justify-between'>
             <DetailInfoSectionLabelValue
-              label='نوع فایل' value={document?.fileType?.name}
+              label='نوع فایل' value={document?.[fileTypeFieldName] ? document?.[fileTypeFieldName]?.name : ''}
             />
 
             <div className='flex items-center gap-x-4'>
@@ -64,7 +66,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
           </div>
 
           <DetailInfoSectionLabelValue
-            label='توضیحات' value={document?.description}
+            label='توضیحات' value={document?.[descriptionFieldName]}
           />
         </div>
       ))}

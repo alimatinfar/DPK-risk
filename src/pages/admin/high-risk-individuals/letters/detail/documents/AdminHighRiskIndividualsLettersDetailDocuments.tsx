@@ -35,7 +35,7 @@ function AdminHighRiskIndividualsLettersDetailDocuments() {
 
         <CardWithHeader
           title='تایم لاین تغییرات'
-          headerEndAdornment={<div>salam</div>}
+          headerEndAdornment={<div>timeline</div>}
         >
           محتوای تایم لاین
         </CardWithHeader>
