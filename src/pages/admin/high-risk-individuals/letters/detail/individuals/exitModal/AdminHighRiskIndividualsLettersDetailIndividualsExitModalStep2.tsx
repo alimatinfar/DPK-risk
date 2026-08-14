@@ -1,6 +1,9 @@
 import DescriptionField from "../../../../FormFields/DescriptionField/DescriptionField.tsx";
-import {exitByUserMistakeDescriptionFieldName} from "./index.constances.ts";
+import {exitByUserMistakeDescriptionFieldName, exitCitingTheLetterDescriptionFieldName} from "./index.constances.ts";
 import Message from "../../../../../../../components/others/Message/Message.tsx";
+import AnnouncingReferenceField from "../../../../FormFields/AnnouncingReferenceField/AnnouncingReferenceField.tsx";
+import LetterNumberField from "../../../../FormFields/LetterNumberField/LetterNumberField.tsx";
+import LetterDateField from "../../../../FormFields/LetterDateField/LetterDateField.tsx";
 
 
 type Props = {
@@ -19,7 +22,17 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2(
 
       <DescriptionField customFieldName={exitByUserMistakeDescriptionFieldName} />
     </div>
-  ) : null
+  ) : (
+    <>
+      <AnnouncingReferenceField customLabel='مرجع' isRequired />
+
+      <LetterNumberField isRequired />
+
+      <LetterDateField isRequired />
+
+      <DescriptionField customFieldName={exitCitingTheLetterDescriptionFieldName} />
+    </>
+  )
 }
 
 export default AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2;

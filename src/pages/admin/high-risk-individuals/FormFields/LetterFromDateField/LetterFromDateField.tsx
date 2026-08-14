@@ -1,18 +1,12 @@
-import WheelDateTimePickerForm from "../../../../../components/Form/WheelDateTimePicker/WheelDateTimePickerForm.tsx";
 import {letterFromDateFieldLabel, letterFromDateFieldName} from "./index.constances.ts";
+import LetterDateField from "../LetterDateField/LetterDateField.tsx";
 
 
 function LetterFromDateField() {
   return (
-    <WheelDateTimePickerForm
-      fieldName={letterFromDateFieldName}
-      title={letterFromDateFieldLabel}
-      inputProps={{
-        label: letterFromDateFieldLabel,
-      }}
-      wheelPickerProps={{
-        mode: 'date'
-      }}
+    <LetterDateField
+      customFieldName={letterFromDateFieldName}
+      customLabel={letterFromDateFieldLabel}
     />
   )
 }
