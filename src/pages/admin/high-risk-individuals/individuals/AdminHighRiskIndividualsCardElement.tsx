@@ -52,7 +52,7 @@ function AdminHighRiskIndividualsCardElement(
         </IconClickable>
       </div>
 
-      <div className='p-2 flex flex-col'>
+      <div className='p-2 flex flex-col bg-white'>
         {categoryFields.map((fields, categoryIndex) => {
           return (
             <div
