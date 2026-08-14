@@ -26,7 +26,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
-    id: 1,
+    id: 2,
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
@@ -38,7 +38,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
-    id: 2,
+    id: 3,
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
@@ -49,7 +49,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
-    id: 3,
+    id: 4,
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
@@ -68,7 +68,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
-    id: 4,
+    id: 5,
     name: 'بنیان',
     [legalTypeFieldName]: 'مبینی',
     nationalCode: '123456790',

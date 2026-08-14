@@ -6,6 +6,7 @@ import ExpireDateField from "../../../FormFields/ExpireDateField/ExpireDateField
 import Button from "../../../../../../components/Form/Button/Button.tsx";
 import useAdminHighRiskIndividualsLettersDetailIndividualsEditModal
   from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividualsEditModal.ts";
+import EntryReasonsField from "../../../FormFields/EntryReasonsField/EntryReasonsField.tsx";
 
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsEditModalProps = {
@@ -30,6 +31,8 @@ function AdminHighRiskIndividualsLettersDetailIndividualsEditModal(
         formMethods={formMethods} onSubmit={onSubmit}
       >
         <ExpireDateField/>
+
+        <EntryReasonsField />
 
         <div className='mt-2'>
           <Button

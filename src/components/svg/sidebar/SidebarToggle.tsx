@@ -22,9 +22,9 @@ function SidebarToggle({ className, textColor, onClick }: Props) {
         <path
           className={`stroke-current duration-200 ${textColor || "text-gray-700"}`}
           d="M10.4993 9.16675L7.16602 12.5001L10.4993 15.8334M14.4993 9.16675L17.8327 12.5001L14.4993 15.8334"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </>

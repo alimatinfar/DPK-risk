@@ -9,9 +9,14 @@ import {
   expireDateFieldName,
   type ExpireDateFieldType
 } from "../../../../FormFields/ExpireDateField/index.constances.ts";
+import {
+  entryReasonsFieldName,
+  type EntryReasonsFieldType
+} from "../../../../FormFields/EntryReasonsField/index.constances.ts";
 
 type FormDataType = {
   [expireDateFieldName]: ExpireDateFieldType;
+  [entryReasonsFieldName]: EntryReasonsFieldType;
 }
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
