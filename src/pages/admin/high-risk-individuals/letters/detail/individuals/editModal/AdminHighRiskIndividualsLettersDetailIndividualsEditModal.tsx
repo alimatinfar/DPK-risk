@@ -1,12 +1,12 @@
-import Modal, {type ModalProps} from "../../../../../../components/others/Modal/Modal.tsx";
-import type {AdminHighRiskIndividualsLettersDetailIndividualsDataItemType} from "./index.types.ts";
+import Modal, {type ModalProps} from "../../../../../../../components/others/Modal/Modal.tsx";
+import type {AdminHighRiskIndividualsLettersDetailIndividualsDataItemType} from "../index.types.ts";
 import ReactHookFormWrapper
-  from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import ExpireDateField from "../../../FormFields/ExpireDateField/ExpireDateField.tsx";
-import Button from "../../../../../../components/Form/Button/Button.tsx";
+  from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
+import ExpireDateField from "../../../../FormFields/ExpireDateField/ExpireDateField.tsx";
+import Button from "../../../../../../../components/Form/Button/Button.tsx";
 import useAdminHighRiskIndividualsLettersDetailIndividualsEditModal
   from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividualsEditModal.ts";
-import EntryReasonsField from "../../../FormFields/EntryReasonsField/EntryReasonsField.tsx";
+import EntryReasonsField from "../../../../FormFields/EntryReasonsField/EntryReasonsField.tsx";
 
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsEditModalProps = {

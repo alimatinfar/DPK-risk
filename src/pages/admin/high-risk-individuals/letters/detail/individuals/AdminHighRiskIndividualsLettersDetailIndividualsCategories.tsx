@@ -97,15 +97,9 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                           <AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
                             fields={exitLetterFields}
                             actions={(
-                              <>
-                                <Button justIcon variant='default' color='white'>
-                                  <EditIcon/>
-                                </Button>
-
-                                <Button variant='default' color='white'>
-                                  لیست مستندات
-                                </Button>
-                              </>
+                              <Button variant='default' color='white'>
+                                لیست مستندات
+                              </Button>
                             )}
                             bottomField={{
                               label: 'توضیحات',

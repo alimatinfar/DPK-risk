@@ -10,10 +10,10 @@ import DisplayModal from "../../../../../../components/others/Modal/DisplayModal
 import {lazy} from "react";
 
 const AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal = lazy(() => import(
-  "./AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx"
+  "./deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx"
   ))
 const AdminHighRiskIndividualsLettersDetailDocumentsFormModal = lazy(() => import(
-  "./AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx"
+  "./formModal/AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx"
   ))
 
 

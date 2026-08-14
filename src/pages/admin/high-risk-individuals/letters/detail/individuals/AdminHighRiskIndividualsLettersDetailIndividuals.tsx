@@ -6,7 +6,11 @@ import DisplayModal from "../../../../../../components/others/Modal/DisplayModal
 import {lazy} from "react";
 
 const AdminHighRiskIndividualsLettersDetailIndividualsEditModal = lazy(() => import(
-  "./AdminHighRiskIndividualsLettersDetailIndividualsEditModal.tsx"
+  "./editModal/AdminHighRiskIndividualsLettersDetailIndividualsEditModal.tsx"
+  ));
+
+const AdminHighRiskIndividualsLettersDetailIndividualsEditModal = lazy(() => import(
+  "./docListModal/AdminHighRiskIndividualsLettersDetailIndividualsDocListModal.tsx"
   ));
 
 
@@ -29,6 +33,8 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
           modalState={editPersonModalState}
         />
       </DisplayModal>
+
+      <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal />
     </>
   );
 }
