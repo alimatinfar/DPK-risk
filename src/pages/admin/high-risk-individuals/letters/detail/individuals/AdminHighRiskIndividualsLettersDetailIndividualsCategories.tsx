@@ -26,11 +26,12 @@ import type {SetStateType} from "../../../../../../types/SetStateType.ts";
 type Props = {
   setEditPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
   setDocListModalState: SetStateType<DocumentModalState | boolean>;
+  setExitPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
 }
 
 function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
   {
-    setEditPersonModalState, setDocListModalState
+    setEditPersonModalState, setDocListModalState, setExitPersonModalState
   }: Props
 ) {
 
@@ -65,7 +66,10 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                           <>
                             {!item.exitType && (
                               <>
-                                <Button justIcon variant='default' color='red'>
+                                <Button
+                                  onClick={() => setExitPersonModalState(item)}
+                                  justIcon variant='default' color='red'
+                                >
                                   <LogoutIcon/>
                                 </Button>
 

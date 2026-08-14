@@ -7,19 +7,23 @@ import useGetRequiredErrorMessage
 import {type InputProps} from "../../../../../components/Form/Input/types/InputProps";
 
 
-type Props = Pick<InputProps, 'placeholder'>
+type Props = {
+  customFieldName?: string;
+} & Pick<InputProps, 'placeholder'>
 
 function DescriptionField(
-  {placeholder}: Props
+  {placeholder, customFieldName}: Props
 ) {
 
+  const fieldName = customFieldName || descriptionFieldName
+
   const getErrorMessage = useGetFormErrorMessage();
-  const errorMessage = getErrorMessage(descriptionFieldName);
+  const errorMessage = getErrorMessage(fieldName);
   const requiredErrorMessage = useGetRequiredErrorMessage(descriptionFieldLabel)
 
   return (
     <InputForm
-      fieldName={descriptionFieldName}
+      fieldName={fieldName}
       inputProps={{
         errorMessage,
         label: descriptionFieldLabel,

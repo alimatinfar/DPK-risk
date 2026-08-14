@@ -58,14 +58,14 @@ function Modal(
         className={`hide-scroll fixed bottom-0 right-0 left-0 md:inset-0 m-auto bg-white duration-200 ${Z_INDEXES.MODAL} 
         shadow-xl overflow-hidden p-4 md:p-6 flex flex-col ${wrapperClass || ''}
         ${showWithAnimation ? "" : "opacity-0 pointer-events-none scale-[0.98]"}
-        ${width || "w-dvw md:w-107.5"} ${
+        ${width || "w-dvw md:w-137.5"} ${
           height || "h-min"
         } rounded-t-2xl md:rounded-2xl border border-gray-300 max-h-[80dvh]`}
       >
         {title && (
           <div className="flex items-center justify-between mb-6">
 
-            <div className="flex items-center font-bold text-lg text-gray-900 flex">
+            <div className="flex items-center font-bold text-lg text-gray-900">
               {backAction && (
                 <IconClickable onClick={backAction} className="ml-2">
                   <ArrowBack/>

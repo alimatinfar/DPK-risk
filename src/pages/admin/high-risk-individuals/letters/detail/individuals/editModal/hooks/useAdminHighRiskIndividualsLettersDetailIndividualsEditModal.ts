@@ -15,6 +15,8 @@ import {
 } from "../../../../../FormFields/EntryReasonsField/index.constances.ts";
 import setDefaultValuesFromObject
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
+import useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle
+  from "./useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle.ts";
 
 type FormDataType = {
   [expireDateFieldName]: ExpireDateFieldType;
@@ -37,11 +39,11 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
     onSubmitHandler
   })
 
-  const personTitle = useMemo(function () {
-    if (typeof modalState === 'boolean') return ''
-
-    return `${modalState?.name} ${modalState?.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name ? '' : modalState?.lastName}`
-  }, [modalState])
+  const {
+    personTitle
+  } = useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle({
+    modalState
+  })
 
   useEffect(function () {
     if (typeof modalState === 'boolean') return

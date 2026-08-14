@@ -16,6 +16,10 @@ const AdminHighRiskIndividualsLettersDetailIndividualsDocListModal = lazy(() => 
   "./docListModal/AdminHighRiskIndividualsLettersDetailIndividualsDocListModal.tsx"
   ));
 
+const AdminHighRiskIndividualsLettersDetailIndividualsExitModal = lazy(() => import(
+  "./exitModal/AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx"
+  ));
+
 
 function AdminHighRiskIndividualsLettersDetailIndividuals() {
 
@@ -29,11 +33,17 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
     modalState: docListModalState, setModalState: setDocListModalState
   } = useModalOpen<DocumentModalState | boolean>(false)
 
+  const {
+    open: exitPersonModalOpen, shouldBeRemoved: exitPersonModalShouldBeRemoved, closeModal: closeExitPersonModalHandler,
+    modalState: exitPersonModalState, setModalState: setExitPersonModalState
+  } = useModalOpen<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>(false)
+
   return (
     <>
       <AdminHighRiskIndividualsLettersDetailIndividualsCategories
         setEditPersonModalState={setEditPersonModalState}
         setDocListModalState={setDocListModalState}
+        setExitPersonModalState={setExitPersonModalState}
       />
 
       <DisplayModal shouldBeRemoved={editPersonModalShouldBeRemoved}>
@@ -47,6 +57,13 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
         <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal
           open={docListModalOpen} onClose={closeDocListModalHandler}
           modalState={docListModalState}
+        />
+      </DisplayModal>
+
+      <DisplayModal shouldBeRemoved={exitPersonModalShouldBeRemoved}>
+        <AdminHighRiskIndividualsLettersDetailIndividualsExitModal
+          open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
+          modalState={exitPersonModalState}
         />
       </DisplayModal>
     </>
