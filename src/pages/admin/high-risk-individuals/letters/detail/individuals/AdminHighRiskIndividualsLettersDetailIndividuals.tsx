@@ -2,7 +2,7 @@ import AdminHighRiskIndividualsLettersDetailIndividualsCategories
   from "./AdminHighRiskIndividualsLettersDetailIndividualsCategories.tsx";
 import useModalOpen from "../../../../../../hooks/modal/useModalOpen.tsx";
 import type {
-  AdminHighRiskIndividualsLettersDetailIndividualsDataItemType
+  AdminHighRiskIndividualsLettersDetailIndividualsDataItemType, DocumentModalState
 } from "./index.types.ts";
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
 import {lazy} from "react";
@@ -27,7 +27,7 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
   const {
     open: docListModalOpen, shouldBeRemoved: docListModalShouldBeRemoved, closeModal: closeDocListModalHandler,
     modalState: docListModalState, setModalState: setDocListModalState
-  } = useModalOpen<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType['id'] | boolean>(false)
+  } = useModalOpen<DocumentModalState | boolean>(false)
 
   return (
     <>

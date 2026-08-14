@@ -5,11 +5,11 @@ import {
 } from "../../../../../../components/others/DetailInfo/DetailInfoSection/DetailInfoSectionLabelValue";
 import {
   type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType,
-  type AdminHighRiskIndividualsLettersDetailIndividualsDataType
+  type AdminHighRiskIndividualsLettersDetailIndividualsDataType, type DocumentModalState
 } from "./index.types";
 import Tag from "../../../../../../components/others/Tag/Tag";
 import {
-  ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA,
+  ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA, DOCUMENT_MODAL_STATE_TYPE_KEYS,
   EXIT_PERSON_FROM_LETTER_KEYS_LABEL
 } from "./index.constances";
 import Button from "../../../../../../components/Form/Button/Button";
@@ -25,7 +25,7 @@ import type {SetStateType} from "../../../../../../types/SetStateType.ts";
 
 type Props = {
   setEditPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
-  setDocListModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType['id'] | boolean>;
+  setDocListModalState: SetStateType<DocumentModalState | boolean>;
 }
 
 function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
@@ -78,7 +78,9 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                               </>
                             )}
                             <Button
-                              onClick={() => setDocListModalState(item.id)}
+                              onClick={() => setDocListModalState({
+                                id: item.id, type: DOCUMENT_MODAL_STATE_TYPE_KEYS.PERSON
+                              })}
                               variant='default' color='white'
                             >
                               لیست مستندات
@@ -97,12 +99,17 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                         }}
                       />
 
-                      {item.exitLetter && (
+                      {item?.exitLetter && (
                         <CardRightRed className='flex flex-col gap-y-4'>
                           <AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
                             fields={exitLetterFields}
                             actions={(
-                              <Button variant='default' color='white'>
+                              <Button
+                                onClick={() => setDocListModalState({
+                                  id: item.exitLetter?.id || '', type: DOCUMENT_MODAL_STATE_TYPE_KEYS.LETTER
+                                })}
+                                variant='default' color='white'
+                              >
                                 لیست مستندات
                               </Button>
                             )}

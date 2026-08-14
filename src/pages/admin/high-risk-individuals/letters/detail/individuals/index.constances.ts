@@ -14,6 +14,11 @@ export const EXIT_PERSON_FROM_LETTER_KEYS_LABEL = {
   [EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE]: 'تاریخ اعتبار',
 } as const
 
+export const DOCUMENT_MODAL_STATE_TYPE_KEYS = {
+  LETTER: 'letter',
+  PERSON: 'person',
+}
+
 export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: AdminHighRiskIndividualsLettersDetailIndividualsDataType = [
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,

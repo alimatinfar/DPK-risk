@@ -1,5 +1,5 @@
 import Modal, {type ModalProps} from "../../../../../../../components/others/Modal/Modal.tsx";
-import type {AdminHighRiskIndividualsLettersDetailIndividualsDataItemType} from "../index.types.ts";
+import type {DocumentModalState} from "../index.types.ts";
 import AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent
   from "./AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent.tsx";
 import useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal
@@ -19,7 +19,7 @@ const AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent = lazy(() =
 
 
 type Props = {
-  modalState: AdminHighRiskIndividualsLettersDetailIndividualsDataItemType['id'] | boolean;
+  modalState: DocumentModalState | boolean;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(

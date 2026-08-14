@@ -1,7 +1,7 @@
 import type {ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/SearchPageForm.constances";
 import {legalTypeFieldName} from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances";
-import {EXIT_PERSON_FROM_LETTER_KEYS} from "./index.constances";
+import {DOCUMENT_MODAL_STATE_TYPE_KEYS, EXIT_PERSON_FROM_LETTER_KEYS} from "./index.constances";
 import type {SelectOptionType} from "../../../../../../components/Form/Select/select-exports.ts";
 import type {Moment} from "moment-jalaali";
 
@@ -32,4 +32,10 @@ export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<
 } & (LegalTypeData | RealTypeData)
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsDataType = AdminHighRiskIndividualsLettersDetailIndividualsDataItemType[]
+
+//document modal state
+export type DocumentModalState = {
+  type: typeof DOCUMENT_MODAL_STATE_TYPE_KEYS[keyof typeof DOCUMENT_MODAL_STATE_TYPE_KEYS];
+  id: string | number;
+}
 

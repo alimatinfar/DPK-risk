@@ -50,7 +50,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
       [expireDateFieldName]: modalState.expireDate,
       [entryReasonsFieldName]: modalState?.entryReasons
     }
-    console.log({defaultValues, modalState})
+
     setDefaultValuesFromObject({
       defaultValues, setValue: formMethods.setValue
     })
