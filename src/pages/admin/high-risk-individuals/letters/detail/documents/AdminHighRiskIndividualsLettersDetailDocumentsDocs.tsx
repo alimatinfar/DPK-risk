@@ -37,7 +37,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
         >
           <div className='flex items-center justify-between'>
             <DetailInfoSectionLabelValue
-              label='نوع فایل' value={document?.fileType}
+              label='نوع فایل' value={document?.fileType?.name}
             />
 
             <div className='flex items-center gap-x-4'>

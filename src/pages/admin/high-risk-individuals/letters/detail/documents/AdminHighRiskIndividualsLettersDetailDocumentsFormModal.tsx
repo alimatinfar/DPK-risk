@@ -3,39 +3,26 @@ import Modal, {type ModalProps} from "../../../../../../components/others/Modal/
 import ReactHookFormWrapper
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper"
 import FileTypeField from "../../../FormFields/FileTypeField/FileTypeField";
-import useReactHookFormWrapper
-  from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper";
-import {fileTypeFieldName, type FileTypeFieldType} from "../../../FormFields/FileTypeField/index.constances";
-import {descriptionFieldName, type DescriptionFieldType} from "../../../FormFields/DescriptionField/index.constances";
 import DescriptionField from "../../../FormFields/DescriptionField/DescriptionField";
 import Button from "../../../../../../components/Form/Button/Button";
 import UploadFileField from "../../../FormFields/UploadFileField/UploadFileField";
+import useAdminHighRiskIndividualsLettersDetailDocumentsFormModal
+  from "./hooks/useAdminHighRiskIndividualsLettersDetailDocumentsFormModal.ts";
 
 
-type FormDataType = {
-  [fileTypeFieldName]: FileTypeFieldType;
-  [descriptionFieldName]: DescriptionFieldType;
-}
-
-type Props = {
+export type AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps = {
   modalState: AdminHighRiskIndividualsLettersDetailDocumentType | boolean;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsFormModal(
-  {open, onClose, modalState}: Props
+  {open, onClose, modalState}: AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps
 ) {
 
-  function onSubmitHandler(formData: FormDataType) {
-    console.log({formData})
-  }
-
   const {
-    onSubmit, formMethods
-  } = useReactHookFormWrapper({
-    onSubmitHandler
+    isEditMode, formMethods, onSubmit
+  } = useAdminHighRiskIndividualsLettersDetailDocumentsFormModal({
+    modalState
   })
-
-  const isEditMode = typeof modalState !== 'boolean'
 
   return (
     <Modal
@@ -47,15 +34,15 @@ function AdminHighRiskIndividualsLettersDetailDocumentsFormModal(
       >
         <FileTypeField/>
 
-        <DescriptionField placeholder='توضیحات مربوط به فایل بارگزاری شده' />
+        <DescriptionField placeholder='توضیحات مربوط به فایل بارگزاری شده'/>
 
-        <UploadFileField />
+        <UploadFileField/>
 
         <div className='mt-2'>
           <Button
             fullWidth type='submit'
           >
-            ثبت
+            {isEditMode ? 'ویرایش' : 'ثبت'}
           </Button>
         </div>
       </ReactHookFormWrapper>
