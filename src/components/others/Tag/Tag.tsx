@@ -31,7 +31,7 @@ function Tag({text, color = 'primary', variant = 'filled', rightIcon}: TagProps)
       primary: 'bg-primary-50 text-primary',
       blue: 'bg-blue-50 text-blue-800',
       violet: 'bg-violet-50 text-violet-600',
-      gray: 'bg-gray-100 text-gray-500',
+      gray: 'bg-gray-200 text-gray-600',
       red: 'bg-red-50 text-red-500',
       yellow: 'bg-yellow-50 text-yellow-600',
       green: 'bg-green-50 text-green-600',

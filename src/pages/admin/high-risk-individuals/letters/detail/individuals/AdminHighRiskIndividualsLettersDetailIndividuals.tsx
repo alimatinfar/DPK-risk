@@ -1,21 +1,119 @@
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/SearchPageForm.constances.ts";
-import {FAKE_DATA} from "../../../individuals/index.constances.ts";
 import ResultPersonCategory2 from "../../../../../search/result/ResultPersonCategory2.tsx";
+import DetailInfoSectionLabelValue, {
+  type DetailInfoSectionLabelValueProps
+} from "../../../../../../components/others/DetailInfo/DetailInfoSection/DetailInfoSectionLabelValue";
+import {type AdminHighRiskIndividualsLettersDetailIndividualsDataType} from "./index.types";
+import {legalTypeFieldName} from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances";
+import Tag from "../../../../../../components/others/Tag/Tag";
+import {
+  ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA,
+  EXIT_PERSON_FROM_LETTER_KEYS_LABEL
+} from "./index.constances";
+import Button from "../../../../../../components/Form/Button/Button";
+import EditIcon from "../../../../../../components/svg/EditIcon";
+import LogoutIcon from "../../../../../../components/svg/LogoutIcon";
 
 function AdminHighRiskIndividualsLettersDetailIndividuals() {
   return (
     <div className='flex flex-col gap-y-4'>
       {Object.values(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).map(category => (
         <ResultPersonCategory2
-          key={category.name} personTypeItem={category} resultData={FAKE_DATA}
-          customContent={(visibleItems) => visibleItems.map((item, itemIndex) => {
-            console.log({item})
+          key={category.name} personTypeItem={category} resultData={ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA}
+          customContent={(visibleItems: AdminHighRiskIndividualsLettersDetailIndividualsDataType) => {
+
             return (
-              <div key={itemIndex}>
-                {item.type}
+              <div className='p-2 flex flex-col gap-y-2'>
+                {visibleItems.map((item, itemIndex) => {
+
+                  const fields: DetailInfoSectionLabelValueProps[] = [
+                    {
+                      label: 'نام', value: item.name
+                    },
+                    ...item.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name ? [{
+                      label: 'نوع حقوقی', value: item?.[legalTypeFieldName]
+                    }] : [{
+                      label: 'نام خانوادگی', value: item?.lastName
+                    }],
+                    {
+                      label: 'کد ملی', value: item.nationalCode
+                    },
+                    {
+                      label: 'تاریخ اعتبار', value: item.expireDate
+                    },
+                  ]
+
+                  const exitLetterFields: DetailInfoSectionLabelValueProps[] = item.exitLetter ? [
+                    {
+                      label: 'شماره نامه', value: item.exitLetter?.letterNumber
+                    },
+                    {
+                      label: 'مرجع', value: item.exitLetter?.reference
+                    },
+                    {
+                      label: 'تاریخ نامه', value: item.exitLetter?.letterDate
+                    },
+                  ] : []
+
+                  const content = (
+                    <div className={`flex flex-col gap-y-4 p-4 rounded-lg bg-white ${item.exitType ? '' : 'border border-gray-200'}`}>
+                      <div key={itemIndex} className='flex items-center gap-x-4'>
+                        <div className='grid grid-cols-4 gap-x-4 flex-1'>
+                          {fields.map((field, fieldIndex) => (
+                            <DetailInfoSectionLabelValue key={fieldIndex} label={field.label} value={field.value} />
+                          ))}
+                        </div>
+
+                        <div className='flex items-center gap-x-4'>
+                          {!item.exitType && (
+                            <>
+                              <Button justIcon variant='default' color='red'>
+                                <LogoutIcon />
+                              </Button>
+
+                              <Button justIcon variant='default' color='white'>
+                                <EditIcon />
+                              </Button>
+                            </>
+                          )}
+                          <Button variant='default' color='white'>
+                            لیست مستندات
+                          </Button>
+                        </div>
+                      </div>
+
+                      <DetailInfoSectionLabelValue
+                        label={'دلیل ورود'}
+                        value={(
+                          <div className='flex flex-wrap gap-x-2'>
+                            {item.entryReason.map((reason, reasonIndex) => (
+                              <Tag text={reason} color='gray' variant='fade'/>
+                            ))}
+                          </div>
+                        )}
+                      />
+
+                      {item.exitLetter && (
+                        <div className='flex flex-col gap-y-4 p-4 rounded-lg border-r-2 border-[#EF4444]'>
+
+                        </div>
+                      )}
+                    </div>
+                  )
+
+                  return item.exitType ? (
+                    <div className='flex flex-col border border-red-300 rounded-lg overflow-hidden'>
+                      <div className='text-center text-red-500 font-semibold p-2.5 bg-red-50'>
+                        {`حذف با ${EXIT_PERSON_FROM_LETTER_KEYS_LABEL[item.exitType]}`}
+                      </div>
+
+                      {content}
+                    </div>
+                  ) : content
+                })}
               </div>
             )
-          })}
+          }}
         />
       ))}
     </div>

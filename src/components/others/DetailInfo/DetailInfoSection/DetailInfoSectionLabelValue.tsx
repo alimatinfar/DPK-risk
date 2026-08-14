@@ -2,7 +2,7 @@ import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
 import type {ReactNode} from "react";
 
 
-type Props = {
+export type DetailInfoSectionLabelValueProps = {
   style?: object;
   className?: string;
   label: string | ReactNode;
@@ -10,7 +10,7 @@ type Props = {
 }
 
 function DetailInfoSectionLabelValue(
-  {style, className, label, value}: Props
+  {style, className, label, value}: DetailInfoSectionLabelValueProps
 ) {
   return (
     <div

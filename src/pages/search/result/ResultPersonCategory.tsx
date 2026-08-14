@@ -5,18 +5,19 @@ import useResultPersonCategory from "./hooks/useResultPersonCategory.ts";
 import ArrowIcon2 from "../../../components/svg/ArrowIcon2.tsx";
 import type {ResultPersonCardDataType} from "./ResultCard.types.ts";
 import type {ReactNode} from "react";
+import type {AnyObjectFields} from "../../../types/AnyObjectFields";
 
-// type ResultDataType = Pick<ResultPersonCardDataType, 'type'> & {[key: string]: unknown;}
+type ResultDataType = Pick<ResultPersonCardDataType, 'type'> & AnyObjectFields
 
 export type ResultPersonCategoryProps = {
   personTypeItem: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS];
-  resultData: ResultPersonCardDataType[];
+  resultData: ResultDataType[];
   wrapperBackground?: string;
   headerClassName?: string;
   headerBorderBottomClassName?: string;
   CardElement?: (props: {data: ResultPersonCardDataType}) => ReactNode;
   showAllItems?: boolean;
-  customContent?: (visibleItems: ResultPersonCardDataType[]) => ReactNode;
+  customContent?: (visibleItems: ResultDataType[]) => ReactNode;
 }
 
 function ResultPersonCategory(
@@ -55,11 +56,11 @@ function ResultPersonCategory(
         <ArrowIcon className={open ? 'rotate-180' : ''}/>
       </div>
 
-      {open ? customContent ? customContent(visibleItems) : (
+      {open ? customContent ? customContent(visibleItems as ResultPersonCardDataType[]) : (
         <div className='flex flex-col p-4'>
           <div className='grid grid-cols-4 gap-4'>
             {visibleItems.map((item, index) => CardElement ? (
-              <CardElement key={index} data={item}/>
+              <CardElement key={index} data={item as ResultPersonCardDataType}/>
             ) : null)}
           </div>
 
