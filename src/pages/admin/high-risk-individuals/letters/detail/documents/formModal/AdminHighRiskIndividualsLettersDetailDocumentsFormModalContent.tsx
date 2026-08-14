@@ -9,6 +9,7 @@ import type {
 } from "./AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx";
 import useAdminHighRiskIndividualsLettersDetailDocumentsFormModal
   from "./hooks/useAdminHighRiskIndividualsLettersDetailDocumentsFormModal.ts";
+import AdminHighRiskIndividualsDocumentFormFields from "./AdminHighRiskIndividualsDocumentFormFields.tsx";
 
 
 type Props = {
@@ -29,11 +30,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent(
     <ReactHookFormWrapper
       formMethods={formMethods} onSubmit={onSubmit}
     >
-      <FileTypeField/>
-
-      <DescriptionField placeholder='توضیحات مربوط به فایل بارگزاری شده'/>
-
-      <UploadFileField/>
+      <AdminHighRiskIndividualsDocumentFormFields/>
 
       <div className='mt-2'>
         <Button
