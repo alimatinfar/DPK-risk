@@ -4,7 +4,6 @@ import toastPromise from "../../../../utils/toastPromise";
 import getFileType from "../../../../utils/fileOperations/getFileType.ts";
 import getFileSize, {getFormattedFileSize} from "../../../../utils/fileOperations/getFileSize.ts";
 import getFileName from "../../../../utils/fileOperations/getFileName.ts";
-import downloadFileFromFile from "../../../../utils/fileOperations/downloadFileFromFile.ts";
 
 
 export type UploadFileDataType = {
@@ -52,13 +51,8 @@ function useFileDataCard(
     setFileData(undefined)
   }
 
-  function downloadFileData() {
-    if (!fileData?.data) return
-    downloadFileFromFile(fileData?.data)
-  }
-
   return {
-    onChangeFileHandler, removeFileData, downloadFileData, inputRef
+    onChangeFileHandler, removeFileData, inputRef
   }
 }
 

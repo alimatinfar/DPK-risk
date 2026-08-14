@@ -34,7 +34,7 @@ function UploadBox(
   })
 
   const {
-    inputRef, downloadFileData, onChangeFileHandler, removeFileData
+    inputRef, onChangeFileHandler, removeFileData
   } = useFileDataCard({
     fileTypes, maxFileSize, setFileData: onChange, fileData: value
   })
@@ -69,8 +69,7 @@ function UploadBox(
   return value ? (
     <div className='pb-4'>
       <FileDataCard
-        downloadFileData={downloadFileData}
-        fileName={value?.name} fileSize={value?.size}
+        fileData={value}
         removeFileData={removeFileData}
       />
     </div>

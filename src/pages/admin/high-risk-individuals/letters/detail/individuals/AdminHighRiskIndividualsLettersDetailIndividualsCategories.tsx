@@ -20,15 +20,17 @@ import AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
 import CardRightRed from "../../../../../../components/others/Card/CardRightRed.tsx";
 import useAdminHighRiskIndividualsLettersDetailIndividualsCategories
   from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividualsCategories.ts";
+import type {SetStateType} from "../../../../../../types/SetStateType.ts";
 
 
 type Props = {
-  setEditPersonModalState: (value: AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean) => void
+  setEditPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
+  setDocListModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType['id'] | boolean>;
 }
 
 function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
   {
-    setEditPersonModalState
+    setEditPersonModalState, setDocListModalState
   }: Props
 ) {
 
@@ -75,7 +77,10 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                                 </Button>
                               </>
                             )}
-                            <Button variant='default' color='white'>
+                            <Button
+                              onClick={() => setDocListModalState(item.id)}
+                              variant='default' color='white'
+                            >
                               لیست مستندات
                             </Button>
                           </>
