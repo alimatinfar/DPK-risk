@@ -20,7 +20,8 @@ function EntryReasonsField() {
       }}
       selectProps={{
         // TODO get options from api
-        options: entryReasonsFieldOptions
+        options: entryReasonsFieldOptions,
+        mode: 'multiple'
       }}
       rules={{
         required: requiredErrorMessage,

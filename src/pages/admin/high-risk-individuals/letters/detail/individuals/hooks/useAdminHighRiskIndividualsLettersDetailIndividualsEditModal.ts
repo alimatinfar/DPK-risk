@@ -1,6 +1,6 @@
 import useReactHookFormWrapper
   from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
-import {useMemo} from "react";
+import {useEffect, useMemo} from "react";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../../search/form/SearchPageForm.constances.ts";
 import type {
   AdminHighRiskIndividualsLettersDetailIndividualsEditModalProps
@@ -13,6 +13,8 @@ import {
   entryReasonsFieldName,
   type EntryReasonsFieldType
 } from "../../../../FormFields/EntryReasonsField/index.constances.ts";
+import setDefaultValuesFromObject
+  from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
 
 type FormDataType = {
   [expireDateFieldName]: ExpireDateFieldType;
@@ -39,6 +41,19 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
     if (typeof modalState === 'boolean') return ''
 
     return `${modalState?.name} ${modalState?.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name ? '' : modalState?.lastName}`
+  }, [modalState])
+
+  useEffect(function () {
+    if (typeof modalState === 'boolean') return
+
+    const defaultValues = {
+      [expireDateFieldName]: modalState.expireDate,
+      [entryReasonsFieldName]: modalState?.entryReasons
+    }
+    console.log({defaultValues, modalState})
+    setDefaultValuesFromObject({
+      defaultValues, setValue: formMethods.setValue
+    })
   }, [modalState])
 
   return {

@@ -41,7 +41,8 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
 
     const defaultValues = {
       [fileTypeFieldName]: modalState?.fileType,
-      [descriptionFieldName]: modalState?.description
+      [descriptionFieldName]: modalState?.description,
+      // TODO should set file as default value
     }
     setDefaultValuesFromObject({
       defaultValues, setValue: formMethods.setValue

@@ -6,7 +6,7 @@ export type DetailInfoSectionLabelValueProps = {
   style?: object;
   className?: string;
   label: string | ReactNode;
-  value: string | ReactNode;
+  value: any;
 }
 
 function DetailInfoSectionLabelValue(

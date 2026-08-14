@@ -5,6 +5,8 @@ import type {
 import {
   legalTypeFieldName
 } from "../../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
+import getFormattedMomentJalaliDateTime
+  from "../../../../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsCategories() {
 
@@ -22,7 +24,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsCategories() {
         label: 'کد ملی', value: item.nationalCode
       },
       {
-        label: 'تاریخ اعتبار', value: item.expireDate
+        label: 'تاریخ اعتبار', value: getFormattedMomentJalaliDateTime({date: item.expireDate, mode: 'jDate'})
       },
     ]
   }
@@ -36,7 +38,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsCategories() {
         label: 'مرجع', value: item.exitLetter?.reference
       },
       {
-        label: 'تاریخ نامه', value: item.exitLetter?.letterDate
+        label: 'تاریخ نامه', value: getFormattedMomentJalaliDateTime({date: item.exitLetter?.letterDate, mode: 'jDate'})
       },
     ] : []
   }

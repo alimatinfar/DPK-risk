@@ -1,6 +1,8 @@
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/SearchPageForm.constances";
 import {type AdminHighRiskIndividualsLettersDetailIndividualsDataType} from "./index.types";
 import {legalTypeFieldName} from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances";
+import {entryReasonsFieldOptions} from "../../../FormFields/EntryReasonsField/index.constances.ts";
+import moment from "moment-jalaali";
 
 export const EXIT_PERSON_FROM_LETTER_KEYS = {
   WITH_LETTER: 'withLetter',
@@ -19,10 +21,8 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
-    expireDate: '1405/06/06',
-    entryReason: [
-      'دزدی','کلاهبرداری','آدم ربایی','قاجاق اعضای بدن',
-    ],
+    expireDate: moment(),
+    entryReasons: entryReasonsFieldOptions,
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
@@ -30,10 +30,8 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
-    expireDate: '1405/06/06',
-    entryReason: [
-      'دزدی','کلاهبرداری','آدم ربایی','قاجاق اعضای بدن',
-    ],
+    expireDate: moment(),
+    entryReasons: entryReasonsFieldOptions,
     exitType: EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE
   },
   {
@@ -42,10 +40,8 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
-    expireDate: '1405/06/06',
-    entryReason: [
-      'دزدی','کلاهبرداری','آدم ربایی','قاجاق اعضای بدن',
-    ],
+    expireDate: moment(),
+    entryReasons: entryReasonsFieldOptions,
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
@@ -53,13 +49,11 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
-    expireDate: '1405/06/06',
-    entryReason: [
-      'دزدی','کلاهبرداری','آدم ربایی','قاجاق اعضای بدن',
-    ],
+    expireDate: moment(),
+    entryReasons: entryReasonsFieldOptions,
     exitLetter: {
       id: 1,
-      letterDate: '1405/06/06',
+      letterDate: moment(),
       letterNumber: '1234567890',
       description: 'حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. ',
       reference: 'قوه قضائیه'
@@ -72,9 +66,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     name: 'بنیان',
     [legalTypeFieldName]: 'مبینی',
     nationalCode: '123456790',
-    expireDate: '1405/06/06',
-    entryReason: [
-      'دزدی','کلاهبرداری','آدم ربایی','قاجاق اعضای بدن',
-    ],
+    expireDate: moment(),
+    entryReasons: entryReasonsFieldOptions,
   },
 ] as const

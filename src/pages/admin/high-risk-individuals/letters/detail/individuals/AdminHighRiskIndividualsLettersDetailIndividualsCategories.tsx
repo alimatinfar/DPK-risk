@@ -84,8 +84,8 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                           label: 'دلیل ورود',
                           value: (
                             <div className='flex flex-wrap gap-x-2'>
-                              {item.entryReason.map((reason, reasonIndex) => (
-                                <Tag text={reason} color='gray' variant='fade'/>
+                              {item.entryReasons?.map((reason, reasonIndex) => (
+                                <Tag text={reason?.name} color='gray' variant='fade'/>
                               ))}
                             </div>
                           )

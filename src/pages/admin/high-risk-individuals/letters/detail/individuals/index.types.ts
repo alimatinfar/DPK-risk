@@ -2,6 +2,8 @@ import type {ResultPersonCardDataType} from "../../../../../search/result/Result
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/SearchPageForm.constances";
 import {legalTypeFieldName} from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances";
 import {EXIT_PERSON_FROM_LETTER_KEYS} from "./index.constances";
+import type {SelectOptionType} from "../../../../../../components/Form/Select/select-exports.ts";
+import type {Moment} from "moment-jalaali";
 
 type LegalTypeData = {
   type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
@@ -17,14 +19,14 @@ export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<
   id: string | number;
   name: string;
   nationalCode: string;
-  expireDate: string;
-  entryReason: string[];
+  expireDate: Moment;
+  entryReasons: SelectOptionType[];
   exitType?: typeof EXIT_PERSON_FROM_LETTER_KEYS[keyof typeof EXIT_PERSON_FROM_LETTER_KEYS]
   exitLetter?: {
     id: string | number;
     letterNumber: string | number;
     reference: string;
-    letterDate: string;
+    letterDate: Moment;
     description: string;
   }
 } & (LegalTypeData | RealTypeData)
