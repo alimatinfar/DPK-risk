@@ -5,6 +5,7 @@ import useDisplayWithAnimation from "../DisplayWithAnimation/hooks/useDisplayWit
 import ArrowBack from "../../svg/ArrowBack";
 import Z_INDEXES from "../../../constances/zIndexes.ts";
 import ModalPortalComponent from "./ModalPortalComponent.tsx";
+import IconClickable from "../Icon/IconClickable.tsx";
 
 export type ModalProps = {
   children?: ReactNode;
@@ -64,11 +65,11 @@ function Modal(
         {title && (
           <div className="flex items-center justify-between mb-6">
 
-            <div className="font-bold text-lg text-gray-900 flex">
+            <div className="flex items-center font-bold text-lg text-gray-900 flex">
               {backAction && (
-                <span onClick={backAction} className="cursor-pointer ml-2">
+                <IconClickable onClick={backAction} className="ml-2">
                   <ArrowBack/>
-                </span>
+                </IconClickable>
               )}
               <span>{title}</span>
             </div>
