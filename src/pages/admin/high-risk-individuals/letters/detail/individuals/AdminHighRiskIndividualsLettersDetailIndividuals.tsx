@@ -18,6 +18,7 @@ import EditIcon from "../../../../../../components/svg/EditIcon";
 import LogoutIcon from "../../../../../../components/svg/LogoutIcon";
 import AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
   from "./AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions.tsx";
+import CardRightRed from "../../../../../../components/others/Card/CardRightRed.tsx";
 
 function AdminHighRiskIndividualsLettersDetailIndividuals() {
 
@@ -108,9 +109,26 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
                       />
 
                       {item.exitLetter && (
-                        <div className='flex flex-col gap-y-4 p-4 rounded-lg border-r-2 border-[#EF4444]'>
+                        <CardRightRed className='flex flex-col gap-y-4'>
+                          <AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
+                            fields={exitLetterFields}
+                            actions={(
+                              <>
+                                <Button justIcon variant='default' color='white'>
+                                  <EditIcon/>
+                                </Button>
 
-                        </div>
+                                <Button variant='default' color='white'>
+                                  لیست مستندات
+                                </Button>
+                              </>
+                            )}
+                            bottomField={{
+                              label: 'توضیحات',
+                              value: 'حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. '
+                            }}
+                          />
+                        </CardRightRed>
                       )}
                     </div>
                   )
