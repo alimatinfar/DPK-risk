@@ -1,5 +1,3 @@
-import useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle
-  from "../../editModal/hooks/useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle.ts";
 import {useState} from "react";
 import {
   EXIT_REASON_TYPE_KEYS,
@@ -24,14 +22,10 @@ type FormDataType = {
 function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   {
     onClose, modalState
-  }: Pick<AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps, 'onClose' | 'modalState'>
+  }: Pick<AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps,
+    'onClose' | 'modalState'
+  >
 ) {
-
-  const {
-    personTitle
-  } = useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle({
-    modalState
-  })
 
   const [currentStep, setCurrentStep] = useState<number>(1)
 
@@ -80,7 +74,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
     currentStep === 2 && reasonIsUserMistake ? 'لطفا توضیحات خود را وارد نمایید' : ''
 
   return {
-    personTitle, formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep, reasonIsUserMistake,
+    formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep, reasonIsUserMistake,
     description, documentsList, setDocumentsList
   }
 }

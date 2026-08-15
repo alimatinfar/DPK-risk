@@ -4,10 +4,14 @@ import AdminHighRiskIndividualsDetailPageLetters from "./AdminHighRiskIndividual
 import useGetQueryParam from "../../../../../hooks/useGetQueryParam.ts";
 import {useParams} from "react-router";
 import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
-import useAdminHighRiskIndividualsDocumentListModal
-  from "../../letters/detail/individuals/hooks/useAdminHighRiskIndividualsDocumentListModal.ts";
+import useAdminHighRiskIndividualsDocumentListModalStates
+  from "../../letters/detail/individuals/docListModal/hooks/useAdminHighRiskIndividualsDocumentListModalStates.ts";
 import DisplayModal from "../../../../../components/others/Modal/DisplayModal.tsx";
 import {lazy} from "react";
+import AdminHighRiskIndividualsLettersDetailIndividualsExitModal
+  from "../../letters/detail/individuals/exitModal/AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx";
+import useAdminHighRiskIndividualsExitModalStates
+  from "../../letters/detail/individuals/exitModal/hooks/useAdminHighRiskIndividualsExitModalStates.ts";
 
 const AdminHighRiskIndividualsLettersDetailIndividualsDocListModal = lazy(() => import(
   "../../letters/detail/individuals/docListModal/AdminHighRiskIndividualsLettersDetailIndividualsDocListModal.tsx"
@@ -21,7 +25,12 @@ function AdminHighRiskIndividualsDetailPage() {
 
   const {
     docListModalOpen, docListModalShouldBeRemoved, closeDocListModalHandler, docListModalState, setDocListModalState
-  } = useAdminHighRiskIndividualsDocumentListModal()
+  } = useAdminHighRiskIndividualsDocumentListModalStates()
+
+  const {
+    exitPersonModalOpen, exitPersonModalShouldBeRemoved, closeExitPersonModalHandler,
+    exitPersonModalState, setExitPersonModalState
+  } = useAdminHighRiskIndividualsExitModalStates<(string | number) | boolean>(false)
 
   return (
     <>
@@ -41,6 +50,7 @@ function AdminHighRiskIndividualsDetailPage() {
         >
           <AdminHighRiskIndividualsDetailPageLetters
             setDocListModalState={setDocListModalState}
+            setExitPersonModalState={setExitPersonModalState}
           />
         </CardWithHeader>
       </div>
@@ -49,6 +59,14 @@ function AdminHighRiskIndividualsDetailPage() {
         <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal
           open={docListModalOpen} onClose={closeDocListModalHandler}
           modalState={docListModalState}
+        />
+      </DisplayModal>
+
+      <DisplayModal shouldBeRemoved={exitPersonModalShouldBeRemoved}>
+        <AdminHighRiskIndividualsLettersDetailIndividualsExitModal
+          open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
+          modalState={exitPersonModalState}
+          personTitle={name || ''}
         />
       </DisplayModal>
     </>

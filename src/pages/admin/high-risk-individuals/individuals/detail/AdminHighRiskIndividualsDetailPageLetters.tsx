@@ -15,10 +15,13 @@ import {MODAL_STATE_TYPE_KEYS} from "../../letters/detail/individuals/index.cons
 
 type Props = {
   setDocListModalState: SetStateType<ModalStateTypeId | boolean>;
+  setExitPersonModalState: SetStateType<(string | number) | boolean>;
 }
 
 function AdminHighRiskIndividualsDetailPageLetters(
-  {setDocListModalState}: Props
+  {
+    setDocListModalState, setExitPersonModalState
+  }: Props
 ) {
 
   const {
@@ -35,7 +38,7 @@ function AdminHighRiskIndividualsDetailPageLetters(
                 {!item.exitType && (
                   <>
                     <Button
-                      onClick={() => console.log('exit')}
+                      onClick={() => setExitPersonModalState(item.id)}
                       justIcon variant='default' color='red'
                     >
                       <LogoutIcon/>

@@ -1,7 +1,7 @@
-import useModalOpen from "../../../../../../../hooks/modal/useModalOpen.tsx";
-import type {ModalStateTypeId} from "../index.types.ts";
+import useModalOpen from "../../../../../../../../hooks/modal/useModalOpen.tsx";
+import type {ModalStateTypeId} from "../../index.types.ts";
 
-function useAdminHighRiskIndividualsDocumentListModal() {
+function useAdminHighRiskIndividualsDocumentListModalStates() {
 
   const {
     open: docListModalOpen, shouldBeRemoved: docListModalShouldBeRemoved, closeModal: closeDocListModalHandler,
@@ -13,4 +13,4 @@ function useAdminHighRiskIndividualsDocumentListModal() {
   }
 }
 
-export default useAdminHighRiskIndividualsDocumentListModal;
+export default useAdminHighRiskIndividualsDocumentListModalStates;

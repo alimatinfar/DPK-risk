@@ -1,5 +1,4 @@
 import Modal, {type ModalProps} from "../../../../../../../components/others/Modal/Modal.tsx";
-import type {AdminHighRiskIndividualsLettersDetailIndividualsDataItemType} from "../index.types.ts";
 import Button from "../../../../../../../components/Form/Button/Button.tsx";
 import ReactHookFormWrapper
   from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
@@ -20,17 +19,18 @@ const AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3 = lazy(() =
 
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps = {
-  modalState: AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean;
+  modalState: number | string | boolean;
+  personTitle: string;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   {
-    open, onClose, modalState
+    open, onClose, modalState, personTitle
   }: AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps
 ) {
 
   const {
-    personTitle, formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep,
+    formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep,
     reasonIsUserMistake, description, documentsList, setDocumentsList
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModal({
     modalState, onClose
