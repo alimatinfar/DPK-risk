@@ -9,7 +9,7 @@ import {
 } from "./index.types";
 import Tag from "../../../../../../components/others/Tag/Tag";
 import {
-  ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA, DOCUMENT_MODAL_STATE_TYPE_KEYS
+  ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA, MODAL_STATE_TYPE_KEYS
 } from "./index.constances";
 import Button from "../../../../../../components/Form/Button/Button";
 import EditIcon from "../../../../../../components/svg/EditIcon";
@@ -83,7 +83,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                               )}
                               <Button
                                 onClick={() => setDocListModalState({
-                                  id: item.id, type: DOCUMENT_MODAL_STATE_TYPE_KEYS.PERSON
+                                  id: item.id, type: MODAL_STATE_TYPE_KEYS.PERSON
                                 })}
                                 variant='default' color='white'
                               >
@@ -108,7 +108,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                               actions={(
                                 <Button
                                   onClick={() => setDocListModalState({
-                                    id: item.exitLetter?.id || '', type: DOCUMENT_MODAL_STATE_TYPE_KEYS.LETTER
+                                    id: item.exitLetter?.id || '', type: MODAL_STATE_TYPE_KEYS.LETTER
                                   })}
                                   variant='default' color='white'
                                 >

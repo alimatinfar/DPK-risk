@@ -14,7 +14,7 @@ export const EXIT_PERSON_FROM_LETTER_KEYS_LABEL = {
   [EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE]: 'تاریخ اعتبار',
 } as const
 
-export const DOCUMENT_MODAL_STATE_TYPE_KEYS = {
+export const MODAL_STATE_TYPE_KEYS = {
   LETTER: 'letter',
   PERSON: 'person',
 }

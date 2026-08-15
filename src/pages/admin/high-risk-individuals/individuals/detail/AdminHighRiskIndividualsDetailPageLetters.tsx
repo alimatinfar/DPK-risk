@@ -9,7 +9,7 @@ import CardRightRed from "../../../../../components/others/Card/CardRightRed.tsx
 import useAdminHighRiskIndividualsDetailPageLetters from "./hooks/useAdminHighRiskIndividualsDetailPageLetters.tsx";
 import type {SetStateType} from "../../../../../types/SetStateType.ts";
 import type {DocumentModalState} from "../../letters/detail/individuals/index.types.ts";
-import {DOCUMENT_MODAL_STATE_TYPE_KEYS} from "../../letters/detail/individuals/index.constances.ts";
+import {MODAL_STATE_TYPE_KEYS} from "../../letters/detail/individuals/index.constances.ts";
 
 
 
@@ -44,7 +44,7 @@ function AdminHighRiskIndividualsDetailPageLetters(
                 )}
                 <Button
                   onClick={() => setDocListModalState({
-                    id: item.id, type: DOCUMENT_MODAL_STATE_TYPE_KEYS.PERSON
+                    id: item.id, type: MODAL_STATE_TYPE_KEYS.LETTER
                   })}
                   variant='default' color='white'
                 >
@@ -62,7 +62,7 @@ function AdminHighRiskIndividualsDetailPageLetters(
                 actions={(
                   <Button
                     onClick={() => setDocListModalState({
-                      id: item.exitLetter?.id || '', type: DOCUMENT_MODAL_STATE_TYPE_KEYS.LETTER
+                      id: item.exitLetter?.id || '', type: MODAL_STATE_TYPE_KEYS.LETTER
                     })}
                     variant='default' color='white'
                   >
