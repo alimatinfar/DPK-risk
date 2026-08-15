@@ -1,21 +1,15 @@
 import AdminPageTitle from "../../../layout/AdminPageTitle.tsx";
 import CardWithHeader from "../../../../../components/others/Card/CardWithHeader/CardWithHeader.tsx";
-import {ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE} from "./index.constances.ts";
-import AdminHighRiskIndividualsExitLetterContainer
-  from "../../letters/detail/individuals/AdminHighRiskIndividualsExitLetterContainer.tsx";
-import AdminHighRiskIndividualsFieldsWithActions
-  from "../../letters/detail/individuals/AdminHighRiskIndividualsFieldsWithActions.tsx";
-import Button from "../../../../../components/Form/Button/Button.tsx";
-import LogoutIcon from "../../../../../components/svg/LogoutIcon.tsx";
-import CardRightRed from "../../../../../components/others/Card/CardRightRed.tsx";
-import useAdminHighRiskIndividualsDetailPage from "./hooks/useAdminHighRiskIndividualsDetailPage.tsx";
+import AdminHighRiskIndividualsDetailPageLetters from "./AdminHighRiskIndividualsDetailPageLetters.tsx";
+import useGetQueryParam from "../../../../../hooks/useGetQueryParam.ts";
+import {useParams} from "react-router";
+import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
 
 
 function AdminHighRiskIndividualsDetailPage() {
 
-  const {
-    name, getTopFields, getBottomFields
-  } = useAdminHighRiskIndividualsDetailPage()
+  const {id: customNumber} = useParams()
+  const name = useGetQueryParam(QUERY_PARAMS.NAME)
 
   return (
     <div className='flex flex-col gap-y-4'>
@@ -32,57 +26,7 @@ function AdminHighRiskIndividualsDetailPage() {
         title='نامه‌ها'
         childrenClassName='flex flex-col gap-y-2 bg-gray-50 p-2'
       >
-        {ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE.map((item, index) => {
-          return (
-            <AdminHighRiskIndividualsExitLetterContainer exitType={item.exitType}>
-              <AdminHighRiskIndividualsFieldsWithActions
-                fields={getTopFields({item, isExit: false})}
-                actions={(
-                  <>
-                    {!item.exitType && (
-                      <>
-                        <Button
-                          onClick={() => console.log('exit')}
-                          justIcon variant='default' color='red'
-                        >
-                          <LogoutIcon/>
-                        </Button>
-                      </>
-                    )}
-                    <Button
-                      // onClick={() => setDocListModalState({
-                      //   id: item.id, type: DOCUMENT_MODAL_STATE_TYPE_KEYS.PERSON
-                      // })}
-                      variant='default' color='white'
-                    >
-                      لیست مستندات
-                    </Button>
-                  </>
-                )}
-                bottomFields={getBottomFields({item, isExit: false})}
-              />
-
-              {item?.exitLetter && (
-                <CardRightRed className='flex flex-col gap-y-4'>
-                  <AdminHighRiskIndividualsFieldsWithActions
-                    fields={getTopFields({item, isExit: true})}
-                    actions={(
-                      <Button
-                        // onClick={() => setDocListModalState({
-                        //   id: item.exitLetter?.id || '', type: DOCUMENT_MODAL_STATE_TYPE_KEYS.LETTER
-                        // })}
-                        variant='default' color='white'
-                      >
-                        لیست مستندات
-                      </Button>
-                    )}
-                    bottomFields={getBottomFields({item, isExit: true})}
-                  />
-                </CardRightRed>
-              )}
-            </AdminHighRiskIndividualsExitLetterContainer>
-          )
-        })}
+        <AdminHighRiskIndividualsDetailPageLetters />
       </CardWithHeader>
     </div>
   );

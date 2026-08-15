@@ -24,14 +24,11 @@ type GetFieldsIsMainLetter = {
   item: AdminHighRiskIndividualRelatedLetterType;
 }
 
-type GetFieldsType = GetFieldsIsExitLetter | GetFieldsIsMainLetter
+type GetLetterFieldsType = GetFieldsIsExitLetter | GetFieldsIsMainLetter
 
-function useAdminHighRiskIndividualsDetailPage() {
+function useAdminHighRiskIndividualsDetailPageLetters() {
 
-  const {id: customNumber} = useParams()
-  const name = useGetQueryParam(QUERY_PARAMS.NAME)
-
-  function getTopFields({item, isExit}: GetFieldsType) {
+  function getTopFields({item, isExit}: GetLetterFieldsType) {
     return [
       {
         label: 'شماره نامه', value: item?.[letterNumberFieldName]
@@ -48,7 +45,7 @@ function useAdminHighRiskIndividualsDetailPage() {
     ]
   }
 
-  function getBottomFields({item, isExit}: GetFieldsType) {
+  function getBottomFields({item, isExit}: GetLetterFieldsType) {
     return [
       {
         label: 'توضیحات نامه', value: item?.[descriptionFieldName]
@@ -64,8 +61,8 @@ function useAdminHighRiskIndividualsDetailPage() {
   }
 
   return {
-    name, getTopFields, getBottomFields
+    getTopFields, getBottomFields
   }
 }
 
-export default useAdminHighRiskIndividualsDetailPage;
+export default useAdminHighRiskIndividualsDetailPageLetters;
