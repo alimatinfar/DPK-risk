@@ -10,9 +10,10 @@ import {expireDateFieldName} from "../../FormFields/ExpireDateField/index.consta
 import {
   entryReasonsFieldName
 } from "../../FormFields/EntryReasonsField/index.constances.ts";
+import type {ExitPersonFromLetterType} from "../../letters/detail/individuals/index.types.ts";
 
 
-type ShareLetterType = {
+export type AdminHighRiskIndividualRelatedShareLetterType = {
   id: number | string;
   [letterNumberFieldName]: string | number;
   [announceReferenceFieldName]: string;
@@ -24,5 +25,5 @@ export type AdminHighRiskIndividualRelatedLetterType = {
   [expireDateFieldName]: string;
   [entryReasonsFieldName]: string[];
   exitType?: ExitPersonFromLetterType
-  exitLetter?: ShareLetterType
-} & ShareLetterType
+  exitLetter?: AdminHighRiskIndividualRelatedShareLetterType
+} & AdminHighRiskIndividualRelatedShareLetterType

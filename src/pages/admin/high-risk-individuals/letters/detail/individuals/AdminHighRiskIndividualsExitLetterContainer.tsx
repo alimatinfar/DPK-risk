@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import type {PropsWithChildren} from "react";
 import React from 'react';
 import {EXIT_PERSON_FROM_LETTER_KEYS_LABEL} from "./index.constances";
 import {type ExitPersonFromLetterType} from "./index.types";
@@ -11,15 +11,23 @@ type Props = {
 function AdminHighRiskIndividualsExitLetterContainer(
   {exitType, children}: Props
 ) {
+
+  const childrenRender = (
+    <div
+      className={`flex flex-col gap-y-4 p-4 rounded-lg bg-white ${exitType ? '' : 'border border-gray-200'}`}>
+      {children}
+    </div>
+  )
+
   return exitType ? (
     <div className='flex flex-col border border-red-300 rounded-lg overflow-hidden'>
       <div className='text-center text-red-500 font-semibold p-2.5 bg-red-50'>
         {`حذف با ${EXIT_PERSON_FROM_LETTER_KEYS_LABEL[exitType]}`}
       </div>
 
-      {children}
+      {childrenRender}
     </div>
-  ) : children
+  ) : childrenRender
 }
 
 export default AdminHighRiskIndividualsExitLetterContainer;
