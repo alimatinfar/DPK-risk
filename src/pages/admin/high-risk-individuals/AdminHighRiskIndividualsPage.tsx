@@ -13,6 +13,8 @@ import useFilter from "../../../components/Form/FilterForm/hooks/useFilter.ts";
 import {adminHighRiskIndividualsDefaultFilters} from "./individuals/index.constances.ts";
 import QUERY_PARAMS from "../../../constances/queryParams.ts";
 import {adminHighRiskIndividualsLettersDefaultFilters} from "./letters/index.constances.tsx";
+import {Link} from "react-router";
+import ROUTER_LINKS from "../../../constances/routerLinks.ts";
 
 
 function AdminHighRiskIndividualsPage() {
@@ -38,9 +40,11 @@ function AdminHighRiskIndividualsPage() {
     <div className='flex flex-col gap-y-4'>
       <div>
         <AdminPageTitle children={(
-          <AddButton>
-            ثبت جدید
-          </AddButton>
+          <Link to={ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_FORM}>
+            <AddButton>
+              ثبت جدید
+            </AddButton>
+          </Link>
         )}/>
       </div>
 

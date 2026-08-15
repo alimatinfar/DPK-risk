@@ -6,6 +6,9 @@ import {lazy} from "react";
 const AdminHighRiskIndividualsPage = lazy(() => import(
   "../pages/admin/high-risk-individuals/AdminHighRiskIndividualsPage.tsx"
   ))
+const AdminHighRiskIndividualsFormPage = lazy(() => import(
+  "../pages/admin/high-risk-individuals/form/AdminHighRiskIndividualsFormPage.tsx"
+  ))
 const AdminHighRiskIndividualsLettersDetailPage = lazy(() => import(
   "../pages/admin/high-risk-individuals/letters/detail/AdminHighRiskIndividualsLettersDetailPage.tsx"
   ))
@@ -22,6 +25,10 @@ const adminRouter = [
   {
     path: ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL,
     element: <AdminHighRiskIndividualsPage/>,
+  },
+  {
+    path: ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_FORM,
+    element: <AdminHighRiskIndividualsFormPage/>,
   },
   {
     path: `${ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL}/:id`,
