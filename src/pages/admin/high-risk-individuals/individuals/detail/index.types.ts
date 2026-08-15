@@ -1,19 +1,15 @@
 import {
-  letterNumberFieldName,
-  type LetterNumberFieldType
+  letterNumberFieldName
 } from "../../FormFields/LetterNumberField/index.constances.ts";
 import {
-  announceReferenceFieldName,
-  type AnnounceReferenceFieldType
+  announceReferenceFieldName
 } from "../../FormFields/AnnouncingReferenceField/index.constances.ts";
-import {letterDateFieldName, type LetterDateFieldType} from "../../FormFields/LetterDateField/index.constances.ts";
-import {descriptionFieldName, type DescriptionFieldType} from "../../FormFields/DescriptionField/index.constances.ts";
-import {expireDateFieldName, type ExpireDateFieldType} from "../../FormFields/ExpireDateField/index.constances.ts";
+import {letterDateFieldName} from "../../FormFields/LetterDateField/index.constances.ts";
+import {descriptionFieldName} from "../../FormFields/DescriptionField/index.constances.ts";
+import {expireDateFieldName} from "../../FormFields/ExpireDateField/index.constances.ts";
 import {
-  entryReasonsFieldName,
-  type EntryReasonsFieldType
+  entryReasonsFieldName
 } from "../../FormFields/EntryReasonsField/index.constances.ts";
-import {EXIT_PERSON_FROM_LETTER_KEYS} from "../../letters/detail/individuals/index.constances.ts";
 
 
 type ShareLetterType = {
@@ -27,6 +23,6 @@ type ShareLetterType = {
 export type AdminHighRiskIndividualRelatedLetterType = {
   [expireDateFieldName]: string;
   [entryReasonsFieldName]: string[];
-  exitType?: typeof EXIT_PERSON_FROM_LETTER_KEYS[keyof typeof EXIT_PERSON_FROM_LETTER_KEYS]
+  exitType?: ExitPersonFromLetterType
   exitLetter?: ShareLetterType
 } & ShareLetterType

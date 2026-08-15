@@ -11,7 +11,7 @@ type Props = {
   bottomFields: DetailInfoSectionLabelValueProps[];
 }
 
-function AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions(
+function AdminHighRiskIndividualsFieldsWithActions(
   {fields, actions, bottomFields}: Props
 ) {
   return (
@@ -35,4 +35,4 @@ function AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions(
   );
 }
 
-export default AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions;
+export default AdminHighRiskIndividualsFieldsWithActions;

@@ -15,13 +15,15 @@ type RealTypeData = {
   lastName: string
 }
 
+export type ExitPersonFromLetterType = typeof EXIT_PERSON_FROM_LETTER_KEYS[keyof typeof EXIT_PERSON_FROM_LETTER_KEYS]
+
 export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<ResultPersonCardDataType, 'type'> & {
   id: string | number;
   name: string;
   nationalCode: string;
   expireDate: Moment;
   entryReasons: SelectOptionType[];
-  exitType?: typeof EXIT_PERSON_FROM_LETTER_KEYS[keyof typeof EXIT_PERSON_FROM_LETTER_KEYS]
+  exitType?: ExitPersonFromLetterType
   exitLetter?: {
     id: string | number;
     letterNumber: string | number;

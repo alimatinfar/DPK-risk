@@ -15,12 +15,13 @@ import {
 import Button from "../../../../../../components/Form/Button/Button";
 import EditIcon from "../../../../../../components/svg/EditIcon";
 import LogoutIcon from "../../../../../../components/svg/LogoutIcon";
-import AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
-  from "./AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions.tsx";
+import AdminHighRiskIndividualsFieldsWithActions
+  from "./AdminHighRiskIndividualsFieldsWithActions.tsx";
 import CardRightRed from "../../../../../../components/others/Card/CardRightRed.tsx";
 import useAdminHighRiskIndividualsLettersDetailIndividualsCategories
   from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividualsCategories.ts";
 import type {SetStateType} from "../../../../../../types/SetStateType.ts";
+import AdminHighRiskIndividualsExitLetterContainer from "./AdminHighRiskIndividualsExitLetterContainer";
 
 
 type Props = {
@@ -60,7 +61,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                   const content = (
                     <div
                       className={`flex flex-col gap-y-4 p-4 rounded-lg bg-white ${item.exitType ? '' : 'border border-gray-200'}`}>
-                      <AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
+                      <AdminHighRiskIndividualsFieldsWithActions
                         fields={fields}
                         actions={(
                           <>
@@ -105,7 +106,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
 
                       {item?.exitLetter && (
                         <CardRightRed className='flex flex-col gap-y-4'>
-                          <AdminHighRiskIndividualsLettersDetailIndividualsFieldsWithActions
+                          <AdminHighRiskIndividualsFieldsWithActions
                             fields={exitLetterFields}
                             actions={(
                               <Button
@@ -127,15 +128,11 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                     </div>
                   )
 
-                  return item.exitType ? (
-                    <div className='flex flex-col border border-red-300 rounded-lg overflow-hidden'>
-                      <div className='text-center text-red-500 font-semibold p-2.5 bg-red-50'>
-                        {`حذف با ${EXIT_PERSON_FROM_LETTER_KEYS_LABEL[item.exitType]}`}
-                      </div>
-
+                  return (
+                    <AdminHighRiskIndividualsExitLetterContainer exitType={item.exitType} >
                       {content}
-                    </div>
-                  ) : content
+                    </AdminHighRiskIndividualsExitLetterContainer>
+                  )
                 })}
               </div>
             )
