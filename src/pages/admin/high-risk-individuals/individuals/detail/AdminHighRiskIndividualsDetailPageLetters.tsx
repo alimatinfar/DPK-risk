@@ -8,13 +8,13 @@ import LogoutIcon from "../../../../../components/svg/LogoutIcon.tsx";
 import CardRightRed from "../../../../../components/others/Card/CardRightRed.tsx";
 import useAdminHighRiskIndividualsDetailPageLetters from "./hooks/useAdminHighRiskIndividualsDetailPageLetters.tsx";
 import type {SetStateType} from "../../../../../types/SetStateType.ts";
-import type {DocumentModalState} from "../../letters/detail/individuals/index.types.ts";
+import type {ModalStateTypeId} from "../../letters/detail/individuals/index.types.ts";
 import {MODAL_STATE_TYPE_KEYS} from "../../letters/detail/individuals/index.constances.ts";
 
 
 
 type Props = {
-  setDocListModalState: SetStateType<DocumentModalState | boolean>;
+  setDocListModalState: SetStateType<ModalStateTypeId | boolean>;
 }
 
 function AdminHighRiskIndividualsDetailPageLetters(

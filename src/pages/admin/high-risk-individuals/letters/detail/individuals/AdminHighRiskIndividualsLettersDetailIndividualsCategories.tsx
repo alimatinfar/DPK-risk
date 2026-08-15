@@ -5,7 +5,7 @@ import {
 } from "../../../../../../components/others/DetailInfo/DetailInfoSection/DetailInfoSectionLabelValue";
 import {
   type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType,
-  type AdminHighRiskIndividualsLettersDetailIndividualsDataType, type DocumentModalState
+  type AdminHighRiskIndividualsLettersDetailIndividualsDataType, type ModalStateTypeId
 } from "./index.types";
 import Tag from "../../../../../../components/others/Tag/Tag";
 import {
@@ -26,7 +26,7 @@ import AdminHighRiskIndividualsEntryReasonsTags from "./AdminHighRiskIndividuals
 
 type Props = {
   setEditPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
-  setDocListModalState: SetStateType<DocumentModalState | boolean>;
+  setDocListModalState: SetStateType<ModalStateTypeId | boolean>;
   setExitPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
 }
 

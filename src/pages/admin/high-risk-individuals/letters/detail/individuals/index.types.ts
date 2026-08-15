@@ -36,7 +36,7 @@ export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<
 export type AdminHighRiskIndividualsLettersDetailIndividualsDataType = AdminHighRiskIndividualsLettersDetailIndividualsDataItemType[]
 
 //document modal state
-export type DocumentModalState = {
+export type ModalStateTypeId = {
   type: typeof MODAL_STATE_TYPE_KEYS[keyof typeof MODAL_STATE_TYPE_KEYS];
   id: string | number;
 }
