@@ -5,7 +5,7 @@ import {type ExitPersonFromLetterType} from "./index.types";
 
 
 type Props = {
-  exitType: ExitPersonFromLetterType
+  exitType?: ExitPersonFromLetterType
 } & PropsWithChildren
 
 function AdminHighRiskIndividualsExitLetterContainer(
