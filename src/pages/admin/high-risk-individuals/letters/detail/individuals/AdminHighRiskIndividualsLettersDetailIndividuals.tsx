@@ -6,6 +6,7 @@ import type {
 } from "./index.types.ts";
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
 import {lazy} from "react";
+import useAdminHighRiskIndividualsDocumentListModal from "./hooks/useAdminHighRiskIndividualsDocumentListModal.ts";
 
 
 const AdminHighRiskIndividualsLettersDetailIndividualsEditModal = lazy(() => import(
@@ -29,9 +30,8 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
   } = useModalOpen<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>(false)
 
   const {
-    open: docListModalOpen, shouldBeRemoved: docListModalShouldBeRemoved, closeModal: closeDocListModalHandler,
-    modalState: docListModalState, setModalState: setDocListModalState
-  } = useModalOpen<DocumentModalState | boolean>(false)
+    docListModalOpen, docListModalShouldBeRemoved, closeDocListModalHandler, docListModalState, setDocListModalState
+  } = useAdminHighRiskIndividualsDocumentListModal()
 
   const {
     open: exitPersonModalOpen, shouldBeRemoved: exitPersonModalShouldBeRemoved, closeModal: closeExitPersonModalHandler,

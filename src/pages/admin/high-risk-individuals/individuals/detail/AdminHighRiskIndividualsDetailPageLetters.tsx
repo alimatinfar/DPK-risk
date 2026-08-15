@@ -7,9 +7,19 @@ import Button from "../../../../../components/Form/Button/Button.tsx";
 import LogoutIcon from "../../../../../components/svg/LogoutIcon.tsx";
 import CardRightRed from "../../../../../components/others/Card/CardRightRed.tsx";
 import useAdminHighRiskIndividualsDetailPageLetters from "./hooks/useAdminHighRiskIndividualsDetailPageLetters.tsx";
+import type {SetStateType} from "../../../../../types/SetStateType.ts";
+import type {DocumentModalState} from "../../letters/detail/individuals/index.types.ts";
+import {DOCUMENT_MODAL_STATE_TYPE_KEYS} from "../../letters/detail/individuals/index.constances.ts";
 
 
-function AdminHighRiskIndividualsDetailPageLetters() {
+
+type Props = {
+  setDocListModalState: SetStateType<DocumentModalState | boolean>;
+}
+
+function AdminHighRiskIndividualsDetailPageLetters(
+  {setDocListModalState}: Props
+) {
 
   const {
     getTopFields, getBottomFields
@@ -33,9 +43,9 @@ function AdminHighRiskIndividualsDetailPageLetters() {
                   </>
                 )}
                 <Button
-                  // onClick={() => setDocListModalState({
-                  //   id: item.id, type: DOCUMENT_MODAL_STATE_TYPE_KEYS.PERSON
-                  // })}
+                  onClick={() => setDocListModalState({
+                    id: item.id, type: DOCUMENT_MODAL_STATE_TYPE_KEYS.PERSON
+                  })}
                   variant='default' color='white'
                 >
                   لیست مستندات
@@ -51,9 +61,9 @@ function AdminHighRiskIndividualsDetailPageLetters() {
                 fields={getTopFields({item, isExit: true})}
                 actions={(
                   <Button
-                    // onClick={() => setDocListModalState({
-                    //   id: item.exitLetter?.id || '', type: DOCUMENT_MODAL_STATE_TYPE_KEYS.LETTER
-                    // })}
+                    onClick={() => setDocListModalState({
+                      id: item.exitLetter?.id || '', type: DOCUMENT_MODAL_STATE_TYPE_KEYS.LETTER
+                    })}
                     variant='default' color='white'
                   >
                     لیست مستندات
