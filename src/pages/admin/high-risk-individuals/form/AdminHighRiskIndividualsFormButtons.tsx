@@ -3,17 +3,19 @@ import Button from "../../../../components/Form/Button/Button.tsx";
 import useModalOpenBoolean from "../../../../hooks/modal/useModalOpenBoolean.ts";
 import DisplayModal from "../../../../components/others/Modal/DisplayModal.tsx";
 import {lazy} from "react";
+import type {ButtonProps} from "../../../../components/Form/Button/ButtonTypes.ts";
 
 const AdminHighRiskIndividualsExitFormModal = lazy(() => import(
   "./AdminHighRiskIndividualsExitFormModal.tsx"
   ));
 
 type Props = {
-  isLastStep?: boolean
+  isLastStep?: boolean;
+  onClick?: ButtonProps['onClick'];
 }
 
 function AdminHighRiskIndividualsFormButtons(
-  {isLastStep}: Props
+  {isLastStep, onClick}: Props
 ) {
 
   const [currentStep, setCurrentStep] = useFormStepContext()
@@ -44,7 +46,9 @@ function AdminHighRiskIndividualsFormButtons(
           >
             {isFirstStep ? 'انصراف' : 'مرحله قبل'}
           </Button>
-          <Button type='submit'>
+          <Button
+            {...onClick ? {onClick} : {type: 'submit'}}
+          >
             {isLastStep ? 'ثبت نهایی' : 'ثبت و ادامه'}
           </Button>
         </div>
