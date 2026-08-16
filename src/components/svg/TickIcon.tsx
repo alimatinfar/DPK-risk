@@ -11,7 +11,7 @@ function TickIcon({className, textColor}: IconPropsType) {
       {...className && {className}}
     >
       <path
-        className={`fill-current duration-200 ${textColor || 'text-green-700'}`}
+        className={`fill-current duration-200 ${textColor || 'text-primary'}`}
         d="m8.333 12.643 7.66-7.66 1.18 1.178L8.333 15 3.03 9.697l1.178-1.179z"
       ></path>
     </svg>

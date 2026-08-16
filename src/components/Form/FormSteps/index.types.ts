@@ -1,7 +1,6 @@
 import type {PropsWithChildren} from "react";
 
-export type StepsTypes = {
+export type FormStepsTypes = {
   id: number;
   text: string;
-  caption?: string;
 } & PropsWithChildren

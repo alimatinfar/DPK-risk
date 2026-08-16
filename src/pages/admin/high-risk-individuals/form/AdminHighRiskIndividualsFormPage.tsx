@@ -1,10 +1,12 @@
-import AdminPageTitle from "../../layout/AdminPageTitle.tsx";
+import FormStepContextProvider from "../../../../contexts/FormStepContext.tsx";
+import AdminHighRiskIndividualsFormPageContent from "./AdminHighRiskIndividualsFormPageContent.tsx";
+
 
 function AdminHighRiskIndividualsFormPage() {
   return (
-    <div className='flex flex-col gap-y-4'>
-      <AdminPageTitle title='افزودن شخص پرریسک' hasBack/>
-    </div>
+    <FormStepContextProvider>
+      <AdminHighRiskIndividualsFormPageContent/>
+    </FormStepContextProvider>
   );
 }
 
