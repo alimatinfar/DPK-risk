@@ -4,6 +4,7 @@ import Message from "../../../../../../../components/others/Message/Message.tsx"
 import AnnouncingReferenceField from "../../../../FormFields/AnnouncingReferenceField/AnnouncingReferenceField.tsx";
 import LetterNumberField from "../../../../FormFields/LetterNumberField/LetterNumberField.tsx";
 import LetterDateField from "../../../../FormFields/LetterDateField/LetterDateField.tsx";
+import AdminHighRiskIndividualsBaseFormFields from "../../../../FormFields/AdminHighRiskIndividualsBaseFormFields.tsx";
 
 
 type Props = {
@@ -23,15 +24,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2(
       <DescriptionField customFieldName={exitByUserMistakeDescriptionFieldName} />
     </div>
   ) : (
-    <>
-      <AnnouncingReferenceField customLabel='مرجع' isRequired />
-
-      <LetterNumberField isRequired />
-
-      <LetterDateField isRequired />
-
-      <DescriptionField customFieldName={exitCitingTheLetterDescriptionFieldName} />
-    </>
+    <AdminHighRiskIndividualsBaseFormFields />
   )
 }
 
