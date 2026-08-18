@@ -1,20 +1,20 @@
-import type {FormStepsTypes} from "../../../../components/Form/FormSteps/index.types.ts";
+import type {FormStepsTypes} from "../../../../../components/Form/FormSteps/index.types.ts";
 import {lazy} from "react";
 
 const AdminHighRiskFormStep1 = lazy(() => import(
-  "./steps/step1/AdminHighRiskFormStep1.tsx"
+  "../steps/step1/AdminHighRiskFormStep1.tsx"
   ))
 const AdminHighRiskFormStep2 = lazy(() => import(
-  "./steps/step2/AdminHighRiskFormStep2.tsx"
+  "../steps/step2/AdminHighRiskFormStep2.tsx"
   ))
 const AdminHighRiskFormStep3 = lazy(() => import(
-  "./steps/step3/AdminHighRiskFormStep3.tsx"
+  "../steps/step3/AdminHighRiskFormStep3.tsx"
   ))
 const AdminHighRiskFormStep4 = lazy(() => import(
-  "./steps/step4/AdminHighRiskFormStep4.tsx"
+  "../steps/step4/AdminHighRiskFormStep4.tsx"
   ))
 const AdminHighRiskFormStep5 = lazy(() => import(
-  "./steps/step5/AdminHighRiskFormStep5.tsx"
+  "../steps/step5/AdminHighRiskFormStep5.tsx"
   ))
 
 export const ADMIN_HIGH_RISK_FORM_STEPS: FormStepsTypes[] = [

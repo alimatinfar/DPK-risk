@@ -1,5 +1,5 @@
 import AdminPageTitle from "../../layout/AdminPageTitle.tsx";
-import {ADMIN_HIGH_RISK_FORM_STEPS} from "./index.constances.tsx";
+import {ADMIN_HIGH_RISK_FORM_STEPS} from "./constances/index.constances.tsx";
 import FormSteps from "../../../../components/Form/FormSteps/FormSteps.tsx";
 
 
