@@ -4,17 +4,14 @@ import TickIcon from "../../svg/TickIcon.tsx";
 import Card from "../../others/Card/Card.tsx";
 import SuspenseRenderLogicDefaultContainer from "../../others/RenderLogic/SuspenseRenderLogicDefaultContainer.tsx";
 import Loading from "../../others/Loading/Loading.tsx";
-import ReactHookFormWrapper, {
-  type ReactHookFormWrapperProps
-} from "../FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
 
 
 type Props = {
   steps: FormStepsTypes[];
-} & Pick<ReactHookFormWrapperProps, 'formMethods' | 'onSubmit'>
+}
 
 function FormSteps(
-  {steps, formMethods, onSubmit}: Props
+  {steps}: Props
 ) {
 
   const [currentStep] = useFormStepContext()
@@ -51,13 +48,9 @@ function FormSteps(
         })}
       </Card>
 
-      <ReactHookFormWrapper
-        formMethods={formMethods} onSubmit={onSubmit}
-        >
-        <SuspenseRenderLogicDefaultContainer fallback={<Loading />}>
-          {steps[currentStep - 1]?.children || null}
-        </SuspenseRenderLogicDefaultContainer>
-      </ReactHookFormWrapper>
+      <SuspenseRenderLogicDefaultContainer fallback={<Loading />}>
+        {steps[currentStep - 1]?.children || null}
+      </SuspenseRenderLogicDefaultContainer>
     </div>
   );
 }

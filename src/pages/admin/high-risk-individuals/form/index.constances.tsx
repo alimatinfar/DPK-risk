@@ -13,26 +13,34 @@ const AdminHighRiskFormStep3 = lazy(() => import(
 const AdminHighRiskFormStep4 = lazy(() => import(
   "./steps/step4/AdminHighRiskFormStep4.tsx"
   ))
+const AdminHighRiskFormStep5 = lazy(() => import(
+  "./steps/step5/AdminHighRiskFormStep5.tsx"
+  ))
 
 export const ADMIN_HIGH_RISK_FORM_STEPS: FormStepsTypes[] = [
   {
     id: 1,
-    text: 'اطلاعات اولیه و مستندات',
+    text: 'ثبت اطلاعات نامه',
     children: <AdminHighRiskFormStep1/>,
   },
   {
     id: 2,
-    text: 'افزودن اشخاص',
+    text: 'افزودن مستندات نامه',
     children: <AdminHighRiskFormStep2/>,
   },
   {
     id: 3,
-    text: 'افزودن مستندات اشخاص',
+    text: 'افزودن اشخاص',
     children: <AdminHighRiskFormStep3/>,
   },
   {
     id: 4,
-    text: 'پیش نمایش',
+    text: 'افزودن مستندات اشخاص',
     children: <AdminHighRiskFormStep4/>,
+  },
+  {
+    id: 5,
+    text: 'پیش نمایش',
+    children: <AdminHighRiskFormStep5/>,
   },
 ]
