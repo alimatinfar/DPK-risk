@@ -1,6 +1,6 @@
 import type {
   AdminHighRiskIndividualsDocumentFormDataType
-} from "./formModal/AdminHighRiskIndividualsDocumentFormFields.tsx";
+} from "../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
 
 export type AdminHighRiskIndividualsLettersDetailDocumentType = {
   id: string | number;

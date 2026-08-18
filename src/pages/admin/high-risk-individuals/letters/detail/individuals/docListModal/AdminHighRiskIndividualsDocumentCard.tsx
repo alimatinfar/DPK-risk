@@ -4,7 +4,7 @@ import EditIcon2 from "../../../../../../../components/svg/EditIcon2.tsx";
 import FileDataCard from "../../../../../../../components/others/FileDataCard/FileDataCard.tsx";
 import type {
   AdminHighRiskIndividualsDocumentFormDataType
-} from "../../documents/formModal/AdminHighRiskIndividualsDocumentFormFields.tsx";
+} from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
 import {fileTypeFieldName} from "../../../../FormFields/FileTypeField/index.constances.ts";
 import {uploadFileFieldName} from "../../../../FormFields/UploadFileField/index.constances.ts";
 import {descriptionFieldName} from "../../../../FormFields/DescriptionField/index.constances.ts";

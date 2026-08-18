@@ -13,8 +13,8 @@ import Loading from "../../../../../../../components/others/Loading/Loading.tsx"
 const AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2 = lazy(() => import(
   "./AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2.tsx"
   ));
-const AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3 = lazy(() => import(
-  "./AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3.tsx"
+const AdminHighRiskIndividualsDocumentsListForm = lazy(() => import(
+  "../../../../FormFields/AdminHighRiskIndividualsDocumentsListForm/AdminHighRiskIndividualsDocumentsListForm.tsx"
   ));
 
 
@@ -50,7 +50,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
     >
       <div className='h-full relative overflow-auto'>
         {currentStep === 3 && (
-          <AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3
+          <AdminHighRiskIndividualsDocumentsListForm
             documentsList={documentsList} setDocumentsList={setDocumentsList}
           />
         )}

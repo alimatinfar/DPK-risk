@@ -11,11 +11,7 @@ import type {
 import {useEffect} from "react";
 import setDefaultValuesFromObject
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
-import {
-  uploadFileFieldName,
-  type UploadFileFieldType
-} from "../../../../../FormFields/UploadFileField/index.constances.ts";
-import type {AdminHighRiskIndividualsDocumentFormDataType} from "../AdminHighRiskIndividualsDocumentFormFields.tsx";
+import type {AdminHighRiskIndividualsDocumentFormDataType} from "../../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
   {

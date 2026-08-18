@@ -1,15 +1,12 @@
 import ReactHookFormWrapper
   from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import FileTypeField from "../../../../FormFields/FileTypeField/FileTypeField.tsx";
-import DescriptionField from "../../../../FormFields/DescriptionField/DescriptionField.tsx";
-import UploadFileField from "../../../../FormFields/UploadFileField/UploadFileField.tsx";
 import Button from "../../../../../../../components/Form/Button/Button.tsx";
 import type {
   AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps
 } from "./AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx";
 import useAdminHighRiskIndividualsLettersDetailDocumentsFormModal
   from "./hooks/useAdminHighRiskIndividualsLettersDetailDocumentsFormModal.ts";
-import AdminHighRiskIndividualsDocumentFormFields from "./AdminHighRiskIndividualsDocumentFormFields.tsx";
+import AdminHighRiskIndividualsDocumentFormFields from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/AdminHighRiskIndividualsDocumentFormFields.tsx";
 
 
 type Props = {

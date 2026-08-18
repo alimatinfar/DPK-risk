@@ -1,23 +1,23 @@
-import AdminHighRiskIndividualsDocumentFormFields
-  , {
+import {
   type AdminHighRiskIndividualsDocumentFormDataType
-} from "../../documents/formModal/AdminHighRiskIndividualsDocumentFormFields.tsx";
+} from "../AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
 import ReactHookFormWrapper
-  from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
+  from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
 import useReactHookFormWrapper
-  from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
-import Button from "../../../../../../../components/Form/Button/Button.tsx";
-import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
-import type {SetStateType} from "../../../../../../../types/SetStateType.ts";
-import AdminHighRiskIndividualsDocumentCard from "../docListModal/AdminHighRiskIndividualsDocumentCard.tsx";
+  from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
+import Button from "../../../../../components/Form/Button/Button.tsx";
+import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
+import AdminHighRiskIndividualsDocumentCard from "../../letters/detail/individuals/docListModal/AdminHighRiskIndividualsDocumentCard.tsx";
+import AdminHighRiskIndividualsDocumentFormFields
+  from "../AdminHighRiskIndividualsDocumentFormFields/AdminHighRiskIndividualsDocumentFormFields.tsx";
 
 
 type Props = {
-  documentsList: AdminHighRiskIndividualsDocumentFormDataType[],
-  setDocumentsList: SetStateType<AdminHighRiskIndividualsDocumentFormDataType[]>
+  documentsList: AdminHighRiskIndividualsDocumentFormDataType[];
+  setDocumentsList: (value: AdminHighRiskIndividualsDocumentFormDataType[]) => void;
 }
 
-function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3(
+function AdminHighRiskIndividualsDocumentsListForm(
   {documentsList, setDocumentsList}: Props
 ) {
 
@@ -28,17 +28,15 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3(
   })
 
   function onSubmitHandler(formData: AdminHighRiskIndividualsDocumentFormDataType) {
-    setDocumentsList(prev => ([
-      ...prev,
+    setDocumentsList([
+      ...documentsList,
       formData
-    ]))
+    ])
     formMethods.reset()
   }
 
   function deleteDocumentHandler(index: number) {
-    setDocumentsList(prev => {
-      return [...prev.filter((_, itemIndex) => itemIndex !== index)]
-    })
+    setDocumentsList([...documentsList.filter((_, itemIndex) => itemIndex !== index)])
   }
 
   return (
@@ -75,4 +73,4 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3(
   );
 }
 
-export default AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep3;
+export default AdminHighRiskIndividualsDocumentsListForm;

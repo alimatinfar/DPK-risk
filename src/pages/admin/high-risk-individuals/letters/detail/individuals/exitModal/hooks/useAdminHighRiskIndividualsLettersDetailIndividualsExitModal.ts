@@ -10,10 +10,10 @@ import {useWatch} from "react-hook-form";
 import {
   type AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps
 } from "../AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx";
+import toastPromise from "../../../../../../../../utils/toastPromise.ts";
 import type {
   AdminHighRiskIndividualsDocumentFormDataType
-} from "../../../documents/formModal/AdminHighRiskIndividualsDocumentFormFields.tsx";
-import toastPromise from "../../../../../../../../utils/toastPromise.ts";
+} from "../../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
 
 type FormDataType = {
   [exitReasonTypeFieldName]: ExitReasonTypeFieldType
