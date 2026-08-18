@@ -2,6 +2,7 @@ import Modal, {type ModalProps} from "../../../../components/others/Modal/Modal.
 import Button from "../../../../components/Form/Button/Button.tsx";
 import {useNavigate} from "react-router";
 import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
+import {useAdminHighRiskIndividualsFormStore} from "./store/useAdminHighRiskIndividualsFormStore.ts";
 
 
 type Props = Pick<ModalProps, 'open' | 'onClose'>
@@ -10,9 +11,12 @@ function AdminHighRiskIndividualsExitFormModal(
   {open, onClose}: Props
 ) {
 
+  const clearForm = useAdminHighRiskIndividualsFormStore(state => state.clearForm)
+
   const navigate = useNavigate()
 
   function exitFormHandler() {
+    clearForm()
     navigate(ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL)
   }
 
