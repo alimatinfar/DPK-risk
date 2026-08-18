@@ -12,4 +12,6 @@ export type WheelDateTimePickerProps = {
   onChange: (date: Moment) => void;
   value: Moment | string;
   mode?: WheelDateTimePickerModesType;
+  minDateTime?: Moment;
+  maxDateTime?: Moment;
 }

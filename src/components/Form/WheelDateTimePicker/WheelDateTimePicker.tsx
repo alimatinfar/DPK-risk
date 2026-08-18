@@ -1,3 +1,4 @@
+import React from "react";
 import moment from "moment-jalaali";
 import WheelDateTimePickerColumn from "./WheelDateTimePickerColumn";
 import useWheelDateTimePicker from "./hooks/useWheelDateTimePicker";
@@ -7,14 +8,19 @@ import {WHEEL_DATE_TIME_PICKER_MODES, type WheelDateTimePickerProps} from "./Whe
 moment.loadPersian({dialect: "persian-modern"});
 
 function WheelDateTimePicker(
-  {onChange, value, mode = WHEEL_DATE_TIME_PICKER_MODES.DATE_TIME}: WheelDateTimePickerProps
+  {
+    onChange, value, mode = WHEEL_DATE_TIME_PICKER_MODES.DATE_TIME, maxDateTime, minDateTime
+  }: WheelDateTimePickerProps
 ) {
 
   const {
-    hours, hour, setHour, minutes, minute, setMinute,
-    years, year, setYear, months, month, setMonth, days, day, setDay
+    hours, hour, setHour,
+    minutes, minute, setMinute,
+    years, year, setYear,
+    months, month, setMonth,
+    days, day, setDay,
   } = useWheelDateTimePicker({
-    onChange, value
+    onChange, value, maxDateTime, minDateTime
   })
 
   return (
