@@ -1,5 +1,4 @@
 import type {FormStepsTypes} from "./index.types.ts";
-import {useFormStepContext} from "../../../contexts/FormStepContext.tsx";
 import TickIcon from "../../svg/TickIcon.tsx";
 import Card from "../../others/Card/Card.tsx";
 import SuspenseRenderLogicDefaultContainer from "../../others/RenderLogic/SuspenseRenderLogicDefaultContainer.tsx";
@@ -8,14 +7,12 @@ import Loading from "../../others/Loading/Loading.tsx";
 
 type Props = {
   steps: FormStepsTypes[];
+  currentStep: number;
 }
 
 function FormSteps(
-  {steps}: Props
+  {steps, currentStep}: Props
 ) {
-
-  const [currentStep] = useFormStepContext()
-
   return (
     <div className='flex flex-col gap-y-4'>
       <Card className='flex items-center gap-x-2 px-4 pt-4 pb-13'>
