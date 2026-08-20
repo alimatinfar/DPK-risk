@@ -1,9 +1,16 @@
-import UploadBox from "../../../../../components/others/UploadBox/UploadBox";
+import UploadBox, {type UploadBoxProps} from "../../../../../components/others/UploadBox/UploadBox";
 import useGetFormErrorMessage
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage";
 import {uploadFileFieldName, uploadFileFieldLabel} from "./index.constances";
 
-function UploadFileField() {
+
+export type UploadFileFieldProps = {
+  uploadBoxProps?: Partial<UploadBoxProps>;
+}
+
+function UploadFileField(
+  {uploadBoxProps}: UploadFileFieldProps
+) {
 
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(uploadFileFieldName);
@@ -14,6 +21,7 @@ function UploadFileField() {
       maxFileSize={1000}
       rules={{required: `${uploadFileFieldLabel} را آپلود کنید`}}
       errorMessage={errorMessage}
+      {...uploadBoxProps}
     />
   );
 }

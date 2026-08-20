@@ -1,16 +1,29 @@
 import FileTypeField from "../FileTypeField/FileTypeField.tsx";
 import DescriptionField from "../DescriptionField/DescriptionField.tsx";
-import UploadFileField from "../UploadFileField/UploadFileField.tsx";
+import UploadFileField, {type UploadFileFieldProps} from "../UploadFileField/UploadFileField.tsx";
 
 
-function AdminHighRiskIndividualsDocumentFormFields() {
+export type AdminHighRiskIndividualsDocumentFormFieldsProps = {
+  descriptionClass?: string;
+  uploadFileFieldProps?: Partial<UploadFileFieldProps>;
+}
+
+function AdminHighRiskIndividualsDocumentFormFields(
+  {
+    descriptionClass, uploadFileFieldProps
+  }: AdminHighRiskIndividualsDocumentFormFieldsProps
+) {
   return (
     <>
       <FileTypeField/>
 
-      <DescriptionField placeholder='توضیحات مربوط به فایل بارگزاری شده'/>
+      <div className={descriptionClass || ''}>
+        <DescriptionField placeholder='توضیحات مربوط به فایل بارگزاری شده'/>
+      </div>
 
-      <UploadFileField/>
+      <UploadFileField
+        {...uploadFileFieldProps}
+      />
     </>
   );
 }

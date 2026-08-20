@@ -9,12 +9,14 @@ import FileDataCard from "../FileDataCard/FileDataCard";
 import InputErrorMessage from "../../Form/Input/InputErrorMessage";
 
 
-type Props = {
+export type UploadBoxProps = {
   hint?: string;
   accept?: '.xlsx,.csv' | string;
   title?: ReactNode | string;
   description?: ReactNode | string;
   bgClass?: string;
+  fileCardClass?: string;
+  uploadBoxClass?: string;
 } &
   Pick<InputFormPropsType, 'fieldName' | 'rules' | 'defaultValue'> &
   Pick<UseFileDataCardProps, 'fileTypes' | 'maxFileSize'> &
@@ -23,8 +25,8 @@ type Props = {
 function UploadBox(
   {
     hint, accept, title, description, bgClass, fieldName, rules, defaultValue,
-    fileTypes, maxFileSize, errorMessage
-  }: Props
+    fileTypes, maxFileSize, errorMessage, fileCardClass, uploadBoxClass
+  }: UploadBoxProps
 ) {
 
   const {
@@ -42,7 +44,7 @@ function UploadBox(
   const uploadBoxElement = (
     <div className={`
       relative border border-dashed border-gray-300 rounded-md flex flex-col items-center space-y-2 py-4 px-8
-      ${bgClass || 'bg-gray-50'}
+      ${bgClass || 'bg-gray-50'} ${uploadBoxClass || ''}
     `}>
       <UploadIcon/>
 
@@ -67,7 +69,7 @@ function UploadBox(
   )
 
   return value ? (
-    <div className='pb-4'>
+    <div className={`${fileCardClass || 'pb-4'}`}>
       <FileDataCard
         fileData={value}
         removeFileData={removeFileData}

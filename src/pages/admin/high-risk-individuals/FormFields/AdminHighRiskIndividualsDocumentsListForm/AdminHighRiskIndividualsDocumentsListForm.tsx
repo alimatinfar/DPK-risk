@@ -9,16 +9,26 @@ import Button from "../../../../../components/Form/Button/Button.tsx";
 import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 import AdminHighRiskIndividualsDocumentCard from "../../letters/detail/individuals/docListModal/AdminHighRiskIndividualsDocumentCard.tsx";
 import AdminHighRiskIndividualsDocumentFormFields
-  from "../AdminHighRiskIndividualsDocumentFormFields/AdminHighRiskIndividualsDocumentFormFields.tsx";
+  , {
+  type AdminHighRiskIndividualsDocumentFormFieldsProps
+} from "../AdminHighRiskIndividualsDocumentFormFields/AdminHighRiskIndividualsDocumentFormFields.tsx";
 
 
 type Props = {
   documentsList: AdminHighRiskIndividualsDocumentFormDataType[];
   setDocumentsList: (value: AdminHighRiskIndividualsDocumentFormDataType[]) => void;
+  formFieldsProps?: AdminHighRiskIndividualsDocumentFormFieldsProps;
+  buttonClass?: string;
+  formWrapperClass?: string;
+  documentsListClass?: string;
+  buttonIsNotFullWidth?: boolean;
 }
 
 function AdminHighRiskIndividualsDocumentsListForm(
-  {documentsList, setDocumentsList}: Props
+  {
+    documentsList, setDocumentsList, formFieldsProps, buttonClass, buttonIsNotFullWidth, formWrapperClass,
+    documentsListClass
+  }: Props
 ) {
 
   const {
@@ -43,24 +53,26 @@ function AdminHighRiskIndividualsDocumentsListForm(
     <div className='mb-4'>
       <div className='mb-4 pb-4 border-b border-gray-200'>
         <ReactHookFormWrapper
-          formMethods={formMethods} onSubmit={onSubmit}
+          formMethods={formMethods} onSubmit={onSubmit} className={formWrapperClass || ''}
         >
-          <AdminHighRiskIndividualsDocumentFormFields/>
+          <AdminHighRiskIndividualsDocumentFormFields
+            {...formFieldsProps}
+          />
 
-          <div className='mt-2'>
+          <div className={`mt-2 ${buttonClass || ''}`}>
             <Button
               type='submit'
               variant='outlined'
-              fullWidth
+              fullWidth={!buttonIsNotFullWidth}
             >
-              ذخیره
+              افزودن
             </Button>
           </div>
         </ReactHookFormWrapper>
       </div>
 
       <RenderLogic isEmpty={documentsList.length === 0} emptyText='سندی اضافه نشده است'>
-        <div className='flex flex-col gap-y-4'>
+        <div className={documentsListClass || 'flex flex-col gap-y-4'}>
           {documentsList.map((document, index) => (
             <AdminHighRiskIndividualsDocumentCard
               document={document}
