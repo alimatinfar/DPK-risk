@@ -10,6 +10,8 @@ import useMutateData from "../../../request/hooks/useMutateData.ts";
 import type {SearchFormRequestBodyData, SearchFormResponseType} from "../SearchPage.types.ts";
 import useSearchPageBodyData from "./useSearchPageBodyData.ts";
 import useSearchPageResultData from "./useSearchPageResultData.ts";
+import checkFormHasAtLeastOneValue
+  from "../../../components/Form/FormLayout/ReactHookFormWrapper/utils/checkFormHasAtLeastOneValue";
 
 
 function useSearchPage() {
@@ -31,7 +33,7 @@ function useSearchPage() {
   const [isSubmittedSuccessful, setIsSubmittedSuccessful] = useState(false)
 
   function onSubmitHandler(formData: SearchPageFormDataType) {
-    if (Object.values(formData).every(value => !value))
+    if (!checkFormHasAtLeastOneValue(formData))
       return toastPromise().then(toast => toast.error('تکمیل حداقل یک فیلد الزامی است'))
 
     const bodyData = getBodyData(formData)
