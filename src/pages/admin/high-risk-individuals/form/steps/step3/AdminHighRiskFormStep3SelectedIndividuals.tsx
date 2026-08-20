@@ -8,7 +8,7 @@ function AdminHighRiskFormStep3SelectedIndividuals() {
   const selectedIndividuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
   const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
 
-  function removeHandler(customerId: ResultCardDataTypeShareFields[customerIdFieldName]) {
+  function removeHandler(customerId: ResultCardDataTypeShareFields[typeof customerIdFieldName]) {
     const filteredIndividuals = selectedIndividuals?.filter(individual => individual?.[customerIdFieldName] !== customerId)
     setFormData({step3: {individuals: filteredIndividuals}})
   }

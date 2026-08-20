@@ -26,7 +26,7 @@ import type { SetStateType } from "../../../../../../types/SetStateType.ts";
 
 type Props = {
   activeTab: TabType['id'];
-  setFoundedIndividuals?: SetStateType<ResultPersonCardDataType[]>
+  setFoundedIndividuals: SetStateType<ResultPersonCardDataType[]>
 }
 
 function AdminHighRiskFormStep3SearchUserForm(

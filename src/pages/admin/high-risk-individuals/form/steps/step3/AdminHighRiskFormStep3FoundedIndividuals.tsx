@@ -17,7 +17,7 @@ function AdminHighRiskFormStep3FoundedIndividuals(
       emptyElement={<SearchPageEmptyStateAfterFilter />}
     >
       <div className='grid grid-cols-3 gap-4 pt-4 border-t border-gray-200'>
-        {foundedIndividuals.map((item, index) => (
+        {foundedIndividuals?.map((item, index) => (
           <AdminHighRiskFormStep3FoundedIndividualsCard
             key={item.customerId} data={item}
           />
