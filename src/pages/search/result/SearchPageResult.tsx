@@ -8,6 +8,8 @@ import {SEARCH_PAGE_MAX_WIDTH, SEARCH_PAGE_PADDING_X} from "../SearchPage.consta
 import type {ResultPersonCardDataType} from "./ResultCard.types.ts";
 import EmptyStateIcon from "../../../components/svg/RenderLogic/EmptyStateIcon.tsx";
 import SearchPageSkeleton from "../skeleton/SearchPageSkeleton.tsx";
+import SearchPageEmptyState from "../SearchPageEmptyState";
+import SearchPageEmptyStateAfterFilter from "../SearchPageEmptyStateAfterFilter";
 
 
 export type SearchPageResultProps = {
@@ -24,17 +26,9 @@ function SearchPageResult(
 ) {
 
   const emptyElement = formIsSubmitted ? (
-    <EmptyState
-      icon={<EmptyStateIcon/>}
-      title='نتيجه اي يافت نشد !'
-      description='لطفاً فیلترهای اعمال‌شده را بررسی کرده و در صورت نیاز، شرایط جستجو را تغییر دهید.'
-    />
+    <SearchPageEmptyStateAfterFilter />
   ) : (
-    <EmptyState
-      icon={<FilterEmptyState/>}
-      title='داده‌ای برای نمایش وجود ندارد!'
-      description='جهت نمایش اطلاعات، ابتدا فیلترهای جستجو را تکمیل و جستجو کنید'
-    />
+    <SearchPageEmptyState />
   )
 
   return (

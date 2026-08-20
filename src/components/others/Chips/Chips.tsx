@@ -1,6 +1,8 @@
 import joinObjectValues from "../../../utils/joinObjectValues";
 import useChipsStyles, {type ChipsColorsType, type ChipsSizesType} from "./hooks/useChipsStyles";
 import CrossIcon from "../../svg/CrossIcon";
+import type { ReactNode } from "react";
+import type { IconPropsType } from "../../svg/IconPropsType";
 
 export type ChipsProps = {
   text: string;
@@ -8,9 +10,16 @@ export type ChipsProps = {
   color?: ChipsColorsType;
   size?: ChipsSizesType;
   className?: string;
+  icon?: (iconProps: IconPropsType) => ReactNode;
 };
 
-export default function Chips({text, onClose, color, className, size}: ChipsProps) {
+export default function Chips(
+  props: ChipsProps
+) {
+
+  const {
+    text, onClose, color, className, size
+  } = props
 
   const { badgeStyles } = useChipsStyles({ color, size, onClose });
 
@@ -21,12 +30,15 @@ export default function Chips({text, onClose, color, className, size}: ChipsProp
 
   return (
     <div
-      className={`flex gap-1 justify-center items-center w-auto space-x-reverse space-x-1.5 ${joinObjectValues(badgeStyles)} 
+      className={`flex gap-2 justify-center items-center w-auto ${joinObjectValues(badgeStyles)} 
       ${className}`}
     >
+      {props.icon && <props.icon textColor='text-gray-500' />}
+
       <span className='select-none'>
         {text}
       </span>
+
       {onClose && (
         <div
           className='p-1 cursor-pointer hover:bg-red-100 duration-200' onClick={onClickHandler}

@@ -6,12 +6,14 @@ import {
 import Card from "../../../../../../components/others/Card/Card.tsx";
 import useAdminHighRiskFormStep3 from "./hooks/useAdminHighRiskFormStep3";
 import AdminHighRiskFormStep3SearchUserForm from "./AdminHighRiskFormStep3SearchUserForm";
+import AdminHighRiskFormStep3FoundedIndividuals from "./AdminHighRiskFormStep3FoundedIndividuals.tsx";
+import AdminHighRiskFormStep3SelectedIndividuals from "./AdminHighRiskFormStep3SelectedIndividuals";
 
 
 function AdminHighRiskFormStep3() {
 
   const {
-    activeTab, setActiveTab
+    activeTab, setActiveTab, foundedIndividuals, setFoundedIndividuals, nextStepHandler
   } = useAdminHighRiskFormStep3()
 
   return (
@@ -22,12 +24,20 @@ function AdminHighRiskFormStep3() {
           activeTab={activeTab} onChange={setActiveTab}
         />
 
-        <AdminHighRiskFormStep3SearchUserForm
-          activeTab={activeTab}
-        />
+        <div className='flex flex-col'>
+          <AdminHighRiskFormStep3SearchUserForm
+            activeTab={activeTab} setFoundedIndividuals={setFoundedIndividuals}
+          />
+
+          <AdminHighRiskFormStep3SelectedIndividuals />
+
+          <AdminHighRiskFormStep3FoundedIndividuals foundedIndividuals={foundedIndividuals} />
+        </div>
       </Card>
 
-      <AdminHighRiskIndividualsFormButtons/>
+      <AdminHighRiskIndividualsFormButtons
+        onClick={nextStepHandler}
+      />
     </div>
   );
 }

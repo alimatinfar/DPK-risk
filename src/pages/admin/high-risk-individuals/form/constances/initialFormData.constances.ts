@@ -14,5 +14,8 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA: AdminHighRiskIndivid
   },
   step2: {
     documentsList: []
+  },
+  step3: {
+    individuals: []
   }
 }

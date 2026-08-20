@@ -36,10 +36,8 @@ import type {SearchPageFormPersonType} from "../../../search/form/SearchPageForm
 import {
   nationalCodeFieldLabel
 } from "../../../search/form/formFields/natural/NationalCodeField/NationalCodeField.constances.ts";
-import {searchPageResultCardSeparatedFieldsNameLabel} from "../../../search/result/SearchPageResultCard.constances.ts";
 import {
   customerNumberFieldLabel,
-  customerNumberFieldName
 } from "../../../search/form/formFields/CustomerNumberField/CustomerNumberField.constances.ts";
 
 export const adminHighRiskIndividualsDefaultFilters: AdminHighRiskIndividualsFilterType = {
