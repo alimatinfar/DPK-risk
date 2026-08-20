@@ -12,6 +12,8 @@ import AdminHighRiskIndividualsDocumentFormFields
   , {
   type AdminHighRiskIndividualsDocumentFormFieldsProps
 } from "../AdminHighRiskIndividualsDocumentFormFields/AdminHighRiskIndividualsDocumentFormFields.tsx";
+import setDefaultValuesFromObject
+  from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject";
 
 
 type Props = {
@@ -49,6 +51,14 @@ function AdminHighRiskIndividualsDocumentsListForm(
     setDocumentsList([...documentsList.filter((_, itemIndex) => itemIndex !== index)])
   }
 
+  function editDocumentHandler(index: number, document: AdminHighRiskIndividualsDocumentFormDataType) {
+    deleteDocumentHandler(index)
+    setDefaultValuesFromObject({
+      defaultValues: document,
+      setValue: formMethods.setValue
+    })
+  }
+
   return (
     <div className='mb-4'>
       <div className='mb-4 pb-4 border-b border-gray-200'>
@@ -77,6 +87,7 @@ function AdminHighRiskIndividualsDocumentsListForm(
             <AdminHighRiskIndividualsDocumentCard
               document={document}
               deleteAction={() => deleteDocumentHandler(index)}
+              editAction={() => editDocumentHandler(index, document)}
             />
           ))}
         </div>
