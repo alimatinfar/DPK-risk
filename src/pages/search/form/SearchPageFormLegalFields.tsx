@@ -8,7 +8,14 @@ import RegistrationDateToField from "./formFields/legal/RegistrationDateToField/
 import LegalAbbreviationField from "./formFields/legal/LegalAbbreviationField/LegalAbbreviationField.tsx";
 
 
-function SearchPageFormLegalFields() {
+
+type Props = {
+  hiddenAbbreviationField?: boolean;
+}
+
+function SearchPageFormLegalFields(
+  {hiddenAbbreviationField}: Props
+) {
   return (
     <>
       <LegalRegistrationNumberField />
@@ -17,7 +24,9 @@ function SearchPageFormLegalFields() {
 
       <LegalBrandNameField />
 
-      <LegalAbbreviationField />
+      {!hiddenAbbreviationField && (
+        <LegalAbbreviationField />
+      )}
 
       <LegalTypeField />
 

@@ -64,19 +64,16 @@ import {
   legalAbbreviationFieldName, type LegalAbbreviationFieldType
 } from "./formFields/legal/LegalAbbreviationField/LegalAbbreviationField.constances.ts";
 
-export type SearchPageFormDataType = {
-  [accountNumberFieldName]: AccountNumberFieldType;
-  [customerNumberFieldName]: CustomerNumberFieldType;
-  [cardNumberFieldName]: CardNumberFieldType;
-  [shahabNumberFieldName]: ShahabNumberFieldType;
 
-  //natural fields
+export type NaturalFormFieldsType = {
   [birthCertificationNumberFieldName]: BirthCertificationNumberFieldType;
   [firstNameFieldName]: FirstNameFieldType;
   [lastNameFieldName]: LastNameFieldType;
   [nationalCodeFieldName]: NationalCodeFieldType;
+}
 
-  //legal fields
+
+export type LegalFormFieldsType = {
   [legalBrandNameFieldName]: LegalBrandNameFieldType;
   [legalAbbreviationFieldName]: LegalAbbreviationFieldType;
   [legalCustomerNameFieldName]: LegalCustomerNameFieldType;
@@ -84,12 +81,21 @@ export type SearchPageFormDataType = {
   [legalTypeFieldName]: LegalTypeFieldType;
   [registrationDateFromFieldName]: RegistrationDateFromFieldType;
   [registrationDateToFieldName]: RegistrationDateToFieldType;
+}
 
-  //foreign citizen fields
+
+export type ForeignCitizenFormFieldsType = {
   [citizenshipFieldName]: CitizenshipFieldType;
   [comprehensiveForeignNationalsIdFieldName]: ComprehensiveForeignNationalsIdFieldType;
   [nationalityFieldName]: NationalityFieldType;
 }
+
+export type SearchPageFormDataType = {
+  [accountNumberFieldName]: AccountNumberFieldType;
+  [customerNumberFieldName]: CustomerNumberFieldType;
+  [cardNumberFieldName]: CardNumberFieldType;
+  [shahabNumberFieldName]: ShahabNumberFieldType;
+} & NaturalFormFieldsType & LegalFormFieldsType & ForeignCitizenFormFieldsType
 
 export type SearchPageFormPersonType =
   typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS]['name']
