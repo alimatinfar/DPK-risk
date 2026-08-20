@@ -88,6 +88,8 @@ export type ForeignCitizenFormFieldsType = {
   [citizenshipFieldName]: CitizenshipFieldType;
   [comprehensiveForeignNationalsIdFieldName]: ComprehensiveForeignNationalsIdFieldType;
   [nationalityFieldName]: NationalityFieldType;
+  [lastNameFieldName]: LastNameFieldType;
+  [nationalCodeFieldName]: NationalCodeFieldType;
 }
 
 export type SearchPageFormDataType = {
