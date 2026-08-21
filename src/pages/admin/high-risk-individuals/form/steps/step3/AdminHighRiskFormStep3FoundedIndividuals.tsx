@@ -6,7 +6,7 @@ import AdminHighRiskFormStep3FoundedIndividualsCard from "./AdminHighRiskFormSte
 
 export type AdminHighRiskFormStep3FoundedIndividualsProps = {
   foundedIndividuals: ResultPersonCardDataType[];
-  setUserDuplicateModalState: (value: () => void |  undefined) => void;
+  setUserDuplicateModalState: (value: () => () => void |  undefined) => void;
   closeUserDuplicateModalHandler: () => void;
 }
 
