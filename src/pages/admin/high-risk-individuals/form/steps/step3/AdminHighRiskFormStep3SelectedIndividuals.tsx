@@ -1,7 +1,7 @@
 import Chips from "../../../../../../components/others/Chips/Chips";
 import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
 import {customerIdFieldName, type ResultCardDataTypeShareFields} from "../../../../../search/result/ResultCard.types";
-import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/SearchPageForm.constances";
+import getPersonTypeItem from "../../../../../search/form/utils/getPersonTypeItem";
 
 function AdminHighRiskFormStep3SelectedIndividuals() {
 
@@ -22,7 +22,7 @@ function AdminHighRiskFormStep3SelectedIndividuals() {
       <div className='flex gap-2 flex-wrap'>
         {selectedIndividuals?.map((individual, index) => {
 
-          const icon = Object.values(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).find(value => value.name === individual.type)?.icon
+          const icon = getPersonTypeItem(individual.type)?.icon
 
           return (
             <Chips

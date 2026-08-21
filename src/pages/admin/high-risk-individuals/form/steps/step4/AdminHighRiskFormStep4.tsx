@@ -1,12 +1,23 @@
 import AdminHighRiskIndividualsFormButtons from "../../AdminHighRiskIndividualsFormButtons.tsx";
+import Card from "../../../../../../components/others/Card/Card";
+import AdminHighRiskFormStep4Individuals from "./AdminHighRiskFormStep4Individuals";
+import AdminHighRiskFormStep4Form from "./AdminHighRiskFormStep4Form";
 
-function step4() {
+function AdminHighRiskFormStep4() {
   return (
-    <div>
-      step4
-      <AdminHighRiskIndividualsFormButtons isLastStep/>
+    <div className='flex flex-col gap-y-4'>
+      <Card
+        paddingClass=' '
+        className='flex'
+      >
+        <AdminHighRiskFormStep4Individuals />
+
+        <AdminHighRiskFormStep4Form />
+      </Card>
+
+      <AdminHighRiskIndividualsFormButtons/>
     </div>
   );
 }
 
-export default step4;
+export default AdminHighRiskFormStep4;

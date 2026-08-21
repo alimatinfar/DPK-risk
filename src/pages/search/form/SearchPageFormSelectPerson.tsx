@@ -6,6 +6,7 @@ import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "./SearchPageForm.constances.ts"
 import type {SearchPageFormPersonType} from "./SearchPageForm.types.ts";
 import {useMemo, useState} from "react";
 import type {SetStateType} from "../../../types/SetStateType.ts";
+import getPersonTypeItem from "./utils/getPersonTypeItem";
 
 
 type Props = {
@@ -29,7 +30,7 @@ function SearchPageFormSelectPerson(
   }, [setActivePersonType, activePersonType])
 
   const activePersonLabel = useMemo(function () {
-    return Object.values(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).find(item => item.name === activePersonType)?.label
+    return getPersonTypeItem(activePersonType)?.label
   }, [activePersonType])
 
   return (

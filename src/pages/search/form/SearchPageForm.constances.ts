@@ -1,6 +1,7 @@
 import NaturalPersonIcon from "../../../components/svg/personTypes/NaturalPersonIcon.tsx";
 import LegalPersonType from "../../../components/svg/personTypes/LegalPersonType.tsx";
 import ForeignCitizenIcon from "../../../components/svg/personTypes/ForeignCitizenIcon.tsx";
+import {type ResultPersonCardDataType} from "../result/ResultCard.types";
 
 export const SEARCH_PAGE_FORM_PERSON_TYPE_KEYS = {
   NATURAL: {
