@@ -2,28 +2,37 @@ import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRisk
 import {customerIdFieldName, type ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types";
 import getPersonTypeItem from "../../../../../search/form/utils/getPersonTypeItem";
 import Tag from "../../../../../../components/others/Tag/Tag";
+import type {AdminHighRiskIndividualsFormStep4PersonDataType} from "./index.types";
 
 
 type Props = {
   activePerson: ResultPersonCardDataType['customerId'] | undefined;
   setActivePerson: (value: ResultPersonCardDataType['customerId'] | undefined) => void;
+  checkExtraDataIsCompleted: (extraData: AdminHighRiskIndividualsFormStep4PersonDataType) => boolean
 }
 
 function AdminHighRiskFormStep4Individuals(
-  {activePerson, setActivePerson}: Props
+  {activePerson, setActivePerson, checkExtraDataIsCompleted}: Props
 ) {
 
   const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
+  const individualsExtraData = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
 
   return (
     <div className='flex flex-col border-l border-gray-200 w-62.5'>
       {individuals.map((individual, index) => {
 
         const customerId = individual?.[customerIdFieldName]
+        const extraData = individualsExtraData?.find(item => {
+          return item?.[customerIdFieldName] === customerId
+        })
         const Icon = getPersonTypeItem(individual?.type)?.icon
-        const documentsLength = 3
+        const documentsLength = extraData?.documentsList?.length
         const isLast = individuals?.length === index + 1
         const isActive = activePerson === customerId
+        const extraDataIsCompleted = checkExtraDataIsCompleted(extraData)
+        console.log({extraDataIsCompleted})
+
 
         return (
           <div
@@ -36,17 +45,21 @@ function AdminHighRiskFormStep4Individuals(
             `}
           >
             <div className='flex items-center gap-x-1'>
-              {Icon && <Icon textColor='text-gray-500' />}
+              {Icon && <Icon textColor='text-gray-500'/>}
 
               <p>
                 {individual?.name}
               </p>
 
-              <div className='flex h-full'>
-                <span className='bg-accent-saderat h-[5px] w-[5px] rounded-full'></span>
-              </div>
+              {extraDataIsCompleted ? null : (
+                <div className='flex h-full'>
+                  <span className='bg-accent-saderat h-[5px] w-[5px] rounded-full'></span>
+                </div>
+              )}
 
-              <Tag text={`${documentsLength} مستند`} color='gray' variant='fade' />
+              {documentsLength ? (
+                <Tag text={`${documentsLength} مستند`} color='gray' variant='fade'/>
+              ) : null}
             </div>
 
             <p className='text-sm text-secondary-text'>

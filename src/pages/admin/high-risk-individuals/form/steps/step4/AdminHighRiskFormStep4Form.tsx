@@ -4,20 +4,17 @@ import ReactHookFormWrapper, {
 import ExpireDateField from "../../../FormFields/ExpireDateField/ExpireDateField";
 import EntryReasonsField from "../../../FormFields/EntryReasonsField/EntryReasonsField";
 import AdminHighRiskFormStep2DocumentsList from "../step2/AdminHighRiskFormStep2DocumentsList";
-import { useState } from "react";
 import type {
-  AdminHighRiskIndividualsDocumentFormDataType
-} from "../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types";
+  AdminHighRiskIndividualsDocumentsListFormProps
+} from "../../../FormFields/AdminHighRiskIndividualsDocumentsListForm/AdminHighRiskIndividualsDocumentsListForm";
 
 
-type Props = Pick<ReactHookFormWrapperProps, 'formMethods' | 'onSubmit'>
+type Props = Pick<ReactHookFormWrapperProps, 'formMethods' | 'onSubmit'> &
+  Pick<AdminHighRiskIndividualsDocumentsListFormProps, 'documentsList' | 'setDocumentsList'>
 
 function AdminHighRiskFormStep4Form(
-  {formMethods, onSubmit}: Props
+  {formMethods, onSubmit, documentsList, setDocumentsList}: Props
 ) {
-
-  const [documentsList, setDocumentsList] = useState<AdminHighRiskIndividualsDocumentFormDataType[]>([])
-
   return (
     <div className='flex-1 p-4'>
       <ReactHookFormWrapper

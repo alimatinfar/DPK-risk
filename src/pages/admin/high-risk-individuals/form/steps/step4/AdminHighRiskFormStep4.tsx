@@ -8,7 +8,8 @@ import useAdminHighRiskFormStep4 from "./hooks/useAdminHighRiskFormStep4";
 function AdminHighRiskFormStep4() {
 
   const {
-    activePerson, setActivePerson, formMethods, onSubmit
+    activePerson, setActivePerson, formMethods, onSubmit, documentsList, setDocumentsList,
+    checkExtraDataIsCompleted
   } = useAdminHighRiskFormStep4()
 
   return (
@@ -19,10 +20,12 @@ function AdminHighRiskFormStep4() {
       >
         <AdminHighRiskFormStep4Individuals
           activePerson={activePerson} setActivePerson={setActivePerson}
+          checkExtraDataIsCompleted={checkExtraDataIsCompleted}
         />
 
         <AdminHighRiskFormStep4Form
-          formMethods={formMethods} onSubmit={onSubmit}
+          formMethods={formMethods} onSubmit={onSubmit} documentsList={documentsList}
+          setDocumentsList={setDocumentsList}
         />
       </Card>
 
