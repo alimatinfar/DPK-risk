@@ -4,12 +4,16 @@ import SearchPageEmptyStateAfterFilter from "../../../../../search/SearchPageEmp
 import AdminHighRiskFormStep3FoundedIndividualsCard from "./AdminHighRiskFormStep3FoundedIndividualsCard";
 
 
-type Props = {
-  foundedIndividuals?: ResultPersonCardDataType[]
+export type AdminHighRiskFormStep3FoundedIndividualsProps = {
+  foundedIndividuals: ResultPersonCardDataType[];
+  setUserDuplicateModalState: (value: () => void |  undefined) => void;
+  closeUserDuplicateModalHandler: () => void;
 }
 
 function AdminHighRiskFormStep3FoundedIndividuals(
-  {foundedIndividuals}: Props
+  {
+    foundedIndividuals, setUserDuplicateModalState, closeUserDuplicateModalHandler
+  }: AdminHighRiskFormStep3FoundedIndividualsProps
 ) {
   return foundedIndividuals?.length !== 0 ? (
     <RenderLogic
@@ -19,7 +23,8 @@ function AdminHighRiskFormStep3FoundedIndividuals(
       <div className='grid grid-cols-3 gap-4 pt-4 border-t border-gray-200'>
         {foundedIndividuals?.map((item, index) => (
           <AdminHighRiskFormStep3FoundedIndividualsCard
-            key={item.customerId} data={item}
+            key={item.customerId} data={item} setUserDuplicateModalState={setUserDuplicateModalState}
+            closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
           />
         ))}
       </div>

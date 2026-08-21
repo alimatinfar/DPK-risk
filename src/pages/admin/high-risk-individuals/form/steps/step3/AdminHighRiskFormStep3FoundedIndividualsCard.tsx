@@ -6,14 +6,15 @@ import PlusCircleIcon from "../../../../../../components/svg/PlusCircleIcon";
 import {adminHighRiskIndividualsCardFormStep3SeparatedFieldsNameLabel} from "./index.constances";
 import Tag from "../../../../../../components/others/Tag/Tag";
 import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
+import {type AdminHighRiskFormStep3FoundedIndividualsProps} from "./AdminHighRiskFormStep3FoundedIndividuals";
 
 
 type Props = {
   data: ResultPersonCardDataType;
-}
+} & Pick<AdminHighRiskFormStep3FoundedIndividualsProps, 'setUserDuplicateModalState' | 'closeUserDuplicateModalHandler'>
 
 function AdminHighRiskFormStep3FoundedIndividualsCard(
-  {data}: Props
+  {data, setUserDuplicateModalState, closeUserDuplicateModalHandler}: Props
 ) {
 
   const {fields} = useResultPersonCategoryFields({
@@ -23,7 +24,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
   const selectedIndividuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
   const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
 
-  function addHandler() {
+  function setIndividualInFormDataHandler() {
     setFormData({
       step3: {
         individuals: [
@@ -32,6 +33,14 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
         ]
       }
     })
+    closeUserDuplicateModalHandler()
+  }
+
+  function addHandler() {
+    //TODO set this field from api
+    const userIsDuplicate = true
+    console.log({userIsDuplicate})
+    userIsDuplicate ? setUserDuplicateModalState(() => setIndividualInFormDataHandler) : setIndividualInFormDataHandler()
   }
 
   const isAdded = selectedIndividuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])

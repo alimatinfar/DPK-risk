@@ -1,10 +1,11 @@
-import { useState } from "react";
+import {useState} from "react";
 import useActiveTab from "../../../../../../../components/others/Tab/hooks/useActiveTab";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../../search/form/SearchPageForm.constances";
 import type {ResultPersonCardDataType} from "../../../../../../search/result/ResultCard.types";
 import useAdminHighRiskIndividualsFormCurrentStep from "../../../store/useAdminHighRiskIndividualsFormCurrentStep";
 import {useAdminHighRiskIndividualsFormStore} from "../../../store/useAdminHighRiskIndividualsFormStore";
 import toastPromise from "../../../../../../../utils/toastPromise";
+import useModalOpen from "../../../../../../../hooks/modal/useModalOpen";
 
 
 function useAdminHighRiskFormStep3() {
@@ -23,8 +24,15 @@ function useAdminHighRiskFormStep3() {
     setCurrentStep(4)
   }
 
+  const {
+    open: userDuplicateModalOpen, closeModal:closeUserDuplicateModalHandler, modalState: userDuplicateModalState,
+    setModalState: setUserDuplicateModalState, shouldBeRemoved: userDuplicateShouldBeRemoved
+  } = useModalOpen<(() => void) | undefined>(undefined)
+  console.log({userDuplicateModalState})
   return {
-    activeTab, setActiveTab, foundedIndividuals, setFoundedIndividuals, nextStepHandler
+    activeTab, setActiveTab, foundedIndividuals, setFoundedIndividuals, nextStepHandler,
+    userDuplicateModalOpen, closeUserDuplicateModalHandler, setUserDuplicateModalState,
+    userDuplicateModalState, userDuplicateShouldBeRemoved
   }
 }
 
