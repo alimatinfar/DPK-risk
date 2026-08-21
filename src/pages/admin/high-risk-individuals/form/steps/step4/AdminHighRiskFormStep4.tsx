@@ -3,6 +3,7 @@ import Card from "../../../../../../components/others/Card/Card";
 import AdminHighRiskFormStep4Individuals from "./AdminHighRiskFormStep4Individuals";
 import AdminHighRiskFormStep4Form from "./AdminHighRiskFormStep4Form";
 import useReactHookFormWrapper from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
+import {type AdminHighRiskIndividualsFormStep4Type} from "./index.types";
 
 function AdminHighRiskFormStep4() {
 
@@ -12,8 +13,12 @@ function AdminHighRiskFormStep4() {
     onSubmitHandler
   })
 
-  function onSubmitHandler() {
+  function onSubmitHandler(formData: AdminHighRiskIndividualsFormStep4Type) {
+    console.log({formData})
+  }
 
+  function nextStepHandler() {
+    onSubmit()
   }
 
   return (
@@ -29,7 +34,9 @@ function AdminHighRiskFormStep4() {
         />
       </Card>
 
-      <AdminHighRiskIndividualsFormButtons/>
+      <AdminHighRiskIndividualsFormButtons
+        onClick={onSubmit}
+      />
     </div>
   );
 }

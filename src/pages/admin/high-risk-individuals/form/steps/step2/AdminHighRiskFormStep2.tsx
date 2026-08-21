@@ -1,6 +1,4 @@
 import AdminHighRiskIndividualsFormButtons from "../../AdminHighRiskIndividualsFormButtons.tsx";
-import AdminHighRiskIndividualsDocumentsListForm
-  from "../../../FormFields/AdminHighRiskIndividualsDocumentsListForm/AdminHighRiskIndividualsDocumentsListForm.tsx";
 import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore.ts";
 import type {
   AdminHighRiskIndividualsDocumentFormDataType

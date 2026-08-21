@@ -72,7 +72,7 @@ function useSelect(
   function scrollToInput() {
     const element = getInputElement()
     if (!element) return
-    element.scrollIntoView({ behavior: "smooth" })
+    element.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' })
   }
 
   function setInputValue(inputValue: string) {
