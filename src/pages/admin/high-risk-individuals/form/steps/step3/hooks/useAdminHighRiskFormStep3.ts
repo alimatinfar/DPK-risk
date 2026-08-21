@@ -28,7 +28,7 @@ function useAdminHighRiskFormStep3() {
     open: userDuplicateModalOpen, closeModal:closeUserDuplicateModalHandler, modalState: userDuplicateModalState,
     setModalState: setUserDuplicateModalState, shouldBeRemoved: userDuplicateShouldBeRemoved
   } = useModalOpen<(() => void) | undefined>(undefined)
-  console.log({userDuplicateModalState})
+
   return {
     activeTab, setActiveTab, foundedIndividuals, setFoundedIndividuals, nextStepHandler,
     userDuplicateModalOpen, closeUserDuplicateModalHandler, setUserDuplicateModalState,

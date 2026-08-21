@@ -39,7 +39,6 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
   function addHandler() {
     //TODO set this field from api
     const userIsDuplicate = true
-    console.log({userIsDuplicate})
     userIsDuplicate ? setUserDuplicateModalState(() => setIndividualInFormDataHandler) : setIndividualInFormDataHandler()
   }
 
