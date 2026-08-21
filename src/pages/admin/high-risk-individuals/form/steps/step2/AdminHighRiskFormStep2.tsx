@@ -6,6 +6,7 @@ import type {
   AdminHighRiskIndividualsDocumentFormDataType
 } from "../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
 import toastPromise from "../../../../../../utils/toastPromise";
+import AdminHighRiskFormStep2DocumentsList from "./AdminHighRiskFormStep2DocumentsList";
 
 
 function AdminHighRiskFormStep2() {
@@ -28,21 +29,7 @@ function AdminHighRiskFormStep2() {
 
   return (
     <div>
-      <AdminHighRiskIndividualsDocumentsListForm
-        documentsList={documentsList} setDocumentsList={setDocumentsList}
-        formWrapperClass='grid grid-cols-3'
-        formFieldsProps={{
-          descriptionClass: 'col-span-3',
-          uploadFileFieldProps: {
-            uploadBoxProps: {
-              uploadBoxClass: 'col-span-3',
-              fileCardClass: 'col-span-1',
-            }
-          }
-        }}
-        buttonClass='flex justify-end items-center col-start-3 mt-4' buttonIsNotFullWidth
-        documentsListClass='grid grid-cols-2 gap-4'
-      />
+      <AdminHighRiskFormStep2DocumentsList documentsList={documentsList} setDocumentsList={setDocumentsList}/>
 
       <AdminHighRiskIndividualsFormButtons
         onClick={nextStepHandler}

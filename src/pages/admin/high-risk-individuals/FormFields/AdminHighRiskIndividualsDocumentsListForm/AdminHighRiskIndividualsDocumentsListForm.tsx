@@ -16,7 +16,7 @@ import setDefaultValuesFromObject
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject";
 
 
-type Props = {
+export type AdminHighRiskIndividualsDocumentsListFormProps = {
   documentsList: AdminHighRiskIndividualsDocumentFormDataType[];
   setDocumentsList: (value: AdminHighRiskIndividualsDocumentFormDataType[]) => void;
   formFieldsProps?: AdminHighRiskIndividualsDocumentFormFieldsProps;
@@ -30,7 +30,7 @@ function AdminHighRiskIndividualsDocumentsListForm(
   {
     documentsList, setDocumentsList, formFieldsProps, buttonClass, buttonIsNotFullWidth, formWrapperClass,
     documentsListClass
-  }: Props
+  }: AdminHighRiskIndividualsDocumentsListFormProps
 ) {
 
   const {
