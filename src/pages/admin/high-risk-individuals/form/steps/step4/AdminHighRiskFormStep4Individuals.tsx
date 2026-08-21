@@ -1,9 +1,17 @@
 import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
-import {customerIdFieldName} from "../../../../../search/result/ResultCard.types";
+import {customerIdFieldName, type ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types";
 import getPersonTypeItem from "../../../../../search/form/utils/getPersonTypeItem";
 import Tag from "../../../../../../components/others/Tag/Tag";
 
-function AdminHighRiskFormStep4Individuals() {
+
+type Props = {
+  activePerson: ResultPersonCardDataType['customerId'] | undefined;
+  setActivePerson: (value: ResultPersonCardDataType['customerId'] | undefined) => void;
+}
+
+function AdminHighRiskFormStep4Individuals(
+  {activePerson, setActivePerson}: Props
+) {
 
   const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
 
@@ -11,16 +19,20 @@ function AdminHighRiskFormStep4Individuals() {
     <div className='flex flex-col border-l border-gray-200 w-62.5'>
       {individuals.map((individual, index) => {
 
+        const customerId = individual?.[customerIdFieldName]
         const Icon = getPersonTypeItem(individual?.type)?.icon
         const documentsLength = 3
         const isLast = individuals?.length === index + 1
+        const isActive = activePerson === customerId
 
         return (
           <div
-            key={`${index}-${individual?.[customerIdFieldName]}`}
+            key={`${index}-${customerId}`}
+            onClick={isActive ? null : () => setActivePerson(customerId)}
             className={`
-              flex flex-col gap-y-2 p-2 hover:bg-gray-100 cursor-pointer duration-200
-              ${isLast ? '' : 'border-b border-gray-200'}
+              flex flex-col gap-y-2 p-2 duration-200
+              ${isLast ? '' : 'border-b border-gray-200'} 
+              ${isActive ? 'bg-gray-100' : 'hover:bg-gray-100 cursor-pointer'}
             `}
           >
             <div className='flex items-center gap-x-1'>
@@ -38,7 +50,7 @@ function AdminHighRiskFormStep4Individuals() {
             </div>
 
             <p className='text-sm text-secondary-text'>
-              {individual?.[customerIdFieldName]}
+              {customerId}
             </p>
           </div>
         )
