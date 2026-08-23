@@ -50,7 +50,7 @@ function useAdminHighRiskFormStep4() {
     })?.map(item => ({
       [customerIdFieldName]: item?.[customerIdFieldName],
       [expireDateFieldName]: undefined,
-      [entryReasonsFieldName]: undefined,
+      [entryReasonsFieldName]: '',
       documentsList: [],
     }))
 
@@ -108,8 +108,7 @@ function useAdminHighRiskFormStep4() {
     setFormForCurrentPersonHandler({documentsList})
   }
 
-  function checkExtraDataIsCompleted(extraData: AdminHighRiskIndividualsFormStep4PersonDataType) {
-    console.log({1: extraData?.documentsList?.length !== 0, 2: extraData?.[expireDateFieldName], 3:extraData?.[entryReasonsFieldName]})
+  function checkExtraDataIsCompleted(extraData: AdminHighRiskIndividualsFormStep4PersonDataType | undefined) {
     return Boolean(extraData?.documentsList?.length !== 0 && extraData?.[expireDateFieldName] && extraData?.[entryReasonsFieldName])
   }
 

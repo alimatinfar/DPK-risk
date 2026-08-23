@@ -8,7 +8,7 @@ import type {AdminHighRiskIndividualsFormStep4PersonDataType} from "./index.type
 type Props = {
   activePerson: ResultPersonCardDataType['customerId'] | undefined;
   setActivePerson: (value: ResultPersonCardDataType['customerId'] | undefined) => void;
-  checkExtraDataIsCompleted: (extraData: AdminHighRiskIndividualsFormStep4PersonDataType) => boolean
+  checkExtraDataIsCompleted: (extraData: AdminHighRiskIndividualsFormStep4PersonDataType | undefined) => boolean
 }
 
 function AdminHighRiskFormStep4Individuals(
@@ -31,13 +31,11 @@ function AdminHighRiskFormStep4Individuals(
         const isLast = individuals?.length === index + 1
         const isActive = activePerson === customerId
         const extraDataIsCompleted = checkExtraDataIsCompleted(extraData)
-        console.log({extraDataIsCompleted})
-
 
         return (
           <div
             key={`${index}-${customerId}`}
-            onClick={isActive ? null : () => setActivePerson(customerId)}
+            onClick={isActive ? undefined : () => setActivePerson(customerId)}
             className={`
               flex flex-col gap-y-2 p-2 duration-200
               ${isLast ? '' : 'border-b border-gray-200'} 

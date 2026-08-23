@@ -30,7 +30,7 @@ function SearchPageFormSelectPerson(
   }, [setActivePersonType, activePersonType])
 
   const activePersonLabel = useMemo(function () {
-    return getPersonTypeItem(activePersonType)?.label
+    return activePersonType ? getPersonTypeItem(activePersonType)?.label : ''
   }, [activePersonType])
 
   return (
