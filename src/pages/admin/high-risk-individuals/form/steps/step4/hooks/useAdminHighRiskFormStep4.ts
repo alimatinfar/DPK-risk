@@ -14,12 +14,14 @@ import type {
 } from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types";
 import toastPromise from "../../../../../../../utils/toastPromise";
 import useAdminHighRiskIndividualsFormCurrentStep from "../../../store/useAdminHighRiskIndividualsFormCurrentStep";
+import {useWatch} from "react-hook-form";
+
 
 function useAdminHighRiskFormStep4() {
 
   const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
   const individualsExtraData = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
-  console.log({individualsExtraData})
+
   const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
 
   const {setCurrentStep} = useAdminHighRiskIndividualsFormCurrentStep()
@@ -74,7 +76,14 @@ function useAdminHighRiskFormStep4() {
     onSubmitHandler, mode: "all"
   })
 
+  const formValues = useWatch({control: formMethods.control}) as AdminHighRiskIndividualsFormStep4PersonDataType
+
+  useEffect(() => {
+    setFormForCurrentPersonHandler(formValues)
+  }, [formValues]);
+
   function setFormForCurrentPersonHandler(data: Partial<AdminHighRiskIndividualsFormStep4PersonDataType>) {
+    console.log({data})
     setFormData({
       step4: {
         individualsExtraData: individualsExtraData?.map(item => {
@@ -92,7 +101,6 @@ function useAdminHighRiskFormStep4() {
   }
 
   function onSubmitHandler(formData: AdminHighRiskIndividualsFormStep4Type) {
-    console.log({formData})
     setFormForCurrentPersonHandler(formData)
 
     if (documentsList?.length === 0)
