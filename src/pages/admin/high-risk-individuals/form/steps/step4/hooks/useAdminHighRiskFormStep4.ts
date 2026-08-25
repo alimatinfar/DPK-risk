@@ -42,34 +42,6 @@ function useAdminHighRiskFormStep4() {
     })
   }, [activePerson]);
 
-  function initialStep4Data() {
-    const filteredData = individualsExtraData?.filter(item => {
-      return individuals?.some(addedIndividual => addedIndividual?.[customerIdFieldName] === item?.[customerIdFieldName])
-    })
-
-    const dataListIsNotExists: AdminHighRiskIndividualsFormStep4PersonDataType[] = individuals.filter(item => {
-      return !filteredData?.some(filteredDataItem => filteredDataItem?.[customerIdFieldName] === item?.[customerIdFieldName])
-    })?.map(item => ({
-      [customerIdFieldName]: item?.[customerIdFieldName],
-      [expireDateFieldName]: undefined,
-      [entryReasonsFieldName]: '',
-      documentsList: [],
-    }))
-
-    setFormData({
-      step4: {
-        individualsExtraData: [
-          ...filteredData,
-          ...dataListIsNotExists
-        ]
-      }
-    })
-  }
-
-  useEffect(() => {
-    initialStep4Data()
-  }, []);
-
   const {
     formMethods, onSubmit
   } = useReactHookFormWrapper({
@@ -83,11 +55,11 @@ function useAdminHighRiskFormStep4() {
   }, [formValues]);
 
   function setFormForCurrentPersonHandler(data: Partial<AdminHighRiskIndividualsFormStep4PersonDataType>) {
-    console.log({data})
     setFormData({
       step4: {
         individualsExtraData: individualsExtraData?.map(item => {
           if (item?.[customerIdFieldName] === activePerson) {
+            console.log({data})
             return {
               ...item,
               ...data
