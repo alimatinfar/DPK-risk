@@ -35,6 +35,7 @@ import {
 import {
   legalTypeFieldName
 } from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
+import type {ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
 
 function AdminHighRiskFormStep5() {
 
@@ -86,6 +87,9 @@ function AdminHighRiskFormStep5() {
       <ResultPersonCategoryWrapper renderCallback={(item) => (
         <ResultPersonCategory2
           key={item.name} personTypeItem={item} resultData={individuals}
+          customContent={(visibleItems) => visibleItems.map(item => (
+            <AdminHighRiskIndividualsCardElement data={item as ResultPersonCardDataType} />
+          ))}
           CardElement={AdminHighRiskIndividualsCardElement}
         />
       )} />

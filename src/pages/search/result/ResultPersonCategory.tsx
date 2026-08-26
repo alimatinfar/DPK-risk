@@ -7,17 +7,17 @@ import type {ResultPersonCardDataType} from "./ResultCard.types.ts";
 import type {ReactNode} from "react";
 import type {AnyObjectFields} from "../../../types/AnyObjectFields";
 
-type ResultDataType = Pick<ResultPersonCardDataType, 'type'> & AnyObjectFields
+export type ResultPersonCategoryItemType = Pick<ResultPersonCardDataType, 'type'> & AnyObjectFields
 
 export type ResultPersonCategoryProps = {
   personTypeItem: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS];
-  resultData: ResultDataType[];
+  resultData: ResultPersonCategoryItemType[];
   wrapperBackground?: string;
   headerClassName?: string;
   headerBorderBottomClassName?: string;
   CardElement?: (props: {data: ResultPersonCardDataType}) => ReactNode;
   showAllItems?: boolean;
-  customContent?: (visibleItems: ResultDataType[]) => ReactNode;
+  customContent?: (visibleItems: ResultPersonCategoryItemType[]) => ReactNode;
 }
 
 function ResultPersonCategory(
