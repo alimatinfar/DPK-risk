@@ -44,7 +44,7 @@ function AdminHighRiskLetterDetailDescriptionSection(
   return (
     <DetailInfoSection
       title='توضیحات' {...detailInfoSectionProps}
-      infoList={infoList}
+      infoList={infoList} customGridColsClass='grid-cols-3'
     />
   );
 }
