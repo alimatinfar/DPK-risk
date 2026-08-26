@@ -15,11 +15,13 @@ import QUERY_PARAMS from "../../../../constances/queryParams.ts";
 
 
 type Props = {
-  data: ResultPersonCardDataType
+  data: ResultPersonCardDataType;
+  lettersNumbers?: number;
+  documentsNumbers?: number;
 }
 
 function AdminHighRiskIndividualsCardElement(
-  {data}: Props
+  {data, lettersNumbers, documentsNumbers}: Props
 ) {
 
   const {fields} = useResultPersonCategoryFields({
@@ -28,16 +30,16 @@ function AdminHighRiskIndividualsCardElement(
 
   const shareFields: CardTitleValueProps[] = useMemo(function () {
     return [
-      {
+      ...lettersNumbers == null ? [] : [{
         label: 'تعداد نامه‌ها',
         value: '3'
-      },
-      {
+      }],
+      ...documentsNumbers == null ? [] : [{
         label: 'تعداد مستندات',
         value: '3'
-      },
+      }],
     ]
-  }, [])
+  }, [lettersNumbers, documentsNumbers])
 
   const categoryFields = [fields, shareFields]
 
