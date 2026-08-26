@@ -13,7 +13,6 @@ import AdminHighRiskIndividualsFormButtons from "../../AdminHighRiskIndividualsF
 function AdminHighRiskFormStep5() {
 
   const formStep1Data = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
-  console.log({formStep1Data})
 
   function onSubmitHandler() {
 

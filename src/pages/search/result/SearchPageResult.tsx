@@ -10,6 +10,7 @@ import EmptyStateIcon from "../../../components/svg/RenderLogic/EmptyStateIcon.t
 import SearchPageSkeleton from "../skeleton/SearchPageSkeleton.tsx";
 import SearchPageEmptyState from "../SearchPageEmptyState";
 import SearchPageEmptyStateAfterFilter from "../SearchPageEmptyStateAfterFilter";
+import ResultPersonCategoryWrapper from "./ResultPersonCategoryWrapper.tsx";
 
 
 export type SearchPageResultProps = {
@@ -48,13 +49,11 @@ function SearchPageResult(
             {resultData.length} نتیجه یافت شد
           </p>
 
-          <div className='flex flex-col gap-y-4'>
-            {Object.values(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).map(item => (
-              <SearchPageResultPersonCategory
-                key={item.name} personTypeItem={item} resultData={resultData}
-              />
-            ))}
-          </div>
+          <ResultPersonCategoryWrapper renderCallback={item => (
+            <SearchPageResultPersonCategory
+              key={item.name} personTypeItem={item} resultData={resultData}
+            />
+          )} />
         </div>
       </RenderLogic>
     </div>

@@ -4,6 +4,7 @@ import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.t
 import {FAKE_DATA} from "./index.constances.ts";
 import AdminHighRiskIndividualsCardElement from "./AdminHighRiskIndividualsCardElement.tsx";
 import ResultPersonCategory2 from "../../../search/result/ResultPersonCategory2.tsx";
+import ResultPersonCategoryWrapper from "../../../search/result/ResultPersonCategoryWrapper.tsx";
 
 function AdminHighRiskIndividualsCards() {
   return (
@@ -13,14 +14,12 @@ function AdminHighRiskIndividualsCards() {
       isLoading={false}
       loadingElement={<SearchPageSkeleton />}
     >
-      <div className='flex flex-col gap-y-4'>
-        {Object.values(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).map((item) => (
-          <ResultPersonCategory2
-            key={item.name} personTypeItem={item} resultData={FAKE_DATA}
-            CardElement={AdminHighRiskIndividualsCardElement}
-          />
-        ))}
-      </div>
+      <ResultPersonCategoryWrapper renderCallback={(item) => (
+        <ResultPersonCategory2
+          key={item.name} personTypeItem={item} resultData={FAKE_DATA}
+          CardElement={AdminHighRiskIndividualsCardElement}
+        />
+      )} />
     </RenderLogic>
   );
 }

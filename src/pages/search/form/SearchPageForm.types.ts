@@ -99,5 +99,5 @@ export type SearchPageFormDataType = {
   [shahabNumberFieldName]: ShahabNumberFieldType;
 } & NaturalFormFieldsType & LegalFormFieldsType & ForeignCitizenFormFieldsType
 
-export type SearchPageFormPersonType =
-  typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS]['name']
+export type SearchPageFormPersonValueType = typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS[keyof typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS]
+export type SearchPageFormPersonType = SearchPageFormPersonValueType['name']
