@@ -8,6 +8,7 @@ import AdminHighRiskIndividualsLettersDetailDocumentsDocs
   from "./AdminHighRiskIndividualsLettersDetailDocumentsDocs.tsx";
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
 import {lazy} from "react";
+import AdminHighRiskLetterDetailDescriptionSection from "./AdminHighRiskLetterDetailDescriptionSection.tsx";
 
 const AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal = lazy(() => import(
   "./deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx"
@@ -20,7 +21,7 @@ const AdminHighRiskIndividualsLettersDetailDocumentsFormModal = lazy(() => impor
 function AdminHighRiskIndividualsLettersDetailDocuments() {
 
   const {
-    descriptionItems, documents,
+    documents,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
   } = useAdminHighRiskIndividualsLettersDetailDocuments()
@@ -28,9 +29,12 @@ function AdminHighRiskIndividualsLettersDetailDocuments() {
   return (
     <>
       <div className='flex flex-col gap-y-4'>
-        <DetailInfoSection
-          title={'توضیحات'} customGridColsClass='grid-cols-3'
-          infoList={descriptionItems}
+        <AdminHighRiskLetterDetailDescriptionSection
+          detailInfoSectionProps={{
+            customGridColsClass: 'grid-cols-3'
+          }}
+          letterDate='1405/01/01' letterNumber='321564643' reference='قوه قضائیه'
+          description='توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه '
         />
 
         <CardWithHeader

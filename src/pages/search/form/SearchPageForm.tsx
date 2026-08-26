@@ -68,7 +68,7 @@ function SearchPageForm(
             <Button
               variant='link' size='sm' color='red'
               onClick={removeAdvancedSearchSection}
-              rightIcon={<DeleteIcon/>}
+              rightIcon={<DeleteIcon textColor='text-red-800' />}
             >
               حذف فیلترهای پیشرفته
             </Button>

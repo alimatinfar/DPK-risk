@@ -1,15 +1,9 @@
-import useAdminHighRiskIndividualsLettersDetailDocumentsDescription
-  from "./useAdminHighRiskIndividualsLettersDetailDocumentsDescription.ts";
 import useAdminHighRiskIndividualsLettersDetailDocumentsDocs
   from "./useAdminHighRiskIndividualsLettersDetailDocumentsDocs.ts";
 import useModalOpen from "../../../../../../../hooks/modal/useModalOpen.tsx";
 import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "../index.types.ts";
 
 function useAdminHighRiskIndividualsLettersDetailDocuments() {
-
-  const {
-    descriptionItems
-  } = useAdminHighRiskIndividualsLettersDetailDocumentsDescription()
 
   const {
     documents
@@ -26,7 +20,7 @@ function useAdminHighRiskIndividualsLettersDetailDocuments() {
   } = useModalOpen<AdminHighRiskIndividualsLettersDetailDocumentType | boolean>(false)
 
   return {
-    descriptionItems, documents,
+    documents,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
   }
