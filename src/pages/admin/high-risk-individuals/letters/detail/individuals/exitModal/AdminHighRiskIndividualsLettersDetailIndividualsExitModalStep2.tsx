@@ -24,7 +24,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2(
       <DescriptionField customFieldName={exitByUserMistakeDescriptionFieldName} />
     </div>
   ) : (
-    <AdminHighRiskIndividualsBaseFormFields />
+    <AdminHighRiskIndividualsBaseFormFields descriptionCustomFieldName={exitCitingTheLetterDescriptionFieldName} />
   )
 }
 

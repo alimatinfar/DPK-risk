@@ -7,11 +7,12 @@ import {exitCitingTheLetterDescriptionFieldName} from "../../letters/detail/indi
 
 type Props = {
   descriptionClassName?: string
+  descriptionCustomFieldName?: string
 }
 
 function AdminHighRiskIndividualsBaseFormFields(
   {
-    descriptionClassName
+    descriptionClassName, descriptionCustomFieldName
   }: Props
 ) {
   return (
@@ -23,7 +24,7 @@ function AdminHighRiskIndividualsBaseFormFields(
       <LetterDateField isRequired />
 
       <div className={descriptionClassName || ''}>
-        <DescriptionField customFieldName={exitCitingTheLetterDescriptionFieldName} />
+        <DescriptionField customFieldName={descriptionCustomFieldName} />
       </div>
     </>
   );

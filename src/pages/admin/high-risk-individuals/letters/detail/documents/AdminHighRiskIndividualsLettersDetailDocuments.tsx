@@ -30,9 +30,6 @@ function AdminHighRiskIndividualsLettersDetailDocuments() {
     <>
       <div className='flex flex-col gap-y-4'>
         <AdminHighRiskLetterDetailDescriptionSection
-          detailInfoSectionProps={{
-
-          }}
           letterDate='1405/01/01' letterNumber='321564643' reference='قوه قضائیه'
           description='توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه '
         />

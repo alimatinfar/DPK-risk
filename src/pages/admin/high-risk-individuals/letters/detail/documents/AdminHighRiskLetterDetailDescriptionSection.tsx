@@ -6,7 +6,7 @@ import {useMemo} from "react";
 
 
 type Props = {
-  detailInfoSectionProps: Partial<DetailInfoSectionProps>;
+  detailInfoSectionProps?: Partial<DetailInfoSectionProps>;
   letterNumber: string | number;
   reference: string | number;
   letterDate: string;
