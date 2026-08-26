@@ -12,6 +12,7 @@ import AdminHighRiskIndividualsLettersDetailIndividualsExitModal
   from "../../letters/detail/individuals/exitModal/AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx";
 import useAdminHighRiskIndividualsExitModalStates
   from "../../letters/detail/individuals/exitModal/hooks/useAdminHighRiskIndividualsExitModalStates.ts";
+import HighRiskIndividualsTimeLine from "../../letters/detail/HighRiskIndividualsTimeLine/HighRiskIndividualsTimeLine.tsx";
 
 const AdminHighRiskIndividualsLettersDetailIndividualsDocListModal = lazy(() => import(
   "../../letters/detail/individuals/docListModal/AdminHighRiskIndividualsLettersDetailIndividualsDocListModal.tsx"
@@ -37,22 +38,19 @@ function AdminHighRiskIndividualsDetailPage() {
       <div className='flex flex-col gap-y-4'>
         <AdminPageTitle hasBack title={name || ''}/>
 
-        <CardWithHeader
-          title='تایم لاین تغییرات'
-          headerEndAdornment={<div>timeline</div>}
-        >
-          محتوای تایم لاین
-        </CardWithHeader>
+        <div className='flex items-start gap-x-4'>
+          <CardWithHeader
+            title='نامه‌ها' className='flex-1'
+            childrenClassName='flex flex-col gap-y-2 bg-gray-50 p-2'
+          >
+            <AdminHighRiskIndividualsDetailPageLetters
+              setDocListModalState={setDocListModalState}
+              setExitPersonModalState={setExitPersonModalState}
+            />
+          </CardWithHeader>
 
-        <CardWithHeader
-          title='نامه‌ها'
-          childrenClassName='flex flex-col gap-y-2 bg-gray-50 p-2'
-        >
-          <AdminHighRiskIndividualsDetailPageLetters
-            setDocListModalState={setDocListModalState}
-            setExitPersonModalState={setExitPersonModalState}
-          />
-        </CardWithHeader>
+          <HighRiskIndividualsTimeLine />
+        </div>
       </div>
 
       <DisplayModal shouldBeRemoved={docListModalShouldBeRemoved}>
