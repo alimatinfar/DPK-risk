@@ -35,7 +35,7 @@ import {
 import {
   legalTypeFieldName
 } from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
-import type {ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
+import {customerIdFieldName, type ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
 
 function AdminHighRiskFormStep5() {
 
@@ -87,10 +87,22 @@ function AdminHighRiskFormStep5() {
       <ResultPersonCategoryWrapper renderCallback={(item) => (
         <ResultPersonCategory2
           key={item.name} personTypeItem={item} resultData={individuals}
-          customContent={(visibleItems) => visibleItems.map(item => (
-            <AdminHighRiskIndividualsCardElement data={item as ResultPersonCardDataType} />
-          ))}
-          CardElement={AdminHighRiskIndividualsCardElement}
+          customContent={(visibleItems) => (
+            <div className='grid grid-cols-4 gap-4 p-4'>
+              {visibleItems.map(visibleItem => {
+
+                const extraData = individualsExtraData?.find(item => item?.[customerIdFieldName] === visibleItem?.[customerIdFieldName])
+                const documentsLength = extraData?.documentsList?.length || 0
+
+                return (
+                  <AdminHighRiskIndividualsCardElement
+                    data={visibleItem as ResultPersonCardDataType}
+                    documentsNumbers={documentsLength} hiddenAction
+                  />
+                )
+              })}
+            </div>
+          )}
         />
       )} />
 

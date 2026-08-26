@@ -18,10 +18,11 @@ type Props = {
   data: ResultPersonCardDataType;
   lettersNumbers?: number;
   documentsNumbers?: number;
+  hiddenAction?: boolean;
 }
 
 function AdminHighRiskIndividualsCardElement(
-  {data, lettersNumbers, documentsNumbers}: Props
+  {data, lettersNumbers, documentsNumbers, hiddenAction}: Props
 ) {
 
   const {fields} = useResultPersonCategoryFields({
@@ -32,11 +33,11 @@ function AdminHighRiskIndividualsCardElement(
     return [
       ...lettersNumbers == null ? [] : [{
         label: 'تعداد نامه‌ها',
-        value: '3'
+        value: lettersNumbers
       }],
       ...documentsNumbers == null ? [] : [{
         label: 'تعداد مستندات',
-        value: '3'
+        value: documentsNumbers
       }],
     ]
   }, [lettersNumbers, documentsNumbers])
@@ -58,21 +59,27 @@ function AdminHighRiskIndividualsCardElement(
           {data.name}
         </p>
 
-        <Link to={detailLink}>
-          <IconClickable
-            hoverClass='hover:bg-white'
-          >
-            <DetailIcon />
-          </IconClickable>
-        </Link>
+        {!hiddenAction && (
+          <Link to={detailLink}>
+            <IconClickable
+              hoverClass='hover:bg-white'
+            >
+              <DetailIcon />
+            </IconClickable>
+          </Link>
+        )}
       </div>
 
       <div className='p-2 flex flex-col bg-white'>
         {categoryFields.map((fields, categoryIndex) => {
+
+          const isFirst = categoryIndex === 0
+          const isLast = categoryIndex === categoryFields?.length - 1
+
           return (
             <div
               key={categoryIndex}
-              className={`flex flex-col gap-y-2 py-2 ${categoryIndex === 0 ? '' : 'border-t border-gray-200'}`}
+              className={`flex flex-col gap-y-2 pt-2 ${isLast ? '' : 'pb-2'} ${isFirst ? '' : 'border-t border-gray-200'}`}
             >
               {fields.map(({label, value}, index) => (
                 <CardTitleValue
