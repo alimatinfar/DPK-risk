@@ -5,6 +5,7 @@ import {letterDateFieldName} from "../../FormFields/LetterDateField/index.consta
 import {letterNumberFieldName} from "../../FormFields/LetterNumberField/index.constances.ts";
 
 export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA: AdminHighRiskIndividualsFormDataType = {
+  formIsDirty: false,
   currentStep: 1,
   step1: {
     [announceReferenceFieldName]: '',

@@ -5,21 +5,13 @@ import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
 import {useAdminHighRiskIndividualsFormStore} from "./store/useAdminHighRiskIndividualsFormStore.ts";
 
 
-type Props = Pick<ModalProps, 'open' | 'onClose'>
+type Props = {
+  exitFormHandler: () => void
+} & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsExitFormModal(
-  {open, onClose}: Props
+  {open, onClose, exitFormHandler}: Props
 ) {
-
-  const clearForm = useAdminHighRiskIndividualsFormStore(state => state.clearForm)
-
-  const navigate = useNavigate()
-
-  function exitFormHandler() {
-    clearForm()
-    navigate(ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL)
-  }
-
   return (
     <Modal
       open={open} onClose={onClose}

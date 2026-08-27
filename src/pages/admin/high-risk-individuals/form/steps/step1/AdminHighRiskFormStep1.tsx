@@ -9,18 +9,33 @@ import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRisk
 import type {
   AdminHighRiskIndividualsBaseFormFieldsType
 } from "../../../FormFields/AdminHighRiskIndividualsBaseFormFields/index.types.ts";
+import {useEffect} from "react";
+import {useWatch} from "react-hook-form";
 
 
 function AdminHighRiskFormStep1() {
 
   const defaultValues = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
   const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
+  const formIsDirty = useAdminHighRiskIndividualsFormStore(state => state.formData.formIsDirty)
 
   const {
     formMethods, onSubmit
   } = useReactHookFormWrapper<AdminHighRiskIndividualsBaseFormFieldsType>({
     onSubmitHandler: nextStepHandler, defaultValues
   })
+
+  const formValues = useWatch({control: formMethods.control})
+
+  useEffect(() => {
+    const formHasValue = Object.values(formValues).some(value => !!value)
+
+    if (!formIsDirty && formHasValue) {
+      setFormData({formIsDirty: true})
+    } else if (formIsDirty && !formHasValue) {
+      setFormData({formIsDirty: false})
+    }
+  }, [formIsDirty, formValues]);
 
   function nextStepHandler(formData: AdminHighRiskIndividualsBaseFormFieldsType) {
     setFormData({
