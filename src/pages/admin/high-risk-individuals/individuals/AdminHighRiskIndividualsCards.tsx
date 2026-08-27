@@ -5,8 +5,16 @@ import AdminHighRiskIndividualsCardElement from "./AdminHighRiskIndividualsCardE
 import ResultPersonCategory2 from "../../../search/result/ResultPersonCategory2.tsx";
 import ResultPersonCategoryWrapper from "../../../search/result/ResultPersonCategoryWrapper.tsx";
 import {type ResultPersonCardDataType} from "../../../search/result/ResultCard.types.ts";
+import type {UseFilterReturnProps} from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
 
-function AdminHighRiskIndividualsCards() {
+type Props = Pick<UseFilterReturnProps<any>, 'filters'>
+
+function AdminHighRiskIndividualsCards(
+  {filters}: Props
+) {
+
+  console.log({filters})
+
   return (
     <RenderLogic
       isEmpty={false}

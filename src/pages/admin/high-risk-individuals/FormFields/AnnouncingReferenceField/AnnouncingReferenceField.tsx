@@ -1,14 +1,14 @@
 import SelectForm from "../../../../../components/Form/Select/SelectForm.tsx";
 import {
   announceReferenceFieldLabel,
-  announceReferenceFieldName,
-  announceReferenceFieldOptions
+  announceReferenceFieldName
 } from "./index.constances.ts";
 import type {InputProps} from "../../../../../components/Form/Input/types/InputProps.ts";
 import useGetFormErrorMessage
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetFormErrorMessage.ts";
 import useGetRequiredErrorMessage
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetRequiredErrorMessage.ts";
+import APIS from "../../../../../request/constances/apis.ts";
 
 
 type Props = {
@@ -34,7 +34,7 @@ function AnnouncingReferenceField(
         errorMessage
       }}
       selectProps={{
-        options: announceReferenceFieldOptions
+        apiAddress: APIS.GET_LETTER_REFERENCES
       }}
       rules={{
         ...isRequired && {

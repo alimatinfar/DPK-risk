@@ -1,8 +1,8 @@
 import type {WheelDateTimePickerProps} from "../../components/Form/WheelDateTimePicker/WheelDateTimePicker.constances";
-import moment, {type Moment} from "moment-jalaali";
+import getDateValue from "../../utils/dateAndTIme/momentJalaliDateTime/getDateValue.ts";
 
 function getBodyDataDateField(value: WheelDateTimePickerProps['value']) {
-  const momentValue = typeof value === 'string' ? moment(value) : value;
+  const momentValue = getDateValue(value);
   return value ? Number(momentValue.format('YYYYMMDD')) : ''
 }
 

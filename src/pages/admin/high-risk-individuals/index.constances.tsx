@@ -46,15 +46,15 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_FILTERS_TABS_RENDER_OBJECT = (props: Pi
   ),
 })
 
-export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT = {
+export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT = (props: Pick<UseFilterReturnProps<any>, 'filters'>) => ({
   [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS]: (
     <TableSuspense fallback={<AdminHighRiskIndividualsLettersTableLoading/>}>
-      <AdminHighRiskIndividualsLettersTable/>
+      <AdminHighRiskIndividualsLettersTable {...props} />
     </TableSuspense>
   ),
   [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.INDIVIDUALS]: (
     <Suspense fallback={<AdminHighRiskIndividualsCardsLoading/>}>
-      <AdminHighRiskIndividualsCards/>
+      <AdminHighRiskIndividualsCards {...props} />
     </Suspense>
   ),
-}
+})

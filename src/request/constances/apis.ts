@@ -6,6 +6,7 @@ const APIS = {
   // primary information
   GET_LEGAL_TYPES: 'PrimaryInformation/GetLegalType',
   GET_NATIONALITIES: 'PrimaryInformation/GetNationality',
+  GET_LETTER_REFERENCES: 'PrimaryInformation/GetLetterRef',
 
   //comprehensive-info
   GET_NATURAL_CUSTOMER_INFO: 'Customer/GetCustomerInfo',
@@ -52,6 +53,10 @@ const APIS = {
 
   //authentication
   GET_TOKEN_DATA: 'Account/GetTokenData',
+
+  //admin
+  ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMERS: 'RiskCustomer/GetRiskCustomers',
+  ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS: 'RiskCustomer/GetRiskLetters',
 }
 
 export default APIS;

@@ -1,34 +1,28 @@
-import {useMemo} from "react";
 import {
-  ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS,
-  ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_FAKE_DATA
+  ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS, ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS
 } from "./index.constances.tsx";
 import TableRenderLogic from "../../../../components/others/RenderLogic/TableRenderLogic.tsx";
-import TABLE_ACCESSORS from "../../../../components/others/Table/constances/tableAccessors.ts";
-import {TableDetailAction} from "../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
-import {useNavigate} from "react-router";
-import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
+import type {UseFilterReturnProps} from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
+import useAdminHighRiskIndividualsLettersTable from "./hooks/useAdminHighRiskIndividualsLettersTable.ts";
 
-function AdminHighRiskIndividualsLettersTable() {
 
-  const navigate = useNavigate()
+export type AdminHighRiskIndividualsLettersTableProps = Pick<UseFilterReturnProps<any>, 'filters'>
 
-  const tableData = useMemo(function () {
-    return ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_FAKE_DATA?.map((item, index) => ({
-      ...item,
-      [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
-        TableDetailAction(() => {
-          navigate(ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL(item.id))
-        })
-      ],
-    }))
-  }, [])
+function AdminHighRiskIndividualsLettersTable(
+  {filters}: AdminHighRiskIndividualsLettersTableProps
+) {
+
+  const {
+    error, isFetching, tableData
+  } = useAdminHighRiskIndividualsLettersTable({
+    filters
+  })
 
   return (
     <TableRenderLogic
       renderLogicProps={{
-        error: null,
-        isLoading: false
+        error,
+        isLoading: isFetching
       }}
       tableProps={{
         data: tableData,

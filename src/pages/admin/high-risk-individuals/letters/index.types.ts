@@ -15,3 +15,14 @@ export type AdminHighRiskIndividualsLettersFilterType = {
   [letterFromDateFieldName]: LetterFromDateFieldType;
   [letterToDateFieldName]: LetterToDateFieldType;
 }
+
+export type AdminHighRiskIndividualsLettersResponseItemType = {
+  id: number;
+  letterRef: number;
+  letterRefTitle: string;
+  letterNo: string;
+  letterDate: number;
+  description: string;
+  documents: any[];
+  isOut: boolean;
+}
