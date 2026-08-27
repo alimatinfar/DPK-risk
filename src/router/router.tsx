@@ -9,7 +9,6 @@ import ErrorPage from "../components/svg/RenderLogic/ErrorStatePage.tsx";
 import comprehensiveInfoRouter from "./comprehensiveInfoRouter.tsx";
 import bankingInfoRouter from "./bankingInfoRouter.tsx";
 import businessInteractionRiskRouter from "./businessInteractionRiskRouter.tsx";
-import getFirstAdminSideBarLink from "../pages/admin/layout/utils/getFirstAdminSideBarLink.ts";
 import adminRouter from "./adminRouter.tsx";
 
 
@@ -22,7 +21,6 @@ const PanelLayout = lazy(() => import("../pages/panel/layout/PanelLayout.tsx"));
 
 //admin
 const AdminLayout = lazy(() => import("../pages/admin/layout/AdminLayout.tsx"));
-const AdminHighRiskIndividualPage = lazy(() => import("../pages/admin/high-risk-individuals/./AdminHighRiskIndividualsPage"));
 
 
 
