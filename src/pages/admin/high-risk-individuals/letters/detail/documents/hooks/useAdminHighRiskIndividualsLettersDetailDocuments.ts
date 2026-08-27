@@ -1,11 +1,32 @@
 import useAdminHighRiskIndividualsLettersDetailDocumentsDocs
   from "./useAdminHighRiskIndividualsLettersDetailDocumentsDocs.ts";
 import useModalOpen from "../../../../../../../hooks/modal/useModalOpen.tsx";
-import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "../index.types.ts";
+import type {
+  AdminHighRiskIndividualsLettersDetailDocumentType,
+  AdminHighRiskIndividualsLettersDetailResponseType
+} from "../index.types.ts";
 import useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine
   from "./useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine.ts";
+import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
+import APIS from "../../../../../../../request/constances/apis.ts";
+import {useParams} from "react-router";
 
 function useAdminHighRiskIndividualsLettersDetailDocuments() {
+
+  const {id: letterId} = useParams()
+
+  const {
+    data, isFetching, error
+  } = useFetchData<AdminHighRiskIndividualsLettersDetailResponseType>({
+    axiosConfig: {
+      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL,
+      params: {
+        letterId
+      }
+    }
+  })
+
+  console.log({data})
 
   const {
     documents

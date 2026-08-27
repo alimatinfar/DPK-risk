@@ -12,7 +12,6 @@ import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
 
 function AdminHighRiskIndividualsLettersDetailPage() {
 
-  const {id} = useParams()
   const letterNumber = useGetQueryParam(QUERY_PARAMS.LETTER_NUMBER)
   const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS)
 

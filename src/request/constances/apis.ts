@@ -57,6 +57,7 @@ const APIS = {
   //admin
   ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMERS: 'RiskCustomer/GetRiskCustomers',
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS: 'RiskCustomer/GetRiskLetters',
+  ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL: 'RiskCustomer/GetRiskLetter',
 }
 
 export default APIS;
