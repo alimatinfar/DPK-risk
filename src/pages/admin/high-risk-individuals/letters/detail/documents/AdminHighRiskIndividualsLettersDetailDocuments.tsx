@@ -1,14 +1,12 @@
-import {
-  DetailInfoSection
-} from "../../../../../../components/others/DetailInfo/DetailInfoSection";
 import useAdminHighRiskIndividualsLettersDetailDocuments
   from "./hooks/useAdminHighRiskIndividualsLettersDetailDocuments.ts";
-import CardWithHeader from "../../../../../../components/others/Card/CardWithHeader/CardWithHeader.tsx";
 import AdminHighRiskIndividualsLettersDetailDocumentsDocs
   from "./AdminHighRiskIndividualsLettersDetailDocumentsDocs.tsx";
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
 import {lazy} from "react";
 import AdminHighRiskLetterDetailDescriptionSection from "./AdminHighRiskLetterDetailDescriptionSection.tsx";
+import HighRiskIndividualsTimeLine from "../HighRiskIndividualsTimeLine/HighRiskIndividualsTimeLine.tsx";
+
 
 const AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal = lazy(() => import(
   "./deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx"
@@ -21,31 +19,28 @@ const AdminHighRiskIndividualsLettersDetailDocumentsFormModal = lazy(() => impor
 function AdminHighRiskIndividualsLettersDetailDocuments() {
 
   const {
-    documents,
+    documents, timeLineHistories,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
   } = useAdminHighRiskIndividualsLettersDetailDocuments()
 
   return (
     <>
-      <div className='flex flex-col gap-y-4'>
-        <AdminHighRiskLetterDetailDescriptionSection
-          letterDate='1405/01/01' letterNumber='321564643' reference='قوه قضائیه'
-          description='توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه '
-        />
+      <div className='flex items-start gap-x-4'>
+        <div className='flex flex-col gap-y-4 flex-1'>
+          <AdminHighRiskLetterDetailDescriptionSection
+            letterDate='1405/01/01' letterNumber='321564643' reference='قوه قضائیه'
+            description='توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه '
+          />
 
-        <CardWithHeader
-          title='تایم لاین تغییرات'
-          headerEndAdornment={<div>timeline</div>}
-        >
-          محتوای تایم لاین
-        </CardWithHeader>
+          <AdminHighRiskIndividualsLettersDetailDocumentsDocs
+            documents={documents}
+            setDeleteModalState={setDeleteModalState}
+            setFormModalState={setFormModalState}
+          />
+        </div>
 
-        <AdminHighRiskIndividualsLettersDetailDocumentsDocs
-          documents={documents}
-          setDeleteModalState={setDeleteModalState}
-          setFormModalState={setFormModalState}
-        />
+        <HighRiskIndividualsTimeLine histories={timeLineHistories} />
       </div>
 
       <DisplayModal shouldBeRemoved={deleteModalShouldBeRemoved}>

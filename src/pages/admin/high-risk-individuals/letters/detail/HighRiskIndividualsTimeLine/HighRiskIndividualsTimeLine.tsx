@@ -5,11 +5,13 @@ import type {ReactNode} from "react";
 import getDateValue from "../../../../../../utils/dateAndTIme/momentJalaliDateTime/getDateValue.ts";
 import getFormattedMomentJalaliDateTime
   from "../../../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
+import type {IconPropsType} from "../../../../../../components/svg/IconPropsType.ts";
 
 
 export type TimeLineHistoryType = {
   title: string | ReactNode;
   subTitle: string | ReactNode;
+  subTitleIcon?: (props: IconPropsType) => ReactNode;
   date: string | Moment;
   isGreen?: boolean;
 }
@@ -52,6 +54,12 @@ function HighRiskIndividualsTimeLine(
               date: getDateValue(history.date), mode: 'jDate'
             })
 
+            const subTitleElement = (
+              <span className='text-[11px] text-gray-500'>
+                {history.subTitle}
+              </span>
+            )
+
             return (
               <div
                 key={index}
@@ -61,9 +69,13 @@ function HighRiskIndividualsTimeLine(
                   <span className='text-xs'>
                     {history.title}
                   </span>
-                  <span className='text-[11px] text-gray-500'>
-                    {history.subTitle}
-                  </span>
+                  {history.subTitleIcon ? (
+                    <div className='flex items-center gap-x-1'>
+                      <history.subTitleIcon />
+
+                      {subTitleElement}
+                    </div>
+                  ) : subTitleElement}
 
                   <span
                     className={`
