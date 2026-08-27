@@ -6,11 +6,13 @@ import getDateValue from "../../../../../../utils/dateAndTIme/momentJalaliDateTi
 import getFormattedMomentJalaliDateTime
   from "../../../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
 import type {IconPropsType} from "../../../../../../components/svg/IconPropsType.ts";
+import {Link} from "react-router";
 
 
 export type TimeLineHistoryType = {
   title: string | ReactNode;
   subTitle: string | ReactNode;
+  subTitleLink?: string;
   subTitleIcon?: (props: IconPropsType) => ReactNode;
   date: string | Moment;
   isGreen?: boolean;
@@ -54,24 +56,34 @@ function HighRiskIndividualsTimeLine(
               date: getDateValue(history.date), mode: 'jDate'
             })
 
-            const subTitleElement = (
-              <span className='text-[11px] text-gray-500'>
+            const subTitleSpan = (
+              <span className={`
+                text-[11px] text-gray-500 
+                ${history.subTitleLink ? 'duration-200 border-b border-gray-200 hover:text-gray-700 hover:border-gray-300' : ''}
+              `}>
                 {history.subTitle}
               </span>
             )
+
+            const subTitleElement = history.subTitleLink ? (
+              <Link to={history.subTitleLink}>
+                {subTitleSpan}
+              </Link>
+            ) : subTitleSpan
 
             return (
               <div
                 key={index}
                 className='grid grid-cols-2'
               >
-                <div className='relative flex flex-col items-end justify-center gap-y-1 pl-3 border-l-[3px] border-gray-100 pt-4 pb-4'>
+                <div
+                  className='relative flex flex-col items-end justify-center gap-y-1 pl-3 border-l-[3px] border-gray-100 pt-4 pb-4'>
                   <span className='text-xs'>
                     {history.title}
                   </span>
                   {history.subTitleIcon ? (
                     <div className='flex items-center gap-x-1'>
-                      <history.subTitleIcon />
+                      <history.subTitleIcon/>
 
                       {subTitleElement}
                     </div>

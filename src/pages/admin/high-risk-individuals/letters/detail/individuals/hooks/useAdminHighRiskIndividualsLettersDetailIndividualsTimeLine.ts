@@ -7,7 +7,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine() {
   const timeLineHistories: HighRiskIndividualsTimeLineProps['histories'] = [
     {
       title: 'قوه قضائیه',
-      subTitle: 'ایجاد لیست',
+      subTitle: '1234567890',
+      subTitleLink: '#',
       subTitleIcon: LetterIcon,
       date: moment(),
       isGreen: true,
@@ -15,6 +16,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine() {
     {
       title: 'قوه قضائیه',
       subTitle: '1234567890',
+      subTitleLink: '#',
       subTitleIcon: LetterIcon,
       date: moment(),
       isGreen: false,
@@ -22,6 +24,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine() {
     {
       title: 'قوه قضائیه',
       subTitle: '1234567890',
+      subTitleLink: '#',
       subTitleIcon: LetterIcon,
       date: moment(),
       isGreen: true,
@@ -29,6 +32,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine() {
     {
       title: 'قوه قضائیه',
       subTitle: '1234567890',
+      subTitleLink: '#',
       subTitleIcon: LetterIcon,
       date: moment(),
       isGreen: false,

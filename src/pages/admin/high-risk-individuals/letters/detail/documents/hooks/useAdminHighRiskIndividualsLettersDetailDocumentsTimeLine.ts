@@ -15,6 +15,7 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine() {
     {
       title: 'حذف یک شخص',
       subTitle: '1234567890',
+      subTitleLink: '#',
       subTitleIcon: RemoveUserIcon,
       date: moment(),
       isGreen: false,
@@ -22,6 +23,7 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine() {
     {
       title: 'افزودن یک شخص',
       subTitle: '1234567890',
+      subTitleLink: '#',
       subTitleIcon: AddUserIcon,
       date: moment(),
       isGreen: true,
@@ -29,6 +31,7 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine() {
     {
       title: 'حذف یک شخص',
       subTitle: '1234567890',
+      subTitleLink: '#',
       subTitleIcon: RemoveUserIcon,
       date: moment(),
       isGreen: false,
