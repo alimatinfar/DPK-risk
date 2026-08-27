@@ -12,7 +12,10 @@ import AdminHighRiskIndividualsLettersDetailIndividualsExitModal
   from "../../letters/detail/individuals/exitModal/AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx";
 import useAdminHighRiskIndividualsExitModalStates
   from "../../letters/detail/individuals/exitModal/hooks/useAdminHighRiskIndividualsExitModalStates.ts";
-import HighRiskIndividualsTimeLine from "../../letters/detail/HighRiskIndividualsTimeLine/HighRiskIndividualsTimeLine.tsx";
+import HighRiskIndividualsTimeLine, {
+  type HighRiskIndividualsTimeLineProps
+} from "../../letters/detail/HighRiskIndividualsTimeLine/HighRiskIndividualsTimeLine.tsx";
+import moment from "moment-jalaali";
 
 const AdminHighRiskIndividualsLettersDetailIndividualsDocListModal = lazy(() => import(
   "../../letters/detail/individuals/docListModal/AdminHighRiskIndividualsLettersDetailIndividualsDocListModal.tsx"
@@ -33,6 +36,33 @@ function AdminHighRiskIndividualsDetailPage() {
     exitPersonModalState, setExitPersonModalState
   } = useAdminHighRiskIndividualsExitModalStates<(string | number) | boolean>(false)
 
+  const timeLineHistories: HighRiskIndividualsTimeLineProps['histories'] = [
+    {
+      title: 'افزودن ۳۵ نفر',
+      subTitle: 'ایجاد لیست',
+      date: moment(),
+      isGreen: true,
+    },
+    {
+      title: 'حذف یک شخص',
+      subTitle: '1234567890',
+      date: moment(),
+      isGreen: false,
+    },
+    {
+      title: 'افزودن یک شخص',
+      subTitle: '1234567890',
+      date: moment(),
+      isGreen: true,
+    },
+    {
+      title: 'حذف یک شخص',
+      subTitle: '1234567890',
+      date: moment(),
+      isGreen: false,
+    },
+  ]
+
   return (
     <>
       <div className='flex flex-col gap-y-4'>
@@ -49,7 +79,7 @@ function AdminHighRiskIndividualsDetailPage() {
             />
           </CardWithHeader>
 
-          <HighRiskIndividualsTimeLine />
+          <HighRiskIndividualsTimeLine histories={timeLineHistories} />
         </div>
       </div>
 

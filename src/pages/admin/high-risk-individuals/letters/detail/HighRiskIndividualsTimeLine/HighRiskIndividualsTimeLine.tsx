@@ -1,9 +1,26 @@
 import CardWithHeader from "../../../../../../components/others/Card/CardWithHeader/CardWithHeader.tsx";
 import HighRiskIndividualsTimeLineHelpSection from "./HighRiskIndividualsTimeLineHelpSection.tsx";
+import type {Moment} from "moment-jalaali";
+import type {ReactNode} from "react";
+import getDateValue from "../../../../../../utils/dateAndTIme/momentJalaliDateTime/getDateValue.ts";
+import getFormattedMomentJalaliDateTime
+  from "../../../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
 
 
+export type TimeLineHistoryType = {
+  title: string | ReactNode;
+  subTitle: string | ReactNode;
+  date: string | Moment;
+  isGreen?: boolean;
+}
 
-function HighRiskIndividualsTimeLine() {
+export type HighRiskIndividualsTimeLineProps = {
+  histories: TimeLineHistoryType[]
+}
+
+function HighRiskIndividualsTimeLine(
+  {histories}: HighRiskIndividualsTimeLineProps
+) {
   return (
     <div className='w-75'>
       <CardWithHeader
@@ -28,7 +45,41 @@ function HighRiskIndividualsTimeLine() {
         </div>
       )}
       >
+        <div className='flex flex-col'>
+          {histories.map((history, index) => {
 
+            const dateString = getFormattedMomentJalaliDateTime({
+              date: getDateValue(history.date), mode: 'jDate'
+            })
+
+            return (
+              <div
+                key={index}
+                className='grid grid-cols-2'
+              >
+                <div className='relative flex flex-col items-end justify-center gap-y-1 pl-3 border-l-[3px] border-gray-100 pt-4 pb-4'>
+                  <span className='text-xs'>
+                    {history.title}
+                  </span>
+                  <span className='text-[11px] text-gray-500'>
+                    {history.subTitle}
+                  </span>
+
+                  <span
+                    className={`
+                      h-2 w-2 rounded-full absolute -left-1.5 inset-y-0 my-auto
+                      ${history.isGreen ? 'bg-green-500' : 'bg-red-500'}
+                    `}
+                  ></span>
+                </div>
+
+                <div className='flex items-center pr-3 text-xs'>
+                  {dateString}
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </CardWithHeader>
     </div>
   );
