@@ -8,6 +8,7 @@ const QUERY_PARAMS = {
   NAME: 'name',
   PERIOD_DATE_OBJECT: 'periodDateObject',
   BRANCH_OBJECT: 'branchObject',
+  LETTER_NUMBER: 'letterNumber',
 }
 
 export default QUERY_PARAMS

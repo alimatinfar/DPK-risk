@@ -17,6 +17,8 @@ import useFetchData from "../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../request/constances/apis.ts";
 import {ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS} from "../index.constances.tsx";
 import type {AdminHighRiskIndividualsLettersTableProps} from "../AdminHighRiskIndividualsLettersTable.tsx";
+import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
+import getUrlWithParams from "../../../../../utils/getUrlWithParams.ts";
 
 function useAdminHighRiskIndividualsLettersTable(
   {filters}: Pick<AdminHighRiskIndividualsLettersTableProps, 'filters'>
@@ -51,7 +53,11 @@ function useAdminHighRiskIndividualsLettersTable(
       [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LETTER_DATE]: displayDate(item.letterDate),
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          navigate(ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL(item.id))
+          const url = ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL(item.id)
+          const params = {
+            [QUERY_PARAMS.LETTER_NUMBER]: item?.letterNo
+          }
+          navigate(getUrlWithParams(url, params))
         })
       ],
     }))
