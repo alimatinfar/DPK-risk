@@ -7,3 +7,12 @@ export type AdminHighRiskIndividualsFilterType = {
   [firstNameFieldName]: FirstNameFieldType;
   [lastNameFieldName]: LastNameFieldType;
 }
+
+export type AdminHighRiskIndividualsCustomerResponseItemType ={
+  customerId: number;
+  nationalID: number;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  isLegal: boolean;
+}
