@@ -1,17 +1,11 @@
 import AdminHighRiskIndividualsLettersDetailIndividualsCategories
   from "./AdminHighRiskIndividualsLettersDetailIndividualsCategories.tsx";
-import useModalOpen from "../../../../../../hooks/modal/useModalOpen.tsx";
-import type {
-  AdminHighRiskIndividualsLettersDetailIndividualsDataItemType, ModalStateTypeId
-} from "./index.types.ts";
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
-import {lazy, useState} from "react";
-import useAdminHighRiskIndividualsDocumentListModalStates from "./docListModal/hooks/useAdminHighRiskIndividualsDocumentListModalStates.ts";
-import useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle
-  from "./editModal/hooks/useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle.ts";
-import useAdminHighRiskIndividualsExitModalStates
-  from "./exitModal/hooks/useAdminHighRiskIndividualsExitModalStates.ts";
+import {lazy} from "react";
+
 import APIS from "../../../../../../request/constances/apis.ts";
+import useAdminHighRiskIndividualsLettersDetailIndividuals
+  from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividuals.ts";
 
 
 const AdminHighRiskIndividualsLettersDetailIndividualsEditModal = lazy(() => import(
@@ -30,24 +24,11 @@ const AdminHighRiskIndividualsLettersDetailIndividualsExitModal = lazy(() => imp
 function AdminHighRiskIndividualsLettersDetailIndividuals() {
 
   const {
-    open: editPersonModalOpen, shouldBeRemoved: editPersonModalShouldBeRemoved, closeModal: closeEditPersonModalHandler,
-    modalState: editPersonModalState, setModalState: setEditPersonModalState
-  } = useModalOpen<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>(false)
-
-  const {
-    docListModalOpen, docListModalShouldBeRemoved, closeDocListModalHandler, docListModalState, setDocListModalState
-  } = useAdminHighRiskIndividualsDocumentListModalStates()
-
-  const {
-    exitPersonModalOpen, exitPersonModalShouldBeRemoved, closeExitPersonModalHandler,
-    exitPersonModalState, setExitPersonModalState
-  } = useAdminHighRiskIndividualsExitModalStates<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>(false)
-
-  const {
-    personTitle
-  } = useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle({
-    modalState: exitPersonModalState
-  })
+    setEditPersonModalState, setDocListModalState, setExitPersonModalState, editPersonModalShouldBeRemoved,
+    editPersonModalOpen, closeEditPersonModalHandler, editPersonModalState, docListModalShouldBeRemoved,
+    docListModalOpen, closeDocListModalHandler, docListModalState, exitPersonModalShouldBeRemoved,
+    exitPersonModalOpen, closeExitPersonModalHandler, exitPersonModalState, personTitle,
+  } = useAdminHighRiskIndividualsLettersDetailIndividuals()
 
   return (
     <>
