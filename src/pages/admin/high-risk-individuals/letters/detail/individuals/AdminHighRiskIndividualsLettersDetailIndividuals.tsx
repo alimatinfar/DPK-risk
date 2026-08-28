@@ -11,6 +11,7 @@ import useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle
   from "./editModal/hooks/useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle.ts";
 import useAdminHighRiskIndividualsExitModalStates
   from "./exitModal/hooks/useAdminHighRiskIndividualsExitModalStates.ts";
+import APIS from "../../../../../../request/constances/apis.ts";
 
 
 const AdminHighRiskIndividualsLettersDetailIndividualsEditModal = lazy(() => import(
@@ -66,7 +67,9 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
       <DisplayModal shouldBeRemoved={docListModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal
           open={docListModalOpen} onClose={closeDocListModalHandler}
-          modalState={docListModalState}
+          modalState={docListModalState} isCustomer
+          deleteDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_DELETE_DOCUMENT}
+          editDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_EDIT_DOCUMENT}
         />
       </DisplayModal>
 

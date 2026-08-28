@@ -22,6 +22,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
     id: 1,
+    riskCustomerId: 1,
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
@@ -31,6 +32,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
     id: 2,
+    riskCustomerId: 2,
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
@@ -41,6 +43,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
     id: 3,
+    riskCustomerId: 3,
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
@@ -50,6 +53,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
     id: 4,
+    riskCustomerId: 4,
     name: 'حسین',
     lastName: 'مبینی',
     nationalCode: '123456790',
@@ -67,6 +71,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
     id: 5,
+    riskCustomerId: 5,
     name: 'بنیان',
     [legalTypeFieldName]: 'مبینی',
     nationalCode: '123456790',

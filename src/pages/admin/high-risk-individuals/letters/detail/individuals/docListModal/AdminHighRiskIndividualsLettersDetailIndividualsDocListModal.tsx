@@ -9,6 +9,8 @@ import SuspenseRenderLogicDefaultContainer
   from "../../../../../../../components/others/RenderLogic/SuspenseRenderLogicDefaultContainer.tsx";
 import Loading from "../../../../../../../components/others/Loading/Loading.tsx";
 import {lazy} from "react";
+import RenderLogic from "../../../../../../../components/others/RenderLogic/RenderLogic.tsx";
+
 
 const AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent = lazy(() => import(
   "../../documents/deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent.tsx"
@@ -18,19 +20,24 @@ const AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent = lazy(() =
   ));
 
 
-type Props = {
+export type AdminHighRiskIndividualsLettersDetailIndividualsDocListModalProps = {
   modalState: ModalStateTypeId | boolean;
+  deleteDocumentApiAddress: string;
+  editDocumentApiAddress: string;
+  isCustomer?: boolean;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
   {
-    modalState, onClose, open
-  }: Props
+    modalState, onClose, open, deleteDocumentApiAddress, editDocumentApiAddress, isCustomer
+  }: AdminHighRiskIndividualsLettersDetailIndividualsDocListModalProps
 ) {
 
   const {
-    documentsList, renderState, setRenderState, goToListState, pageTitle
-  } = useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal()
+    documentsList, loading, error, renderState, setRenderState, goToListState, pageTitle
+  } = useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal({
+    isCustomer, modalState
+  })
 
   return (
     <Modal
@@ -38,19 +45,25 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
       {...renderState && {backAction: goToListState}}
     >
       <SuspenseRenderLogicDefaultContainer fallback={<Loading/>}>
-        {renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.DELETE ? (
-          <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
-            cancelAction={goToListState} modalState={renderState?.data} onClose={goToListState}
-          />
-        ) : renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT ? (
-          <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
-            modalState={renderState?.data} isEditMode onClose={goToListState}
-          />
-        ) : (
-          <AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent
-            documentsList={documentsList} setRenderState={setRenderState}
-          />
-        )}
+        <RenderLogic
+          isLoading={loading} error={error}
+        >
+          {renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.DELETE ? (
+            <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
+              cancelAction={goToListState} modalState={renderState?.data} onClose={goToListState}
+              apiAddress={deleteDocumentApiAddress}
+            />
+          ) : renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT ? (
+            <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
+              modalState={renderState?.data} isEditMode onClose={goToListState}
+              apiAddress={editDocumentApiAddress}
+            />
+          ) : (
+            <AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent
+              documentsList={documentsList} setRenderState={setRenderState}
+            />
+          )}
+        </RenderLogic>
       </SuspenseRenderLogicDefaultContainer>
     </Modal>
   );

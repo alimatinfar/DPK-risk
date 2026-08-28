@@ -19,6 +19,7 @@ export type ExitPersonFromLetterType = typeof EXIT_PERSON_FROM_LETTER_KEYS[keyof
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<ResultPersonCardDataType, 'type'> & {
   id: string | number;
+  riskCustomerId: string | number;
   name: string;
   nationalCode: string;
   expireDate: Moment;

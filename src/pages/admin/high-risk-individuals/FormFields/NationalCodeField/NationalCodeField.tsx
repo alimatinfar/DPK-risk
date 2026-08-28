@@ -10,7 +10,13 @@ import FORM_PATTERNS from "../../../../../constances/form/formPatterns.ts";
 const MIN_LENGTH = 5
 const MAX_LENGTH = 12
 
-function NationalCodeField() {
+type Props = {
+  removeValidations?: boolean
+}
+
+function NationalCodeField(
+  {removeValidations}: Props
+) {
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(nationalCodeFieldName);
   const requiredErrorMessage = useGetRequiredErrorMessage(nationalCodeFieldLabel)
@@ -25,7 +31,7 @@ function NationalCodeField() {
         maxLength: MAX_LENGTH,
         justNumber: true
       }}
-      rules={{
+      rules={removeValidations ? {} : {
         minLength: FORM_PATTERNS.MIN_LENGTH_CHAR(MIN_LENGTH, `باید بیشتر از ${MIN_LENGTH} عدد باشد`),
         required: requiredErrorMessage,
       }}

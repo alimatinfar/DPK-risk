@@ -2,6 +2,7 @@ import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "../index.t
 import Modal, {type ModalProps} from "../../../../../../../components/others/Modal/Modal.tsx";
 import AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
   from "./AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent.tsx";
+import APIS from "../../../../../../../request/constances/apis.ts";
 
 
 export type AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps = {
@@ -13,6 +14,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsFormModal(
 ) {
 
   const isEditMode = typeof modalState !== 'boolean'
+  const apiAddress = isEditMode ? APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_EDIT_DOCUMENT : APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_ADD_DOCUMENT
 
   return (
     <Modal
@@ -21,6 +23,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsFormModal(
     >
       <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
         isEditMode={isEditMode} modalState={modalState} onClose={onClose}
+        apiAddress={apiAddress}
       />
     </Modal>
   );

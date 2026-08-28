@@ -83,7 +83,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                           )}
                           <Button
                             onClick={() => setDocListModalState({
-                              id: item.id, type: MODAL_STATE_TYPE_KEYS.PERSON
+                              id: item.riskCustomerId, type: MODAL_STATE_TYPE_KEYS.PERSON
                             })}
                             variant='default' color='white'
                           >

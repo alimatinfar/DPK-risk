@@ -4,9 +4,6 @@ import {
 } from "../../../../../FormFields/DescriptionField/index.constances.ts";
 import useReactHookFormWrapper
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
-import type {
-  AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps
-} from "../AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx";
 import {useEffect} from "react";
 import setDefaultValuesFromObject
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
@@ -14,21 +11,25 @@ import type {AdminHighRiskIndividualsDocumentFormDataType} from "../../../../../
 import useMutateData from "../../../../../../../../request/hooks/useMutateData.ts";
 import APIS from "../../../../../../../../request/constances/apis.ts";
 import fireResponseErrorToast from "../../../../../../../../request/utils/fireResponseErrorToast.ts";
-import type {ModalProps} from "../../../../../../../../components/others/Modal/Modal.tsx";
 import {REQUEST_HEADERS} from "../../../../../../../../request/utils/requestHeaders.ts";
 import getSelectIdValue from "../../../../../../../../components/Form/Select/utils/getSelectIdValue.ts";
 import {uploadFileFieldName} from "../../../../../FormFields/UploadFileField/index.constances.ts";
+import type {
+  AdminHighRiskIndividualsLettersDetailDocumentsFormModalContentProps
+} from "../AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent.tsx";
 
-type Props = Pick<ModalProps, 'onClose'> & Pick<AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps, 'modalState'>
+type Props = Pick<AdminHighRiskIndividualsLettersDetailDocumentsFormModalContentProps,
+  'onClose' | 'modalState' | 'apiAddress'
+>
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
-  {modalState, onClose}: Props
+  {modalState, onClose, apiAddress}: Props
 ) {
   const {
     mutate, isPending
   } = useMutateData<any, FormData>({
     axiosConfig: {
-      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_ADD_DOCUMENT,
+      url: apiAddress,
       method: 'POST',
       headers: REQUEST_HEADERS.MULTIPART_FORM_DATA
     }

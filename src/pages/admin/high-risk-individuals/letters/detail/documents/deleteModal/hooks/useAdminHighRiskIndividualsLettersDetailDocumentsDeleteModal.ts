@@ -4,13 +4,12 @@ import {
   descriptionFieldName,
   type DescriptionFieldType
 } from "../../../../../FormFields/DescriptionField/index.constances.ts";
-import type {
-  AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps
-} from "../AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx";
 import useMutateData from "../../../../../../../../request/hooks/useMutateData.ts";
 import APIS from "../../../../../../../../request/constances/apis.ts";
-import type {ModalProps} from "../../../../../../../../components/others/Modal/Modal.tsx";
 import fireResponseErrorToast from "../../../../../../../../request/utils/fireResponseErrorToast.ts";
+import type {
+  AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
+} from "../AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent.tsx";
 
 
 //TODO should added description field to body data
@@ -24,15 +23,17 @@ type FormDataType = {
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
   {
-    modalState, onClose
-  }: Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps, 'modalState'> &  Pick<ModalProps, 'onClose'>
+    modalState, onClose, apiAddress
+  }: Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps,
+    'modalState' | 'onClose' | 'apiAddress'
+  >
 ) {
 
   const {
     mutate, data, error, isPending
   } = useMutateData<any, BodyDataType>({
     axiosConfig: {
-      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT, method: 'POST'
+      url: apiAddress, method: 'POST'
     }
   })
 

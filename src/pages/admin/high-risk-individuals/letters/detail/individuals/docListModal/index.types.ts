@@ -7,3 +7,14 @@ export type AdminHighRiskIndividualsDocListRenderStateType = {
   state: AdminHighRiskIndividualsDocListStateType,
   data: AdminHighRiskIndividualsLettersDetailDocumentType
 }
+
+export type AdminHighRiskIndividualsDocListResponseItemType = {
+  content: string;
+  createdAt: string;
+  description: string;
+  documentType: number;
+  documentTypeTitle: string;
+  id: number;
+  isDeleted: boolean;
+  name: string;
+}

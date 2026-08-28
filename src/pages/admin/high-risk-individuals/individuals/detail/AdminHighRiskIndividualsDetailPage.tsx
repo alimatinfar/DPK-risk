@@ -15,6 +15,7 @@ import useAdminHighRiskIndividualsExitModalStates
 import HighRiskIndividualsTimeLine from "../../letters/detail/HighRiskIndividualsTimeLine/HighRiskIndividualsTimeLine.tsx";
 import useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine
   from "../../letters/detail/individuals/hooks/useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine.ts";
+import APIS from "../../../../../request/constances/apis.ts";
 
 const AdminHighRiskIndividualsLettersDetailIndividualsDocListModal = lazy(() => import(
   "../../letters/detail/individuals/docListModal/AdminHighRiskIndividualsLettersDetailIndividualsDocListModal.tsx"
@@ -63,6 +64,8 @@ function AdminHighRiskIndividualsDetailPage() {
         <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal
           open={docListModalOpen} onClose={closeDocListModalHandler}
           modalState={docListModalState}
+          deleteDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT}
+          editDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_EDIT_DOCUMENT}
         />
       </DisplayModal>
 

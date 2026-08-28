@@ -10,20 +10,21 @@ import type {
 import type {ModalProps} from "../../../../../../../components/others/Modal/Modal.tsx";
 
 
-type Props = {
+export type AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps = {
   cancelAction: () => void;
+  apiAddress: string;
 } &
   Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps, 'modalState'> &
   Pick<ModalProps, 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent(
-  {cancelAction, modalState, onClose}: Props
+  {cancelAction, modalState, onClose, apiAddress}: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
 ) {
 
   const {
     formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal({
-    modalState, onClose
+    modalState, onClose, apiAddress
   })
 
   return (

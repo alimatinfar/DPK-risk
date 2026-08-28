@@ -2,6 +2,7 @@ import Modal, {type ModalProps} from "../../../../../../../components/others/Mod
 import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "../index.types.ts";
 import AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
   from "./AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent.tsx";
+import APIS from "../../../../../../../request/constances/apis.ts";
 
 
 export type AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps = {
@@ -19,6 +20,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
     >
       <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
         cancelAction={onClose} modalState={modalState} onClose={onClose}
+        apiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT}
       />
     </Modal>
   );

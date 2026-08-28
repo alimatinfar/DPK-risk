@@ -14,7 +14,7 @@ function AdminHighRiskIndividualsFilter(
       filters={filters} setFilters={setFilters}
       initialFilterData={adminHighRiskIndividualsDefaultFilters}
     >
-      <NationalCodeField />
+      <NationalCodeField removeValidations />
 
       <FirstNameField />
 

@@ -10,19 +10,22 @@ import AdminHighRiskIndividualsDocumentFormFields from "../../../../FormFields/A
 import type {ModalProps} from "../../../../../../../components/others/Modal/Modal.tsx";
 
 
-type Props = {
+export type AdminHighRiskIndividualsLettersDetailDocumentsFormModalContentProps = {
   isEditMode: boolean;
+  apiAddress: string;
 } & Pick<AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps, 'modalState'> &
   Pick<ModalProps, 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent(
-  {modalState, isEditMode, onClose}: Props
+  {
+    modalState, isEditMode, onClose, apiAddress
+  }: AdminHighRiskIndividualsLettersDetailDocumentsFormModalContentProps
 ) {
 
   const {
     formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailDocumentsFormModal({
-    modalState, onClose
+    modalState, onClose, apiAddress
   })
 
   return (
