@@ -1,6 +1,6 @@
 import {useState} from "react";
 import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "../../../documents/index.types.ts";
-import {fileTypeFieldName, fileTypeFieldOptions} from "../../../../../FormFields/FileTypeField/index.constances.ts";
+import {fileTypeFieldName} from "../../../../../FormFields/FileTypeField/index.constances.ts";
 import type {
   AdminHighRiskIndividualsDocListRenderStateType
 } from "../index.types.ts";
@@ -19,13 +19,13 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal() {
   const documentsList: AdminHighRiskIndividualsLettersDetailDocumentType[] = [
     {
       id: 1,
-      [fileTypeFieldName]: fileTypeFieldOptions[0],
+      [fileTypeFieldName]: {id: 1, name: 'قوه قضائیه'},
       [descriptionFieldName]: 'حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع ',
       [uploadFileFieldName]: undefined
     },
     {
       id: 2,
-      [fileTypeFieldName]: fileTypeFieldOptions[0],
+      [fileTypeFieldName]: {id: 1, name: 'قوه قضائیه'},
       [descriptionFieldName]: 'حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع حکم دریافت شده از مرجع ',
       [uploadFileFieldName]: undefined
     },

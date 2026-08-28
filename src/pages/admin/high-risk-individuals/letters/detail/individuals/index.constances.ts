@@ -1,7 +1,6 @@
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/SearchPageForm.constances";
 import {type AdminHighRiskIndividualsLettersDetailIndividualsDataType} from "./index.types";
 import {legalTypeFieldName} from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances";
-import {entryReasonsFieldOptions} from "../../../FormFields/EntryReasonsField/index.constances.ts";
 import moment from "moment-jalaali";
 
 export const EXIT_PERSON_FROM_LETTER_KEYS = {
@@ -27,7 +26,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: entryReasonsFieldOptions,
+    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
@@ -36,7 +35,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: entryReasonsFieldOptions,
+    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
     exitType: EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE
   },
   {
@@ -46,7 +45,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: entryReasonsFieldOptions,
+    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
@@ -55,7 +54,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: entryReasonsFieldOptions,
+    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
     exitLetter: {
       id: 1,
       letterDate: moment(),
@@ -72,6 +71,6 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     [legalTypeFieldName]: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: entryReasonsFieldOptions,
+    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
   },
 ] as const

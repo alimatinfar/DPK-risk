@@ -1,6 +1,5 @@
 import {useMemo} from "react";
 
-import cleanObject from "../../../../../utils/cleanObject.ts";
 import type {AdminHighRiskIndividualsLettersResponseItemType} from ".././index.types.ts";
 import {letterNumberFieldName} from "../../FormFields/LetterNumberField/index.constances.ts";
 import getSelectIdValue from "../../../../../components/Form/Select/utils/getSelectIdValue.ts";
@@ -19,6 +18,7 @@ import {ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS} from "../index.co
 import type {AdminHighRiskIndividualsLettersTableProps} from "../AdminHighRiskIndividualsLettersTable.tsx";
 import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../../utils/getUrlWithParams.ts";
+import getCleanBodyDataObject from "../../../../../request/utils/getCleanBodyDataObject.ts";
 
 function useAdminHighRiskIndividualsLettersTable(
   {filters}: Pick<AdminHighRiskIndividualsLettersTableProps, 'filters'>
@@ -32,7 +32,7 @@ function useAdminHighRiskIndividualsLettersTable(
     queryKey: [filters],
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS,
-      params: cleanObject({
+      params: getCleanBodyDataObject({
         LetterNo: filtersData?.[letterNumberFieldName],
         LetterRef: getSelectIdValue(filtersData?.[announceReferenceFieldName]),
         FromDate: getBodyDataDateField(filtersData?.[letterFromDateFieldName]),

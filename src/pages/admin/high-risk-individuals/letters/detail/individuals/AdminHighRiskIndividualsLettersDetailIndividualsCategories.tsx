@@ -52,7 +52,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
 
           return (
             <div className='p-2 flex flex-col gap-y-2'>
-              {items.map((item, itemIndex) => {
+              {items.map((item) => {
 
                 const fields: DetailInfoSectionLabelValueProps[] = getFields(item)
 
@@ -95,7 +95,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                         label: 'دلیل ورود',
                         value: (
                           <AdminHighRiskIndividualsEntryReasonsTags
-                            entryReasons={item.entryReasons.map(reason => reason.name)}
+                            entryReasons={item.entryReasons}
                           />
                         )
                       }]}

@@ -8,7 +8,7 @@ import {
 import {letterDateFieldName} from "../../FormFields/LetterDateField/index.constances.ts";
 import {descriptionFieldName} from "../../FormFields/DescriptionField/index.constances.ts";
 import {expireDateFieldName} from "../../FormFields/ExpireDateField/index.constances.ts";
-import {entryReasonsFieldName, entryReasonsFieldOptions} from "../../FormFields/EntryReasonsField/index.constances.ts";
+import {entryReasonsFieldName} from "../../FormFields/EntryReasonsField/index.constances.ts";
 import {EXIT_PERSON_FROM_LETTER_KEYS} from "../../letters/detail/individuals/index.constances";
 
 export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRiskIndividualRelatedLetterType[] = [
@@ -19,7 +19,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
     [expireDateFieldName]: '1405/10/10',
-    [entryReasonsFieldName]: entryReasonsFieldOptions?.map(item => item.name),
+    [entryReasonsFieldName]: ['دزدی','کلاهبرداری','قاچاق'],
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
     [expireDateFieldName]: '1405/10/10',
-    [entryReasonsFieldName]: entryReasonsFieldOptions?.map(item => item.name),
+    [entryReasonsFieldName]: ['دزدی','کلاهبرداری','قاچاق'],
     exitLetter: {
       id: 1,
       letterDate: '1405/10/10',
@@ -45,7 +45,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
     [expireDateFieldName]: '1405/10/10',
-    [entryReasonsFieldName]: entryReasonsFieldOptions?.map(item => item.name),
+    [entryReasonsFieldName]: ['دزدی','کلاهبرداری','قاچاق'],
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
     [expireDateFieldName]: '1405/10/10',
-    [entryReasonsFieldName]: entryReasonsFieldOptions?.map(item => item.name),
+    [entryReasonsFieldName]: ['دزدی','کلاهبرداری','قاچاق'],
     exitType: EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE
   },
   {
@@ -64,6 +64,6 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
     [expireDateFieldName]: '1405/10/10',
-    [entryReasonsFieldName]: entryReasonsFieldOptions?.map(item => item.name),
+    [entryReasonsFieldName]: ['دزدی','کلاهبرداری','قاچاق'],
   },
 ]

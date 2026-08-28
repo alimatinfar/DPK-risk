@@ -43,8 +43,8 @@ function UploadBox(
 
   const uploadBoxElement = (
     <div className={`
-      relative border border-dashed border-gray-300 rounded-md flex flex-col items-center space-y-2 py-4 px-8
-      ${bgClass || 'bg-gray-50'} ${uploadBoxClass || ''}
+      relative border border-dashed rounded-md flex flex-col items-center space-y-2 py-4 px-8
+      ${bgClass || 'bg-gray-50'} ${uploadBoxClass || ''} ${errorMessage ? 'border-red-500' : 'border-gray-300'}
     `}>
       <UploadIcon/>
 

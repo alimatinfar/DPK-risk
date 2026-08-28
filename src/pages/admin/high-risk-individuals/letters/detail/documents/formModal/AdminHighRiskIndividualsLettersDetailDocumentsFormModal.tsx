@@ -20,7 +20,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsFormModal(
       title={`${isEditMode ? 'ویرایش' : 'افزودن'} مستند`}
     >
       <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
-        isEditMode={isEditMode} modalState={modalState}
+        isEditMode={isEditMode} modalState={modalState} onClose={onClose}
       />
     </Modal>
   );

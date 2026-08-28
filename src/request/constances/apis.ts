@@ -7,6 +7,8 @@ const APIS = {
   GET_LEGAL_TYPES: 'PrimaryInformation/GetLegalType',
   GET_NATIONALITIES: 'PrimaryInformation/GetNationality',
   GET_LETTER_REFERENCES: 'PrimaryInformation/GetLetterRef',
+  GET_LETTER_DOCUMENTS: 'PrimaryInformation/GetDocumentType',
+  GET_LETTER_REASONS: 'PrimaryInformation/GetRiskReson',
 
   //comprehensive-info
   GET_NATURAL_CUSTOMER_INFO: 'Customer/GetCustomerInfo',
@@ -59,6 +61,7 @@ const APIS = {
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS: 'RiskCustomer/GetRiskLetters',
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL: 'RiskCustomer/GetRiskLetter',
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT: 'RiskCustomer/DeleteRiskLetterDocument',
+  ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_ADD_DOCUMENT: 'RiskCustomer/InsertRiskLetterDocument',
 }
 
 export default APIS;

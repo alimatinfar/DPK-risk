@@ -44,7 +44,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
           />
         ) : renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT ? (
           <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
-            modalState={renderState?.data} isEditMode
+            modalState={renderState?.data} isEditMode onClose={goToListState}
           />
         ) : (
           <AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent

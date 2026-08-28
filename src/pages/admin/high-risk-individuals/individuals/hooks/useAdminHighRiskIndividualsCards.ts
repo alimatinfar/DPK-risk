@@ -1,11 +1,5 @@
 import useFetchData from "../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../request/constances/apis.ts";
-import cleanObject from "../../../../../utils/cleanObject.ts";
-import {letterNumberFieldName} from "../../FormFields/LetterNumberField/index.constances.ts";
-import getSelectIdValue from "../../../../../components/Form/Select/utils/getSelectIdValue.ts";
-import {announceReferenceFieldName} from "../../FormFields/AnnouncingReferenceField/index.constances.ts";
-import getBodyDataDateField from "../../../../../request/utils/getBodyDataDateField.ts";
-import {letterFromDateFieldName} from "../../FormFields/LetterFromDateField/index.constances.ts";
 import {useNavigate} from "react-router";
 import {useMemo} from "react";
 import type {AdminHighRiskIndividualsCardsProps} from "../AdminHighRiskIndividualsCards.tsx";
@@ -14,6 +8,7 @@ import {FAKE_DATA} from "../index.constances.ts";
 import {nationalCodeFieldName} from "../../FormFields/NationalCodeField/index.constances.ts";
 import {firstNameFieldName} from "../../FormFields/FirstNameField/index.constances.ts";
 import {lastNameFieldName} from "../../FormFields/LastNameField/index.constances.ts";
+import getCleanBodyDataObject from "../../../../../request/utils/getCleanBodyDataObject.ts";
 
 
 function useAdminHighRiskIndividualsCards(
@@ -28,7 +23,7 @@ function useAdminHighRiskIndividualsCards(
     queryKey: [filters],
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMERS,
-      params: cleanObject({
+      params: getCleanBodyDataObject({
         NationalId: filtersData?.[nationalCodeFieldName],
         FName: filtersData?.[firstNameFieldName],
         LName: filtersData?.[lastNameFieldName],

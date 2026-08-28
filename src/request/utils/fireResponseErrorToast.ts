@@ -3,7 +3,7 @@ import {getResponseErrorMessage} from "./getResponse.ts";
 
 function fireResponseErrorToast() {
   return {
-    onError: (error) => {
+    onError: (error: Error) => {
       const errorMessage = getResponseErrorMessage(error)
       toastPromise().then(toast => toast.error(errorMessage))
     }

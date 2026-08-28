@@ -22,7 +22,7 @@ export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<
   name: string;
   nationalCode: string;
   expireDate: Moment;
-  entryReasons: SelectOptionType[];
+  entryReasons: string[];
   exitType?: ExitPersonFromLetterType
   exitLetter?: {
     id: string | number;

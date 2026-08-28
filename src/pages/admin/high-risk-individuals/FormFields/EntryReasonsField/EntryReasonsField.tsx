@@ -4,7 +4,8 @@ import useGetRequiredErrorMessage
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetRequiredErrorMessage.ts";
 import SelectForm from "../../../../../components/Form/Select/SelectForm.tsx";
 import React from "react";
-import {entryReasonsFieldLabel, entryReasonsFieldName, entryReasonsFieldOptions} from "./index.constances.ts";
+import {entryReasonsFieldLabel, entryReasonsFieldName} from "./index.constances.ts";
+import APIS from "../../../../../request/constances/apis.ts";
 
 function EntryReasonsField() {
   const getErrorMessage = useGetFormErrorMessage();
@@ -19,8 +20,7 @@ function EntryReasonsField() {
         label: entryReasonsFieldLabel,
       }}
       selectProps={{
-        // TODO get options from api
-        options: entryReasonsFieldOptions,
+        apiAddress: APIS.GET_LETTER_REASONS,
         mode: 'multiple'
       }}
       rules={{
