@@ -42,3 +42,4 @@ export type ModalStateTypeId = {
   id: string | number;
 }
 
+export type AdminHighRiskIndividualsLettersDetailIndividualsResponseItemType = {}

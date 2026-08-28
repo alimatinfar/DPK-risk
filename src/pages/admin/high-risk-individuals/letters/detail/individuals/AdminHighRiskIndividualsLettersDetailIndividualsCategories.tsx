@@ -29,11 +29,12 @@ type Props = {
   setEditPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
   setDocListModalState: SetStateType<ModalStateTypeId | boolean>;
   setExitPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
+  data: AdminHighRiskIndividualsLettersDetailIndividualsDataType
 }
 
 function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
   {
-    setEditPersonModalState, setDocListModalState, setExitPersonModalState
+    setEditPersonModalState, setDocListModalState, setExitPersonModalState, data
   }: Props
 ) {
 
@@ -44,8 +45,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
   return (
     <ResultPersonCategoryWrapper renderCallback={(category) => (
       <ResultPersonCategory2
-        key={category.name} personTypeItem={category}
-        resultData={ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA}
+        key={category.name} personTypeItem={category} resultData={data}
         customContent={(visibleItems) => {
 
           const items = visibleItems as AdminHighRiskIndividualsLettersDetailIndividualsDataType

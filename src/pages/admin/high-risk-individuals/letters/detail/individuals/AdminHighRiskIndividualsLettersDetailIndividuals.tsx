@@ -6,6 +6,7 @@ import {lazy} from "react";
 import APIS from "../../../../../../request/constances/apis.ts";
 import useAdminHighRiskIndividualsLettersDetailIndividuals
   from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividuals.ts";
+import RenderLogic from "../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 
 
 const AdminHighRiskIndividualsLettersDetailIndividualsEditModal = lazy(() => import(
@@ -28,15 +29,19 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
     editPersonModalOpen, closeEditPersonModalHandler, editPersonModalState, docListModalShouldBeRemoved,
     docListModalOpen, closeDocListModalHandler, docListModalState, exitPersonModalShouldBeRemoved,
     exitPersonModalOpen, closeExitPersonModalHandler, exitPersonModalState, personTitle,
+    individualsList, individualsLoading, individualsError
   } = useAdminHighRiskIndividualsLettersDetailIndividuals()
 
   return (
     <>
-      <AdminHighRiskIndividualsLettersDetailIndividualsCategories
-        setEditPersonModalState={setEditPersonModalState}
-        setDocListModalState={setDocListModalState}
-        setExitPersonModalState={setExitPersonModalState}
-      />
+      <RenderLogic
+        isLoading={individualsLoading} error={individualsError}
+      >
+        <AdminHighRiskIndividualsLettersDetailIndividualsCategories
+          setEditPersonModalState={setEditPersonModalState} setDocListModalState={setDocListModalState}
+          setExitPersonModalState={setExitPersonModalState} data={individualsList}
+        />
+      </RenderLogic>
 
       <DisplayModal shouldBeRemoved={editPersonModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailIndividualsEditModal
