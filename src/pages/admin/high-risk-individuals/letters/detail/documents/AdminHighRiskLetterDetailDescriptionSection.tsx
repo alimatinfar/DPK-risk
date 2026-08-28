@@ -7,10 +7,10 @@ import {useMemo} from "react";
 
 type Props = {
   detailInfoSectionProps?: Partial<DetailInfoSectionProps>;
-  letterNumber: string | number;
-  reference: string | number;
+  letterNumber: string | number | undefined;
+  reference: string | number | undefined;
   letterDate: string;
-  description: string;
+  description: string | undefined;
 }
 
 function AdminHighRiskLetterDetailDescriptionSection(

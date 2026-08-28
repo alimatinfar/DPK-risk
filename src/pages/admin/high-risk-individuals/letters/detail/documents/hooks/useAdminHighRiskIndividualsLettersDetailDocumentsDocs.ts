@@ -6,6 +6,7 @@ import {uploadFileFieldName} from "../../../../FormFields/UploadFileField/index.
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsDocs() {
 
+  //TODO should get this data from api
   const documents: AdminHighRiskIndividualsLettersDetailDocumentType[] = useMemo(function () {
     return [
       {

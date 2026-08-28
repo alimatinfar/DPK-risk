@@ -40,7 +40,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
       <SuspenseRenderLogicDefaultContainer fallback={<Loading/>}>
         {renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.DELETE ? (
           <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
-            cancelAction={goToListState} modalState={renderState?.data}
+            cancelAction={goToListState} modalState={renderState?.data} onClose={goToListState}
           />
         ) : renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT ? (
           <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent

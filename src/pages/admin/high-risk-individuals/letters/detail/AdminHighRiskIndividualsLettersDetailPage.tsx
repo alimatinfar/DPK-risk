@@ -1,4 +1,3 @@
-import {useParams, useSearchParams} from "react-router";
 import AdminPageTitle from "../../../layout/AdminPageTitle.tsx";
 import Tab from "../../../../../components/others/Tab/Tab.tsx";
 import useActiveTab from "../../../../../components/others/Tab/hooks/useActiveTab.ts";

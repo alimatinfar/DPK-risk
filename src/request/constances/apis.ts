@@ -58,6 +58,7 @@ const APIS = {
   ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMERS: 'RiskCustomer/GetRiskCustomers',
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS: 'RiskCustomer/GetRiskLetters',
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL: 'RiskCustomer/GetRiskLetter',
+  ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT: 'RiskCustomer/DeleteRiskLetterDocument',
 }
 
 export default APIS;

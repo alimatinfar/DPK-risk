@@ -18,7 +18,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
       description='ايا از انجام عمليات حذف اطمينان داريد؟'
     >
       <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
-        cancelAction={onClose} modalState={modalState}
+        cancelAction={onClose} modalState={modalState} onClose={onClose}
       />
     </Modal>
   );

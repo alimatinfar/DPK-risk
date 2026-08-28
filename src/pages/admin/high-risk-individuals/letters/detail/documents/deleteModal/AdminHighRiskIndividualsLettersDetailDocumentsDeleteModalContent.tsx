@@ -7,20 +7,23 @@ import useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal
 import type {
   AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps
 } from "./AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx";
+import type {ModalProps} from "../../../../../../../components/others/Modal/Modal.tsx";
 
 
 type Props = {
   cancelAction: () => void;
-} & Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps, 'modalState'>;
+} &
+  Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps, 'modalState'> &
+  Pick<ModalProps, 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent(
-  {cancelAction, modalState}: Props
+  {cancelAction, modalState, onClose}: Props
 ) {
 
   const {
-    formMethods, onSubmit
+    formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal({
-    modalState
+    modalState, onClose
   })
 
   return (
@@ -38,7 +41,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent(
         </Button>
 
         <Button
-          color='red' type='submit'
+          color='red' type='submit' loading={loading}
         >
           حذف
         </Button>

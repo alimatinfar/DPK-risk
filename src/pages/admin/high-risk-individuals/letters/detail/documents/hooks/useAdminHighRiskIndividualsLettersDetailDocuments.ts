@@ -16,7 +16,7 @@ function useAdminHighRiskIndividualsLettersDetailDocuments() {
   const {id: letterId} = useParams()
 
   const {
-    data, isFetching, error
+    data, isFetching: infoLoading, error: infoError
   } = useFetchData<AdminHighRiskIndividualsLettersDetailResponseType>({
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL,
@@ -26,7 +26,7 @@ function useAdminHighRiskIndividualsLettersDetailDocuments() {
     }
   })
 
-  console.log({data})
+  const info = data?.data
 
   const {
     documents
@@ -47,7 +47,7 @@ function useAdminHighRiskIndividualsLettersDetailDocuments() {
   } = useModalOpen<AdminHighRiskIndividualsLettersDetailDocumentType | boolean>(false)
 
   return {
-    documents, timeLineHistories,
+    documents, timeLineHistories, info, infoLoading, infoError,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
   }

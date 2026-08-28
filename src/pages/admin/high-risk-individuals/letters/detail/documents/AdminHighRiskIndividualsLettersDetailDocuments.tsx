@@ -6,6 +6,8 @@ import DisplayModal from "../../../../../../components/others/Modal/DisplayModal
 import {lazy} from "react";
 import AdminHighRiskLetterDetailDescriptionSection from "./AdminHighRiskLetterDetailDescriptionSection.tsx";
 import HighRiskIndividualsTimeLine from "../HighRiskIndividualsTimeLine/HighRiskIndividualsTimeLine.tsx";
+import displayDate from "../../../../../../utils/display/displayDate.ts";
+import RenderLogic from "../../../../../../components/others/RenderLogic/RenderLogic.tsx";
 
 
 const AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal = lazy(() => import(
@@ -19,7 +21,7 @@ const AdminHighRiskIndividualsLettersDetailDocumentsFormModal = lazy(() => impor
 function AdminHighRiskIndividualsLettersDetailDocuments() {
 
   const {
-    documents, timeLineHistories,
+    documents, timeLineHistories, info, infoLoading, infoError,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
   } = useAdminHighRiskIndividualsLettersDetailDocuments()
@@ -27,18 +29,22 @@ function AdminHighRiskIndividualsLettersDetailDocuments() {
   return (
     <>
       <div className='flex items-start gap-x-4'>
-        <div className='flex flex-col gap-y-4 flex-1'>
-          <AdminHighRiskLetterDetailDescriptionSection
-            letterDate='1405/01/01' letterNumber='321564643' reference='قوه قضائیه'
-            description='توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه '
-          />
+        <RenderLogic
+          isLoading={infoLoading} error={infoError}
+        >
+          <div className='flex flex-col gap-y-4 flex-1'>
+            <AdminHighRiskLetterDetailDescriptionSection
+              letterDate={displayDate(info?.letterDate)} letterNumber={info?.letterNo}
+              reference={info?.letterRefTitle} description={info?.description}
+            />
 
-          <AdminHighRiskIndividualsLettersDetailDocumentsDocs
-            documents={documents}
-            setDeleteModalState={setDeleteModalState}
-            setFormModalState={setFormModalState}
-          />
-        </div>
+            <AdminHighRiskIndividualsLettersDetailDocumentsDocs
+              documents={documents}
+              setDeleteModalState={setDeleteModalState}
+              setFormModalState={setFormModalState}
+            />
+          </div>
+        </RenderLogic>
 
         <HighRiskIndividualsTimeLine histories={timeLineHistories} />
       </div>
