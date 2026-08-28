@@ -26,7 +26,7 @@ function HighRiskIndividualsTimeLine(
   {histories}: HighRiskIndividualsTimeLineProps
 ) {
   return (
-    <div className='w-75'>
+    <div className='w-77'>
       <CardWithHeader
         title='تایم لاین تغییرات' customHeaderRender={(
         <div className='flex flex-col items-center gap-y-1.5'>
