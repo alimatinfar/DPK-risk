@@ -69,6 +69,8 @@ const APIS = {
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_GET_DOCUMENTS: 'RiskCustomer/GetRiskLetterDocuments',
   ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_GET_DOCUMENTS: 'RiskCustomer/GetRiskCustomerDocuments',
   ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_UPDATE: 'RiskCustomer/UpdateRiskCustomer',
+  ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_EXIT_BY_USER_MISTAKE: 'RiskCustomer/InsertOutRiskCustomerDueToUserError',
+  ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_EXIT_BY_LETTER: 'RiskCustomer/InsertOutRiskCustomer',
 }
 
 export default APIS;

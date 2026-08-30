@@ -1,9 +1,6 @@
 import DescriptionField from "../../../../FormFields/DescriptionField/DescriptionField.tsx";
 import {exitByUserMistakeDescriptionFieldName, exitCitingTheLetterDescriptionFieldName} from "./index.constances.ts";
 import Message from "../../../../../../../components/others/Message/Message.tsx";
-import AnnouncingReferenceField from "../../../../FormFields/AnnouncingReferenceField/AnnouncingReferenceField.tsx";
-import LetterNumberField from "../../../../FormFields/LetterNumberField/LetterNumberField.tsx";
-import LetterDateField from "../../../../FormFields/LetterDateField/LetterDateField.tsx";
 import AdminHighRiskIndividualsBaseFormFields from "../../../../FormFields/AdminHighRiskIndividualsBaseFormFields/AdminHighRiskIndividualsBaseFormFields.tsx";
 
 

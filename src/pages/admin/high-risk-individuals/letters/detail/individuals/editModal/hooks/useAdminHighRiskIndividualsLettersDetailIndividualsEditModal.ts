@@ -21,6 +21,7 @@ import APIS from "../../../../../../../../request/constances/apis.ts";
 import type {SelectOptionType} from "../../../../../../../../components/Form/Select/select-exports.ts";
 import getBodyDataDateField from "../../../../../../../../request/utils/getBodyDataDateField.ts";
 import toastPromise from "../../../../../../../../utils/toastPromise.ts";
+import fireResponseErrorToast from "../../../../../../../../request/utils/fireResponseErrorToast.ts";
 
 
 type BodyDataType = {
@@ -62,6 +63,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
         toastPromise().then(toast => toast.error('ویرایش با موفقیت انجام شد'))
         onClose()
       },
+      ...fireResponseErrorToast()
     })
   }
 

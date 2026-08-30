@@ -14,10 +14,10 @@ import toastPromise from "../../../../../../../../utils/toastPromise.ts";
 import type {
   AdminHighRiskIndividualsDocumentFormDataType
 } from "../../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
+import type {ExitCustomerFormDataType} from "../index.types.ts";
+import useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake
+  from "./useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake.ts";
 
-type FormDataType = {
-  [exitReasonTypeFieldName]: ExitReasonTypeFieldType
-}
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   {
@@ -44,6 +44,12 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   }
 
   const {
+    exitCustomerByUserMistake
+  } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake({
+    onClose, modalState
+  })
+
+  const {
     formMethods, onSubmit
   } = useReactHookFormWrapper({
     onSubmitHandler
@@ -53,12 +59,12 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
 
   const reasonIsUserMistake = exitReasonTypeValue && exitReasonTypeValue?.id === EXIT_REASON_TYPE_KEYS.USER_MISTAKE
 
-  function onSubmitHandler(formData: FormDataType) {
+  function onSubmitHandler(formData: ExitCustomerFormDataType) {
     if (currentStep === 1) {
       nextHandler()
     } else if (currentStep === 2) {
       if (reasonIsUserMistake) {
-        console.log('exit user by mistake')
+        exitCustomerByUserMistake(formData)
       } else {
         nextHandler()
       }
