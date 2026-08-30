@@ -2,7 +2,6 @@ import {useState} from "react";
 import {
   EXIT_REASON_TYPE_KEYS,
   exitReasonTypeFieldName,
-  type ExitReasonTypeFieldType
 } from "../../../../../FormFields/ExitReasonTypeField/index.constances.ts";
 import useReactHookFormWrapper
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
@@ -17,6 +16,8 @@ import type {
 import type {ExitCustomerFormDataType} from "../index.types.ts";
 import useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake
   from "./useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake.ts";
+import useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter
+  from "../useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter.ts";
 
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
@@ -44,9 +45,15 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   }
 
   const {
-    exitCustomerByUserMistake
+    exitCustomerByUserMistake, exitCustomerByUserMistakeLoading
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake({
     onClose, modalState
+  })
+
+  const {
+    exitCustomerByLetter, exitCustomerByLetterLoading
+  } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter({
+    modalState, onClose, documentsList
   })
 
   const {
@@ -70,6 +77,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
       }
     } else if (currentStep === 3) {
       if (documentsList.length === 0) return toastPromise().then(toast => toast.error('حداقل یک سند اضافه کنید'))
+      exitCustomerByLetter(formData)
     }
   }
 
@@ -81,7 +89,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
 
   return {
     formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep, reasonIsUserMistake,
-    description, documentsList, setDocumentsList
+    description, documentsList, setDocumentsList,
+    loading: exitCustomerByLetterLoading || exitCustomerByUserMistakeLoading
   }
 }
 

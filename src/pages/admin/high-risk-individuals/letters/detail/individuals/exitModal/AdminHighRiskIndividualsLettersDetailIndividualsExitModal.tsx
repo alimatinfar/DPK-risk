@@ -31,7 +31,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
 
   const {
     formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep,
-    reasonIsUserMistake, description, documentsList, setDocumentsList
+    reasonIsUserMistake, description, documentsList, setDocumentsList, loading
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModal({
     modalState, onClose
   })
@@ -71,7 +71,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
             />
 
             <Button
-              type='submit'
+              type='submit' loading={loading}
               {...isLastStep && {
                 color: 'red'
               }}

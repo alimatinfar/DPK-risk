@@ -22,7 +22,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake
 ) {
 
   const {
-    mutate, data, error, isPending
+    mutate, isPending
   } = useMutateData<any, BodyDataType>({
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_EXIT_BY_USER_MISTAKE, method: 'POST'
@@ -45,7 +45,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake
   }
 
   return {
-    exitCustomerByUserMistake
+    exitCustomerByUserMistake, exitCustomerByUserMistakeLoading: isPending
   }
 }
 

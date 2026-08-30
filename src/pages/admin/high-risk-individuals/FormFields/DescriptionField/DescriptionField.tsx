@@ -9,10 +9,13 @@ import {type InputProps} from "../../../../../components/Form/Input/types/InputP
 
 type Props = {
   customFieldName?: string;
+  isNotRequired?: boolean;
 } & Pick<InputProps, 'placeholder'>
 
 function DescriptionField(
-  {placeholder, customFieldName}: Props
+  {
+    placeholder, customFieldName, isNotRequired
+  }: Props
 ) {
 
   const fieldName = customFieldName || descriptionFieldName
@@ -30,7 +33,7 @@ function DescriptionField(
         rows: 5,
         placeholder: placeholder || descriptionFieldLabel,
       }}
-      rules={{
+      rules={isNotRequired ? {} : {
         required: requiredErrorMessage
       }}
     />
