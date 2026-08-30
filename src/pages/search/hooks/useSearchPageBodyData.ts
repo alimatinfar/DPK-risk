@@ -30,6 +30,7 @@ import {
 import getBodyDataNumberField from "../../../request/utils/getBodyDataNumberField.ts";
 import type {SearchFormRequestBodyData} from "../SearchPage.types.ts";
 import getBodyDataDateField from "../../../request/utils/getBodyDataDateField";
+import getSelectIdValue from "../../../components/Form/Select/utils/getSelectIdValue.ts";
 
 
 type Props = {
@@ -51,15 +52,12 @@ function useSearchPageBodyData(
       firstName: formData[firstNameFieldName],
       lastName: formData[lastNameFieldName],
       shenasnameId: getBodyDataNumberField(formData[legalRegistrationNumberFieldName]),
-      //TODO set select option type id
-      nationality: getBodyDataNumberField(formData[nationalityFieldName]),
-      //TODO set select option type id
-      citizenship: getBodyDataNumberField(formData[citizenshipFieldName]),
+      nationality: getBodyDataNumberField(getSelectIdValue(formData[nationalityFieldName])),
+      citizenship: getBodyDataNumberField(getSelectIdValue(formData[citizenshipFieldName])),
       legalName: formData[legalCustomerNameFieldName],
       tradeName: formData[legalBrandNameFieldName],
       abbreviationName: formData[legalAbbreviationFieldName],
-      //TODO set select option type id
-      legalType: getBodyDataNumberField(formData[legalTypeFieldName]),
+      legalType: getBodyDataNumberField(getSelectIdValue(formData[legalTypeFieldName])),
       fromRegistrationDate: getBodyDataDateField(formData[registrationDateFromFieldName]),
       // toRegistrationDate: getBodyDataDateField(formData[registrationDateToFieldName]),
       toRegistrationDate: getBodyDataDateField(formData[registrationDateToFieldName]),

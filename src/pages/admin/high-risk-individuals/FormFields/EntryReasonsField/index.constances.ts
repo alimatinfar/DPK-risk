@@ -2,4 +2,4 @@ import type {SelectOptionType} from "../../../../../components/Form/Select/selec
 
 export const entryReasonsFieldName = 'entryReasons'
 export const entryReasonsFieldLabel = 'دلایل ورود'
-export type EntryReasonsFieldType = SelectOptionType | '';
+export type EntryReasonsFieldType = SelectOptionType[] | '';

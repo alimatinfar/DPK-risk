@@ -18,9 +18,9 @@ function AdminHighRiskIndividualsLettersDetailIndividualsEditModal(
 ) {
 
   const {
-    personTitle, formMethods, onSubmit
+    personTitle, formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailIndividualsEditModal({
-    modalState
+    modalState, onClose
   })
 
   return (
@@ -36,9 +36,9 @@ function AdminHighRiskIndividualsLettersDetailIndividualsEditModal(
 
         <div className='mt-2'>
           <Button
-            fullWidth type='submit'
+            fullWidth type='submit' loading={loading}
           >
-            ثبت
+            ویرایش
           </Button>
         </div>
       </ReactHookFormWrapper>

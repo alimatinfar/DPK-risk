@@ -1,7 +1,6 @@
 import useReactHookFormWrapper
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
-import {useEffect, useMemo} from "react";
-import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../../../search/form/SearchPageForm.constances.ts";
+import {useEffect} from "react";
 import type {
   AdminHighRiskIndividualsLettersDetailIndividualsEditModalProps
 } from "../AdminHighRiskIndividualsLettersDetailIndividualsEditModal.tsx";
@@ -17,6 +16,18 @@ import setDefaultValuesFromObject
   from "../../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
 import useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle
   from "./useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle.ts";
+import useMutateData from "../../../../../../../../request/hooks/useMutateData.ts";
+import APIS from "../../../../../../../../request/constances/apis.ts";
+import type {SelectOptionType} from "../../../../../../../../components/Form/Select/select-exports.ts";
+import getBodyDataDateField from "../../../../../../../../request/utils/getBodyDataDateField.ts";
+import toastPromise from "../../../../../../../../utils/toastPromise.ts";
+
+
+type BodyDataType = {
+  id: number | string;
+  resons: SelectOptionType['id'][];
+  validityDate: number;
+}
 
 type FormDataType = {
   [expireDateFieldName]: ExpireDateFieldType;
@@ -25,12 +36,33 @@ type FormDataType = {
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
   {
-    modalState
-  }: Pick<AdminHighRiskIndividualsLettersDetailIndividualsEditModalProps, 'modalState'>
+    modalState, onClose
+  }: Pick<AdminHighRiskIndividualsLettersDetailIndividualsEditModalProps, 'modalState' | 'onClose'>
 ) {
 
+  const {
+    mutate, error, isPending
+  } = useMutateData<any, BodyDataType>({
+    axiosConfig: {
+      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_UPDATE, method: 'POST'
+    }
+  })
+
   function onSubmitHandler(formData: FormDataType) {
-    console.log({formData})
+
+    const reasons = formData?.[entryReasonsFieldName]
+    const bodyData: BodyDataType = {
+      id: typeof modalState !== "boolean" ? modalState?.riskCustomerId : 0,
+      resons: reasons ? reasons?.map(item => item.id) : [],
+      validityDate: getBodyDataDateField(formData?.[expireDateFieldName]) || 0
+    }
+
+    mutate(bodyData, {
+      onSuccess: (data, variables, onMutateResult, context) => {
+        toastPromise().then(toast => toast.error('ویرایش با موفقیت انجام شد'))
+        onClose()
+      },
+    })
   }
 
   const {
@@ -59,7 +91,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
   }, [modalState])
 
   return {
-    personTitle, formMethods, onSubmit
+    personTitle, formMethods, onSubmit, loading: isPending
   }
 }
 
