@@ -28,7 +28,7 @@ function FileDataCard(
         <FileIcon/>
 
         <div className='flex-1 flex flex-col justify-between items-start space-y-1'>
-          <p className='text-sm ltr'>
+          <p className='text-sm ltr text-right'>
             {fileData?.name}
           </p>
 

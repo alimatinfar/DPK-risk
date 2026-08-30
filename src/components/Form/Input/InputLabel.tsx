@@ -13,17 +13,17 @@ export type InputLabelProps = {
 
 function InputLabel(
   {
-    label, name, className, disabled, info, onClick, marginClass, classObject
+    label, name, className, disabled, info, onClick, marginClass, classObject, required, readOnly
   }: InputLabelProps
 ) {
 
-  // const requiredIcon = useMemo(function () {
-  //   if (!required || readOnly) return <></>
-  //
-  //   return (
-  //     <span className='text-red-500 font-medium mr-0.5'>*</span>
-  //   )
-  // }, [required])
+  const requiredIcon = useMemo(function () {
+    if (!required || readOnly) return <></>
+
+    return (
+      <span className='text-red-500 font-medium mr-0.5'>*</span>
+    )
+  }, [required])
 
   const infoElement = useMemo(function () {
     if (!info) return <></>
@@ -50,7 +50,7 @@ function InputLabel(
       {...(name && {htmlFor: name})} {...onClick && {onClick}}
     >
       {label}
-      {/*{requiredIcon}*/}
+      {requiredIcon}
       {infoElement}
     </label>
   )

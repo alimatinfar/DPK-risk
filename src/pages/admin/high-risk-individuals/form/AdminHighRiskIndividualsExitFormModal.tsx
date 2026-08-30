@@ -1,8 +1,5 @@
 import Modal, {type ModalProps} from "../../../../components/others/Modal/Modal.tsx";
 import Button from "../../../../components/Form/Button/Button.tsx";
-import {useNavigate} from "react-router";
-import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
-import {useAdminHighRiskIndividualsFormStore} from "./store/useAdminHighRiskIndividualsFormStore.ts";
 
 
 type Props = {
