@@ -1,4 +1,3 @@
-import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/SearchPageForm.constances.ts";
 import ResultPersonCategory2 from "../../../../../search/result/ResultPersonCategory2.tsx";
 import {
   type DetailInfoSectionLabelValueProps
@@ -7,9 +6,8 @@ import {
   type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType,
   type AdminHighRiskIndividualsLettersDetailIndividualsDataType, type ModalStateTypeId
 } from "./index.types";
-import Tag from "../../../../../../components/others/Tag/Tag";
 import {
-  ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA, MODAL_STATE_TYPE_KEYS
+  MODAL_STATE_TYPE_KEYS
 } from "./index.constances";
 import Button from "../../../../../../components/Form/Button/Button";
 import EditIcon from "../../../../../../components/svg/EditIcon";
@@ -95,7 +93,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                         label: 'دلیل ورود',
                         value: (
                           <AdminHighRiskIndividualsEntryReasonsTags
-                            entryReasons={item.entryReasons}
+                            entryReasons={item.entryReasons?.map(item => item?.name)}
                           />
                         )
                       }]}

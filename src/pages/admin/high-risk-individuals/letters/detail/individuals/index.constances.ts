@@ -2,6 +2,7 @@ import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../search/form/Sear
 import {type AdminHighRiskIndividualsLettersDetailIndividualsDataType} from "./index.types";
 import {legalTypeFieldName} from "../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances";
 import moment from "moment-jalaali";
+import type {SelectOptionType} from "../../../../../../components/Form/Select/select-exports.ts";
 
 export const EXIT_PERSON_FROM_LETTER_KEYS = {
   WITH_LETTER: 'withLetter',
@@ -18,6 +19,21 @@ export const MODAL_STATE_TYPE_KEYS = {
   PERSON: 'person',
 }
 
+const defaultReasons: SelectOptionType[] = [
+  {
+    id: 1,
+    name: 'دزدی'
+  },
+  {
+    id: 2,
+    name: 'قاچاق'
+  },
+  {
+    id: 3,
+    name: 'کلاهبرداری'
+  },
+]
+
 export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: AdminHighRiskIndividualsLettersDetailIndividualsDataType = [
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
@@ -27,7 +43,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
+    entryReasons: defaultReasons,
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
@@ -37,7 +53,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
+    entryReasons: defaultReasons,
     exitType: EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE
   },
   {
@@ -48,7 +64,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
+    entryReasons: defaultReasons,
   },
   {
     type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
@@ -58,7 +74,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     lastName: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
+    entryReasons: defaultReasons,
     exitLetter: {
       id: 1,
       letterDate: moment(),
@@ -76,6 +92,6 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA: A
     [legalTypeFieldName]: 'مبینی',
     nationalCode: '123456790',
     expireDate: moment(),
-    entryReasons: ['دزدی','کلاهبرداری','قاچاق'],
+    entryReasons: defaultReasons,
   },
 ] as const
