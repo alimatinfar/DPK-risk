@@ -18,6 +18,10 @@ import type {
 import {fileTypeFieldName} from "../../../../FormFields/FileTypeField/index.constances.ts";
 import {descriptionFieldName} from "../../../../FormFields/DescriptionField/index.constances.ts";
 import {uploadFileFieldName} from "../../../../FormFields/UploadFileField/index.constances.ts";
+import getHighRiskDocumentsBodyData
+  , {
+  type HighRiskDocumentsBodyDataType
+} from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/utils/getHighRiskDocumentsBodyData.ts";
 
 
 type BodyDataType = {
@@ -26,12 +30,7 @@ type BodyDataType = {
     letterNo: string;
     letterDate: number | string;
     description: string;
-    documents: {
-      documentType: SelectOptionType['id'] | null;
-      name: string;
-      description: string;
-      content: string;
-    }[]
+    documents: HighRiskDocumentsBodyDataType;
   },
   riskCustomerId: number;
 }
@@ -65,12 +64,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter(
         letterNo: formData?.[letterNumberFieldName],
         letterDate: getBodyDataDateField(formData?.[letterDateFieldName]),
         description: formData?.[exitCitingTheLetterDescriptionFieldName],
-        documents: documentsList.map(document => ({
-          documentType: getSelectIdValue(document?.[fileTypeFieldName]),
-          name: '',
-          description: document?.[descriptionFieldName],
-          content: document?.[uploadFileFieldName]?.data,
-        }))
+        documents: getHighRiskDocumentsBodyData(documentsList)
       }
     }
 

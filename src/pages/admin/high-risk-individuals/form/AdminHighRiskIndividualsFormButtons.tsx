@@ -8,10 +8,11 @@ import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
 type Props = {
   isLastStep?: boolean;
   onClick?: ButtonProps['onClick'];
+  loading?: boolean;
 }
 
 function AdminHighRiskIndividualsFormButtons(
-  {isLastStep, onClick}: Props
+  {isLastStep, onClick, loading}: Props
 ) {
 
   const navigate = useNavigate()
@@ -37,6 +38,7 @@ function AdminHighRiskIndividualsFormButtons(
         </Button>
         <Button
           {...onClick ? {onClick} : {type: 'submit'}}
+          loading={loading}
         >
           {isLastStep ? 'ثبت نهایی' : 'ثبت و ادامه'}
         </Button>

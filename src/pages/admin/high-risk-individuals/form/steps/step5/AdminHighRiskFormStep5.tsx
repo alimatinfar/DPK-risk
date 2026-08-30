@@ -1,6 +1,5 @@
 import AdminHighRiskLetterDetailDescriptionSection
   from "../../../letters/detail/documents/AdminHighRiskLetterDetailDescriptionSection.tsx";
-import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore.ts";
 import {descriptionFieldName} from "../../../FormFields/DescriptionField/index.constances.ts";
 import {announceReferenceFieldName} from "../../../FormFields/AnnouncingReferenceField/index.constances.ts";
 import getSelectNameValue from "../../../../../../components/Form/Select/utils/getSelectNameValue.ts";
@@ -13,16 +12,13 @@ import ResultPersonCategory2 from "../../../../../search/result/ResultPersonCate
 import AdminHighRiskIndividualsCardElement from "../../../individuals/AdminHighRiskIndividualsCardElement.tsx";
 import ResultPersonCategoryWrapper from "../../../../../search/result/ResultPersonCategoryWrapper.tsx";
 import {customerIdFieldName, type ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
+import useAdminHighRiskFormStep5 from "./hooks/useAdminHighRiskFormStep5.ts";
 
 function AdminHighRiskFormStep5() {
 
-  const formStep1Data = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
-  const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
-  const individualsExtraData = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
-
-  function onSubmitHandler() {
-    console.log('onSubmit')
-  }
+  const {
+    formStep1Data, individuals, individualsExtraData, onSubmitHandler, loading
+  } = useAdminHighRiskFormStep5()
 
   return (
     <div className='flex flex-col gap-y-4'>
@@ -56,7 +52,7 @@ function AdminHighRiskFormStep5() {
       )} />
 
       <AdminHighRiskIndividualsFormButtons
-        onClick={onSubmitHandler}
+        onClick={onSubmitHandler} loading={loading}
       />
     </div>
   );
