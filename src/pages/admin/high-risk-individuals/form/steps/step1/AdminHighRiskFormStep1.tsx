@@ -2,47 +2,15 @@ import AdminHighRiskIndividualsFormButtons from "../../AdminHighRiskIndividualsF
 import ReactHookFormWrapper
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
 import AdminHighRiskIndividualsBaseFormFields from "../../../FormFields/AdminHighRiskIndividualsBaseFormFields/AdminHighRiskIndividualsBaseFormFields.tsx";
-import useReactHookFormWrapper
-  from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import Card from "../../../../../../components/others/Card/Card.tsx";
-import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore.ts";
-import type {
-  AdminHighRiskIndividualsBaseFormFieldsType
-} from "../../../FormFields/AdminHighRiskIndividualsBaseFormFields/index.types.ts";
-import {useEffect} from "react";
-import {useWatch} from "react-hook-form";
+import useAdminHighRiskFormStep1 from "./hooks/useAdminHighRiskFormStep1.ts";
 
 
 function AdminHighRiskFormStep1() {
 
-  const defaultValues = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
-  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
-  const formIsDirty = useAdminHighRiskIndividualsFormStore(state => state.formData.formIsDirty)
-
   const {
     formMethods, onSubmit
-  } = useReactHookFormWrapper<AdminHighRiskIndividualsBaseFormFieldsType>({
-    onSubmitHandler: nextStepHandler, defaultValues
-  })
-
-  const formValues = useWatch({control: formMethods.control})
-
-  useEffect(() => {
-    const formHasValue = Object.values(formValues).some(value => !!value)
-
-    if (!formIsDirty && formHasValue) {
-      setFormData({formIsDirty: true})
-    } else if (formIsDirty && !formHasValue) {
-      setFormData({formIsDirty: false})
-    }
-  }, [formIsDirty, formValues]);
-
-  function nextStepHandler(formData: AdminHighRiskIndividualsBaseFormFieldsType) {
-    setFormData({
-      currentStep: 2,
-      step1: formData
-    })
-  }
+  } = useAdminHighRiskFormStep1()
 
   return (
     <ReactHookFormWrapper
