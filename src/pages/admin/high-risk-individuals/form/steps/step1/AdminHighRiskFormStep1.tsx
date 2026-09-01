@@ -9,7 +9,7 @@ import useAdminHighRiskFormStep1 from "./hooks/useAdminHighRiskFormStep1.ts";
 function AdminHighRiskFormStep1() {
 
   const {
-    formMethods, onSubmit
+    formMethods, onSubmit, checkExistLetterLoading
   } = useAdminHighRiskFormStep1()
 
   return (
@@ -22,7 +22,9 @@ function AdminHighRiskFormStep1() {
         />
       </Card>
 
-      <AdminHighRiskIndividualsFormButtons/>
+      <AdminHighRiskIndividualsFormButtons
+        loading={checkExistLetterLoading}
+      />
     </ReactHookFormWrapper>
   );
 }

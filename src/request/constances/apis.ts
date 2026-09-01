@@ -58,6 +58,8 @@ const APIS = {
 
   //admin
   ADMIN_HIGH_RISK_INDIVIDUAL_ADD_CUSTOMER: 'RiskCustomer/InsertRiskCustomers',
+  ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_LETTER: 'RiskCustomer/ExistLetter',
+  ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_CUSTOMER: 'RiskCustomer/ExistRiskCustomers',
   ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMERS: 'RiskCustomer/GetRiskCustomers',
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS: 'RiskCustomer/GetRiskLetters',
   ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL: 'RiskCustomer/GetRiskLetter',

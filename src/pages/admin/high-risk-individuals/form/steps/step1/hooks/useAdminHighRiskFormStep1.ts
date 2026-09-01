@@ -6,6 +6,8 @@ import type {
 } from "../../../../FormFields/AdminHighRiskIndividualsBaseFormFields/index.types.ts";
 import {useWatch} from "react-hook-form";
 import {useEffect} from "react";
+import useAdminHighRiskFormStep1ExistLetter from "./useAdminHighRiskFormStep1ExistLetter.ts";
+
 
 function useAdminHighRiskFormStep1() {
 
@@ -31,15 +33,22 @@ function useAdminHighRiskFormStep1() {
     }
   }, [formIsDirty, formValues]);
 
+  const {
+    checkExistLetterLoading, checkExistLetter
+  } = useAdminHighRiskFormStep1ExistLetter()
+
   function nextStepHandler(formData: AdminHighRiskIndividualsBaseFormFieldsType) {
-    setFormData({
-      currentStep: 2,
-      step1: formData
+    checkExistLetter(formData).then((response) => {
+      //TODO handling when this letter is exist prevent from continuing
+      setFormData({
+        currentStep: 2,
+        step1: formData
+      })
     })
   }
 
   return {
-    formMethods, onSubmit
+    formMethods, onSubmit, checkExistLetterLoading
   }
 }
 
