@@ -28,7 +28,7 @@ function AdminHighRiskFormStep3SearchUserForm(
         activeTab={activeTab}
       />
 
-      <div className='flex justify-end items-center col-start-3 pt-2.5'>
+      <div className='flex justify-end items-center col-start-3 pt-2.5 min-h-24'>
         <Button
           variant='outlined' rightIcon={<SearchIcon textColor='text-primary' />} type='submit'
           loading={loading}
