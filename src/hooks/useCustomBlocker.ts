@@ -2,7 +2,13 @@ import {useBlocker} from "react-router";
 
 function useCustomBlocker(shouldBeBlocked: boolean) {
 
-  const blocker = useBlocker(shouldBeBlocked)
+  const blocker = useBlocker(({ currentLocation, nextLocation }) => {
+    if (currentLocation.pathname === nextLocation.pathname) {
+      return false
+    }
+
+    return shouldBeBlocked;
+  })
 
   return {
     pageIsBlocked: blocker.state === 'blocked',
