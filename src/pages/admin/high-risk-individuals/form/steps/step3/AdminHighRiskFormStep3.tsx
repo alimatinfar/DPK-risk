@@ -17,9 +17,10 @@ const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighR
 function AdminHighRiskFormStep3() {
 
   const {
-    activeTab, setActiveTab, foundedIndividuals, setFoundedIndividuals, nextStepHandler,
+    activeTab, setActiveTab, nextStepHandler,
     userDuplicateModalOpen, closeUserDuplicateModalHandler, setUserDuplicateModalState,
-    userDuplicateModalState, userDuplicateShouldBeRemoved
+    userDuplicateModalState, userDuplicateShouldBeRemoved,
+    searchUserResultData, searchUserFormMethods, searchUserOnSubmit, searchUserLoading
   } = useAdminHighRiskFormStep3()
 
   return (
@@ -33,7 +34,8 @@ function AdminHighRiskFormStep3() {
 
           <div className='flex flex-col'>
             <AdminHighRiskFormStep3SearchUserForm
-              activeTab={activeTab} setFoundedIndividuals={setFoundedIndividuals}
+              activeTab={activeTab} formMethods={searchUserFormMethods} onSubmit={searchUserOnSubmit}
+              loading={searchUserLoading}
             />
 
             <AdminHighRiskFormStep3SelectedIndividuals/>
@@ -41,7 +43,7 @@ function AdminHighRiskFormStep3() {
             <AdminHighRiskFormStep3FoundedIndividuals
               setUserDuplicateModalState={setUserDuplicateModalState}
               closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
-              foundedIndividuals={foundedIndividuals}
+              foundedIndividuals={searchUserResultData}
             />
           </div>
         </Card>

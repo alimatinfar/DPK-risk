@@ -12,14 +12,25 @@ import useSearchPageBodyData from "./useSearchPageBodyData.ts";
 import useSearchPageResultData from "./useSearchPageResultData.ts";
 import checkFormHasAtLeastOneValue
   from "../../../components/Form/FormLayout/ReactHookFormWrapper/utils/checkFormHasAtLeastOneValue";
+import type {CustomResponseType} from "../../../request/types/CustomResponseType.ts";
+import getPersonTypeItem from "../form/utils/getPersonTypeItem.ts";
 
 
-function useSearchPage() {
+export type UseSearchPageProps = {
+  onSuccessHandler?: (data: CustomResponseType<SearchFormResponseType>) => void;
+  activePersonTypeFromParent?: SearchPageFormPersonType | undefined;
+}
+
+function useSearchPage(
+  {onSuccessHandler, activePersonTypeFromParent}: UseSearchPageProps = {}
+) {
 
   const [activePersonType, setActivePersonType] = useState<SearchPageFormPersonType | undefined>(undefined)
 
+  const finalActivePersonType = activePersonTypeFromParent || activePersonType
+
   const {getBodyData} = useSearchPageBodyData({
-    activePersonType
+    customerType: Number(finalActivePersonType ? getPersonTypeItem(finalActivePersonType)?.id : 0)
   })
 
   const {
@@ -40,6 +51,8 @@ function useSearchPage() {
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
+        if (onSuccessHandler) return onSuccessHandler(data)
+
         setIsSubmittedSuccessful(true)
         setTimeout(() => scrollToElementById(ELEMENT_IDS.SEARCH_RESULT), 300)
       },

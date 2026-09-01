@@ -1,6 +1,5 @@
 import getCleanBodyDataObject from "../../../request/utils/getCleanBodyDataObject.ts";
 import type {SearchPageFormDataType, SearchPageFormPersonType} from "../form/SearchPageForm.types.ts";
-import getPersonTypeItem from "../form/utils/getPersonTypeItem.ts";
 import {accountNumberFieldName} from "../form/formFields/AccountNumberField/AccountNumberField.constances.ts";
 import {customerNumberFieldName} from "../form/formFields/CustomerNumberField/CustomerNumberField.constances.ts";
 import {shahabNumberFieldName} from "../form/formFields/ShahabNumberField/ShahabNumberField.constances.ts";
@@ -34,16 +33,16 @@ import getSelectIdValue from "../../../components/Form/Select/utils/getSelectIdV
 
 
 type Props = {
-  activePersonType: SearchPageFormPersonType | undefined;
+  customerType: number;
 }
 
 function useSearchPageBodyData(
-  {activePersonType}: Props
+  {customerType}: Props
 ) {
 
   function getBodyData(formData: SearchPageFormDataType) {
     return getCleanBodyDataObject({
-      customerType: activePersonType ? getPersonTypeItem(activePersonType)?.id : 0,
+      customerType,
       accountNumber: getBodyDataNumberField(formData[accountNumberFieldName]),
       customerId: getBodyDataNumberField(formData[customerNumberFieldName]),
       shahabId: getBodyDataNumberField(formData[shahabNumberFieldName]),
