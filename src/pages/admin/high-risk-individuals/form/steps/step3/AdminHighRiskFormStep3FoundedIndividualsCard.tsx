@@ -7,6 +7,7 @@ import {adminHighRiskIndividualsCardFormStep3SeparatedFieldsNameLabel} from "./i
 import Tag from "../../../../../../components/others/Tag/Tag";
 import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
 import {type AdminHighRiskFormStep3FoundedIndividualsProps} from "./AdminHighRiskFormStep3FoundedIndividuals";
+import useAdminHighRiskFormStep3ExistCustomer from "./hooks/useAdminHighRiskFormStep3ExistCustomer.ts";
 
 
 type Props = {
@@ -36,8 +37,14 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
     closeUserDuplicateModalHandler()
   }
 
+  const {
+    checkExistCustomerLoading, checkExistCustomer
+  } = useAdminHighRiskFormStep3ExistCustomer()
+
   function addHandler() {
-    //TODO set this field from api
+    checkExistCustomer(data?.[customerIdFieldName]).then(() => {
+      //TODO when customer is exist prevent from adding customer
+    })
     const userIsDuplicate = true
     userIsDuplicate ? setUserDuplicateModalState(() => setIndividualInFormDataHandler) : setIndividualInFormDataHandler()
   }
@@ -57,7 +64,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
           ) : (
             <Button
               variant='default' color='white' rightIcon={<PlusCircleIcon textColor='text-gray-900'/>}
-              size='sm' fullWidth onClick={addHandler}
+              size='sm' fullWidth onClick={addHandler} loading={checkExistCustomerLoading}
             >
               افزودن
             </Button>

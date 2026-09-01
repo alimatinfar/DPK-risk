@@ -40,10 +40,11 @@ function useAdminHighRiskFormStep1() {
   function nextStepHandler(formData: AdminHighRiskIndividualsBaseFormFieldsType) {
     checkExistLetter(formData).then((response) => {
       //TODO handling when this letter is exist prevent from continuing
-      setFormData({
-        currentStep: 2,
-        step1: formData
-      })
+
+    })
+    setFormData({
+      currentStep: 2,
+      step1: formData
     })
   }
 
