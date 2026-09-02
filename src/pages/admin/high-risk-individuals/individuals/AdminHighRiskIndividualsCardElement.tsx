@@ -16,33 +16,34 @@ import QUERY_PARAMS from "../../../../constances/queryParams.ts";
 
 type Props = {
   data: ResultPersonCardDataType;
-  lettersNumbers?: number;
-  documentsNumbers?: number;
+  // lettersNumbers?: number;
+  // documentsNumbers?: number;
   hiddenAction?: boolean;
 }
 
 function AdminHighRiskIndividualsCardElement(
-  {data, lettersNumbers, documentsNumbers, hiddenAction}: Props
+  {data, hiddenAction}: Props
 ) {
 
   const {fields} = useResultPersonCategoryFields({
     separatedFieldsName: adminHighRiskIndividualsCardSeparatedFieldsNameLabel, data
   })
 
-  const shareFields: CardTitleValueProps[] = useMemo(function () {
-    return [
-      ...lettersNumbers == null ? [] : [{
-        label: 'تعداد نامه‌ها',
-        value: lettersNumbers
-      }],
-      ...documentsNumbers == null ? [] : [{
-        label: 'تعداد مستندات',
-        value: documentsNumbers
-      }],
-    ]
-  }, [lettersNumbers, documentsNumbers])
+  // const shareFields: CardTitleValueProps[] = useMemo(function () {
+  //   return [
+  //     ...lettersNumbers == null ? [] : [{
+  //       label: 'تعداد نامه‌ها',
+  //       value: lettersNumbers
+  //     }],
+  //     ...documentsNumbers == null ? [] : [{
+  //       label: 'تعداد مستندات',
+  //       value: documentsNumbers
+  //     }],
+  //   ]
+  // }, [lettersNumbers, documentsNumbers])
 
-  const categoryFields = [fields, shareFields]
+  // const categoryFields = [fields, shareFields]
+  const categoryFields = [fields]
 
   const detailLink = useMemo(function () {
     const url = ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_DETAIL(data?.[customerIdFieldName])
