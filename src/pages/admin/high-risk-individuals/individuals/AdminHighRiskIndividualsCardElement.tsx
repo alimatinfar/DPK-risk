@@ -1,12 +1,9 @@
 import {customerIdFieldName, type ResultPersonCardDataType} from "../../../search/result/ResultCard.types.ts";
 import useResultPersonCategoryFields from "../../../search/result/hooks/useResultPersonCategoryFields.ts";
 import {adminHighRiskIndividualsCardSeparatedFieldsNameLabel} from "./index.constances.ts";
-import DeleteIcon from "../../../../components/svg/DeleteIcon.tsx";
 import IconClickable from "../../../../components/others/Icon/IconClickable.tsx";
-import Button from "../../../../components/Form/Button/Button.tsx";
-import DownloadIcon from "../../../../components/svg/DownloadIcon.tsx";
 import {useMemo} from "react";
-import CardTitleValue, {type CardTitleValueProps} from "../../../../components/others/Card/CardTitleValue.tsx";
+import CardTitleValue from "../../../../components/others/Card/CardTitleValue.tsx";
 import DetailIcon from "../../../../components/svg/DetailIcon.tsx";
 import {Link} from "react-router";
 import ROUTER_LINKS from "../../../../constances/routerLinks.ts";

@@ -18,7 +18,7 @@ function AdminHighRiskFormStep1() {
     >
       <Card className='grid grid-cols-3 gap-4'>
         <AdminHighRiskIndividualsBaseFormFields
-          descriptionClassName='col-span-3'
+          descriptionClassName='col-span-3' initialEntry
         />
       </Card>
 

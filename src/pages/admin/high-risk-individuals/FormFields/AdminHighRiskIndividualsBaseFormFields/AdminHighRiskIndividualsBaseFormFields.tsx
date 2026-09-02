@@ -2,17 +2,19 @@ import AnnouncingReferenceField from "../AnnouncingReferenceField/AnnouncingRefe
 import LetterNumberField from "../LetterNumberField/LetterNumberField.tsx";
 import LetterDateField from "../LetterDateField/LetterDateField.tsx";
 import DescriptionField from "../DescriptionField/DescriptionField.tsx";
-import {exitCitingTheLetterDescriptionFieldName} from "../../letters/detail/individuals/exitModal/index.constances.ts";
+import ExpireDateField from "../ExpireDateField/ExpireDateField.tsx";
+import RiskListTypeField from "../RiskListTypeField/RiskListTypeField.tsx";
 
 
 type Props = {
-  descriptionClassName?: string
-  descriptionCustomFieldName?: string
+  descriptionClassName?: string;
+  descriptionCustomFieldName?: string;
+  initialEntry?: boolean;
 }
 
 function AdminHighRiskIndividualsBaseFormFields(
   {
-    descriptionClassName, descriptionCustomFieldName
+    descriptionClassName, descriptionCustomFieldName, initialEntry
   }: Props
 ) {
   return (
@@ -22,6 +24,14 @@ function AdminHighRiskIndividualsBaseFormFields(
       <LetterNumberField isRequired />
 
       <LetterDateField isRequired />
+
+      {initialEntry ? (
+        <>
+          <RiskListTypeField />
+
+          <ExpireDateField/>
+        </>
+      ) : null}
 
       <div className={descriptionClassName || ''}>
         <DescriptionField customFieldName={descriptionCustomFieldName} />
