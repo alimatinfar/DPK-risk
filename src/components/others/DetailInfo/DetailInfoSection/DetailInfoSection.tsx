@@ -4,7 +4,7 @@ import CardWithHeader from "../../Card/CardWithHeader/CardWithHeader.tsx";
 import DetailInfoSectionLabelValue from "./DetailInfoSectionLabelValue.tsx";
 
 function DetailInfoSection(
-  {title, infoList, customGridColsClass}: DetailInfoSectionProps
+  {title, infoList, customGridColsClass, customColumnsNumber}: DetailInfoSectionProps
 ) {
 
   const rows = useMemo(function () {
@@ -15,7 +15,7 @@ function DetailInfoSection(
     infoList.forEach(item => {
       const size = item.column ?? 1;
 
-      if (currentWidth + size > 5) {
+      if (currentWidth + size > (customColumnsNumber || 5)) {
         list.push(currentRow);
         currentRow = [];
         currentWidth = 0;
@@ -29,7 +29,7 @@ function DetailInfoSection(
 
     return list;
   }, [infoList])
-
+  console.log({rows})
   return (
     <CardWithHeader
       title={title}
@@ -38,7 +38,7 @@ function DetailInfoSection(
         <div
           key={rowsIndex}
           className={`
-              grid ${customGridColsClass || 'grid-cols-5'}
+              grid ${customGridColsClass || 'grid-cols-5'} gap-4
               ${rowsIndex === 0 ? '' : 'border-t border-gray-200  pt-3 mt-3'}
             `}
         >

@@ -13,6 +13,8 @@ import AdminHighRiskIndividualsCardElement from "../../../individuals/AdminHighR
 import ResultPersonCategoryWrapper from "../../../../../search/result/ResultPersonCategoryWrapper.tsx";
 import {type ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
 import useAdminHighRiskFormStep4 from "./hooks/useAdminHighRiskFormStep4.ts";
+import {expireDateFieldName} from "../../../FormFields/ExpireDateField/index.constances.ts";
+import {riskListTypeFieldName} from "../../../FormFields/RiskListTypeField/index.constances.ts";
 
 function AdminHighRiskFormStep4() {
 
@@ -25,6 +27,8 @@ function AdminHighRiskFormStep4() {
       <AdminHighRiskLetterDetailDescriptionSection
         description={formStep1Data?.[descriptionFieldName]}
         letterDate={formStep1Data?.[letterDateFieldName] ? getFormattedMomentJalaliDateTime({date: formStep1Data?.[letterDateFieldName], mode: 'jDate'}) : ''}
+        expireDate={formStep1Data?.[expireDateFieldName] ? getFormattedMomentJalaliDateTime({date: formStep1Data?.[expireDateFieldName], mode: 'jDate'}) : ''}
+        riskListType={getSelectNameValue(formStep1Data?.[riskListTypeFieldName])}
         letterNumber={formStep1Data?.[letterNumberFieldName]}
         reference={getSelectNameValue(formStep1Data?.[announceReferenceFieldName])}
       />
