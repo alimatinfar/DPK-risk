@@ -7,7 +7,13 @@ import React from "react";
 import {RISK_LIST_OPTIONS, riskListTypeFieldLabel, riskListTypeFieldName} from "./index.constances.ts";
 
 
-function RiskListTypeField() {
+type Props = {
+  notRequired?: boolean;
+}
+
+function RiskListTypeField(
+  {notRequired}: Props
+) {
 
   const getErrorMessage = useGetFormErrorMessage();
   const errorMessage = getErrorMessage(riskListTypeFieldName);
@@ -25,7 +31,7 @@ function RiskListTypeField() {
         // apiAddress: APIS.GET_LETTER_DOCUMENTS,
         options: RISK_LIST_OPTIONS
       }}
-      rules={{
+      rules={notRequired ? {} : {
         required: requiredErrorMessage,
       }}
     />

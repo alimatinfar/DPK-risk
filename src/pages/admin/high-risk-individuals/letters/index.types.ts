@@ -8,12 +8,14 @@ import {
   type LetterFromDateFieldType
 } from "../FormFields/LetterFromDateField/index.constances.ts";
 import {letterToDateFieldName, type LetterToDateFieldType} from "../FormFields/LetterToDateField/index.constances.ts";
+import {riskListTypeFieldName, type RiskListTypeFieldType} from "../FormFields/RiskListTypeField/index.constances.ts";
 
 export type AdminHighRiskIndividualsLettersFilterType = {
   [letterNumberFieldName]: LetterNumberFieldType;
   [announceReferenceFieldName]: AnnounceReferenceFieldType;
   [letterFromDateFieldName]: LetterFromDateFieldType;
   [letterToDateFieldName]: LetterToDateFieldType;
+  [riskListTypeFieldName]: RiskListTypeFieldType;
 }
 
 export type AdminHighRiskIndividualsLettersResponseItemType = {

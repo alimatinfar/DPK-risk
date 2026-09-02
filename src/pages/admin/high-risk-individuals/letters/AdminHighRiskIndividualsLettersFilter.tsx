@@ -6,6 +6,7 @@ import LetterNumberField from "../FormFields/LetterNumberField/LetterNumberField
 import AnnouncingReferenceField from "../FormFields/AnnouncingReferenceField/AnnouncingReferenceField.tsx";
 import LetterFromDateField from "../FormFields/LetterFromDateField/LetterFromDateField.tsx";
 import LetterToDateField from "../FormFields/LetterToDateField/LetterToDateField.tsx";
+import RiskListTypeField from "../FormFields/RiskListTypeField/RiskListTypeField.tsx";
 
 
 function AdminHighRiskIndividualsLettersFilter(
@@ -25,6 +26,8 @@ function AdminHighRiskIndividualsLettersFilter(
       <LetterFromDateField />
 
       <LetterToDateField />
+
+      <RiskListTypeField notRequired />
     </FilterForm>
   );
 }

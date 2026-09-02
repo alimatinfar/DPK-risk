@@ -2,8 +2,13 @@ import type {TableColumnType} from "../../../../components/others/Table/TableExp
 import ACTIONS_COLUMN from "../../../../components/others/Table/constances/actions/actionsColumn.ts";
 import type {AdminHighRiskIndividualsLettersFilterType} from "./index.types.ts";
 import type {FilterType} from "../../../../components/Form/FilterForm/index.types.ts";
-import {letterNumberFieldName, type LetterNumberFieldType} from "../FormFields/LetterNumberField/index.constances.ts";
 import {
+  letterNumberFieldLabel,
+  letterNumberFieldName,
+  type LetterNumberFieldType
+} from "../FormFields/LetterNumberField/index.constances.ts";
+import {
+  announceReferenceFieldLabel,
   announceReferenceFieldName,
   type AnnounceReferenceFieldType
 } from "../FormFields/AnnouncingReferenceField/index.constances.ts";
@@ -12,26 +17,33 @@ import {
   type LetterFromDateFieldType
 } from "../FormFields/LetterFromDateField/index.constances.ts";
 import {letterToDateFieldName, type LetterToDateFieldType} from "../FormFields/LetterToDateField/index.constances.ts";
+import {riskListTypeFieldLabel, riskListTypeFieldName} from "../FormFields/RiskListTypeField/index.constances.ts";
+import {letterDateFieldLabel} from "../FormFields/LetterDateField/index.constances.ts";
 
 
 export const ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS = {
   LETTER_NUMBER: 'letterNumber',
   ANNOUNCER_REFERENCE: 'announcerReference',
   LETTER_DATE: 'letterDate',
+  LIST_TYPE: 'listType',
 } as const;
 
 export const ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS: TableColumnType[] = [
   {
-    label: 'شماره نامه',
+    label: letterNumberFieldLabel,
     accessor: ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LETTER_NUMBER,
   },
   {
-    label: 'مرجع اعلام کننده',
+    label: announceReferenceFieldLabel,
     accessor: ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.ANNOUNCER_REFERENCE,
   },
   {
-    label: 'تاریخ نامه',
+    label: letterDateFieldLabel,
     accessor: ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LETTER_DATE,
+  },
+  {
+    label: riskListTypeFieldLabel,
+    accessor: ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LIST_TYPE,
   },
   ACTIONS_COLUMN
 ];
@@ -41,4 +53,5 @@ export const adminHighRiskIndividualsLettersDefaultFilters: AdminHighRiskIndivid
   [announceReferenceFieldName]: '',
   [letterFromDateFieldName]: undefined,
   [letterToDateFieldName]: undefined,
+  [riskListTypeFieldName]: '',
 }

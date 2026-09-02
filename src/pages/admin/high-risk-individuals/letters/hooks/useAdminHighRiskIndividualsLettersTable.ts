@@ -37,6 +37,7 @@ function useAdminHighRiskIndividualsLettersTable(
         LetterRef: getSelectIdValue(filtersData?.[announceReferenceFieldName]),
         FromDate: getBodyDataDateField(filtersData?.[letterFromDateFieldName]),
         ToDate: getBodyDataDateField(filtersData?.[letterToDateFieldName]),
+        //TODO added risk list type filter
       })
     }
   })
@@ -51,6 +52,8 @@ function useAdminHighRiskIndividualsLettersTable(
       [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LETTER_NUMBER]: item?.letterNo,
       [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.ANNOUNCER_REFERENCE]: item?.letterRefTitle,
       [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LETTER_DATE]: displayDate(item.letterDate),
+      //TODO get list type from response
+      [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LIST_TYPE]: '',
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
           const url = ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL(item.id)
