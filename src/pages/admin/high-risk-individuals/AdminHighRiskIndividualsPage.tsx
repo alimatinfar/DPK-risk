@@ -33,7 +33,7 @@ function AdminHighRiskIndividualsPage() {
     customFilterQueryParam: `${QUERY_PARAMS.FILTERS}-letters`
   })
 
-  const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS)
+  const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.INDIVIDUALS)
   const isLettersTab = activeTab === ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS
   const currentFilters = isLettersTab ? lettersFilters : individualsFilters
 

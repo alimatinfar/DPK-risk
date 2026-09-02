@@ -28,12 +28,12 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS = {
 
 export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS: TabsProps['tabs'] = [
   {
-    id: ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS,
-    title: 'نامه‌ها'
-  },
-  {
     id: ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.INDIVIDUALS,
     title: 'اشخاص'
+  },
+  {
+    id: ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS,
+    title: 'نامه‌ها'
   },
 ]
 
