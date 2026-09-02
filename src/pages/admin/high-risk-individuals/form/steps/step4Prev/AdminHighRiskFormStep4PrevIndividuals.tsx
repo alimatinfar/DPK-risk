@@ -1,17 +1,17 @@
-import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
-import {customerIdFieldName, type ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types";
-import getPersonTypeItem from "../../../../../search/form/utils/getPersonTypeItem";
-import Tag from "../../../../../../components/others/Tag/Tag";
-import type {AdminHighRiskIndividualsFormStep4PersonDataType} from "./index.types";
+import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore.ts";
+import {customerIdFieldName, type ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
+import getPersonTypeItem from "../../../../../search/form/utils/getPersonTypeItem.ts";
+import Tag from "../../../../../../components/others/Tag/Tag.tsx";
+import type {AdminHighRiskIndividualsFormStep4PrevPersonDataType} from "./index.types.ts";
 
 
 type Props = {
   activePerson: ResultPersonCardDataType['customerId'] | undefined;
   setActivePerson: (value: ResultPersonCardDataType['customerId'] | undefined) => void;
-  checkExtraDataIsCompleted: (extraData: AdminHighRiskIndividualsFormStep4PersonDataType | undefined) => boolean
+  checkExtraDataIsCompleted: (extraData: AdminHighRiskIndividualsFormStep4PrevPersonDataType | undefined) => boolean
 }
 
-function AdminHighRiskFormStep4Individuals(
+function AdminHighRiskFormStep4PrevIndividuals(
   {activePerson, setActivePerson, checkExtraDataIsCompleted}: Props
 ) {
 
@@ -70,4 +70,4 @@ function AdminHighRiskFormStep4Individuals(
   );
 }
 
-export default AdminHighRiskFormStep4Individuals;
+export default AdminHighRiskFormStep4PrevIndividuals;

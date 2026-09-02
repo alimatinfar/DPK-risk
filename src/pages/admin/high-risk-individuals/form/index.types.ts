@@ -5,7 +5,7 @@ import type {
   AdminHighRiskIndividualsDocumentFormDataType
 } from "../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
 import type {ResultPersonCardDataType} from "../../../search/result/ResultCard.types";
-import {type AdminHighRiskIndividualsFormStep4PersonDataType} from "./steps/step4/index.types";
+import {type AdminHighRiskIndividualsFormStep4PrevPersonDataType} from "./steps/step4Prev/index.types.ts";
 
 export type AdminHighRiskIndividualsFormDataType = {
   formIsDirty: boolean;
@@ -17,7 +17,7 @@ export type AdminHighRiskIndividualsFormDataType = {
   step3: {
     individuals: ResultPersonCardDataType[];
   };
-  step4: {
-    individualsExtraData: AdminHighRiskIndividualsFormStep4PersonDataType[];
-  };
+  // step4: {
+  //   individualsExtraData: AdminHighRiskIndividualsFormStep4PrevPersonDataType[];
+  // };
 }

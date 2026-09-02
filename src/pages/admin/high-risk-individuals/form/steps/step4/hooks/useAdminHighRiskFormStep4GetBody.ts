@@ -9,7 +9,7 @@ import {descriptionFieldName} from "../../../../FormFields/DescriptionField/inde
 import getHighRiskDocumentsBodyData
   from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/utils/getHighRiskDocumentsBodyData.ts";
 
-function useAdminHighRiskFormStep5GetBody() {
+function useAdminHighRiskFormStep4GetBody() {
 
   const formData = useAdminHighRiskIndividualsFormStore(state => state.formData)
   console.log({formData})
@@ -27,20 +27,20 @@ function useAdminHighRiskFormStep5GetBody() {
         documents: getHighRiskDocumentsBodyData(step2Data?.documentsList)
       },
       riskCustomers: [
-        {
-          customerId: '',
-          resonList: '',
-          resons: '',
-          validityDate: '',
-          documents: [
-            {
-              documentType: '',
-              name: '',
-              description: '',
-              content: '',
-            }
-          ]
-        }
+        // {
+        //   customerId: '',
+        //   resonList: '',
+        //   resons: '',
+        //   validityDate: '',
+        //   documents: [
+        //     {
+        //       documentType: '',
+        //       name: '',
+        //       description: '',
+        //       content: '',
+        //     }
+        //   ]
+        // }
       ],
       checkRepeat: false,
     }
@@ -51,4 +51,4 @@ function useAdminHighRiskFormStep5GetBody() {
   }
 }
 
-export default useAdminHighRiskFormStep5GetBody;
+export default useAdminHighRiskFormStep4GetBody;

@@ -1,18 +1,18 @@
 import ReactHookFormWrapper, {
   type ReactHookFormWrapperProps
-} from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper";
-import ExpireDateField from "../../../FormFields/ExpireDateField/ExpireDateField";
-import EntryReasonsField from "../../../FormFields/EntryReasonsField/EntryReasonsField";
-import AdminHighRiskFormStep2DocumentsList from "../step2/AdminHighRiskFormStep2DocumentsList";
+} from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
+import ExpireDateField from "../../../FormFields/ExpireDateField/ExpireDateField.tsx";
+import EntryReasonsField from "../../../FormFields/EntryReasonsField/EntryReasonsField.tsx";
+import AdminHighRiskFormStep2DocumentsList from "../step2/AdminHighRiskFormStep2DocumentsList.tsx";
 import type {
   AdminHighRiskIndividualsDocumentsListFormProps
-} from "../../../FormFields/AdminHighRiskIndividualsDocumentsListForm/AdminHighRiskIndividualsDocumentsListForm";
+} from "../../../FormFields/AdminHighRiskIndividualsDocumentsListForm/AdminHighRiskIndividualsDocumentsListForm.tsx";
 
 
 type Props = Pick<ReactHookFormWrapperProps, 'formMethods' | 'onSubmit'> &
   Pick<AdminHighRiskIndividualsDocumentsListFormProps, 'documentsList' | 'setDocumentsList'>
 
-function AdminHighRiskFormStep4Form(
+function AdminHighRiskFormStep4PrevForm(
   {formMethods, onSubmit, documentsList, setDocumentsList}: Props
 ) {
   return (
@@ -31,4 +31,4 @@ function AdminHighRiskFormStep4Form(
   );
 }
 
-export default AdminHighRiskFormStep4Form;
+export default AdminHighRiskFormStep4PrevForm;

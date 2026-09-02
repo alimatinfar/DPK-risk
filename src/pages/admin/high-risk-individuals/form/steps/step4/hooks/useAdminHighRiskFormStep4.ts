@@ -1,100 +1,47 @@
-import {useAdminHighRiskIndividualsFormStore} from "../../../store/useAdminHighRiskIndividualsFormStore";
-import {customerIdFieldName, type ResultPersonCardDataType} from "../../../../../../search/result/ResultCard.types";
-import type {
-  AdminHighRiskIndividualsFormStep4PersonDataType,
-  AdminHighRiskIndividualsFormStep4Type
-} from "../index.types";
-import {expireDateFieldName} from "../../../../FormFields/ExpireDateField/index.constances";
-import {entryReasonsFieldName} from "../../../../FormFields/EntryReasonsField/index.constances";
-import useReactHookFormWrapper
-  from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper";
-import {useEffect, useCallback, useState} from "react";
-import type {
-  AdminHighRiskIndividualsDocumentFormDataType
-} from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types";
-import toastPromise from "../../../../../../../utils/toastPromise";
-import useAdminHighRiskIndividualsFormCurrentStep from "../../../store/useAdminHighRiskIndividualsFormCurrentStep";
-import {useWatch} from "react-hook-form";
-
+import {useAdminHighRiskIndividualsFormStore} from "../../../store/useAdminHighRiskIndividualsFormStore.ts";
+import useMutateData from "../../../../../../../request/hooks/useMutateData.ts";
+import fireResponseErrorToast from "../../../../../../../request/utils/fireResponseErrorToast.ts";
+import APIS from "../../../../../../../request/constances/apis.ts";
+import type {AdminHighRiskFormBodyDataType} from "../index.types.ts";
+import useAdminHighRiskFormStep4GetBody from "./useAdminHighRiskFormStep4GetBody.ts";
+import {useNavigate} from "react-router";
+import ROUTER_LINKS from "../../../../../../../constances/routerLinks.ts";
+import toastPromise from "../../../../../../../utils/toastPromise.ts";
 
 function useAdminHighRiskFormStep4() {
 
+  const formStep1Data = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
   const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
-  const individualsExtraData = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
 
-  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
-
-  const {setCurrentStep} = useAdminHighRiskIndividualsFormCurrentStep()
-
-  const [activePerson, setActivePerson] = useState<ResultPersonCardDataType['customerId'] | undefined>(individuals?.[0]?.[customerIdFieldName])
-
-  const getActiveExtraDataItem = useCallback(function () {
-    return individualsExtraData?.find(item => item?.[customerIdFieldName] === activePerson)
-  }, [activePerson, individualsExtraData])
-
-  const documentsList = getActiveExtraDataItem()?.documentsList || []
-
-  useEffect(() => {
-    const activeExtraDataItem = getActiveExtraDataItem()
-    formMethods.reset({
-      [expireDateFieldName]: activeExtraDataItem?.[expireDateFieldName],
-      [entryReasonsFieldName]: activeExtraDataItem?.[entryReasonsFieldName]
-    })
-  }, [activePerson]);
+  const navigate = useNavigate()
 
   const {
-    formMethods, onSubmit
-  } = useReactHookFormWrapper({
-    onSubmitHandler, mode: "all"
+    mutate, isPending
+  } = useMutateData<any, AdminHighRiskFormBodyDataType>({
+    axiosConfig: {
+      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_ADD_CUSTOMER, method: 'POST'
+    }
   })
 
-  const formValues = useWatch({control: formMethods.control}) as AdminHighRiskIndividualsFormStep4PersonDataType
+  const {
+    getBodyData
+  } = useAdminHighRiskFormStep4GetBody()
 
-  useEffect(() => {
-    setFormForCurrentPersonHandler(formValues)
-  }, [formValues]);
+  function onSubmitHandler() {
 
-  function setFormForCurrentPersonHandler(data: Partial<AdminHighRiskIndividualsFormStep4PersonDataType>) {
-    setFormData({
-      step4: {
-        individualsExtraData: individualsExtraData?.map(item => {
-          if (item?.[customerIdFieldName] === activePerson) {
-            console.log({data})
-            return {
-              ...item,
-              ...data
-            }
-          } else {
-            return item
-          }
-        })
-      }
+    const bodyData = getBodyData()
+
+    mutate(bodyData, {
+      onSuccess: (data, variables, onMutateResult, context) => {
+        navigate(ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL)
+        toastPromise().then(toast => toast.error('ثبت افراد پر ریسک با موفقیت انجام شد'))
+      },
+      ...fireResponseErrorToast()
     })
-  }
-
-  function onSubmitHandler(formData: AdminHighRiskIndividualsFormStep4Type) {
-    setFormForCurrentPersonHandler(formData)
-
-    if (documentsList?.length === 0)
-      return toastPromise().then(toast => toast.error('حداقل یک سند اضافه کنید'))
-
-    if (!individualsExtraData?.every(item => checkExtraDataIsCompleted(item)))
-      return toastPromise().then(toast => toast.error('اطلاعات همه افراد به طور کامل وارد نشده است'))
-
-    setCurrentStep(5)
-  }
-
-  function setDocumentsList(documentsList: AdminHighRiskIndividualsDocumentFormDataType[]) {
-    setFormForCurrentPersonHandler({documentsList})
-  }
-
-  function checkExtraDataIsCompleted(extraData: AdminHighRiskIndividualsFormStep4PersonDataType | undefined) {
-    return Boolean(extraData?.documentsList?.length !== 0 && extraData?.[expireDateFieldName] && extraData?.[entryReasonsFieldName])
   }
 
   return {
-    activePerson, setActivePerson, formMethods, onSubmit, documentsList, setDocumentsList,
-    checkExtraDataIsCompleted
+    formStep1Data, individuals, onSubmitHandler, loading: isPending
   }
 }
 
