@@ -4,7 +4,6 @@ import useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle
   from "../editModal/hooks/useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle.ts";
 import useAdminHighRiskIndividualsExitModalStates
   from "../exitModal/hooks/useAdminHighRiskIndividualsExitModalStates.ts";
-import useModalOpen from "../../../../../../../hooks/modal/useModalOpen.tsx";
 import type {
   AdminHighRiskIndividualsLettersDetailIndividualsDataItemType,
   AdminHighRiskIndividualsLettersDetailIndividualsDataType,
@@ -20,10 +19,10 @@ function useAdminHighRiskIndividualsLettersDetailIndividuals() {
 
   const {id: letterId} = useParams()
 
-  const {
-    open: editPersonModalOpen, shouldBeRemoved: editPersonModalShouldBeRemoved, closeModal: closeEditPersonModalHandler,
-    modalState: editPersonModalState, setModalState: setEditPersonModalState
-  } = useModalOpen<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>(false)
+  // const {
+  //   open: editPersonModalOpen, shouldBeRemoved: editPersonModalShouldBeRemoved, closeModal: closeEditPersonModalHandler,
+  //   modalState: editPersonModalState, setModalState: setEditPersonModalState
+  // } = useModalOpen<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>(false)
 
   const {
     docListModalOpen, docListModalShouldBeRemoved, closeDocListModalHandler, docListModalState, setDocListModalState
@@ -56,9 +55,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividuals() {
   const individualsList: AdminHighRiskIndividualsLettersDetailIndividualsDataType = ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA
 
   return {
-    setEditPersonModalState, setDocListModalState, setExitPersonModalState, editPersonModalShouldBeRemoved,
-    editPersonModalOpen, closeEditPersonModalHandler, editPersonModalState, docListModalShouldBeRemoved,
-    docListModalOpen, closeDocListModalHandler, docListModalState, exitPersonModalShouldBeRemoved,
+    setExitPersonModalState, exitPersonModalShouldBeRemoved, setDocListModalState,
+    docListModalShouldBeRemoved, docListModalOpen, closeDocListModalHandler, docListModalState,
     exitPersonModalOpen, closeExitPersonModalHandler, exitPersonModalState, personTitle,
     individualsList, individualsLoading: isFetching, individualsError: error
   }

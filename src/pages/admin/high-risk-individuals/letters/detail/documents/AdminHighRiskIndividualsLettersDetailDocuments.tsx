@@ -36,6 +36,8 @@ function AdminHighRiskIndividualsLettersDetailDocuments() {
             <AdminHighRiskLetterDetailDescriptionSection
               letterDate={displayDate(info?.letterDate)} letterNumber={info?.letterNo}
               reference={info?.letterRefTitle} description={info?.description}
+              //TODO set expire date and risk list type
+              riskListType=' ' expireDate=' '
             />
 
             <AdminHighRiskIndividualsLettersDetailDocumentsDocs

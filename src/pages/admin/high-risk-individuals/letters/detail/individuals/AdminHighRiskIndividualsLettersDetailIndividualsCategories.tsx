@@ -10,7 +10,6 @@ import {
   MODAL_STATE_TYPE_KEYS
 } from "./index.constances";
 import Button from "../../../../../../components/Form/Button/Button";
-import EditIcon from "../../../../../../components/svg/EditIcon";
 import LogoutIcon from "../../../../../../components/svg/LogoutIcon";
 import AdminHighRiskIndividualsFieldsWithActions
   from "./AdminHighRiskIndividualsFieldsWithActions.tsx";
@@ -24,7 +23,6 @@ import ResultPersonCategoryWrapper from "../../../../../search/result/ResultPers
 
 
 type Props = {
-  setEditPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
   setDocListModalState: SetStateType<ModalStateTypeId | boolean>;
   setExitPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
   data: AdminHighRiskIndividualsLettersDetailIndividualsDataType
@@ -32,7 +30,7 @@ type Props = {
 
 function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
   {
-    setEditPersonModalState, setDocListModalState, setExitPersonModalState, data
+    setDocListModalState, setExitPersonModalState, data
   }: Props
 ) {
 
@@ -71,22 +69,22 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                                 <LogoutIcon/>
                               </Button>
 
-                              <Button
-                                onClick={() => setEditPersonModalState(item)}
-                                justIcon variant='default' color='white'
-                              >
-                                <EditIcon/>
-                              </Button>
+                              {/*<Button*/}
+                              {/*  onClick={() => setEditPersonModalState(item)}*/}
+                              {/*  justIcon variant='default' color='white'*/}
+                              {/*>*/}
+                              {/*  <EditIcon/>*/}
+                              {/*</Button>*/}
                             </>
                           )}
-                          <Button
-                            onClick={() => setDocListModalState({
-                              id: item.riskCustomerId, type: MODAL_STATE_TYPE_KEYS.PERSON
-                            })}
-                            variant='default' color='white'
-                          >
-                            لیست مستندات
-                          </Button>
+                          {/*<Button*/}
+                          {/*  onClick={() => setDocListModalState({*/}
+                          {/*    id: item.riskCustomerId, type: MODAL_STATE_TYPE_KEYS.PERSON*/}
+                          {/*  })}*/}
+                          {/*  variant='default' color='white'*/}
+                          {/*>*/}
+                          {/*  لیست مستندات*/}
+                          {/*</Button>*/}
                         </>
                       )}
                       bottomFields={[{

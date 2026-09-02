@@ -50,12 +50,12 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
                 <DeleteIcon textColor='text-red-500'/>
               </Button>
 
-              <Button
-                justIcon variant='default' color='white'
-                onClick={() => setFormModalState(document)}
-              >
-                <EditIcon/>
-              </Button>
+              {/*<Button*/}
+              {/*  justIcon variant='default' color='white'*/}
+              {/*  onClick={() => setFormModalState(document)}*/}
+              {/*>*/}
+              {/*  <EditIcon/>*/}
+              {/*</Button>*/}
 
               <Button
                 rightIcon={<DownloadIcon/>} variant='outlined'

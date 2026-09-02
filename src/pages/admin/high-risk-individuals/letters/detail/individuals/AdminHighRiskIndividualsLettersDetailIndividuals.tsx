@@ -25,9 +25,8 @@ const AdminHighRiskIndividualsLettersDetailIndividualsExitModal = lazy(() => imp
 function AdminHighRiskIndividualsLettersDetailIndividuals() {
 
   const {
-    setEditPersonModalState, setDocListModalState, setExitPersonModalState, editPersonModalShouldBeRemoved,
-    editPersonModalOpen, closeEditPersonModalHandler, editPersonModalState, docListModalShouldBeRemoved,
-    docListModalOpen, closeDocListModalHandler, docListModalState, exitPersonModalShouldBeRemoved,
+    setExitPersonModalState, exitPersonModalShouldBeRemoved, setDocListModalState,
+    docListModalShouldBeRemoved, docListModalOpen, closeDocListModalHandler, docListModalState,
     exitPersonModalOpen, closeExitPersonModalHandler, exitPersonModalState, personTitle,
     individualsList, individualsLoading, individualsError
   } = useAdminHighRiskIndividualsLettersDetailIndividuals()
@@ -38,17 +37,17 @@ function AdminHighRiskIndividualsLettersDetailIndividuals() {
         isLoading={individualsLoading} error={individualsError}
       >
         <AdminHighRiskIndividualsLettersDetailIndividualsCategories
-          setEditPersonModalState={setEditPersonModalState} setDocListModalState={setDocListModalState}
           setExitPersonModalState={setExitPersonModalState} data={individualsList}
+          setDocListModalState={setDocListModalState}
         />
       </RenderLogic>
 
-      <DisplayModal shouldBeRemoved={editPersonModalShouldBeRemoved}>
-        <AdminHighRiskIndividualsLettersDetailIndividualsEditModal
-          open={editPersonModalOpen} onClose={closeEditPersonModalHandler}
-          modalState={editPersonModalState}
-        />
-      </DisplayModal>
+      {/*<DisplayModal shouldBeRemoved={editPersonModalShouldBeRemoved}>*/}
+      {/*  <AdminHighRiskIndividualsLettersDetailIndividualsEditModal*/}
+      {/*    open={editPersonModalOpen} onClose={closeEditPersonModalHandler}*/}
+      {/*    modalState={editPersonModalState}*/}
+      {/*  />*/}
+      {/*</DisplayModal>*/}
 
       <DisplayModal shouldBeRemoved={docListModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal
