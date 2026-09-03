@@ -15,10 +15,11 @@ function usePanelTransactionHistoryByBranchDetailRender() {
 
   const periodDateObject = useGetTransactionHistoryPeriodDateObject()
   const {monthName, fromDate, toDate} = periodDateObject
+  console.log({fromDate, toDate})
 
   const branchObject = useGetQueryParam(QUERY_PARAMS.BRANCH_OBJECT)
   const {
-    branchName, branchCode, regionCode, regionName
+    branchName, branchCode, areaCode, areaName
   } = (branchObject ? JSON.parse(branchObject) : {}) as unknown as TransactionHistoryBranchObjectType
 
   const infoList: DetailInfoSection2Props['infoList'] = useMemo(function () {
@@ -45,14 +46,14 @@ function usePanelTransactionHistoryByBranchDetailRender() {
       },
       {
         label: 'کد منطقه',
-        value: regionCode,
+        value: areaCode,
       },
       {
         label: 'نام منطقه',
-        value: regionName,
+        value: areaName,
       },
     ]
-  }, [monthName, fromDate, toDate, branchName, branchCode, regionCode, regionName])
+  }, [monthName, fromDate, toDate, branchName, branchCode, areaCode, areaName])
 
   return {
     branchName, infoList
