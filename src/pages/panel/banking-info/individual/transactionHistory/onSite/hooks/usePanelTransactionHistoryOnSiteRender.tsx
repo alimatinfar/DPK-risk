@@ -36,6 +36,9 @@ function usePanelTransactionHistoryOnSiteRender(
 
   const {activePersonData} = getActivePersonData();
 
+  // TODO get selected customerId in isJoint state
+  const customerId = activePersonData?.customerId
+
   const {
     data, isFetching, error
   } = useFetchData<PanelTransactionHistoryOnSiteItemResponseType[]>({
@@ -48,7 +51,7 @@ function usePanelTransactionHistoryOnSiteRender(
             .subtract(12, "jMonth")
         ),
         toDate: getBodyDataDateField(moment()),
-        customerId: activePersonData?.customerId,
+        customerId,
       }
     }
   })
@@ -90,6 +93,7 @@ function usePanelTransactionHistoryOnSiteRender(
         }
         const params = {
           [QUERY_PARAMS.PERIOD_DATE_OBJECT]: JSON.stringify(periodDateObject),
+          [QUERY_PARAMS.CUSTOMER_ID]: customerId,
           [QUERY_PARAMS.IS_MAX_COUNT]: isMaxCount
         }
         return getUrlWithParams(url, params)

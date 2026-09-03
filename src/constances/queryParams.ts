@@ -10,6 +10,7 @@ const QUERY_PARAMS = {
   BRANCH_OBJECT: 'branchObject',
   LETTER_NUMBER: 'letterNumber',
   IS_MAX_COUNT: 'isMaxCount',
+  CUSTOMER_ID: 'customerId',
 }
 
 export default QUERY_PARAMS
