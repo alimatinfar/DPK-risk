@@ -3,7 +3,7 @@ import {
   PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS
 } from "./index.constances.tsx";
 import Card from "../../../../../../components/others/Card/Card.tsx";
-import usePanelTransactionHistoryByPeriodDetailRender from "./hooks/usePanelTransactionHistoryByPeriodDetailRender.ts";
+import usePanelTransactionHistoryByPeriodDetailRender from "./hooks/usePanelTransactionHistoryByPeriodDetailRender.tsx";
 import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
@@ -16,7 +16,7 @@ function PanelTransactionHistoryByPeriodDetailRender(
 ) {
 
   const {
-    monthName, isCurrentMonth, tableData
+    monthName, year, tableData, isFetching, error, isMaxCount
   } = usePanelTransactionHistoryByPeriodDetailRender({
     isJoint
   })
@@ -24,14 +24,14 @@ function PanelTransactionHistoryByPeriodDetailRender(
   return (
     <div className='flex flex-col gap-y-4'>
       <PanelPageTitle
-        title={`مجموع تراکنش‌های ${`${monthName}${isCurrentMonth ? ' (ماه جاری)' : ''}`} به تفکیک شعب`} hasBack
+        title={`مجموع تراکنش‌های ${monthName} ${year} به تفکیک شعب بر اساس ${isMaxCount ? 'تعداد' : 'مبلغ'}`} hasBack
       />
 
       <Card>
         <TableRenderLogic
           renderLogicProps={{
-            error: null,
-            isLoading: false
+            error,
+            isLoading: isFetching
           }}
           tableProps={{
             data: tableData,

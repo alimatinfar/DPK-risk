@@ -5,12 +5,12 @@ import ACTIONS_COLUMN from "../../../../../../components/others/Table/constances
 export const PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS = {
   BRANCH_CODE: 'branchCode',
   BRANCH_NAME: 'branchName',
-  REGION_CODE: 'regionCode',
-  REGION_NAME: 'regionName',
-  VISIT_COUNT: 'visitCount',
-  TOTAL_CREDITOR: 'totalCreditor',
-  TOTAL_DEBTOR: 'totalDebtor',
-  BALANCE: 'balance',
+  REGION_CODE: 'areaCode',
+  REGION_NAME: 'areaName',
+  VISIT_COUNT: 'totalCount',
+  TOTAL_CREDITOR: 'totalCredit',
+  TOTAL_DEBTOR: 'totalDebit',
+  BALANCE: 'totalCreditTotalDebit',
   BRANCH_RISK: 'branchRisk',
 } as const;
 
