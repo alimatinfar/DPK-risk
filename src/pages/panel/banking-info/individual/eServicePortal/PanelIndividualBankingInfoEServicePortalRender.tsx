@@ -27,15 +27,18 @@ function PanelIndividualBankingInfoEServicePortalRender(
 
   return (
     <div className='flex flex-col gap-y-4'>
-      <EServicePortalSharedCustomerNumberField
-        selectedCustomerNumber={selectedCustomerNumber}
-        setSelectedCustomerNumber={setSelectedCustomerNumber}
-      />
+      {isJoint && (
+        <EServicePortalSharedCustomerNumberField
+          selectedCustomerNumber={selectedCustomerNumber}
+          setSelectedCustomerNumber={setSelectedCustomerNumber}
+        />
+      )}
 
       <TableRenderLogic
         renderLogicProps={{
           error: null,
-          isLoading: false
+          isLoading: false,
+          ...(isJoint && !selectedCustomerNumber) ? {emptyText: 'برای مشاهده نتایج شماره مشتری مشترک را انتخاب نمایید'} : {}
         }}
         tableProps={{
           data: tableData,
