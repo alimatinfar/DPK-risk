@@ -4,14 +4,20 @@ import {
   PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS,
   PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS
 } from "./index.constances.tsx";
-import Tab, {type TabsProps} from "../../../../../components/others/Tab/Tab.tsx";
+import Tab from "../../../../../components/others/Tab/Tab.tsx";
 import TabContentRender, {type TabContentRenderProps} from "../../../../../components/others/Tab/TabContentRender.tsx";
+import EServicePortalSharedCustomerNumberField, {
+  type EServicePortalSharedCustomerNumberFieldProps
+} from "../eServicePortal/EServicePortalSharedCustomerNumberField.tsx";
 
 
-type Props = Pick<TabContentRenderProps, 'renderObject'>
+type Props = {
+  isJoint?: boolean;
+} & Pick<TabContentRenderProps, 'renderObject'> &
+  Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber' | 'setSelectedCustomerNumber'>
 
 function PanelIndividualBankingInfoTransactionHistoryRender(
-  {renderObject}: Props
+  {renderObject, selectedCustomerNumber, setSelectedCustomerNumber, isJoint}: Props
 ) {
 
   const [activeTab, setActiveTab] = useActiveTab(
@@ -21,10 +27,19 @@ function PanelIndividualBankingInfoTransactionHistoryRender(
 
   return (
     <>
-      <Tab
-        tabs={PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS}
-        activeTab={activeTab} onChange={setActiveTab}
-      />
+      <div className='flex items-center justify-between'>
+        {isJoint && (
+          <EServicePortalSharedCustomerNumberField
+            selectedCustomerNumber={selectedCustomerNumber}
+            setSelectedCustomerNumber={setSelectedCustomerNumber}
+          />
+        )}
+
+        <Tab
+          tabs={PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS}
+          activeTab={activeTab} onChange={setActiveTab}
+        />
+      </div>
 
       <TabContentRender
         renderObject={renderObject}

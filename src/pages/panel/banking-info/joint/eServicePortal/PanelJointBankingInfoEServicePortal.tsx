@@ -1,13 +1,12 @@
-import usePanelIndividualBankingInfoEServicePortalRender
-  from "../../individual/eServicePortal/hooks/usePanelIndividualBankingInfoEServicePortalRender.ts";
 import PanelIndividualBankingInfoEServicePortalRender
   from "../../individual/eServicePortal/PanelIndividualBankingInfoEServicePortalRender.tsx";
+import useSelectedCustomerNumber from "../../individual/eServicePortal/hooks/useSelectedCustomerNumber.ts";
 
 function PanelJointBankingInfoEServicePortal() {
 
   const {
     selectedCustomerNumber, setSelectedCustomerNumber
-  } = usePanelIndividualBankingInfoEServicePortalRender()
+  } = useSelectedCustomerNumber()
 
   return (
     <PanelIndividualBankingInfoEServicePortalRender

@@ -1,9 +1,7 @@
 import {useState} from "react";
 import type {SelectProps} from "../../../../../../components/Form/Select/select-exports.ts";
 
-
-function usePanelIndividualBankingInfoEServicePortalRender() {
-
+function useSelectedCustomerNumber() {
   const [selectedCustomerNumber, setSelectedCustomerNumber] = useState<SelectProps['value']>(undefined)
 
   return {
@@ -11,4 +9,4 @@ function usePanelIndividualBankingInfoEServicePortalRender() {
   }
 }
 
-export default usePanelIndividualBankingInfoEServicePortalRender;
+export default useSelectedCustomerNumber;

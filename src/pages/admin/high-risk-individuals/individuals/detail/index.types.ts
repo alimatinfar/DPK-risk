@@ -25,7 +25,6 @@ export type AdminHighRiskIndividualRelatedShareLetterType = {
 export type AdminHighRiskIndividualRelatedLetterType = {
   [expireDateFieldName]: string;
   [riskListTypeFieldName]: string;
-  [entryReasonsFieldName]: string[];
   exitType?: ExitPersonFromLetterType
   exitLetter?: AdminHighRiskIndividualRelatedShareLetterType
 } & AdminHighRiskIndividualRelatedShareLetterType
