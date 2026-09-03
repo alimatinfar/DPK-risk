@@ -1,7 +1,7 @@
 import {
   PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS,
 } from "./index.constances.tsx";
-import usePanelTransactionHistoryOnSiteRender from "./hooks/usePanelTransactionHistoryOnSiteRender.ts";
+import usePanelTransactionHistoryOnSiteRender from "./hooks/usePanelTransactionHistoryOnSiteRender.tsx";
 import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 

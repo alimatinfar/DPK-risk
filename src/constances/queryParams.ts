@@ -9,6 +9,7 @@ const QUERY_PARAMS = {
   PERIOD_DATE_OBJECT: 'periodDateObject',
   BRANCH_OBJECT: 'branchObject',
   LETTER_NUMBER: 'letterNumber',
+  IS_MAX_COUNT: 'isMaxCount',
 }
 
 export default QUERY_PARAMS

@@ -25,6 +25,9 @@ import getJalaliMonthName from "../../../../../../../utils/dateAndTIme/momentJal
 import withSeparator from "../../../../../../../utils/separator/withSeparator.ts";
 import getFormattedMomentJalaliDateTime
   from "../../../../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
+import DetailIcon from "../../../../../../../components/svg/DetailIcon.tsx";
+import BankIcon from "../../../../../../../components/svg/BankIcon.tsx";
+import AmountIcon from "../../../../../../../components/svg/AmountIcon.tsx";
 
 
 function usePanelTransactionHistoryOnSiteRender(
@@ -72,32 +75,51 @@ function usePanelTransactionHistoryOnSiteRender(
   };
 
   const tableData = useMemo(function () {
-    // const finalData = data?.data
-    const finalData = PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_FAKE_DATA
+    const finalData = data?.data
+    // const finalData = PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_FAKE_DATA
     if (!finalData) return []
 
-    return finalData?.map((item, index) => ({
-      id: index + 1,
-      [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.MONTH]: `${getJalaliMonthName(item?.month)} ${item?.year}`,
-      [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.VISIT_COUNT]: item?.totalCount,
-      [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.TOTAL_CREDITOR]: withSeparator(item?.totalCredit),
-      [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.TOTAL_DEBTOR]: withSeparator(item?.totalDebit),
-      [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.BALANCE]: withSeparator(item?.totalCreditTotalDebit),
-      [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
-        TableDetailAction(() => {
-          const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL
-          const periodDateObject: PanelTransactionHistoryPeriodObjectType = {
-            monthName: getJalaliMonthName(item.month),
-            ...getMonthDateRange(item?.year, item?.month),
-            isCurrentMonth: index === 0
-          }
-          const params = {
-            [QUERY_PARAMS.PERIOD_DATE_OBJECT]: JSON.stringify(periodDateObject)
-          }
-          navigate(getUrlWithParams(url, params))
-        }, 'مراجعات به تفکیک شعب')
-      ],
-    }))
+    return finalData?.map((item, index) => {
+
+      const getDetailLink = (isMaxCount: boolean) => {
+        const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL
+        const periodDateObject: PanelTransactionHistoryPeriodObjectType = {
+          monthName: getJalaliMonthName(item.month),
+          ...getMonthDateRange(item?.year, item?.month),
+          isCurrentMonth: index === 0
+        }
+        const params = {
+          [QUERY_PARAMS.PERIOD_DATE_OBJECT]: JSON.stringify(periodDateObject),
+          [QUERY_PARAMS.IS_MAX_COUNT]: isMaxCount
+        }
+        return getUrlWithParams(url, params)
+      }
+
+      return {
+        id: index + 1,
+        [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.MONTH]: `${getJalaliMonthName(item?.month)} ${item?.year}`,
+        [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.VISIT_COUNT]: item?.totalCount,
+        [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.TOTAL_CREDITOR]: withSeparator(item?.totalCredit),
+        [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.TOTAL_DEBTOR]: withSeparator(item?.totalDebit),
+        [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.BALANCE]: withSeparator(item?.totalCreditTotalDebit),
+        [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
+          {
+            onClick: () => {
+              navigate(getDetailLink(true))
+            },
+            icon: <BankIcon width='100%' height='100%' textColor='text-black'/>,
+            title: 'مراجعات به تفکیک شعب بر اساس بیشترین تعداد',
+          },
+          {
+            onClick: () => {
+              navigate(getDetailLink(false))
+            },
+            icon: <AmountIcon width='100%' height='100%' textColor='text-black'/>,
+            title: 'مراجعات به تفکیک شعب بر اساس بیشترین مبلغ',
+          },
+        ],
+      }
+    })
   }, [data])
 
   return {

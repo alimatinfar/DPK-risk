@@ -5,7 +5,7 @@ import PanelTransactionHistoryOnSiteLoading
   from "./onSite/PanelTransactionHistoryOnSiteLoading.tsx";
 
 const PanelTransactionHistoryOnSite = lazy(() => import(
-  "./onSite/./PanelTransactionHistoryOnSite"
+  "./onSite/PanelTransactionHistoryOnSite"
   ));
 const PanelTransactionHistoryEService = lazy(() => import(
   "./eService/PanelTransactionHistoryEService.tsx"
