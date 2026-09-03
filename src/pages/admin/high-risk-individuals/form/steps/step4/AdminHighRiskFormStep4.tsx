@@ -36,6 +36,7 @@ function AdminHighRiskFormStep4() {
       <ResultPersonCategoryWrapper renderCallback={(item) => (
         <ResultPersonCategory2
           key={item.name} personTypeItem={item} resultData={individuals}
+          emptyStateText='شخصی اضافه نشده است'
           customContent={(visibleItems) => (
             <div className='grid grid-cols-4 gap-4 p-4'>
               {visibleItems.map(visibleItem => {

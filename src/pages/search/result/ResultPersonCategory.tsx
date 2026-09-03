@@ -6,6 +6,10 @@ import ArrowIcon2 from "../../../components/svg/ArrowIcon2.tsx";
 import type {ResultPersonCardDataType} from "./ResultCard.types.ts";
 import type {ReactNode} from "react";
 import type {AnyObjectFields} from "../../../types/AnyObjectFields";
+import RenderLogic from "../../../components/others/RenderLogic/RenderLogic.tsx";
+import FilterEmptyState from "../../../components/svg/RenderLogic/FilterEmptyState.tsx";
+import EmptyState from "../../../components/others/RenderLogic/EmptyState.tsx";
+import EmptyStateIcon from "../../../components/svg/RenderLogic/EmptyStateIcon.tsx";
 
 export type ResultPersonCategoryItemType = Pick<ResultPersonCardDataType, 'type'> & AnyObjectFields
 
@@ -18,12 +22,13 @@ export type ResultPersonCategoryProps = {
   CardElement?: (props: {data: ResultPersonCardDataType}) => ReactNode;
   showAllItems?: boolean;
   customContent?: (visibleItems: ResultPersonCategoryItemType[]) => ReactNode;
+  emptyStateText?: string;
 }
 
 function ResultPersonCategory(
   {
     personTypeItem, resultData, wrapperBackground, headerClassName, headerBorderBottomClassName,
-    CardElement, showAllItems, customContent
+    CardElement, showAllItems, customContent, emptyStateText
   }: ResultPersonCategoryProps
 ) {
 
@@ -33,7 +38,7 @@ function ResultPersonCategory(
     resultData, personTypeItem, showAllItems
   })
 
-  return dataList?.length ? (
+  return (
     <div className={`
       flex flex-col rounded-lg overflow-hidden ${wrapperBackground || 'bg-[#F2F4F6]'}
     `}>
@@ -56,28 +61,43 @@ function ResultPersonCategory(
         <ArrowIcon className={open ? 'rotate-180' : ''}/>
       </div>
 
-      {open ? customContent ? customContent(visibleItems as ResultPersonCardDataType[]) : (
-        <div className='flex flex-col p-4'>
-          <div className='grid grid-cols-4 gap-4'>
-            {visibleItems.map((item, index) => CardElement ? (
-              <CardElement key={index} data={item as ResultPersonCardDataType}/>
-            ) : null)}
-          </div>
-
-          {hasLoadMoreButton && (
-            <div className='flex-center'>
-              <Button
-                variant='link' size='sm' onClick={loadMoreHandler}
-                rightIcon={<ArrowIcon2 className='-rotate-90' />}
-              >
-                نتایج بیشتر
-              </Button>
-            </div>
+      {open ? (
+        <RenderLogic
+          isEmpty={dataList?.length === 0} removeContainer
+          emptyElement={(
+            <EmptyState
+              wrapperPadding='py-4'
+              icon={<EmptyStateIcon width='100%' height='120' />}
+              title={emptyStateText || 'شخصی یافت نشد'}
+            />
           )}
-        </div>
+        >
+          {
+            customContent ? customContent(visibleItems as ResultPersonCardDataType[]) : (
+              <div className='flex flex-col p-4'>
+                <div className='grid grid-cols-4 gap-4'>
+                  {visibleItems.map((item, index) => CardElement ? (
+                    <CardElement key={index} data={item as ResultPersonCardDataType}/>
+                  ) : null)}
+                </div>
+
+                {hasLoadMoreButton && (
+                  <div className='flex-center'>
+                    <Button
+                      variant='link' size='sm' onClick={loadMoreHandler}
+                      rightIcon={<ArrowIcon2 className='-rotate-90' />}
+                    >
+                      نتایج بیشتر
+                    </Button>
+                  </div>
+                )}
+              </div>
+            )
+          }
+        </RenderLogic>
       ) : null}
     </div>
-  ) : null
+  )
 }
 
 export default ResultPersonCategory;

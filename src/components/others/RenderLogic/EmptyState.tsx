@@ -6,11 +6,12 @@ type Props = {
   title?: string;
   description?: string;
   icon?: ReactNode;
+  wrapperPadding?: string;
 }
 
-function EmptyState({title, description, icon}: Props) {
+function EmptyState({title, description, icon, wrapperPadding}: Props) {
   return (
-    <div className='py-10 px-5 flex flex-col items-center max-w-90 mx-auto'>
+    <div className={`${wrapperPadding || 'py-10 px-5'} flex flex-col items-center max-w-90 mx-auto`}>
       <div className='mb-3'>
         {icon || <EmptyStateIcon />}
       </div>

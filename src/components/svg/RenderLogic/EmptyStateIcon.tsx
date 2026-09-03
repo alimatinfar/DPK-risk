@@ -1,7 +1,8 @@
+import type {IconPropsType} from "../IconPropsType.ts";
 
-function EmptyStateIcon() {
+function EmptyStateIcon({height, width}: IconPropsType) {
   return (
-    <svg width="150" height="178" viewBox="0 0 150 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width || "150"} height={height || "178"} viewBox="0 0 150 178" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M75 167C116.421 167 150 133.422 150 92.0002C150 50.5787 116.421 17 75 17C33.5786 17 0 50.5787 0 92.0002C0 133.422 33.5786 167 75 167Z" fill="#F3F4F6"/>
       <g filter="url(#filter0_d_13041_7281)">
         <path d="M118 60H32C29.2386 60 27 62.2386 27 65V170C27 172.762 29.2386 175 32 175H118C120.761 175 123 172.762 123 170V65C123 62.2386 120.761 60 118 60Z" fill="white"/>
