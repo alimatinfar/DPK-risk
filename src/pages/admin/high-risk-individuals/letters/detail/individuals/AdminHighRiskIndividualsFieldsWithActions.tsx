@@ -16,8 +16,8 @@ function AdminHighRiskIndividualsFieldsWithActions(
 ) {
   return (
     <div className={`flex flex-col gap-y-4`}>
-      <div className='flex items-center gap-x-4'>
-        <div className='grid grid-cols-4 gap-x-4 flex-1'>
+      <div className='flex items-start gap-x-4'>
+        <div className='grid grid-cols-4 gap-4 flex-1'>
           {fields.map((field, fieldIndex) => (
             <DetailInfoSectionLabelValue key={fieldIndex} {...field}/>
           ))}

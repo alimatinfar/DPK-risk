@@ -1,10 +1,13 @@
 import {useParams} from "react-router";
 import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
-import {letterNumberFieldName} from "../../../FormFields/LetterNumberField/index.constances.ts";
-import {announceReferenceFieldName} from "../../../FormFields/AnnouncingReferenceField/index.constances.ts";
-import {letterDateFieldName} from "../../../FormFields/LetterDateField/index.constances.ts";
-import {expireDateFieldName} from "../../../FormFields/ExpireDateField/index.constances.ts";
+import {letterNumberFieldLabel, letterNumberFieldName} from "../../../FormFields/LetterNumberField/index.constances.ts";
+import {
+  announceReferenceFieldLabel,
+  announceReferenceFieldName
+} from "../../../FormFields/AnnouncingReferenceField/index.constances.ts";
+import {letterDateFieldLabel, letterDateFieldName} from "../../../FormFields/LetterDateField/index.constances.ts";
+import {expireDateFieldLabel, expireDateFieldName} from "../../../FormFields/ExpireDateField/index.constances.ts";
 import {descriptionFieldName} from "../../../FormFields/DescriptionField/index.constances.ts";
 import AdminHighRiskIndividualsEntryReasonsTags
   from "../../../letters/detail/individuals/AdminHighRiskIndividualsEntryReasonsTags.tsx";
@@ -12,6 +15,7 @@ import type {
   AdminHighRiskIndividualRelatedLetterType,
   AdminHighRiskIndividualRelatedShareLetterType
 } from "../index.types.ts";
+import {riskListTypeFieldLabel, riskListTypeFieldName} from "../../../FormFields/RiskListTypeField/index.constances.ts";
 
 
 type GetFieldsIsExitLetter = {
@@ -31,37 +35,30 @@ function useAdminHighRiskIndividualsDetailPageLetters() {
   function getTopFields({item, isExit}: GetLetterFieldsType) {
     return [
       {
-        label: 'شماره نامه', value: item?.[letterNumberFieldName]
+        label: letterNumberFieldLabel, value: item?.[letterNumberFieldName]
       },
       {
-        label: 'مرجع', value: item?.[announceReferenceFieldName]
+        label: announceReferenceFieldLabel, value: item?.[announceReferenceFieldName]
       },
       {
-        label: 'تاریخ نامه', value: item?.[letterDateFieldName]
+        label: letterDateFieldLabel, value: item?.[letterDateFieldName]
       },
-      ...isExit ? [] : [{
-        label: 'تاریخ اعتبار', value: item?.[expireDateFieldName]
-      }],
-    ]
-  }
-
-  function getBottomFields({item, isExit}: GetLetterFieldsType) {
-    return [
+      ...isExit ? [] : [
+        {
+          label: riskListTypeFieldLabel, value: item?.[riskListTypeFieldName]
+        },
+        {
+          label: expireDateFieldLabel, value: item?.[expireDateFieldName]
+        }
+      ],
       {
-        label: 'توضیحات نامه', value: item?.[descriptionFieldName]
-      },
-      ...isExit ? [] : [{
-        label: 'دلیل ورود', value: (
-          <AdminHighRiskIndividualsEntryReasonsTags
-            entryReasons={item.entryReasons}
-          />
-        )
-      }],
+        label: 'توضیحات نامه', value: item?.[descriptionFieldName], className: 'col-span-3'
+      }
     ]
   }
 
   return {
-    getTopFields, getBottomFields
+    getTopFields
   }
 }
 

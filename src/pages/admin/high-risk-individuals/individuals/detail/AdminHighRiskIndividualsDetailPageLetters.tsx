@@ -25,7 +25,7 @@ function AdminHighRiskIndividualsDetailPageLetters(
 ) {
 
   const {
-    getTopFields, getBottomFields
+    getTopFields
   } = useAdminHighRiskIndividualsDetailPageLetters()
 
   return ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE.map((item, index) => {
@@ -45,17 +45,16 @@ function AdminHighRiskIndividualsDetailPageLetters(
                     </Button>
                   </>
                 )}
-                <Button
-                  onClick={() => setDocListModalState({
-                    id: item.id, type: MODAL_STATE_TYPE_KEYS.LETTER
-                  })}
-                  variant='default' color='white'
-                >
-                  لیست مستندات
-                </Button>
+                {/*<Button*/}
+                {/*  onClick={() => setDocListModalState({*/}
+                {/*    id: item.id, type: MODAL_STATE_TYPE_KEYS.LETTER*/}
+                {/*  })}*/}
+                {/*  variant='default' color='white'*/}
+                {/*>*/}
+                {/*  لیست مستندات*/}
+                {/*</Button>*/}
               </>
             )}
-            bottomFields={getBottomFields({item, isExit: false})}
           />
 
           {item?.exitLetter && (
@@ -72,7 +71,6 @@ function AdminHighRiskIndividualsDetailPageLetters(
                     لیست مستندات
                   </Button>
                 )}
-                bottomFields={getBottomFields({item, isExit: true})}
               />
             </CardRightRed>
           )}

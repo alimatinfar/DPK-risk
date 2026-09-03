@@ -11,6 +11,7 @@ import {
   entryReasonsFieldName
 } from "../../FormFields/EntryReasonsField/index.constances.ts";
 import type {ExitPersonFromLetterType} from "../../letters/detail/individuals/index.types.ts";
+import {riskListTypeFieldName} from "../../FormFields/RiskListTypeField/index.constances.ts";
 
 
 export type AdminHighRiskIndividualRelatedShareLetterType = {
@@ -23,6 +24,7 @@ export type AdminHighRiskIndividualRelatedShareLetterType = {
 
 export type AdminHighRiskIndividualRelatedLetterType = {
   [expireDateFieldName]: string;
+  [riskListTypeFieldName]: string;
   [entryReasonsFieldName]: string[];
   exitType?: ExitPersonFromLetterType
   exitLetter?: AdminHighRiskIndividualRelatedShareLetterType
