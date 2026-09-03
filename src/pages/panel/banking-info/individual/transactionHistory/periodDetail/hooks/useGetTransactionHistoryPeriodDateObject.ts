@@ -1,4 +1,4 @@
-import type {PanelTransactionHistoryPeriodObjectType} from "../../onSiteMaxCount/index.types.ts";
+import type {PanelTransactionHistoryPeriodObjectType} from "../../onSite/index.types.ts";
 import useGetQueryParam from "../../../../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../../../../constances/queryParams.ts";
 

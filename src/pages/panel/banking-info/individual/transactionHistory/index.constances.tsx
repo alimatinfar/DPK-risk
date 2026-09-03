@@ -1,14 +1,11 @@
 import type {TabsProps} from "../../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
 import TableSuspense from "../../../../../components/others/RenderLogic/TableSuspense.tsx";
-import PanelTransactionHistoryOnSiteMaxCountLoading
-  from "./onSiteMaxCount/PanelTransactionHistoryOnSiteMaxCountLoading.tsx";
+import PanelTransactionHistoryOnSiteLoading
+  from "./onSite/PanelTransactionHistoryOnSiteLoading.tsx";
 
-const PanelTransactionHistoryOnSiteMaxCount = lazy(() => import(
-  "./onSiteMaxCount/PanelTransactionHistoryOnSiteMaxCount.tsx"
-  ));
-const PanelTransactionHistoryOnSiteMaxAmount = lazy(() => import(
-  "./onSiteMaxAmount/PanelTransactionHistoryOnSiteMaxAmount.tsx"
+const PanelTransactionHistoryOnSite = lazy(() => import(
+  "./onSite/./PanelTransactionHistoryOnSite"
   ));
 const PanelTransactionHistoryEService = lazy(() => import(
   "./eService/PanelTransactionHistoryEService.tsx"
@@ -16,8 +13,7 @@ const PanelTransactionHistoryEService = lazy(() => import(
 
 export const PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS = {
   E_SERVICE: 'eService',
-  ON_SITE_MAX_COUNT: 'onSiteMaxCount',
-  ON_SITE_MAX_AMOUNT: 'onSiteMaxAmount',
+  ON_SITE: 'onSite',
 }
 
 export const PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS: TabsProps['tabs'] = [
@@ -26,12 +22,8 @@ export const PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS: TabsProps['
     title: 'خدمات الکترونیک'
   },
   {
-    id: PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE_MAX_AMOUNT,
-    title: 'مراجعات حضوری بیشترین مبلغ'
-  },
-  {
-    id: PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE_MAX_COUNT,
-    title: 'مراجعات حضوری بیشترین تعداد'
+    id: PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE,
+    title: 'مراجعات حضوری'
   },
 ]
 
@@ -39,14 +31,9 @@ export const PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_RENDER_OBJECT = {
   [PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.E_SERVICE]: (
     <PanelTransactionHistoryEService/>
   ),
-  [PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE_MAX_COUNT]: (
-    <TableSuspense fallback={<PanelTransactionHistoryOnSiteMaxCountLoading />}>
-      <PanelTransactionHistoryOnSiteMaxCount/>
-    </TableSuspense>
-  ),
-  [PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE_MAX_AMOUNT]: (
-    <TableSuspense fallback={<PanelTransactionHistoryOnSiteMaxCountLoading />}>
-      <PanelTransactionHistoryOnSiteMaxAmount/>
+  [PANEL_INDIVIDUAL_BANKING_INFO_TRANSACTION_HISTORY_TABS_KEYS.ON_SITE]: (
+    <TableSuspense fallback={<PanelTransactionHistoryOnSiteLoading />}>
+      <PanelTransactionHistoryOnSite/>
     </TableSuspense>
   ),
 }

@@ -1,7 +1,7 @@
 import {
-  PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS,
+  PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS,
 } from "./index.constances.tsx";
-import usePanelTransactionHistoryOnSiteMaxCountRender from "./hooks/usePanelTransactionHistoryOnSiteMaxCountRender.ts";
+import usePanelTransactionHistoryOnSiteRender from "./hooks/usePanelTransactionHistoryOnSiteRender.ts";
 import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
@@ -9,13 +9,13 @@ export type PanelTransactionHistoryOnSiteMaxCountRenderProps = {
   isJoint?: boolean;
 }
 
-function PanelTransactionHistoryOnSiteMaxCountRender(
+function PanelTransactionHistoryOnSite(
   {isJoint}: PanelTransactionHistoryOnSiteMaxCountRenderProps
 ) {
 
   const {
     tableData
-  } = usePanelTransactionHistoryOnSiteMaxCountRender({
+  } = usePanelTransactionHistoryOnSiteRender({
     isJoint
   })
 
@@ -27,10 +27,10 @@ function PanelTransactionHistoryOnSiteMaxCountRender(
       }}
       tableProps={{
         data: tableData,
-        columns: PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_MAX_COUNT_TABLE_COLUMNS
+        columns: PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS
       }}
     />
   );
 }
 
-export default PanelTransactionHistoryOnSiteMaxCountRender;
+export default PanelTransactionHistoryOnSite;

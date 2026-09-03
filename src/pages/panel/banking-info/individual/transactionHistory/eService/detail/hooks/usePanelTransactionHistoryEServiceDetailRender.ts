@@ -11,7 +11,7 @@ import {
   TableDetailAction
 } from "../../../../../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
 import ROUTER_LINKS from "../../../../../../../../constances/routerLinks.ts";
-import type {PanelTransactionHistoryPeriodObjectType} from "../../../onSiteMaxCount/index.types.ts";
+import type {PanelTransactionHistoryPeriodObjectType} from "../../../onSite/index.types.ts";
 import getUrlWithParams from "../../../../../../../../utils/getUrlWithParams.ts";
 import type {
   PanelTransactionHistoryEServiceDetailRenderProps
