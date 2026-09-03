@@ -1,8 +1,8 @@
 export type PanelTransactionHistoryPeriodObjectType = {
   monthName: string;
+  year: string | number;
   fromDate: string | number;
   toDate: string | number;
-  isCurrentMonth: boolean;
 }
 
 export type PanelTransactionHistoryOnSiteItemResponseType = {

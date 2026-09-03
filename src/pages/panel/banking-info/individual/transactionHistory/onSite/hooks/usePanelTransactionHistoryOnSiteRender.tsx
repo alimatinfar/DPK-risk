@@ -72,8 +72,8 @@ function usePanelTransactionHistoryOnSiteRender(
       : fromDate.clone().endOf("jMonth");
 
     return {
-      fromDate: getFormattedMomentJalaliDateTime({date: fromDate, mode: 'jDate'}),
-      toDate: getFormattedMomentJalaliDateTime({date: toDate, mode: 'jDate'}),
+      fromDate: getBodyDataDateField(fromDate),
+      toDate: getBodyDataDateField(toDate),
     };
   };
 
@@ -88,8 +88,8 @@ function usePanelTransactionHistoryOnSiteRender(
         const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_PERIOD_DETAIL
         const periodDateObject: PanelTransactionHistoryPeriodObjectType = {
           monthName: getJalaliMonthName(item.month),
+          year: item?.year,
           ...getMonthDateRange(item?.year, item?.month),
-          isCurrentMonth: index === 0
         }
         const params = {
           [QUERY_PARAMS.PERIOD_DATE_OBJECT]: JSON.stringify(periodDateObject),
