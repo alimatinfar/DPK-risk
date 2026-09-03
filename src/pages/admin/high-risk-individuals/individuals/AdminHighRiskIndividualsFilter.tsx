@@ -5,6 +5,7 @@ import {adminHighRiskIndividualsDefaultFilters} from "./index.constances.ts";
 import NationalCodeField from "../FormFields/NationalCodeField/NationalCodeField.tsx";
 import FirstNameField from "../FormFields/FirstNameField/FirstNameField.tsx";
 import LastNameField from "../FormFields/LastNameField/LastNameField.tsx";
+import RiskListTypeField from "../FormFields/RiskListTypeField/RiskListTypeField.tsx";
 
 function AdminHighRiskIndividualsFilter(
   {filters, setFilters}: Pick<UseFilterReturnProps<AdminHighRiskIndividualsFilterType>, 'filters' | 'setFilters'>
@@ -14,6 +15,8 @@ function AdminHighRiskIndividualsFilter(
       filters={filters} setFilters={setFilters}
       initialFilterData={adminHighRiskIndividualsDefaultFilters}
     >
+      <RiskListTypeField notRequired />
+
       <NationalCodeField removeValidations />
 
       <FirstNameField />

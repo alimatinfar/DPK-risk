@@ -61,40 +61,15 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                       actions={(
                         <>
                           {!item.exitType && (
-                            <>
-                              <Button
-                                onClick={() => setExitPersonModalState(item)}
-                                justIcon variant='default' color='red'
-                              >
-                                <LogoutIcon/>
-                              </Button>
-
-                              {/*<Button*/}
-                              {/*  onClick={() => setEditPersonModalState(item)}*/}
-                              {/*  justIcon variant='default' color='white'*/}
-                              {/*>*/}
-                              {/*  <EditIcon/>*/}
-                              {/*</Button>*/}
-                            </>
+                            <Button
+                              onClick={() => setExitPersonModalState(item)}
+                              justIcon variant='default' color='red'
+                            >
+                              <LogoutIcon/>
+                            </Button>
                           )}
-                          {/*<Button*/}
-                          {/*  onClick={() => setDocListModalState({*/}
-                          {/*    id: item.riskCustomerId, type: MODAL_STATE_TYPE_KEYS.PERSON*/}
-                          {/*  })}*/}
-                          {/*  variant='default' color='white'*/}
-                          {/*>*/}
-                          {/*  لیست مستندات*/}
-                          {/*</Button>*/}
                         </>
                       )}
-                      bottomFields={[{
-                        label: 'دلیل ورود',
-                        value: (
-                          <AdminHighRiskIndividualsEntryReasonsTags
-                            entryReasons={item.entryReasons?.map(item => item?.name)}
-                          />
-                        )
-                      }]}
                     />
 
                     {item?.exitLetter && (

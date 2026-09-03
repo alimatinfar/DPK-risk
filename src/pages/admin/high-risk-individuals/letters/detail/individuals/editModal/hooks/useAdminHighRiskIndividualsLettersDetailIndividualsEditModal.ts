@@ -83,8 +83,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsEditModal(
     if (typeof modalState === 'boolean') return
 
     const defaultValues = {
-      [expireDateFieldName]: modalState.expireDate,
-      [entryReasonsFieldName]: modalState?.entryReasons
+      // [expireDateFieldName]: modalState.expireDate,
+      // [entryReasonsFieldName]: modalState?.entryReasons
     }
 
     setDefaultValuesFromObject({

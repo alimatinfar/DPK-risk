@@ -8,7 +8,7 @@ import type {ReactNode} from "react";
 type Props = {
   fields: DetailInfoSectionLabelValueProps[];
   actions: ReactNode;
-  bottomFields: DetailInfoSectionLabelValueProps[];
+  bottomFields?: DetailInfoSectionLabelValueProps[];
 }
 
 function AdminHighRiskIndividualsFieldsWithActions(
@@ -28,7 +28,7 @@ function AdminHighRiskIndividualsFieldsWithActions(
         </div>
       </div>
 
-      {bottomFields.map((field, fieldIndex) => (
+      {bottomFields?.map((field, fieldIndex) => (
         <DetailInfoSectionLabelValue key={fieldIndex} {...field}/>
       ))}
     </div>

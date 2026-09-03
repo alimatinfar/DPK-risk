@@ -20,7 +20,8 @@ import {useWatch} from "react-hook-form";
 function useAdminHighRiskFormStep4Prev() {
 
   const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
-  const individualsExtraData = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
+  // const individualsExtraData: any = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
+  const individualsExtraData: any = undefined
 
   const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
 
@@ -29,7 +30,7 @@ function useAdminHighRiskFormStep4Prev() {
   const [activePerson, setActivePerson] = useState<ResultPersonCardDataType['customerId'] | undefined>(individuals?.[0]?.[customerIdFieldName])
 
   const getActiveExtraDataItem = useCallback(function () {
-    return individualsExtraData?.find(item => item?.[customerIdFieldName] === activePerson)
+    return individualsExtraData?.find((item: any) => item?.[customerIdFieldName] === activePerson)
   }, [activePerson, individualsExtraData])
 
   const documentsList = getActiveExtraDataItem()?.documentsList || []
@@ -55,21 +56,21 @@ function useAdminHighRiskFormStep4Prev() {
   }, [formValues]);
 
   function setFormForCurrentPersonHandler(data: Partial<AdminHighRiskIndividualsFormStep4PrevPersonDataType>) {
-    setFormData({
-      step4: {
-        individualsExtraData: individualsExtraData?.map(item => {
-          if (item?.[customerIdFieldName] === activePerson) {
-            console.log({data})
-            return {
-              ...item,
-              ...data
-            }
-          } else {
-            return item
-          }
-        })
-      }
-    })
+    // setFormData({
+    //   step4: {
+    //     individualsExtraData: individualsExtraData?.map(item => {
+    //       if (item?.[customerIdFieldName] === activePerson) {
+    //         console.log({data})
+    //         return {
+    //           ...item,
+    //           ...data
+    //         }
+    //       } else {
+    //         return item
+    //       }
+    //     })
+    //   }
+    // })
   }
 
   function onSubmitHandler(formData: AdminHighRiskIndividualsFormStep4PrevType) {
@@ -78,7 +79,7 @@ function useAdminHighRiskFormStep4Prev() {
     if (documentsList?.length === 0)
       return toastPromise().then(toast => toast.error('حداقل یک سند اضافه کنید'))
 
-    if (!individualsExtraData?.every(item => checkExtraDataIsCompleted(item)))
+    if (!individualsExtraData?.every((item: any) => checkExtraDataIsCompleted(item)))
       return toastPromise().then(toast => toast.error('اطلاعات همه افراد به طور کامل وارد نشده است'))
 
     setCurrentStep(5)

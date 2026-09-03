@@ -35,7 +35,7 @@ function AdminHighRiskIndividualsCards(
                 return (
                   <AdminHighRiskIndividualsCardElement
                     data={visibleItem as ResultPersonCardDataType}
-                    documentsNumbers={3} lettersNumbers={5}
+                    // documentsNumbers={3} lettersNumbers={5}
                   />
                 )
               })}

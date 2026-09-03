@@ -3,6 +3,11 @@ import {announceReferenceFieldName} from "../../FormFields/AnnouncingReferenceFi
 import {descriptionFieldName} from "../../FormFields/DescriptionField/index.constances.ts";
 import {letterDateFieldName} from "../../FormFields/LetterDateField/index.constances.ts";
 import {letterNumberFieldName} from "../../FormFields/LetterNumberField/index.constances.ts";
+import {
+  riskListTypeFieldName,
+  type RiskListTypeFieldType
+} from "../../FormFields/RiskListTypeField/index.constances.ts";
+import {expireDateFieldName, type ExpireDateFieldType} from "../../FormFields/ExpireDateField/index.constances.ts";
 
 export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA: AdminHighRiskIndividualsFormDataType = {
   formIsDirty: false,
@@ -11,7 +16,9 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA: AdminHighRiskIndivid
     [announceReferenceFieldName]: '',
     [descriptionFieldName]: '',
     [letterDateFieldName]: '',
-    [letterNumberFieldName]: ''
+    [letterNumberFieldName]: '',
+    [riskListTypeFieldName]: '',
+    [expireDateFieldName]: undefined,
   },
   step2: {
     documentsList: []
@@ -19,7 +26,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA: AdminHighRiskIndivid
   step3: {
     individuals: []
   },
-  step4: {
-    individualsExtraData: []
-  }
+  // step4: {
+  //   individualsExtraData: []
+  // }
 }

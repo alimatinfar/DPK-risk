@@ -22,8 +22,6 @@ export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<
   riskCustomerId: string | number;
   name: string;
   nationalCode: string;
-  expireDate: Moment;
-  entryReasons: SelectOptionType[];
   exitType?: ExitPersonFromLetterType
   exitLetter?: {
     id: string | number;

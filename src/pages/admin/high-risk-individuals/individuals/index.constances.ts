@@ -39,11 +39,13 @@ import {
 import {
   customerNumberFieldLabel,
 } from "../../../search/form/formFields/CustomerNumberField/CustomerNumberField.constances.ts";
+import {riskListTypeFieldName} from "../FormFields/RiskListTypeField/index.constances.ts";
 
 export const adminHighRiskIndividualsDefaultFilters: AdminHighRiskIndividualsFilterType = {
   [nationalCodeFieldName]: '',
   [firstNameFieldName]: '',
   [lastNameFieldName]: '',
+  [riskListTypeFieldName]: '',
 }
 
 export const FAKE_DATA: ResultPersonCardDataType[] = [

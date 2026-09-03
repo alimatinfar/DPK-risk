@@ -16,14 +16,15 @@ function AdminHighRiskFormStep4PrevIndividuals(
 ) {
 
   const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
-  const individualsExtraData = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
+  // const individualsExtraData = useAdminHighRiskIndividualsFormStore(state => state.formData.step4.individualsExtraData)
+  const individualsExtraData: any = undefined
 
   return (
     <div className='flex flex-col border-l border-gray-200 w-62.5'>
       {individuals.map((individual, index) => {
 
         const customerId = individual?.[customerIdFieldName]
-        const extraData = individualsExtraData?.find(item => {
+        const extraData = individualsExtraData?.find((item: any) => {
           return item?.[customerIdFieldName] === customerId
         })
         const Icon = getPersonTypeItem(individual?.type)?.icon

@@ -23,9 +23,6 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsCategories() {
       {
         label: 'کد ملی', value: item.nationalCode
       },
-      {
-        label: 'تاریخ اعتبار', value: getFormattedMomentJalaliDateTime({date: item.expireDate, mode: 'jDate'})
-      },
     ]
   }
 
