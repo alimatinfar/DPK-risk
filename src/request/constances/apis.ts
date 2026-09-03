@@ -52,6 +52,9 @@ const APIS = {
   BANK_INFO_GET_ACCOUNT_TURNOVER: 'BankInfo/GetAccountTurnover',
   BANK_INFO_GET_SPECIAL_CONDITIONS_ACCOUNTS: 'BankInfo/GetSpecialConditionsAccounts',
   BANK_INFO_GET_SPECIAL_CONDITIONS_CARDS: 'BankInfo/GetSpecialConditionsCards',
+  BANK_INFO_GET_MAX_TRANSACTION_HISTORY: 'ExternalService/GetMaxTransactionHistory',
+  BANK_INFO_GET_MAX_COUNT_TRANSACTION_HISTORY_BRANCH_INFO: 'ExternalService/GetMaxCountTransactionHistoryBranchInfo',
+  BANK_INFO_GET_MAX_AMOUNT_TRANSACTION_HISTORY_BRANCH_INFO: 'ExternalService/GetMaxAmountTransactionHistoryBranchInfo',
 
   //authentication
   GET_TOKEN_DATA: 'Account/GetTokenData',

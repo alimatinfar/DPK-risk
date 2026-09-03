@@ -14,7 +14,7 @@ function PanelTransactionHistoryOnSite(
 ) {
 
   const {
-    tableData
+    tableData, isFetching, error
   } = usePanelTransactionHistoryOnSiteRender({
     isJoint
   })
@@ -22,8 +22,8 @@ function PanelTransactionHistoryOnSite(
   return (
     <TableRenderLogic
       renderLogicProps={{
-        error: null,
-        isLoading: false
+        error,
+        isLoading: isFetching
       }}
       tableProps={{
         data: tableData,
