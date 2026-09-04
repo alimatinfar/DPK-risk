@@ -25,7 +25,7 @@ function AdminInquiryHistoriesFilter(
       filters={filters} setFilters={setFilters}
       initialFilterData={adminInquiryHistoriesDefaultFilters}
     >
-      <InquiryNumberField />
+      {/*<InquiryNumberField />*/}
 
       <AnnouncingReferenceField customLabel='مرجع درخواست کننده' />
 
@@ -37,11 +37,11 @@ function AdminInquiryHistoriesFilter(
 
       <NationalCodeField removeValidations />
 
+      <ResponseSubmissionStatusField />
+
       <LetterFromDateField />
 
       <LetterToDateField />
-
-      <ResponseSubmissionStatusField />
     </FilterForm>
   );
 }

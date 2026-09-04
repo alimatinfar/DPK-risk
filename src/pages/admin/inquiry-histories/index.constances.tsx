@@ -34,10 +34,10 @@ export const ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS = {
 } as const;
 
 export const ADMIN_INQUIRY_HISTORIES_COLUMNS: TableColumnType[] = [
-  {
-    label: 'شماره استعلام',
-    accessor: ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.INQUIRY_NUMBER,
-  },
+  // {
+  //   label: 'شماره استعلام',
+  //   accessor: ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.INQUIRY_NUMBER,
+  // },
   {
     label: 'مرجع درخواست کننده',
     accessor: ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER,
