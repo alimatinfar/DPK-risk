@@ -1,9 +1,9 @@
 import type {IconPropsType} from "./IconPropsType.ts";
 
-function EditIcon({textColor, className}: IconPropsType) {
+function EditIcon({textColor, className, height, width}: IconPropsType) {
   return (
     <svg
-      width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+      width={width || "20"} height={height || "20"} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
       {...className && {className}}
     >
       <path

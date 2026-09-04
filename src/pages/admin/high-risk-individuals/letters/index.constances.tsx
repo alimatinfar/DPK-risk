@@ -1,22 +1,18 @@
 import type {TableColumnType} from "../../../../components/others/Table/TableExports.ts";
 import ACTIONS_COLUMN from "../../../../components/others/Table/constances/actions/actionsColumn.ts";
 import type {AdminHighRiskIndividualsLettersFilterType} from "./index.types.ts";
-import type {FilterType} from "../../../../components/Form/FilterForm/index.types.ts";
 import {
   letterNumberFieldLabel,
   letterNumberFieldName,
-  type LetterNumberFieldType
 } from "../FormFields/LetterNumberField/index.constances.ts";
 import {
   announceReferenceFieldLabel,
   announceReferenceFieldName,
-  type AnnounceReferenceFieldType
 } from "../FormFields/AnnouncingReferenceField/index.constances.ts";
 import {
   letterFromDateFieldName,
-  type LetterFromDateFieldType
 } from "../FormFields/LetterFromDateField/index.constances.ts";
-import {letterToDateFieldName, type LetterToDateFieldType} from "../FormFields/LetterToDateField/index.constances.ts";
+import {letterToDateFieldName} from "../FormFields/LetterToDateField/index.constances.ts";
 import {riskListTypeFieldLabel, riskListTypeFieldName} from "../FormFields/RiskListTypeField/index.constances.ts";
 import {letterDateFieldLabel} from "../FormFields/LetterDateField/index.constances.ts";
 

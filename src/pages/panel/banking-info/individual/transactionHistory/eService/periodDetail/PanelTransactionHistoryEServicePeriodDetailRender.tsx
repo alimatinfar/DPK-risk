@@ -16,13 +16,13 @@ function PanelTransactionHistoryEServicePeriodDetailRender() {
   const eServiceLabel = useGetQueryParam(QUERY_PARAMS.NAME)
 
   const {
-    isCurrentMonth, monthName
+    monthName, year
   } = useGetTransactionHistoryPeriodDateObject()
 
   return (
     <div className='flex flex-col gap-y-4'>
       <PanelPageTitle
-        title={`تراکنش های ${eServiceLabel} ${`${monthName}${isCurrentMonth ? ' (ماه جاری)' : ''}`}`} hasBack
+        title={`تراکنش های ${eServiceLabel} ${`${monthName} ${year}`}`} hasBack
       />
 
       <Card>
