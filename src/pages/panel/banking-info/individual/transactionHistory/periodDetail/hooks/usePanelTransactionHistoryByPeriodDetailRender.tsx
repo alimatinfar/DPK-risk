@@ -49,8 +49,8 @@ function usePanelTransactionHistoryByPeriodDetailRender(
   const navigate = useNavigate()
 
   const tableData = useMemo(function () {
-    const finalData = PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_FAKE_DATA
-    // const finalData = data?.data
+    // const finalData = PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_FAKE_DATA
+    const finalData = data?.data
     if (!finalData) return []
 
     return finalData?.map((item, index) => ({
@@ -85,7 +85,7 @@ function usePanelTransactionHistoryByPeriodDetailRender(
   }, [data])
 
   return {
-    monthName, year, tableData, isFetching, error: undefined, isMaxCount
+    monthName, year, tableData, isFetching, error, isMaxCount
   }
 }
 

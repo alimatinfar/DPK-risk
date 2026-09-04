@@ -81,8 +81,8 @@ function usePanelTransactionHistoryOnSiteRender(
   }
 
   const tableData = useMemo(function () {
-    // const finalData = data?.data
-    const finalData = PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_FAKE_DATA
+    const finalData = data?.data
+    // const finalData = PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_FAKE_DATA
     if (!finalData) return []
 
     return finalData?.map((item, index) => {
@@ -131,7 +131,7 @@ function usePanelTransactionHistoryOnSiteRender(
   }, [data])
 
   return {
-    tableData, isFetching, error: undefined
+    tableData, isFetching, error
   }
 }
 
