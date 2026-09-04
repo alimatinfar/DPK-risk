@@ -2,6 +2,27 @@ import type {TableColumnType} from "../../../components/others/Table/TableExport
 import ACTIONS_COLUMN from "../../../components/others/Table/constances/actions/actionsColumn.ts";
 import Tag from "../../../components/others/Tag/Tag.tsx";
 import type {AdminInquiryHistoriesFilterType} from "./index.types.ts";
+import {inquiryNumberFieldName} from "./FormFields/InquiryNumberField/index.constances.ts";
+import {
+  announceReferenceFieldName,
+} from "../high-risk-individuals/FormFields/AnnouncingReferenceField/index.constances.ts";
+import {
+  letterNumberFieldName,
+} from "../high-risk-individuals/FormFields/LetterNumberField/index.constances.ts";
+import {requestReasonFieldName} from "./FormFields/RequestReasonField/index.constances.ts";
+import {customerNameFieldName} from "./FormFields/CustomerNameField/index.constances.ts";
+import {
+  nationalCodeFieldName,
+} from "../high-risk-individuals/FormFields/NationalCodeField/index.constances.ts";
+import {
+  letterFromDateFieldName,
+} from "../high-risk-individuals/FormFields/LetterFromDateField/index.constances.ts";
+import {
+  letterToDateFieldName,
+} from "../high-risk-individuals/FormFields/LetterToDateField/index.constances.ts";
+import {
+  responseSubmissionStatusFieldName,
+} from "./FormFields/ResponseSubmissionStatusField/index.constances.ts";
 
 export const ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS = {
   INQUIRY_NUMBER: 'inquiryNumber',
@@ -41,7 +62,15 @@ export const ADMIN_INQUIRY_HISTORIES_COLUMNS: TableColumnType[] = [
 ];
 
 export const adminInquiryHistoriesDefaultFilters: AdminInquiryHistoriesFilterType = {
-
+  [inquiryNumberFieldName]: '',
+  [announceReferenceFieldName]: '',
+  [letterNumberFieldName]: '',
+  [requestReasonFieldName]: '',
+  [customerNameFieldName]: '',
+  [nationalCodeFieldName]: '',
+  [letterFromDateFieldName]: '',
+  [letterToDateFieldName]: '',
+  [responseSubmissionStatusFieldName]: '',
 }
 
 export const ADMIN_INQUIRY_HISTORIES_FAKE_DATA = [
