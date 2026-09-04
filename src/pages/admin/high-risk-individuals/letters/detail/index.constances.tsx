@@ -20,7 +20,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS: TabsProps['tabs'] 
   },
   {
     id: ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.INDIVIDUALS,
-    title: 'افراد اضافه شده'
+    title: 'اشخاص'
   },
 ]
 

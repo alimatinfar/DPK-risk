@@ -7,10 +7,22 @@ import {
 } from "../../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
 import getFormattedMomentJalaliDateTime
   from "../../../../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
+import {
+  legalRegistrationNumberFieldLabel
+} from "../../../../../../search/form/formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
+import {
+  comprehensiveForeignNationalsIdFieldLabel
+} from "../../../../../../search/form/formFields/foreignCitizen/ComprehensiveForeignNationalsIdField/ComprehensiveForeignNationalsIdField.constances.ts";
+import {
+  nationalCodeFieldLabel
+} from "../../../../../../search/form/formFields/natural/NationalCodeField/NationalCodeField.constances.ts";
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsCategories() {
 
   function getFields(item: AdminHighRiskIndividualsLettersDetailIndividualsDataItemType) {
+    const isLegal = item.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name
+    const isForeignCitizen = item.type === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name
+
     return [
       {
         label: 'نام', value: item.name
@@ -21,7 +33,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsCategories() {
         label: 'نام خانوادگی', value: item?.lastName
       }],
       {
-        label: 'کد ملی', value: item.nationalCode
+        label: isLegal ? legalRegistrationNumberFieldLabel : isForeignCitizen ? comprehensiveForeignNationalsIdFieldLabel : nationalCodeFieldLabel,
+        value: item.nationalCode
       },
     ]
   }
