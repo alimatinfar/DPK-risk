@@ -20,12 +20,12 @@ export type UploadBoxProps = {
 } &
   Pick<InputFormPropsType, 'fieldName' | 'rules' | 'defaultValue'> &
   Pick<UseFileDataCardProps, 'fileTypes' | 'maxFileSize'> &
-  Pick<InputProps, 'errorMessage'>
+  Pick<InputProps, 'errorMessage' | 'hiddenErrorMessage'>
 
 function UploadBox(
   {
     hint, accept, title, description, bgClass, fieldName, rules, defaultValue,
-    fileTypes, maxFileSize, errorMessage, fileCardClass, uploadBoxClass
+    fileTypes, maxFileSize, errorMessage, fileCardClass, uploadBoxClass, hiddenErrorMessage
   }: UploadBoxProps
 ) {
 
@@ -43,18 +43,22 @@ function UploadBox(
 
   const uploadBoxElement = (
     <div className={`
-      relative border border-dashed rounded-md flex flex-col items-center space-y-2 py-4 px-8
+      relative border border-dashed rounded-md flex flex-col items-center gap-y-2 py-4 px-8
       ${bgClass || 'bg-gray-50'} ${uploadBoxClass || ''} ${errorMessage ? 'border-red-500' : 'border-gray-300'}
     `}>
       <UploadIcon/>
 
-      <div className='flex flex-col items-center space-y-1 text-gray-900'>
+      <div className='flex flex-col items-center gap-y-2 text-gray-900'>
         <p className='font-bold'>
           {title || 'بارگذاری فایل'}
         </p>
 
         <p className='text-sm text-center'>
-          {description || 'برای بارگذاری اینجا کلیک کنید یا فایل را اینجا بکشید'}
+          {description || (
+            <>
+              برای بارگذاری <span className='text-accent-saderat'>اینجا</span> کلیک کنید یا فایل را اینجا بکشید
+            </>
+          )}
         </p>
       </div>
 
@@ -91,7 +95,9 @@ function UploadBox(
         </div>
       ) : uploadBoxElement}
 
-      <InputErrorMessage errorMessage={errorMessage || ''} />
+      {!hiddenErrorMessage && (
+        <InputErrorMessage errorMessage={errorMessage || ''} />
+      )}
     </>
   )
 }

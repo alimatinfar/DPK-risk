@@ -10,6 +10,7 @@ import AdminHighRiskFormStep3FoundedIndividuals from "./AdminHighRiskFormStep3Fo
 import AdminHighRiskFormStep3SelectedIndividuals from "./AdminHighRiskFormStep3SelectedIndividuals";
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
 import { lazy } from "react";
+import AdminHighRiskFormStep3FileUpload from "./AdminHighRiskFormStep3FileUpload.tsx";
 
 const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighRiskFormStep3DuplicateUserModal"));
 
@@ -27,6 +28,8 @@ function AdminHighRiskFormStep3() {
     <>
       <div className='flex flex-col gap-y-4'>
         <Card className='flex flex-col gap-y-4'>
+          <AdminHighRiskFormStep3FileUpload />
+
           <Tab
             tabs={ADMIN_HIGH_RISK_INDIVIDUALS_FORM_STEP3_TABS}
             activeTab={activeTab} onChange={setActiveTab}
