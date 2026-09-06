@@ -9,6 +9,7 @@ const APIS = {
   GET_LETTER_REFERENCES: 'PrimaryInformation/GetLetterRef',
   GET_LETTER_DOCUMENTS: 'PrimaryInformation/GetDocumentType',
   GET_LETTER_REASONS: 'PrimaryInformation/GetRiskReson',
+  GET_RISK_LIST_TYPES: 'PrimaryInformation/GetRiskListType',
 
   //comprehensive-info
   GET_NATURAL_CUSTOMER_INFO: 'Customer/GetCustomerInfo',

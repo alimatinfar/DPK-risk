@@ -19,6 +19,7 @@ import type {AdminHighRiskIndividualsLettersTableProps} from "../AdminHighRiskIn
 import QUERY_PARAMS from "../../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../../utils/getUrlWithParams.ts";
 import getCleanBodyDataObject from "../../../../../request/utils/getCleanBodyDataObject.ts";
+import {riskListTypeFieldName} from "../../FormFields/RiskListTypeField/index.constances.ts";
 
 function useAdminHighRiskIndividualsLettersTable(
   {filters}: Pick<AdminHighRiskIndividualsLettersTableProps, 'filters'>
@@ -37,7 +38,9 @@ function useAdminHighRiskIndividualsLettersTable(
         LetterRef: getSelectIdValue(filtersData?.[announceReferenceFieldName]),
         FromDate: getBodyDataDateField(filtersData?.[letterFromDateFieldName]),
         ToDate: getBodyDataDateField(filtersData?.[letterToDateFieldName]),
-        //TODO added risk list type filter
+        RiskListType: getSelectIdValue(filtersData?.[riskListTypeFieldName]),
+        "Pagination.PageNumber": filters?.currentPage,
+        "Pagination.PageSize": filters?.rowsPerPage,
       })
     }
   })
@@ -52,8 +55,7 @@ function useAdminHighRiskIndividualsLettersTable(
       [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LETTER_NUMBER]: item?.letterNo,
       [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.ANNOUNCER_REFERENCE]: item?.letterRefTitle,
       [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LETTER_DATE]: displayDate(item.letterDate),
-      //TODO get list type from response
-      [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LIST_TYPE]: '',
+      [ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS_KEYS.LIST_TYPE]: item.riskListTypeTitle,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
           const url = ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL(item.id)
@@ -67,7 +69,7 @@ function useAdminHighRiskIndividualsLettersTable(
   }, [data?.data, navigate])
 
   return {
-    error, isFetching, tableData
+    error, isFetching, tableData, totalLength: data?.totalCount || 0
   }
 }
 

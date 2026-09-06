@@ -52,7 +52,7 @@ function useFilter<T extends object>(
   }
   
   return {
-    setRowsPerPage, setCurrentPage, filters, setFilters, filtersIsDefault,
+    setRowsPerPage, setCurrentPage, filters, setFilters, filtersIsDefault
   }
 }
 

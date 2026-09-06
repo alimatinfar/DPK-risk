@@ -27,7 +27,8 @@ function AdminHighRiskIndividualsPage() {
   })
 
   const {
-    filters: lettersFilters, setFilters: setLettersFilters
+    filters: lettersFilters, setFilters: setLettersFilters,
+    setCurrentPage: setLettersCurrentPage, setRowsPerPage: setLettersRowsPerPage
   } = useFilter({
     defaultFilterFormData: adminHighRiskIndividualsLettersDefaultFilters,
     customFilterQueryParam: `${QUERY_PARAMS.FILTERS}-letters`
@@ -36,6 +37,9 @@ function AdminHighRiskIndividualsPage() {
   const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.INDIVIDUALS)
   const isLettersTab = activeTab === ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS
   const currentFilters = isLettersTab ? lettersFilters : individualsFilters
+  const currentSetFilters = isLettersTab ? setLettersFilters : setIndividualsFilters
+  const currentSetPage = setLettersCurrentPage
+  const currentSetRowsPerPage = setLettersRowsPerPage
 
   return (
     <div className='flex flex-col gap-y-4'>
@@ -59,7 +63,7 @@ function AdminHighRiskIndividualsPage() {
           <TabContentRender
             renderObject={ADMIN_HIGH_RISK_INDIVIDUALS_FILTERS_TABS_RENDER_OBJECT({
               filters: currentFilters,
-              setFilters: isLettersTab ? setLettersFilters : setIndividualsFilters
+              setFilters: currentSetFilters
             })}
             activeTab={activeTab}
           />
@@ -68,6 +72,8 @@ function AdminHighRiskIndividualsPage() {
         <TabContentRender
           renderObject={ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT({
             filters: currentFilters,
+            setCurrentPage: currentSetPage,
+            setRowsPerPage: currentSetRowsPerPage
           })}
           activeTab={activeTab}
         />

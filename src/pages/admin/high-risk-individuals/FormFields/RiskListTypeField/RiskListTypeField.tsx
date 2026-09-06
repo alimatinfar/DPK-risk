@@ -4,7 +4,8 @@ import useGetRequiredErrorMessage
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetRequiredErrorMessage.ts";
 import SelectForm from "../../../../../components/Form/Select/SelectForm.tsx";
 import React from "react";
-import {RISK_LIST_OPTIONS, riskListTypeFieldLabel, riskListTypeFieldName} from "./index.constances.ts";
+import {riskListTypeFieldLabel, riskListTypeFieldName} from "./index.constances.ts";
+import APIS from "../../../../../request/constances/apis.ts";
 
 
 type Props = {
@@ -27,9 +28,7 @@ function RiskListTypeField(
         label: riskListTypeFieldLabel,
       }}
       selectProps={{
-        // TODO should get from api
-        // apiAddress: APIS.GET_LETTER_DOCUMENTS,
-        options: RISK_LIST_OPTIONS
+        apiAddress: APIS.GET_RISK_LIST_TYPES,
       }}
       rules={notRequired ? {} : {
         required: requiredErrorMessage,

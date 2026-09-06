@@ -19,12 +19,17 @@ export type AdminHighRiskIndividualsLettersFilterType = {
 }
 
 export type AdminHighRiskIndividualsLettersResponseItemType = {
+  baseRiskLetterId: number;
+  description: string;
+  documents: [];
   id: number;
+  isOut: boolean;
+  isOutValidityDate: boolean;
+  letterDate: number;
+  letterNo: string;
   letterRef: number;
   letterRefTitle: string;
-  letterNo: string;
-  letterDate: number;
-  description: string;
-  documents: any[];
-  isOut: boolean;
+  riskListType: number;
+  riskListTypeTitle: string;
+  validityDate: number;
 }

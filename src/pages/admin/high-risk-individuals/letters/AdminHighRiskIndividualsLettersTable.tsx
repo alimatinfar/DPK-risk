@@ -6,14 +6,14 @@ import type {UseFilterReturnProps} from "../../../../components/Form/FilterForm/
 import useAdminHighRiskIndividualsLettersTable from "./hooks/useAdminHighRiskIndividualsLettersTable.ts";
 
 
-export type AdminHighRiskIndividualsLettersTableProps = Pick<UseFilterReturnProps<any>, 'filters'>
+export type AdminHighRiskIndividualsLettersTableProps = Pick<UseFilterReturnProps<any>, 'filters' | 'setCurrentPage' | 'setRowsPerPage'>
 
 function AdminHighRiskIndividualsLettersTable(
-  {filters}: AdminHighRiskIndividualsLettersTableProps
+  {filters, setCurrentPage, setRowsPerPage}: AdminHighRiskIndividualsLettersTableProps
 ) {
 
   const {
-    error, isFetching, tableData
+    error, isFetching, tableData, totalLength
   } = useAdminHighRiskIndividualsLettersTable({
     filters
   })
@@ -27,6 +27,13 @@ function AdminHighRiskIndividualsLettersTable(
       tableProps={{
         data: tableData,
         columns: ADMIN_HIGH_RISK_INDIVIDUAL_LETTERS_TABLE_COLUMNS
+      }}
+      paginationProps={{
+        totalLength,
+        currentPage: filters.currentPage,
+        rowsPerPage: filters.rowsPerPage,
+        onPageChange: setCurrentPage,
+        onRowsPerPageChange: setRowsPerPage
       }}
     />
   );

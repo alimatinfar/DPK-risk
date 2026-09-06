@@ -46,7 +46,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_FILTERS_TABS_RENDER_OBJECT = (props: Pi
   ),
 })
 
-export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT = (props: Pick<UseFilterReturnProps<any>, 'filters'>) => ({
+export const ADMIN_HIGH_RISK_INDIVIDUALS_TABS_RENDER_OBJECT = (props: Pick<UseFilterReturnProps<any>, 'filters' | 'setCurrentPage' | 'setRowsPerPage'>) => ({
   [ADMIN_HIGH_RISK_INDIVIDUALS_TABS_KEYS.LETTERS]: (
     <TableSuspense fallback={<AdminHighRiskIndividualsLettersTableLoading/>}>
       <AdminHighRiskIndividualsLettersTable {...props} />
