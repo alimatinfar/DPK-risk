@@ -9,14 +9,19 @@ import {
 } from "../../FormFields/RiskListTypeField/index.constances.ts";
 import {expireDateFieldName, type ExpireDateFieldType} from "../../FormFields/ExpireDateField/index.constances.ts";
 
+
+export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA_STEP1_SHARE = {
+  [announceReferenceFieldName]: '',
+  [descriptionFieldName]: '',
+  [letterDateFieldName]: '',
+  [letterNumberFieldName]: '',
+} as const
+
 export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA: AdminHighRiskIndividualsFormDataType = {
   formIsDirty: false,
   currentStep: 1,
   step1: {
-    [announceReferenceFieldName]: '',
-    [descriptionFieldName]: '',
-    [letterDateFieldName]: '',
-    [letterNumberFieldName]: '',
+    ...ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA_STEP1_SHARE,
     [riskListTypeFieldName]: '',
     [expireDateFieldName]: undefined,
   },
