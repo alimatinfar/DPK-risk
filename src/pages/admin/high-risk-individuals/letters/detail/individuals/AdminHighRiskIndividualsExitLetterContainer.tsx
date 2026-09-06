@@ -22,7 +22,7 @@ function AdminHighRiskIndividualsExitLetterContainer(
   return exitType ? (
     <div className='flex flex-col border border-red-300 rounded-lg overflow-hidden'>
       <div className='text-center text-red-500 font-semibold p-2.5 bg-red-50'>
-        {`حذف با ${EXIT_PERSON_FROM_LETTER_KEYS_LABEL[exitType]}`}
+        {`خروج با ${EXIT_PERSON_FROM_LETTER_KEYS_LABEL[exitType]}`}
       </div>
 
       {childrenRender}
