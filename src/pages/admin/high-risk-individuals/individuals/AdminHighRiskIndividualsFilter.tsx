@@ -7,6 +7,7 @@ import RiskListTypeField from "../FormFields/RiskListTypeField/RiskListTypeField
 import NationalCodeField from "../FormFields/NationalCodeField/NationalCodeField.tsx";
 import FirstNameField from "../FormFields/FirstNameField/FirstNameField.tsx";
 import LastNameField from "../FormFields/LastNameField/LastNameField.tsx";
+import SearchFormWrapper from "../../../../components/Form/FormLayout/SearchFormWrapper.tsx";
 
 function AdminHighRiskIndividualsFilter(
   {filters, setFilters}: Pick<UseFilterReturnProps<AdminHighRiskIndividualsFilterType>, 'filters' | 'setFilters'>
@@ -19,9 +20,9 @@ function AdminHighRiskIndividualsFilter(
   })
 
   return (
-    <ReactHookFormWrapper
+    <SearchFormWrapper
       formMethods={formMethods} onSubmit={onSubmit}
-      >
+    >
       <RiskListTypeField notRequired />
 
       <NationalCodeField removeValidations />
@@ -29,7 +30,7 @@ function AdminHighRiskIndividualsFilter(
       <FirstNameField />
 
       <LastNameField />
-    </ReactHookFormWrapper>
+    </SearchFormWrapper>
   );
 }
 
