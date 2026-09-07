@@ -55,8 +55,8 @@ function usePanelTransactionHistoryEServiceDetailRender(
   })
 
   const tableData = useMemo(function () {
-    // const finalData = data?.data
-    const finalData = PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_FAKE_DATA
+    const finalData = data?.data
+    // const finalData = PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_FAKE_DATA
     if (!finalData) return []
 
     return finalData?.map((item, index) => ({
@@ -68,7 +68,7 @@ function usePanelTransactionHistoryEServiceDetailRender(
       [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.BALANCE]: withSeparator(item?.totalCreditTotalDebit),
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL(String(eServiceId), String(item.id)) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL(String(eServiceId), String(item.id))
+          const url = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL(String(eServiceId), String(index)) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_PERIOD_DETAIL(String(eServiceId), String(index))
           const periodDateObject: PanelTransactionHistoryPeriodObjectType = {
             monthName: getJalaliMonthName(item.month),
             year: item?.year,
@@ -85,7 +85,7 @@ function usePanelTransactionHistoryEServiceDetailRender(
   }, [data])
 
   return {
-    eServiceLabel, tableData, isFetching, error: undefined
+    eServiceLabel, tableData, isFetching, error
   }
 }
 
