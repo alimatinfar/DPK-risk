@@ -15,7 +15,7 @@ function PanelTransactionHistoryEServiceDetailRender(
 ) {
 
   const {
-    eServiceLabel, tableData
+    eServiceLabel, tableData, isFetching, error
   } = usePanelTransactionHistoryEServiceDetailRender({
     isJoint
   })
@@ -29,8 +29,8 @@ function PanelTransactionHistoryEServiceDetailRender(
       <Card>
         <TableRenderLogic
           renderLogicProps={{
-            error: null,
-            isLoading: false
+            error,
+            isLoading: isFetching
           }}
           tableProps={{
             data: tableData,

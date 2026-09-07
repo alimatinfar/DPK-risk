@@ -4,26 +4,16 @@ import getLast13Months from "../../../../../../../utils/dateAndTIme/momentJalali
 
 export const PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS = {
   MONTH: 'month',
-  TRANSACTION_COUNT: 'transactionCount',
-  TOTAL_CREDITOR: 'totalCreditor',
-  TOTAL_DEBTOR: 'totalDebtor',
-  BALANCE: 'balance',
-  FROM_DATE: 'fromDate',
-  TO_DATE: 'toDate',
+  TRANSACTION_COUNT: 'totalCount',
+  TOTAL_CREDITOR: 'totalCredit',
+  TOTAL_DEBTOR: 'totalDebit',
+  BALANCE: 'totalCreditTotalDebit',
 } as const;
 
 export const PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS: TableColumnType[] = [
   {
     label: 'بازه زمانی مراجعه',
     accessor: PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.MONTH,
-  },
-  {
-    label: 'از تاریخ',
-    accessor: PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.FROM_DATE,
-  },
-  {
-    label: 'تا تاریخ',
-    accessor: PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.TO_DATE,
   },
   {
     label: 'تعداد تراکنش',
@@ -46,9 +36,8 @@ export const PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS: TableColumnType[
 
 export const PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_FAKE_DATA = getLast13Months().map((item, index) => ({
   id: index + 1,
-  [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.MONTH]: item.monthName,
-  [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.FROM_DATE]: item.fromDate,
-  [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.TO_DATE]: item.toDate,
+  year: 1405,
+  [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.MONTH]: 6,
   [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.TRANSACTION_COUNT]: 12,
   [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.TOTAL_CREDITOR]: '850,000,000',
   [PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS_KEYS.TOTAL_DEBTOR]: '420,000,000',

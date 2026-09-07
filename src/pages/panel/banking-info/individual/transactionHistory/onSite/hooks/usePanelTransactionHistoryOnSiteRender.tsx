@@ -29,6 +29,8 @@ import DetailIcon from "../../../../../../../components/svg/DetailIcon.tsx";
 import BankIcon from "../../../../../../../components/svg/BankIcon.tsx";
 import AmountIcon from "../../../../../../../components/svg/AmountIcon.tsx";
 import toEnglishDigit from "../../../../../../../utils/inputOperations/toEnglishDigit.ts";
+import getMonthDateRangeQueryParams from "../../utils/getMonthDateRangeQueryParams.ts";
+import getPrevYearDateRange from "../../utils/getPrevYearDateRange.ts";
 
 
 function usePanelTransactionHistoryOnSiteRender(
@@ -46,39 +48,13 @@ function usePanelTransactionHistoryOnSiteRender(
     axiosConfig: {
       url: APIS.BANK_INFO_GET_MAX_TRANSACTION_HISTORY,
       params: {
-        fromDate: getBodyDataDateField(
-          moment()
-            .startOf("jMonth")
-            .subtract(12, "jMonth")
-        ),
-        toDate: getBodyDataDateField(moment()),
+        ...getPrevYearDateRange(),
         customerId,
       }
     }
   })
 
   const navigate = useNavigate()
-
-  function getMonthDateRange(year: number, month: number){
-    const fromDate = moment(`${year}/${month}/1`, "jYYYY/jM/jD").startOf("day");
-
-    const now = moment();
-
-    const isCurrentMonth =
-      now.jYear() === year &&
-      now.jMonth() + 1 === month;
-
-    const toDate = isCurrentMonth
-      ? now
-      : fromDate.clone().endOf("jMonth");
-
-    const getFormattedValue = (value: Moment) => toEnglishDigit(value.format('jYYYYjMMjDD'))
-
-    return {
-      fromDate: getFormattedValue(fromDate),
-      toDate: getFormattedValue(toDate),
-    };
-  }
 
   const tableData = useMemo(function () {
     const finalData = data?.data
@@ -92,7 +68,7 @@ function usePanelTransactionHistoryOnSiteRender(
         const periodDateObject: PanelTransactionHistoryPeriodObjectType = {
           monthName: getJalaliMonthName(item.month),
           year: item?.year,
-          ...getMonthDateRange(item?.year, item?.month),
+          ...getMonthDateRangeQueryParams(item?.year, item?.month),
         }
 
         const params = {

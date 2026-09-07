@@ -13,57 +13,57 @@ import SilverBibIcon from "../../../../../../components/svg/eServices/SilverBibI
 export const PANEL_TRANSACTION_HISTORY_E_SERVICE_PORTALS = [
   {
     icon: MobileBankIcon,
-    name: '1',
-    label: 'همراه بانک',
+    name: 1,
+    label: 'موبایل بانک',
   },
   {
     icon: InternetBankIcon,
-    name: '2',
+    name: 2,
     label: 'اینترنت بانک',
   },
   {
     icon: SepinoIcon,
-    name: '3',
+    name: 3,
     label: 'سپینو',
   },
   {
     icon: USSDIcon,
-    name: '4',
+    name: 4,
     label: 'ussd',
   },
   {
     icon: PoseIcon,
-    name: '5',
+    name: 5,
     label: 'pose',
   },
   {
-    icon: IPGIcon,
-    name: '6',
-    label: 'ipg',
-  },
-  {
-    icon: BulkDepositIcon,
-    name: '7',
-    label: 'واریز جمعی',
-  },
-  {
     icon: MojIcon,
-    name: '8',
+    name: 6,
     label: 'موج',
   },
   {
     icon: OpenBankingIcon,
-    name: '9',
+    name: 7,
     label: 'بانکداری باز',
   },
   {
-    icon: GoldBibIcon,
-    name: '10',
-    label: 'gold-bib',
+    icon: BulkDepositIcon,
+    name: 8,
+    label: 'واریز جمعی',
   },
-  {
-    icon: SilverBibIcon,
-    name: '11',
-    label: 'silver-bib',
-  },
+  // {
+  //   icon: GoldBibIcon,
+  //   name: 9,
+  //   label: 'gold-silver',
+  // },
+  // {
+  //   icon: SilverBibIcon,
+  //   name: '11',
+  //   label: 'silver-bib',
+  // },
+  // {
+  //   icon: IPGIcon,
+  //   name: '6',
+  //   label: 'ipg',
+  // },
 ]
