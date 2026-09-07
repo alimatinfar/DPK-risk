@@ -1,7 +1,6 @@
 import PanelPageTitle from "../../../../layout/PanelPageTitle.tsx";
 import {
-  PANEL_TRANSACTION_HISTORY_BY_BRANCH_DETAIL_TABLE_COLUMNS,
-  PANEL_TRANSACTION_HISTORY_BY_BRANCH_DETAIL_TABLE_FAKE_DATA
+  PANEL_TRANSACTION_HISTORY_BY_BRANCH_DETAIL_TABLE_COLUMNS
 } from "./ index.constances.tsx";
 import {
   DetailInfoSection2
@@ -14,7 +13,7 @@ import TableRenderLogic from "../../../../../../components/others/RenderLogic/Ta
 function PanelTransactionHistoryByBranchDetailRender() {
 
   const {
-    branchName, infoList
+    branchName, infoList, tableData, isFetching, error
   } = usePanelTransactionHistoryByBranchDetailRender()
 
   return (
@@ -28,11 +27,11 @@ function PanelTransactionHistoryByBranchDetailRender() {
 
         <TableRenderLogic
           renderLogicProps={{
-            error: null,
-            isLoading: false
+            error,
+            isLoading: isFetching
           }}
           tableProps={{
-            data: PANEL_TRANSACTION_HISTORY_BY_BRANCH_DETAIL_TABLE_FAKE_DATA,
+            data: tableData,
             columns: PANEL_TRANSACTION_HISTORY_BY_BRANCH_DETAIL_TABLE_COLUMNS
           }}
         />

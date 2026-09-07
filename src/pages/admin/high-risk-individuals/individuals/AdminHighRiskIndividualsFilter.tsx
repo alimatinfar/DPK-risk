@@ -1,6 +1,5 @@
 import type {AdminHighRiskIndividualsFilterType} from "./index.types.ts";
 import type {UseFilterReturnProps} from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
-import ReactHookFormWrapper from "../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
 import useFilterForm from "../../../../components/Form/FilterForm/hooks/useFilterForm.ts";
 import {adminHighRiskIndividualsDefaultFilters} from "./index.constances.ts";
 import RiskListTypeField from "../FormFields/RiskListTypeField/RiskListTypeField.tsx";

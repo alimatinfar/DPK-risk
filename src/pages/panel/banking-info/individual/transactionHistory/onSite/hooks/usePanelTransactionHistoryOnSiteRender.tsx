@@ -72,7 +72,7 @@ function usePanelTransactionHistoryOnSiteRender(
       ? now
       : fromDate.clone().endOf("jMonth");
 
-    const getFormattedValue = (value: Moment) => toEnglishDigit(value.format('YYYYMMDD'))
+    const getFormattedValue = (value: Moment) => toEnglishDigit(value.format('jYYYYjMMjDD'))
 
     return {
       fromDate: getFormattedValue(fromDate),
@@ -94,7 +94,7 @@ function usePanelTransactionHistoryOnSiteRender(
           year: item?.year,
           ...getMonthDateRange(item?.year, item?.month),
         }
-        console.log({periodDateObject})
+
         const params = {
           [QUERY_PARAMS.PERIOD_DATE_OBJECT]: JSON.stringify(periodDateObject),
           [QUERY_PARAMS.CUSTOMER_ID]: customerId,

@@ -17,7 +17,6 @@ import type {
 import useGetQueryParam from "../../../../../../../hooks/useGetQueryParam.ts";
 import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../../../request/constances/apis.ts";
-import Tag from "../../../../../../../components/others/Tag/Tag.tsx";
 import withSeparator from "../../../../../../../utils/separator/withSeparator.ts";
 
 
@@ -26,11 +25,14 @@ function usePanelTransactionHistoryByPeriodDetailRender(
 ) {
 
   const customerId = useGetQueryParam(QUERY_PARAMS.CUSTOMER_ID)
-  const isMaxCount = useGetQueryParam(QUERY_PARAMS.IS_MAX_COUNT)
+  const isMaxCount = useGetQueryParam(QUERY_PARAMS.IS_MAX_COUNT) === 'true'
 
   const apiUrl = isMaxCount ?
     APIS.BANK_INFO_GET_MAX_COUNT_TRANSACTION_HISTORY_BRANCH_INFO :
     APIS.BANK_INFO_GET_MAX_AMOUNT_TRANSACTION_HISTORY_BRANCH_INFO
+
+  const periodDateObject = useGetTransactionHistoryPeriodDateObject()
+  const {monthName, year, fromDate, toDate} = periodDateObject
 
   const {
     data, isFetching, error
@@ -38,13 +40,12 @@ function usePanelTransactionHistoryByPeriodDetailRender(
     axiosConfig: {
       url: apiUrl,
       params: {
-        customerId
+        customerId,
+        fromDate,
+        toDate
       }
     }
   })
-
-  const periodDateObject = useGetTransactionHistoryPeriodDateObject()
-  const {monthName, year} = periodDateObject
 
   const navigate = useNavigate()
 

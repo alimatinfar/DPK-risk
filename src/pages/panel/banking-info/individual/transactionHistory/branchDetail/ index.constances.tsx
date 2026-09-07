@@ -3,10 +3,10 @@ import type {TableColumnType} from "../../../../../../components/others/Table/Ta
 export const PANEL_TRANSACTION_HISTORY_BY_BRANCH_DETAIL_TABLE_COLUMNS_KEYS = {
   ACCOUNT_NUMBER: 'accountNumber',
   OPERATION_TYPE: 'operationType',
-  CREDITOR_AMOUNT: 'creditorAmount',
-  DEBTOR_AMOUNT: 'debtorAmount',
-  BALANCE: 'balance',
-  PERSONNEL_CODE: 'personnelCode',
+  CREDITOR_AMOUNT: 'totalCredit',
+  DEBTOR_AMOUNT: 'totalDebit',
+  BALANCE: 'totalCreditTotalDebit',
+  PERSONNEL_CODE: 'bankPersonnelCode',
   FIRST_NAME: 'firstName',
   LAST_NAME: 'lastName',
 } as const;

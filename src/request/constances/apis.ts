@@ -56,6 +56,9 @@ const APIS = {
   BANK_INFO_GET_MAX_TRANSACTION_HISTORY: 'ExternalService/GetMaxTransactionHistory',
   BANK_INFO_GET_MAX_COUNT_TRANSACTION_HISTORY_BRANCH_INFO: 'ExternalService/GetMaxCountTransactionHistoryBranchInfo',
   BANK_INFO_GET_MAX_AMOUNT_TRANSACTION_HISTORY_BRANCH_INFO: 'ExternalService/GetMaxAmountTransactionHistoryBranchInfo',
+  BANK_INFO_GET_TRANSACTION_HISTORY_BRANCH_DETAIL_INFO: 'ExternalService/GetMaxTransactionHistoryBranchInfoDetail',
+  BANK_INFO_GET_TRANSACTION_AGGREGATE_BY_PORT: 'ExternalService/GetTransactionAggregateByPort',
+  BANK_INFO_GET_TRANSACTION_AGGREGATE_BY_PORT_AND_INVOICE: 'ExternalService/GetTransactionAggregateByPortAndInvoice',
 
   //authentication
   GET_TOKEN_DATA: 'Account/GetTokenData',

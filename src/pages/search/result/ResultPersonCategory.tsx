@@ -82,10 +82,10 @@ function ResultPersonCategory(
                 </div>
 
                 {hasLoadMoreButton && (
-                  <div className='flex-center'>
+                  <div className='flex-center pt-4'>
                     <Button
                       variant='link' size='sm' onClick={loadMoreHandler}
-                      rightIcon={<ArrowIcon2 className='-rotate-90' />}
+                      rightIcon={<ArrowIcon2 className='-rotate-90' textColor='text-primary' />}
                     >
                       نتایج بیشتر
                     </Button>
