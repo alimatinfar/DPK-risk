@@ -1,9 +1,12 @@
-import Loading from "../../../../components/others/Loading/Loading.tsx";
+import SkeletonSection from "../../../search/skeleton/SkeletonSection.tsx";
 
 function AdminHighRiskIndividualsCardsLoading() {
-  // TODO should implemented skeleton loading
   return (
-    <Loading size='sm' />
+    <div className="flex flex-col gap-4">
+      <SkeletonSection cardRows={3} />
+      <SkeletonSection cardRows={3} />
+      <SkeletonSection cardRows={4} />
+    </div>
   );
 }
 
