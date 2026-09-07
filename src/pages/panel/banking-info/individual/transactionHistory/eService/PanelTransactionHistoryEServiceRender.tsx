@@ -3,14 +3,17 @@ import ROUTER_LINKS from "../../../../../../constances/routerLinks.ts";
 import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../../../utils/getUrlWithParams.ts";
 import {Link} from "react-router";
+import type {
+  EServicePortalSharedCustomerNumberFieldProps
+} from "../../eServicePortal/EServicePortalSharedCustomerNumberField.tsx";
 
 
 type Props = {
   isJoint?: boolean;
-}
+} & Partial<Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber'>>
 
 function PanelTransactionHistoryEServiceRender(
-  {isJoint}: Props
+  {isJoint, selectedCustomerNumber}: Props
 ) {
   return (
     <div className='flex flex-col gap-y-4'>
@@ -23,7 +26,8 @@ function PanelTransactionHistoryEServiceRender(
 
           const linkUrl = isJoint ? ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_DETAIL(item.name) : ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_TRANSACTION_HISTORY_E_SERVICE_DETAIL(item.name)
           const params = {
-            [QUERY_PARAMS.NAME]: item.label
+            [QUERY_PARAMS.NAME]: item.label,
+            ...selectedCustomerNumber ? {[QUERY_PARAMS.CUSTOMER_ID]: selectedCustomerNumber?.id} : {},
           }
 
           return (

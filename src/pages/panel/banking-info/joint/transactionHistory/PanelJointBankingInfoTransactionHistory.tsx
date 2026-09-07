@@ -11,7 +11,9 @@ function PanelJointBankingInfoTransactionHistory() {
 
   return (
     <PanelIndividualBankingInfoTransactionHistoryRender
-      renderObject={PANEL_JOINT_BANKING_INFO_TRANSACTION_HISTORY_RENDER_OBJECT}
+      renderObject={PANEL_JOINT_BANKING_INFO_TRANSACTION_HISTORY_RENDER_OBJECT({
+        selectedCustomerNumber
+      })}
       selectedCustomerNumber={selectedCustomerNumber} setSelectedCustomerNumber={setSelectedCustomerNumber}
       isJoint
     />

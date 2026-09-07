@@ -9,12 +9,13 @@ import TabContentRender, {type TabContentRenderProps} from "../../../../../compo
 import EServicePortalSharedCustomerNumberField, {
   type EServicePortalSharedCustomerNumberFieldProps
 } from "../eServicePortal/EServicePortalSharedCustomerNumberField.tsx";
+import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogic.tsx";
 
 
 type Props = {
   isJoint?: boolean;
 } & Pick<TabContentRenderProps, 'renderObject'> &
-  Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber' | 'setSelectedCustomerNumber'>
+  Partial<Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber' | 'setSelectedCustomerNumber'>>
 
 function PanelIndividualBankingInfoTransactionHistoryRender(
   {renderObject, selectedCustomerNumber, setSelectedCustomerNumber, isJoint}: Props
@@ -28,7 +29,7 @@ function PanelIndividualBankingInfoTransactionHistoryRender(
   return (
     <>
       <div className='flex items-center justify-between'>
-        {isJoint && (
+        {(isJoint && setSelectedCustomerNumber) && (
           <EServicePortalSharedCustomerNumberField
             selectedCustomerNumber={selectedCustomerNumber}
             setSelectedCustomerNumber={setSelectedCustomerNumber}
@@ -41,10 +42,16 @@ function PanelIndividualBankingInfoTransactionHistoryRender(
         />
       </div>
 
-      <TabContentRender
-        renderObject={renderObject}
-        activeTab={activeTab}
-      />
+      <RenderLogic
+        {...isJoint && !selectedCustomerNumber ? {
+          isEmpty: true, emptyText: 'برای مشاهده اطلاعات شماره مشتری مشترک را انتخاب نمایید'
+        } : {}}
+      >
+        <TabContentRender
+          renderObject={renderObject}
+          activeTab={activeTab}
+        />
+      </RenderLogic>
     </>
   );
 }

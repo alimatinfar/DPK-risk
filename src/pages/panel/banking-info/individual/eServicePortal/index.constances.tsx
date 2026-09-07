@@ -58,18 +58,3 @@ export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_FAKE_DATA = [
     [PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS_KEYS.DEACTIVATION_DATE]: '1403/01/05',
   },
 ];
-
-export const PANEL_INDIVIDUAL_E_SERVICE_PORTAL_SHARED_CUSTOMER_NUMBER_OPTIONS: SelectOptionType[] = [
-  {
-    id: '1111111111',
-    name: '1111111111',
-  },
-  {
-    id: '2222222222',
-    name: '2222222222',
-  },
-  {
-    id: '3333333333',
-    name: '3333333333',
-  },
-]

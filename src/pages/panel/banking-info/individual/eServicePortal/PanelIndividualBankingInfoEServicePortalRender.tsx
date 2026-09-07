@@ -11,7 +11,7 @@ import TableRenderLogic from "../../../../../components/others/RenderLogic/Table
 
 export type PanelIndividualBankingInfoEServicePortalRenderProps = {
   isJoint?: boolean;
-} & Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber' | 'setSelectedCustomerNumber'>
+} & Partial<Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber' | 'setSelectedCustomerNumber'>>
 
 function PanelIndividualBankingInfoEServicePortalRender(
   {
@@ -27,7 +27,7 @@ function PanelIndividualBankingInfoEServicePortalRender(
 
   return (
     <div className='flex flex-col gap-y-4'>
-      {isJoint && (
+      {(isJoint && setSelectedCustomerNumber) && (
         <EServicePortalSharedCustomerNumberField
           selectedCustomerNumber={selectedCustomerNumber}
           setSelectedCustomerNumber={setSelectedCustomerNumber}
@@ -38,7 +38,10 @@ function PanelIndividualBankingInfoEServicePortalRender(
         renderLogicProps={{
           error: null,
           isLoading: false,
-          ...(isJoint && !selectedCustomerNumber) ? {emptyText: 'برای مشاهده نتایج شماره مشتری مشترک را انتخاب نمایید'} : {}
+          ...(isJoint && !selectedCustomerNumber) ? {
+            emptyText: 'برای مشاهده نتایج شماره مشتری مشترک را انتخاب نمایید',
+            isEmpty: true
+          } : {}
         }}
         tableProps={{
           data: tableData,

@@ -32,8 +32,8 @@ function usePanelTransactionHistoryEServiceDetailRender(
 
   const {activePersonData} = getActivePersonData();
 
-  // TODO get selected customerId in isJoint state
-  const customerId = activePersonData?.customerId
+  const queryParamsCustomerId = useGetQueryParam(QUERY_PARAMS.CUSTOMER_ID)
+  const customerId = queryParamsCustomerId || activePersonData?.customerId
 
   const eServiceLabel = useGetQueryParam(QUERY_PARAMS.NAME)
 

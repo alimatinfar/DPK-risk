@@ -2,10 +2,8 @@ import {useNavigate} from "react-router";
 import {useMemo} from "react";
 import {
   PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS,
-  PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_FAKE_DATA
 } from "../index.constances.tsx";
 import TABLE_ACCESSORS from "../../../../../../../components/others/Table/constances/tableAccessors.ts";
-import {TableDetailAction} from "../../../../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
 import ROUTER_LINKS from "../../../../../../../constances/routerLinks.ts";
 import QUERY_PARAMS from "../../../../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../../../../utils/getUrlWithParams.ts";
@@ -19,38 +17,39 @@ import type {
 import getActivePersonData from "../../../../../utils/getActivePersonData.ts";
 import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
 import APIS from "../../../../../../../request/constances/apis.ts";
-import getBodyDataDateField from "../../../../../../../request/utils/getBodyDataDateField.ts";
-import moment, {type Moment} from "moment-jalaali";
 import getJalaliMonthName from "../../../../../../../utils/dateAndTIme/momentJalaliDateTime/getJalaliMonthName.ts";
 import withSeparator from "../../../../../../../utils/separator/withSeparator.ts";
-import getFormattedMomentJalaliDateTime
-  from "../../../../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
-import DetailIcon from "../../../../../../../components/svg/DetailIcon.tsx";
 import BankIcon from "../../../../../../../components/svg/BankIcon.tsx";
 import AmountIcon from "../../../../../../../components/svg/AmountIcon.tsx";
-import toEnglishDigit from "../../../../../../../utils/inputOperations/toEnglishDigit.ts";
 import getMonthDateRangeQueryParams from "../../utils/getMonthDateRangeQueryParams.ts";
 import getPrevYearDateRange from "../../utils/getPrevYearDateRange.ts";
 
 
 function usePanelTransactionHistoryOnSiteRender(
-  {isJoint}: Pick<PanelTransactionHistoryOnSiteMaxCountRenderProps, 'isJoint'>
+  {
+    isJoint, selectedCustomerNumber
+  }: Pick<PanelTransactionHistoryOnSiteMaxCountRenderProps, 'isJoint' | 'selectedCustomerNumber'>
 ) {
 
   const {activePersonData} = getActivePersonData();
 
-  // TODO get selected customerId in isJoint state
-  const customerId = activePersonData?.customerId
+  const customerId = isJoint ? selectedCustomerNumber?.id : activePersonData?.customerId
+
+  const isJointAndHasNotSelectedCustomerNumber = isJoint && !selectedCustomerNumber
 
   const {
     data, isFetching, error
   } = useFetchData<PanelTransactionHistoryOnSiteItemResponseType[]>({
+    queryKey: [customerId],
     axiosConfig: {
       url: APIS.BANK_INFO_GET_MAX_TRANSACTION_HISTORY,
       params: {
         ...getPrevYearDateRange(),
         customerId,
       }
+    },
+    options: {
+      enabled: !isJointAndHasNotSelectedCustomerNumber
     }
   })
 

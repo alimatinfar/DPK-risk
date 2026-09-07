@@ -3,27 +3,30 @@ import {
 } from "./index.constances.tsx";
 import usePanelTransactionHistoryOnSiteRender from "./hooks/usePanelTransactionHistoryOnSiteRender.tsx";
 import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
+import type {
+  EServicePortalSharedCustomerNumberFieldProps
+} from "../../eServicePortal/EServicePortalSharedCustomerNumberField.tsx";
 
 
 export type PanelTransactionHistoryOnSiteMaxCountRenderProps = {
   isJoint?: boolean;
-}
+} & Partial<Pick<EServicePortalSharedCustomerNumberFieldProps, 'selectedCustomerNumber'>>
 
 function PanelTransactionHistoryOnSite(
-  {isJoint}: PanelTransactionHistoryOnSiteMaxCountRenderProps
+  {isJoint, selectedCustomerNumber}: PanelTransactionHistoryOnSiteMaxCountRenderProps
 ) {
 
   const {
     tableData, isFetching, error
   } = usePanelTransactionHistoryOnSiteRender({
-    isJoint
+    isJoint, selectedCustomerNumber
   })
 
   return (
     <TableRenderLogic
       renderLogicProps={{
         error,
-        isLoading: isFetching
+        isLoading: isFetching,
       }}
       tableProps={{
         data: tableData,
