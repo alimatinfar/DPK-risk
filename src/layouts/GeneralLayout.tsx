@@ -14,7 +14,8 @@ function GeneralLayout() {
   useEffect(function () {
     const savedToken = getToken()
 
-    if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
+    //TODO uncomment sso login
+    // if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
   }, [])
 
   return (

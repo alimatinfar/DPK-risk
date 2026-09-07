@@ -30,16 +30,17 @@ function SearchPage() {
           <SaderatLogoAndTypo/>
 
           <div className='flex items-center gap-x-2'>
-            {isAdmin && (
-              <Link to={ROUTER_LINKS.ADMIN}>
-                <Button
-                  variant='outlined' size='sm' className={{extra: 'h-10'}}
-                  rightIcon={<SettingIcon />}
-                >
-                  ورود به مدیریت سامانه ریسک
-                </Button>
-              </Link>
-            )}
+            {/*TODO uncomment admin link*/}
+            {/*{isAdmin && (*/}
+            {/*  <Link to={ROUTER_LINKS.ADMIN}>*/}
+            {/*    <Button*/}
+            {/*      variant='outlined' size='sm' className={{extra: 'h-10'}}*/}
+            {/*      rightIcon={<SettingIcon />}*/}
+            {/*    >*/}
+            {/*      ورود به مدیریت سامانه ریسک*/}
+            {/*    </Button>*/}
+            {/*  </Link>*/}
+            {/*)}*/}
 
             <MainLayoutProfileSection/>
           </div>
