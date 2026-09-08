@@ -54,7 +54,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
   return (
     <div className='rounded-lg border border-gray-200 flex flex-col overflow-hidden'>
       <div className='bg-gray-100 flex items-center justify-between p-2 min-h-12.5'>
-        <p>
+        <p className='flex-1'>
           {data.name}
         </p>
 
