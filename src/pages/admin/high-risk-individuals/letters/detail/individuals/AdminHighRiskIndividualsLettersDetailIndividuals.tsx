@@ -7,6 +7,9 @@ import APIS from "../../../../../../request/constances/apis.ts";
 import useAdminHighRiskIndividualsLettersDetailIndividuals
   from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividuals.ts";
 import RenderLogic from "../../../../../../components/others/RenderLogic/RenderLogic.tsx";
+import type {
+  AdminHighRiskIndividualsLettersDetailPageProps
+} from "../index.types.ts";
 
 
 const AdminHighRiskIndividualsLettersDetailIndividualsEditModal = lazy(() => import(
@@ -22,7 +25,9 @@ const AdminHighRiskIndividualsLettersDetailIndividualsExitModal = lazy(() => imp
   ));
 
 
-function AdminHighRiskIndividualsLettersDetailIndividuals() {
+function AdminHighRiskIndividualsLettersDetailIndividuals(
+  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+) {
 
   const {
     setExitPersonModalState, exitPersonModalShouldBeRemoved, setDocListModalState,

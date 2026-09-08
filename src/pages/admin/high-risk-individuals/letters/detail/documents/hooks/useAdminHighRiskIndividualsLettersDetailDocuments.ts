@@ -2,35 +2,21 @@ import useAdminHighRiskIndividualsLettersDetailDocumentsDocs
   from "./useAdminHighRiskIndividualsLettersDetailDocumentsDocs.ts";
 import useModalOpen from "../../../../../../../hooks/modal/useModalOpen.tsx";
 import type {
-  AdminHighRiskIndividualsLettersDetailDocumentType,
-  AdminHighRiskIndividualsLettersDetailResponseType
+  AdminHighRiskIndividualsLettersDetailDocumentType
 } from "../index.types.ts";
 import useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine
   from "./useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine.ts";
-import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
-import APIS from "../../../../../../../request/constances/apis.ts";
-import {useParams} from "react-router";
+import type {AdminHighRiskIndividualsLettersDetailPageProps} from "../../index.types.ts";
 
-function useAdminHighRiskIndividualsLettersDetailDocuments() {
-
-  const {id: letterId} = useParams()
-
-  const {
-    data, isFetching: infoLoading, error: infoError
-  } = useFetchData<AdminHighRiskIndividualsLettersDetailResponseType>({
-    axiosConfig: {
-      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL,
-      params: {
-        letterId
-      }
-    }
-  })
-
-  const info = data?.data
+function useAdminHighRiskIndividualsLettersDetailDocuments(
+  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+) {
 
   const {
     documents
-  } = useAdminHighRiskIndividualsLettersDetailDocumentsDocs()
+  } = useAdminHighRiskIndividualsLettersDetailDocumentsDocs({
+    responseData
+  })
 
   const {
     timeLineHistories
@@ -47,7 +33,7 @@ function useAdminHighRiskIndividualsLettersDetailDocuments() {
   } = useModalOpen<AdminHighRiskIndividualsLettersDetailDocumentType | boolean>(false)
 
   return {
-    documents, timeLineHistories, info, infoLoading, infoError,
+    documents, timeLineHistories,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
   }

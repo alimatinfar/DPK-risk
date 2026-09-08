@@ -27,9 +27,9 @@ function useAdminHighRiskFormStep4() {
     getBodyData
   } = useAdminHighRiskFormStep4GetBody()
 
-  function onSubmitHandler() {
+  async function onSubmitHandler() {
 
-    const bodyData = getBodyData()
+    const bodyData = await getBodyData()
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {

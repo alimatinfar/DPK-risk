@@ -15,7 +15,7 @@ function useAdminHighRiskFormStep4GetBody() {
 
   const formData = useAdminHighRiskIndividualsFormStore(state => state.formData)
 
-  function getBodyData(): AdminHighRiskFormBodyDataType {
+  async function getBodyData(): Promise<AdminHighRiskFormBodyDataType> {
     const step1Data = formData.step1
     const step2Data = formData.step2
     const step3Data = formData.step3
@@ -27,7 +27,7 @@ function useAdminHighRiskFormStep4GetBody() {
         letterNo: step1Data?.[letterNumberFieldName],
         letterDate: getBodyDataDateField(step1Data?.[letterDateFieldName]),
         description: step1Data?.[descriptionFieldName],
-        documents: getHighRiskDocumentsBodyData(step2Data?.documentsList)
+        documents: await getHighRiskDocumentsBodyData(step2Data?.documentsList)
       },
       riskCustomers: step3Data?.individuals?.map(item => ({
         customerId: item?.[customerIdFieldName]

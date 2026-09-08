@@ -1,5 +1,8 @@
 import type {TabsProps} from "../../../../../components/others/Tab/Tab.tsx";
 import {lazy} from "react";
+import type {
+  AdminHighRiskIndividualsLettersDetailPageProps,
+} from "./index.types.ts";
 
 const AdminHighRiskIndividualsLettersDetailDocuments = lazy(() => import(
   "./documents/AdminHighRiskIndividualsLettersDetailDocuments.tsx"
@@ -24,11 +27,13 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS: TabsProps['tabs'] 
   },
 ]
 
-export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_RENDER_OBJECT = {
+export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_RENDER_OBJECT = (
+  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+) => ({
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS]: (
-    <AdminHighRiskIndividualsLettersDetailDocuments/>
+    <AdminHighRiskIndividualsLettersDetailDocuments responseData={responseData} />
   ),
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.INDIVIDUALS]: (
-    <AdminHighRiskIndividualsLettersDetailIndividuals/>
+    <AdminHighRiskIndividualsLettersDetailIndividuals responseData={responseData} />
   ),
-}
+})
