@@ -4,10 +4,15 @@ import useReactHookFormWrapper from "../../FormLayout/ReactHookFormWrapper/hooks
 import type {FilterFormProps} from "../FilterForm.tsx";
 import {useEffect, useMemo} from "react";
 
+
+type Props = {
+  hasNotModal?: boolean;
+} & Pick<FilterFormProps<T>, 'filters' | 'setFilters' | 'initialFilterData'>
+
 function useFilterForm<T extends object>(
   {
-    filters, setFilters, initialFilterData
-  }: Pick<FilterFormProps<T>, 'filters' | 'setFilters' | 'initialFilterData'>
+    filters, setFilters, initialFilterData, hasNotModal
+  }: Props
 ) {
   const {
     closeModalHandler, open: modalOpen, openModalHandler, shouldBeRemoved: modalShouldBeRemoved,
@@ -42,9 +47,9 @@ function useFilterForm<T extends object>(
   }
 
   useEffect(() => {
-    if (!modalOpen) return
+    if (!modalOpen && !hasNotModal) return
     setFiltersValuesToInputs()
-  }, [modalOpen]);
+  }, [modalOpen, hasNotModal]);
 
   const activeFilterCount = useMemo(function () {
     return Object.entries(filters.data as any).filter((([key, value]: any) => {

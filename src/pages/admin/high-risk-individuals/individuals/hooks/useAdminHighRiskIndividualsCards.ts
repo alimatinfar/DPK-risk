@@ -9,6 +9,8 @@ import {nationalCodeFieldName} from "../../FormFields/NationalCodeField/index.co
 import {firstNameFieldName} from "../../FormFields/FirstNameField/index.constances.ts";
 import {lastNameFieldName} from "../../FormFields/LastNameField/index.constances.ts";
 import getCleanBodyDataObject from "../../../../../request/utils/getCleanBodyDataObject.ts";
+import {riskListTypeFieldName} from "../../FormFields/RiskListTypeField/index.constances.ts";
+import getSelectIdValue from "../../../../../components/Form/Select/utils/getSelectIdValue.ts";
 
 
 function useAdminHighRiskIndividualsCards(
@@ -24,6 +26,7 @@ function useAdminHighRiskIndividualsCards(
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMERS,
       params: getCleanBodyDataObject({
+        RiskListType: getSelectIdValue(filtersData?.[riskListTypeFieldName]),
         NationalId: filtersData?.[nationalCodeFieldName],
         FName: filtersData?.[firstNameFieldName],
         LName: filtersData?.[lastNameFieldName],

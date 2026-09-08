@@ -15,7 +15,7 @@ function AdminHighRiskIndividualsFilter(
   const {
     onSubmit, formMethods
   } = useFilterForm<AdminHighRiskIndividualsFilterType>({
-    filters, setFilters, initialFilterData: adminHighRiskIndividualsDefaultFilters
+    filters, setFilters, initialFilterData: adminHighRiskIndividualsDefaultFilters, hasNotModal: true
   })
 
   return (
