@@ -9,6 +9,7 @@ import type {ResultPersonCardDataType} from "../../../search/result/ResultCard.t
 
 export type AdminHighRiskIndividualsFormDataType = {
   formIsDirty: boolean;
+  formSubmitted: boolean;
   currentStep: number;
   step1: AdminHighRiskIndividualsBaseFormFieldsType;
   step2: {

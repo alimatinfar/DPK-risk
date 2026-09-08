@@ -6,6 +6,8 @@ import ResultPersonCategoryWrapper from "../../../search/result/ResultPersonCate
 import {type ResultPersonCardDataType} from "../../../search/result/ResultCard.types.ts";
 import type {UseFilterReturnProps} from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
 import useAdminHighRiskIndividualsCards from "./hooks/useAdminHighRiskIndividualsCards.ts";
+import SearchPageEmptyStateAfterFilter from "../../../search/SearchPageEmptyStateAfterFilter.tsx";
+import SearchPageEmptyState from "../../../search/SearchPageEmptyState.tsx";
 
 export type AdminHighRiskIndividualsCardsProps = Pick<UseFilterReturnProps<any>, 'filters'>
 
@@ -14,17 +16,20 @@ function AdminHighRiskIndividualsCards(
 ) {
 
   const {
-    cardsData, isFetching, error
+    cardsData, isFetching, error, hasFilterData
   } = useAdminHighRiskIndividualsCards({
     filters
   })
 
   return (
     <RenderLogic
-      isEmpty={cardsData?.length === 0}
+      isEmpty={!hasFilterData || cardsData?.length === 0}
+      emptyElement={
+        hasFilterData ? <SearchPageEmptyStateAfterFilter/> : <SearchPageEmptyState/>
+      }
       error={error}
       isLoading={isFetching}
-      loadingElement={<SearchPageSkeleton />}
+      loadingElement={<SearchPageSkeleton/>}
     >
       <ResultPersonCategoryWrapper renderCallback={(item) => (
         <ResultPersonCategory2
@@ -42,7 +47,7 @@ function AdminHighRiskIndividualsCards(
             </div>
           )}
         />
-      )} />
+      )}/>
     </RenderLogic>
   );
 }

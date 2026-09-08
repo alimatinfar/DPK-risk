@@ -20,7 +20,7 @@ function ExpireDateField() {
         errorMessage
       }}
       rules={{
-        required: requiredErrorMessage
+        // required: requiredErrorMessage
       }}
       wheelPickerProps={{
         mode: 'date'

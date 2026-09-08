@@ -10,11 +10,21 @@ export type AdminHighRiskIndividualsFilterType = {
   [riskListTypeFieldName]: RiskListTypeFieldType;
 }
 
-export type AdminHighRiskIndividualsCustomerResponseItemType ={
-  customerId: number;
-  nationalID: number;
+
+type CustomerResponseType = {
+  customerId: number
+  nationalID: number
   firstName: string;
   lastName: string;
   phone: string;
   isLegal: boolean;
+  nationality: number
+  isIranian: boolean;
+}
+
+export type AdminHighRiskIndividualsCustomerResponseItemType = {
+  "realCustomer": CustomerResponseType[],
+  "nonCitizenCustomer": CustomerResponseType[],
+  "legalCustomer": CustomerResponseType[],
+  "nationalIdsError": null
 }

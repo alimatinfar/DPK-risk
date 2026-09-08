@@ -34,7 +34,7 @@ function AdminHighRiskIndividualsBaseFormFields(
       ) : null}
 
       <div className={descriptionClassName || ''}>
-        <DescriptionField customFieldName={descriptionCustomFieldName} />
+        <DescriptionField isNotRequired customFieldName={descriptionCustomFieldName} />
       </div>
     </>
   );

@@ -10,6 +10,7 @@ import getHighRiskDocumentsBodyData
   from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/utils/getHighRiskDocumentsBodyData.ts";
 import {riskListTypeFieldName} from "../../../../FormFields/RiskListTypeField/index.constances.ts";
 import {customerIdFieldName} from "../../../../../../search/result/ResultCard.types.ts";
+import {expireDateFieldName} from "../../../../FormFields/ExpireDateField/index.constances.ts";
 
 function useAdminHighRiskFormStep4GetBody() {
 
@@ -26,6 +27,7 @@ function useAdminHighRiskFormStep4GetBody() {
         riskListType: getSelectIdValue(step1Data?.[riskListTypeFieldName]),
         letterNo: step1Data?.[letterNumberFieldName],
         letterDate: getBodyDataDateField(step1Data?.[letterDateFieldName]),
+        validityDate: getBodyDataDateField(step1Data?.[expireDateFieldName]),
         description: step1Data?.[descriptionFieldName],
         documents: await getHighRiskDocumentsBodyData(step2Data?.documentsList)
       },

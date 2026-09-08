@@ -11,6 +11,8 @@ import {lastNameFieldName} from "../../FormFields/LastNameField/index.constances
 import getCleanBodyDataObject from "../../../../../request/utils/getCleanBodyDataObject.ts";
 import {riskListTypeFieldName} from "../../FormFields/RiskListTypeField/index.constances.ts";
 import getSelectIdValue from "../../../../../components/Form/Select/utils/getSelectIdValue.ts";
+import checkFormHasAtLeastOneValue
+  from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/checkFormHasAtLeastOneValue.ts";
 
 
 function useAdminHighRiskIndividualsCards(
@@ -18,6 +20,8 @@ function useAdminHighRiskIndividualsCards(
 ) {
 
   const filtersData = filters?.data
+
+  const hasFilterData = checkFormHasAtLeastOneValue(filtersData)
 
   const {
     data, isFetching, error
@@ -31,6 +35,9 @@ function useAdminHighRiskIndividualsCards(
         FName: filtersData?.[firstNameFieldName],
         LName: filtersData?.[lastNameFieldName],
       })
+    },
+    options: {
+      enabled: !!hasFilterData
     }
   })
 
@@ -51,7 +58,7 @@ function useAdminHighRiskIndividualsCards(
   }, [data?.data])
 
   return {
-    error, isFetching, cardsData
+    error, isFetching, cardsData, hasFilterData
   }
 }
 

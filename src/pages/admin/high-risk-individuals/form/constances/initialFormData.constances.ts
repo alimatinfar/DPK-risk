@@ -19,6 +19,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA_STEP1_SHARE = {
 
 export const ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA: AdminHighRiskIndividualsFormDataType = {
   formIsDirty: false,
+  formSubmitted: false,
   currentStep: 1,
   step1: {
     ...ADMIN_HIGH_RISK_INDIVIDUALS_FORM_INITIAL_DATA_STEP1_SHARE,

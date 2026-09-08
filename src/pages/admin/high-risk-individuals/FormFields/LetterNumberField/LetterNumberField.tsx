@@ -25,7 +25,6 @@ function LetterNumberField(
         errorMessage,
         label: letterNumberFieldLabel,
         placeholder: 'برای مثال 16897651231',
-        justNumber: true
       }}
       rules={{
         ...isRequired && {
