@@ -7,7 +7,7 @@ function getBodyDataDateField(value: WheelDateTimePickerProps['value'] | undefin
 
   const momentValue = getDateValue(value);
 
-  return value ? toEnglishDigit(momentValue.format('jYYYYjMMjDD')) : ''
+  return value ? toEnglishDigit(momentValue.format('jYYYYjMMjDD')) : null
 }
 
 export default getBodyDataDateField;

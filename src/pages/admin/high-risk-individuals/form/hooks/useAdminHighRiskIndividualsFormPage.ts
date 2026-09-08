@@ -19,6 +19,7 @@ function useAdminHighRiskIndividualsFormPage() {
 
   const formIsDirty = useAdminHighRiskIndividualsFormStore(state => state.formData.formIsDirty)
   const formSubmitted = useAdminHighRiskIndividualsFormStore(state => state.formData.formSubmitted)
+  const clearForm = useAdminHighRiskIndividualsFormStore(state => state.clearForm)
 
   const {
     blocker, pageIsBlocked
@@ -29,6 +30,7 @@ function useAdminHighRiskIndividualsFormPage() {
 
     navigate(ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL)
     toastPromise().then(toast => toast.success('ثبت افراد پر ریسک با موفقیت انجام شد'))
+    clearForm()
   }, [formSubmitted]);
 
   function closeExitFormModalAndResetBlocker() {
@@ -41,8 +43,6 @@ function useAdminHighRiskIndividualsFormPage() {
       openExitFormModalHandler()
     }
   }, [pageIsBlocked]);
-
-  const clearForm = useAdminHighRiskIndividualsFormStore(state => state.clearForm)
 
   const navigate = useNavigate()
 
