@@ -29,7 +29,7 @@ function DetailInfoSection(
 
     return list;
   }, [infoList])
-  console.log({rows})
+
   return (
     <CardWithHeader
       title={title}

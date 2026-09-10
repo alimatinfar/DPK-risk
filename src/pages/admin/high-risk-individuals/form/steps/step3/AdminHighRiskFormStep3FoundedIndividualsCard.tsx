@@ -52,7 +52,6 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
       const selectedReferenceId = getSelectIdValue(formDataStep1?.[announceReferenceFieldName])
       const userIsDuplicate = data?.some(item => item?.letterRef === selectedReferenceId)
       userIsDuplicate ? setUserDuplicateModalState(() => setIndividualInFormDataHandler) : setIndividualInFormDataHandler()
-      console.log({data, selectedReferenceId, userIsDuplicate})
     })
   }
 

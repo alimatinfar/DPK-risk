@@ -26,7 +26,6 @@ function usePanelTransactionHistoryByBranchDetailRender() {
   const customerId = useGetQueryParam(QUERY_PARAMS.CUSTOMER_ID)
   const periodDateObject = useGetTransactionHistoryPeriodDateObject()
   const {monthName, fromDate, toDate} = periodDateObject
-  console.log({fromDate, toDate})
 
   const branchObject = useGetQueryParam(QUERY_PARAMS.BRANCH_OBJECT)
   const {

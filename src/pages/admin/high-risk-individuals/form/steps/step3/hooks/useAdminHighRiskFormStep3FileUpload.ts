@@ -38,7 +38,6 @@ function useAdminHighRiskFormStep3FileUpload() {
   function onSubmitHandler(formData: FormDataType) {
     openModalHandler()
 
-    console.log({formData})
     const bodyData: BodyDataType = {}
 
     mutate(bodyData, {

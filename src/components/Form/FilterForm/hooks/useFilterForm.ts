@@ -42,7 +42,6 @@ function useFilterForm<T extends object>(
   }
 
   function setFiltersValuesToInputs() {
-    console.log({data: filters.data})
     setInitialFormData(filters.data)
   }
 

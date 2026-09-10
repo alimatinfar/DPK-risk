@@ -67,7 +67,7 @@ function useAdminHighRiskIndividualsCards(
     // const finalData = FAKE_DATA
     const finalData = data?.data
     if (!finalData) return []
-    console.log({finalData})
+
     return [
       ...finalData.realCustomer.map(item => ({
         type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
@@ -105,8 +105,6 @@ function useAdminHighRiskIndividualsCards(
       })),
     ]
   }, [data?.data])
-
-  console.log({cardsData})
 
   return {
     error, isFetching, cardsData, hasFilterData
