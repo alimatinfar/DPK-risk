@@ -13,21 +13,19 @@ export type HighRiskDocumentsBodyDataType = {
   content: any;
 }[]
 
-const getHighRiskDocumentsBodyData = async (
+const getHighRiskDocumentsBodyData = (
   documentsList: AdminHighRiskIndividualsDocumentFormDataType[]
-): Promise<HighRiskDocumentsBodyDataType> => {
-  return Promise.all(
-    documentsList.map(async (document) => {
-      const file = document?.[uploadFileFieldName];
+): HighRiskDocumentsBodyDataType => {
+  return documentsList.map((document) => {
+    const file = document?.[uploadFileFieldName];
 
-      return {
-        documentType: getSelectIdValue(document?.[fileTypeFieldName]),
-        name: file?.name,
-        description: document?.[descriptionFieldName],
-        content: file?.data,
-      };
-    })
-  );
+    return {
+      documentType: getSelectIdValue(document?.[fileTypeFieldName]),
+      name: file?.name,
+      description: document?.[descriptionFieldName],
+      content: file?.data,
+    };
+  })
 };
 
 export default getHighRiskDocumentsBodyData;

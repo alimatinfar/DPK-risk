@@ -28,7 +28,7 @@ type BodyDataType = {
   riskLetter: {
     letterRef: SelectOptionType['id'] | null;
     letterNo: string;
-    letterDate: number | string;
+    letterDate: number | string | null;
     description: string;
     documents: HighRiskDocumentsBodyDataType;
   },

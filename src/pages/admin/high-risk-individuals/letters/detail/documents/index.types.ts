@@ -4,7 +4,7 @@ import type {
 
 export type AdminHighRiskIndividualsLettersDetailDocumentType = {
   id: string | number;
-  fileTokenId: string | number;
+  fileTokenId?: string | number;
 } & AdminHighRiskIndividualsDocumentFormDataType
 
 export type AdminHighRiskIndividualsLettersDetailResponseType = {

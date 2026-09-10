@@ -5,14 +5,14 @@ import type {FilterFormProps} from "../FilterForm.tsx";
 import {useEffect, useMemo} from "react";
 
 
-type Props = {
+type Props<T> = {
   hasNotModal?: boolean;
 } & Pick<FilterFormProps<T>, 'filters' | 'setFilters' | 'initialFilterData'>
 
 function useFilterForm<T extends object>(
   {
     filters, setFilters, initialFilterData, hasNotModal
-  }: Props
+  }: Props<T>
 ) {
   const {
     closeModalHandler, open: modalOpen, openModalHandler, shouldBeRemoved: modalShouldBeRemoved,
