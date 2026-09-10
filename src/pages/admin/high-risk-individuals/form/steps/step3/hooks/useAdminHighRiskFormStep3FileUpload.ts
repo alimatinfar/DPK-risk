@@ -10,6 +10,7 @@ import {
   uploadFileFieldName,
   type UploadFileFieldType
 } from "../../../../FormFields/UploadFileField/index.constances.ts";
+import downloadFileFromFile from "../../../../../../../utils/fileOperations/downloadFileFromFile.ts";
 
 type BodyDataType = {}
 
@@ -48,6 +49,26 @@ function useAdminHighRiskFormStep3FileUpload() {
     })
   }
 
+  //download template file
+
+  const {
+    mutate: templateFileMutate, isPending: templateFileLoading,
+  } = useMutateData<any, any>({
+    axiosConfig: {
+      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_FORM_CUSTOMERS_TEMPLATE_FILE,
+      signal: abortControllerRef.current.signal,
+      responseType: 'blob',
+    }
+  })
+
+  function getTemplateFileHandler() {
+    templateFileMutate(null, {
+      onSuccess: (data, variables, onMutateResult, context) => {
+        downloadFileFromFile(data, 'templateFile.xlsx')
+      },
+    })
+  }
+
   const {
     formMethods, onSubmit
   } = useReactHookFormWrapper({
@@ -72,7 +93,8 @@ function useAdminHighRiskFormStep3FileUpload() {
   }
 
   return {
-    formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading
+    formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading,
+    getTemplateFileHandler, templateFileLoading
   }
 }
 

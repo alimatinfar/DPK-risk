@@ -4,12 +4,14 @@ import ReactHookFormWrapper
 import FILE_TYPES from "../../../../../../constances/fileTypes.ts";
 import AdminHighRiskFormStep3FileUploadModal from "./AdminHighRiskFormStep3FileUploadModal.tsx";
 import useAdminHighRiskFormStep3FileUpload from "./hooks/useAdminHighRiskFormStep3FileUpload.ts";
+import Loading from "../../../../../../components/others/Loading/Loading.tsx";
 
 
 function AdminHighRiskFormStep3FileUpload() {
 
   const {
-    formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading
+    formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading,
+    getTemplateFileHandler, templateFileLoading
   } = useAdminHighRiskFormStep3FileUpload()
 
   return (
@@ -35,10 +37,17 @@ function AdminHighRiskFormStep3FileUpload() {
               فایل اکسل با پسوند xlsx.
             </p>
 
-            <span
-              className='text-primary underline cursor-pointer hover:text-primary-text hover:bg-primary/5 p-1 rounded-md duration-200'>
-              دریافت فایل نمونه
-            </span>
+            <div className='h-8 flex items-center'>
+              {templateFileLoading ? (
+                <Loading size='sm' />
+              ) : (
+                <span
+                  onClick={getTemplateFileHandler}
+                  className='text-primary underline cursor-pointer hover:text-primary-text hover:bg-primary/5 p-1 rounded-md duration-200'>
+                دریافت فایل نمونه
+              </span>
+              )}
+            </div>
           </div>
         </div>
       </ReactHookFormWrapper>
