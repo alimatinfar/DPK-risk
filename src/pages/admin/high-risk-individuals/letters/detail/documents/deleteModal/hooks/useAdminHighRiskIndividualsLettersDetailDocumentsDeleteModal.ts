@@ -5,7 +5,6 @@ import {
   type DescriptionFieldType
 } from "../../../../../FormFields/DescriptionField/index.constances.ts";
 import useMutateData from "../../../../../../../../request/hooks/useMutateData.ts";
-import APIS from "../../../../../../../../request/constances/apis.ts";
 import fireResponseErrorToast from "../../../../../../../../request/utils/fireResponseErrorToast.ts";
 import type {
   AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
@@ -14,7 +13,9 @@ import type {
 
 //TODO should added description field to body data
 type BodyDataType = {
+  letterId: number;
   documentId: string | number | null;
+  description: string;
 }
 
 type FormDataType = {
@@ -40,7 +41,9 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
   function onSubmitHandler(formData: FormDataType) {
 
     const bodyData: BodyDataType = {
-      documentId: modalState && modalState !== true ? modalState?.id : null
+      letterId: 0,
+      documentId: modalState && modalState !== true ? modalState?.id : null,
+      description: "string"
     }
 
     mutate(bodyData, {
