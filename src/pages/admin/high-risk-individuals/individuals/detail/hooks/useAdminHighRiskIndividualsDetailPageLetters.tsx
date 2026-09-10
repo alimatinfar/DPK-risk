@@ -16,6 +16,11 @@ import type {
   AdminHighRiskIndividualRelatedShareLetterType
 } from "../index.types.ts";
 import {riskListTypeFieldLabel, riskListTypeFieldName} from "../../../FormFields/RiskListTypeField/index.constances.ts";
+import type {AdminHighRiskIndividualsDetailPageLettersProps} from "../AdminHighRiskIndividualsDetailPageLetters.tsx";
+import {useMemo} from "react";
+import {EXIT_PERSON_FROM_LETTER_KEYS} from "../../../letters/detail/individuals/index.constances.ts";
+import displayDate from "../../../../../../utils/display/displayDate.ts";
+import {ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE} from "../index.constances.ts";
 
 
 type GetFieldsIsExitLetter = {
@@ -30,7 +35,9 @@ type GetFieldsIsMainLetter = {
 
 type GetLetterFieldsType = GetFieldsIsExitLetter | GetFieldsIsMainLetter
 
-function useAdminHighRiskIndividualsDetailPageLetters() {
+function useAdminHighRiskIndividualsDetailPageLetters(
+  {responseData}: Pick<AdminHighRiskIndividualsDetailPageLettersProps, 'responseData'>
+) {
 
   function getTopFields({item, isExit}: GetLetterFieldsType) {
     return [
@@ -57,8 +64,38 @@ function useAdminHighRiskIndividualsDetailPageLetters() {
     ]
   }
 
+  const lettersData: AdminHighRiskIndividualRelatedLetterType[] = useMemo(function () {
+    // const finalData = ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE
+    const finalData = responseData?.data || []
+
+    return finalData?.map(item => {
+
+      const exitType = item?.isOut && item?.baseRiskLetterId && item?.baseRiskLetterId !== item?.id ?
+        EXIT_PERSON_FROM_LETTER_KEYS.WITH_LETTER : item?.isOutValidityDate ?
+          EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE : undefined
+
+      return {
+        id: item?.id,
+        [letterNumberFieldName]: item?.letterNo,
+        [announceReferenceFieldName]: item?.letterRefTitle,
+        [letterDateFieldName]: displayDate(item?.letterDate),
+        [descriptionFieldName]: item?.description,
+        [expireDateFieldName]: displayDate(item?.validityDate),
+        [riskListTypeFieldName]: item?.riskListTypeTitle,
+        // exitLetter: {
+        //   id: 1,
+        //   letterDate: '1405/10/10',
+        //   letterNumber: '1234567890',
+        //   description: 'حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. ',
+        //   [announceReferenceFieldName]: 'قوه قضائیه'
+        // },
+        // exitType: undefined
+      }
+    })
+  }, [responseData])
+
   return {
-    getTopFields
+    getTopFields, lettersData
   }
 }
 

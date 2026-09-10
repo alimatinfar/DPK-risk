@@ -28,3 +28,19 @@ export type AdminHighRiskIndividualRelatedLetterType = {
   exitType?: ExitPersonFromLetterType
   exitLetter?: AdminHighRiskIndividualRelatedShareLetterType
 } & AdminHighRiskIndividualRelatedShareLetterType
+
+export type AdminHighRiskIndividualsDetailItemResponseType = {
+  id: number;
+  letterRef: number;
+  letterRefTitle: string;
+  riskListType: number;
+  riskListTypeTitle: string;
+  letterNo: string;
+  letterDate: number;
+  description: string;
+  documents: [],
+  isOut: boolean
+  validityDate: number;
+  isOutValidityDate: boolean;
+  baseRiskLetterId: number;
+}

@@ -10,73 +10,77 @@ import useAdminHighRiskIndividualsDetailPageLetters from "./hooks/useAdminHighRi
 import type {SetStateType} from "../../../../../types/SetStateType.ts";
 import type {ModalStateTypeId} from "../../letters/detail/individuals/index.types.ts";
 import {MODAL_STATE_TYPE_KEYS} from "../../letters/detail/individuals/index.constances.ts";
+import type {CustomResponseType} from "../../../../../request/types/CustomResponseType.ts";
+import type {AdminHighRiskIndividualsDetailItemResponseType} from "./index.types.ts";
 
 
-
-type Props = {
+export type AdminHighRiskIndividualsDetailPageLettersProps = {
   setDocListModalState: SetStateType<ModalStateTypeId | boolean>;
   setExitPersonModalState: SetStateType<(string | number) | boolean>;
+  responseData: CustomResponseType<AdminHighRiskIndividualsDetailItemResponseType[]> | undefined
 }
 
 function AdminHighRiskIndividualsDetailPageLetters(
   {
-    setDocListModalState, setExitPersonModalState
-  }: Props
+    setDocListModalState, setExitPersonModalState, responseData
+  }: AdminHighRiskIndividualsDetailPageLettersProps
 ) {
 
   const {
-    getTopFields
-  } = useAdminHighRiskIndividualsDetailPageLetters()
+    getTopFields, lettersData
+  } = useAdminHighRiskIndividualsDetailPageLetters({
+    responseData
+  })
 
-  return ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE.map((item, index) => {
-      return (
-        <AdminHighRiskIndividualsExitLetterContainer exitType={item.exitType}>
-          <AdminHighRiskIndividualsFieldsWithActions
-            fields={getTopFields({item, isExit: false})}
-            actions={(
-              <>
-                {!item.exitType && (
-                  <>
-                    <Button
-                      onClick={() => setExitPersonModalState(item.id)}
-                      justIcon variant='default' color='red'
-                    >
-                      <LogoutIcon/>
-                    </Button>
-                  </>
-                )}
-                {/*<Button*/}
-                {/*  onClick={() => setDocListModalState({*/}
-                {/*    id: item.id, type: MODAL_STATE_TYPE_KEYS.LETTER*/}
-                {/*  })}*/}
-                {/*  variant='default' color='white'*/}
-                {/*>*/}
-                {/*  لیست مستندات*/}
-                {/*</Button>*/}
-              </>
-            )}
-          />
-
-          {item?.exitLetter && (
-            <CardRightRed className='flex flex-col gap-y-4'>
-              <AdminHighRiskIndividualsFieldsWithActions
-                fields={getTopFields({item, isExit: true})}
-                actions={(
+  return lettersData.map((item, index) => {
+    return (
+      <AdminHighRiskIndividualsExitLetterContainer exitType={item.exitType}>
+        <AdminHighRiskIndividualsFieldsWithActions
+          fields={getTopFields({item, isExit: false})}
+          actions={(
+            <>
+              {!item.exitType && (
+                <>
                   <Button
-                    onClick={() => setDocListModalState({
-                      id: item.exitLetter?.id || '', type: MODAL_STATE_TYPE_KEYS.LETTER
-                    })}
-                    variant='default' color='white'
+                    onClick={() => setExitPersonModalState(item.id)}
+                    justIcon variant='default' color='red'
                   >
-                    لیست مستندات
+                    <LogoutIcon/>
                   </Button>
-                )}
-              />
-            </CardRightRed>
+                </>
+              )}
+              {/*<Button*/}
+              {/*  onClick={() => setDocListModalState({*/}
+              {/*    id: item.id, type: MODAL_STATE_TYPE_KEYS.LETTER*/}
+              {/*  })}*/}
+              {/*  variant='default' color='white'*/}
+              {/*>*/}
+              {/*  لیست مستندات*/}
+              {/*</Button>*/}
+            </>
           )}
-        </AdminHighRiskIndividualsExitLetterContainer>
-      )
-    })
+        />
+
+        {item?.exitLetter && (
+          <CardRightRed className='flex flex-col gap-y-4'>
+            <AdminHighRiskIndividualsFieldsWithActions
+              fields={getTopFields({item, isExit: true})}
+              actions={(
+                <Button
+                  onClick={() => setDocListModalState({
+                    id: item.exitLetter?.id || '', type: MODAL_STATE_TYPE_KEYS.LETTER
+                  })}
+                  variant='default' color='white'
+                >
+                  لیست مستندات
+                </Button>
+              )}
+            />
+          </CardRightRed>
+        )}
+      </AdminHighRiskIndividualsExitLetterContainer>
+    )
+  })
 }
 
 export default AdminHighRiskIndividualsDetailPageLetters;
