@@ -47,7 +47,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
           const items = visibleItems as AdminHighRiskIndividualsLettersDetailIndividualsDataType
 
           return (
-            <div className='p-2 flex flex-col gap-y-2'>
+            <div className='flex flex-col gap-y-2'>
               {items.map((item) => {
 
                 const fields: DetailInfoSectionLabelValueProps[] = getFields(item)

@@ -72,28 +72,26 @@ function ResultPersonCategory(
             />
           )}
         >
-          {
-            customContent ? customContent(visibleItems as ResultPersonCardDataType[]) : (
-              <div className='flex flex-col p-4'>
-                <div className='grid grid-cols-4 gap-4'>
-                  {visibleItems.map((item, index) => CardElement ? (
-                    <CardElement key={index} data={item as ResultPersonCardDataType}/>
-                  ) : null)}
-                </div>
-
-                {hasLoadMoreButton && (
-                  <div className='flex-center pt-4'>
-                    <Button
-                      variant='link' size='sm' onClick={loadMoreHandler}
-                      rightIcon={<ArrowIcon2 className='-rotate-90' textColor='text-primary' />}
-                    >
-                      نتایج بیشتر
-                    </Button>
-                  </div>
-                )}
+          <div className='flex flex-col p-4'>
+            {customContent ? customContent(visibleItems as ResultPersonCardDataType[]) : (
+              <div className='grid grid-cols-4 gap-4'>
+                {visibleItems.map((item, index) => CardElement ? (
+                  <CardElement key={index} data={item as ResultPersonCardDataType}/>
+                ) : null)}
               </div>
-            )
-          }
+            )}
+
+            {hasLoadMoreButton && (
+              <div className='flex-center pt-4'>
+                <Button
+                  variant='link' size='sm' onClick={loadMoreHandler}
+                  rightIcon={<ArrowIcon2 className='-rotate-90' textColor='text-primary' />}
+                >
+                  نتایج بیشتر
+                </Button>
+              </div>
+            )}
+          </div>
         </RenderLogic>
       ) : null}
     </div>
