@@ -35,7 +35,7 @@ function AdminHighRiskIndividualsLettersDetailIndividuals(
     exitPersonModalOpen, closeExitPersonModalHandler, exitPersonModalState, personTitle,
     individualsList, individualsLoading, individualsError
   } = useAdminHighRiskIndividualsLettersDetailIndividuals()
-
+  console.log({docListModalState})
   return (
     <>
       <RenderLogic
@@ -57,7 +57,7 @@ function AdminHighRiskIndividualsLettersDetailIndividuals(
       <DisplayModal shouldBeRemoved={docListModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal
           open={docListModalOpen} onClose={closeDocListModalHandler}
-          modalState={docListModalState} isCustomer
+          modalState={docListModalState}
           deleteDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_DELETE_DOCUMENT}
           editDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_EDIT_DOCUMENT}
         />

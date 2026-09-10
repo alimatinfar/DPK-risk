@@ -3,6 +3,7 @@ import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "../index.t
 import AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
   from "./AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent.tsx";
 import APIS from "../../../../../../../request/constances/apis.ts";
+import {useParams} from "react-router";
 
 
 export type AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps = {
@@ -13,6 +14,8 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
   {open, onClose, modalState}: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps
 ) {
 
+  const {id: letterId} = useParams()
+
   return (
     <Modal
       open={open} onClose={onClose} title='حذف مستند'
@@ -21,6 +24,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
       <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
         cancelAction={onClose} modalState={modalState} onClose={onClose}
         apiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT}
+        letterId={letterId || ''}
       />
     </Modal>
   );

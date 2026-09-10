@@ -30,7 +30,6 @@ function useResultPersonCategory(
   }, [dataList, visibleCount, showAllItems])
 
   const hasLoadMoreButton = visibleCount < dataList.length
-  console.log({hasLoadMoreButton, visibleCount, dataList})
 
   return {
     open, toggleOpen, dataList, visibleItems, hasLoadMoreButton, loadMoreHandler

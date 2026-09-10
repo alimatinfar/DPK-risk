@@ -13,18 +13,19 @@ import type {ModalProps} from "../../../../../../../components/others/Modal/Moda
 export type AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps = {
   cancelAction: () => void;
   apiAddress: string;
+  letterId: number | string;
 } &
   Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps, 'modalState'> &
   Pick<ModalProps, 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent(
-  {cancelAction, modalState, onClose, apiAddress}: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
+  {cancelAction, modalState, onClose, apiAddress, letterId}: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
 ) {
 
   const {
     formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal({
-    modalState, onClose, apiAddress
+    modalState, onClose, apiAddress, letterId
   })
 
   return (

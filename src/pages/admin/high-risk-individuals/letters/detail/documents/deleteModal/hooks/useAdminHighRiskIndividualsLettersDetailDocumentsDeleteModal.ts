@@ -13,7 +13,7 @@ import type {
 
 //TODO should added description field to body data
 type BodyDataType = {
-  letterId: number;
+  letterId: number | string;
   documentId: string | number | null;
   description: string;
 }
@@ -24,9 +24,9 @@ type FormDataType = {
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
   {
-    modalState, onClose, apiAddress
+    modalState, onClose, apiAddress, letterId
   }: Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps,
-    'modalState' | 'onClose' | 'apiAddress'
+    'modalState' | 'onClose' | 'apiAddress' | 'letterId'
   >
 ) {
 
@@ -41,9 +41,9 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
   function onSubmitHandler(formData: FormDataType) {
 
     const bodyData: BodyDataType = {
-      letterId: 0,
+      letterId,
       documentId: modalState && modalState !== true ? modalState?.id : null,
-      description: "string"
+      description: formData?.[descriptionFieldName]
     }
 
     mutate(bodyData, {
