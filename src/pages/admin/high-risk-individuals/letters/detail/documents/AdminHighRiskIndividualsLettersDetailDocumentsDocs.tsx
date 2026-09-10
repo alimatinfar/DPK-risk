@@ -4,7 +4,6 @@ import DetailInfoSectionLabelValue
 import Button from "../../../../../../components/Form/Button/Button.tsx";
 import DeleteIcon from "../../../../../../components/svg/DeleteIcon.tsx";
 import DownloadIcon from "../../../../../../components/svg/DownloadIcon.tsx";
-import EditIcon from "../../../../../../components/svg/EditIcon.tsx";
 import CardWithHeader from "../../../../../../components/others/Card/CardWithHeader/CardWithHeader.tsx";
 import type {AdminHighRiskIndividualsLettersDetailDocumentType} from "./index.types.ts";
 import type {SetStateType} from "../../../../../../types/SetStateType.ts";
@@ -21,6 +20,9 @@ type Props = {
 function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
   {documents, setDeleteModalState, setFormModalState}: Props
 ) {
+
+
+
   return (
     <CardWithHeader
       title='مستندات'

@@ -18,7 +18,9 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsDocs(
       fileTokenId: item?.fileTokenId,
       [fileTypeFieldName]: {id: item?.documentType, name: item?.documentTypeTitle},
       [descriptionFieldName]: item?.description,
-      [uploadFileFieldName]: undefined
+      [uploadFileFieldName]: {
+        name: item?.name, size: '0', data: ''
+      }
     }))
   }, [responseData])
 
