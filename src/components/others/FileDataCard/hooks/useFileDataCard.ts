@@ -4,6 +4,7 @@ import toastPromise from "../../../../utils/toastPromise";
 import getFileType from "../../../../utils/fileOperations/getFileType.ts";
 import getFileSize, {getFormattedFileSize} from "../../../../utils/fileOperations/getFileSize.ts";
 import getFileName from "../../../../utils/fileOperations/getFileName.ts";
+import fileToBase64 from "../../../../utils/fileOperations/fileToBase64.ts";
 
 
 export type UploadFileDataType = {
@@ -37,10 +38,12 @@ function useFileDataCard(
 
     if (getFileSize(file) >= maxFileSize) return toast.error?.('حجم فایل بیشتر از حد مجاز است', {toastId: errorFileToastId})
 
+    const fileData = await fileToBase64(file)
+
     setFileData({
       size: getFormattedFileSize(file),
       name: getFileName(file),
-      data: file
+      data: fileData
     })
   }
 

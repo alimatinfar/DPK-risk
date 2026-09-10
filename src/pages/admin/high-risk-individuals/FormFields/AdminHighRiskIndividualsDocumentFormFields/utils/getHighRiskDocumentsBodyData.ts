@@ -4,7 +4,7 @@ import {descriptionFieldName} from "../../DescriptionField/index.constances.ts";
 import {uploadFileFieldName} from "../../UploadFileField/index.constances.ts";
 import type {AdminHighRiskIndividualsDocumentFormDataType} from "../index.types.ts";
 import type {SelectOptionType} from "../../../../../../components/Form/Select/select-exports.ts";
-import fileToBase64 from "../../../../../../utils/fileOperations/fileToBase64.ts";
+
 
 export type HighRiskDocumentsBodyDataType = {
   documentType: SelectOptionType['id'] | null;
@@ -24,9 +24,7 @@ const getHighRiskDocumentsBodyData = async (
         documentType: getSelectIdValue(document?.[fileTypeFieldName]),
         name: file?.name,
         description: document?.[descriptionFieldName],
-        content: file?.data
-          ? await fileToBase64(file.data)
-          : undefined,
+        content: file?.data,
       };
     })
   );

@@ -8,6 +8,10 @@ import Tag from "../../../../../../components/others/Tag/Tag";
 import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
 import {type AdminHighRiskFormStep3FoundedIndividualsProps} from "./AdminHighRiskFormStep3FoundedIndividuals";
 import useAdminHighRiskFormStep3ExistCustomer from "./hooks/useAdminHighRiskFormStep3ExistCustomer.ts";
+import type {CustomResponseType} from "../../../../../../request/types/CustomResponseType.ts";
+import type {AdminHighRiskFormStep3ExistCustomerResponseItemType} from "./index.types.ts";
+import {announceReferenceFieldName} from "../../../FormFields/AnnouncingReferenceField/index.constances.ts";
+import getSelectIdValue from "../../../../../../components/Form/Select/utils/getSelectIdValue.ts";
 
 
 type Props = {
@@ -24,6 +28,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
 
   const selectedIndividuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
   const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
+  const formDataStep1 = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
 
   function setIndividualInFormDataHandler() {
     setFormData({
@@ -42,11 +47,13 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
   } = useAdminHighRiskFormStep3ExistCustomer()
 
   function addHandler() {
-    checkExistCustomer(data?.[customerIdFieldName]).then(() => {
-      //TODO when customer is exist prevent from adding customer
+    checkExistCustomer(data?.[customerIdFieldName]).then((response) => {
+      const data = (response as CustomResponseType<AdminHighRiskFormStep3ExistCustomerResponseItemType[]>)?.data
+      const selectedReferenceId = getSelectIdValue(formDataStep1?.[announceReferenceFieldName])
+      const userIsDuplicate = data?.some(item => item?.letterRef === selectedReferenceId)
+      userIsDuplicate ? setUserDuplicateModalState(() => setIndividualInFormDataHandler) : setIndividualInFormDataHandler()
+      console.log({data, selectedReferenceId, userIsDuplicate})
     })
-    const userIsDuplicate = true
-    userIsDuplicate ? setUserDuplicateModalState(() => setIndividualInFormDataHandler) : setIndividualInFormDataHandler()
   }
 
   const isAdded = selectedIndividuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])
