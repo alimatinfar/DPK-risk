@@ -29,7 +29,7 @@ function useAdminHighRiskFormStep1ExistLetter() {
   })
 
   async function checkExistLetter(formData: AdminHighRiskIndividualsBaseFormFieldsType) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const bodyData: BodyDataType = {
         LetterRef: getSelectIdValue(formData?.[announceReferenceFieldName]),
         LetterNo: formData?.[letterNumberFieldName]
@@ -39,7 +39,7 @@ function useAdminHighRiskFormStep1ExistLetter() {
         onSuccess: (data, variables, onMutateResult, context) => {
           resolve(data)
         },
-        ...fireResponseErrorToast()
+        onError: reject
       })
     })
   }

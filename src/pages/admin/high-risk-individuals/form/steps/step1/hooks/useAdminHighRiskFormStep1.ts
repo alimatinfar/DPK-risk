@@ -7,6 +7,7 @@ import type {
 import {useWatch} from "react-hook-form";
 import {useEffect} from "react";
 import useAdminHighRiskFormStep1ExistLetter from "./useAdminHighRiskFormStep1ExistLetter.ts";
+import toastPromise from "../../../../../../../utils/toastPromise.ts";
 
 
 function useAdminHighRiskFormStep1() {
@@ -39,12 +40,12 @@ function useAdminHighRiskFormStep1() {
 
   function nextStepHandler(formData: AdminHighRiskIndividualsBaseFormFieldsType) {
     checkExistLetter(formData).then((response) => {
-      //TODO handling when this letter is exist prevent from continuing
-
-    })
-    setFormData({
-      currentStep: 2,
-      step1: formData
+      toastPromise().then(toast => toast.error('نامه ای با این مرجع و شماره نامه قبلا ثبت شده است', {toastId: 'letter-duplicate'}))
+    }).catch(() => {
+      setFormData({
+        currentStep: 2,
+        step1: formData
+      })
     })
   }
 
