@@ -64,7 +64,7 @@ function AdminHighRiskIndividualsLettersDetailIndividuals(
       <DisplayModal shouldBeRemoved={exitPersonModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailIndividualsExitModal
           open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
-          modalState={typeof exitPersonModalState !== 'boolean' ? exitPersonModalState?.id : exitPersonModalState}
+          modalState={typeof exitPersonModalState !== 'boolean' ? exitPersonModalState?.riskCustomerId : exitPersonModalState}
           personTitle={personTitle}
         />
       </DisplayModal>

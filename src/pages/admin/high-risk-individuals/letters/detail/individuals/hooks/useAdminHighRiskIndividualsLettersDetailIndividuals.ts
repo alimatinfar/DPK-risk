@@ -62,7 +62,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividuals(
       return {
         type,
         id: item?.customerId,
-        riskCustomerId: item?.id,
+        //TODO should set riskCustomerId from response
+        riskCustomerId: '',
         name: item?.isLegal ? item?.lastName : item?.firstName,
         ...item?.isLegal ? {[legalTypeFieldName]: ''} : {lastName: item?.lastName},
         nationalCode: item?.nationalID,
