@@ -68,7 +68,7 @@ function AdminHighRiskIndividualsCardElement(
         )}
       </div>
 
-      <div className='p-2 flex flex-col bg-white'>
+      <div className='p-2 flex flex-col bg-white flex-1'>
         {categoryFields.map((fields, categoryIndex) => {
 
           const isFirst = categoryIndex === 0

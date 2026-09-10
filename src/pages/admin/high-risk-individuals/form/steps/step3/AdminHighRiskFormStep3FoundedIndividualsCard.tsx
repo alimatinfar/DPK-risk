@@ -79,7 +79,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
         </div>
       </div>
 
-      <div className='p-2 flex flex-col bg-white gap-y-2'>
+      <div className='p-2 flex flex-col bg-white gap-y-2 flex-1'>
         {fields.map(({label, value}, index) => (
           <CardTitleValue
             key={index} label={label} value={value}

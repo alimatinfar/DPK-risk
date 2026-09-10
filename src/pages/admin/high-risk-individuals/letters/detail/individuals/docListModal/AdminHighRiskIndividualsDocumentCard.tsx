@@ -57,9 +57,11 @@ function AdminHighRiskIndividualsDocumentCard(
         {document?.[descriptionFieldName]}
       </p>
 
-      <FileDataCard
-        fileData={document?.[uploadFileFieldName]}
-      />
+      <div className='mt-auto'>
+        <FileDataCard
+          fileData={document?.[uploadFileFieldName]}
+        />
+      </div>
     </div>
   );
 }
