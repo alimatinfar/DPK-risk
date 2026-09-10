@@ -77,6 +77,7 @@ function usePanelTransactionHistoryEServiceDetailRender(
           const params = {
             [QUERY_PARAMS.PERIOD_DATE_OBJECT]: JSON.stringify(periodDateObject),
             [QUERY_PARAMS.NAME]: eServiceLabel,
+            [QUERY_PARAMS.CUSTOMER_ID]: customerId
           }
           navigate(getUrlWithParams(url, params))
         }, 'ریز تراکنش‌ها')
