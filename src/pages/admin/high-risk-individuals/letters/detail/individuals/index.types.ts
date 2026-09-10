@@ -5,32 +5,24 @@ import {MODAL_STATE_TYPE_KEYS, EXIT_PERSON_FROM_LETTER_KEYS} from "./index.const
 import type {SelectOptionType} from "../../../../../../components/Form/Select/select-exports.ts";
 import type {Moment} from "moment-jalaali";
 
-type LegalTypeData = {
-  type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
-  [legalTypeFieldName]: string;
-}
-
-type RealTypeData = {
-  type: typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name | typeof SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
-  lastName: string
-}
-
 export type ExitPersonFromLetterType = typeof EXIT_PERSON_FROM_LETTER_KEYS[keyof typeof EXIT_PERSON_FROM_LETTER_KEYS]
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<ResultPersonCardDataType, 'type'> & {
   id: string | number;
+  [legalTypeFieldName]?: string;
+  lastName?: string;
   riskCustomerId: string | number;
   name: string;
-  nationalCode: string;
+  nationalCode: string | number;
   exitType?: ExitPersonFromLetterType
   exitLetter?: {
     id: string | number;
     letterNumber: string | number;
     reference: string;
-    letterDate: Moment;
+    letterDate: Moment | string;
     description: string;
   }
-} & (LegalTypeData | RealTypeData)
+}
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsDataType = AdminHighRiskIndividualsLettersDetailIndividualsDataItemType[]
 

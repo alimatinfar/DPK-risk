@@ -17,21 +17,19 @@ type CustomerResponseType = {
   firstName: string;
   lastName: string;
   nationalID: number;
-  riskLetter: {
-    id: number;
-    letterRef: number;
-    letterRefTitle: string;
-    riskListType: number;
-    riskListTypeTitle: string;
-    letterNo: string;
-    letterDate: number;
-    description: string;
-    documents: [],
-    isOut: boolean;
-    validityDate: number;
-    isOutValidityDate: boolean;
-    baseRiskLetterId: number;
-  }
+  id: number;
+  phone: string;
+  letterRef: number;
+  letterRefTitle: string;
+  riskListType: number;
+  validityDate: number;
+  letterNo: string;
+  letterDate: number;
+  description: string;
+  isOut: boolean;
+  isLegal: boolean;
+  nationality: number;
+  isOutValidityDate: boolean;
 }
 
 export type AdminHighRiskIndividualsLettersDetailPageResponseType = {
@@ -51,7 +49,7 @@ export type AdminHighRiskIndividualsLettersDetailPageResponseType = {
     baseRiskLetterId: number;
   };
   customers: CustomerResponseType[];
-  outCustomers: CustomerResponseType[]
+  // outCustomers: CustomerResponseType[]
 }
 
 export type AdminHighRiskIndividualsLettersDetailPageProps = {

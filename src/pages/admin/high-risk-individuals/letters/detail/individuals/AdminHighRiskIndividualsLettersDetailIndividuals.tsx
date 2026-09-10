@@ -33,19 +33,17 @@ function AdminHighRiskIndividualsLettersDetailIndividuals(
     setExitPersonModalState, exitPersonModalShouldBeRemoved, setDocListModalState,
     docListModalShouldBeRemoved, docListModalOpen, closeDocListModalHandler, docListModalState,
     exitPersonModalOpen, closeExitPersonModalHandler, exitPersonModalState, personTitle,
-    individualsList, individualsLoading, individualsError
-  } = useAdminHighRiskIndividualsLettersDetailIndividuals()
-  console.log({docListModalState})
+    individualsList
+  } = useAdminHighRiskIndividualsLettersDetailIndividuals({
+    responseData
+  })
+
   return (
     <>
-      <RenderLogic
-        isLoading={individualsLoading} error={individualsError}
-      >
-        <AdminHighRiskIndividualsLettersDetailIndividualsCategories
-          setExitPersonModalState={setExitPersonModalState} data={individualsList}
-          setDocListModalState={setDocListModalState}
-        />
-      </RenderLogic>
+      <AdminHighRiskIndividualsLettersDetailIndividualsCategories
+        setExitPersonModalState={setExitPersonModalState} data={individualsList}
+        setDocListModalState={setDocListModalState}
+      />
 
       {/*<DisplayModal shouldBeRemoved={editPersonModalShouldBeRemoved}>*/}
       {/*  <AdminHighRiskIndividualsLettersDetailIndividualsEditModal*/}

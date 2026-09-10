@@ -9,13 +9,24 @@ import type {
   AdminHighRiskIndividualsLettersDetailIndividualsDataType,
   AdminHighRiskIndividualsLettersDetailIndividualsResponseItemType, ModalStateTypeId
 } from "../index.types.ts";
-import {ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA} from "../index.constances.ts";
-import useFetchData from "../../../../../../../request/hooks/useFetchData.ts";
-import APIS from "../../../../../../../request/constances/apis.ts";
+import {
+  ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA,
+  EXIT_PERSON_FROM_LETTER_KEYS
+} from "../index.constances.ts";
 import {useParams} from "react-router";
+import type {AdminHighRiskIndividualsLettersDetailPageProps} from "../../index.types.ts";
+import {useMemo} from "react";
+import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../../search/form/SearchPageForm.constances.ts";
+import moment from "moment-jalaali";
+import displayDate from "../../../../../../../utils/display/displayDate.ts";
+import {
+  legalTypeFieldName
+} from "../../../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
 
 
-function useAdminHighRiskIndividualsLettersDetailIndividuals() {
+function useAdminHighRiskIndividualsLettersDetailIndividuals(
+  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+) {
 
   const {id: letterId} = useParams()
 
@@ -39,26 +50,42 @@ function useAdminHighRiskIndividualsLettersDetailIndividuals() {
     modalState: exitPersonModalState
   })
 
-  //fetch individuals list
+  const individualsList: AdminHighRiskIndividualsLettersDetailIndividualsDataType = useMemo(function () {
+    const customers = responseData?.data?.customers
+    if (!customers) return []
 
-  const {
-    data, isFetching, error
-  } = useFetchData<AdminHighRiskIndividualsLettersDetailIndividualsResponseItemType>({
-    axiosConfig: {
-      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL_CUSTOMERS,
-      params: {
-        letterId
+    return customers?.map(item => {
+
+      const type = item?.isLegal ? SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name : item?.nationality === 1 ?
+        SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name : SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name
+
+      return {
+        type,
+        id: item?.customerId,
+        riskCustomerId: item?.id,
+        name: item?.isLegal ? item?.lastName : item?.firstName,
+        ...item?.isLegal ? {[legalTypeFieldName]: ''} : {lastName: item?.lastName},
+        nationalCode: item?.nationalID,
+        ...item?.letterNo ? {
+          exitLetter: {
+            id: item?.id,
+            letterDate: displayDate(item?.letterDate),
+            letterNumber: item?.letterNo,
+            description: item?.description,
+            reference: item?.letterRefTitle
+          }
+        } : {},
+        exitType: (item?.letterNo && item?.isOut) ? EXIT_PERSON_FROM_LETTER_KEYS.WITH_LETTER : item?.isOutValidityDate ?
+          EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE : undefined
       }
-    }
-  })
-
-  const individualsList: AdminHighRiskIndividualsLettersDetailIndividualsDataType = ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_INDIVIDUALS_FAKE_DATA
+    })
+  }, [responseData])
 
   return {
     setExitPersonModalState, exitPersonModalShouldBeRemoved, setDocListModalState,
     docListModalShouldBeRemoved, docListModalOpen, closeDocListModalHandler, docListModalState,
     exitPersonModalOpen, closeExitPersonModalHandler, exitPersonModalState, personTitle,
-    individualsList, individualsLoading: isFetching, individualsError: error
+    individualsList
   }
 }
 
