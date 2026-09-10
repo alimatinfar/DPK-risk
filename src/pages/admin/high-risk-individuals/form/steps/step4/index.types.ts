@@ -8,8 +8,8 @@ export type AdminHighRiskFormBodyDataType = {
     letterRef: SelectOptionType['id'] | null;
     riskListType: SelectOptionType['id'] | null;
     letterNo: string;
-    letterDate: string | number;
-    validityDate: string | number;
+    letterDate: string | number | null;
+    validityDate: string | number | null;
     description: string;
     documents: HighRiskDocumentsBodyDataType;
   };

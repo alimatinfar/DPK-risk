@@ -3,11 +3,11 @@ import getDateValue from "../../utils/dateAndTIme/momentJalaliDateTime/getDateVa
 import toEnglishDigit from "../../utils/inputOperations/toEnglishDigit.ts";
 
 function getBodyDataDateField(value: WheelDateTimePickerProps['value'] | undefined) {
-  if (!value) return ''
+  if (!value) return null
 
   const momentValue = getDateValue(value);
 
-  return value ? toEnglishDigit(momentValue.format('jYYYYjMMjDD')) : null
+  return toEnglishDigit(momentValue.format('jYYYYjMMjDD'))
 }
 
 export default getBodyDataDateField;
