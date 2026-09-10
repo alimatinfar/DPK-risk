@@ -25,7 +25,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent(
   const {
     formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailDocumentsFormModal({
-    modalState, onClose, apiAddress
+    modalState, onClose, apiAddress, isEditMode
   })
 
   return (
