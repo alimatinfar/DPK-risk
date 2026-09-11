@@ -9,9 +9,13 @@ import {announceReferenceFieldLabel} from "../../../FormFields/AnnouncingReferen
 import {letterDateFieldLabel} from "../../../FormFields/LetterDateField/index.constances.ts";
 import {descriptionFieldLabel} from "../../../FormFields/DescriptionField/index.constances.ts";
 import {riskListTypeFieldLabel} from "../../../FormFields/RiskListTypeField/index.constances.ts";
+import {requestReasonFieldLabel} from "../../../../inquiry-histories/FormFields/RequestReasonField/index.constances.ts";
+import {
+  responseSubmissionStatusFieldLabel
+} from "../../../../inquiry-histories/FormFields/ResponseSubmissionStatusField/index.constances.ts";
 
 
-type Props = {
+export type AdminHighRiskLetterDetailDescriptionSectionProps = {
   detailInfoSectionProps?: Partial<DetailInfoSectionProps>;
   letterNumber: string | number | undefined;
   reference: string | number | undefined;
@@ -19,12 +23,15 @@ type Props = {
   description: string | undefined;
   expireDate?: string;
   riskListType?: string;
+  requestReason?: string;
+  responseSubmissionStatus?: string;
 }
 
 function AdminHighRiskLetterDetailDescriptionSection(
   {
-    detailInfoSectionProps, letterDate, letterNumber, description, reference, expireDate, riskListType
-  }: Props
+    detailInfoSectionProps, letterDate, letterNumber, description, reference, expireDate, riskListType,
+    requestReason, responseSubmissionStatus
+  }: AdminHighRiskLetterDetailDescriptionSectionProps
 ) {
 
   const infoList: DetailInfoSectionProps['infoList'] = useMemo(function () {
@@ -48,6 +55,14 @@ function AdminHighRiskLetterDetailDescriptionSection(
       ...expireDate ? [{
         label: expireDateFieldLabel,
         value: expireDate
+      }] : [],
+      ...requestReason ? [{
+        label: requestReasonFieldLabel,
+        value: requestReason
+      }] : [],
+      ...responseSubmissionStatus ? [{
+        label: responseSubmissionStatusFieldLabel,
+        value: responseSubmissionStatus
       }] : [],
       {
         label: descriptionFieldLabel,

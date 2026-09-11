@@ -29,7 +29,7 @@ function useAdminHighRiskFormStep4GetBody() {
         letterDate: getBodyDataDateField(step1Data?.[letterDateFieldName]),
         validityDate: getBodyDataDateField(step1Data?.[expireDateFieldName]),
         description: step1Data?.[descriptionFieldName],
-        documents: await getHighRiskDocumentsBodyData(step2Data?.documentsList)
+        documents: getHighRiskDocumentsBodyData(step2Data?.documentsList)
       },
       riskCustomers: step3Data?.individuals?.map(item => ({
         customerId: item?.[customerIdFieldName]
