@@ -1,39 +1,21 @@
-import AdminPageTitle from "../../layout/AdminPageTitle.tsx";
-import {ADMIN_HIGH_RISK_FORM_STEPS} from "./constances/index.constances.tsx";
-import FormSteps from "../../../../components/Form/FormSteps/FormSteps.tsx";
-import DisplayModal from "../../../../components/others/Modal/DisplayModal.tsx";
-import {lazy} from "react";
-import useAdminHighRiskIndividualsFormPage from "./hooks/useAdminHighRiskIndividualsFormPage.ts";
-
-const AdminHighRiskIndividualsExitFormModal = lazy(() => import(
-  "./AdminHighRiskIndividualsExitFormModal.tsx"
-  ));
+import AdminHighRiskIndividualsFormPageShare from "./AdminHighRiskIndividualsFormPageShare.tsx";
+import useAdminHighRiskIndividualsFormCurrentStep from "./store/useAdminHighRiskIndividualsFormCurrentStep.ts";
+import {useAdminHighRiskIndividualsFormStore} from "./store/useAdminHighRiskIndividualsFormStore.ts";
+import {ADMIN_HIGH_RISK_FORM_STEPS} from "./constances/steps.constances.tsx";
 
 
 function AdminHighRiskIndividualsFormPage() {
 
-  const {
-    currentStep, exitFormShouldBeRemoved, exitFormOpen,
-    closeExitFormModalAndResetBlocker, exitFormHandler
-  } = useAdminHighRiskIndividualsFormPage()
+  const {currentStep} = useAdminHighRiskIndividualsFormCurrentStep()
+  const formIsDirty = useAdminHighRiskIndividualsFormStore(state => state.formData.formIsDirty)
+  const formSubmitted = useAdminHighRiskIndividualsFormStore(state => state.formData.formSubmitted)
+  const clearForm = useAdminHighRiskIndividualsFormStore(state => state.clearForm)
 
   return (
-    <>
-      <div className='flex flex-col gap-y-4'>
-        <AdminPageTitle title='افزودن شخص پرریسک' hasBack/>
-
-        <FormSteps
-          steps={ADMIN_HIGH_RISK_FORM_STEPS} currentStep={currentStep}
-        />
-      </div>
-
-      <DisplayModal shouldBeRemoved={exitFormShouldBeRemoved}>
-        <AdminHighRiskIndividualsExitFormModal
-          open={exitFormOpen} onClose={closeExitFormModalAndResetBlocker}
-          exitFormHandler={exitFormHandler}
-        />
-      </DisplayModal>
-    </>
+    <AdminHighRiskIndividualsFormPageShare
+      formIsDirty={formIsDirty} clearForm={clearForm} formSubmitted={formSubmitted}
+      currentStep={currentStep} steps={ADMIN_HIGH_RISK_FORM_STEPS}
+    />
   );
 }
 

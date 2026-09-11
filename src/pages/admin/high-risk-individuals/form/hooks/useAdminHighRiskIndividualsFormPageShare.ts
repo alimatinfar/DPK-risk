@@ -1,25 +1,24 @@
-import useCustomBlocker from "../../../../../hooks/useCustomBlocker.ts";
-import {useAdminHighRiskIndividualsFormStore} from "../store/useAdminHighRiskIndividualsFormStore.ts";
-import {useNavigate} from "react-router";
 import useModalOpenBoolean from "../../../../../hooks/modal/useModalOpenBoolean.ts";
-import useAdminHighRiskIndividualsFormCurrentStep from "../store/useAdminHighRiskIndividualsFormCurrentStep.ts";
+import useCustomBlocker from "../../../../../hooks/useCustomBlocker.ts";
 import {useEffect} from "react";
 import ROUTER_LINKS from "../../../../../constances/routerLinks.ts";
 import toastPromise from "../../../../../utils/toastPromise.ts";
+import {useNavigate} from "react-router";
+import type {AdminHighRiskIndividualsFormPageShareProps} from "../AdminHighRiskIndividualsFormPageShare.tsx";
 
 
-function useAdminHighRiskIndividualsFormPage() {
+type Props = Pick<AdminHighRiskIndividualsFormPageShareProps, 'formIsDirty' | 'clearForm' | 'formSubmitted'>
 
-  const {currentStep} = useAdminHighRiskIndividualsFormCurrentStep()
+function useAdminHighRiskIndividualsFormPageShare(
+  {
+    clearForm, formSubmitted, formIsDirty
+  }: Props
+) {
 
   const {
     openModalHandler: openExitFormModalHandler, closeModalHandler: closeExitFormModalHandler,
     open: exitFormOpen, shouldBeRemoved: exitFormShouldBeRemoved
   } = useModalOpenBoolean(false)
-
-  const formIsDirty = useAdminHighRiskIndividualsFormStore(state => state.formData.formIsDirty)
-  const formSubmitted = useAdminHighRiskIndividualsFormStore(state => state.formData.formSubmitted)
-  const clearForm = useAdminHighRiskIndividualsFormStore(state => state.clearForm)
 
   const {
     blocker, pageIsBlocked
@@ -52,9 +51,9 @@ function useAdminHighRiskIndividualsFormPage() {
   }
 
   return {
-    currentStep, exitFormShouldBeRemoved, exitFormOpen,
+    exitFormShouldBeRemoved, exitFormOpen,
     closeExitFormModalAndResetBlocker, exitFormHandler
   }
 }
 
-export default useAdminHighRiskIndividualsFormPage;
+export default useAdminHighRiskIndividualsFormPageShare;

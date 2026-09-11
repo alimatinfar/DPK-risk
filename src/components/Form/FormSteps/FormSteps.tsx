@@ -5,13 +5,13 @@ import SuspenseRenderLogicDefaultContainer from "../../others/RenderLogic/Suspen
 import Loading from "../../others/Loading/Loading.tsx";
 
 
-type Props = {
+export type FormStepsProps = {
   steps: FormStepsTypes[];
   currentStep: number;
 }
 
 function FormSteps(
-  {steps, currentStep}: Props
+  {steps, currentStep}: FormStepsProps
 ) {
   return (
     <div className='flex flex-col gap-y-4'>
