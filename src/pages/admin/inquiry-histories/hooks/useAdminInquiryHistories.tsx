@@ -1,8 +1,5 @@
 import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
-import type {AdminInquiryHistoriesFilterType, AdminInquiryHistoriesResponseItemType} from "../index.types.ts";
-import useFetchData from "../../../../request/hooks/useFetchData.ts";
-import APIS from "../../../../request/constances/apis.ts";
-import getCleanBodyDataObject from "../../../../request/utils/getCleanBodyDataObject.ts";
+import type {AdminInquiryHistoriesFilterType} from "../index.types.ts";
 import {useMemo} from "react";
 import TABLE_ACCESSORS from "../../../../components/others/Table/constances/tableAccessors.ts";
 import {TableDetailAction} from "../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
@@ -35,15 +32,15 @@ function useAdminInquiryHistories() {
     defaultFilterFormData: adminInquiryHistoriesDefaultFilters,
   })
 
-  const {
-    data, isFetching, error
-  } = useFetchData<AdminInquiryHistoriesResponseItemType[]>({
-    queryKey: [filters],
-    axiosConfig: {
-      url: APIS.ADMIN_INQUIRY_HISTORIES,
-      params: getCleanBodyDataObject({})
-    }
-  })
+  // const {
+  //   data, isFetching, error
+  // } = useFetchData<AdminInquiryHistoriesResponseItemType[]>({
+  //   queryKey: [filters],
+  //   axiosConfig: {
+  //     url: APIS.ADMIN_INQUIRY_HISTORIES,
+  //     params: getCleanBodyDataObject({})
+  //   }
+  // })
 
   const tableData = useMemo(function () {
     // const finalData = data?.data
@@ -72,10 +69,10 @@ function useAdminInquiryHistories() {
         }
       ],
     }))
-  }, [data?.data, navigate])
+  }, [navigate])
 
   return {
-    filters, setFilters, tableData, isFetching, error,
+    filters, setFilters, tableData,
     deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved
   }
 }
