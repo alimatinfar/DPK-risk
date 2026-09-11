@@ -11,7 +11,6 @@ import type {
 } from "../AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent.tsx";
 
 
-//TODO should added description field to body data
 type BodyDataType = {
   letterId: number | string;
   documentId: string | number | null;

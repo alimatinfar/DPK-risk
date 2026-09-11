@@ -11,10 +11,17 @@ import DeleteIcon from "../../../../components/svg/DeleteIcon.tsx";
 import useFilter from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
 import {useNavigate} from "react-router";
 import {ADMIN_INQUIRY_HISTORIES_FAKE_DATA, adminInquiryHistoriesDefaultFilters} from "../index.constances.tsx";
+import useModalOpen from "../../../../hooks/modal/useModalOpen.tsx";
 
 function useAdminInquiryHistories() {
 
   const navigate = useNavigate()
+
+  const {
+    open: deleteModalOpen, modalState: deleteModalState,
+    setModalState: setDeleteModalState, closeModal: closeDeleteModal,
+    shouldBeRemoved: deleteModalShouldBeRemoved
+  } = useModalOpen<number | null>(null)
 
   const {
     filters, setFilters
@@ -28,9 +35,7 @@ function useAdminInquiryHistories() {
     queryKey: [filters],
     axiosConfig: {
       url: APIS.ADMIN_INQUIRY_HISTORIES,
-      params: getCleanBodyDataObject({
-
-      })
+      params: getCleanBodyDataObject({})
     }
   })
 
@@ -51,7 +56,7 @@ function useAdminInquiryHistories() {
           title: 'ویرایش',
         },
         {
-          onClick: () => null,
+          onClick: () => setDeleteModalState(item?.id),
           icon: <DeleteIcon width='100%' height='100%'/>,
           title: 'حذف سابقه استعلام',
         }
@@ -61,6 +66,7 @@ function useAdminInquiryHistories() {
 
   return {
     filters, setFilters, tableData,
+    deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved
   }
 }
 
