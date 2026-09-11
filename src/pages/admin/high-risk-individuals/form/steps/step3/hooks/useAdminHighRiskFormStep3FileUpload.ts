@@ -11,6 +11,7 @@ import {
   type UploadFileFieldType
 } from "../../../../FormFields/UploadFileField/index.constances.ts";
 import downloadFileFromFile from "../../../../../../../utils/fileOperations/downloadFileFromFile.ts";
+import type {AdminHighRiskFormStep3FileUploadProps} from "../AdminHighRiskFormStep3FileUpload.tsx";
 
 type BodyDataType = {}
 
@@ -18,7 +19,11 @@ type FormDataType = {
   [uploadFileFieldName]: UploadFileFieldType;
 }
 
-function useAdminHighRiskFormStep3FileUpload() {
+function useAdminHighRiskFormStep3FileUpload(
+  {
+    uploadApiUrl
+  }: Pick<AdminHighRiskFormStep3FileUploadProps, 'uploadApiUrl'>
+) {
 
   const abortControllerRef = useRef<AbortController>(new AbortController())
 
@@ -30,7 +35,7 @@ function useAdminHighRiskFormStep3FileUpload() {
     mutate, isPending: uploadLoading, error,
   } = useMutateData<any, BodyDataType>({
     axiosConfig: {
-      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_UPLOAD_EXCEL_CUSTOMERS,
+      url: uploadApiUrl,
       method: 'POST',
       signal: abortControllerRef.current.signal
     }

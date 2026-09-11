@@ -7,12 +7,22 @@ import useAdminHighRiskFormStep3FileUpload from "./hooks/useAdminHighRiskFormSte
 import Loading from "../../../../../../components/others/Loading/Loading.tsx";
 
 
-function AdminHighRiskFormStep3FileUpload() {
+export type AdminHighRiskFormStep3FileUploadProps = {
+  uploadApiUrl: string
+}
+
+function AdminHighRiskFormStep3FileUpload(
+  {
+    uploadApiUrl
+  }: AdminHighRiskFormStep3FileUploadProps
+) {
 
   const {
     formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading,
     getTemplateFileHandler, templateFileLoading
-  } = useAdminHighRiskFormStep3FileUpload()
+  } = useAdminHighRiskFormStep3FileUpload({
+    uploadApiUrl
+  })
 
   return (
     <>
@@ -39,7 +49,7 @@ function AdminHighRiskFormStep3FileUpload() {
 
             <div className='h-8 flex items-center'>
               {templateFileLoading ? (
-                <Loading size='sm' />
+                <Loading size='sm'/>
               ) : (
                 <span
                   onClick={getTemplateFileHandler}

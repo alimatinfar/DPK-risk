@@ -1,5 +1,7 @@
 import Card from "../../../../../../components/others/Card/Card.tsx";
-import AdminHighRiskFormStep3FileUpload from "./AdminHighRiskFormStep3FileUpload.tsx";
+import AdminHighRiskFormStep3FileUpload, {
+  type AdminHighRiskFormStep3FileUploadProps
+} from "./AdminHighRiskFormStep3FileUpload.tsx";
 import Tab from "../../../../../../components/others/Tab/Tab.tsx";
 import {ADMIN_HIGH_RISK_INDIVIDUALS_FORM_STEP3_TABS} from "./index.constances.tsx";
 import AdminHighRiskFormStep3SearchUserForm from "./AdminHighRiskFormStep3SearchUserForm.tsx";
@@ -17,11 +19,11 @@ const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighR
 export type AdminHighRiskFormStep3ShareProps = {
   individuals: ResultPersonCardDataType[];
   setCurrentStep: (currentStep: number) => void;
-}
+} & Pick<AdminHighRiskFormStep3FileUploadProps, 'uploadApiUrl'>
 
 function AdminHighRiskFormStep3Share(
   {
-    individuals, setCurrentStep
+    individuals, setCurrentStep, uploadApiUrl
   }: AdminHighRiskFormStep3ShareProps
 ) {
 
@@ -38,7 +40,9 @@ function AdminHighRiskFormStep3Share(
     <>
       <div className='flex flex-col gap-y-4'>
         <Card className='flex flex-col gap-y-4'>
-          <AdminHighRiskFormStep3FileUpload/>
+          <AdminHighRiskFormStep3FileUpload
+            uploadApiUrl={uploadApiUrl}
+          />
 
           <Tab
             tabs={ADMIN_HIGH_RISK_INDIVIDUALS_FORM_STEP3_TABS}
