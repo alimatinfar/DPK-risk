@@ -1,6 +1,5 @@
 import AdminHighRiskFormStep3Share
   from "../../../../high-risk-individuals/form/steps/step3/AdminHighRiskFormStep3Share.tsx";
-import APIS from "../../../../../../request/constances/apis.ts";
 import {useAdminInquiryHistoriesFormStore} from "../../store/useAdminInquiryHistoriesFormStore.ts";
 import AdminInquiryHistoriesFormButtons from "../../AdminInquiryHistoriesFormButtons.tsx";
 import useAdminInquiryHistoryFormCurrentStep from "../../store/useAdminInquiryHistoryFormCurrentStep.ts";
