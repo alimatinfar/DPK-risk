@@ -13,27 +13,25 @@ import ResultPersonCategoryWrapper from "../../../../../search/result/ResultPers
 import ResultPersonCategory2 from "../../../../../search/result/ResultPersonCategory2.tsx";
 import AdminHighRiskIndividualsCardElement from "../../../individuals/AdminHighRiskIndividualsCardElement.tsx";
 import type {ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
-import useAdminHighRiskFormStep4 from "./hooks/useAdminHighRiskFormStep4.ts";
 import type {AdminHighRiskFormStep1ShareProps} from "../step1/AdminHighRiskFormStep1Share.tsx";
 
 
 export type AdminHighRiskFormStep4ShareProps = {
   formStep1Data: any;
   individuals: ResultPersonCardDataType[];
-  setFormData: any;
+  loading: boolean;
+  onSubmitHandler: () => void;
 } & Pick<AdminHighRiskLetterDetailDescriptionSectionProps,
   'expireDate' | 'riskListType' | 'requestReason' | 'responseSubmissionStatus'
 > & Pick<AdminHighRiskFormStep1ShareProps, 'ButtonsSection'>
 
+
 function AdminHighRiskFormStep4Share(
   {
-    formStep1Data, individuals, setFormData, expireDate, riskListType, requestReason, responseSubmissionStatus,
-    ButtonsSection
+    formStep1Data, individuals, expireDate, riskListType, requestReason, responseSubmissionStatus,
+    ButtonsSection, loading, onSubmitHandler
   }: AdminHighRiskFormStep4ShareProps
 ) {
-
-
-
   return (
     <div className='flex flex-col gap-y-4'>
       <AdminHighRiskLetterDetailDescriptionSection

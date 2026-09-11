@@ -15,10 +15,13 @@ function AdminHighRiskFormStep4() {
 
   return (
     <AdminHighRiskFormStep4Share
-      setFormData={setFormData} individuals={individuals} formStep1Data={formStep1Data}
-      expireDate={formStep1Data?.[expireDateFieldName] ? getFormattedMomentJalaliDateTime({date: formStep1Data?.[expireDateFieldName], mode: 'jDate'}) : ''}
+      individuals={individuals} formStep1Data={formStep1Data}
+      expireDate={formStep1Data?.[expireDateFieldName] ? getFormattedMomentJalaliDateTime({
+        date: formStep1Data?.[expireDateFieldName],
+        mode: 'jDate'
+      }) : ''}
       riskListType={getSelectNameValue(formStep1Data?.[riskListTypeFieldName])}
-      ButtonsSection={AdminHighRiskIndividualsFormButtons}
+      ButtonsSection={AdminHighRiskIndividualsFormButtons} loading={loading} onSubmitHandler={onSubmitHandler}
     />
   );
 }
