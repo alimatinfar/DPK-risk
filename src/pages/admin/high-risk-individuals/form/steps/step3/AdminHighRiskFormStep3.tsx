@@ -10,6 +10,12 @@ import AdminHighRiskFormStep3SelectedIndividuals from "./AdminHighRiskFormStep3S
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
 import { lazy } from "react";
 import AdminHighRiskFormStep3FileUpload from "./AdminHighRiskFormStep3FileUpload.tsx";
+import {
+  customerIdFieldName,
+  type ResultCardDataTypeShareFields
+} from "../../../../../search/result/ResultCard.types.ts";
+import useAdminHighRiskIndividualsFormCurrentStep from "../../store/useAdminHighRiskIndividualsFormCurrentStep.ts";
+import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore.ts";
 
 const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighRiskFormStep3DuplicateUserModal"));
 
@@ -24,6 +30,11 @@ function AdminHighRiskFormStep3() {
   // } = useAdminHighRiskFormStep3()
 
   // uploadApiUrl: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_UPLOAD_EXCEL_CUSTOMERS
+
+  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
+  const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
+  const {setCurrentStep} = useAdminHighRiskIndividualsFormCurrentStep()
+
   return (
     <>
       <div className='flex flex-col gap-y-4'>

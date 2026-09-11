@@ -19,11 +19,12 @@ const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighR
 export type AdminHighRiskFormStep3ShareProps = {
   individuals: ResultPersonCardDataType[];
   setCurrentStep: (currentStep: number) => void;
+  setFormData: any;
 } & Pick<AdminHighRiskFormStep3FileUploadProps, 'uploadApiUrl'>
 
 function AdminHighRiskFormStep3Share(
   {
-    individuals, setCurrentStep, uploadApiUrl
+    individuals, setCurrentStep, uploadApiUrl, setFormData
   }: AdminHighRiskFormStep3ShareProps
 ) {
 
@@ -55,7 +56,9 @@ function AdminHighRiskFormStep3Share(
               loading={searchUserLoading}
             />
 
-            <AdminHighRiskFormStep3SelectedIndividuals/>
+            <AdminHighRiskFormStep3SelectedIndividuals
+              setFormData={setFormData} selectedIndividuals={individuals}
+            />
 
             <AdminHighRiskFormStep3FoundedIndividuals
               setUserDuplicateModalState={setUserDuplicateModalState}

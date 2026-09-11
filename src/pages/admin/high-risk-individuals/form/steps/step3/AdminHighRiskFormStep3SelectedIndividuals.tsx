@@ -1,12 +1,23 @@
 import Chips from "../../../../../../components/others/Chips/Chips";
 import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
-import {customerIdFieldName, type ResultCardDataTypeShareFields} from "../../../../../search/result/ResultCard.types";
+import {
+  customerIdFieldName,
+  type ResultCardDataTypeShareFields,
+  type ResultPersonCardDataType
+} from "../../../../../search/result/ResultCard.types";
 import getPersonTypeItem from "../../../../../search/form/utils/getPersonTypeItem";
 
-function AdminHighRiskFormStep3SelectedIndividuals() {
 
-  const selectedIndividuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
-  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
+type Props = {
+  selectedIndividuals: ResultPersonCardDataType[];
+  setFormData: any;
+}
+
+function AdminHighRiskFormStep3SelectedIndividuals(
+  {
+    selectedIndividuals, setFormData
+  }: Props
+) {
 
   function removeHandler(customerId: ResultCardDataTypeShareFields[typeof customerIdFieldName]) {
     const filteredIndividuals = selectedIndividuals?.filter(individual => individual?.[customerIdFieldName] !== customerId)
