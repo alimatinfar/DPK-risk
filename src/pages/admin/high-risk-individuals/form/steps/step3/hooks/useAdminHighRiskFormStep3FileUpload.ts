@@ -1,7 +1,6 @@
 import {useEffect, useRef} from "react";
 import useMutateData from "../../../../../../../request/hooks/useMutateData.ts";
 import APIS from "../../../../../../../request/constances/apis.ts";
-import toastPromise from "../../../../../../../utils/toastPromise.ts";
 import useModalOpenBoolean from "../../../../../../../hooks/modal/useModalOpenBoolean.ts";
 import {useWatch} from "react-hook-form";
 import useReactHookFormWrapper
@@ -12,8 +11,8 @@ import {
 } from "../../../../FormFields/UploadFileField/index.constances.ts";
 import downloadFileFromFile from "../../../../../../../utils/fileOperations/downloadFileFromFile.ts";
 import type {AdminHighRiskFormStep3FileUploadProps} from "../AdminHighRiskFormStep3FileUpload.tsx";
-
-type BodyDataType = {}
+import {REQUEST_HEADERS} from "../../../../../../../request/utils/requestHeaders.ts";
+import base64ToFile from "../../../../../../../utils/fileOperations/base64ToFile.ts";
 
 type FormDataType = {
   [uploadFileFieldName]: UploadFileFieldType;
@@ -33,23 +32,28 @@ function useAdminHighRiskFormStep3FileUpload(
 
   const {
     mutate, isPending: uploadLoading, error,
-  } = useMutateData<any, BodyDataType>({
+  } = useMutateData<any, FormData>({
     axiosConfig: {
       url: uploadApiUrl,
       method: 'POST',
-      signal: abortControllerRef.current.signal
+      signal: abortControllerRef.current.signal,
+      headers: {
+        ...REQUEST_HEADERS.MULTIPART_FORM_DATA
+      }
     }
   })
 
-  function onSubmitHandler(formData: FormDataType) {
+  async function onSubmitHandler(formData: FormDataType) {
     openModalHandler()
 
-    const bodyData: BodyDataType = {}
+    const file = base64ToFile({base64Data: formData?.[uploadFileFieldName]?.data, fileName: 'upload-file'})
+    const bodyData = new FormData()
+    bodyData.append('file', file)
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
         closeModalHandler()
-        toastPromise().then(toast => toast.error('درج افراد با موفقیت انجام شد'))
+        // toastPromise().then(toast => toast.success('درج افراد با موفقیت انجام شد'))
       },
     })
   }
