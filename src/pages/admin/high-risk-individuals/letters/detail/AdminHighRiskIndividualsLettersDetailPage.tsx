@@ -24,6 +24,7 @@ function AdminHighRiskIndividualsLettersDetailPage() {
   const {
     data, isFetching, error
   } = useFetchData<AdminHighRiskIndividualsLettersDetailPageResponseType>({
+    queryKey: [letterId],
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DETAIL_ALL_DATA,
       params: {

@@ -20,7 +20,9 @@ function useAdminHighRiskIndividualsLettersDetailDocuments(
 
   const {
     timeLineHistories
-  } = useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine()
+  } = useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine({
+    responseData
+  })
 
   const {
     open: deleteModalOpen, shouldBeRemoved: deleteModalShouldBeRemoved, closeModal: closeDeleteModalHandler,

@@ -11,7 +11,7 @@ import {Link} from "react-router";
 
 export type TimeLineHistoryType = {
   title: string | ReactNode;
-  subTitle: string | ReactNode;
+  subTitle?: string | ReactNode;
   subTitleLink?: string;
   subTitleIcon?: (props: IconPropsType) => ReactNode;
   date: string | Moment;
@@ -52,9 +52,9 @@ function HighRiskIndividualsTimeLine(
         <div className='flex flex-col'>
           {histories.map((history, index) => {
 
-            const dateString = getFormattedMomentJalaliDateTime({
-              date: getDateValue(history.date), mode: 'jDate'
-            })
+            // const dateString = getFormattedMomentJalaliDateTime({
+            //   date: getDateValue(history.date), mode: 'jDate'
+            // })
 
             const subTitleSpan = (
               <span className={`
@@ -65,11 +65,11 @@ function HighRiskIndividualsTimeLine(
               </span>
             )
 
-            const subTitleElement = history.subTitleLink ? (
+            const subTitleElement = history?.subTitle ? history.subTitleLink ? (
               <Link to={history.subTitleLink}>
                 {subTitleSpan}
               </Link>
-            ) : subTitleSpan
+            ) : subTitleSpan : null
 
             return (
               <div
@@ -98,7 +98,7 @@ function HighRiskIndividualsTimeLine(
                 </div>
 
                 <div className='flex items-center pr-3 text-xs'>
-                  {dateString}
+                  {String(history.date)}
                 </div>
               </div>
             )
