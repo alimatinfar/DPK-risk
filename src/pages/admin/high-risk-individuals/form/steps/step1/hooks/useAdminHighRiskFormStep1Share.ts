@@ -1,4 +1,3 @@
-import {useAdminHighRiskIndividualsFormStore} from "../../../store/useAdminHighRiskIndividualsFormStore.ts";
 import useReactHookFormWrapper
   from "../../../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import type {
@@ -8,13 +7,16 @@ import {useWatch} from "react-hook-form";
 import {useEffect} from "react";
 import useAdminHighRiskFormStep1ExistLetter from "./useAdminHighRiskFormStep1ExistLetter.ts";
 import toastPromise from "../../../../../../../utils/toastPromise.ts";
+import type {AdminHighRiskFormStep1ShareProps} from "../AdminHighRiskFormStep1Share.tsx";
 
 
-function useAdminHighRiskFormStep1() {
-
-  const defaultValues = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
-  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
-  const formIsDirty = useAdminHighRiskIndividualsFormStore(state => state.formData.formIsDirty)
+function useAdminHighRiskFormStep1Share(
+  {
+    setFormData, formIsDirty, defaultValues, existsLetterApiUrl
+  }: Pick<AdminHighRiskFormStep1ShareProps,
+    'setFormData' | 'formIsDirty' | 'defaultValues' | 'existsLetterApiUrl'
+  >
+) {
 
   const {
     formMethods, onSubmit
@@ -36,7 +38,9 @@ function useAdminHighRiskFormStep1() {
 
   const {
     checkExistLetterLoading, checkExistLetter
-  } = useAdminHighRiskFormStep1ExistLetter()
+  } = useAdminHighRiskFormStep1ExistLetter({
+    existsLetterApiUrl
+  })
 
   function nextStepHandler(formData: AdminHighRiskIndividualsBaseFormFieldsType) {
     checkExistLetter(formData).then((response) => {
@@ -54,4 +58,4 @@ function useAdminHighRiskFormStep1() {
   }
 }
 
-export default useAdminHighRiskFormStep1;
+export default useAdminHighRiskFormStep1Share;

@@ -17,14 +17,22 @@ type BodyDataType = {
   LetterNo: number | string;
 }
 
-function useAdminHighRiskFormStep1ExistLetter() {
+export type AdminHighRiskFormStep1ExistLetterProps = {
+  existsLetterApiUrl: string;
+}
+
+function useAdminHighRiskFormStep1ExistLetter(
+  {
+    existsLetterApiUrl
+  }: AdminHighRiskFormStep1ExistLetterProps
+) {
 
   const {
     mutate, isPending
   } = useMutateData<any, BodyDataType>({
     dataInParams: true,
     axiosConfig: {
-      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_LETTER, method: 'GET'
+      url: existsLetterApiUrl, method: 'GET'
     }
   })
 

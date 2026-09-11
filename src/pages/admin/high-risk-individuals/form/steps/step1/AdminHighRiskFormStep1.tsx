@@ -1,31 +1,21 @@
 import AdminHighRiskIndividualsFormButtons from "../../AdminHighRiskIndividualsFormButtons.tsx";
-import ReactHookFormWrapper
-  from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import AdminHighRiskIndividualsBaseFormFields from "../../../FormFields/AdminHighRiskIndividualsBaseFormFields/AdminHighRiskIndividualsBaseFormFields.tsx";
-import Card from "../../../../../../components/others/Card/Card.tsx";
-import useAdminHighRiskFormStep1 from "./hooks/useAdminHighRiskFormStep1.ts";
+import AdminHighRiskFormStep1Share from "./AdminHighRiskFormStep1Share.tsx";
+import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore.ts";
+import APIS from "../../../../../../request/constances/apis.ts";
 
 
 function AdminHighRiskFormStep1() {
 
-  const {
-    formMethods, onSubmit, checkExistLetterLoading
-  } = useAdminHighRiskFormStep1()
+  const defaultValues = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
+  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
+  const formIsDirty = useAdminHighRiskIndividualsFormStore(state => state.formData.formIsDirty)
 
   return (
-    <ReactHookFormWrapper
-      formMethods={formMethods} onSubmit={onSubmit} className='flex flex-col gap-y-4'
-    >
-      <Card className='grid grid-cols-3 gap-4'>
-        <AdminHighRiskIndividualsBaseFormFields
-          descriptionClassName='col-span-3' initialEntry
-        />
-      </Card>
-
-      <AdminHighRiskIndividualsFormButtons
-        loading={checkExistLetterLoading}
-      />
-    </ReactHookFormWrapper>
+    <AdminHighRiskFormStep1Share
+      formIsDirty={formIsDirty} setFormData={setFormData} defaultValues={defaultValues}
+      existsLetterApiUrl={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_LETTER}
+      ButtonsSection={AdminHighRiskIndividualsFormButtons}
+    />
   );
 }
 
