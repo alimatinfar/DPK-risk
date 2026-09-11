@@ -18,13 +18,12 @@ import useAdminHighRiskIndividualsLettersDetailIndividualsCategories
   from "./hooks/useAdminHighRiskIndividualsLettersDetailIndividualsCategories.ts";
 import type {SetStateType} from "../../../../../../types/SetStateType.ts";
 import AdminHighRiskIndividualsExitLetterContainer from "./AdminHighRiskIndividualsExitLetterContainer";
-import AdminHighRiskIndividualsEntryReasonsTags from "./AdminHighRiskIndividualsEntryReasonsTags.tsx";
 import ResultPersonCategoryWrapper from "../../../../../search/result/ResultPersonCategoryWrapper.tsx";
 
 
 type Props = {
-  setDocListModalState: SetStateType<ModalStateTypeId | boolean>;
-  setExitPersonModalState: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
+  setDocListModalState?: SetStateType<ModalStateTypeId | boolean>;
+  setExitPersonModalState?: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
   data: AdminHighRiskIndividualsLettersDetailIndividualsDataType
 }
 
@@ -60,7 +59,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                       fields={fields}
                       actions={(
                         <>
-                          {!item.exitType && (
+                          {(!item.exitType && setExitPersonModalState) && (
                             <Button
                               onClick={() => setExitPersonModalState(item)}
                               justIcon variant='default' color='red'
@@ -76,16 +75,18 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                       <CardRightRed className='flex flex-col gap-y-4'>
                         <AdminHighRiskIndividualsFieldsWithActions
                           fields={exitLetterFields}
-                          actions={(
-                            <Button
-                              onClick={() => setDocListModalState({
-                                id: item.exitLetter?.id || '', type: MODAL_STATE_TYPE_KEYS.LETTER
-                              })}
-                              variant='default' color='white'
-                            >
-                              لیست مستندات
-                            </Button>
-                          )}
+                          {...setDocListModalState && {
+                            actions:(
+                              <Button
+                                onClick={() => setDocListModalState({
+                                  id: item.exitLetter?.id || '', type: MODAL_STATE_TYPE_KEYS.LETTER
+                                })}
+                                variant='default' color='white'
+                              >
+                                لیست مستندات
+                              </Button>
+                            )
+                          }}
                           bottomFields={[{
                             label: 'توضیحات',
                             value: 'حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. '

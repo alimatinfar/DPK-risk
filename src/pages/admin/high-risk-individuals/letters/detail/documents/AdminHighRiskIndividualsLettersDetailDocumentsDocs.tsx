@@ -8,8 +8,8 @@ import AdminHighRiskIndividualsLettersDetailDocumentsDocsCard
 
 export type AdminHighRiskIndividualsLettersDetailDocumentsDocsProps = {
   documents: AdminHighRiskIndividualsLettersDetailDocumentType[];
-  setDeleteModalState: SetStateType<AdminHighRiskIndividualsLettersDetailDocumentType | false>;
-  setFormModalState: SetStateType<AdminHighRiskIndividualsLettersDetailDocumentType | boolean>;
+  setDeleteModalState?: SetStateType<AdminHighRiskIndividualsLettersDetailDocumentType | false>;
+  setFormModalState?: SetStateType<AdminHighRiskIndividualsLettersDetailDocumentType | boolean>;
 }
 
 function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
@@ -18,13 +18,15 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
   return (
     <CardWithHeader
       title='مستندات'
-      headerEndAdornment={(
-        <WhiteAddButton
-          onClick={() => setFormModalState(true)}
-        >
-          افزودن مستند
-        </WhiteAddButton>
-      )}
+      {...setFormModalState && {
+        headerEndAdornment: (
+          <WhiteAddButton
+            onClick={() => setFormModalState(true)}
+          >
+            افزودن مستند
+          </WhiteAddButton>
+        )
+      }}
     >
       {documents.map((document, index) => (
         <AdminHighRiskIndividualsLettersDetailDocumentsDocsCard

@@ -7,7 +7,7 @@ import type {ReactNode} from "react";
 
 type Props = {
   fields: DetailInfoSectionLabelValueProps[];
-  actions: ReactNode;
+  actions?: ReactNode;
   bottomFields?: DetailInfoSectionLabelValueProps[];
 }
 

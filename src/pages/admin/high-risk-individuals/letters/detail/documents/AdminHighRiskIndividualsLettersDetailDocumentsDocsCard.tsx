@@ -36,12 +36,14 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocsCard(
         />
 
         <div className='flex items-center gap-x-4'>
-          <Button
-            justIcon variant='default' color='red'
-            onClick={() => setDeleteModalState(document)}
-          >
-            <DeleteIcon textColor='text-red-500'/>
-          </Button>
+          {setDeleteModalState && (
+            <Button
+              justIcon variant='default' color='red'
+              onClick={() => setDeleteModalState(document)}
+            >
+              <DeleteIcon textColor='text-red-500'/>
+            </Button>
+          )}
 
           {/*<Button*/}
           {/*  justIcon variant='default' color='white'*/}

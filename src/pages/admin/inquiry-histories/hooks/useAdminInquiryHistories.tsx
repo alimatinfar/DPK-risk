@@ -10,8 +10,14 @@ import EditIcon from "../../../../components/svg/EditIcon.tsx";
 import DeleteIcon from "../../../../components/svg/DeleteIcon.tsx";
 import useFilter from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
 import {useNavigate} from "react-router";
-import {ADMIN_INQUIRY_HISTORIES_FAKE_DATA, adminInquiryHistoriesDefaultFilters} from "../index.constances.tsx";
+import {
+  ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS,
+  ADMIN_INQUIRY_HISTORIES_FAKE_DATA,
+  adminInquiryHistoriesDefaultFilters
+} from "../index.constances.tsx";
 import useModalOpen from "../../../../hooks/modal/useModalOpen.tsx";
+import QUERY_PARAMS from "../../../../constances/queryParams.ts";
+import getUrlWithParams from "../../../../utils/getUrlWithParams.ts";
 
 function useAdminInquiryHistories() {
 
@@ -48,7 +54,11 @@ function useAdminInquiryHistories() {
       ...item,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
-          navigate(ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_DETAIL(item.id))
+          const url = ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_DETAIL(item.id)
+          const params = {
+            [QUERY_PARAMS.LETTER_NUMBER]: item?.[ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]
+          }
+          navigate(getUrlWithParams(url, params))
         }),
         {
           onClick: () => null,
@@ -65,7 +75,7 @@ function useAdminInquiryHistories() {
   }, [data?.data, navigate])
 
   return {
-    filters, setFilters, tableData,
+    filters, setFilters, tableData, isFetching, error,
     deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved
   }
 }
