@@ -31,9 +31,9 @@ function AdminHighRiskIndividualsBaseFormFields(
 
       {isInquiryHistory ? (
         <>
-          <RequestReasonField />
+          <RequestReasonField isRequired />
 
-          <ResponseSubmissionStatusField />
+          <ResponseSubmissionStatusField isRequired />
         </>
       ) : initialEntry ? (
         <>

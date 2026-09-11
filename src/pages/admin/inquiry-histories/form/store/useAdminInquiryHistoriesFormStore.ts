@@ -6,5 +6,5 @@ import {ADMIN_INQUIRY_HISTORIES_FORM_INITIAL_DATA} from "../constances/initialFo
 
 export const useAdminInquiryHistoriesFormStore = createAdminHighRiskIndividualsStore<AdminInquiryHistoriesFormDataType>({
   formData: ADMIN_INQUIRY_HISTORIES_FORM_INITIAL_DATA,
-  storageKey: INDEXED_DB_KEYS.ADMIN_HIGH_RISK_INDIVIDUALS
+  storageKey: INDEXED_DB_KEYS.ADMIN_INQUIRY_HISTORIES
 })
