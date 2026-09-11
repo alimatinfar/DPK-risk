@@ -1,18 +1,17 @@
-import useAdminHighRiskIndividualsFormCurrentStep
-  from "../../../../high-risk-individuals/form/store/useAdminHighRiskIndividualsFormCurrentStep.ts";
 import AdminHighRiskFormStep3Share
   from "../../../../high-risk-individuals/form/steps/step3/AdminHighRiskFormStep3Share.tsx";
 import APIS from "../../../../../../request/constances/apis.ts";
-import AdminHighRiskIndividualsFormButtons
-  from "../../../../high-risk-individuals/form/AdminHighRiskIndividualsFormButtons.tsx";
 import {useAdminInquiryHistoriesFormStore} from "../../store/useAdminInquiryHistoriesFormStore.ts";
+import AdminInquiryHistoriesFormButtons from "../../AdminInquiryHistoriesFormButtons.tsx";
+import useAdminInquiryHistoryFormCurrentStep from "../../store/useAdminInquiryHistoryFormCurrentStep.ts";
+
 
 function AdminInquiryHistoryFormStep3() {
 
   const formDataStep1 = useAdminInquiryHistoriesFormStore(state => state.formData.step1)
   const setFormData = useAdminInquiryHistoriesFormStore(state => state.setFormData)
   const individuals = useAdminInquiryHistoriesFormStore(state => state.formData.step3.individuals)
-  const {setCurrentStep} = useAdminHighRiskIndividualsFormCurrentStep()
+  const {setCurrentStep} = useAdminInquiryHistoryFormCurrentStep()
 
   return (
     <AdminHighRiskFormStep3Share
@@ -22,7 +21,7 @@ function AdminInquiryHistoryFormStep3() {
       // uploadApiUrl={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_UPLOAD_EXCEL_CUSTOMERS}
       existCustomerApiUrl={''}
       uploadApiUrl={''}
-      ButtonsSection={AdminHighRiskIndividualsFormButtons}
+      ButtonsSection={AdminInquiryHistoriesFormButtons}
     />
   );
 }
