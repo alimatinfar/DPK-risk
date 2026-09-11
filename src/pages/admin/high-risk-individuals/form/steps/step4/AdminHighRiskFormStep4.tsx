@@ -4,14 +4,14 @@ import getFormattedMomentJalaliDateTime
 import AdminHighRiskIndividualsFormButtons from "../../AdminHighRiskIndividualsFormButtons.tsx";
 import {expireDateFieldName} from "../../../FormFields/ExpireDateField/index.constances.ts";
 import {riskListTypeFieldName} from "../../../FormFields/RiskListTypeField/index.constances.ts";
-import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore.ts";
 import AdminHighRiskFormStep4Share from "./AdminHighRiskFormStep4Share.tsx";
+import useAdminHighRiskFormStep4 from "./hooks/useAdminHighRiskFormStep4.ts";
 
 function AdminHighRiskFormStep4() {
 
-  const formStep1Data = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
-  const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
-  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
+  const {
+    onSubmitHandler, loading, formStep1Data, individuals, setFormData
+  } = useAdminHighRiskFormStep4()
 
   return (
     <AdminHighRiskFormStep4Share

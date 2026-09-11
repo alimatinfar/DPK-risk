@@ -4,15 +4,13 @@ import APIS from "../../../../../../../request/constances/apis.ts";
 import useAdminHighRiskFormStep4GetBody from "./useAdminHighRiskFormStep4GetBody.ts";
 import fireResponseErrorToast from "../../../../../../../request/utils/fireResponseErrorToast.ts";
 import type {AdminHighRiskFormStep4ShareProps} from "../AdminHighRiskFormStep4Share.tsx";
+import {useAdminHighRiskIndividualsFormStore} from "../../../store/useAdminHighRiskIndividualsFormStore.ts";
 
+function useAdminHighRiskFormStep4() {
 
-type Props = Pick<AdminHighRiskFormStep4ShareProps, 'setFormData'>
-
-function useAdminHighRiskFormStep4Share(
-  {
-    setFormData
-  }: Props
-) {
+  const formStep1Data = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
+  const individuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
+  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
 
   const {
     mutate, isPending
@@ -39,8 +37,8 @@ function useAdminHighRiskFormStep4Share(
   }
 
   return {
-    onSubmitHandler, loading: isPending
+    onSubmitHandler, loading: isPending, formStep1Data, individuals, setFormData
   }
 }
 
-export default useAdminHighRiskFormStep4Share;
+export default useAdminHighRiskFormStep4;
