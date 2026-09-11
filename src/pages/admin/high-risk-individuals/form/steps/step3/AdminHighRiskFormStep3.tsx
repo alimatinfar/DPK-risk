@@ -4,7 +4,6 @@ import {
   ADMIN_HIGH_RISK_INDIVIDUALS_FORM_STEP3_TABS
 } from "./index.constances";
 import Card from "../../../../../../components/others/Card/Card.tsx";
-import useAdminHighRiskFormStep3 from "./hooks/useAdminHighRiskFormStep3";
 import AdminHighRiskFormStep3SearchUserForm from "./AdminHighRiskFormStep3SearchUserForm";
 import AdminHighRiskFormStep3FoundedIndividuals from "./AdminHighRiskFormStep3FoundedIndividuals.tsx";
 import AdminHighRiskFormStep3SelectedIndividuals from "./AdminHighRiskFormStep3SelectedIndividuals";
@@ -17,12 +16,12 @@ const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighR
 
 function AdminHighRiskFormStep3() {
 
-  const {
-    activeTab, setActiveTab, nextStepHandler,
-    userDuplicateModalOpen, closeUserDuplicateModalHandler, setUserDuplicateModalState,
-    userDuplicateModalState, userDuplicateShouldBeRemoved,
-    searchUserResultData, searchUserFormMethods, searchUserOnSubmit, searchUserLoading
-  } = useAdminHighRiskFormStep3()
+  // const {
+  //   activeTab, setActiveTab, nextStepHandler,
+  //   userDuplicateModalOpen, closeUserDuplicateModalHandler, setUserDuplicateModalState,
+  //   userDuplicateModalState, userDuplicateShouldBeRemoved,
+  //   searchUserResultData, searchUserFormMethods, searchUserOnSubmit, searchUserLoading
+  // } = useAdminHighRiskFormStep3()
 
   return (
     <>
