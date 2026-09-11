@@ -1,8 +1,7 @@
 import AdminHighRiskFormStep1Share
   from "../../../../high-risk-individuals/form/steps/step1/AdminHighRiskFormStep1Share.tsx";
-import AdminHighRiskIndividualsFormButtons
-  from "../../../../high-risk-individuals/form/AdminHighRiskIndividualsFormButtons.tsx";
 import {useAdminInquiryHistoriesFormStore} from "../../store/useAdminInquiryHistoriesFormStore.ts";
+import AdminInquiryHistoriesFormButtons from "../../AdminInquiryHistoriesFormButtons.tsx";
 
 function AdminInquiryHistoryFormStep1() {
 
@@ -16,7 +15,7 @@ function AdminInquiryHistoryFormStep1() {
       // TODO should filled this section
       // existsLetterApiUrl={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_LETTER}
       existsLetterApiUrl={''} isInquiryHistory
-      ButtonsSection={AdminHighRiskIndividualsFormButtons}
+      ButtonsSection={AdminInquiryHistoriesFormButtons}
     />
   );
 }
