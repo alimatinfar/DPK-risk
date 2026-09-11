@@ -5,36 +5,36 @@ import Button from "../../../../../../components/Form/Button/Button";
 import PlusCircleIcon from "../../../../../../components/svg/PlusCircleIcon";
 import {adminHighRiskIndividualsCardFormStep3SeparatedFieldsNameLabel} from "./index.constances";
 import Tag from "../../../../../../components/others/Tag/Tag";
-import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
 import {type AdminHighRiskFormStep3FoundedIndividualsProps} from "./AdminHighRiskFormStep3FoundedIndividuals";
 import useAdminHighRiskFormStep3ExistCustomer from "./hooks/useAdminHighRiskFormStep3ExistCustomer.ts";
 import type {CustomResponseType} from "../../../../../../request/types/CustomResponseType.ts";
 import type {AdminHighRiskFormStep3ExistCustomerResponseItemType} from "./index.types.ts";
 import {announceReferenceFieldName} from "../../../FormFields/AnnouncingReferenceField/index.constances.ts";
 import getSelectIdValue from "../../../../../../components/Form/Select/utils/getSelectIdValue.ts";
+import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
 
 
 type Props = {
   data: ResultPersonCardDataType;
 } & Pick<AdminHighRiskFormStep3FoundedIndividualsProps, 'setUserDuplicateModalState' | 'closeUserDuplicateModalHandler'>
+  & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals' | 'existCustomerApiUrl'>
 
 function AdminHighRiskFormStep3FoundedIndividualsCard(
-  {data, setUserDuplicateModalState, closeUserDuplicateModalHandler}: Props
+  {
+    data, setUserDuplicateModalState, closeUserDuplicateModalHandler,
+    formDataStep1, setFormData, individuals, existCustomerApiUrl
+  }: Props
 ) {
 
   const {fields} = useResultPersonCategoryFields({
     separatedFieldsName: adminHighRiskIndividualsCardFormStep3SeparatedFieldsNameLabel, data
   })
 
-  const selectedIndividuals = useAdminHighRiskIndividualsFormStore(state => state.formData.step3.individuals)
-  const setFormData = useAdminHighRiskIndividualsFormStore(state => state.setFormData)
-  const formDataStep1 = useAdminHighRiskIndividualsFormStore(state => state.formData.step1)
-
   function setIndividualInFormDataHandler() {
     setFormData({
       step3: {
         individuals: [
-          ...selectedIndividuals,
+          ...individuals,
           data
         ]
       }
@@ -44,7 +44,9 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
 
   const {
     checkExistCustomerLoading, checkExistCustomer
-  } = useAdminHighRiskFormStep3ExistCustomer()
+  } = useAdminHighRiskFormStep3ExistCustomer({
+    existCustomerApiUrl
+  })
 
   function addHandler() {
     checkExistCustomer(data?.[customerIdFieldName]).then((response) => {
@@ -55,7 +57,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
     })
   }
 
-  const isAdded = selectedIndividuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])
+  const isAdded = individuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])
 
   return (
     <div className='rounded-lg border border-gray-200 flex flex-col overflow-hidden'>

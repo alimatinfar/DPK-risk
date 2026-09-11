@@ -1,16 +1,18 @@
 import type {ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types";
 import AdminHighRiskFormStep3FoundedIndividualsCard from "./AdminHighRiskFormStep3FoundedIndividualsCard";
+import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
 
 
 export type AdminHighRiskFormStep3FoundedIndividualsProps = {
   foundedIndividuals: ResultPersonCardDataType[];
-  setUserDuplicateModalState: (value: () => () => void |  undefined) => void;
+  setUserDuplicateModalState: (value: () => () => void | undefined) => void;
   closeUserDuplicateModalHandler: () => void;
-}
+} & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals' | 'existCustomerApiUrl'>
 
 function AdminHighRiskFormStep3FoundedIndividuals(
   {
-    foundedIndividuals, setUserDuplicateModalState, closeUserDuplicateModalHandler
+    foundedIndividuals, setUserDuplicateModalState, closeUserDuplicateModalHandler,
+    setFormData, individuals, formDataStep1, existCustomerApiUrl
   }: AdminHighRiskFormStep3FoundedIndividualsProps
 ) {
   return foundedIndividuals?.length !== 0 ? (
@@ -18,7 +20,8 @@ function AdminHighRiskFormStep3FoundedIndividuals(
       {foundedIndividuals?.map((item, index) => (
         <AdminHighRiskFormStep3FoundedIndividualsCard
           key={item.customerId} data={item} setUserDuplicateModalState={setUserDuplicateModalState}
-          closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
+          closeUserDuplicateModalHandler={closeUserDuplicateModalHandler} existCustomerApiUrl={existCustomerApiUrl}
+          setFormData={setFormData} individuals={individuals} formDataStep1={formDataStep1}
         />
       ))}
     </div>

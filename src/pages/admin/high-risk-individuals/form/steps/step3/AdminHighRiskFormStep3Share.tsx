@@ -7,11 +7,12 @@ import {ADMIN_HIGH_RISK_INDIVIDUALS_FORM_STEP3_TABS} from "./index.constances.ts
 import AdminHighRiskFormStep3SearchUserForm from "./AdminHighRiskFormStep3SearchUserForm.tsx";
 import AdminHighRiskFormStep3SelectedIndividuals from "./AdminHighRiskFormStep3SelectedIndividuals.tsx";
 import AdminHighRiskFormStep3FoundedIndividuals from "./AdminHighRiskFormStep3FoundedIndividuals.tsx";
-import AdminHighRiskIndividualsFormButtons from "../../AdminHighRiskIndividualsFormButtons.tsx";
 import DisplayModal from "../../../../../../components/others/Modal/DisplayModal.tsx";
 import type {ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types.ts";
 import useAdminHighRiskFormStep3Share from "./hooks/useAdminHighRiskFormStep3Share.ts";
 import {lazy} from "react";
+import type {AdminHighRiskFormStep1ShareProps} from "../step1/AdminHighRiskFormStep1Share.tsx";
+import type {UseAdminHighRiskFormStep3ExistCustomerProps} from "./hooks/useAdminHighRiskFormStep3ExistCustomer.ts";
 
 const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighRiskFormStep3DuplicateUserModal"));
 
@@ -20,11 +21,15 @@ export type AdminHighRiskFormStep3ShareProps = {
   individuals: ResultPersonCardDataType[];
   setCurrentStep: (currentStep: number) => void;
   setFormData: any;
+  formDataStep1: any;
 } & Pick<AdminHighRiskFormStep3FileUploadProps, 'uploadApiUrl'>
+  & Pick<AdminHighRiskFormStep1ShareProps, 'ButtonsSection'>
+  & Pick<UseAdminHighRiskFormStep3ExistCustomerProps, 'existCustomerApiUrl'>
 
 function AdminHighRiskFormStep3Share(
   {
-    individuals, setCurrentStep, uploadApiUrl, setFormData
+    individuals, setCurrentStep, uploadApiUrl, setFormData, formDataStep1,
+    ButtonsSection, existCustomerApiUrl
   }: AdminHighRiskFormStep3ShareProps
 ) {
 
@@ -63,12 +68,13 @@ function AdminHighRiskFormStep3Share(
             <AdminHighRiskFormStep3FoundedIndividuals
               setUserDuplicateModalState={setUserDuplicateModalState}
               closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
-              foundedIndividuals={searchUserResultData}
+              foundedIndividuals={searchUserResultData} existCustomerApiUrl={existCustomerApiUrl}
+              individuals={individuals} formDataStep1={formDataStep1} setFormData={setFormData}
             />
           </div>
         </Card>
 
-        <AdminHighRiskIndividualsFormButtons
+        <ButtonsSection
           onClick={nextStepHandler}
         />
       </div>
@@ -77,6 +83,8 @@ function AdminHighRiskFormStep3Share(
         <AdminHighRiskFormStep3DuplicateUserModal
           open={userDuplicateModalOpen} onClose={closeUserDuplicateModalHandler}
           userDuplicateModalState={userDuplicateModalState}
+          formDataStep1={formDataStep1}
+
         />
       </DisplayModal>
     </>

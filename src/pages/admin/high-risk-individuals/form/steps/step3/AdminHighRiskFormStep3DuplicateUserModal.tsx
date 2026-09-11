@@ -1,22 +1,22 @@
 import Button from "../../../../../../components/Form/Button/Button";
 import type {ModalProps} from "../../../../../../components/others/Modal/Modal";
 import Modal from "../../../../../../components/others/Modal/Modal";
-import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
 import {announceReferenceFieldName} from "../../../FormFields/AnnouncingReferenceField/index.constances";
+import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
 
 
 type Props = {
   userDuplicateModalState: (() => void) | undefined;
 } & Pick<ModalProps, 'onClose' | 'open'>
+  & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1'>
 
 function AdminHighRiskFormStep3DuplicateUserModal(
-  {onClose, open, userDuplicateModalState}: Props
+  {
+    onClose, open, userDuplicateModalState, formDataStep1
+  }: Props
 ) {
 
-  const step1Data = useAdminHighRiskIndividualsFormStore(
-    state => state.formData.step1
-  )
-  const referenceName = step1Data?.[announceReferenceFieldName] ? step1Data?.[announceReferenceFieldName]?.name : ''
+  const referenceName = formDataStep1?.[announceReferenceFieldName] ? formDataStep1?.[announceReferenceFieldName]?.name : ''
 
   return (
     <Modal
