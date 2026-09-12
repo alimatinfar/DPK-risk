@@ -44,7 +44,7 @@ function AdminHighRiskIndividualsBaseFormFields(
       ) : null}
 
       <div className={descriptionClassName || ''}>
-        <DescriptionField isNotRequired customFieldName={descriptionCustomFieldName} />
+        <DescriptionField maxLength={250} isNotRequired customFieldName={descriptionCustomFieldName} />
       </div>
     </>
   );

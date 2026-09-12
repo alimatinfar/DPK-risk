@@ -20,7 +20,7 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine(
   };
 
   const sortCustomers = (data: AdminHighRiskIndividualsLettersDetailPageResponseType['customers']) => {
-    return [...data].sort((a, b) => {
+    return [...data].sort((b, a) => {
       if (a.isOut !== b.isOut) {
         return Number(b.isOut) - Number(a.isOut);
       }
