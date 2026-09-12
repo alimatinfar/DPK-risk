@@ -1,9 +1,9 @@
 import useMutateData from "../../../../../../../request/hooks/useMutateData.ts";
 import fireResponseErrorToast from "../../../../../../../request/utils/fireResponseErrorToast.ts";
 import {useAdminInquiryHistoriesFormStore} from "../../../store/useAdminInquiryHistoriesFormStore.ts";
-
-
-type BodyDataType = null
+import useAdminInquiryHistoryFormStep4GetBody from "./useAdminInquiryHistoryFormStep4GetBody.ts";
+import APIS from "../../../../../../../request/constances/apis.ts";
+import type {AdminInquiryHistoryFormBodyDataType} from "../index.types.ts";
 
 function useAdminInquiryHistoryFormStep4() {
 
@@ -13,15 +13,19 @@ function useAdminInquiryHistoryFormStep4() {
 
   const {
     mutate, isPending
-  } = useMutateData<any, BodyDataType>({
+  } = useMutateData<any, AdminInquiryHistoryFormBodyDataType>({
     axiosConfig: {
-      url: '', method: 'POST'
+      url: APIS.ADMIN_INQUIRY_HISTORIES_ADD, method: 'POST'
     }
   })
 
+  const {
+    getBodyData
+  } = useAdminInquiryHistoryFormStep4GetBody()
+
   async function onSubmitHandler() {
 
-    const bodyData = null
+    const bodyData = getBodyData()
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {

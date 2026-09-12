@@ -3,7 +3,6 @@ import type {AdminHighRiskFormBodyDataType} from "../index.types.ts";
 import APIS from "../../../../../../../request/constances/apis.ts";
 import useAdminHighRiskFormStep4GetBody from "./useAdminHighRiskFormStep4GetBody.ts";
 import fireResponseErrorToast from "../../../../../../../request/utils/fireResponseErrorToast.ts";
-import type {AdminHighRiskFormStep4ShareProps} from "../AdminHighRiskFormStep4Share.tsx";
 import {useAdminHighRiskIndividualsFormStore} from "../../../store/useAdminHighRiskIndividualsFormStore.ts";
 
 function useAdminHighRiskFormStep4() {

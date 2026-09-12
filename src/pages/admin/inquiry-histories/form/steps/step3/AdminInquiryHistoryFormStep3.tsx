@@ -3,6 +3,7 @@ import AdminHighRiskFormStep3Share
 import {useAdminInquiryHistoriesFormStore} from "../../store/useAdminInquiryHistoriesFormStore.ts";
 import AdminInquiryHistoriesFormButtons from "../../AdminInquiryHistoriesFormButtons.tsx";
 import useAdminInquiryHistoryFormCurrentStep from "../../store/useAdminInquiryHistoryFormCurrentStep.ts";
+import APIS from "../../../../../../request/constances/apis.ts";
 
 
 function AdminInquiryHistoryFormStep3() {
