@@ -13,7 +13,9 @@ export type AdminHighRiskIndividualsLettersDetailDocumentsDocsProps = {
 }
 
 function AdminHighRiskIndividualsLettersDetailDocumentsDocs(
-  {documents, setDeleteModalState, setFormModalState}: AdminHighRiskIndividualsLettersDetailDocumentsDocsProps
+  {
+    documents, setDeleteModalState, setFormModalState
+  }: AdminHighRiskIndividualsLettersDetailDocumentsDocsProps
 ) {
   return (
     <CardWithHeader

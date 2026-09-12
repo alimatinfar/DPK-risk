@@ -22,7 +22,7 @@ function AdminHighRiskIndividualsLettersDetailPage() {
   const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS)
 
   const {
-    data, isFetching, error
+    data, isFetching, error, refetch
   } = useFetchData<AdminHighRiskIndividualsLettersDetailPageResponseType>({
     queryKey: [letterId],
     axiosConfig: {
@@ -46,7 +46,10 @@ function AdminHighRiskIndividualsLettersDetailPage() {
         error={error} isLoading={isFetching}
       >
         <TabContentRender
-          renderObject={ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_RENDER_OBJECT({responseData: data})}
+          renderObject={ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_RENDER_OBJECT({
+            responseData: data,
+            refetch
+          })}
           activeTab={activeTab}
         />
       </RenderLogic>

@@ -21,7 +21,7 @@ const AdminHighRiskIndividualsLettersDetailDocumentsFormModal = lazy(() => impor
 
 
 function AdminHighRiskIndividualsLettersDetailDocuments(
-  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+  {responseData, refetch}: AdminHighRiskIndividualsLettersDetailPageProps
 ) {
 
   const {
@@ -57,12 +57,14 @@ function AdminHighRiskIndividualsLettersDetailDocuments(
       <DisplayModal shouldBeRemoved={deleteModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal
           open={deleteModalOpen} onClose={closeDeleteModalHandler} modalState={deleteModalState}
+          refetch={refetch}
         />
       </DisplayModal>
 
       <DisplayModal shouldBeRemoved={formModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailDocumentsFormModal
           open={formModalOpen} onClose={closeFormModalHandler} modalState={formModalState}
+          refetch={refetch}
         />
       </DisplayModal>
     </>

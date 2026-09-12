@@ -34,7 +34,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
 ) {
 
   const {
-    documentsList, loading, error, renderState, setRenderState, goToListState, pageTitle
+    documentsList, loading, error, renderState, setRenderState, goToListState, pageTitle, refetch
   } = useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal({
     isCustomer, modalState
   })
@@ -50,13 +50,13 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
         >
           {renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.DELETE ? (
             <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
-              cancelAction={goToListState} modalState={renderState?.data} onClose={goToListState}
+              cancelAction={goToListState} modalState={renderState?.data} onClose={goToListState} refetch={refetch}
               apiAddress={deleteDocumentApiAddress} letterId={typeof modalState !== 'boolean' ? modalState?.id : ''}
             />
           ) : renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT ? (
             <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
               modalState={renderState?.data} isEditMode onClose={goToListState}
-              apiAddress={editDocumentApiAddress}
+              apiAddress={editDocumentApiAddress} refetch={refetch}
             />
           ) : (
             <AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent

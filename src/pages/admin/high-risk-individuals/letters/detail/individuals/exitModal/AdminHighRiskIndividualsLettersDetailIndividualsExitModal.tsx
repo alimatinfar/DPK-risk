@@ -28,7 +28,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
     open, onClose, modalState, personTitle
   }: AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps
 ) {
-
+  console.log({modalState})
   const {
     formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep,
     reasonIsUserMistake, description, documentsList, setDocumentsList, loading

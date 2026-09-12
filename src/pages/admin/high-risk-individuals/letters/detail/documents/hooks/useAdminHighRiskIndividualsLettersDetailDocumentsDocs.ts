@@ -6,7 +6,7 @@ import {uploadFileFieldName} from "../../../../FormFields/UploadFileField/index.
 import type {AdminHighRiskIndividualsLettersDetailPageProps} from "../../index.types.ts";
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsDocs(
-  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+  {responseData}: Pick<AdminHighRiskIndividualsLettersDetailPageProps, 'responseData'>
 ) {
 
   const documents: AdminHighRiskIndividualsLettersDetailDocumentType[] = useMemo(function () {

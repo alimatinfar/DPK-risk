@@ -10,7 +10,7 @@ import moment from 'moment-jalaali';
 
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine(
-  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+  {responseData}: Pick<AdminHighRiskIndividualsLettersDetailPageProps, 'responseData'>
 ) {
 
   const parseJalaliDate = (date: number | string | null) => {

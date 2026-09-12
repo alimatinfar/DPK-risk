@@ -32,7 +32,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
     [isCustomer ? 'riskCustomerId' : 'letterId']: typeof modalState !== 'boolean' ? modalState?.id : ''
   }
   const {
-    data, isFetching, error
+    data, isFetching, error, refetch
   } = useFetchData<AdminHighRiskIndividualsDocListResponseItemType[]>({
     axiosConfig: {
       url: apiAddress,
@@ -58,7 +58,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
       'ویرایش مستند' : 'لیست مستندات'
 
   return {
-    documentsList, loading: isFetching, error,
+    documentsList, loading: isFetching, error, refetch,
     renderState, setRenderState, goToListState, pageTitle
   }
 }

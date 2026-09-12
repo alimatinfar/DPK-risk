@@ -17,7 +17,6 @@ import {useParams} from "react-router";
 import type {AdminHighRiskIndividualsLettersDetailPageProps} from "../../index.types.ts";
 import {useMemo} from "react";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../../../search/form/SearchPageForm.constances.ts";
-import moment from "moment-jalaali";
 import displayDate from "../../../../../../../utils/display/displayDate.ts";
 import {
   legalTypeFieldName
@@ -25,7 +24,7 @@ import {
 
 
 function useAdminHighRiskIndividualsLettersDetailIndividuals(
-  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+  {responseData}: Pick<AdminHighRiskIndividualsLettersDetailPageProps, 'responseData'>
 ) {
 
   const {id: letterId} = useParams()
@@ -62,8 +61,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividuals(
       return {
         type,
         id: item?.customerId,
-        //TODO should set riskCustomerId from response
-        riskCustomerId: '',
+        riskCustomerId: item?.riskCustomerId,
         name: item?.isLegal ? item?.lastName : item?.firstName,
         ...item?.isLegal ? {[legalTypeFieldName]: ''} : {lastName: item?.lastName},
         nationalCode: item?.nationalID,

@@ -8,10 +8,13 @@ import {useParams} from "react-router";
 
 export type AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps = {
   modalState: AdminHighRiskIndividualsLettersDetailDocumentType | boolean;
+  refetch: () => void;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
-  {open, onClose, modalState}: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps
+  {
+    open, onClose, modalState, refetch
+  }: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps
 ) {
 
   const {id: letterId} = useParams()
@@ -24,7 +27,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
       <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent
         cancelAction={onClose} modalState={modalState} onClose={onClose}
         apiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT}
-        letterId={letterId || ''}
+        letterId={letterId || ''} refetch={refetch}
       />
     </Modal>
   );

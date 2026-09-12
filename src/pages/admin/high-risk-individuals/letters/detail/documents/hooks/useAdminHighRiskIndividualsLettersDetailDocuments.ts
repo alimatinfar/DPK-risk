@@ -9,7 +9,7 @@ import useAdminHighRiskIndividualsLettersDetailDocumentsTimeLine
 import type {AdminHighRiskIndividualsLettersDetailPageProps} from "../../index.types.ts";
 
 function useAdminHighRiskIndividualsLettersDetailDocuments(
-  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+  {responseData}: Pick<AdminHighRiskIndividualsLettersDetailPageProps, 'responseData'>
 ) {
 
   const {

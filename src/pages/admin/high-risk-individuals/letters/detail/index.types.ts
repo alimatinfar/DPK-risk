@@ -30,6 +30,7 @@ type CustomerResponseType = {
   isLegal: boolean;
   nationality: number;
   isOutValidityDate: boolean;
+  riskCustomerId: number;
 }
 
 export type AdminHighRiskIndividualsLettersDetailPageResponseType = {
@@ -53,5 +54,6 @@ export type AdminHighRiskIndividualsLettersDetailPageResponseType = {
 }
 
 export type AdminHighRiskIndividualsLettersDetailPageProps = {
-  responseData: CustomResponseType<AdminHighRiskIndividualsLettersDetailPageResponseType> | undefined
+  responseData: CustomResponseType<AdminHighRiskIndividualsLettersDetailPageResponseType> | undefined;
+  refetch: () => void;
 }

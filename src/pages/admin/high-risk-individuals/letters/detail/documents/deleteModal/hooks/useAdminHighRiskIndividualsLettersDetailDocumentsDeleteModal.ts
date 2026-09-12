@@ -9,6 +9,7 @@ import fireResponseErrorToast from "../../../../../../../../request/utils/fireRe
 import type {
   AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
 } from "../AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent.tsx";
+import toastPromise from "../../../../../../../../utils/toastPromise.ts";
 
 
 type BodyDataType = {
@@ -23,9 +24,9 @@ type FormDataType = {
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
   {
-    modalState, onClose, apiAddress, letterId
+    modalState, onClose, apiAddress, letterId, refetch
   }: Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps,
-    'modalState' | 'onClose' | 'apiAddress' | 'letterId'
+    'modalState' | 'onClose' | 'apiAddress' | 'letterId' | 'refetch'
   >
 ) {
 
@@ -47,6 +48,8 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal(
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
+        toastPromise().then(toast => toast.success('مستند با موفقیت حذف شد'))
+        refetch()
         onClose()
       },
       ...fireResponseErrorToast()

@@ -13,19 +13,19 @@ import type {ModalProps} from "../../../../../../../components/others/Modal/Moda
 export type AdminHighRiskIndividualsLettersDetailDocumentsFormModalContentProps = {
   isEditMode: boolean;
   apiAddress: string;
-} & Pick<AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps, 'modalState'> &
+} & Pick<AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps, 'modalState' | 'refetch'> &
   Pick<ModalProps, 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent(
   {
-    modalState, isEditMode, onClose, apiAddress
+    modalState, isEditMode, onClose, apiAddress, refetch
   }: AdminHighRiskIndividualsLettersDetailDocumentsFormModalContentProps
 ) {
 
   const {
     formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailDocumentsFormModal({
-    modalState, onClose, apiAddress, isEditMode
+    modalState, onClose, apiAddress, isEditMode, refetch
   })
 
   return (

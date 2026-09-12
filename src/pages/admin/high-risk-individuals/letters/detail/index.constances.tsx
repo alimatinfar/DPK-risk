@@ -28,12 +28,12 @@ export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS: TabsProps['tabs'] 
 ]
 
 export const ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_RENDER_OBJECT = (
-  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+  {responseData, refetch}: AdminHighRiskIndividualsLettersDetailPageProps
 ) => ({
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS]: (
-    <AdminHighRiskIndividualsLettersDetailDocuments responseData={responseData} />
+    <AdminHighRiskIndividualsLettersDetailDocuments responseData={responseData} refetch={refetch} />
   ),
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.INDIVIDUALS]: (
-    <AdminHighRiskIndividualsLettersDetailIndividuals responseData={responseData} />
+    <AdminHighRiskIndividualsLettersDetailIndividuals responseData={responseData} refetch={refetch} />
   ),
 })

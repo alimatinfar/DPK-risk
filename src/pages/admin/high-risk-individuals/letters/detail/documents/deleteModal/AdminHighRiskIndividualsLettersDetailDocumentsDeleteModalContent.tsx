@@ -15,24 +15,26 @@ export type AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProp
   apiAddress: string;
   letterId: number | string;
 } &
-  Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps, 'modalState'> &
+  Pick<AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalProps, 'modalState' | 'refetch'> &
   Pick<ModalProps, 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContent(
-  {cancelAction, modalState, onClose, apiAddress, letterId}: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
+  {
+    cancelAction, modalState, onClose, apiAddress, letterId, refetch
+  }: AdminHighRiskIndividualsLettersDetailDocumentsDeleteModalContentProps
 ) {
 
   const {
     formMethods, onSubmit, loading
   } = useAdminHighRiskIndividualsLettersDetailDocumentsDeleteModal({
-    modalState, onClose, apiAddress, letterId
+    modalState, onClose, apiAddress, letterId, refetch
   })
 
   return (
     <ReactHookFormWrapper
       formMethods={formMethods} onSubmit={onSubmit}
     >
-      <DescriptionField/>
+      <DescriptionField maxLength={250} />
 
       <div className='grid grid-cols-2 gap-x-4 mt-2'>
         <Button

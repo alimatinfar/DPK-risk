@@ -10,11 +10,11 @@ import {type InputProps} from "../../../../../components/Form/Input/types/InputP
 type Props = {
   customFieldName?: string;
   isNotRequired?: boolean;
-} & Pick<InputProps, 'placeholder'>
+} & Pick<InputProps, 'placeholder' | 'maxLength'>
 
 function DescriptionField(
   {
-    placeholder, customFieldName, isNotRequired
+    placeholder, customFieldName, isNotRequired, maxLength
   }: Props
 ) {
 
@@ -32,6 +32,7 @@ function DescriptionField(
         label: descriptionFieldLabel,
         rows: 5,
         placeholder: placeholder || descriptionFieldLabel,
+        maxLength
       }}
       rules={isNotRequired ? {} : {
         required: requiredErrorMessage

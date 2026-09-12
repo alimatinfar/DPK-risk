@@ -7,10 +7,13 @@ import APIS from "../../../../../../../request/constances/apis.ts";
 
 export type AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps = {
   modalState: AdminHighRiskIndividualsLettersDetailDocumentType | boolean;
+  refetch: () => void;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailDocumentsFormModal(
-  {open, onClose, modalState}: AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps
+  {
+    open, onClose, modalState, refetch
+  }: AdminHighRiskIndividualsLettersDetailDocumentsFormModalProps
 ) {
 
   const isEditMode = typeof modalState !== 'boolean'
@@ -23,7 +26,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsFormModal(
     >
       <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
         isEditMode={isEditMode} modalState={modalState} onClose={onClose}
-        apiAddress={apiAddress}
+        apiAddress={apiAddress} refetch={refetch}
       />
     </Modal>
   );

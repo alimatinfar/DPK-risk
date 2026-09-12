@@ -17,6 +17,8 @@ import type {
 import getSelectIdValue from "../../../../../../../../components/Form/Select/utils/getSelectIdValue.ts";
 import type {SelectOptionType} from "../../../../../../../../components/Form/Select/select-exports.ts";
 import {uploadFileFieldName} from "../../../../../FormFields/UploadFileField/index.constances.ts";
+import {useParams} from "react-router";
+import toastPromise from "../../../../../../../../utils/toastPromise.ts";
 
 type BodyDataType = {
   documentType: SelectOptionType['id'] | null;
@@ -27,12 +29,17 @@ type BodyDataType = {
 }
 
 type Props = Pick<AdminHighRiskIndividualsLettersDetailDocumentsFormModalContentProps,
-  'onClose' | 'modalState' | 'apiAddress' | 'isEditMode'
+  'onClose' | 'modalState' | 'apiAddress' | 'isEditMode' | 'refetch'
 >
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
-  {modalState, onClose, apiAddress, isEditMode}: Props
+  {
+    modalState, onClose, apiAddress, isEditMode, refetch
+  }: Props
 ) {
+
+  const {id: letterId} = useParams()
+
   const {
     mutate, isPending
   } = useMutateData<any, BodyDataType>({
@@ -49,11 +56,14 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsFormModal(
       name: formData[uploadFileFieldName]?.name || '',
       description: formData[descriptionFieldName],
       content: formData[uploadFileFieldName]?.data,
-      ...isEditMode ? {letterId: (modalState && modalState !== true) ? modalState?.id : ''} : {}
+      letterId
+      // ...isEditMode ? {letterId: (modalState && modalState !== true) ? modalState?.id : ''} : {}
     }
 
     mutate(bodyData, {
       onSuccess: (data) => {
+        toastPromise().then(toast => toast.success(`سند با موفقیت ${isEditMode ? 'ویرایش' : 'افزوده'} شد`))
+        refetch()
         onClose()
       },
       ...fireResponseErrorToast()
