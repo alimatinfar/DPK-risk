@@ -64,7 +64,7 @@ function AdminHighRiskIndividualsDetailPageLetters(
         {item?.exitLetter && (
           <CardRightRed className='flex flex-col gap-y-4'>
             <AdminHighRiskIndividualsFieldsWithActions
-              fields={getTopFields({item, isExit: true})}
+              fields={getTopFields({item: item?.exitLetter, isExit: true})}
               actions={(
                 <Button
                   onClick={() => setDocListModalState({
