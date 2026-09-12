@@ -1,5 +1,5 @@
 import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
-import type {AdminInquiryHistoriesFilterType} from "../index.types.ts";
+import type {AdminInquiryHistoriesFilterType, AdminInquiryHistoriesResponseItemType} from "../index.types.ts";
 import {useMemo} from "react";
 import TABLE_ACCESSORS from "../../../../components/others/Table/constances/tableAccessors.ts";
 import {TableDetailAction} from "../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
@@ -15,6 +15,20 @@ import {
 import useModalOpen from "../../../../hooks/modal/useModalOpen.tsx";
 import QUERY_PARAMS from "../../../../constances/queryParams.ts";
 import getUrlWithParams from "../../../../utils/getUrlWithParams.ts";
+import useFetchData from "../../../../request/hooks/useFetchData.ts";
+import APIS from "../../../../request/constances/apis.ts";
+import getCleanBodyDataObject from "../../../../request/utils/getCleanBodyDataObject.ts";
+import {
+  announceReferenceFieldName
+} from "../../high-risk-individuals/FormFields/AnnouncingReferenceField/index.constances.ts";
+import getSelectIdValue from "../../../../components/Form/Select/utils/getSelectIdValue.ts";
+import {requestReasonFieldName} from "../FormFields/RequestReasonField/index.constances.ts";
+import {responseSubmissionStatusFieldName} from "../FormFields/ResponseSubmissionStatusField/index.constances.ts";
+import {letterNumberFieldName} from "../../high-risk-individuals/FormFields/LetterNumberField/index.constances.ts";
+import {nationalCodeFieldName} from "../../high-risk-individuals/FormFields/NationalCodeField/index.constances.ts";
+import getBodyDataDateField from "../../../../request/utils/getBodyDataDateField.ts";
+import {letterToDateFieldName} from "../../high-risk-individuals/FormFields/LetterToDateField/index.constances.ts";
+import {letterFromDateFieldName} from "../../high-risk-individuals/FormFields/LetterFromDateField/index.constances.ts";
 
 function useAdminInquiryHistories() {
 
@@ -32,15 +46,25 @@ function useAdminInquiryHistories() {
     defaultFilterFormData: adminInquiryHistoriesDefaultFilters,
   })
 
-  // const {
-  //   data, isFetching, error
-  // } = useFetchData<AdminInquiryHistoriesResponseItemType[]>({
-  //   queryKey: [filters],
-  //   axiosConfig: {
-  //     url: APIS.ADMIN_INQUIRY_HISTORIES,
-  //     params: getCleanBodyDataObject({})
-  //   }
-  // })
+  const filtersData = filters?.data
+
+  const {
+    data, isFetching, error
+  } = useFetchData<AdminInquiryHistoriesResponseItemType[]>({
+    queryKey: [filters],
+    axiosConfig: {
+      url: APIS.ADMIN_INQUIRY_HISTORIES,
+      params: getCleanBodyDataObject({
+        LetterRef: getSelectIdValue(filtersData?.[announceReferenceFieldName]),
+        Reson: getSelectIdValue(filtersData?.[requestReasonFieldName]),
+        LetterNo: filtersData?.[letterNumberFieldName],
+        FromLetterDate: getBodyDataDateField(filtersData?.[letterFromDateFieldName]),
+        ToLetterDate: getBodyDataDateField(filtersData?.[letterToDateFieldName]),
+        Status: getSelectIdValue(filtersData?.[responseSubmissionStatusFieldName]),
+        NationalId: filtersData?.[nationalCodeFieldName],
+      })
+    }
+  })
 
   const tableData = useMemo(function () {
     // const finalData = data?.data
