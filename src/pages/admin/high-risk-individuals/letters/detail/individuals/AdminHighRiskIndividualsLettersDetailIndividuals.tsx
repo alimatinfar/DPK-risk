@@ -25,7 +25,7 @@ const AdminHighRiskIndividualsLettersDetailIndividualsExitModal = lazy(() => imp
 
 
 function AdminHighRiskIndividualsLettersDetailIndividuals(
-  {responseData}: AdminHighRiskIndividualsLettersDetailPageProps
+  {responseData, refetch}: AdminHighRiskIndividualsLettersDetailPageProps
 ) {
 
   const {
@@ -55,8 +55,7 @@ function AdminHighRiskIndividualsLettersDetailIndividuals(
         <AdminHighRiskIndividualsLettersDetailIndividualsDocListModal
           open={docListModalOpen} onClose={closeDocListModalHandler}
           modalState={docListModalState}
-          deleteDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_DELETE_DOCUMENT}
-          editDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_EDIT_DOCUMENT}
+          deleteDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT}
         />
       </DisplayModal>
 
@@ -64,7 +63,7 @@ function AdminHighRiskIndividualsLettersDetailIndividuals(
         <AdminHighRiskIndividualsLettersDetailIndividualsExitModal
           open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
           modalState={typeof exitPersonModalState !== 'boolean' ? exitPersonModalState?.riskCustomerId : exitPersonModalState}
-          personTitle={personTitle}
+          personTitle={personTitle} refetch={refetch}
         />
       </DisplayModal>
     </>

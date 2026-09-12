@@ -22,9 +22,9 @@ import useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   {
-    onClose, modalState
+    onClose, modalState, refetch
   }: Pick<AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps,
-    'onClose' | 'modalState'
+    'onClose' | 'modalState' | 'refetch'
   >
 ) {
 
@@ -47,13 +47,13 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   const {
     exitCustomerByUserMistake, exitCustomerByUserMistakeLoading
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake({
-    onClose, modalState
+    onClose, modalState, refetch
   })
 
   const {
     exitCustomerByLetter, exitCustomerByLetterLoading
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter({
-    modalState, onClose, documentsList
+    modalState, onClose, documentsList, refetch
   })
 
   const {

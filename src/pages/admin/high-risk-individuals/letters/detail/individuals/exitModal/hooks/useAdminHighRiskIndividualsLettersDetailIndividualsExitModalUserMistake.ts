@@ -6,6 +6,7 @@ import type {
   AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps
 } from "../AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx";
 import {exitByUserMistakeDescriptionFieldName} from "../index.constances.ts";
+import toastPromise from "../../../../../../../../utils/toastPromise.ts";
 
 
 type BodyDataType = {
@@ -15,9 +16,9 @@ type BodyDataType = {
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake(
   {
-    modalState, onClose
+    modalState, onClose, refetch
   }: Pick<AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps,
-    'modalState' | 'onClose'
+    'modalState' | 'onClose' | 'refetch'
   >
 ) {
 
@@ -38,6 +39,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
+        toastPromise().then(toast => toast.success('خروج کاربر با موفقیت انجام شد'))
+        refetch()
         onClose()
       },
       ...fireResponseErrorToast()

@@ -21,19 +21,20 @@ const AdminHighRiskIndividualsDocumentsListForm = lazy(() => import(
 export type AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps = {
   modalState: number | string | boolean;
   personTitle: string;
+  refetch: () => void;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   {
-    open, onClose, modalState, personTitle
+    open, onClose, modalState, personTitle, refetch
   }: AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps
 ) {
-  console.log({modalState})
+
   const {
     formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep,
     reasonIsUserMistake, description, documentsList, setDocumentsList, loading
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModal({
-    modalState, onClose
+    modalState, onClose, refetch
   })
 
   const stepsRender = {

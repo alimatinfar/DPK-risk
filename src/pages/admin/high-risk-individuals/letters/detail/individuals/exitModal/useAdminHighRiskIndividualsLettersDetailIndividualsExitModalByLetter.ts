@@ -22,6 +22,7 @@ import getHighRiskDocumentsBodyData
   , {
   type HighRiskDocumentsBodyDataType
 } from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/utils/getHighRiskDocumentsBodyData.ts";
+import toastPromise from "../../../../../../../utils/toastPromise.ts";
 
 
 type BodyDataType = {
@@ -38,12 +39,12 @@ type BodyDataType = {
 type Props = {
   documentsList: AdminHighRiskIndividualsDocumentFormDataType[];
 } & Pick<AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps,
-  'modalState' | 'onClose'
+  'modalState' | 'onClose' | 'refetch'
 >
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter(
   {
-    modalState, onClose, documentsList
+    modalState, onClose, documentsList, refetch
   }: Props
 ) {
 
@@ -70,6 +71,8 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter(
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
+        toastPromise().then(toast => toast.success('خروج کاربر با موفقیت انجام شد'))
+        refetch()
         onClose()
       },
       ...fireResponseErrorToast()

@@ -17,7 +17,7 @@ function useAdminHighRiskIndividualsDetailPage() {
   const name = useGetQueryParam(QUERY_PARAMS.NAME)
 
   const {
-    data: responseData, isFetching: responseLoading, error: responseError
+    data: responseData, isFetching: responseLoading, error: responseError, refetch
   } = useFetchData<AdminHighRiskIndividualsDetailItemResponseType[]>({
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_CUSTOMER_DETAIL,
@@ -43,7 +43,7 @@ function useAdminHighRiskIndividualsDetailPage() {
   return {
     setDocListModalState, setExitPersonModalState, timeLineHistories, docListModalShouldBeRemoved, docListModalOpen,
     closeDocListModalHandler, docListModalState, exitPersonModalShouldBeRemoved, exitPersonModalOpen,
-    closeExitPersonModalHandler, exitPersonModalState, name, responseData, responseError, responseLoading
+    closeExitPersonModalHandler, exitPersonModalState, name, responseData, responseError, responseLoading, refetch
   }
 }
 

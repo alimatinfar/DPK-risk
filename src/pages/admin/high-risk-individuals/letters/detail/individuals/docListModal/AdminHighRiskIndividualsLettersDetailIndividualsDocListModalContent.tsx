@@ -19,10 +19,10 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent(
         <AdminHighRiskIndividualsDocumentCard
           key={document.id}
           document={document}
-          editAction={() => setRenderState({
-            data: document,
-            state: ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT
-          })}
+          // editAction={() => setRenderState({
+          //   data: document,
+          //   state: ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT
+          // })}
           deleteAction={() => setRenderState({
             data: document,
             state: ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.DELETE

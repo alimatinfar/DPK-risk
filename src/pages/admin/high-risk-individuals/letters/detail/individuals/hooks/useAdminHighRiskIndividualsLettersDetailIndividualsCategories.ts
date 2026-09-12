@@ -48,7 +48,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsCategories() {
         label: 'مرجع', value: item.exitLetter?.reference
       },
       {
-        label: 'تاریخ نامه', value: getFormattedMomentJalaliDateTime({date: item.exitLetter?.letterDate, mode: 'jDate'})
+        label: 'تاریخ نامه', value: item.exitLetter?.letterDate
       },
     ] : []
   }

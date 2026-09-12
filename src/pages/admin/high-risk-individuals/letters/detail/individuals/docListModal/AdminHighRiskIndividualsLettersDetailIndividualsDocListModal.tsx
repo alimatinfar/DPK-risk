@@ -23,13 +23,12 @@ const AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent = lazy(() =
 export type AdminHighRiskIndividualsLettersDetailIndividualsDocListModalProps = {
   modalState: ModalStateTypeId | boolean;
   deleteDocumentApiAddress: string;
-  editDocumentApiAddress: string;
   isCustomer?: boolean;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
   {
-    modalState, onClose, open, deleteDocumentApiAddress, editDocumentApiAddress, isCustomer
+    modalState, onClose, open, deleteDocumentApiAddress, isCustomer
   }: AdminHighRiskIndividualsLettersDetailIndividualsDocListModalProps
 ) {
 
@@ -53,12 +52,14 @@ function AdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
               cancelAction={goToListState} modalState={renderState?.data} onClose={goToListState} refetch={refetch}
               apiAddress={deleteDocumentApiAddress} letterId={typeof modalState !== 'boolean' ? modalState?.id : ''}
             />
-          ) : renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT ? (
-            <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
-              modalState={renderState?.data} isEditMode onClose={goToListState}
-              apiAddress={editDocumentApiAddress} refetch={refetch}
-            />
-          ) : (
+          ) :
+            // renderState?.state === ADMIN_HIGH_RISK_INDIVIDUALS_DOC_LIST_RENDER_STATE_KEYS.EDIT ? (
+            //     <AdminHighRiskIndividualsLettersDetailDocumentsFormModalContent
+            //       modalState={renderState?.data} isEditMode onClose={goToListState}
+            //       apiAddress={editDocumentApiAddress} refetch={refetch}
+            //     />
+            //   ) :
+              (
             <AdminHighRiskIndividualsLettersDetailIndividualsDocListModalContent
               documentsList={documentsList} setRenderState={setRenderState}
             />

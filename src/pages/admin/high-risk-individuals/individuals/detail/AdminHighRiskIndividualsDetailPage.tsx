@@ -3,8 +3,6 @@ import CardWithHeader from "../../../../../components/others/Card/CardWithHeader
 import AdminHighRiskIndividualsDetailPageLetters from "./AdminHighRiskIndividualsDetailPageLetters.tsx";
 import DisplayModal from "../../../../../components/others/Modal/DisplayModal.tsx";
 import {lazy} from "react";
-import AdminHighRiskIndividualsLettersDetailIndividualsExitModal
-  from "../../letters/detail/individuals/exitModal/AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx";
 import HighRiskIndividualsTimeLine
   from "../../letters/detail/HighRiskIndividualsTimeLine/HighRiskIndividualsTimeLine.tsx";
 import APIS from "../../../../../request/constances/apis.ts";
@@ -14,14 +12,16 @@ import RenderLogic from "../../../../../components/others/RenderLogic/RenderLogi
 const AdminHighRiskIndividualsLettersDetailIndividualsDocListModal = lazy(() => import(
   "../../letters/detail/individuals/docListModal/AdminHighRiskIndividualsLettersDetailIndividualsDocListModal.tsx"
   ));
-
+const AdminHighRiskIndividualsLettersDetailIndividualsExitModal = lazy(() => import(
+  "../../letters/detail/individuals/exitModal/AdminHighRiskIndividualsLettersDetailIndividualsExitModal.tsx"
+  ))
 
 function AdminHighRiskIndividualsDetailPage() {
 
   const {
     setDocListModalState, setExitPersonModalState, timeLineHistories, docListModalShouldBeRemoved, docListModalOpen,
     closeDocListModalHandler, docListModalState, exitPersonModalShouldBeRemoved, exitPersonModalOpen,
-    closeExitPersonModalHandler, exitPersonModalState, name, responseData, responseError, responseLoading
+    closeExitPersonModalHandler, exitPersonModalState, name, responseData, responseError, responseLoading, refetch
   } = useAdminHighRiskIndividualsDetailPage()
 
   return (
@@ -54,7 +54,6 @@ function AdminHighRiskIndividualsDetailPage() {
           open={docListModalOpen} onClose={closeDocListModalHandler}
           modalState={docListModalState}
           deleteDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_DELETE_DOCUMENT}
-          editDocumentApiAddress={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_LETTER_EDIT_DOCUMENT}
         />
       </DisplayModal>
 
@@ -62,7 +61,7 @@ function AdminHighRiskIndividualsDetailPage() {
         <AdminHighRiskIndividualsLettersDetailIndividualsExitModal
           open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
           modalState={exitPersonModalState}
-          personTitle={name || ''}
+          personTitle={name || ''} refetch={refetch}
         />
       </DisplayModal>
     </>
