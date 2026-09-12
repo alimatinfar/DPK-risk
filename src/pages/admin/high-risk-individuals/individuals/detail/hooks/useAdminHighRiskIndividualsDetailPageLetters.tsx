@@ -64,13 +64,19 @@ function useAdminHighRiskIndividualsDetailPageLetters(
     ]
   }
 
+  const outLetters = useMemo(function () {
+    return responseData?.data?.filter(item => item.isOut)
+  }, [responseData])
+
   const lettersData: AdminHighRiskIndividualRelatedLetterType[] = useMemo(function () {
     // const finalData = ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE
     const finalData = responseData?.data || []
 
-    return finalData?.map(item => {
+    return finalData?.filter(item => !item.isOut).map(item => {
 
-      const exitType = item?.isOut && item?.baseRiskLetterId && item?.baseRiskLetterId !== item?.id ?
+      const outLetterForThisItem = outLetters?.find(outLetter => outLetter.baseRiskLetterId === item.id)
+
+      const exitType = outLetterForThisItem ?
         EXIT_PERSON_FROM_LETTER_KEYS.WITH_LETTER : item?.isOutValidityDate ?
           EXIT_PERSON_FROM_LETTER_KEYS.WITH_EXPIRE_DATE : undefined
 
@@ -82,17 +88,19 @@ function useAdminHighRiskIndividualsDetailPageLetters(
         [descriptionFieldName]: item?.description,
         [expireDateFieldName]: displayDate(item?.validityDate),
         [riskListTypeFieldName]: item?.riskListTypeTitle,
-        // exitLetter: {
-        //   id: 1,
-        //   letterDate: '1405/10/10',
-        //   letterNumber: '1234567890',
-        //   description: 'حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. ',
-        //   [announceReferenceFieldName]: 'قوه قضائیه'
-        // },
-        // exitType: undefined
+        ...outLetterForThisItem ? {
+          exitLetter: {
+            id: outLetterForThisItem?.id,
+            letterDate: displayDate(outLetterForThisItem?.letterDate),
+            letterNumber: outLetterForThisItem?.letterNo,
+            description: outLetterForThisItem?.description,
+            [announceReferenceFieldName]: outLetterForThisItem?.letterRefTitle
+          }
+        } : {},
+        exitType
       }
     })
-  }, [responseData])
+  }, [responseData, outLetters])
 
   return {
     getTopFields, lettersData
