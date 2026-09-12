@@ -7,9 +7,13 @@ import fireResponseErrorToast from "../../../../request/utils/fireResponseErrorT
 import type {AdminInquiryHistoriesDeleteModalProps} from "../AdminInquiryHistoriesDeleteModal.tsx";
 import useReactHookFormWrapper
   from "../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
+import APIS from "../../../../request/constances/apis.ts";
 
 
-type BodyDataType = null
+type BodyDataType = {
+  inquiryLetterId: number | string | null;
+  description: string;
+}
 
 type FormDataType = {
   [descriptionFieldName]: DescriptionFieldType
@@ -17,20 +21,24 @@ type FormDataType = {
 
 function useAdminInquiryHistoriesDeleteModal(
   {
-    onClose
-  }: Pick<AdminInquiryHistoriesDeleteModalProps, 'onClose'>
+    onClose, modalState
+  }: Pick<AdminInquiryHistoriesDeleteModalProps, 'onClose' | 'modalState'>
 ) {
   const {
     mutate, error, isPending
   } = useMutateData<any, BodyDataType>({
+    dataInParams: true,
     axiosConfig: {
-      url: '', method: 'POST'
+      url: APIS.ADMIN_INQUIRY_HISTORIES_DELETE, method: 'POST'
     }
   })
 
   function onSubmitHandler(formData: FormDataType) {
 
-    const bodyData: BodyDataType = null
+    const bodyData: BodyDataType = {
+      inquiryLetterId: modalState,
+      description: formData?.[descriptionFieldName]
+    }
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {

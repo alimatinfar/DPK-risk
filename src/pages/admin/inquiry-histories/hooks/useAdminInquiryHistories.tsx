@@ -29,7 +29,7 @@ import {nationalCodeFieldName} from "../../high-risk-individuals/FormFields/Nati
 import getBodyDataDateField from "../../../../request/utils/getBodyDataDateField.ts";
 import {letterToDateFieldName} from "../../high-risk-individuals/FormFields/LetterToDateField/index.constances.ts";
 import {letterFromDateFieldName} from "../../high-risk-individuals/FormFields/LetterFromDateField/index.constances.ts";
-import {customerNameFieldName} from "../FormFields/CustomerNameField/index.constances.ts";
+
 
 function useAdminInquiryHistories() {
 

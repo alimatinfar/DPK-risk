@@ -18,7 +18,7 @@ function AdminInquiryHistoriesDeleteModal(
   const {
     formMethods, onSubmit, loading
   } = useAdminInquiryHistoriesDeleteModal({
-    onClose
+    onClose, modalState
   })
 
   return (
