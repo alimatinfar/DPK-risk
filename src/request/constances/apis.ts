@@ -88,7 +88,12 @@ const APIS = {
   ADMIN_HIGH_RISK_INDIVIDUAL_GET_FILE_CONTENT: 'RiskCustomer/GetFileContents',
   ADMIN_HIGH_RISK_INDIVIDUAL_FORM_CUSTOMERS_TEMPLATE_FILE: 'RiskCustomer/GetTempFile',
 
-  ADMIN_INQUIRY_HISTORIES: ''
+  ADMIN_INQUIRY_HISTORIES: 'InquiryCustomer/GetInquiryLetters',
+  ADMIN_INQUIRY_HISTORIES_DETAIL: 'InquiryCustomer/GetInquiryLetterInfo',
+  ADMIN_INQUIRY_HISTORIES_ADD: 'InquiryCustomer/InsertInquiryCustomers',
+  ADMIN_INQUIRY_HISTORIES_DELETE: 'InquiryCustomer/DeleteInquiryLetter',
+  ADMIN_INQUIRY_HISTORIES_EDIT: 'InquiryCustomer/EditInquiryLetter',
+  ADMIN_INQUIRY_HISTORIES_EXIST_LETTER: 'InquiryCustomer/ExistInquiryLetter',
 }
 
 export default APIS;
