@@ -117,7 +117,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       ...isForeignCitizen(activePersonData) ? [
         {
           label: 'ملیت',
-          value: foreignCitizenSpecificData?.nationalityTitle,
+          value: customerData?.nationalityTitle,
         },
         {
           label: 'تابعیت',

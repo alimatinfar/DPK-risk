@@ -5,6 +5,8 @@ export type BasicInformationNaturalResponseType = {
   customerIdStr: string;
   nationalID: number;
   nationalIDStr: string;
+  nationality: number;
+  nationalityTitle: string;
   firstName: string;
   lastName: string;
   shenasnameId: number;
@@ -76,8 +78,6 @@ export type BasicInformationForeignCitizenResponseType = {
     nationalID: number;
     nationalIDStr: string;
     ancestorsName: string;
-    nationality: number;
-    nationalityTitle: string;
     citizenship: number;
     citizenshipTitle: string;
     passportType: number;
