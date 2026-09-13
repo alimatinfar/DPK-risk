@@ -6,21 +6,13 @@ import type {
   AdminHighRiskFormStep3ExistCustomerResponseItemType
 } from "../index.types.ts";
 
-export type UseAdminHighRiskFormStep3ExistCustomerProps = {
-  existCustomerApiUrl: string;
-}
-
-function useAdminHighRiskFormStep3ExistCustomer(
-  {
-    existCustomerApiUrl
-  }: UseAdminHighRiskFormStep3ExistCustomerProps
-) {
+function useAdminHighRiskFormStep3ExistCustomer() {
 
   const {
     mutate, isPending
   } = useMutateData<AdminHighRiskFormStep3ExistCustomerResponseItemType[], AdminHighRiskFormStep3ExistCustomerBodyDataType>({
     axiosConfig: {
-      url: existCustomerApiUrl, method: 'POST'
+      url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_CUSTOMER, method: 'POST'
     }
   })
 

@@ -5,23 +5,20 @@ import FILE_TYPES from "../../../../../../constances/fileTypes.ts";
 import AdminHighRiskFormStep3FileUploadModal from "./AdminHighRiskFormStep3FileUploadModal.tsx";
 import useAdminHighRiskFormStep3FileUpload from "./hooks/useAdminHighRiskFormStep3FileUpload.ts";
 import Loading from "../../../../../../components/others/Loading/Loading.tsx";
+import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
 
-
-export type AdminHighRiskFormStep3FileUploadProps = {
-  uploadApiUrl: string
-}
 
 function AdminHighRiskFormStep3FileUpload(
   {
-    uploadApiUrl
-  }: AdminHighRiskFormStep3FileUploadProps
+    setFormData, individuals
+  }: Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals'>
 ) {
 
   const {
     formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading,
     getTemplateFileHandler, templateFileLoading
   } = useAdminHighRiskFormStep3FileUpload({
-    uploadApiUrl
+    setFormData, individuals
   })
 
   return (
@@ -54,8 +51,8 @@ function AdminHighRiskFormStep3FileUpload(
                 <span
                   onClick={getTemplateFileHandler}
                   className='text-primary underline cursor-pointer hover:text-primary-text hover:bg-primary/5 p-1 rounded-md duration-200'>
-                دریافت فایل نمونه
-              </span>
+                  دریافت فایل نمونه
+                </span>
               )}
             </div>
           </div>

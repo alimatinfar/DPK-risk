@@ -42,7 +42,7 @@ function AdminHighRiskIndividualsDetailPageLetters(
               {!item.exitType && (
                 <>
                   <Button
-                    onClick={() => setExitPersonModalState(item.id)}
+                    onClick={() => setExitPersonModalState(item.riskCustomerId)}
                     justIcon variant='default' color='red'
                   >
                     <LogoutIcon/>

@@ -4,7 +4,6 @@ import {useNavigate} from "react-router";
 import {useMemo} from "react";
 import type {AdminHighRiskIndividualsCardsProps} from "../AdminHighRiskIndividualsCards.tsx";
 import type {AdminHighRiskIndividualsCustomerResponseItemType} from "../index.types.ts";
-import {FAKE_DATA} from "../index.constances.ts";
 import {nationalCodeFieldName} from "../../FormFields/NationalCodeField/index.constances.ts";
 import {firstNameFieldName} from "../../FormFields/FirstNameField/index.constances.ts";
 import {lastNameFieldName} from "../../FormFields/LastNameField/index.constances.ts";
@@ -33,6 +32,7 @@ import {
   legalRegistrationNumberFieldName
 } from "../../../../search/form/formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
 import {legalTypeFieldName} from "../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
+import useAdminHighRiskIndividualsCardsMapData from "./useAdminHighRiskIndividualsCardsMapData.ts";
 
 
 function useAdminHighRiskIndividualsCards(
@@ -63,47 +63,16 @@ function useAdminHighRiskIndividualsCards(
 
   const navigate = useNavigate()
 
+  const {
+    getPersonDataList
+  } = useAdminHighRiskIndividualsCardsMapData()
+
   const cardsData = useMemo(function () {
     // const finalData = FAKE_DATA
     const finalData = data?.data
     if (!finalData) return []
 
-    return [
-      ...finalData.realCustomer.map(item => ({
-        type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
-        //TODO should be set customerIdStr
-        customerId: item?.customerId,
-        name: `${item?.firstName} ${item?.lastName}`,
-        //TODO should be set nationalIDStr
-        [nationalCodeFieldName]: String(item?.nationalID),
-        //TODO should be get from api
-        [birthCertificationNumberFieldName]: '',
-      })),
-      ...finalData.nonCitizenCustomer.map(item => ({
-        type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
-        //TODO should be set customerIdStr
-        customerId: item?.customerId,
-        name: `${item?.firstName} ${item?.lastName}`,
-        //TODO should be set nationalIDStr
-        [comprehensiveForeignNationalsIdFieldName]: String(item?.nationalID),
-        //TODO should be get from api
-        [nationalityFieldName]: '',
-        //TODO should be get from api
-        [citizenshipFieldName]: '',
-      })),
-      ...finalData.legalCustomer.map(item => ({
-        type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
-        //TODO should be set customerIdStr
-        customerId: item?.customerId,
-        name: item?.lastName,
-        //TODO should be get from api
-        [legalBrandNameFieldName]: '',
-        //TODO should be set nationalIDStr
-        [legalRegistrationNumberFieldName]: String(item?.nationalID),
-        //TODO should be get from api
-        [legalTypeFieldName]: '',
-      })),
-    ]
+    return getPersonDataList(finalData)
   }, [data?.data])
 
   return {

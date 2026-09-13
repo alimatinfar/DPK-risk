@@ -17,12 +17,12 @@ import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Sha
 type Props = {
   data: ResultPersonCardDataType;
 } & Pick<AdminHighRiskFormStep3FoundedIndividualsProps, 'setUserDuplicateModalState' | 'closeUserDuplicateModalHandler'>
-  & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals' | 'existCustomerApiUrl'>
+  & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals'>
 
 function AdminHighRiskFormStep3FoundedIndividualsCard(
   {
     data, setUserDuplicateModalState, closeUserDuplicateModalHandler,
-    formDataStep1, setFormData, individuals, existCustomerApiUrl
+    formDataStep1, setFormData, individuals
   }: Props
 ) {
 
@@ -44,9 +44,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
 
   const {
     checkExistCustomerLoading, checkExistCustomer
-  } = useAdminHighRiskFormStep3ExistCustomer({
-    existCustomerApiUrl
-  })
+  } = useAdminHighRiskFormStep3ExistCustomer()
 
   function addHandler() {
     checkExistCustomer(data?.[customerIdFieldName]).then((response) => {

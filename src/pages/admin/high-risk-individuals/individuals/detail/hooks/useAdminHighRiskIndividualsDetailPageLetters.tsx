@@ -88,6 +88,7 @@ function useAdminHighRiskIndividualsDetailPageLetters(
         [descriptionFieldName]: item?.description,
         [expireDateFieldName]: displayDate(item?.validityDate),
         [riskListTypeFieldName]: item?.riskListTypeTitle,
+        riskCustomerId: item?.riskCustomerId,
         ...outLetterForThisItem ? {
           exitLetter: {
             id: outLetterForThisItem?.id,

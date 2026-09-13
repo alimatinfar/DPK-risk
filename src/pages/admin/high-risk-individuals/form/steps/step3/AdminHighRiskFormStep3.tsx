@@ -14,8 +14,6 @@ function AdminHighRiskFormStep3() {
   return (
     <AdminHighRiskFormStep3Share
       formDataStep1={formDataStep1} setFormData={setFormData} individuals={individuals} setCurrentStep={setCurrentStep}
-      existCustomerApiUrl={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_CUSTOMER}
-      uploadApiUrl={APIS.ADMIN_HIGH_RISK_INDIVIDUAL_UPLOAD_EXCEL_CUSTOMERS}
       ButtonsSection={AdminHighRiskIndividualsFormButtons}
     />
   );

@@ -26,5 +26,5 @@ export type AdminHighRiskIndividualsCustomerResponseItemType = {
   "realCustomer": CustomerResponseType[],
   "nonCitizenCustomer": CustomerResponseType[],
   "legalCustomer": CustomerResponseType[],
-  "nationalIdsError": null
+  "nationalIdsError": null | string[]
 }

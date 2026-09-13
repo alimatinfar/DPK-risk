@@ -1,7 +1,5 @@
 import Card from "../../../../../../components/others/Card/Card.tsx";
-import AdminHighRiskFormStep3FileUpload, {
-  type AdminHighRiskFormStep3FileUploadProps
-} from "./AdminHighRiskFormStep3FileUpload.tsx";
+import AdminHighRiskFormStep3FileUpload from "./AdminHighRiskFormStep3FileUpload.tsx";
 import Tab from "../../../../../../components/others/Tab/Tab.tsx";
 import {ADMIN_HIGH_RISK_INDIVIDUALS_FORM_STEP3_TABS} from "./index.constances.tsx";
 import AdminHighRiskFormStep3SearchUserForm from "./AdminHighRiskFormStep3SearchUserForm.tsx";
@@ -12,7 +10,7 @@ import type {ResultPersonCardDataType} from "../../../../../search/result/Result
 import useAdminHighRiskFormStep3Share from "./hooks/useAdminHighRiskFormStep3Share.ts";
 import {lazy} from "react";
 import type {AdminHighRiskFormStep1ShareProps} from "../step1/AdminHighRiskFormStep1Share.tsx";
-import type {UseAdminHighRiskFormStep3ExistCustomerProps} from "./hooks/useAdminHighRiskFormStep3ExistCustomer.ts";
+
 
 const AdminHighRiskFormStep3DuplicateUserModal = lazy(() => import("./AdminHighRiskFormStep3DuplicateUserModal"));
 
@@ -22,14 +20,12 @@ export type AdminHighRiskFormStep3ShareProps = {
   setCurrentStep: (currentStep: number) => void;
   setFormData: any;
   formDataStep1: any;
-} & Pick<AdminHighRiskFormStep3FileUploadProps, 'uploadApiUrl'>
-  & Pick<AdminHighRiskFormStep1ShareProps, 'ButtonsSection'>
-  & Pick<UseAdminHighRiskFormStep3ExistCustomerProps, 'existCustomerApiUrl'>
+} & Pick<AdminHighRiskFormStep1ShareProps, 'ButtonsSection'>
 
 function AdminHighRiskFormStep3Share(
   {
-    individuals, setCurrentStep, uploadApiUrl, setFormData, formDataStep1,
-    ButtonsSection, existCustomerApiUrl
+    individuals, setCurrentStep, setFormData, formDataStep1,
+    ButtonsSection
   }: AdminHighRiskFormStep3ShareProps
 ) {
 
@@ -47,7 +43,7 @@ function AdminHighRiskFormStep3Share(
       <div className='flex flex-col gap-y-4'>
         <Card className='flex flex-col gap-y-4'>
           <AdminHighRiskFormStep3FileUpload
-            uploadApiUrl={uploadApiUrl}
+            individuals={individuals} setFormData={setFormData}
           />
 
           <Tab
@@ -68,7 +64,7 @@ function AdminHighRiskFormStep3Share(
             <AdminHighRiskFormStep3FoundedIndividuals
               setUserDuplicateModalState={setUserDuplicateModalState}
               closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
-              foundedIndividuals={searchUserResultData} existCustomerApiUrl={existCustomerApiUrl}
+              foundedIndividuals={searchUserResultData}
               individuals={individuals} formDataStep1={formDataStep1} setFormData={setFormData}
             />
           </div>
@@ -84,7 +80,6 @@ function AdminHighRiskFormStep3Share(
           open={userDuplicateModalOpen} onClose={closeUserDuplicateModalHandler}
           userDuplicateModalState={userDuplicateModalState}
           formDataStep1={formDataStep1}
-
         />
       </DisplayModal>
     </>
