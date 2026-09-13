@@ -15,6 +15,7 @@ export type AdminHighRiskIndividualsDocListResponseItemType = {
   documentType: number;
   documentTypeTitle: string;
   id: number;
+  fileTokenId: string;
   isDeleted: boolean;
   name: string;
 }

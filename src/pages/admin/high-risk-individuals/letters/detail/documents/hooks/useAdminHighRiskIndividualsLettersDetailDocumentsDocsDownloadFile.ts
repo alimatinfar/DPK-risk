@@ -10,7 +10,6 @@ type BodyDataType = {
 }
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsDocsDownloadFile(
-  document: AdminHighRiskIndividualsLettersDetailDocumentType
 ) {
 
   const {
@@ -22,7 +21,9 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsDocsDownloadFile(
     }
   })
 
-  async function downloadFileHandler() {
+  async function downloadFileHandler(
+    document: AdminHighRiskIndividualsLettersDetailDocumentType
+  ) {
 
     const bodyData: BodyDataType = {
       fileTokenId: String(document?.fileTokenId)

@@ -48,7 +48,11 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsDocListModal(
       [fileTypeFieldName]: {id: item?.documentType, name: item?.documentTypeTitle},
       [descriptionFieldName]: item?.description,
       //TODO should get from api
-      [uploadFileFieldName]: undefined
+      [uploadFileFieldName]: {
+        size: 0,
+        name: item.name,
+        data: '',
+      }
     }))
   }, [data])
 

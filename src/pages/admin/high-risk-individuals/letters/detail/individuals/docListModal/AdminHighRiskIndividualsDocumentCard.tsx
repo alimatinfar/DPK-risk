@@ -1,7 +1,9 @@
 import IconClickable from "../../../../../../../components/others/Icon/IconClickable.tsx";
 import DeleteIcon from "../../../../../../../components/svg/DeleteIcon.tsx";
 import EditIcon2 from "../../../../../../../components/svg/EditIcon2.tsx";
-import FileDataCard from "../../../../../../../components/others/FileDataCard/FileDataCard.tsx";
+import FileDataCard, {
+  type FileDataCardProps
+} from "../../../../../../../components/others/FileDataCard/FileDataCard.tsx";
 import type {
   AdminHighRiskIndividualsDocumentFormDataType
 } from "../../../../FormFields/AdminHighRiskIndividualsDocumentFormFields/index.types.ts";
@@ -14,11 +16,11 @@ type Props = {
   document: AdminHighRiskIndividualsDocumentFormDataType;
   editAction?: () => void;
   deleteAction?: () => void;
-}
+} & Pick<FileDataCardProps, 'downloadFileHandler' | 'downloadFileLoading'>
 
 function AdminHighRiskIndividualsDocumentCard(
   {
-    document, editAction, deleteAction
+    document, editAction, deleteAction, downloadFileHandler, downloadFileLoading
   }: Props
 ) {
   return (
@@ -60,6 +62,8 @@ function AdminHighRiskIndividualsDocumentCard(
       <div className='mt-auto'>
         <FileDataCard
           fileData={document?.[uploadFileFieldName]}
+          downloadFileHandler={downloadFileHandler}
+          downloadFileLoading={downloadFileLoading}
         />
       </div>
     </div>

@@ -8,7 +8,7 @@ import fileToBase64 from "../../../../utils/fileOperations/fileToBase64.ts";
 
 
 export type UploadFileDataType = {
-  size: string;
+  size: string | number;
   name: string;
   data: any;
 } | undefined

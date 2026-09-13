@@ -1,5 +1,6 @@
 import {type RefObject} from "react";
 import type {ChildrenPropsType} from "../../../types/ChildrenPropsType.tsx";
+import Loading from "../Loading/Loading.tsx";
 
 type Props = {
   children: ChildrenPropsType["children"];
@@ -9,12 +10,15 @@ type Props = {
   isButton?: boolean;
   wrapperRef?: RefObject<HTMLDivElement>;
   hoverClass?: string;
+  loading?: boolean;
 };
 
 function IconClickable(
-  {children, className, onClick, rounded = "rounded-lg", wrapperRef, hoverClass}: Props
+  {
+    children, className, onClick, rounded = "rounded-lg", wrapperRef, hoverClass, loading
+  }: Props
 ) {
-  return (
+  return loading ? <Loading size='sm' /> : (
     <div
       {...(onClick && {onClick})} {...wrapperRef && {ref: wrapperRef}}
       className={`${className || ""} p-1.5 cursor-pointer ${rounded} duration-200 ${hoverClass || 'hover:bg-gray-100'}`}

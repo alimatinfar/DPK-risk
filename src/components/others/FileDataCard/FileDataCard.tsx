@@ -7,13 +7,17 @@ import type {UploadFileDataType} from "./hooks/useFileDataCard.ts";
 import downloadFileFromFile from "../../../utils/fileOperations/downloadFileFromFile.ts";
 
 
-type Props = {
+export type FileDataCardProps = {
   fileData: UploadFileDataType;
   removeFileData?: () => void;
+  downloadFileHandler?: () => void;
+  downloadFileLoading?: boolean;
 }
 
 function FileDataCard(
-  {fileData, removeFileData}: Props
+  {
+    fileData, removeFileData, downloadFileHandler, downloadFileLoading
+  }: FileDataCardProps
 ) {
 
   function downloadFileData() {
@@ -40,7 +44,11 @@ function FileDataCard(
       </div>
 
       <div className='flex items-center space-x-reverse gap-x-2'>
-        <IconClickable className='w-[34px] h-[34px]' onClick={downloadFileData}>
+        <IconClickable
+          className='w-[34px] h-[34px]'
+          onClick={downloadFileHandler || downloadFileData}
+          loading={downloadFileLoading}
+        >
           <DownloadIcon2 width='100%' height='100%'/>
         </IconClickable>
 

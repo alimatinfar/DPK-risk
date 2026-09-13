@@ -23,7 +23,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocsCard(
 
   const {
     downloadFileHandler, isPending
-  } = useAdminHighRiskIndividualsLettersDetailDocumentsDocsDownloadFile(document)
+  } = useAdminHighRiskIndividualsLettersDetailDocumentsDocsDownloadFile()
 
   return (
     <div
@@ -54,7 +54,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocsCard(
 
           <Button
             rightIcon={<DownloadIcon/>} variant='outlined' loading={isPending}
-            onClick={downloadFileHandler}
+            onClick={() => downloadFileHandler(document)}
           >
             دریافت فایل
           </Button>
