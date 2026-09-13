@@ -36,10 +36,12 @@ function FileDataCard(
             {fileData?.name}
           </p>
 
-          <div dir='ltr' className='text-gray-500 text-xs space-x-1'>
-            <span>{fileData?.size}</span>
-            <span>KB</span>
-          </div>
+          {fileData?.size ? (
+            <div dir='ltr' className='text-gray-500 text-xs space-x-1'>
+              <span>{fileData?.size}</span>
+              <span>KB</span>
+            </div>
+          ) : null}
         </div>
       </div>
 
