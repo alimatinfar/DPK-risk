@@ -15,7 +15,7 @@ function GeneralLayout() {
     const savedToken = getToken()
 
     //TODO uncomment login with sso
-    // if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
+    if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
   }, [])
 
   return (

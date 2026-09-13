@@ -15,6 +15,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
   {
     id: 1,
     [letterNumberFieldName]: 321654321,
+    riskCustomerId: 0,
     [announceReferenceFieldName]: 'قوه قضائیه',
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
@@ -24,6 +25,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
   {
     id: 2,
     [letterNumberFieldName]: 321654321,
+    riskCustomerId: 0,
     [announceReferenceFieldName]: 'قوه قضائیه',
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
@@ -41,6 +43,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
   {
     id: 3,
     [letterNumberFieldName]: 321654321,
+    riskCustomerId: 0,
     [announceReferenceFieldName]: 'قوه قضائیه',
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
@@ -50,6 +53,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
   {
     id: 4,
     [letterNumberFieldName]: 321654321,
+    riskCustomerId: 0,
     [announceReferenceFieldName]: 'قوه قضائیه',
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
@@ -60,6 +64,7 @@ export const ADMIN_HIGH_RISK_INDIVIDUAL_RELATED_LETTERS_FAKE_DATE: AdminHighRisk
   {
     id: 5,
     [letterNumberFieldName]: 321654321,
+    riskCustomerId: 0,
     [announceReferenceFieldName]: 'قوه قضائیه',
     [letterDateFieldName]: '1405/07/07',
     [descriptionFieldName]: 'توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه توضیحات کاربر درباره این نامه ',
