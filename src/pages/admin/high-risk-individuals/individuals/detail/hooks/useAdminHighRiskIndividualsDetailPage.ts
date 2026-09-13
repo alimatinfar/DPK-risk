@@ -38,7 +38,9 @@ function useAdminHighRiskIndividualsDetailPage() {
 
   const {
     timeLineHistories
-  } = useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine()
+  } = useAdminHighRiskIndividualsLettersDetailIndividualsTimeLine({
+    responseData
+  })
 
   return {
     setDocListModalState, setExitPersonModalState, timeLineHistories, docListModalShouldBeRemoved, docListModalOpen,

@@ -16,30 +16,20 @@ const parseJalaliDate = (date: number | string | null) => {
 
 const sortCustomersForTimeLine = (data: DataType[]) => {
   return [...data].sort((b, a) => {
-    if (a.isOut !== b.isOut) {
-      return Number(b.isOut) - Number(a.isOut);
-    }
+    const dateA = parseJalaliDate(
+      a.isOut ? a.letterDate :
+        a.isOutValidityDate ? a.validityDate :
+          a.letterDate
+    );
 
-    if (a.isOut && b.isOut) {
-      const dateA = parseJalaliDate(a.letterDate);
-      const dateB = parseJalaliDate(b.letterDate);
+    const dateB = parseJalaliDate(
+      b.isOut ? b.letterDate :
+        b.isOutValidityDate ? b.validityDate :
+          b.letterDate
+    );
 
-      return (dateB?.valueOf() ?? 0) - (dateA?.valueOf() ?? 0);
-    }
-
-    if (a.isOutValidityDate !== b.isOutValidityDate) {
-      return Number(b.isOutValidityDate) - Number(a.isOutValidityDate);
-    }
-
-    if (a.isOutValidityDate && b.isOutValidityDate) {
-      const dateA = parseJalaliDate(a.validityDate);
-      const dateB = parseJalaliDate(b.validityDate);
-
-      return (dateB?.valueOf() ?? 0) - (dateA?.valueOf() ?? 0);
-    }
-
-    return 0;
+    return (dateB?.valueOf() ?? 0) - (dateA?.valueOf() ?? 0);
   });
-}
+};
 
 export default sortCustomersForTimeLine;
