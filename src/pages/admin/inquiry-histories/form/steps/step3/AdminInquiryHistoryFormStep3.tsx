@@ -16,7 +16,7 @@ function AdminInquiryHistoryFormStep3() {
   return (
     <AdminHighRiskFormStep3Share
       formDataStep1={formDataStep1} setFormData={setFormData} individuals={individuals} setCurrentStep={setCurrentStep}
-      ButtonsSection={AdminInquiryHistoriesFormButtons}
+      ButtonsSection={AdminInquiryHistoriesFormButtons} isInquiryHistory
     />
   );
 }

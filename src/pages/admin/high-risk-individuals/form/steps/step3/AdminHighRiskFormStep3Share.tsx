@@ -20,12 +20,13 @@ export type AdminHighRiskFormStep3ShareProps = {
   setCurrentStep: (currentStep: number) => void;
   setFormData: any;
   formDataStep1: any;
+  isInquiryHistory?: boolean;
 } & Pick<AdminHighRiskFormStep1ShareProps, 'ButtonsSection'>
 
 function AdminHighRiskFormStep3Share(
   {
     individuals, setCurrentStep, setFormData, formDataStep1,
-    ButtonsSection
+    ButtonsSection, isInquiryHistory
   }: AdminHighRiskFormStep3ShareProps
 ) {
 
@@ -64,7 +65,7 @@ function AdminHighRiskFormStep3Share(
             <AdminHighRiskFormStep3FoundedIndividuals
               setUserDuplicateModalState={setUserDuplicateModalState}
               closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
-              foundedIndividuals={searchUserResultData}
+              foundedIndividuals={searchUserResultData} isInquiryHistory={isInquiryHistory}
               individuals={individuals} formDataStep1={formDataStep1} setFormData={setFormData}
             />
           </div>

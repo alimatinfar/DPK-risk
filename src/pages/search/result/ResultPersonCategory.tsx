@@ -38,7 +38,7 @@ function ResultPersonCategory(
     resultData, personTypeItem, showAllItems
   })
 
-  return (
+  return dataList?.length ? (
     <div className={`
       flex flex-col rounded-lg overflow-hidden ${wrapperBackground || 'bg-[#F2F4F6]'}
     `}>
@@ -95,7 +95,7 @@ function ResultPersonCategory(
         </RenderLogic>
       ) : null}
     </div>
-  )
+  ) : null
 }
 
 export default ResultPersonCategory;

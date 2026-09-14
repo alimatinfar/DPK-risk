@@ -8,12 +8,12 @@ export type AdminHighRiskFormStep3FoundedIndividualsProps = {
   foundedIndividuals: ResultPersonCardDataType[];
   setUserDuplicateModalState: (value: AdminHighRiskFormStep3DuplicateUserModalProps['userDuplicateModalState']) => void;
   closeUserDuplicateModalHandler: () => void;
-} & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals'>
+} & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals' | 'isInquiryHistory'>
 
 function AdminHighRiskFormStep3FoundedIndividuals(
   {
     foundedIndividuals, setUserDuplicateModalState, closeUserDuplicateModalHandler,
-    setFormData, individuals, formDataStep1
+    setFormData, individuals, formDataStep1, isInquiryHistory
   }: AdminHighRiskFormStep3FoundedIndividualsProps
 ) {
   return foundedIndividuals?.length !== 0 ? (
@@ -21,7 +21,7 @@ function AdminHighRiskFormStep3FoundedIndividuals(
       {foundedIndividuals?.map((item, index) => (
         <AdminHighRiskFormStep3FoundedIndividualsCard
           key={item.customerId} data={item} setUserDuplicateModalState={setUserDuplicateModalState}
-          closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
+          closeUserDuplicateModalHandler={closeUserDuplicateModalHandler} isInquiryHistory={isInquiryHistory}
           setFormData={setFormData} individuals={individuals} formDataStep1={formDataStep1}
         />
       ))}

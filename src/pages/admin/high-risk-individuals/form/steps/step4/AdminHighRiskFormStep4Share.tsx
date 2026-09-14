@@ -65,7 +65,7 @@ function AdminHighRiskFormStep4Share(
       )}/>
 
       <ButtonsSection
-        onClick={onSubmitHandler} loading={loading}
+        onClick={onSubmitHandler} loading={loading} isLastStep
       />
     </div>
   );
