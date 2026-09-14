@@ -44,7 +44,7 @@ function useAdminInquiryHistories() {
   } = useModalOpen<number | null>(null)
 
   const {
-    filters, setFilters
+    filters, setFilters, setCurrentPage, setRowsPerPage
   } = useFilter<AdminInquiryHistoriesFilterType>({
     defaultFilterFormData: adminInquiryHistoriesDefaultFilters,
   })
@@ -108,7 +108,8 @@ function useAdminInquiryHistories() {
 
   return {
     filters, setFilters, tableData, listLoading, listError, refetchList,
-    deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved
+    deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved,
+    setCurrentPage, setRowsPerPage, totalLength: data?.totalCount || 0
   }
 }
 

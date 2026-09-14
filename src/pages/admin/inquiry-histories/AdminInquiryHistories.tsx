@@ -21,7 +21,8 @@ function AdminInquiryHistories() {
 
   const {
     filters, setFilters, tableData, listLoading, listError, refetchList,
-    deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved
+    deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved,
+    setCurrentPage, setRowsPerPage, totalLength
   } = useAdminInquiryHistories()
 
   return (
@@ -52,6 +53,13 @@ function AdminInquiryHistories() {
             tableProps={{
               data: tableData,
               columns: ADMIN_INQUIRY_HISTORIES_COLUMNS
+            }}
+            paginationProps={{
+              totalLength,
+              currentPage: filters.currentPage,
+              rowsPerPage: filters.rowsPerPage,
+              onPageChange: setCurrentPage,
+              onRowsPerPageChange: setRowsPerPage
             }}
           />
         </Card>
