@@ -38,5 +38,15 @@ export type AdminInquiryHistoriesFilterType = {
 }
 
 export type AdminInquiryHistoriesResponseItemType = {
-
+  id: number;
+  letterRef: number;
+  letterRefTitle: string;
+  reson: number;
+  resonTitle: string;
+  letterNo: string;
+  letterDate: number;
+  description: string;
+  status: number;
+  statusTitle: string;
+  documents: null
 }

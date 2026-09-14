@@ -20,7 +20,7 @@ const AdminInquiryHistoriesDeleteModal = lazy(() => import(
 function AdminInquiryHistories() {
 
   const {
-    filters, setFilters, tableData,
+    filters, setFilters, tableData, listLoading, listError, refetchList,
     deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved
   } = useAdminInquiryHistories()
 
@@ -46,8 +46,8 @@ function AdminInquiryHistories() {
 
           <TableRenderLogic
             renderLogicProps={{
-              error: null,
-              isLoading: false
+              error: listError,
+              isLoading: listLoading
             }}
             tableProps={{
               data: tableData,
@@ -62,6 +62,7 @@ function AdminInquiryHistories() {
       >
         <AdminInquiryHistoriesDeleteModal
           modalState={deleteModalState} onClose={closeDeleteModal} open={deleteModalOpen}
+          refetch={refetchList}
         />
       </DisplayModal>
     </>

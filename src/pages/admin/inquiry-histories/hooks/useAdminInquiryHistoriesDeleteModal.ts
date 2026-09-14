@@ -8,6 +8,7 @@ import type {AdminInquiryHistoriesDeleteModalProps} from "../AdminInquiryHistori
 import useReactHookFormWrapper
   from "../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import APIS from "../../../../request/constances/apis.ts";
+import toastPromise from "../../../../utils/toastPromise.ts";
 
 
 type BodyDataType = {
@@ -21,8 +22,8 @@ type FormDataType = {
 
 function useAdminInquiryHistoriesDeleteModal(
   {
-    onClose, modalState
-  }: Pick<AdminInquiryHistoriesDeleteModalProps, 'onClose' | 'modalState'>
+    onClose, modalState, refetch
+  }: Pick<AdminInquiryHistoriesDeleteModalProps, 'onClose' | 'modalState' | 'refetch'>
 ) {
   const {
     mutate, error, isPending
@@ -42,6 +43,8 @@ function useAdminInquiryHistoriesDeleteModal(
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
+        toastPromise().then(toast => toast.success('حذف سابقه استعلام با موفقیت انجام شد'))
+        refetch()
         onClose()
       },
       ...fireResponseErrorToast()

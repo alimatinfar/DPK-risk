@@ -25,10 +25,10 @@ import {
 } from "./FormFields/ResponseSubmissionStatusField/index.constances.ts";
 
 export const ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS = {
-  INQUIRY_NUMBER: 'inquiryNumber',
-  REQUESTER: 'requester',
-  REQUEST_REASON: 'requestReason',
-  LETTER_NUMBER: 'letterNumber',
+  INQUIRY_NUMBER: 'id',
+  REQUESTER: 'letterRefTitle',
+  REQUEST_REASON: 'resonTitle',
+  LETTER_NUMBER: 'letterNo',
   CUSTOMER_COUNT: 'customerCount',
   STATUS: 'status',
 } as const;
@@ -50,10 +50,10 @@ export const ADMIN_INQUIRY_HISTORIES_COLUMNS: TableColumnType[] = [
     label: 'شماره نامه',
     accessor: ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER,
   },
-  {
-    label: 'تعداد مشتری',
-    accessor: ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.CUSTOMER_COUNT,
-  },
+  // {
+  //   label: 'تعداد مشتری',
+  //   accessor: ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.CUSTOMER_COUNT,
+  // },
   {
     label: 'وضعیت',
     accessor: ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.STATUS,
@@ -76,7 +76,6 @@ export const adminInquiryHistoriesDefaultFilters: AdminInquiryHistoriesFilterTyp
 export const ADMIN_INQUIRY_HISTORIES_FAKE_DATA = [
   {
     id: 1,
-    [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.INQUIRY_NUMBER]: '100245',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: 'واحد مبارزه با پولشویی',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: 'بررسی تراکنش‌های مشکوک',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: '1405/1258',
@@ -87,7 +86,6 @@ export const ADMIN_INQUIRY_HISTORIES_FAKE_DATA = [
   },
   {
     id: 2,
-    [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.INQUIRY_NUMBER]: '100246',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: 'اداره حقوقی',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: 'بررسی سوابق مشتریان',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: '1405/1324',
@@ -98,7 +96,6 @@ export const ADMIN_INQUIRY_HISTORIES_FAKE_DATA = [
   },
   {
     id: 3,
-    [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.INQUIRY_NUMBER]: '100247',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: 'معاونت اعتباری',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: 'بررسی وضعیت اعتباری مشتری',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: '1405/1412',
@@ -109,7 +106,6 @@ export const ADMIN_INQUIRY_HISTORIES_FAKE_DATA = [
   },
   {
     id: 4,
-    [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.INQUIRY_NUMBER]: '100248',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: 'واحد بازرسی',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: 'بررسی اطلاعات مشتریان',
     [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: '1405/1498',

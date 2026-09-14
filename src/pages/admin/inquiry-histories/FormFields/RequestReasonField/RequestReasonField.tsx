@@ -4,7 +4,8 @@ import SelectForm from "../../../../../components/Form/Select/SelectForm.tsx";
 import React from "react";
 import useGetRequiredErrorMessage
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useGetRequiredErrorMessage.ts";
-import {requestReasonFieldLabel, requestReasonFieldName, requestReasonFieldOptions} from "./index.constances.ts";
+import {requestReasonFieldLabel, requestReasonFieldName} from "./index.constances.ts";
+import APIS from "../../../../../request/constances/apis.ts";
 
 type Props = {
   isRequired?: boolean;
@@ -26,7 +27,7 @@ function RequestReasonField(
         label: requestReasonFieldLabel
       }}
       selectProps={{
-        options: requestReasonFieldOptions
+        apiAddress: APIS.GET_INQUIRY_REASONS
       }}
       rules={isRequired ? {
         required: requiredErrorMessage,

@@ -7,9 +7,9 @@ import SelectForm from "../../../../../components/Form/Select/SelectForm.tsx";
 import React from "react";
 import {
   responseSubmissionStatusFieldLabel,
-  responseSubmissionStatusFieldName,
-  responseSubmissionStatusFieldOptions
+  responseSubmissionStatusFieldName
 } from "./index.constances.ts";
+import APIS from "../../../../../request/constances/apis.ts";
 
 type Props = {
   isRequired?: boolean;
@@ -31,7 +31,7 @@ function ResponseSubmissionStatusField(
         label: responseSubmissionStatusFieldLabel
       }}
       selectProps={{
-        options: responseSubmissionStatusFieldOptions
+        apiAddress: APIS.GET_INQUIRY_RESPONSE_STATUSES
       }}
       rules={isRequired ? {
         required: requiredErrorMessage,

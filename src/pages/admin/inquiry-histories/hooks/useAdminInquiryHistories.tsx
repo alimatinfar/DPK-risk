@@ -29,6 +29,8 @@ import {nationalCodeFieldName} from "../../high-risk-individuals/FormFields/Nati
 import getBodyDataDateField from "../../../../request/utils/getBodyDataDateField.ts";
 import {letterToDateFieldName} from "../../high-risk-individuals/FormFields/LetterToDateField/index.constances.ts";
 import {letterFromDateFieldName} from "../../high-risk-individuals/FormFields/LetterFromDateField/index.constances.ts";
+import Tag from "../../../../components/others/Tag/Tag.tsx";
+import displayDate from "../../../../utils/display/displayDate.ts";
 
 
 function useAdminInquiryHistories() {
@@ -50,7 +52,7 @@ function useAdminInquiryHistories() {
   const filtersData = filters?.data
 
   const {
-    data, isFetching, error
+    data, isFetching: listLoading, error: listError, refetch: refetchList
   } = useFetchData<AdminInquiryHistoriesResponseItemType[]>({
     queryKey: [filters],
     axiosConfig: {
@@ -69,17 +71,24 @@ function useAdminInquiryHistories() {
   })
 
   const tableData = useMemo(function () {
-    // const finalData = data?.data
-    const finalData = ADMIN_INQUIRY_HISTORIES_FAKE_DATA
+    const finalData = data?.data
+    // const finalData = ADMIN_INQUIRY_HISTORIES_FAKE_DATA
     if (!finalData) return []
 
     return finalData?.map((item) => ({
-      ...item,
+      id: item?.id,
+      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: item?.letterRefTitle,
+      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: item?.resonTitle,
+      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: item?.letterNo,
+      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.CUSTOMER_COUNT]: 0,
+      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.STATUS]: (
+        <Tag text={item?.statusTitle} color={item?.status === 1 ? 'green' : 'red'} variant='fade' />
+      ),
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
           const url = ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_DETAIL(item.id)
           const params = {
-            [QUERY_PARAMS.LETTER_NUMBER]: item?.[ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]
+            [QUERY_PARAMS.LETTER_NUMBER]: item?.letterNo
           }
           navigate(getUrlWithParams(url, params))
         }),
@@ -95,10 +104,10 @@ function useAdminInquiryHistories() {
         }
       ],
     }))
-  }, [navigate])
+  }, [data])
 
   return {
-    filters, setFilters, tableData,
+    filters, setFilters, tableData, listLoading, listError, refetchList,
     deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved
   }
 }

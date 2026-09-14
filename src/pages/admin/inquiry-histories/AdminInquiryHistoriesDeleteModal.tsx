@@ -7,18 +7,19 @@ import useAdminInquiryHistoriesDeleteModal from "./hooks/useAdminInquiryHistorie
 
 export type AdminInquiryHistoriesDeleteModalProps = {
   modalState: number | null;
+  refetch: () => void;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminInquiryHistoriesDeleteModal(
   {
-    modalState, open, onClose
+    modalState, open, onClose, refetch
   }: AdminInquiryHistoriesDeleteModalProps
 ) {
 
   const {
     formMethods, onSubmit, loading
   } = useAdminInquiryHistoriesDeleteModal({
-    onClose, modalState
+    onClose, modalState, refetch
   })
 
   return (
