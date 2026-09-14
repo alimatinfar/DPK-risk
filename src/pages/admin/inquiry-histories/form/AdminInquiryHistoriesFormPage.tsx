@@ -3,6 +3,7 @@ import AdminHighRiskIndividualsFormPageShare
 import {ADMIN_INQUIRY_HISTORY_FORM_STEPS} from "./constances/steps.constances.tsx";
 import {useAdminInquiryHistoriesFormStore} from "./store/useAdminInquiryHistoriesFormStore.ts";
 import useAdminInquiryHistoryFormCurrentStep from "./store/useAdminInquiryHistoryFormCurrentStep.ts";
+import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
 
 function AdminInquiryHistoriesFormPage() {
 
@@ -15,6 +16,7 @@ function AdminInquiryHistoriesFormPage() {
     <AdminHighRiskIndividualsFormPageShare
       formIsDirty={formIsDirty} clearForm={clearForm} formSubmitted={formSubmitted}
       currentStep={currentStep} steps={ADMIN_INQUIRY_HISTORY_FORM_STEPS}
+      redirectUrl={ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES}
     />
   );
 }

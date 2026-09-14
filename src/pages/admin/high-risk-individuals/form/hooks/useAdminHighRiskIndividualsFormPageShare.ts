@@ -7,11 +7,13 @@ import {useNavigate} from "react-router";
 import type {AdminHighRiskIndividualsFormPageShareProps} from "../AdminHighRiskIndividualsFormPageShare.tsx";
 
 
-type Props = Pick<AdminHighRiskIndividualsFormPageShareProps, 'formIsDirty' | 'clearForm' | 'formSubmitted'>
+type Props = Pick<AdminHighRiskIndividualsFormPageShareProps,
+  'formIsDirty' | 'clearForm' | 'formSubmitted' | 'redirectUrl'
+>
 
 function useAdminHighRiskIndividualsFormPageShare(
   {
-    clearForm, formSubmitted, formIsDirty
+    clearForm, formSubmitted, formIsDirty, redirectUrl
   }: Props
 ) {
 
@@ -27,7 +29,7 @@ function useAdminHighRiskIndividualsFormPageShare(
   useEffect(() => {
     if (!formSubmitted) return
 
-    navigate(ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL)
+    navigate(redirectUrl)
     toastPromise().then(toast => toast.success('ثبت افراد پر ریسک با موفقیت انجام شد'))
     clearForm()
   }, [formSubmitted]);

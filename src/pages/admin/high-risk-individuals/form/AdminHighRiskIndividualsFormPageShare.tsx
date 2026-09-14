@@ -13,18 +13,19 @@ export type AdminHighRiskIndividualsFormPageShareProps = {
   formIsDirty: boolean;
   formSubmitted: boolean;
   clearForm: () => void;
+  redirectUrl: string;
 } & Pick<FormStepsProps, 'currentStep' | 'steps'>
 
 function AdminHighRiskIndividualsFormPageShare(
   {
-    formIsDirty, formSubmitted, clearForm, currentStep, steps
+    formIsDirty, formSubmitted, clearForm, currentStep, steps, redirectUrl
   }: AdminHighRiskIndividualsFormPageShareProps
 ) {
 
   const {
     exitFormShouldBeRemoved, exitFormOpen, exitFormHandler, closeExitFormModalAndResetBlocker
   } = useAdminHighRiskIndividualsFormPageShare({
-    clearForm, formIsDirty, formSubmitted
+    clearForm, formIsDirty, formSubmitted, redirectUrl
   })
 
   return (

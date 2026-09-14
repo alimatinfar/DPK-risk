@@ -2,6 +2,7 @@ import AdminHighRiskIndividualsFormPageShare from "./AdminHighRiskIndividualsFor
 import useAdminHighRiskIndividualsFormCurrentStep from "./store/useAdminHighRiskIndividualsFormCurrentStep.ts";
 import {useAdminHighRiskIndividualsFormStore} from "./store/useAdminHighRiskIndividualsFormStore.ts";
 import {ADMIN_HIGH_RISK_FORM_STEPS} from "./constances/steps.constances.tsx";
+import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
 
 
 function AdminHighRiskIndividualsFormPage() {
@@ -15,6 +16,7 @@ function AdminHighRiskIndividualsFormPage() {
     <AdminHighRiskIndividualsFormPageShare
       formIsDirty={formIsDirty} clearForm={clearForm} formSubmitted={formSubmitted}
       currentStep={currentStep} steps={ADMIN_HIGH_RISK_FORM_STEPS}
+      redirectUrl={ROUTER_LINKS.ADMIN_HIGH_RISK_INDIVIDUAL}
     />
   );
 }
