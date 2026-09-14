@@ -25,7 +25,7 @@ import fireResponseErrorToast from "../../../../../../../../request/utils/fireRe
 
 
 type BodyDataType = {
-  id: number | string;
+  id: number | string | undefined;
   resons: SelectOptionType['id'][];
   validityDate: number | string;
 }

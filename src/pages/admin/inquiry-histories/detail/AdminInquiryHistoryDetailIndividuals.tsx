@@ -1,12 +1,17 @@
 import AdminHighRiskIndividualsLettersDetailIndividualsCategories
   from "../../high-risk-individuals/letters/detail/individuals/AdminHighRiskIndividualsLettersDetailIndividualsCategories.tsx";
 import useAdminInquiryHistoryDetailIndividuals from "./hooks/useAdminInquiryHistoryDetailIndividuals.tsx";
+import type {AdminInquiryHistoryLetterDetailProps} from "./index.types.ts";
 
-function AdminInquiryHistoryDetailIndividuals() {
+function AdminInquiryHistoryDetailIndividuals(
+  {responseData}: AdminInquiryHistoryLetterDetailProps
+) {
 
   const {
     individualsList
-  } = useAdminInquiryHistoryDetailIndividuals()
+  } = useAdminInquiryHistoryDetailIndividuals({
+    responseData
+  })
 
   return (
     <AdminHighRiskIndividualsLettersDetailIndividualsCategories

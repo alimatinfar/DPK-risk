@@ -11,7 +11,7 @@ export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<
   id: string | number;
   [legalTypeFieldName]?: string;
   lastName?: string;
-  riskCustomerId: string | number;
+  riskCustomerId?: string | number;
   name: string;
   nationalCode: string | number;
   exitType?: ExitPersonFromLetterType

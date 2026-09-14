@@ -19,7 +19,10 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsDocs(
       [fileTypeFieldName]: {id: item?.documentType, name: item?.documentTypeTitle},
       [descriptionFieldName]: item?.description,
       [uploadFileFieldName]: {
-        name: item?.name, size: '0', data: ''
+        name: item?.name,
+        //TODO set size from response
+        size: 0,
+        data: ''
       }
     }))
   }, [responseData])

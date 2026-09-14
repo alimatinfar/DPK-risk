@@ -2,6 +2,7 @@ import {
   ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS
 } from "../../high-risk-individuals/letters/detail/index.constances.tsx";
 import {lazy} from "react";
+import type {AdminInquiryHistoryLetterDetailProps} from "./index.types.ts";
 
 const AdminInquiryHistoryDetailDocuments = lazy(() => import(
   "./AdminInquiryHistoryDetailDocuments.tsx"
@@ -10,11 +11,13 @@ const AdminInquiryHistoryDetailIndividuals = lazy(() => import(
   "./AdminInquiryHistoryDetailIndividuals.tsx"
   ));
 
-export const ADMIN_INQUIRY_HISTORY_DETAIL_TABS_RENDER_OBJECT = {
+export const ADMIN_INQUIRY_HISTORY_DETAIL_TABS_RENDER_OBJECT = (
+  {responseData}: AdminInquiryHistoryLetterDetailProps
+) => ({
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS]: (
-    <AdminInquiryHistoryDetailDocuments />
+    <AdminInquiryHistoryDetailDocuments responseData={responseData} />
   ),
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.INDIVIDUALS]: (
-    <AdminInquiryHistoryDetailIndividuals />
+    <AdminInquiryHistoryDetailIndividuals responseData={responseData} />
   ),
-}
+})

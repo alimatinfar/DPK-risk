@@ -19,7 +19,7 @@ const AdminHighRiskIndividualsDocumentsListForm = lazy(() => import(
 
 
 export type AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps = {
-  modalState: number | string | boolean;
+  modalState: number | string | boolean | undefined;
   personTitle: string;
   refetch: () => void;
 } & Pick<ModalProps, 'open' | 'onClose'>
