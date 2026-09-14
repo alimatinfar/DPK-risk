@@ -80,7 +80,6 @@ function useAdminInquiryHistories() {
       [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: item?.letterRefTitle,
       [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: item?.resonTitle,
       [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: item?.letterNo,
-      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.CUSTOMER_COUNT]: 0,
       [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.STATUS]: (
         <Tag text={item?.statusTitle} color={item?.status === 1 ? 'green' : 'red'} variant='fade' />
       ),
