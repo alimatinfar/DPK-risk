@@ -4,7 +4,7 @@ import DownloadIcon2 from "../../svg/DownloadIcon2.tsx";
 import DeleteIcon from "../../svg/DeleteIcon.tsx";
 import React from "react";
 import type {UploadFileDataType} from "./hooks/useFileDataCard.ts";
-import downloadFileFromFile from "../../../utils/fileOperations/downloadFileFromFile.ts";
+import downloadFileFromBase64 from "../../../utils/fileOperations/downloadFileFromBase64.ts";
 
 
 export type FileDataCardProps = {
@@ -22,7 +22,7 @@ function FileDataCard(
 
   function downloadFileData() {
     if (!fileData?.data) return
-    downloadFileFromFile(fileData?.data)
+    downloadFileFromBase64({base64: fileData?.data, fileName: fileData?.name})
   }
 
   return (
