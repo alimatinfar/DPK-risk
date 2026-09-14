@@ -68,7 +68,7 @@ function useAdminHighRiskFormStep3FileUpload(
             step3: {
               individuals: [
                 ...individuals,
-                getPersonDataList(data?.data)
+                ...getPersonDataList(data?.data)
               ]
             }
           })
