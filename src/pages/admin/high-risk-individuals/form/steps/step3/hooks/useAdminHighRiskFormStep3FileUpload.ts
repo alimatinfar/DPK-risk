@@ -24,8 +24,8 @@ type FormDataType = {
 
 function useAdminHighRiskFormStep3FileUpload(
   {
-    setFormData, individuals
-  }: Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals'>
+    setFormData, individuals, isInquiryHistory
+  }: Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals' | 'isInquiryHistory'>
 ) {
 
   const abortControllerRef = useRef<AbortController>(new AbortController())

@@ -44,7 +44,7 @@ function AdminHighRiskFormStep3Share(
       <div className='flex flex-col gap-y-4'>
         <Card className='flex flex-col gap-y-4'>
           <AdminHighRiskFormStep3FileUpload
-            individuals={individuals} setFormData={setFormData}
+            individuals={individuals} setFormData={setFormData} isInquiryHistory={isInquiryHistory}
           />
 
           <Tab

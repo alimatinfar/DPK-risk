@@ -10,15 +10,15 @@ import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Sha
 
 function AdminHighRiskFormStep3FileUpload(
   {
-    setFormData, individuals
-  }: Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals'>
+    setFormData, individuals, isInquiryHistory
+  }: Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals' | 'isInquiryHistory'>
 ) {
 
   const {
     formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading,
     getTemplateFileHandler, templateFileLoading
   } = useAdminHighRiskFormStep3FileUpload({
-    setFormData, individuals
+    setFormData, individuals, isInquiryHistory
   })
 
   return (

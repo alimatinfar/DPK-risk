@@ -5,8 +5,22 @@ import type {
   AdminHighRiskFormStep3ExistCustomerBodyDataType,
   AdminHighRiskFormStep3ExistCustomerResponseItemType
 } from "../index.types.ts";
+import type {CustomResponseType} from "../../../../../../../request/types/CustomResponseType.ts";
+import getSelectIdValue from "../../../../../../../components/Form/Select/utils/getSelectIdValue.ts";
+import {announceReferenceFieldName} from "../../../../FormFields/AnnouncingReferenceField/index.constances.ts";
+import type {AdminHighRiskFormStep3FoundedIndividualsProps} from "../AdminHighRiskFormStep3FoundedIndividuals.tsx";
+import type {AdminHighRiskFormStep3ShareProps} from "../AdminHighRiskFormStep3Share.tsx";
 
-function useAdminHighRiskFormStep3ExistCustomer() {
+
+type Props = Pick<AdminHighRiskFormStep3FoundedIndividualsProps, 'setUserDuplicateModalState' | 'closeUserDuplicateModalHandler'>
+  & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals'>
+
+function useAdminHighRiskFormStep3ExistCustomer(
+  {
+    setUserDuplicateModalState, formDataStep1, setFormData, individuals,
+    closeUserDuplicateModalHandler
+  }: Props
+) {
 
   const {
     mutate, isPending
@@ -16,16 +30,26 @@ function useAdminHighRiskFormStep3ExistCustomer() {
     }
   })
 
-  async function checkExistCustomer(customerId: ResultCardDataTypeShareFields['customerId']) {
-    return new Promise((resolve, reject) => {
-      const bodyData: AdminHighRiskFormStep3ExistCustomerBodyDataType = [customerId]
+  function setIndividualInFormDataHandler(newIndividuals) {
+    setFormData({
+      step3: {
+        individuals: [
+          ...individuals,
+          // data
+        ]
+      }
+    })
+    closeUserDuplicateModalHandler()
+  }
 
-      mutate(bodyData, {
-        onSuccess: (data, variables, onMutateResult, context) => {
-          resolve(data)
-        },
-        onError: reject
-      })
+  function checkExistCustomer(customerIds: ResultCardDataTypeShareFields['customerId'][]) {
+    mutate(customerIds, {
+      onSuccess: (response, variables, onMutateResult, context) => {
+        const data = (response as CustomResponseType<AdminHighRiskFormStep3ExistCustomerResponseItemType[]>)?.data
+        const selectedReferenceId = getSelectIdValue(formDataStep1?.[announceReferenceFieldName])
+        const userIsDuplicate = data?.some(item => item?.letterRef === selectedReferenceId)
+        userIsDuplicate ? setUserDuplicateModalState({callback: () => setIndividualInFormDataHandler}) : setIndividualInFormDataHandler()
+      },
     })
   }
 

@@ -7,10 +7,6 @@ import {adminHighRiskIndividualsCardFormStep3SeparatedFieldsNameLabel} from "./i
 import Tag from "../../../../../../components/others/Tag/Tag";
 import {type AdminHighRiskFormStep3FoundedIndividualsProps} from "./AdminHighRiskFormStep3FoundedIndividuals";
 import useAdminHighRiskFormStep3ExistCustomer from "./hooks/useAdminHighRiskFormStep3ExistCustomer.ts";
-import type {CustomResponseType} from "../../../../../../request/types/CustomResponseType.ts";
-import type {AdminHighRiskFormStep3ExistCustomerResponseItemType} from "./index.types.ts";
-import {announceReferenceFieldName} from "../../../FormFields/AnnouncingReferenceField/index.constances.ts";
-import getSelectIdValue from "../../../../../../components/Form/Select/utils/getSelectIdValue.ts";
 import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
 
 
@@ -30,31 +26,16 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
     separatedFieldsName: adminHighRiskIndividualsCardFormStep3SeparatedFieldsNameLabel, data
   })
 
-  function setIndividualInFormDataHandler() {
-    setFormData({
-      step3: {
-        individuals: [
-          ...individuals,
-          data
-        ]
-      }
-    })
-    closeUserDuplicateModalHandler()
-  }
-
   const {
     checkExistCustomerLoading, checkExistCustomer
-  } = useAdminHighRiskFormStep3ExistCustomer()
+  } = useAdminHighRiskFormStep3ExistCustomer({
+    setUserDuplicateModalState, formDataStep1
+  })
 
   function addHandler() {
     if (isInquiryHistory) return setIndividualInFormDataHandler()
 
-    checkExistCustomer(data?.[customerIdFieldName]).then((response) => {
-      const data = (response as CustomResponseType<AdminHighRiskFormStep3ExistCustomerResponseItemType[]>)?.data
-      const selectedReferenceId = getSelectIdValue(formDataStep1?.[announceReferenceFieldName])
-      const userIsDuplicate = data?.some(item => item?.letterRef === selectedReferenceId)
-      userIsDuplicate ? setUserDuplicateModalState({callback: () => setIndividualInFormDataHandler}) : setIndividualInFormDataHandler()
-    })
+    checkExistCustomer([data?.[customerIdFieldName]])
   }
 
   const isAdded = individuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])
