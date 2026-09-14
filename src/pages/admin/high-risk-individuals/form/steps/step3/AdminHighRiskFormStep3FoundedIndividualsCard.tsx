@@ -51,7 +51,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
       const data = (response as CustomResponseType<AdminHighRiskFormStep3ExistCustomerResponseItemType[]>)?.data
       const selectedReferenceId = getSelectIdValue(formDataStep1?.[announceReferenceFieldName])
       const userIsDuplicate = data?.some(item => item?.letterRef === selectedReferenceId)
-      userIsDuplicate ? setUserDuplicateModalState(() => setIndividualInFormDataHandler) : setIndividualInFormDataHandler()
+      userIsDuplicate ? setUserDuplicateModalState({callback: () => setIndividualInFormDataHandler}) : setIndividualInFormDataHandler()
     })
   }
 

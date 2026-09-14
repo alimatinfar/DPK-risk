@@ -4,6 +4,7 @@ import toastPromise from "../../../../../../../utils/toastPromise.ts";
 import useModalOpen from "../../../../../../../hooks/modal/useModalOpen.tsx";
 import useSearchPage from "../../../../../../search/hooks/useSearchPage.ts";
 import type {AdminHighRiskFormStep3ShareProps} from "../AdminHighRiskFormStep3Share.tsx";
+import type {AdminHighRiskFormStep3DuplicateUserModalProps} from "../AdminHighRiskFormStep3DuplicateUserModal.tsx";
 
 function useAdminHighRiskFormStep3Share(
   {
@@ -48,7 +49,7 @@ function useAdminHighRiskFormStep3Share(
   const {
     open: userDuplicateModalOpen, closeModal: closeUserDuplicateModalHandler, modalState: userDuplicateModalState,
     setModalState: setUserDuplicateModalState, shouldBeRemoved: userDuplicateShouldBeRemoved
-  } = useModalOpen<(() => void) | undefined>(undefined)
+  } = useModalOpen<AdminHighRiskFormStep3DuplicateUserModalProps['userDuplicateModalState']>(undefined)
 
   const {
     formMethods: searchUserFormMethods, onSubmit: searchUserOnSubmit,

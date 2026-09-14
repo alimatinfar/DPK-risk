@@ -1,11 +1,12 @@
 import type {ResultPersonCardDataType} from "../../../../../search/result/ResultCard.types";
 import AdminHighRiskFormStep3FoundedIndividualsCard from "./AdminHighRiskFormStep3FoundedIndividualsCard";
 import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
+import type {AdminHighRiskFormStep3DuplicateUserModalProps} from "./AdminHighRiskFormStep3DuplicateUserModal.tsx";
 
 
 export type AdminHighRiskFormStep3FoundedIndividualsProps = {
   foundedIndividuals: ResultPersonCardDataType[];
-  setUserDuplicateModalState: (value: () => () => void | undefined) => void;
+  setUserDuplicateModalState: (value: AdminHighRiskFormStep3DuplicateUserModalProps['userDuplicateModalState']) => void;
   closeUserDuplicateModalHandler: () => void;
 } & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1' | 'setFormData' | 'individuals'>
 

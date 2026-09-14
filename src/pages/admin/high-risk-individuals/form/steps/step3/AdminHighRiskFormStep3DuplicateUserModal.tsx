@@ -5,15 +5,15 @@ import {announceReferenceFieldName} from "../../../FormFields/AnnouncingReferenc
 import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
 
 
-type Props = {
-  userDuplicateModalState: (() => void) | undefined;
+export type AdminHighRiskFormStep3DuplicateUserModalProps = {
+  userDuplicateModalState: {callback: () => () => void, users?: string[]} | undefined;
 } & Pick<ModalProps, 'onClose' | 'open'>
   & Pick<AdminHighRiskFormStep3ShareProps, 'formDataStep1'>
 
 function AdminHighRiskFormStep3DuplicateUserModal(
   {
     onClose, open, userDuplicateModalState, formDataStep1
-  }: Props
+  }: AdminHighRiskFormStep3DuplicateUserModalProps
 ) {
 
   const referenceName = formDataStep1?.[announceReferenceFieldName] ? formDataStep1?.[announceReferenceFieldName]?.name : ''
@@ -34,7 +34,7 @@ function AdminHighRiskFormStep3DuplicateUserModal(
 
         <Button
           variant='default' color='white'
-          onClick={userDuplicateModalState}
+          onClick={() => userDuplicateModalState?.callback() ? userDuplicateModalState?.callback()?.() : null}
         >
           ثبت اطلاعات
         </Button>

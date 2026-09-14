@@ -1,5 +1,4 @@
 import Chips from "../../../../../../components/others/Chips/Chips";
-import {useAdminHighRiskIndividualsFormStore} from "../../store/useAdminHighRiskIndividualsFormStore";
 import {
   customerIdFieldName,
   type ResultCardDataTypeShareFields,
@@ -20,6 +19,7 @@ function AdminHighRiskFormStep3SelectedIndividuals(
 ) {
 
   function removeHandler(customerId: ResultCardDataTypeShareFields[typeof customerIdFieldName]) {
+    console.log({customerId, selectedIndividuals})
     const filteredIndividuals = selectedIndividuals?.filter(individual => individual?.[customerIdFieldName] !== customerId)
     setFormData({step3: {individuals: filteredIndividuals}})
   }
