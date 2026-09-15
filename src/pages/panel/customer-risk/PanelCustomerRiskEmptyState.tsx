@@ -3,7 +3,13 @@ import RiskScoreEmptyImage from "../../../assets/images/risk-score-empty.svg"
 import RiskScoreWaveBgImage from "../../../assets/images/risk-score-wave-bg.svg"
 
 
-function PanelCustomerRiskEmptyState() {
+type Props = {
+  startCalculatingHandler: () => void;
+}
+
+function PanelCustomerRiskEmptyState(
+  {startCalculatingHandler}: Props
+) {
   return (
     <div className='bg-gray-300/30'>
       <div
@@ -31,7 +37,7 @@ function PanelCustomerRiskEmptyState() {
           </p>
 
           <div className='w-45'>
-            <Button fullWidth>
+            <Button fullWidth onClick={startCalculatingHandler}>
               شروع محاسبه
             </Button>
           </div>

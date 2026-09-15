@@ -1,0 +1,431 @@
+
+.stage {
+  --text-color: #18181b;
+
+  position: relative;
+  width: min(880px, 100%);
+  margin: 0 auto;
+  padding: 56px 16px;
+
+  color: var(--text-color);
+  direction: rtl;
+}
+
+.stage::before {
+  content: '';
+  position: absolute;
+  inset: -24px;
+
+  background-image:
+      radial-gradient(
+          circle,
+          #e9e9ed 1px,
+          transparent 1px
+      );
+
+  background-size: 26px 26px;
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+.status {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: #a1a1aa;
+
+  transition: color 0.4s;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d4d4d8;
+
+  transition: background 0.4s;
+}
+
+.active .status {
+  color: #3f3f46;
+}
+
+.active .statusDot {
+  background: #f59e0b;
+  animation: blink 1.1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.core {
+  position: relative;
+  z-index: 3;
+
+  width: 142px;
+  height: 142px;
+
+  margin: 36px auto 96px;
+}
+
+.coreRing {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  opacity: 0;
+  transform: scale(0.94);
+
+  background:
+      conic-gradient(
+          from 0deg,
+          #0070f3,
+          #8b5cf6,
+          #f59e0b,
+          #0070f3
+      );
+
+  -webkit-mask:
+      radial-gradient(
+          farthest-side,
+          transparent calc(100% - 2.5px),
+          #000 calc(100% - 2.5px)
+      );
+
+  mask:
+      radial-gradient(
+          farthest-side,
+          transparent calc(100% - 2.5px),
+          #000 calc(100% - 2.5px)
+      );
+
+  filter:
+      drop-shadow(
+          0 0 12px rgba(139, 92, 246, 0.25)
+      );
+
+  transition:
+      opacity 0.7s,
+      transform 0.7s
+      cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+.active .coreRing {
+  opacity: 1;
+  transform: scale(1);
+
+  animation:
+      ringSpin 7s linear infinite;
+}
+
+@keyframes ringSpin {
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.coreBorder {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+  border: 1.5px solid #e4e4e7;
+
+  background: #fff;
+
+  transition:
+      box-shadow 0.6s,
+      border-color 0.6s;
+}
+
+.active .coreBorder {
+  border-color: rgba(0, 0, 0, 0.06);
+
+  box-shadow:
+      0 18px 46px -16px rgba(0, 0, 0, 0.18);
+}
+
+.coreWave {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+  border: 1.5px solid #c9c9d1;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.active .coreWave {
+  animation: wave 3s ease-out infinite;
+}
+
+.active .waveTwo {
+  animation-delay: 1.5s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1.42);
+    opacity: 0;
+  }
+}
+
+.coreInner {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+}
+
+.coreInner span {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+  background: #e4e4e7;
+
+  transition: background 0.5s;
+}
+
+.active .coreInner span:nth-child(1) {
+  background: #0070f3;
+  animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+.active .coreInner span:nth-child(2) {
+  background: #8b5cf6;
+  animation:
+      dotPulse 1.4s ease-in-out 0.23s infinite;
+}
+
+.active .coreInner span:nth-child(3) {
+  background: #f59e0b;
+  animation:
+      dotPulse 1.4s ease-in-out 0.46s infinite;
+}
+
+@keyframes dotPulse {
+  50% {
+    opacity: 0.25;
+    transform: translateY(-3px);
+  }
+}
+
+.wires {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+  overflow: visible;
+}
+
+.wires path {
+  opacity: 0;
+
+  transition: opacity 0.7s;
+}
+
+.wires path.on {
+  opacity: 1;
+}
+
+.nodes {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+
+  gap: clamp(70px, 14vw, 170px);
+
+  padding: 0 50px;
+}
+
+.node {
+  position: relative;
+
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1.5px solid #e3e3e7;
+
+  background: #fff;
+
+  color: #c2c2cb;
+
+  opacity: 0.55;
+  transform: scale(0.94);
+
+  transition:
+      opacity 0.6s,
+      transform 0.6s
+      cubic-bezier(0.2, 0.8, 0.25, 1),
+      border-color 0.5s,
+      box-shadow 0.35s,
+      color 0.5s;
+}
+
+.node svg {
+  width: 26px;
+  height: 26px;
+}
+
+.node::after {
+  content: '';
+
+  position: absolute;
+  inset: -7px;
+
+  border-radius: 50%;
+  border: 1.5px solid var(--node-color);
+
+  opacity: 0;
+  transform: scale(0.75);
+}
+
+.active .node {
+  opacity: 0.92;
+  transform: scale(1);
+
+  border-color: rgba(0, 0, 0, 0.13);
+  color: var(--node-color);
+}
+
+.active .node:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.active .node:nth-child(2) {
+  transition-delay: 0.25s;
+}
+
+.active .node:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.active .node::after {
+  animation: halo 2.6s ease-out infinite;
+}
+
+.active .node:nth-child(2)::after {
+  animation-delay: 0.5s;
+}
+
+.active .node:nth-child(3)::after {
+  animation-delay: 1s;
+}
+
+@keyframes halo {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  30% {
+    opacity: 0.45;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.32);
+  }
+}
+
+.node.lit {
+  border-color: var(--node-color);
+
+  box-shadow:
+      0 0 0 6px
+      color-mix(
+          in srgb,
+          var(--node-color) 10%,
+          transparent
+      ),
+      0 0 24px -2px
+      color-mix(
+          in srgb,
+          var(--node-color) 50%,
+          transparent
+      );
+}
+
+.controls {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 64px;
+
+  text-align: center;
+}
+
+.button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  padding: 10px 28px;
+
+  border-radius: 99px;
+  border: 1px solid #18181b;
+
+  cursor: pointer;
+
+  background: #18181b;
+  color: #fff;
+
+  transition: all 0.3s;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+      0 10px 22px -10px
+      rgba(0, 0, 0, 0.45);
+}
+
+.active .button {
+  background: #fff;
+  color: #18181b;
+  border-color: #d4d4d8;
+}
+
+.active .button:hover {
+  border-color: #18181b;
+
+  box-shadow:
+      0 10px 22px -12px
+      rgba(0, 0, 0, 0.3);
+}
