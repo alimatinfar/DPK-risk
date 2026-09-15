@@ -17,6 +17,8 @@ import useAdminHighRiskIndividualsCardsMapData
   from "../../../../individuals/hooks/useAdminHighRiskIndividualsCardsMapData.ts";
 import type {AdminHighRiskFormStep3ShareProps} from "../AdminHighRiskFormStep3Share.tsx";
 import toastPromise from "../../../../../../../utils/toastPromise.ts";
+import useAdminHighRiskFormStep3ExistCustomer from "./useAdminHighRiskFormStep3ExistCustomer.ts";
+import type {AdminHighRiskFormStep3FileUploadProps} from "../AdminHighRiskFormStep3FileUpload.tsx";
 
 type FormDataType = {
   [uploadFileFieldName]: UploadFileFieldType;
@@ -24,8 +26,12 @@ type FormDataType = {
 
 function useAdminHighRiskFormStep3FileUpload(
   {
-    setFormData, individuals, isInquiryHistory
-  }: Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals' | 'isInquiryHistory'>
+    setFormData, individuals, isInquiryHistory, formDataStep1,
+    setUserDuplicateModalState, closeUserDuplicateModalHandler
+  }: Pick<AdminHighRiskFormStep3FileUploadProps,
+    'setFormData' | 'individuals' | 'isInquiryHistory' | 'formDataStep1' |
+    'setUserDuplicateModalState' | 'closeUserDuplicateModalHandler'
+  >
 ) {
 
   const abortControllerRef = useRef<AbortController>(new AbortController())
@@ -51,6 +57,13 @@ function useAdminHighRiskFormStep3FileUpload(
     getPersonDataList
   } = useAdminHighRiskIndividualsCardsMapData()
 
+  const {
+    checkExistCustomerLoading, checkExistCustomer
+  } = useAdminHighRiskFormStep3ExistCustomer({
+    setUserDuplicateModalState, formDataStep1, isInquiryHistory, individuals,
+    setFormData, closeUserDuplicateModalHandler
+  })
+
   async function onSubmitHandler(formData: FormDataType) {
     openModalHandler()
 
@@ -58,25 +71,24 @@ function useAdminHighRiskFormStep3FileUpload(
     const bodyData = new FormData()
     bodyData.append('file', file)
 
+    const finallyCallback = () => {
+      formMethods.reset()
+      closeModalHandler()
+    }
+
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
         const newIndividuals = getPersonDataList(data?.data)
         const foundCustomersLength = newIndividuals?.length || 0
         const errorCustomersLength = data?.data?.nationalIdsError?.length || 0
         if (newIndividuals?.length) {
-          setFormData({
-            step3: {
-              individuals: [
-                ...individuals,
-                ...getPersonDataList(data?.data)
-              ]
-            }
-          })
-          toastPromise().then(toast => toast.success(`اطلاعات ${foundCustomersLength} نفر با موفقیت دریافت شد؛ ${errorCustomersLength} مورد یافت نشد.`))
+          checkExistCustomer(getPersonDataList(data?.data)).then(() => {
+            toastPromise().then(toast => toast.success(`اطلاعات ${foundCustomersLength} نفر با موفقیت دریافت شد؛ ${errorCustomersLength} مورد یافت نشد.`))
+          }).finally(finallyCallback)
         } else {
-          toastPromise().then(toast => toast.success('فردی یافت نشد'))
+          toastPromise().then(toast => toast.error('فردی یافت نشد'))
+          finallyCallback()
         }
-        closeModalHandler()
       },
     })
   }
@@ -126,7 +138,7 @@ function useAdminHighRiskFormStep3FileUpload(
 
   return {
     formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading,
-    getTemplateFileHandler, templateFileLoading
+    getTemplateFileHandler, templateFileLoading, checkExistCustomerLoading
   }
 }
 

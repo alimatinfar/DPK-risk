@@ -17,13 +17,30 @@ function AdminHighRiskFormStep3DuplicateUserModal(
 ) {
 
   const referenceName = formDataStep1?.[announceReferenceFieldName] ? formDataStep1?.[announceReferenceFieldName]?.name : ''
+  const users = userDuplicateModalState?.users
+  const usersIsOne = users?.length === 1
 
   return (
     <Modal
       open={open} onClose={onClose}
       title='مشتری تکراری'
-      description={`این مشتری قبلا با مرجع ${referenceName} ثبت شده است، آیا مایل به ثبت مجدد هستید؟`}
+      description={`
+        ${usersIsOne ? 'این مشتری' : 'اطلاعات مشتریان زیر'} قبلا با مرجع ${referenceName} ثبت شده است، آیا مایل به ثبت مجدد هستید؟
+      `}
     >
+      {usersIsOne ? null : (
+        <div className='flex flex-col gap-y-2 mb-6'>
+          {users?.map((user, index) => (
+            <div className='flex items-center gap-x-1'>
+              <span className='h-1.5 w-1.5 rounded-full bg-gray-400'></span>
+              <span key={index} className='text-gray-700 font-medium text-sm'>
+                {user}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div className='grid grid-cols-2 gap-4'>
         <Button
           variant='default' color='white'

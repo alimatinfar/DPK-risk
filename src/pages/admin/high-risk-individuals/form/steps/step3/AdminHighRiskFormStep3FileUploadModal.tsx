@@ -8,12 +8,13 @@ import {getResponseErrorMessage} from "../../../../../../request/utils/getRespon
 type Props = {
   error: Error | null;
   uploadLoading: boolean;
+  checkExistCustomerLoading: boolean;
   cancelRequestHandler: () => void;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskFormStep3FileUploadModal(
   {
-    open, onClose, error, cancelRequestHandler, uploadLoading
+    open, onClose, error, cancelRequestHandler, uploadLoading, checkExistCustomerLoading
   }: Props
 ) {
   return (
@@ -23,10 +24,10 @@ function AdminHighRiskFormStep3FileUploadModal(
       <div className='flex flex-col gap-y-6'>
         {error ? (
           <Message color='error' title={getResponseErrorMessage(error)} />
-        ) : uploadLoading ? (
+        ) : (uploadLoading || checkExistCustomerLoading) ? (
           <div className='flex items-center gap-x-2'>
             <p>
-              در حال بررسی و بارگذاری فایل
+              {checkExistCustomerLoading ? 'در حال بررسی تکراری بودن مشتریان' : 'در حال بررسی و بارگذاری فایل'}
             </p>
 
             <Loading/>

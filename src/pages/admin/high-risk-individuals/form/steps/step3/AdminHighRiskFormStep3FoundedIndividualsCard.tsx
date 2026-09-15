@@ -29,13 +29,12 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
   const {
     checkExistCustomerLoading, checkExistCustomer
   } = useAdminHighRiskFormStep3ExistCustomer({
-    setUserDuplicateModalState, formDataStep1
+    setUserDuplicateModalState, formDataStep1, isInquiryHistory, individuals,
+    setFormData, closeUserDuplicateModalHandler
   })
 
   function addHandler() {
-    if (isInquiryHistory) return setIndividualInFormDataHandler()
-
-    checkExistCustomer([data?.[customerIdFieldName]])
+    checkExistCustomer([data])
   }
 
   const isAdded = individuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])

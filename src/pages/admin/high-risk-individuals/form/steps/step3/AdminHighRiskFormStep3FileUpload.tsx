@@ -6,19 +6,26 @@ import AdminHighRiskFormStep3FileUploadModal from "./AdminHighRiskFormStep3FileU
 import useAdminHighRiskFormStep3FileUpload from "./hooks/useAdminHighRiskFormStep3FileUpload.ts";
 import Loading from "../../../../../../components/others/Loading/Loading.tsx";
 import type {AdminHighRiskFormStep3ShareProps} from "./AdminHighRiskFormStep3Share.tsx";
+import type {AdminHighRiskFormStep3FoundedIndividualsProps} from "./AdminHighRiskFormStep3FoundedIndividuals.tsx";
 
+
+export type AdminHighRiskFormStep3FileUploadProps =
+  Pick<AdminHighRiskFormStep3FoundedIndividualsProps, 'setUserDuplicateModalState' | 'closeUserDuplicateModalHandler'>
+  & Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals' | 'isInquiryHistory' | 'formDataStep1'>
 
 function AdminHighRiskFormStep3FileUpload(
   {
-    setFormData, individuals, isInquiryHistory
-  }: Pick<AdminHighRiskFormStep3ShareProps, 'setFormData' | 'individuals' | 'isInquiryHistory'>
+    setFormData, individuals, isInquiryHistory,
+    setUserDuplicateModalState, closeUserDuplicateModalHandler, formDataStep1
+  }: AdminHighRiskFormStep3FileUploadProps
 ) {
 
   const {
     formMethods, onSubmit, modalOpen, closeUploadModalHandler, error, cancelRequestHandler, uploadLoading,
-    getTemplateFileHandler, templateFileLoading
+    getTemplateFileHandler, templateFileLoading, checkExistCustomerLoading
   } = useAdminHighRiskFormStep3FileUpload({
-    setFormData, individuals, isInquiryHistory
+    setFormData, individuals, isInquiryHistory,
+    setUserDuplicateModalState, closeUserDuplicateModalHandler, formDataStep1
   })
 
   return (
@@ -71,7 +78,7 @@ function AdminHighRiskFormStep3FileUpload(
 
       <AdminHighRiskFormStep3FileUploadModal
         open={modalOpen} onClose={closeUploadModalHandler} error={error} cancelRequestHandler={cancelRequestHandler}
-        uploadLoading={uploadLoading}
+        uploadLoading={uploadLoading} checkExistCustomerLoading={checkExistCustomerLoading}
       />
     </>
   );

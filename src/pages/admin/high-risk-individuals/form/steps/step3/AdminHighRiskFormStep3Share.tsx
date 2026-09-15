@@ -45,6 +45,8 @@ function AdminHighRiskFormStep3Share(
         <Card className='flex flex-col gap-y-4'>
           <AdminHighRiskFormStep3FileUpload
             individuals={individuals} setFormData={setFormData} isInquiryHistory={isInquiryHistory}
+            setUserDuplicateModalState={setUserDuplicateModalState} formDataStep1={formDataStep1}
+            closeUserDuplicateModalHandler={closeUserDuplicateModalHandler}
           />
 
           <Tab
