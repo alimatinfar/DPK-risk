@@ -63,17 +63,7 @@ export const getPanelSideBarItems: () => DashboardSideBarItemsListType = functio
           icon: SearchIcon,
           label: "ريسک مشتري",
           link: ROUTER_LINKS.PANEL_CUSTOMER_RISK,
-        },
-        {
-          icon: SearchIcon,
-          label: "ريسک سابقه خدمت",
-          link: ROUTER_LINKS.PANEL_SERVICE_HISTORY_RISK,
-        },
-        {
-          icon: SearchIcon,
-          label: "ريسک منطقه",
-          link: ROUTER_LINKS.PANEL_REGIONAL_RISK,
-        },
+        }
       ],
     },
   ];
