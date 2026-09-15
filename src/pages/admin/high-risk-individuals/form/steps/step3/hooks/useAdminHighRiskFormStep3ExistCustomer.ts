@@ -30,7 +30,7 @@ function useAdminHighRiskFormStep3ExistCustomer(
   } = useMutateData<AdminHighRiskFormStep3ExistCustomerResponseItemType[], AdminHighRiskFormStep3ExistCustomerBodyDataType>({
     axiosConfig: {
       url: APIS.ADMIN_HIGH_RISK_INDIVIDUAL_EXIST_CUSTOMER, method: 'POST',
-      // params: {letterRef: getSelectIdValue(formDataStep1?.[announceReferenceFieldName])}
+      params: {letterRef: getSelectIdValue(formDataStep1?.[announceReferenceFieldName])}
     }
   })
 
