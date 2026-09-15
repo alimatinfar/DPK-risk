@@ -1,6 +1,8 @@
 import PanelCustomerRiskEmptyState from "./PanelCustomerRiskEmptyState.tsx";
-import PanelCustomerRiskLoading from "./animationLoading/PanelCustomerRiskLoading.tsx";
-import {useState} from "react";
+import {lazy, useState} from "react";
+const PanelCustomerRiskLoading = lazy(() => import(
+  "./animationLoading/PanelCustomerRiskLoading.tsx"
+  ));
 
 
 function PanelCustomerRiskPage() {

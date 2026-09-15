@@ -339,18 +339,6 @@ export default function PanelCustomerRiskLoading() {
           </div>
         ))}
       </div>
-
-      <div className={styles.controls}>
-        <button
-          type="button"
-          className={styles.button}
-          onClick={handleToggle}
-        >
-          {isActive
-            ? 'پایان محاسبه'
-            : 'شروع محاسبه'}
-        </button>
-      </div>
     </div>
   );
 }
