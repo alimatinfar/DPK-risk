@@ -18,7 +18,11 @@ function IconClickable(
     children, className, onClick, rounded = "rounded-lg", wrapperRef, hoverClass, loading
   }: Props
 ) {
-  return loading ? <Loading size='sm' /> : (
+  return loading ? (
+    <div className={`flex-center ${className || ''}`}>
+      <Loading size='sm' />
+    </div>
+    ) : (
     <div
       {...(onClick && {onClick})} {...wrapperRef && {ref: wrapperRef}}
       className={`${className || ""} p-1.5 cursor-pointer ${rounded} duration-200 ${hoverClass || 'hover:bg-gray-100'}`}
