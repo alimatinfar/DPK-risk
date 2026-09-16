@@ -62,7 +62,7 @@ function useAdminHighRiskFormStep3ExistCustomer(
             const userIsDuplicate = !!data?.length
             userIsDuplicate ? setUserDuplicateModalState({
               callback: () => setDataHandler,
-              users: response?.data?.map(item => item?.description)
+              users: data?.map(item => item?.description)
             }) : setDataHandler()
             resolve(null)
           },

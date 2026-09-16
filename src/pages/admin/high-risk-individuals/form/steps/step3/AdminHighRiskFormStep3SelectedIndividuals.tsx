@@ -19,7 +19,6 @@ function AdminHighRiskFormStep3SelectedIndividuals(
 ) {
 
   function removeHandler(customerId: ResultCardDataTypeShareFields[typeof customerIdFieldName]) {
-    console.log({customerId, selectedIndividuals})
     const filteredIndividuals = selectedIndividuals?.filter(individual => individual?.[customerIdFieldName] !== customerId)
     setFormData({step3: {individuals: filteredIndividuals}})
   }
