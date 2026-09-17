@@ -89,7 +89,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                           }}
                           bottomFields={[{
                             label: 'توضیحات',
-                            value: 'حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. حکم دريافت شده از مرجع. '
+                            value: item?.exitLetter?.description
                           }]}
                         />
                       </CardRightRed>
