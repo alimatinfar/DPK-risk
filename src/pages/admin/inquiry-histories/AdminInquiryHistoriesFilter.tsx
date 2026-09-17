@@ -8,11 +8,11 @@ import AnnouncingReferenceField
 import NationalCodeField from "../high-risk-individuals/FormFields/NationalCodeField/NationalCodeField.tsx";
 import LetterFromDateField from "../high-risk-individuals/FormFields/LetterFromDateField/LetterFromDateField.tsx";
 import LetterToDateField from "../high-risk-individuals/FormFields/LetterToDateField/LetterToDateField.tsx";
-import InquiryNumberField from "./FormFields/InquiryNumberField/InquiryNumberField.tsx";
 import RequestReasonField from "./FormFields/RequestReasonField/RequestReasonField.tsx";
-import CustomerNameField from "./FormFields/CustomerNameField/CustomerNameField.tsx";
 import ResponseSubmissionStatusField
   from "./FormFields/ResponseSubmissionStatusField/ResponseSubmissionStatusField.tsx";
+import FirstNameField from "../high-risk-individuals/FormFields/FirstNameField/FirstNameField.tsx";
+import LastNameField from "../high-risk-individuals/FormFields/LastNameField/LastNameField.tsx";
 
 
 function AdminInquiryHistoriesFilter(
@@ -33,15 +33,17 @@ function AdminInquiryHistoriesFilter(
 
       <RequestReasonField />
 
-      <CustomerNameField />
-
       <NationalCodeField removeValidations />
 
-      <ResponseSubmissionStatusField />
+      <FirstNameField />
+
+      <LastNameField />
 
       <LetterFromDateField />
 
       <LetterToDateField />
+
+      <ResponseSubmissionStatusField />
     </FilterForm>
   );
 }

@@ -31,6 +31,8 @@ import {letterToDateFieldName} from "../../high-risk-individuals/FormFields/Lett
 import {letterFromDateFieldName} from "../../high-risk-individuals/FormFields/LetterFromDateField/index.constances.ts";
 import Tag from "../../../../components/others/Tag/Tag.tsx";
 import displayDate from "../../../../utils/display/displayDate.ts";
+import {firstNameFieldName} from "../../high-risk-individuals/FormFields/FirstNameField/index.constances.ts";
+import {lastNameFieldName} from "../../high-risk-individuals/FormFields/LastNameField/index.constances.ts";
 
 
 function useAdminInquiryHistories() {
@@ -65,7 +67,8 @@ function useAdminInquiryHistories() {
         ToLetterDate: getBodyDataDateField(filtersData?.[letterToDateFieldName]),
         Status: getSelectIdValue(filtersData?.[responseSubmissionStatusFieldName]),
         NationalId: filtersData?.[nationalCodeFieldName],
-        // Name: filtersData?.[customerNameFieldName],
+        FName: filtersData?.[firstNameFieldName],
+        LName: filtersData?.[lastNameFieldName],
       })
     }
   })

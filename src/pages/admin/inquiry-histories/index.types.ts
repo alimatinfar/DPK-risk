@@ -7,7 +7,6 @@ import {
   type LetterNumberFieldType
 } from "../high-risk-individuals/FormFields/LetterNumberField/index.constances.ts";
 import {requestReasonFieldName, type RequestReasonFieldType} from "./FormFields/RequestReasonField/index.constances.ts";
-import {customerNameFieldName, type CustomerNameFieldType} from "./FormFields/CustomerNameField/index.constances.ts";
 import {
   nationalCodeFieldName,
   type NationalCodeFieldType
@@ -24,13 +23,22 @@ import {
   responseSubmissionStatusFieldName,
   type ResponseSubmissionStatusFieldType
 } from "./FormFields/ResponseSubmissionStatusField/index.constances.ts";
+import {
+  firstNameFieldName,
+  type FirstNameFieldType
+} from "../high-risk-individuals/FormFields/FirstNameField/index.constances.ts";
+import {
+  lastNameFieldName,
+  type LastNameFieldType
+} from "../high-risk-individuals/FormFields/LastNameField/index.constances.ts";
 
 export type AdminInquiryHistoriesFilterType = {
   [inquiryNumberFieldName]: InquiryNumberFieldType;
   [announceReferenceFieldName]: AnnounceReferenceFieldType;
   [letterNumberFieldName]: LetterNumberFieldType;
   [requestReasonFieldName]: RequestReasonFieldType;
-  [customerNameFieldName]: CustomerNameFieldType;
+  [firstNameFieldName]: FirstNameFieldType;
+  [lastNameFieldName]: LastNameFieldType;
   [nationalCodeFieldName]: NationalCodeFieldType;
   [letterFromDateFieldName]: LetterFromDateFieldType;
   [letterToDateFieldName]: LetterToDateFieldType;
