@@ -3,10 +3,11 @@ import SuspenseLoading from "./components/others/Loading/SuspenseLoading.tsx";
 import {RouterProvider} from "react-router";
 import CustomToastContainer from "./components/others/CustomToast/CustomToastContainer.tsx";
 import router from "./router/router.tsx";
+import getTokenInfo from "./utils/authentication/getTokenInfo.ts";
 
 
 function App() {
-
+  console.log({tokenInfo: getTokenInfo()})
   return (
     <ReactQueryProvider>
       <SuspenseLoading>
