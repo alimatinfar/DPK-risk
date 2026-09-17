@@ -17,6 +17,7 @@ export type UploadBoxProps = {
   bgClass?: string;
   fileCardClass?: string;
   uploadBoxClass?: string;
+  formatEndAdornment?: ReactNode;
 } &
   Pick<InputFormPropsType, 'fieldName' | 'rules' | 'defaultValue'> &
   Pick<UseFileDataCardProps, 'fileTypes' | 'maxFileSize'> &
@@ -24,7 +25,7 @@ export type UploadBoxProps = {
 
 function UploadBox(
   {
-    hint, accept, title, description, bgClass, fieldName, rules, defaultValue,
+    hint, accept, title, description, bgClass, fieldName, rules, defaultValue, formatEndAdornment,
     fileTypes, maxFileSize, errorMessage, fileCardClass, uploadBoxClass, hiddenErrorMessage
   }: UploadBoxProps
 ) {
@@ -72,12 +73,19 @@ function UploadBox(
         />
       </div>
 
-      {accept ? (
-        <div className='flex items-center gap-x-1 text-gray-700'>
-          <span>پسوندهای مجاز:</span>
-          <span dir='ltr'>{accept}</span>
+      {formatEndAdornment || accept ? (
+        <div className='flex items-center justify-between gap-x-2'>
+          {accept ? (
+            <div className='flex items-center gap-x-1 text-gray-700'>
+              <span>پسوندهای مجاز:</span>
+              <span dir='ltr'>{accept}</span>
+            </div>
+          ) : <div></div>}
+
+          {formatEndAdornment || null}
         </div>
       ) : null}
+
     </div>
   )
 

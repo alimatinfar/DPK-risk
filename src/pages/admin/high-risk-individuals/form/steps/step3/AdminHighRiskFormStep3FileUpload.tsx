@@ -42,27 +42,22 @@ function AdminHighRiskFormStep3FileUpload(
             uploadBoxProps={{
               hiddenErrorMessage: true,
               fileTypes: FILE_TYPES.EXCEL,
-              accept: '.xlsx,.csv'
+              accept: '.xlsx,.csv',
+              formatEndAdornment: (
+                <div className='h-8 flex items-center'>
+                  {templateFileLoading ? (
+                    <Loading size='sm'/>
+                  ) : (
+                    <span
+                      onClick={getTemplateFileHandler}
+                      className='text-primary underline cursor-pointer hover:text-primary-text hover:bg-primary/5 p-1 rounded-md duration-200'>
+                      دریافت فایل نمونه
+                    </span>
+                  )}
+                </div>
+              )
             }}
           />
-
-          <div className='flex items-center justify-between'>
-            <p className='text-gray-700'>
-              فایل اکسل با پسوند xlsx.
-            </p>
-
-            <div className='h-8 flex items-center'>
-              {templateFileLoading ? (
-                <Loading size='sm'/>
-              ) : (
-                <span
-                  onClick={getTemplateFileHandler}
-                  className='text-primary underline cursor-pointer hover:text-primary-text hover:bg-primary/5 p-1 rounded-md duration-200'>
-                  دریافت فایل نمونه
-                </span>
-              )}
-            </div>
-          </div>
         </div>
       </ReactHookFormWrapper>
 
