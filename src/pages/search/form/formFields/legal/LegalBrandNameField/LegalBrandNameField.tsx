@@ -14,7 +14,7 @@ function LegalBrandNameField() {
       inputProps={{
         errorMessage,
         label: legalBrandNameFieldLabel,
-        placeholder: 'برای مثال دیجی کالا',
+        placeholder: legalBrandNameFieldLabel,
       }}
     />
   );

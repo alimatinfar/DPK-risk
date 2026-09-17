@@ -24,7 +24,7 @@ function CustomerNameField(
       inputProps={{
         errorMessage,
         label: customerNameFieldLabel,
-        placeholder: 'برای مثال علی امینی',
+        placeholder: customerNameFieldLabel,
       }}
       rules={{
         ...isRequired && {

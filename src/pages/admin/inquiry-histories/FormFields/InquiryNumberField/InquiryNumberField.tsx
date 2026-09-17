@@ -22,7 +22,7 @@ function InquiryNumberField(
       inputProps={{
         errorMessage,
         label: inquiryNumberFieldLabel,
-        placeholder: 'برای مثال 16897651231',
+        placeholder: inquiryNumberFieldLabel,
         justNumber: true
       }}
       rules={{

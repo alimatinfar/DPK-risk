@@ -17,7 +17,7 @@ function CustomerNumberField() {
       inputProps={{
         errorMessage,
         label: customerNumberFieldLabel,
-        placeholder: 'برای مثال 0397812345',
+        placeholder: customerNumberFieldLabel,
         maxLength: SPECIFIC_LENGTH,
         justNumber: true
       }}

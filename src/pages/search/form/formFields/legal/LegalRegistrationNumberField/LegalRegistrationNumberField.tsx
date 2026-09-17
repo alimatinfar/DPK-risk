@@ -19,7 +19,7 @@ function LegalRegistrationNumberField() {
       inputProps={{
         errorMessage,
         label: legalRegistrationNumberFieldLabel,
-        placeholder: 'برای مثال 10101389936',
+        placeholder: legalRegistrationNumberFieldLabel,
         maxLength: SPECIFIC_LENGTH,
         justNumber: true
       }}

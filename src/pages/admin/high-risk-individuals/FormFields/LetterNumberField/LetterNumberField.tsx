@@ -24,7 +24,7 @@ function LetterNumberField(
       inputProps={{
         errorMessage,
         label: letterNumberFieldLabel,
-        placeholder: 'برای مثال 16897651231',
+        placeholder: letterNumberFieldLabel,
       }}
       rules={{
         ...isRequired && {

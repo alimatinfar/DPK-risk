@@ -18,7 +18,7 @@ function BirthCertificateNumberField() {
       inputProps={{
         errorMessage,
         label: birthCertificationNumberFieldLabel,
-        placeholder: 'برای مثال 1234567889',
+        placeholder: birthCertificationNumberFieldLabel,
       }}
     />
   );

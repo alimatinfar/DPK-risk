@@ -12,7 +12,7 @@ function LastNameField() {
       inputProps={{
         // errorMessage,
         label: lastNameFieldLabel,
-        placeholder: 'برای مثال احمد',
+        placeholder: lastNameFieldLabel,
       }}
     />
   );

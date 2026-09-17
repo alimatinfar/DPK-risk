@@ -14,7 +14,7 @@ function LegalAbbreviationField() {
       inputProps={{
         errorMessage,
         label: legalAbbreviationFieldLabel,
-        placeholder: 'برای مثال MCI',
+        placeholder: legalAbbreviationFieldLabel,
       }}
     />
   );

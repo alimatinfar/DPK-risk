@@ -19,7 +19,7 @@ function ComprehensiveForeignNationalsIdField() {
       inputProps={{
         errorMessage,
         label: comprehensiveForeignNationalsIdFieldLabel,
-        placeholder: 'برای مثال 000330100456789',
+        placeholder: comprehensiveForeignNationalsIdFieldLabel,
         maxLength: SPECIFIC_LENGTH,
         justNumber: true
       }}
