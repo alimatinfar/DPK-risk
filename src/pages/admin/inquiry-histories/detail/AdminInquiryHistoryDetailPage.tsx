@@ -9,10 +9,8 @@ import useGetQueryParam from "../../../../hooks/useGetQueryParam.ts";
 import QUERY_PARAMS from "../../../../constances/queryParams.ts";
 import useActiveTab from "../../../../components/others/Tab/hooks/useActiveTab.ts";
 import {ADMIN_INQUIRY_HISTORY_DETAIL_TABS_RENDER_OBJECT} from "./index.constances.tsx";
-import useFetchData from "../../../../request/hooks/useFetchData.ts";
-import APIS from "../../../../request/constances/apis.ts";
-import type {AdminInquiryHistoryLetterDetailItemResponseType} from "./index.types.ts";
 import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
+import useAdminInquiryHistoryDetailFetch from "./hooks/useAdminInquiryHistoryDetailFetch.ts";
 
 
 function AdminInquiryHistoryDetailPage() {
@@ -22,14 +20,9 @@ function AdminInquiryHistoryDetailPage() {
   const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS)
 
   const {
-    data: responseData, isFetching, error
-  } = useFetchData<AdminInquiryHistoryLetterDetailItemResponseType>({
-    axiosConfig: {
-      url: APIS.ADMIN_INQUIRY_HISTORIES_DETAIL,
-      params: {
-        letterId
-      }
-    }
+    error, isFetching, responseData
+  } = useAdminInquiryHistoryDetailFetch({
+    letterId
   })
 
   return (

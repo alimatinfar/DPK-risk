@@ -9,7 +9,6 @@ import useFilter from "../../../../components/Form/FilterForm/hooks/useFilter.ts
 import {useNavigate} from "react-router";
 import {
   ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS,
-  ADMIN_INQUIRY_HISTORIES_FAKE_DATA,
   adminInquiryHistoriesDefaultFilters
 } from "../index.constances.tsx";
 import useModalOpen from "../../../../hooks/modal/useModalOpen.tsx";
@@ -30,7 +29,6 @@ import getBodyDataDateField from "../../../../request/utils/getBodyDataDateField
 import {letterToDateFieldName} from "../../high-risk-individuals/FormFields/LetterToDateField/index.constances.ts";
 import {letterFromDateFieldName} from "../../high-risk-individuals/FormFields/LetterFromDateField/index.constances.ts";
 import Tag from "../../../../components/others/Tag/Tag.tsx";
-import displayDate from "../../../../utils/display/displayDate.ts";
 import {firstNameFieldName} from "../../high-risk-individuals/FormFields/FirstNameField/index.constances.ts";
 import {lastNameFieldName} from "../../high-risk-individuals/FormFields/LastNameField/index.constances.ts";
 
@@ -95,7 +93,13 @@ function useAdminInquiryHistories() {
           navigate(getUrlWithParams(url, params))
         }),
         {
-          onClick: () => null,
+          onClick: () => {
+            const url = ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_FORM
+            const params = {
+              [QUERY_PARAMS.LETTER_ID]: item?.id
+            }
+            navigate(getUrlWithParams(url, params))
+          },
           icon: <EditIcon width='100%' height='100%'/>,
           title: 'ویرایش',
         },

@@ -1,4 +1,6 @@
 import moment from "moment-jalaali";
+import parseJalaliDateToMomentFromResponse
+  from "../../../../../../../utils/dateAndTIme/momentJalaliDateTime/parseJalaliDateToMomentFromResponse.ts";
 
 
 type DataType = {
@@ -8,21 +10,15 @@ type DataType = {
   validityDate: string | number;
 }
 
-const parseJalaliDate = (date: number | string | null) => {
-  if (!date) return null;
-
-  return moment(String(date), 'jYYYYjMMjDD');
-};
-
 const sortCustomersForTimeLine = (data: DataType[]) => {
   return [...data].sort((b, a) => {
-    const dateA = parseJalaliDate(
+    const dateA = parseJalaliDateToMomentFromResponse(
       a.isOut ? a.letterDate :
         a.isOutValidityDate ? a.validityDate :
           a.letterDate
     );
 
-    const dateB = parseJalaliDate(
+    const dateB = parseJalaliDateToMomentFromResponse(
       b.isOut ? b.letterDate :
         b.isOutValidityDate ? b.validityDate :
           b.letterDate
