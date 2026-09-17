@@ -29,15 +29,17 @@ function AdminHighRiskFormStep3DuplicateUserModal(
       `}
     >
       {usersIsOne ? null : (
-        <div className='flex flex-col gap-y-2 mb-6'>
-          {users?.map((user, index) => (
-            <div className='flex items-center gap-x-1'>
-              <span className='h-1.5 w-1.5 rounded-full bg-gray-400'></span>
-              <span key={index} className='text-gray-700 font-medium text-sm'>
+        <div className='mb-6 border border-gray-300 rounded-lg p-2 bg-gray-50'>
+          <div className='flex flex-col gap-y-2 max-h-50 overflow-auto'>
+            {users?.map((user, index) => (
+              <div className='flex items-center gap-x-1'>
+                <span className='h-1.5 w-1.5 rounded-full bg-gray-400'></span>
+                <span key={index} className='text-gray-700 font-medium text-sm'>
                 {user}
               </span>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
