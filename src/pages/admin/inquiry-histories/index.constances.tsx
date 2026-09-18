@@ -23,6 +23,8 @@ import {
 import {
   responseSubmissionStatusFieldName,
 } from "./FormFields/ResponseSubmissionStatusField/index.constances.ts";
+import {firstNameFieldName} from "../high-risk-individuals/FormFields/FirstNameField/index.constances.ts";
+import {lastNameFieldName} from "../high-risk-individuals/FormFields/LastNameField/index.constances.ts";
 
 export const ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS = {
   INQUIRY_NUMBER: 'id',
@@ -66,7 +68,8 @@ export const adminInquiryHistoriesDefaultFilters: AdminInquiryHistoriesFilterTyp
   [announceReferenceFieldName]: '',
   [letterNumberFieldName]: '',
   [requestReasonFieldName]: '',
-  [customerNameFieldName]: '',
+  [firstNameFieldName]: '',
+  [lastNameFieldName]: '',
   [nationalCodeFieldName]: '',
   [letterFromDateFieldName]: '',
   [letterToDateFieldName]: '',

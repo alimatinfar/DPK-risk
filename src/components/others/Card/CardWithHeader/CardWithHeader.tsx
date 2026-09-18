@@ -10,7 +10,9 @@ export type CardWithHeaderProps = PropsWithChildren & {
 }
 
 function CardWithHeader(
-  {children, title, headerEndAdornment, className, childrenClassName, customHeaderRender}: Props
+  {
+    children, title, headerEndAdornment, className, childrenClassName, customHeaderRender
+  }: CardWithHeaderProps
 ) {
   return (
     <div className={`flex flex-col border border-gray-200 rounded-lg overflow-hidden ${className || ''}`}>

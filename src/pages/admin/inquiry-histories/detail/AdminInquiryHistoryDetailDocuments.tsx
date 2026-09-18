@@ -45,6 +45,7 @@ function AdminInquiryHistoryDetailDocuments(
       <DisplayModal shouldBeRemoved={editModalShouldBeRemoved}>
         <AdminInquiryHistoryDetailDocumentsEditLetterModal
           open={editModalOpen} onClose={closeEditModalModalHandler} responseData={responseData}
+          refetch={refetch}
         />
       </DisplayModal>
     </>

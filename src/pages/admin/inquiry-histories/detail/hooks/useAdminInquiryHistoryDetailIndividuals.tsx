@@ -9,7 +9,7 @@ import getPersonTypeByNationality from "../../../../search/form/utils/getPersonT
 
 
 function useAdminInquiryHistoryDetailIndividuals(
-  {responseData}: AdminInquiryHistoryLetterDetailProps
+  {responseData}: Pick<AdminInquiryHistoryLetterDetailProps, 'responseData'>
 ) {
 
   const individualsList: AdminHighRiskIndividualsLettersDetailIndividualsDataType = useMemo(function () {
