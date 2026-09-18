@@ -4,7 +4,9 @@ import CardWithHeader from "../../Card/CardWithHeader/CardWithHeader.tsx";
 import DetailInfoSectionLabelValue from "./DetailInfoSectionLabelValue.tsx";
 
 function DetailInfoSection(
-  {title, infoList, customGridColsClass, customColumnsNumber}: DetailInfoSectionProps
+  {
+    title, infoList, customGridColsClass, customColumnsNumber, cardWithHeaderProps
+  }: DetailInfoSectionProps
 ) {
 
   const rows = useMemo(function () {
@@ -32,7 +34,7 @@ function DetailInfoSection(
 
   return (
     <CardWithHeader
-      title={title}
+      title={title} {...cardWithHeaderProps}
     >
       {rows.map((row, rowsIndex) => (
         <div

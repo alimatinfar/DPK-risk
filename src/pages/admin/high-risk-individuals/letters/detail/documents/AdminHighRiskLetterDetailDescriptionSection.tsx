@@ -13,6 +13,8 @@ import {requestReasonFieldLabel} from "../../../../inquiry-histories/FormFields/
 import {
   responseSubmissionStatusFieldLabel
 } from "../../../../inquiry-histories/FormFields/ResponseSubmissionStatusField/index.constances.ts";
+import Button from "../../../../../../components/Form/Button/Button.tsx";
+import EditIcon2 from "../../../../../../components/svg/EditIcon2.tsx";
 
 
 export type AdminHighRiskLetterDetailDescriptionSectionProps = {
@@ -25,12 +27,13 @@ export type AdminHighRiskLetterDetailDescriptionSectionProps = {
   riskListType?: string;
   requestReason?: string;
   responseSubmissionStatus?: string;
+  openEditModalHandler?: () => void;
 }
 
 function AdminHighRiskLetterDetailDescriptionSection(
   {
     detailInfoSectionProps, letterDate, letterNumber, description, reference, expireDate, riskListType,
-    requestReason, responseSubmissionStatus
+    requestReason, responseSubmissionStatus, openEditModalHandler
   }: AdminHighRiskLetterDetailDescriptionSectionProps
 ) {
 
@@ -74,8 +77,18 @@ function AdminHighRiskLetterDetailDescriptionSection(
 
   return (
     <DetailInfoSection
-      title='توضیحات' {...detailInfoSectionProps}
+      title='نامه' {...detailInfoSectionProps}
       infoList={infoList} customGridColsClass='grid-cols-4' customColumnsNumber={4}
+      cardWithHeaderProps={{
+        headerEndAdornment: (
+          <Button
+            variant='default' color='white' rightIcon={<EditIcon2 />}
+            onClick={openEditModalHandler}
+          >
+            ویرایش
+          </Button>
+        )
+      }}
     />
   );
 }

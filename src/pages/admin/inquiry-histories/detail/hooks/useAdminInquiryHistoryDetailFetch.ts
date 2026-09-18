@@ -4,7 +4,7 @@ import APIS from "../../../../../request/constances/apis.ts";
 
 
 type Props = {
-  letterId: string | number | null;
+  letterId: string | number | null | undefined;
 }
 
 function useAdminInquiryHistoryDetailFetch(
@@ -12,7 +12,7 @@ function useAdminInquiryHistoryDetailFetch(
 ) {
 
   const {
-    data: responseData, isFetching, error
+    data: responseData, isFetching, error, refetch
   } = useFetchData<AdminInquiryHistoryLetterDetailItemResponseType>({
     axiosConfig: {
       url: APIS.ADMIN_INQUIRY_HISTORIES_DETAIL,
@@ -26,7 +26,7 @@ function useAdminInquiryHistoryDetailFetch(
   })
 
   return {
-    responseData, isFetching, error
+    responseData, isFetching, error, refetch
   }
 }
 

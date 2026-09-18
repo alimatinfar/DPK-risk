@@ -1,3 +1,4 @@
+import type {CardWithHeaderProps} from "../../Card/CardWithHeader/CardWithHeader.tsx";
 
 export type DetailInfoSectionItemType = {
   label: string;
@@ -10,4 +11,5 @@ export type DetailInfoSectionProps = {
   infoList: DetailInfoSectionItemType[];
   customGridColsClass?: string;
   customColumnsNumber?: number;
+  cardWithHeaderProps?: Partial<CardWithHeaderProps>;
 }

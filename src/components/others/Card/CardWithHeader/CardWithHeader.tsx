@@ -1,7 +1,7 @@
 import type {PropsWithChildren, ReactNode} from "react";
 
 
-type Props = PropsWithChildren & {
+export type CardWithHeaderProps = PropsWithChildren & {
   title: string;
   headerEndAdornment?: ReactNode | string;
   className?: string;

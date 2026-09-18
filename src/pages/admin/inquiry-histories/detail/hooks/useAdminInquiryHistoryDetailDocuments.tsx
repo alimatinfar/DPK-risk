@@ -6,10 +6,19 @@ import {descriptionFieldName} from "../../../high-risk-individuals/FormFields/De
 import {uploadFileFieldName} from "../../../high-risk-individuals/FormFields/UploadFileField/index.constances.ts";
 import type {AdminInquiryHistoryLetterDetailProps} from "../index.types.ts";
 import {useMemo} from "react";
+import useModalOpenBoolean from "../../../../../hooks/modal/useModalOpenBoolean.ts";
+
 
 function useAdminInquiryHistoryDetailDocuments(
-  {responseData}: AdminInquiryHistoryLetterDetailProps
+  {
+    responseData
+  }: Pick<AdminInquiryHistoryLetterDetailProps, 'responseData'>
 ) {
+
+  const {
+    shouldBeRemoved: editModalShouldBeRemoved, open: editModalOpen,
+    openModalHandler: openEditModalModalHandler, closeModalHandler: closeEditModalModalHandler
+  } = useModalOpenBoolean(false)
 
   const documents: AdminHighRiskIndividualsLettersDetailDocumentType[] = useMemo(function () {
     const finalData = responseData?.data
@@ -30,7 +39,7 @@ function useAdminInquiryHistoryDetailDocuments(
   }, [responseData])
 
   return {
-    documents
+    documents, editModalShouldBeRemoved, editModalOpen, openEditModalModalHandler, closeEditModalModalHandler
   }
 }
 

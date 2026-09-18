@@ -12,12 +12,16 @@ const AdminInquiryHistoryDetailIndividuals = lazy(() => import(
   ));
 
 export const ADMIN_INQUIRY_HISTORY_DETAIL_TABS_RENDER_OBJECT = (
-  {responseData}: AdminInquiryHistoryLetterDetailProps
+  {responseData, refetch}: AdminInquiryHistoryLetterDetailProps
 ) => ({
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS]: (
-    <AdminInquiryHistoryDetailDocuments responseData={responseData} />
+    <AdminInquiryHistoryDetailDocuments
+      responseData={responseData} refetch={refetch}
+    />
   ),
   [ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.INDIVIDUALS]: (
-    <AdminInquiryHistoryDetailIndividuals responseData={responseData} />
+    <AdminInquiryHistoryDetailIndividuals
+      responseData={responseData} refetch={refetch}
+    />
   ),
 })

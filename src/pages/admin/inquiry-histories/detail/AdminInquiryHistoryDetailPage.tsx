@@ -20,7 +20,7 @@ function AdminInquiryHistoryDetailPage() {
   const [activeTab, setActiveTab] = useActiveTab(ADMIN_HIGH_RISK_INDIVIDUALS_LETTERS_DETAIL_TABS_KEYS.DOCUMENTS)
 
   const {
-    error, isFetching, responseData
+    error, isFetching, responseData, refetch
   } = useAdminInquiryHistoryDetailFetch({
     letterId
   })
@@ -38,7 +38,9 @@ function AdminInquiryHistoryDetailPage() {
         isLoading={isFetching} error={error}
       >
         <TabContentRender
-          renderObject={ADMIN_INQUIRY_HISTORY_DETAIL_TABS_RENDER_OBJECT({responseData})}
+          renderObject={ADMIN_INQUIRY_HISTORY_DETAIL_TABS_RENDER_OBJECT({
+            responseData, refetch
+          })}
           activeTab={activeTab}
         />
       </RenderLogic>

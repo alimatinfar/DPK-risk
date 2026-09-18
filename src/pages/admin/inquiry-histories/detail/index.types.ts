@@ -38,4 +38,5 @@ export type AdminInquiryHistoryLetterDetailItemResponseType = {
 
 export type AdminInquiryHistoryLetterDetailProps = {
   responseData: CustomResponseType<AdminInquiryHistoryLetterDetailItemResponseType> | undefined;
+  refetch: () => void;
 }
