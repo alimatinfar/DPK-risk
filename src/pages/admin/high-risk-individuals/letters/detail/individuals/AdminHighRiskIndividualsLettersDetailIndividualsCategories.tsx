@@ -19,17 +19,19 @@ import useAdminHighRiskIndividualsLettersDetailIndividualsCategories
 import type {SetStateType} from "../../../../../../types/SetStateType.ts";
 import AdminHighRiskIndividualsExitLetterContainer from "./AdminHighRiskIndividualsExitLetterContainer";
 import ResultPersonCategoryWrapper from "../../../../../search/result/ResultPersonCategoryWrapper.tsx";
+import DeleteIcon from "../../../../../../components/svg/DeleteIcon.tsx";
 
 
 type Props = {
   setDocListModalState?: SetStateType<ModalStateTypeId | boolean>;
+  setDeletePersonModalState?: SetStateType<number | boolean>;
   setExitPersonModalState?: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
   data: AdminHighRiskIndividualsLettersDetailIndividualsDataType
 }
 
 function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
   {
-    setDocListModalState, setExitPersonModalState, data
+    setDocListModalState, setExitPersonModalState, setDeletePersonModalState, data
   }: Props
 ) {
 
@@ -59,12 +61,13 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                       fields={fields}
                       actions={(
                         <>
-                          {(!item.exitType && setExitPersonModalState) && (
+                          {((!item.exitType && setExitPersonModalState) || setDeletePersonModalState) && (
                             <Button
-                              onClick={() => setExitPersonModalState(item)}
+                              onClick={() => setDeletePersonModalState ? setDeletePersonModalState(Number(item?.id)) :
+                                setExitPersonModalState ? setExitPersonModalState(item) : null}
                               justIcon variant='default' color='red'
                             >
-                              <LogoutIcon/>
+                              {setDeletePersonModalState ? <DeleteIcon /> : <LogoutIcon/>}
                             </Button>
                           )}
                         </>

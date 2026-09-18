@@ -2,10 +2,10 @@ import {useMemo} from "react";
 import {legalTypeFieldName} from "../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
 import type {AdminInquiryHistoryLetterDetailProps} from "../index.types.ts";
 import type {
-  AdminHighRiskIndividualsLettersDetailIndividualsDataType
+  AdminHighRiskIndividualsLettersDetailIndividualsDataType, ModalStateTypeId
 } from "../../../high-risk-individuals/letters/detail/individuals/index.types.ts";
-import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../search/form/SearchPageForm.constances.ts";
 import getPersonTypeByNationality from "../../../../search/form/utils/getPersonTypeByNationality.ts";
+import useModalOpen from "../../../../../hooks/modal/useModalOpen.tsx";
 
 
 function useAdminInquiryHistoryDetailIndividuals(
@@ -32,8 +32,15 @@ function useAdminInquiryHistoryDetailIndividuals(
     })
   }, [responseData])
 
+  const {
+    open: deletePersonModalOpen, shouldBeRemoved: deletePersonModalShouldBeRemoved,
+    modalState: deletePersonModalState, setModalState: setDeletePersonModalState,
+    closeModal: closeDeletePersonModal
+  } = useModalOpen<number | boolean>(false)
+
   return {
-    individualsList
+    individualsList, deletePersonModalOpen, deletePersonModalShouldBeRemoved, deletePersonModalState,
+    setDeletePersonModalState, closeDeletePersonModal
   }
 }
 
