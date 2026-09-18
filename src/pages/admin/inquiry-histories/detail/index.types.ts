@@ -18,8 +18,8 @@ export type AdminInquiryHistoryLetterDetailItemResponseType = {
       documentTypeTitle: string;
       name: string;
       description: string;
-      content: null,
-      isDeleted: false,
+      content: string;
+      isDeleted: boolean;
       createdAt: string;
       fileTokenId: string;
     }[]

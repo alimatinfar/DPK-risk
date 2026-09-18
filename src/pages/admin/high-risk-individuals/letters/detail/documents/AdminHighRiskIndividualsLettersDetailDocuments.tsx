@@ -27,7 +27,8 @@ function AdminHighRiskIndividualsLettersDetailDocuments(
   const {
     documents, timeLineHistories,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
-    formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
+    documentFormModalOpen, documentFormModalShouldBeRemoved, closeDocumentFormModalHandler, documentFormModalState,
+    setDocumentFormModalState
   } = useAdminHighRiskIndividualsLettersDetailDocuments({
     responseData
   })
@@ -47,7 +48,7 @@ function AdminHighRiskIndividualsLettersDetailDocuments(
           <AdminHighRiskIndividualsLettersDetailDocumentsDocs
             documents={documents}
             setDeleteModalState={setDeleteModalState}
-            setFormModalState={setFormModalState}
+            setFormModalState={setDocumentFormModalState}
           />
         </div>
 
@@ -61,9 +62,9 @@ function AdminHighRiskIndividualsLettersDetailDocuments(
         />
       </DisplayModal>
 
-      <DisplayModal shouldBeRemoved={formModalShouldBeRemoved}>
+      <DisplayModal shouldBeRemoved={documentFormModalShouldBeRemoved}>
         <AdminHighRiskIndividualsLettersDetailDocumentsFormModal
-          open={formModalOpen} onClose={closeFormModalHandler} modalState={formModalState}
+          open={documentFormModalOpen} onClose={closeDocumentFormModalHandler} modalState={documentFormModalState}
           refetch={refetch}
         />
       </DisplayModal>

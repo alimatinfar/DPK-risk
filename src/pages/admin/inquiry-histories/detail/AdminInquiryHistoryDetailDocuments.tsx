@@ -7,6 +7,10 @@ import useAdminInquiryHistoryDetailDocuments from "./hooks/useAdminInquiryHistor
 import type {AdminInquiryHistoryLetterDetailProps} from "./index.types.ts";
 import {lazy} from "react";
 import DisplayModal from "../../../../components/others/Modal/DisplayModal.tsx";
+import AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal
+  from "../../high-risk-individuals/letters/detail/documents/deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx";
+import AdminHighRiskIndividualsLettersDetailDocumentsFormModal
+  from "../../high-risk-individuals/letters/detail/documents/formModal/AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx";
 
 const AdminInquiryHistoryDetailDocumentsEditLetterModal = lazy(() => import(
   "./AdminInquiryHistoryDetailDocumentsEditLetterModal.tsx"
@@ -20,7 +24,10 @@ function AdminInquiryHistoryDetailDocuments(
 ) {
 
   const {
-    documents, editModalShouldBeRemoved, editModalOpen, openEditModalModalHandler, closeEditModalModalHandler
+    documents, editModalShouldBeRemoved, editModalOpen, openEditModalModalHandler, closeEditModalModalHandler,
+    deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
+    documentFormModalOpen, documentFormModalShouldBeRemoved, closeDocumentFormModalHandler, documentFormModalState,
+    setDocumentFormModalState
   } = useAdminInquiryHistoryDetailDocuments({
     responseData
   })
@@ -39,8 +46,8 @@ function AdminInquiryHistoryDetailDocuments(
 
         <AdminHighRiskIndividualsLettersDetailDocumentsDocs
           documents={documents}
-          // setDeleteModalState={setDeleteModalState}
-          // setFormModalState={setFormModalState}
+          setDeleteModalState={setDeleteModalState}
+          setFormModalState={setDocumentFormModalState}
         />
       </div>
 
@@ -48,6 +55,20 @@ function AdminInquiryHistoryDetailDocuments(
         <AdminInquiryHistoryDetailDocumentsEditLetterModal
           open={editModalOpen} onClose={closeEditModalModalHandler} responseData={responseData}
           refetch={refetch}
+        />
+      </DisplayModal>
+
+      <DisplayModal shouldBeRemoved={deleteModalShouldBeRemoved}>
+        <AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal
+          open={deleteModalOpen} onClose={closeDeleteModalHandler} modalState={deleteModalState}
+          refetch={refetch} isInquiryHistory
+        />
+      </DisplayModal>
+
+      <DisplayModal shouldBeRemoved={documentFormModalShouldBeRemoved}>
+        <AdminHighRiskIndividualsLettersDetailDocumentsFormModal
+          open={documentFormModalOpen} onClose={closeDocumentFormModalHandler} modalState={documentFormModalState}
+          refetch={refetch} isInquiryHistory
         />
       </DisplayModal>
     </>

@@ -9,13 +9,14 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsModals() {
   } = useModalOpen<AdminHighRiskIndividualsLettersDetailDocumentType | false>(false)
 
   const {
-    open: formModalOpen, shouldBeRemoved: formModalShouldBeRemoved, closeModal: closeFormModalHandler,
-    modalState: formModalState, setModalState: setFormModalState
+    open: documentFormModalOpen, shouldBeRemoved: documentFormModalShouldBeRemoved, closeModal: closeDocumentFormModalHandler,
+    modalState: documentFormModalState, setModalState: setDocumentFormModalState
   } = useModalOpen<AdminHighRiskIndividualsLettersDetailDocumentType | boolean>(false)
 
   return {
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
-    formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
+    documentFormModalOpen, documentFormModalShouldBeRemoved, closeDocumentFormModalHandler, documentFormModalState,
+    setDocumentFormModalState
   }
 }
 

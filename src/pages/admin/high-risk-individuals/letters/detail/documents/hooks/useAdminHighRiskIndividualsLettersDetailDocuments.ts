@@ -24,13 +24,15 @@ function useAdminHighRiskIndividualsLettersDetailDocuments(
 
   const {
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
-    formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
+    documentFormModalOpen, documentFormModalShouldBeRemoved, closeDocumentFormModalHandler, documentFormModalState,
+    setDocumentFormModalState
   } = useAdminHighRiskIndividualsLettersDetailDocumentsModals()
 
   return {
     documents, timeLineHistories,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
-    formModalOpen, formModalShouldBeRemoved, closeFormModalHandler, formModalState, setFormModalState
+    documentFormModalOpen, documentFormModalShouldBeRemoved, closeDocumentFormModalHandler, documentFormModalState,
+    setDocumentFormModalState
   }
 }
 
