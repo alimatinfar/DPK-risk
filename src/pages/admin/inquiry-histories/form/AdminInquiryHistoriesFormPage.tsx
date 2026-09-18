@@ -4,7 +4,7 @@ import {ADMIN_INQUIRY_HISTORY_FORM_STEPS} from "./constances/steps.constances.ts
 import {useAdminInquiryHistoriesFormStore} from "./store/useAdminInquiryHistoriesFormStore.ts";
 import useAdminInquiryHistoryFormCurrentStep from "./store/useAdminInquiryHistoryFormCurrentStep.ts";
 import ROUTER_LINKS from "../../../../constances/routerLinks.ts";
-import useAdminInquiryHistoriesFormPageEdit from "./hooks/useAdminInquiryHistoriesFormPageEdit.ts";
+
 
 function AdminInquiryHistoriesFormPage() {
 
@@ -12,8 +12,6 @@ function AdminInquiryHistoriesFormPage() {
   const formIsDirty = useAdminInquiryHistoriesFormStore(state => state.formData.formIsDirty)
   const formSubmitted = useAdminInquiryHistoriesFormStore(state => state.formData.formSubmitted)
   const clearForm = useAdminInquiryHistoriesFormStore(state => state.clearForm)
-
-  useAdminInquiryHistoriesFormPageEdit()
 
   return (
     <AdminHighRiskIndividualsFormPageShare

@@ -91,18 +91,7 @@ function useAdminInquiryHistories() {
             [QUERY_PARAMS.LETTER_NUMBER]: item?.letterNo
           }
           navigate(getUrlWithParams(url, params))
-        }),
-        {
-          onClick: () => {
-            const url = ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_FORM
-            const params = {
-              [QUERY_PARAMS.LETTER_ID]: item?.id
-            }
-            navigate(getUrlWithParams(url, params))
-          },
-          icon: <EditIcon width='100%' height='100%'/>,
-          title: 'ویرایش',
-        },
+        }, 'مشاهده و ویرایش'),
         {
           onClick: () => setDeleteModalState(item?.id),
           icon: <DeleteIcon width='100%' height='100%'/>,
