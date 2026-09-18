@@ -1,8 +1,5 @@
-import PanelCustomerRiskEmptyState from "./PanelCustomerRiskEmptyState.tsx";
-import {lazy, useState} from "react";
-import PanelCustomerRiskLoading from "./animationLoading/PanelCustomerRiskLoading.tsx";
-import PanelCustomerRiskReport from "./report/PanelCustomerRiskReport.tsx";
-import {PANEL_CUSTOMER_RISK_REPORT_FAKE_DATA} from "./report/index.utils.tsx";
+import {useState} from "react";
+import {RiskCalculation} from "./report/RiskCalculation.tsx";
 
 
 function PanelCustomerRiskPage() {
@@ -20,14 +17,8 @@ function PanelCustomerRiskPage() {
   }
 
   return (
-    <div className='flex-center pt-8'>
-      {reportIsReady ? (
-        <PanelCustomerRiskReport data={PANEL_CUSTOMER_RISK_REPORT_FAKE_DATA} />
-      ) : isCalculating ? (
-        <PanelCustomerRiskLoading/>
-      ) : (
-        <PanelCustomerRiskEmptyState startCalculatingHandler={startCalculatingHandler}/>
-      )}
+    <div className='flex-center'>
+      <RiskCalculation />
     </div>
   );
 }
