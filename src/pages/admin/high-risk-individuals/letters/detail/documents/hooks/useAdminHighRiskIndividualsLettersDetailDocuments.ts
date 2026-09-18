@@ -15,7 +15,7 @@ function useAdminHighRiskIndividualsLettersDetailDocuments(
   const {
     documents
   } = useAdminHighRiskIndividualsLettersDetailDocumentsDocs({
-    responseData
+    documentsResponse: responseData?.data?.letter?.documents
   })
 
   const {

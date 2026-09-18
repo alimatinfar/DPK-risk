@@ -3,17 +3,21 @@ import {useMemo} from "react";
 import {fileTypeFieldName} from "../../../../FormFields/FileTypeField/index.constances.ts";
 import {descriptionFieldName} from "../../../../FormFields/DescriptionField/index.constances.ts";
 import {uploadFileFieldName} from "../../../../FormFields/UploadFileField/index.constances.ts";
-import type {AdminHighRiskIndividualsLettersDetailPageProps} from "../../index.types.ts";
+import type {AdminHighRiskIndividualsLettersDetailPageProps, DocumentItemResponseType} from "../../index.types.ts";
+
+
+type Props = {
+  documentsResponse: DocumentItemResponseType[] | undefined
+}
 
 function useAdminHighRiskIndividualsLettersDetailDocumentsDocs(
-  {responseData}: Pick<AdminHighRiskIndividualsLettersDetailPageProps, 'responseData'>
+  {documentsResponse}: Props
 ) {
 
   const documents: AdminHighRiskIndividualsLettersDetailDocumentType[] = useMemo(function () {
-    const finalData = responseData?.data
-    if (!finalData) return []
+    if (!documentsResponse) return []
 
-    return finalData?.letter?.documents?.map(item => ({
+    return documentsResponse?.map(item => ({
       id: item?.id,
       fileTokenId: item?.fileTokenId,
       [fileTypeFieldName]: {id: item?.documentType, name: item?.documentTypeTitle},
@@ -25,7 +29,7 @@ function useAdminHighRiskIndividualsLettersDetailDocumentsDocs(
         data: ''
       }
     }))
-  }, [responseData])
+  }, [documentsResponse])
 
   return {
     documents

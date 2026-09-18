@@ -39,6 +39,8 @@ function AdminInquiryHistoryDetailDocuments(
 
         <AdminHighRiskIndividualsLettersDetailDocumentsDocs
           documents={documents}
+          // setDeleteModalState={setDeleteModalState}
+          // setFormModalState={setFormModalState}
         />
       </div>
 

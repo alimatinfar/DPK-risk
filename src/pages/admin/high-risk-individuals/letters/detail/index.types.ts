@@ -1,6 +1,6 @@
 import type {CustomResponseType} from "../../../../../request/types/CustomResponseType.ts";
 
-type DocumentResponseType = {
+export type DocumentItemResponseType = {
   id: number;
   documentType: number;
   documentTypeTitle: string;
@@ -43,7 +43,7 @@ export type AdminHighRiskIndividualsLettersDetailPageResponseType = {
     letterNo: string;
     letterDate: number;
     description: string;
-    documents: DocumentResponseType[];
+    documents: DocumentItemResponseType[];
     isOut: boolean;
     validityDate: number;
     isOutValidityDate: boolean;
