@@ -5,7 +5,7 @@ import {
   PANEL_INDIVIDUAL_E_SERVICE_PORTAL_TABLE_COLUMNS
 } from "./index.constances.tsx";
 import usePanelIndividualBankingInfoEServicePortalRenderLogic
-  from "./hooks/usePanelIndividualBankingInfoEServicePortalRenderLogic.ts";
+  from "./hooks/usePanelIndividualBankingInfoEServicePortalRenderLogic.tsx";
 import TableRenderLogic from "../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
@@ -20,9 +20,9 @@ function PanelIndividualBankingInfoEServicePortalRender(
 ) {
 
   const {
-    tableData
+    tableData, error, isFetching
   } = usePanelIndividualBankingInfoEServicePortalRenderLogic({
-    isJoint
+    isJoint, selectedCustomerNumber
   })
 
   return (
@@ -36,8 +36,8 @@ function PanelIndividualBankingInfoEServicePortalRender(
 
       <TableRenderLogic
         renderLogicProps={{
-          error: null,
-          isLoading: false,
+          error,
+          isLoading: isFetching,
           ...(isJoint && !selectedCustomerNumber) ? {
             emptyText: 'برای مشاهده نتایج شماره مشتری مشترک را انتخاب نمایید',
             isEmpty: true
