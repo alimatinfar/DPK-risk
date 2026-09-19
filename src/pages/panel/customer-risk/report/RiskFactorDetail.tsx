@@ -48,21 +48,21 @@ export function RiskFactorDetail({
           </span>
         </div>
 
-        <div
-          className={styles.dSummary}
-        >
-          <b>
-            {toFa(factor.triggered)}
-          </b>{' '}
-          زیرشاخص فعال از مجموع{' '}
-          <b>
-            {toFa(totalOf(factor))}
-          </b>{' '}
-          زیرشاخص این شاخص — امتیاز شاخص:{' '}
-          <b>
-            {toFa(factor.score)}
-          </b>
-        </div>
+        {/*<div*/}
+        {/*  className={styles.dSummary}*/}
+        {/*>*/}
+        {/*  <b>*/}
+        {/*    {toFa(factor.triggered)}*/}
+        {/*  </b>{' '}*/}
+        {/*  زیرشاخص فعال از مجموع{' '}*/}
+        {/*  <b>*/}
+        {/*    {toFa(totalOf(factor))}*/}
+        {/*  </b>{' '}*/}
+        {/*  زیرشاخص این شاخص — امتیاز شاخص:{' '}*/}
+        {/*  <b>*/}
+        {/*    {toFa(factor.score)}*/}
+        {/*  </b>*/}
+        {/*</div>*/}
 
         <div className={styles.dGrid}>
           {factor.groups.map(

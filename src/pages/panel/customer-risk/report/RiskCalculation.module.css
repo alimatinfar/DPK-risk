@@ -1,6 +1,6 @@
 .stage {
   position: relative;
-  width: min(1080px, 100%);
+  width: min(1240px, 100%);
   min-height: 600px;
 }
 
@@ -1029,33 +1029,33 @@ path {
   gap: 6px;
 }
 
-.scaleTrack::before {
-  content: '';
+/*.scaleTrack::before {*/
+/*  content: '';*/
 
-  position: absolute;
+/*  position: absolute;*/
 
-  top: -9px;
+/*  top: -9px;*/
 
-  right:
-      calc(
-          var(--pos) - 6px
-      );
+/*  right:*/
+/*      calc(*/
+/*          var(--pos) - 6px*/
+/*      );*/
 
-  border: 6px solid transparent;
+/*  border: 6px solid transparent;*/
 
-  border-top:
-      7px solid var(--c);
+/*  border-top:*/
+/*      7px solid var(--c);*/
 
-  filter:
-      drop-shadow(
-          0 2px 3px
-          color-mix(
-              in srgb,
-              var(--c) 60%,
-              transparent
-          )
-      );
-}
+/*  filter:*/
+/*      drop-shadow(*/
+/*          0 2px 3px*/
+/*          color-mix(*/
+/*              in srgb,*/
+/*              var(--c) 60%,*/
+/*              transparent*/
+/*          )*/
+/*      );*/
+/*}*/
 
 .scaleTrack span {
   flex: 1;
@@ -1066,15 +1066,19 @@ path {
 }
 
 .scaleLabel {
-  display: flex;
-
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 5fr));
 
   font-size: 10px;
 
   color: #b0b0b8;
 
   margin-top: 8px;
+}
+
+.scaleLabel span {
+  display: flex;
+  justify-content: center;
 }
 
 .scaleLabel b {
@@ -1207,28 +1211,7 @@ path {
 }
 
 .fScore {
-  min-width: 54px;
-
   text-align: center;
-
-  background:
-      color-mix(
-          in srgb,
-          var(--c) 8%,
-          #fff
-      );
-
-  border:
-      1px solid
-      color-mix(
-          in srgb,
-          var(--c) 22%,
-          #fff
-      );
-
-  border-radius: 12px;
-
-  padding: 6px 8px;
 
   flex-shrink: 0;
 }

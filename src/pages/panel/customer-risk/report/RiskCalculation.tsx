@@ -14,7 +14,7 @@ type Props = {
 
 export function RiskCalculation(
   {
-    score = 52,
+    score = 90,
   }: Props
 ) {
   const [calculationState, setCalculationState] =

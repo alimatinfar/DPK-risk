@@ -1,16 +1,17 @@
 import DashboardSideBar, {type DashboardSideBarProps} from "./DashboardSideBar.tsx";
 import {Outlet} from "react-router";
 import type {ReactNode} from "react";
+import type {MenuProps} from "../../components/others/Menu/Menu.tsx";
 
 
 type Props = {
   topBar: ReactNode;
   sideBarEndAdornment?: DashboardSideBarProps['endAdornment'];
-} & Pick<DashboardSideBarProps, 'sideBarItems'>
+} & Pick<DashboardSideBarProps, 'sideBarItems'> & Pick<MenuProps, 'bottomLogoRender'>
 
 function DashboardLayout(
   {
-    sideBarItems, topBar, sideBarEndAdornment
+    sideBarItems, topBar, sideBarEndAdornment, bottomLogoRender
   }: Props
 ) {
   return (
@@ -18,6 +19,7 @@ function DashboardLayout(
       <DashboardSideBar
         sideBarItems={sideBarItems}
         endAdornment={sideBarEndAdornment}
+        bottomLogoRender={bottomLogoRender}
       />
 
       <div className={`

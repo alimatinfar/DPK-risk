@@ -33,16 +33,11 @@ type Props = {
   arrived: boolean;
 };
 
-export function RiskReport({
-                             score,
-                             selectedFactor,
-                             onSelectFactor,
-                             onRestart,
-                             reportRef,
-                             badgeRef,
-                             visible,
-                             arrived,
-                           }: Props) {
+export function RiskReport(
+  {
+    score, selectedFactor, onSelectFactor, onRestart, reportRef, badgeRef, visible, arrived
+  }: Props
+) {
   const categoryIndex =
     getCategoryIndex(score);
 

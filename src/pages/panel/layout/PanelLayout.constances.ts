@@ -56,15 +56,5 @@ export const getPanelSideBarItems: () => DashboardSideBarItemsListType = functio
         },
       ],
     },
-    {
-      label: "ريسک تعامل کاري",
-      children: [
-        {
-          icon: SearchIcon,
-          label: "ريسک مشتري",
-          link: ROUTER_LINKS.PANEL_CUSTOMER_RISK,
-        }
-      ],
-    },
   ];
 };

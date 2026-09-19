@@ -2,6 +2,7 @@ import { type MenuItemType } from "./MenuItem";
 import useMenu from "./hooks/useMenu";
 import MenuItem from "./MenuItem";
 import SaderatLogoAndTypo from "../../svg/logo/SaderatLogoAndTypo";
+import type {ReactNode} from "react";
 
 export type MenuProps = {
   items: MenuItemType[];
@@ -9,9 +10,14 @@ export type MenuProps = {
   activeLink?: string;
   onToggle?: (id: string | number, isOpen: boolean) => void;
   className?: string;
+  bottomLogoRender?: (isExpanded: boolean) => ReactNode;
 };
 
-function Menu({ items, activeLink, onToggle, isExpanded, className }: MenuProps) {
+function Menu(
+  {
+    items, activeLink, onToggle, isExpanded, className, bottomLogoRender
+  }: MenuProps
+) {
   const { openItems, toggleItem } = useMenu({
     items,
     defaultOpenItems: [0, 1, 2],
@@ -22,7 +28,10 @@ function Menu({ items, activeLink, onToggle, isExpanded, className }: MenuProps)
     <div className={`flex flex-col   ${className}`}>
       <div className="pb-4 mb-4 border-b border-gray-200">
         <SaderatLogoAndTypo />
+
+        {bottomLogoRender && bottomLogoRender(isExpanded)}
       </div>
+
       {items.map((item, index) => (
         <MenuItem
           key={item.id}
