@@ -26,7 +26,7 @@ function ScrollPagination(
   })
 
   const childElement = isEmpty ? (
-    <EmptyState />
+    <EmptyState isSmall />
   ) : overlayLoading ? (
     overlayLoadingComponent || <Loading />
   ) : children

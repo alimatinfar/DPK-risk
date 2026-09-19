@@ -7,13 +7,18 @@ type Props = {
   description?: string;
   icon?: ReactNode;
   wrapperPadding?: string;
+  isSmall?: boolean;
 }
 
-function EmptyState({title, description, icon, wrapperPadding}: Props) {
+function EmptyState(
+  {
+    title, description, icon, wrapperPadding, isSmall
+  }: Props
+) {
   return (
     <div className={`${wrapperPadding || 'py-10 px-5'} flex flex-col items-center max-w-90 mx-auto`}>
       <div className='mb-3'>
-        {icon || <EmptyStateIcon />}
+        {icon || <EmptyStateIcon {...isSmall ? {width: '80', height: 'auto'} : {}} />}
       </div>
 
       <p className='text-sm font-medium text-center'>
