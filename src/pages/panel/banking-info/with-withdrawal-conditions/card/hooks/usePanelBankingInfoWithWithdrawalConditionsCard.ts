@@ -16,7 +16,6 @@ function usePanelBankingInfoWithWithdrawalConditionsCard() {
   } = useFetchData<PanelBankingInfoWithWithdrawalConditionsCardResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_SPECIAL_CONDITIONS_CARDS,
-      method: "POST",
       params: {
         customerId: activePersonData?.customerId
       }

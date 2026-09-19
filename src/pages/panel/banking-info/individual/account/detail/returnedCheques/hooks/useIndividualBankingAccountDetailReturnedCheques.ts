@@ -16,7 +16,6 @@ function useIndividualBankingAccountDetailReturnedCheques() {
   } = useFetchData<IndividualBankingAccountDetailReturnedChequesResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_ACCOUNT_RETURN_CHEQUES,
-      method: "POST",
       params: {
         accountNumber
       }

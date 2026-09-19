@@ -22,7 +22,6 @@ function usePanelJointBankingInfoCommitments() {
   } = useFetchData<PanelJointBankingInfoCommitmentsResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_CUSTOMER_SHARE_OBLIGATIONS,
-      method: "POST",
       params: {
         customerId: activePersonData?.customerId
       }

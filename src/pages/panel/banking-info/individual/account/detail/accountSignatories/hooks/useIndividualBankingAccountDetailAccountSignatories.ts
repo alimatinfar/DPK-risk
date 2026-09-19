@@ -17,7 +17,6 @@ function useIndividualBankingAccountDetailAccountSignatories() {
   } = useFetchData<IndividualBankingAccountDetailAccountSignatoriesResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_ACCOUNT_SIGNATORS,
-      method: "POST",
       params: {
         accountNumber
       }

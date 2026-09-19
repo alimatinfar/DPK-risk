@@ -17,7 +17,6 @@ function useIndividualBankingAccountDetailSpecialInstructions() {
   } = useFetchData<IndividualBankingAccountDetailSpecialInstructionsResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_ACCOUNT_SPECIAL_INSTRUCTIONS,
-      method: "POST",
       params: {
         accountNumber
       }

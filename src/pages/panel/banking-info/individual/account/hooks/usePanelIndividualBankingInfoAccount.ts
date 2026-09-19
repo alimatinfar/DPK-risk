@@ -24,7 +24,6 @@ function usePanelIndividualBankingInfoAccount() {
   } = useFetchData<PanelIndividualBankingInfoAccountResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_CUSTOMER_ACCOUNTS,
-      method: "POST",
       params: {
         customerId: activePersonData?.customerId
       }

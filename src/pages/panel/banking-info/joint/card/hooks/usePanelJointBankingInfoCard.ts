@@ -16,7 +16,6 @@ function usePanelJointBankingInfoCard() {
   } = useFetchData<PanelJointBankingInfoCardResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_CUSTOMER_SHARE_CARDS,
-      method: "POST",
       params: {
         customerId: activePersonData?.customerId
       }

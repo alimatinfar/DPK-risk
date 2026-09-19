@@ -17,7 +17,6 @@ function useIndividualBankingCommitmentsDetailGuarantors() {
   } = useFetchData<IndividualBankingCommitmentsDetailGuarantorsResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_CUSTOMER_OBLIGATIONS_GUARANTORS,
-      method: "POST",
       params: {
         obligationsNo: commitmentId
       }

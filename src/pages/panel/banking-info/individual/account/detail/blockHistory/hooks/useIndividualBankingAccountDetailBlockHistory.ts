@@ -17,7 +17,6 @@ function useIndividualBankingAccountDetailBlockHistory() {
   } = useFetchData<IndividualBankingAccountDetailBlockHistoryResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_ACCOUNT_BLOCKED_HISTORY,
-      method: "POST",
       params: {
         accountNumber
       }

@@ -15,7 +15,6 @@ function useIndividualBankingAccountDetailSaptaMobileNumbers() {
   } = useFetchData<IndividualBankingAccountDetailSaptaMobileNumbersResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_ACCOUNT_SAPTA_MOBILE,
-      method: "POST",
       params: {
         accountNumber
       }

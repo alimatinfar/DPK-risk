@@ -15,7 +15,6 @@ function useIndividualBankingCommitmentsDetailBeneficiaries() {
   } = useFetchData<IndividualBankingCommitmentsDetailBeneficiariesResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_CUSTOMER_OBLIGATIONS_BENEFICIARY,
-      method: "POST",
       params: {
         obligationsNo: commitmentId
       }

@@ -22,7 +22,6 @@ function usePanelIndividualBankingInfoCommitments() {
   } = useFetchData<PanelIndividualBankingInfoCommitmentsResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_CUSTOMER_OBLIGATIONS,
-      method: "POST",
       params: {
         customerId: activePersonData?.customerId
       }

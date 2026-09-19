@@ -17,7 +17,6 @@ function useIndividualBankingAccountDetailTransactionInformation() {
   } = useFetchData<IndividualBankingAccountDetailTransactionInformationResponseType>({
     axiosConfig: {
       url: APIS.BANK_INFO_GET_ACCOUNT_TURNOVER,
-      method: "POST",
       params: {
         accountNumber
       }
