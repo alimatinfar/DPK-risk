@@ -647,6 +647,7 @@ path {
 }
 
 .report.show {
+  position: unset;
   opacity: 1;
 
   visibility: visible;
@@ -911,7 +912,7 @@ path {
 .scoreBadge b {
   position: relative;
 
-  font-size: 33px;
+  font-size: 45px;
 
   font-weight: 800;
 
@@ -1019,6 +1020,7 @@ path {
   min-width: 230px;
 
   padding-top: 6px;
+  direction: ltr;
 }
 
 .scaleTrack {
@@ -1207,7 +1209,7 @@ path {
 }
 
 .fSub b {
-  color: var(--c);
+  /*color: var(--c);*/
 }
 
 .fScore {
@@ -1456,16 +1458,16 @@ path {
   margin-bottom: 9px;
 }
 
-.dGroupTitle::before {
-  content: '';
+/*.dGroupTitle::before {*/
+/*  content: '';*/
 
-  width: 6px;
-  height: 6px;
+/*  width: 6px;*/
+/*  height: 6px;*/
 
-  border-radius: 2px;
+/*  border-radius: 2px;*/
 
-  background: var(--c);
-}
+/*  background: var(--c);*/
+/*}*/
 
 .dItem {
   display: flex;

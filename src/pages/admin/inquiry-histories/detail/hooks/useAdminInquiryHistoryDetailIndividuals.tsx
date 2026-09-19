@@ -6,6 +6,9 @@ import type {
 } from "../../../high-risk-individuals/letters/detail/individuals/index.types.ts";
 import getPersonTypeByNationality from "../../../../search/form/utils/getPersonTypeByNationality.ts";
 import useModalOpen from "../../../../../hooks/modal/useModalOpen.tsx";
+import type {
+  AdminInquiryHistoryDetailIndividualsDeleteModalProps
+} from "../AdminInquiryHistoryDetailIndividualsDeleteModal.tsx";
 
 
 function useAdminInquiryHistoryDetailIndividuals(
@@ -24,7 +27,8 @@ function useAdminInquiryHistoryDetailIndividuals(
 
       return {
         type,
-        id: item?.customerId,
+        id: item?.id,
+        customerId: item?.customerId,
         name: item?.isLegal ? item?.lastName : item?.firstName,
         ...item?.isLegal ? {[legalTypeFieldName]: ''} : {lastName: item?.lastName},
         nationalCode: item?.nationalID,
@@ -36,7 +40,7 @@ function useAdminInquiryHistoryDetailIndividuals(
     open: deletePersonModalOpen, shouldBeRemoved: deletePersonModalShouldBeRemoved,
     modalState: deletePersonModalState, setModalState: setDeletePersonModalState,
     closeModal: closeDeletePersonModal
-  } = useModalOpen<number | boolean>(false)
+  } = useModalOpen<AdminInquiryHistoryDetailIndividualsDeleteModalProps['modalState']>(false)
 
   return {
     individualsList, deletePersonModalOpen, deletePersonModalShouldBeRemoved, deletePersonModalState,

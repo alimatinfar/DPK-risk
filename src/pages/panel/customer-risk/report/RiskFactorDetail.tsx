@@ -65,7 +65,7 @@ export function RiskFactorDetail({
         {/*</div>*/}
 
         <div className={styles.dGrid}>
-          {factor.groups.map(
+          {factor.groups?.filter(item => item?.items?.some(subItem => subItem?.on)).map(
             (group) => (
               <div
                 key={group.name}
@@ -84,7 +84,7 @@ export function RiskFactorDetail({
                   {group.name}
                 </div>
 
-                {group.items.map(
+                {group.items?.filter(item => !!item?.on).map(
                   (item) => (
                     <div
                       key={item.t}
@@ -111,13 +111,13 @@ export function RiskFactorDetail({
                         {item.t}
                       </span>
 
-                      <span
-                        className={
-                          styles.wnum
-                        }
-                      >
-                        {toFa(item.w)}
-                      </span>
+                      {/*<span*/}
+                      {/*  className={*/}
+                      {/*    styles.wnum*/}
+                      {/*  }*/}
+                      {/*>*/}
+                      {/*  {toFa(item.w)}*/}
+                      {/*</span>*/}
                     </div>
                   ),
                 )}

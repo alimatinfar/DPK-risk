@@ -8,6 +8,7 @@ import useReactHookFormWrapper
 import type {
   AdminInquiryHistoryDetailIndividualsDeleteModalProps
 } from "../AdminInquiryHistoryDetailIndividualsDeleteModal.tsx";
+import {useParams} from "react-router";
 
 
 type BodyDataType = {
@@ -24,11 +25,13 @@ function useAdminInquiryHistoryDetailIndividualsDeleteModal(
   >
 ) {
 
+  const {id: letterId} = useParams()
+
   const {
     mutate, isPending: loading
   } = useMutateData<any, BodyDataType>({
     axiosConfig: {
-      url: APIS.GET_CUSTOMERS, method: 'POST'
+      url: APIS.ADMIN_INQUIRY_HISTORIES_DELETE_CUSTOMER, method: 'POST'
     }
   })
 
@@ -39,11 +42,12 @@ function useAdminInquiryHistoryDetailIndividualsDeleteModal(
   })
 
   function onSubmitHandler(formData: SearchPageFormDataType) {
+    if (typeof modalState === "boolean") return
 
     const bodyData: BodyDataType = {
-      id: 0,
-      inquiryLetterId: 0,
-      customerId: 0,
+      id: modalState?.id,
+      inquiryLetterId: Number(letterId),
+      customerId: modalState?.id,
     }
 
     mutate(bodyData, {

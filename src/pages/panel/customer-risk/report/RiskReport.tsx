@@ -14,6 +14,9 @@ import {
 import { RiskFactorList } from './RiskFactorList';
 
 import styles from './RiskCalculation.module.css';
+import moment from 'moment-jalaali'
+import getFormattedMomentJalaliDateTime
+  from "../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
 
 type Props = {
   score: number;
@@ -177,23 +180,16 @@ export function RiskReport(
       </div>
 
       <div
-        className={[
+        className={`${[
           styles.repFoot,
           styles.rv,
-        ].join(' ')}
+        ].join(' ')} flex-center`}
       >
         <span>
           تاریخ ارزیابی:{' '}
-          <b>۱۴۰۵/۰۶/۲۳</b>
+          <b dir='ltr'>{getFormattedMomentJalaliDateTime({date: moment(), mode: 'jDate'})}</b>
+          {/*<b>{moment().format('jYYYY/jMM/jDD')}</b>*/}
         </span>
-
-        <button
-          type="button"
-          className={styles.reBtn}
-          onClick={onRestart}
-        >
-          ↺ محاسبهٔ جدید
-        </button>
       </div>
     </div>
   );

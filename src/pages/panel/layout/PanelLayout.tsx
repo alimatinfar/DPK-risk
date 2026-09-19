@@ -5,13 +5,10 @@ import Button from "../../../components/Form/Button/Button.tsx";
 import LightningIcon from "../../../components/svg/LightningIcon.tsx";
 import {Link} from "react-router";
 import ROUTER_LINKS from "../../../constances/routerLinks.ts";
-import useDashboardSidebar from "../../../layouts/DashboardLayout/hooks/useDashboardSidebar.tsx";
 
 const lightningIcon = <LightningIcon/>
 
 function PanelLayout() {
-
-
   return (
     <DashboardLayout
       sideBarItems={getPanelSideBarItems()}

@@ -3,7 +3,12 @@ import AdminHighRiskIndividualsLettersDetailIndividualsCategories
 import useAdminInquiryHistoryDetailIndividuals from "./hooks/useAdminInquiryHistoryDetailIndividuals.tsx";
 import type {AdminInquiryHistoryLetterDetailProps} from "./index.types.ts";
 import DisplayModal from "../../../../components/others/Modal/DisplayModal.tsx";
-import AdminInquiryHistoryDetailIndividualsDeleteModal from "./AdminInquiryHistoryDetailIndividualsDeleteModal.tsx";
+import {lazy} from "react";
+
+const AdminInquiryHistoryDetailIndividualsDeleteModal = lazy(() => import(
+  "./AdminInquiryHistoryDetailIndividualsDeleteModal.tsx"
+  ));
+
 
 function AdminInquiryHistoryDetailIndividuals(
   {responseData, refetch}: AdminInquiryHistoryLetterDetailProps

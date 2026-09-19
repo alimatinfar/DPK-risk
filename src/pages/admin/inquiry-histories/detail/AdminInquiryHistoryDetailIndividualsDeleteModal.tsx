@@ -7,7 +7,7 @@ import useAdminInquiryHistoryDetailIndividualsDeleteModal
 
 export type AdminInquiryHistoryDetailIndividualsDeleteModalProps = {
   refetch: () => void;
-  modalState: number | boolean;
+  modalState: {id: number, customerId: number} | boolean;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminInquiryHistoryDetailIndividualsDeleteModal(

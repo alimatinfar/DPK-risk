@@ -25,6 +25,7 @@ export type AdminInquiryHistoryLetterDetailItemResponseType = {
     }[]
   };
   customers: {
+    id: number;
     customerId: number;
     nationalID: number;
     firstName: string;

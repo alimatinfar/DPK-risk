@@ -10,6 +10,7 @@ export type ExitPersonFromLetterType = typeof EXIT_PERSON_FROM_LETTER_KEYS[keyof
 export type AdminHighRiskIndividualsLettersDetailIndividualsDataItemType = Pick<ResultPersonCardDataType, 'type'> & {
   id: string | number;
   [legalTypeFieldName]?: string;
+  customerId?: string | number;
   lastName?: string;
   riskCustomerId?: string | number;
   name: string;

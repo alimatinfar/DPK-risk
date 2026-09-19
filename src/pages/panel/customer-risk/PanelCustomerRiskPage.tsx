@@ -17,7 +17,7 @@ function PanelCustomerRiskPage() {
   }
 
   return (
-    <div className='flex-center'>
+    <div className='flex-center pb-5'>
       <RiskCalculation />
     </div>
   );

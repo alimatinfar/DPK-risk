@@ -20,11 +20,14 @@ import type {SetStateType} from "../../../../../../types/SetStateType.ts";
 import AdminHighRiskIndividualsExitLetterContainer from "./AdminHighRiskIndividualsExitLetterContainer";
 import ResultPersonCategoryWrapper from "../../../../../search/result/ResultPersonCategoryWrapper.tsx";
 import DeleteIcon from "../../../../../../components/svg/DeleteIcon.tsx";
+import type {
+  AdminInquiryHistoryDetailIndividualsDeleteModalProps
+} from "../../../../inquiry-histories/detail/AdminInquiryHistoryDetailIndividualsDeleteModal.tsx";
 
 
 type Props = {
   setDocListModalState?: SetStateType<ModalStateTypeId | boolean>;
-  setDeletePersonModalState?: SetStateType<number | boolean>;
+  setDeletePersonModalState?: SetStateType<AdminInquiryHistoryDetailIndividualsDeleteModalProps['modalState']>;
   setExitPersonModalState?: SetStateType<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>;
   data: AdminHighRiskIndividualsLettersDetailIndividualsDataType
 }
@@ -63,7 +66,10 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                         <>
                           {((!item.exitType && setExitPersonModalState) || setDeletePersonModalState) && (
                             <Button
-                              onClick={() => setDeletePersonModalState ? setDeletePersonModalState(Number(item?.id)) :
+                              onClick={() => setDeletePersonModalState ? setDeletePersonModalState({
+                                id: Number(item?.id),
+                                customerId: Number(item?.customerId)
+                                }) :
                                 setExitPersonModalState ? setExitPersonModalState(item) : null}
                               justIcon variant='default' color='red'
                             >
