@@ -5,7 +5,7 @@ function LightningIcon(
 ) {
   return (
     <svg
-      className='animate-pulse'
+      {...className && {className}}
       width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         className={`stroke-current duration-200 ${textColor || 'text-orange-600'}`}
