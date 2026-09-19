@@ -58,7 +58,8 @@ function usePanelIndividualBankingInfoEServicePortalRenderLogic(
             ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_E_SERVICE_PORTAL_DETAIL(item?.portalType) :
             ROUTER_LINKS.PANEL_INDIVIDUAL_BANKING_INFORMATION_E_SERVICE_PORTAL_DETAIL(item?.portalType)
           const params = {
-            [QUERY_PARAMS.NAME]: item?.portalTypeTitle
+            [QUERY_PARAMS.NAME]: item?.portalTypeTitle,
+            [QUERY_PARAMS.CUSTOMER_ID]: customerId,
           }
           navigate(getUrlWithParams(url, params))
         }, 'تاریخچه')

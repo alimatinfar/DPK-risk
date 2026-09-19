@@ -17,28 +17,21 @@ import styles from './RiskCalculation.module.css';
 import moment from 'moment-jalaali'
 import getFormattedMomentJalaliDateTime
   from "../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
+import type {RiskCalculationProps} from "./RiskCalculation.tsx";
 
 type Props = {
   score: number;
-
   selectedFactor: number;
-
   onSelectFactor: (index: number) => void;
-
-  onRestart: () => void;
-
   reportRef: RefObject<HTMLDivElement | null>;
-
   badgeRef: RefObject<HTMLDivElement | null>;
-
   visible: boolean;
-
   arrived: boolean;
-};
+} & Pick<RiskCalculationProps, 'responseData'>
 
 export function RiskReport(
   {
-    score, selectedFactor, onSelectFactor, onRestart, reportRef, badgeRef, visible, arrived
+    score, selectedFactor, onSelectFactor, reportRef, badgeRef, visible, arrived, responseData
   }: Props
 ) {
   const categoryIndex =
@@ -176,6 +169,7 @@ export function RiskReport(
         <RiskFactorList
           selectedFactor={selectedFactor}
           onSelectFactor={onSelectFactor}
+          responseData={responseData}
         />
       </div>
 

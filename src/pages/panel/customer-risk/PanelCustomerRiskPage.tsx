@@ -1,24 +1,18 @@
-import {useState} from "react";
 import {RiskCalculation} from "./report/RiskCalculation.tsx";
+import usePanelCustomerRiskPage from "./hooks/usePanelCustomerRiskPage.ts";
 
 
 function PanelCustomerRiskPage() {
 
-  const [isCalculating, setIsCalculating] = useState(false)
-  const [reportIsReady, setReportIsReady] = useState(false)
-
-  function startCalculatingHandler() {
-    setIsCalculating(true)
-
-    setTimeout(function () {
-      setIsCalculating(false)
-      setReportIsReady(true)
-    }, 6000)
-  }
+  const {
+    loading, fetchRiskData, responseData, error
+  } = usePanelCustomerRiskPage()
 
   return (
     <div className='flex-center pb-5'>
-      <RiskCalculation />
+      <RiskCalculation
+        loading={loading} fetchRiskData={fetchRiskData} responseData={responseData} error={error}
+      />
     </div>
   );
 }

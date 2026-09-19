@@ -1,20 +1,17 @@
 import PanelPageTitle from "../../../../layout/PanelPageTitle.tsx";
-import {useParams} from "react-router";
 import {
   PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_COLUMNS,
-  PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_FAKE_DATA
 } from "./index.constances.tsx";
 import Card from "../../../../../../components/others/Card/Card.tsx";
-import useGetQueryParam from "../../../../../../hooks/useGetQueryParam.ts";
-import QUERY_PARAMS from "../../../../../../constances/queryParams.ts";
 import TableRenderLogic from "../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
+import usePanelBankingInfoEServicePortalHistoryRender from "./hooks/usePanelBankingInfoEServicePortalHistoryRender.ts";
 
 
 function PanelBankingInfoEServicePortalHistoryRender() {
 
-  const {id} = useParams()
-
-  const eServiceName = useGetQueryParam(QUERY_PARAMS.NAME)
+  const {
+    error, isFetching, tableData, eServiceName
+  } = usePanelBankingInfoEServicePortalHistoryRender()
 
   return (
     <div className='flex flex-col gap-y-4'>
@@ -25,11 +22,11 @@ function PanelBankingInfoEServicePortalHistoryRender() {
       <Card>
         <TableRenderLogic
           renderLogicProps={{
-            error: null,
-            isLoading: false
+            error,
+            isLoading: isFetching
           }}
           tableProps={{
-            data: PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_FAKE_DATA,
+            data: tableData,
             columns: PANEL_INDIVIDUAL_STATUS_HISTORY_TABLE_COLUMNS
           }}
         />

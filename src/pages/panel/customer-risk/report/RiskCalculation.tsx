@@ -1,53 +1,29 @@
-import { useState } from 'react';
-
-import { RiskReport } from './RiskReport';
-import { RiskScene } from './RiskScene';
-import { useRiskAnimation } from './useRiskAnimation';
-
-import type { CalculationState } from './useRiskAnimation';
+import {RiskReport} from './RiskReport';
+import {RiskScene} from './RiskScene';
 
 import styles from './RiskCalculation.module.css';
+import type {CustomResponseType} from "../../../../request/types/CustomResponseType.ts";
+import type {CustomerRiskResponseType} from "../index.types.ts";
+import useRiskCalculation from "../hooks/useRiskCalculation.ts";
 
-type Props = {
-  score?: number;
+export type RiskCalculationProps = {
+  error: Error | null;
+  loading: boolean;
+  fetchRiskData: () => void;
+  responseData: CustomResponseType<CustomerRiskResponseType> | undefined;
 };
 
 export function RiskCalculation(
   {
-    score = 90,
-  }: Props
+    loading, fetchRiskData, responseData, error
+  }: RiskCalculationProps
 ) {
-  const [calculationState, setCalculationState] =
-    useState<CalculationState>('empty');
 
-  const [selectedFactor, setSelectedFactor] =
-    useState(0);
-
-  const animation = useRiskAnimation({
-    calculationState,
-    setCalculationState,
-    score,
-  });
-
-  const handleStart = () => {
-    if (calculationState !== 'empty') {
-      return;
-    }
-
-    setCalculationState('calculating');
-  };
-
-  const handleRestart = () => {
-    animation.reset();
-
-    setSelectedFactor(0);
-    setCalculationState('empty');
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  const {
+    animation, calculationState, handleStart, score, selectedFactor, setSelectedFactor, handleRestart
+  } = useRiskCalculation({
+    responseData, fetchRiskData, loading, error
+  })
 
   return (
     <div
@@ -68,11 +44,11 @@ export function RiskCalculation(
         score={score}
         selectedFactor={selectedFactor}
         onSelectFactor={setSelectedFactor}
-        onRestart={handleRestart}
         reportRef={animation.reportRef}
         badgeRef={animation.badgeRef}
         visible={animation.reportVisible}
         arrived={animation.reportArrived}
+        responseData={responseData}
       />
     </div>
   );

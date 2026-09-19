@@ -16,6 +16,7 @@ import {
 } from './riskData';
 
 import styles from './RiskCalculation.module.css';
+import type {RiskCalculationProps} from "./RiskCalculation.tsx";
 
 export type CalculationState =
   | 'empty'
@@ -30,7 +31,7 @@ type Props = {
   >;
 
   score: number;
-};
+} & Pick<RiskCalculationProps, 'responseData' | 'loading'>;
 
 type Flow = {
   el: SVGPathElement;
@@ -40,14 +41,13 @@ type Flow = {
   off: number;
 };
 
-const SVG_NS =
-  'http://www.w3.org/2000/svg';
+const SVG_NS = 'http://www.w3.org/2000/svg';
 
-export function useRiskAnimation({
-                                   calculationState,
-                                   setCalculationState,
-                                   score,
-                                 }: Props) {
+export function useRiskAnimation(
+  {
+    calculationState, setCalculationState, score, loading, responseData
+  }: Props
+) {
   const stageRef =
     useRef<HTMLDivElement>(null);
 
@@ -649,35 +649,14 @@ export function useRiskAnimation({
    * شروع محاسبه
    */
   useEffect(() => {
-    if (
-      calculationState !==
-      'calculating'
-    ) {
-      return;
-    }
+    if (loading || !responseData?.data) return
+    setCalculationState('result')
+  }, [responseData, loading]);
 
-    finishTimerRef.current =
-      window.setTimeout(() => {
-        finishCalculation();
-      }, 5600);
-
-    return () => {
-      if (
-        finishTimerRef.current !==
-        null
-      ) {
-        clearTimeout(
-          finishTimerRef.current,
-        );
-
-        finishTimerRef.current =
-          null;
-      }
-    };
-  }, [
-    calculationState,
-    finishCalculation,
-  ]);
+  useEffect(() => {
+    if (loading || !responseData?.data) return
+    finishCalculation()
+  }, [calculationState, finishCalculation, responseData, loading]);
 
   const reset = useCallback(() => {
     if (

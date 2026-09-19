@@ -65,6 +65,9 @@ const APIS = {
   BANK_INFO_GET_TRANSACTION_AGGREGATE_BY_PORT: 'ExternalService/GetTransactionAggregateByPort',
   BANK_INFO_GET_TRANSACTION_AGGREGATE_BY_PORT_AND_INVOICE: 'ExternalService/GetTransactionAggregateByPortAndInvoice',
 
+  //customer risk
+  CUSTOMER_RISK_CALCULATOR: 'RiskCustomer/RiskCalculator',
+
   //authentication
   GET_TOKEN_DATA: 'Account/GetTokenData',
 
