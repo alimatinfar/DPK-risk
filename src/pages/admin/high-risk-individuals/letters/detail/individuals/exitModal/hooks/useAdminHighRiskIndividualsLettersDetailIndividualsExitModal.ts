@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {
   EXIT_REASON_TYPE_KEYS,
   exitReasonTypeFieldName,
@@ -18,13 +18,17 @@ import useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake
   from "./useAdminHighRiskIndividualsLettersDetailIndividualsExitModalUserMistake.ts";
 import useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter
   from "../useAdminHighRiskIndividualsLettersDetailIndividualsExitModalByLetter.ts";
+import {
+  announceReferenceFieldName,
+  type AnnounceReferenceFieldType
+} from "../../../../../FormFields/AnnouncingReferenceField/index.constances.ts";
 
 
 function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   {
-    onClose, modalState, refetch
+    onClose, modalState, refetch, referenceValue
   }: Pick<AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps,
-    'onClose' | 'modalState' | 'refetch'
+    'onClose' | 'modalState' | 'refetch' | 'referenceValue'
   >
 ) {
 
@@ -80,6 +84,11 @@ function useAdminHighRiskIndividualsLettersDetailIndividualsExitModal(
       exitCustomerByLetter(formData)
     }
   }
+
+  useEffect(() => {
+    if (!referenceValue) return
+    formMethods.setValue(announceReferenceFieldName, referenceValue)
+  }, [referenceValue]);
 
   const isFirstStep = currentStep === 1
   const isLastStep = (reasonIsUserMistake && currentStep === 2) || currentStep === 3

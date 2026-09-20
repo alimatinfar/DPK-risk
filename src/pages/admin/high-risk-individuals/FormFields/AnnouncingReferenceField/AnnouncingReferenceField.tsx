@@ -14,10 +14,11 @@ import APIS from "../../../../../request/constances/apis.ts";
 type Props = {
   customLabel?: InputProps['label'];
   isRequired?: boolean;
+  disabled?: boolean;
 }
 
 function AnnouncingReferenceField(
-  {customLabel, isRequired}: Props
+  {customLabel, isRequired, disabled}: Props
 ) {
 
   const label = customLabel || announceReferenceFieldLabel
@@ -31,7 +32,8 @@ function AnnouncingReferenceField(
       fieldName={announceReferenceFieldName}
       inputProps={{
         label,
-        errorMessage
+        errorMessage,
+        disabled
       }}
       selectProps={{
         apiAddress: APIS.GET_LETTER_REFERENCES

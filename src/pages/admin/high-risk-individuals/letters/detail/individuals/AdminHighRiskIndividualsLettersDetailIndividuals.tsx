@@ -64,6 +64,9 @@ function AdminHighRiskIndividualsLettersDetailIndividuals(
           open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
           modalState={typeof exitPersonModalState !== 'boolean' ? exitPersonModalState?.riskCustomerId : exitPersonModalState}
           personTitle={personTitle} refetch={refetch}
+          referenceValue={{
+            id: responseData?.data?.letter?.letterRef || '', name: responseData?.data?.letter?.letterRefTitle || ''
+          }}
         />
       </DisplayModal>
     </>

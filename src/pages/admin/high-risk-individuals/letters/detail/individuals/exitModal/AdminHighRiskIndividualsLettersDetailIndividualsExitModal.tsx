@@ -10,6 +10,7 @@ import {lazy} from "react";
 import SuspenseRenderLogicDefaultContainer
   from "../../../../../../../components/others/RenderLogic/SuspenseRenderLogicDefaultContainer.tsx";
 import Loading from "../../../../../../../components/others/Loading/Loading.tsx";
+import type {SelectOptionType} from "../../../../../../../components/Form/Select/select-exports.ts";
 const AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2 = lazy(() => import(
   "./AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2.tsx"
   ));
@@ -22,11 +23,12 @@ export type AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps = {
   modalState: number | string | boolean | undefined;
   personTitle: string;
   refetch: () => void;
+  referenceValue: SelectOptionType;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
 function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
   {
-    open, onClose, modalState, personTitle, refetch
+    open, onClose, modalState, personTitle, refetch, referenceValue
   }: AdminHighRiskIndividualsLettersDetailIndividualsExitModalProps
 ) {
 
@@ -34,7 +36,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModal(
     formMethods, onSubmit, prevHandler, isFirstStep, isLastStep, currentStep,
     reasonIsUserMistake, description, documentsList, setDocumentsList, loading
   } = useAdminHighRiskIndividualsLettersDetailIndividualsExitModal({
-    modalState, onClose, refetch
+    modalState, onClose, refetch, referenceValue
   })
 
   const stepsRender = {

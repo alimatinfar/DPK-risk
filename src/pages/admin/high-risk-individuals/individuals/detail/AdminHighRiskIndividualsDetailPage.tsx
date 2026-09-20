@@ -24,6 +24,8 @@ function AdminHighRiskIndividualsDetailPage() {
     closeExitPersonModalHandler, exitPersonModalState, name, responseData, responseError, responseLoading, refetch
   } = useAdminHighRiskIndividualsDetailPage()
 
+  const firstCustomer = responseData?.data?.[0]
+
   return (
     <>
       <div className='flex flex-col gap-y-4'>
@@ -62,6 +64,9 @@ function AdminHighRiskIndividualsDetailPage() {
           open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
           modalState={exitPersonModalState}
           personTitle={name || ''} refetch={refetch}
+          referenceValue={{
+            id: firstCustomer?.letterRef || '', name: firstCustomer?.letterRefTitle ||  ''
+          }}
         />
       </DisplayModal>
     </>

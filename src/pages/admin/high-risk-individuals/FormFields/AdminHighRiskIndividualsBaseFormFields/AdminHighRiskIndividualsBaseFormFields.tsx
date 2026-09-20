@@ -13,17 +13,18 @@ type Props = {
   descriptionClassName?: string;
   descriptionCustomFieldName?: string;
   initialEntry?: boolean;
-  isInquiryHistory?: boolean
+  isInquiryHistory?: boolean;
+  disabledReferenceField?: boolean;
 }
 
 function AdminHighRiskIndividualsBaseFormFields(
   {
-    descriptionClassName, descriptionCustomFieldName, initialEntry, isInquiryHistory
+    descriptionClassName, descriptionCustomFieldName, initialEntry, isInquiryHistory, disabledReferenceField
   }: Props
 ) {
   return (
     <>
-      <AnnouncingReferenceField isRequired />
+      <AnnouncingReferenceField disabled={disabledReferenceField} />
 
       <LetterNumberField isRequired />
 

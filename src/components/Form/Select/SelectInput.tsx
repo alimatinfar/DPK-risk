@@ -25,7 +25,7 @@ function SelectInput(
     <Input
       autoCompleteOff
       inputWrapperOnClick={toggleDropDown}
-      endAdornment={(
+      endAdornment={inputProps?.disabled ? null : (
         <SelectArrowAndCloseEndAdornment
           loading={loading}
           hasNotValue={

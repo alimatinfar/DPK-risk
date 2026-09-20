@@ -34,7 +34,7 @@ function PanelBasicInformationPage() {
           children={
             <RenderLogic
               removeContainer
-              isLoading={historiesLoading} error={historiesError}
+              isLoading={historiesLoading} 
             >
               <PanelBasicInformationPageHistory
                 openHistoryModalHandler={openHistoryModalHandler}

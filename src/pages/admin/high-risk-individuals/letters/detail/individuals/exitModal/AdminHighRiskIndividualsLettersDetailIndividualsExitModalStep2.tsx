@@ -23,6 +23,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2(
   ) : (
     <AdminHighRiskIndividualsBaseFormFields
       descriptionCustomFieldName={exitCitingTheLetterDescriptionFieldName}
+      disabledReferenceField
     />
   )
 }
