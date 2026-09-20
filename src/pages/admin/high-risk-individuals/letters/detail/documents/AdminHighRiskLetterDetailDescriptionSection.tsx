@@ -80,14 +80,16 @@ function AdminHighRiskLetterDetailDescriptionSection(
       title='نامه' {...detailInfoSectionProps}
       infoList={infoList} customGridColsClass='grid-cols-4' customColumnsNumber={4}
       cardWithHeaderProps={{
-        headerEndAdornment: (
-          <Button
-            variant='default' color='white' rightIcon={<EditIcon2 />}
-            onClick={openEditModalHandler}
-          >
-            ویرایش
-          </Button>
-        )
+        ...openEditModalHandler ? {
+          headerEndAdornment: (
+            <Button
+              variant='default' color='white' rightIcon={<EditIcon2 />}
+              onClick={openEditModalHandler}
+            >
+              ویرایش
+            </Button>
+          )
+        } : {}
       }}
     />
   );

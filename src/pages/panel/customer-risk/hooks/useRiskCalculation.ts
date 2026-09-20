@@ -24,7 +24,7 @@ function useRiskCalculation(
   })
 
   const animation = useRiskAnimation({
-    calculationState, setCalculationState, score, loading, responseData, levelRangeLoading
+    calculationState, setCalculationState, score, loading, responseData, levelRangeData
   });
 
   const handleStart = () => {
