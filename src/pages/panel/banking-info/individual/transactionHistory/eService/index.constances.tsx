@@ -34,7 +34,7 @@ export const PANEL_TRANSACTION_HISTORY_E_SERVICE_PORTALS = [
   {
     icon: PoseIcon,
     name: 5,
-    label: 'pose',
+    label: 'pos',
   },
   {
     icon: MojIcon,

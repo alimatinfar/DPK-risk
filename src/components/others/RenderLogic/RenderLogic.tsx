@@ -18,6 +18,7 @@ const CustomRenderLogicDefaultContainer = ({children, renderLogicDefaultContaine
 
 export type RenderLogicProps = {
   error?: Error | null;
+  customErrorMessage?: string;
   isLoading?: boolean;
   loadingElement?: ReactNode;
   children: ReactNode;
@@ -32,16 +33,16 @@ export type RenderLogicProps = {
 
 function RenderLogic(
   {
-    error, isLoading, loadingElement, children, isEmpty, emptyText, errorComponent,
+    error, isLoading, loadingElement, children, isEmpty, emptyText, errorComponent, customErrorMessage,
     emptyElement, renderLogicDefaultContainerMinHeight, hasFilter, removeContainer
   }: RenderLogicProps
 ) {
   let allContent;
 
-  if (error || isLoading || isEmpty) {
-    const content = error ? (
+  if (customErrorMessage || error || isLoading || isEmpty) {
+    const content = (error || customErrorMessage) ? (
       errorComponent || (
-        <ErrorState error={getResponseErrorMessage(error, 'دریافت اطلاعات با خطا مواجه شد')}/>
+        <ErrorState error={getResponseErrorMessage(error, customErrorMessage || 'دریافت اطلاعات با خطا مواجه شد')}/>
       )
     ) : isLoading ? (
       loadingElement || <Loading/>

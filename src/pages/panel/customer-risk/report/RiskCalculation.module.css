@@ -736,8 +736,8 @@ path {
 .scoreBadge {
   position: relative;
 
-  width: 128px;
-  height: 128px;
+  width: 140px;
+  height: 140px;
 
   flex-shrink: 0;
 
@@ -912,7 +912,7 @@ path {
 .scoreBadge b {
   position: relative;
 
-  font-size: 45px;
+  font-size: 40px;
 
   font-weight: 800;
 

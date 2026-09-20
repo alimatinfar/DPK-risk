@@ -20,7 +20,7 @@ export function RiskCalculation(
 ) {
 
   const {
-    animation, calculationState, handleStart, score, selectedFactor, setSelectedFactor, handleRestart
+    animation, calculationState, handleStart, score, selectedFactor, setSelectedFactor, levelRangeData
   } = useRiskCalculation({
     responseData, fetchRiskData, loading, error
   })
@@ -49,6 +49,7 @@ export function RiskCalculation(
         visible={animation.reportVisible}
         arrived={animation.reportArrived}
         responseData={responseData}
+        levelRangeData={levelRangeData}
       />
     </div>
   );

@@ -67,6 +67,7 @@ const APIS = {
 
   //customer risk
   CUSTOMER_RISK_CALCULATOR: 'RiskCustomer/RiskCalculator',
+  CUSTOMER_RISK_LEVEL_RANGE: 'RiskCustomer/GetRiskLevelRange',
 
   //authentication
   GET_TOKEN_DATA: 'Account/GetTokenData',

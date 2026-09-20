@@ -7,20 +7,15 @@ import type { CalculationState } from './useRiskAnimation';
 
 import styles from './RiskCalculation.module.css';
 import Button from "../../../../components/Form/Button/Button.tsx";
+import RenderLogic from "../../../../components/others/RenderLogic/RenderLogic.tsx";
 
 type Props = {
   calculationState: CalculationState;
-
   onStart: () => void;
-
   sceneRef: RefObject<HTMLDivElement | null>;
-
   svgRef: RefObject<SVGSVGElement | null>;
-
   coreRef: RefObject<HTMLDivElement | null>;
-
   nodeRefs: RefObject<(HTMLDivElement | null)[]>;
-
   hidden: boolean;
 };
 
@@ -76,6 +71,9 @@ export function RiskScene(
     calculationState, onStart, sceneRef, svgRef, coreRef, nodeRefs, hidden
   }: Props
 ) {
+  const hasError =
+    calculationState === 'error';
+
   const active =
     calculationState === 'calculating';
 
@@ -92,101 +90,105 @@ export function RiskScene(
     .join(' ');
 
   return (
-    <div
-      ref={sceneRef}
-      className={sceneClassName}
+    <RenderLogic
+      customErrorMessage={hasError ? 'محاسبه ریسک با خطا مواجه شد' : ''}
     >
-      <svg
-        ref={svgRef}
-        className={styles.wires}
+      <div
+        ref={sceneRef}
+        className={sceneClassName}
       >
-        <g data-base-group />
-        <g data-flow-group />
-      </svg>
+        <svg
+          ref={svgRef}
+          className={styles.wires}
+        >
+          <g data-base-group />
+          <g data-flow-group />
+        </svg>
 
-      <div className={styles.status}>
-        <span className={styles.sDot} />
+        <div className={styles.status}>
+          <span className={styles.sDot} />
 
-        <span>
+          <span>
           {active
             ? 'در حال محاسبه…'
             : 'در انتظار شروع'}
         </span>
-      </div>
-
-      <div
-        ref={coreRef}
-        className={styles.core}
-      >
-        <div className={styles.coreWave} />
+        </div>
 
         <div
-          className={[
-            styles.coreWave,
-            styles.w2,
-          ].join(' ')}
-        />
+          ref={coreRef}
+          className={styles.core}
+        >
+          <div className={styles.coreWave} />
 
-        <div className={styles.coreRing} />
-
-        <div className={styles.coreBorder} />
-
-        <div className={styles.coreInner}>
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-
-      <div className={styles.nodes}>
-        {NODES.map((node, index) => (
           <div
-            key={node.color}
-            ref={(element) => {
-              nodeRefs.current[index] =
-                element;
-            }}
-            className={styles.node}
-            style={
-              {
-                '--c': node.color,
-              } as CSSProperties
-            }
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {node.icon}
-            </svg>
+            className={[
+              styles.coreWave,
+              styles.w2,
+            ].join(' ')}
+          />
+
+          <div className={styles.coreRing} />
+
+          <div className={styles.coreBorder} />
+
+          <div className={styles.coreInner}>
+            <span />
+            <span />
+            <span />
           </div>
-        ))}
-      </div>
+        </div>
 
-      <div className='flex flex-col items-center gap-y-3 max-w-[450px] mx-auto pt-6'>
-        <p className='text-2xl font-semibold'>
-          محاسبه ریسک مشتری
-        </p>
+        <div className={styles.nodes}>
+          {NODES.map((node, index) => (
+            <div
+              key={node.color}
+              ref={(element) => {
+                nodeRefs.current[index] =
+                  element;
+              }}
+              className={styles.node}
+              style={
+                {
+                  '--c': node.color,
+                } as CSSProperties
+              }
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {node.icon}
+              </svg>
+            </div>
+          ))}
+        </div>
 
-        <p className='text-gray-500 text-center leading-6'>
-          محاسبه ریسک با پردازش شاخص‌های مختلف انجام می‌شود و ممکن است چند دقیقه زمان ببرد. لطفاً تا تکمیل فرآیند شکیبا باشید.
-        </p>
+        <div className='flex flex-col items-center gap-y-3 max-w-[450px] mx-auto pt-6'>
+          <p className='text-2xl font-semibold'>
+            محاسبه ریسک مشتری
+          </p>
 
-        <div className='w-45'>
-          <Button
-            type="button"
-            onClick={onStart}
-            disabled={active}
-            loading={active}
-          >
-            شروع محاسبه
-          </Button>
+          <p className='text-gray-500 text-center leading-6'>
+            محاسبه ریسک با پردازش شاخص‌های مختلف انجام می‌شود و ممکن است چند دقیقه زمان ببرد. لطفاً تا تکمیل فرآیند شکیبا باشید.
+          </p>
+
+          <div className='w-45'>
+            <Button
+              type="button"
+              onClick={onStart}
+              disabled={active}
+              loading={active}
+            >
+              شروع محاسبه
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </RenderLogic>
   );
 }

@@ -1,25 +1,17 @@
-import type {
-  CSSProperties,
-  RefObject,
-} from 'react';
+import type {CSSProperties, RefObject,} from 'react';
 
-import {
-  CATCOLOR,
-  CATS,
-  getCategoryIndex,
-  toFa,
-  mix,
-} from './riskData';
+import {CATCOLOR, getCategoryIndex, toFa, mix,} from './riskData';
 
-import { RiskFactorList } from './RiskFactorList';
+import {RiskFactorList} from './RiskFactorList';
 
 import styles from './RiskCalculation.module.css';
 import moment from 'moment-jalaali'
 import getFormattedMomentJalaliDateTime
   from "../../../../utils/dateAndTIme/momentJalaliDateTime/getFormattedMomentJalaliDateTime.ts";
 import type {RiskCalculationProps} from "./RiskCalculation.tsx";
+import type {CustomerRiskLevelRangeItemResponseType} from "../index.types.ts";
 
-type Props = {
+export type RiskReportProps = {
   score: number;
   selectedFactor: number;
   onSelectFactor: (index: number) => void;
@@ -27,15 +19,16 @@ type Props = {
   badgeRef: RefObject<HTMLDivElement | null>;
   visible: boolean;
   arrived: boolean;
+  levelRangeData: CustomerRiskLevelRangeItemResponseType[] | undefined;
 } & Pick<RiskCalculationProps, 'responseData'>
 
 export function RiskReport(
   {
-    score, selectedFactor, onSelectFactor, reportRef, badgeRef, visible, arrived, responseData
-  }: Props
+    score, selectedFactor, onSelectFactor, reportRef, badgeRef, visible, arrived, responseData, levelRangeData
+  }: RiskReportProps
 ) {
-  const categoryIndex =
-    getCategoryIndex(score);
+
+  const categoryIndex = getCategoryIndex({score, levelRangeData});
 
   const categoryColor =
     CATCOLOR[categoryIndex];
@@ -68,10 +61,10 @@ export function RiskReport(
           ref={badgeRef}
           className={styles.scoreBadge}
         >
-          <span className={styles.badgeSweep} />
+          <span className={styles.badgeSweep}/>
 
           <span className={styles.orbitDot}>
-            <i />
+            <i/>
           </span>
 
           <b id="scoreNum">
@@ -91,10 +84,10 @@ export function RiskReport(
           <span
             className={styles.catChip}
           >
-            <i />
+            <i/>
 
             <span>
-              {CATS[categoryIndex].label}
+              {`مشتری با ریسک تعامل کاری ${levelRangeData?.[categoryIndex]?.levelTitle}`}
             </span>
           </span>
 
@@ -146,18 +139,12 @@ export function RiskReport(
               styles.scaleLabel
             }
           >
-            {[
-              'خیلی کم',
-              'کم',
-              'متوسط',
-              'بالا',
-              'خیلی بالا',
-            ].map((label, index) => (
-              <span key={label}>
+            {levelRangeData?.map((item, index) => (
+              <span key={item?.id}>
                 {index === categoryIndex ? (
-                  <b>{label}</b>
+                  <b>{item?.levelTitle}</b>
                 ) : (
-                  label
+                  item?.levelTitle
                 )}
               </span>
             ))}
@@ -182,7 +169,6 @@ export function RiskReport(
         <span>
           تاریخ ارزیابی:{' '}
           <b dir='ltr'>{getFormattedMomentJalaliDateTime({date: moment(), mode: 'jDate'})}</b>
-          {/*<b>{moment().format('jYYYY/jMM/jDD')}</b>*/}
         </span>
       </div>
     </div>

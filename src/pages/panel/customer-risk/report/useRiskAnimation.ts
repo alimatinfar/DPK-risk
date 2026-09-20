@@ -17,21 +17,21 @@ import {
 
 import styles from './RiskCalculation.module.css';
 import type {RiskCalculationProps} from "./RiskCalculation.tsx";
+import type {RiskReportProps} from "./RiskReport.tsx";
 
 export type CalculationState =
   | 'empty'
   | 'calculating'
-  | 'result';
+  | 'result'
+  | 'error';
 
 type Props = {
   calculationState: CalculationState;
-
   setCalculationState: Dispatch<
     SetStateAction<CalculationState>
   >;
-
   score: number;
-} & Pick<RiskCalculationProps, 'responseData' | 'loading'>;
+} & Pick<RiskCalculationProps, 'responseData' | 'loading'> & Pick<RiskReportProps, 'levelRangeData'>;
 
 type Flow = {
   el: SVGPathElement;
@@ -45,7 +45,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 export function useRiskAnimation(
   {
-    calculationState, setCalculationState, score, loading, responseData
+    calculationState, setCalculationState, score, loading, responseData, levelRangeData
   }: Props
 ) {
   const stageRef =
@@ -431,19 +431,19 @@ export function useRiskAnimation(
 
       const progress = 1 - Math.pow(1 - step / steps, 3);
 
-      // در مرحله آخر، مقدار اصلی با اعشار نمایش داده می‌شود
       const value =
         step >= steps
           ? Number(score.toFixed(2))
-          : Math.round(score * progress);
+          : Math.min(
+            Math.floor(score * progress),
+            Math.floor(score),
+          );
 
       scoreElement.textContent = toFa(value);
 
       if (step >= steps) {
-        if (countTimerRef.current !== null) {
-          clearInterval(countTimerRef.current);
-          countTimerRef.current = null;
-        }
+        clearInterval(countTimerRef.current!);
+        countTimerRef.current = null;
       }
     }, 26);
   }, [score]);
@@ -455,7 +455,7 @@ export function useRiskAnimation(
       done: () => void,
     ) => {
       const categoryIndex =
-        getCategoryIndex(score);
+        getCategoryIndex({score, levelRangeData});
 
       const color =
         CATCOLOR[categoryIndex];

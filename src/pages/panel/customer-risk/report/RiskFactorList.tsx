@@ -155,7 +155,7 @@ export function RiskFactorList(
                   className={styles.fScore}
                 >
                   <b>
-                    {toFa(factor.score)}
+                    {toFa(Number(factor.score.toFixed(2)))}
                   </b>
                 </div>
               </button>

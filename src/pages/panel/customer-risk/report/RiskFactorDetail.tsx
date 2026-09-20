@@ -12,11 +12,7 @@ type Props = {
   factor: Factor;
 };
 
-export function RiskFactorDetail({
-                                   factor,
-                                 }: Props) {
-  console.log({factor})
-
+export function RiskFactorDetail({factor}: Props) {
   return (
     <div
       className={[
