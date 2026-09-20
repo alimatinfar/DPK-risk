@@ -7,7 +7,7 @@ import getTokenInfo from "./utils/authentication/getTokenInfo.ts";
 
 
 function App() {
-  // console.log({tokenInfo: getTokenInfo()})
+  console.log({tokenInfo: getTokenInfo()})
   return (
     <ReactQueryProvider>
       <SuspenseLoading>
