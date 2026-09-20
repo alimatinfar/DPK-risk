@@ -24,7 +24,7 @@ function AdminHighRiskIndividualsBaseFormFields(
 ) {
   return (
     <>
-      <AnnouncingReferenceField disabled={disabledReferenceField} />
+      <AnnouncingReferenceField isRequired disabled={disabledReferenceField} />
 
       <LetterNumberField isRequired />
 
