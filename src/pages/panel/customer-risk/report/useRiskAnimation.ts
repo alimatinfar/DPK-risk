@@ -413,64 +413,40 @@ export function useRiskAnimation(
     };
   }, [animationTick]);
 
-  const countUpReport =
-    useCallback(() => {
-      const scoreElement =
-        reportRef.current?.querySelector(
-          '#scoreNum',
-        );
+  const countUpReport = useCallback(() => {
+    const scoreElement =
+      reportRef.current?.querySelector('#scoreNum');
 
-      if (!scoreElement) {
-        return;
+    if (!scoreElement) return;
+
+    if (countTimerRef.current !== null) {
+      clearInterval(countTimerRef.current);
+    }
+
+    let step = 0;
+    const steps = 32;
+
+    countTimerRef.current = window.setInterval(() => {
+      step++;
+
+      const progress = 1 - Math.pow(1 - step / steps, 3);
+
+      // در مرحله آخر، مقدار اصلی با اعشار نمایش داده می‌شود
+      const value =
+        step >= steps
+          ? Number(score.toFixed(2))
+          : Math.round(score * progress);
+
+      scoreElement.textContent = toFa(value);
+
+      if (step >= steps) {
+        if (countTimerRef.current !== null) {
+          clearInterval(countTimerRef.current);
+          countTimerRef.current = null;
+        }
       }
-
-      if (
-        countTimerRef.current !==
-        null
-      ) {
-        clearInterval(
-          countTimerRef.current,
-        );
-      }
-
-      let step = 0;
-
-      const steps = 32;
-
-      countTimerRef.current =
-        window.setInterval(() => {
-          step++;
-
-          const value =
-            Math.round(
-              score *
-              (1 -
-                Math.pow(
-                  1 -
-                  step /
-                  steps,
-                  3,
-                )),
-            );
-
-          scoreElement.textContent =
-            toFa(value);
-
-          if (step >= steps) {
-            if (
-              countTimerRef.current !==
-              null
-            ) {
-              clearInterval(
-                countTimerRef.current,
-              );
-
-              countTimerRef.current =
-                null;
-            }
-          }
-        }, 26);
-    }, [score]);
+    }, 26);
+  }, [score]);
 
   const flyGhost = useCallback(
     (
@@ -655,7 +631,6 @@ export function useRiskAnimation(
 
   useEffect(() => {
     if (loading || !responseData?.data) return
-    console.log({loading, data: responseData?.data})
     finishCalculation()
   }, [calculationState, finishCalculation, responseData, loading]);
 

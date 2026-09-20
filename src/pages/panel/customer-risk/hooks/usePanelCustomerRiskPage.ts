@@ -18,7 +18,8 @@ function usePanelCustomerRiskPage() {
       }
     },
     options: {
-      enabled: false
+      enabled: false,
+      gcTime: 0
     }
   })
 
