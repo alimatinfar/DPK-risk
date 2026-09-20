@@ -10,6 +10,7 @@ function usePanelCustomerRiskPage() {
   const {
     data, isFetching, error, refetch
   } = useFetchData<CustomerRiskResponseType>({
+    queryKey: [activePersonData?.customerId],
     axiosConfig: {
       url: APIS.CUSTOMER_RISK_CALCULATOR,
       params: {

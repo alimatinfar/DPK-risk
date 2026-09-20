@@ -655,6 +655,7 @@ export function useRiskAnimation(
 
   useEffect(() => {
     if (loading || !responseData?.data) return
+    console.log({loading, data: responseData?.data})
     finishCalculation()
   }, [calculationState, finishCalculation, responseData, loading]);
 

@@ -74,7 +74,6 @@ export function RiskFactorList(
     selectedFactor, responseData
   })
 
-
   return (
     <>
       <div
@@ -165,9 +164,11 @@ export function RiskFactorList(
         )}
       </div>
 
-      <RiskFactorDetail
-        factor={selected}
-      />
+      {selected && (
+        <RiskFactorDetail
+          factor={selected}
+        />
+      )}
     </>
   );
 }

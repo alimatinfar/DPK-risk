@@ -15,6 +15,8 @@ type Props = {
 export function RiskFactorDetail({
                                    factor,
                                  }: Props) {
+  console.log({factor})
+
   return (
     <div
       className={[
