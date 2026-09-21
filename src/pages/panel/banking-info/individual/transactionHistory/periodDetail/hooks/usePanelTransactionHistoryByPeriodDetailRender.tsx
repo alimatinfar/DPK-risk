@@ -63,7 +63,7 @@ function usePanelTransactionHistoryByPeriodDetailRender(
       [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.VISIT_COUNT]: item?.totalCount,
       [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.TOTAL_CREDITOR]: withSeparator(item?.totalCredit),
       [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.TOTAL_DEBTOR]: withSeparator(item?.totalDebit),
-      [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.BALANCE]: withSeparator(item?.totalCreditTotalDebit),
+      [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.BALANCE]: <span dir='ltr'>{withSeparator(item?.totalCreditTotalDebit)}</span>,
       [PANEL_TRANSACTION_HISTORY_BY_PERIOD_DETAIL_TABLE_COLUMNS_KEYS.BRANCH_RISK]: item?.branchRisk,
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {

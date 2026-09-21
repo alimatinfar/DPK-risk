@@ -84,7 +84,7 @@ function usePanelTransactionHistoryOnSiteRender(
         [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.VISIT_COUNT]: item?.totalCount,
         [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.TOTAL_CREDITOR]: withSeparator(item?.totalCredit),
         [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.TOTAL_DEBTOR]: withSeparator(item?.totalDebit),
-        [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.BALANCE]: withSeparator(item?.totalCreditTotalDebit),
+        [PANEL_INDIVIDUAL_TRANSACTION_HISTORY_ONSITE_TABLE_COLUMNS_KEYS.BALANCE]: <span dir='ltr'>{withSeparator(item?.totalCreditTotalDebit)}</span>,
         [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
           {
             onClick: () => {

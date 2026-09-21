@@ -35,7 +35,7 @@ function useIndividualBankingAccountDetailTransactionInformation() {
       ),
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TOTAL_CREDIT]: withSeparator(item?.totalCredit),
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TOTAL_DEBIT]: withSeparator(item?.totalDebit),
-      [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.BALANCE_DIFFERENCE]: withSeparator(item?.totalCreditTotalDebit),
+      [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.BALANCE_DIFFERENCE]: <span dir='ltr'>{withSeparator(item?.totalCreditTotalDebit)}</span>,
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.FROM_DATE]: displayDate(item?.fromDate),
       [INDIVIDUAL_ACCOUNT_TRANSACTION_INFO_TABLE_COLUMNS_KEYS.TO_DATE]: displayDate(item.toDate),
     }))

@@ -2,7 +2,7 @@ import PanelPageTitle from "../../../../../layout/PanelPageTitle.tsx";
 import Card from "../../../../../../../components/others/Card/Card.tsx";
 import {
   PANEL_TRANSACTION_HISTORY_E_SERVICE_TABLE_COLUMNS} from "./index.constances.ts";
-import usePanelTransactionHistoryEServiceDetailRender from "./hooks/usePanelTransactionHistoryEServiceDetailRender.ts";
+import usePanelTransactionHistoryEServiceDetailRender from "./hooks/usePanelTransactionHistoryEServiceDetailRender.tsx";
 import TableRenderLogic from "../../../../../../../components/others/RenderLogic/TableRenderLogic.tsx";
 
 
