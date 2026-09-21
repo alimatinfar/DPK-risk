@@ -12,8 +12,9 @@ export type AdminHighRiskIndividualsFilterType = {
 
 
 type CustomerResponseType = {
-  customerId: number
-  nationalID: number
+  customerId: number;
+  customerIdStr: string;
+  nationalID: number;
   firstName: string;
   lastName: string;
   phone: string;

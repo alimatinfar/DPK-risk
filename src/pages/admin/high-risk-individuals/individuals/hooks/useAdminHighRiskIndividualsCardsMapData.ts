@@ -29,7 +29,7 @@ function useAdminHighRiskIndividualsCardsMapData() {
     const realCustomers = finalData?.realCustomer?.map(item => ({
       type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.NATURAL.name,
       //TODO should be set customerIdStr
-      customerId: item?.customerId,
+      customerId: item?.customerIdStr,
       name: `${item?.firstName} ${item?.lastName}`,
       //TODO should be set nationalIDStr
       [nationalCodeFieldName]: String(item?.nationalID),
@@ -40,7 +40,7 @@ function useAdminHighRiskIndividualsCardsMapData() {
     const nonCitizenCustomers = finalData?.nonCitizenCustomer?.map(item => ({
       type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.FOREIGN_CITIZEN.name,
       //TODO should be set customerIdStr
-      customerId: item?.customerId,
+      customerId: item?.customerIdStr,
       name: `${item?.firstName} ${item?.lastName}`,
       //TODO should be set nationalIDStr
       [comprehensiveForeignNationalsIdFieldName]: String(item?.nationalID),
@@ -53,7 +53,7 @@ function useAdminHighRiskIndividualsCardsMapData() {
     const legalCustomers = finalData?.legalCustomer?.map(item => ({
       type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
       //TODO should be set customerIdStr
-      customerId: item?.customerId,
+      customerId: item?.customerIdStr,
       name: item?.lastName,
       //TODO should be get from api
       [legalBrandNameFieldName]: '',
