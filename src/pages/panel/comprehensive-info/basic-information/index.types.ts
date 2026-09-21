@@ -23,6 +23,7 @@ export type BasicInformationNaturalResponseType = {
   customerType: number;
   customerTypeTitle: string;
   customerSubType: string;
+  customerSubTypeTitle: string;
 
   educationLevel: number;
   educationLevelTitle: string;
@@ -151,6 +152,7 @@ export type BasicInformationLegalResponseType = {
   changeLastDate: number;
 
   customerSubType: string;
+  customerSubTypeTitle: string;
   branchCode: number;
   branchName: string;
   areaCode: string;

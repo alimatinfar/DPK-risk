@@ -23,7 +23,7 @@ function usePanelIndividualBankingInfoTop() {
       },
       {
         label: 'زیرنوع مشتری',
-        value: commonCustomerData?.customerSubType,
+        value: commonCustomerData?.customerSubTypeTitle,
       },
       {
         label: 'تاریخ آخرین تغییرات تعریف مشتری',
