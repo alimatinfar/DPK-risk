@@ -35,11 +35,15 @@ function useAdminHighRiskFormStep3ExistCustomer(
   })
 
   function setIndividualInFormDataHandler(newIndividuals: ResultCardDataTypeShareFields[]) {
+    const filteredNewIndividuals = newIndividuals.filter(item => !individuals?.some(prevIndividual => {
+      return prevIndividual?.customerId === item?.customerId
+    }))
+
     setFormData({
       step3: {
         individuals: [
           ...individuals,
-          ...newIndividuals
+          ...filteredNewIndividuals
         ]
       }
     })
