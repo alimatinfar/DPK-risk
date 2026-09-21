@@ -1,4 +1,5 @@
 import type {DetailInfoSection2Props} from "./index.types.ts";
+import NoDataTag from "../../Tag/inheritedTags/noDataTag.tsx";
 
 
 function DetailInfoSection2(
@@ -18,7 +19,7 @@ function DetailInfoSection2(
             {item?.label}
           </span>
           <span className='text-gray-900'>
-            {item?.value}
+            {item?.value ?? <NoDataTag />}
           </span>
         </div>
       ))}
