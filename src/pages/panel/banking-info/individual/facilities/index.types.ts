@@ -9,7 +9,9 @@ export type PanelIndividualBankingInfoFacilitiesResponseType = {
   paidAmount: number;
   remain: number;
   status: number;
+  statusTitle: string;
   facilitiesType: number;
+  facilitiesTypeTitle: string;
   subFacilities: number;
   allocationDate: number;
   endDate: number;
