@@ -24,7 +24,11 @@ function AdminInquiryHistoriesChangeStatusModal(
     <Modal
       open={open} onClose={onClose}
       title='ویرایش وضعیت'
-      description='وضعیت نامه به "ارسال پاسخ" تغییر یابد؟'
+      description={(
+        <div>
+          آیا از تغییر وضعیت نامه به <span className='font-semibold'>"ارسال پاسخ"</span> اطمینان دارید؟
+        </div>
+      )}
     >
       <div className='grid grid-cols-2 gap-4'>
         <Button

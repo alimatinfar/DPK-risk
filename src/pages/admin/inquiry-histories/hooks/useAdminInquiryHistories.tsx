@@ -3,7 +3,6 @@ import type {AdminInquiryHistoriesFilterType, AdminInquiryHistoriesResponseItemT
 import {useMemo} from "react";
 import TABLE_ACCESSORS from "../../../../components/others/Table/constances/tableAccessors.ts";
 import {TableDetailAction} from "../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
-import EditIcon from "../../../../components/svg/EditIcon.tsx";
 import DeleteIcon from "../../../../components/svg/DeleteIcon.tsx";
 import useFilter from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
 import {useNavigate} from "react-router";
@@ -36,6 +35,7 @@ import {firstNameFieldName} from "../../high-risk-individuals/FormFields/FirstNa
 import {lastNameFieldName} from "../../high-risk-individuals/FormFields/LastNameField/index.constances.ts";
 import type {AdminInquiryHistoriesChangeStatusModalProps} from "../AdminInquiryHistoriesChangeStatusModal.tsx";
 import type {AdminInquiryHistoriesDeleteModalProps} from "../AdminInquiryHistoriesDeleteModal.tsx";
+import SettingIcon2 from "../../../../components/svg/SettingIcon2.tsx";
 
 
 function useAdminInquiryHistories() {
@@ -108,7 +108,7 @@ function useAdminInquiryHistories() {
             },
             {
               onClick: () => setChangeStatusModalState(item?.id),
-              icon: <EditIcon width='100%' height='100%'/>,
+              icon: <SettingIcon2 width='100%' height='100%'/>,
               title: 'ویرایش وضعیت',
             }
           ] : [],
