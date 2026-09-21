@@ -30,6 +30,13 @@ import getBodyDataNumberField from "../../../request/utils/getBodyDataNumberFiel
 import type {SearchFormRequestBodyData} from "../SearchPage.types.ts";
 import getBodyDataDateField from "../../../request/utils/getBodyDataDateField";
 import getSelectIdValue from "../../../components/Form/Select/utils/getSelectIdValue.ts";
+import {
+  birthCertificationNumberFieldName
+} from "../form/formFields/natural/BirthCertificateNumberField/BirthCertificateNumberField.constances.ts";
+import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../form/SearchPageForm.constances.ts";
+import {
+  comprehensiveForeignNationalsIdFieldName
+} from "../form/formFields/foreignCitizen/ComprehensiveForeignNationalsIdField/ComprehensiveForeignNationalsIdField.constances.ts";
 
 
 type Props = {
@@ -41,16 +48,22 @@ function useSearchPageBodyData(
 ) {
 
   function getBodyData(formData: SearchPageFormDataType) {
+
+    const nationalIDFieldName = customerType === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS?.NATURAL?.id ? nationalCodeFieldName :
+      customerType === SEARCH_PAGE_FORM_PERSON_TYPE_KEYS?.FOREIGN_CITIZEN?.id ?
+      comprehensiveForeignNationalsIdFieldName : legalRegistrationNumberFieldName
+
     return getCleanBodyDataObject({
       customerType,
       accountNumber: getBodyDataNumberField(formData[accountNumberFieldName]),
       customerId: getBodyDataNumberField(formData[customerNumberFieldName]),
       shahabId: getBodyDataNumberField(formData[shahabNumberFieldName]),
       cardNumber: getBodyDataNumberField(formData[cardNumberFieldName]),
-      nationalID: getBodyDataNumberField(formData[nationalCodeFieldName]),
+      nationalID:  getBodyDataNumberField(formData[nationalIDFieldName]),
       firstName: formData[firstNameFieldName],
       lastName: formData[lastNameFieldName],
-      shenasnameId: getBodyDataNumberField(formData[legalRegistrationNumberFieldName]),
+      shenasnameId: getBodyDataNumberField(formData[birthCertificationNumberFieldName]),
+      // shenasnameId: getBodyDataNumberField(formData[legalRegistrationNumberFieldName]),
       nationality: getBodyDataNumberField(getSelectIdValue(formData[nationalityFieldName])),
       citizenship: getBodyDataNumberField(getSelectIdValue(formData[citizenshipFieldName])),
       legalName: formData[legalCustomerNameFieldName],
