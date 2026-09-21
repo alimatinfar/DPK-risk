@@ -15,11 +15,13 @@ type Props = {
   initialEntry?: boolean;
   isInquiryHistory?: boolean;
   disabledReferenceField?: boolean;
+  hiddenResponseSubmissionStatus?: boolean;
 }
 
 function AdminHighRiskIndividualsBaseFormFields(
   {
-    descriptionClassName, descriptionCustomFieldName, initialEntry, isInquiryHistory, disabledReferenceField
+    descriptionClassName, descriptionCustomFieldName, initialEntry, isInquiryHistory, disabledReferenceField,
+    hiddenResponseSubmissionStatus
   }: Props
 ) {
   return (
@@ -34,7 +36,7 @@ function AdminHighRiskIndividualsBaseFormFields(
         <>
           <RequestReasonField isRequired />
 
-          <ResponseSubmissionStatusField isRequired />
+          {!hiddenResponseSubmissionStatus && (<ResponseSubmissionStatusField isRequired />)}
         </>
       ) : initialEntry ? (
         <>

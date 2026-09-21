@@ -7,11 +7,13 @@ import useAdminInquiryHistoryDetailDocuments from "./hooks/useAdminInquiryHistor
 import type {AdminInquiryHistoryLetterDetailProps} from "./index.types.ts";
 import {lazy} from "react";
 import DisplayModal from "../../../../components/others/Modal/DisplayModal.tsx";
-import AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal
-  from "../../high-risk-individuals/letters/detail/documents/deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx";
-import AdminHighRiskIndividualsLettersDetailDocumentsFormModal
-  from "../../high-risk-individuals/letters/detail/documents/formModal/AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx";
 
+const AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal = lazy(() => import(
+  "../../high-risk-individuals/letters/detail/documents/deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx"
+  ));
+const AdminHighRiskIndividualsLettersDetailDocumentsFormModal = lazy(() => import(
+  "../../high-risk-individuals/letters/detail/documents/formModal/AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx"
+  ));
 const AdminInquiryHistoryDetailDocumentsEditLetterModal = lazy(() => import(
   "./AdminInquiryHistoryDetailDocumentsEditLetterModal.tsx"
   ));
