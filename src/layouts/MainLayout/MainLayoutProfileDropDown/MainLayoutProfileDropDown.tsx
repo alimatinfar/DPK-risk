@@ -3,17 +3,19 @@ import BankIcon from "../../../components/svg/BankIcon"
 import {MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} from "./index.constances";
 import type {ProfileResponseType} from "../index.types.ts";
 import getTokenInfo from "../../../utils/authentication/getTokenInfo.ts";
+import Loading from "../../../components/others/Loading/Loading.tsx";
 
 
 export type ProfileDropDownProps = {
   closeDropDown: () => void;
   openLogoutModalHandler: () => void;
   profileData: ProfileResponseType | undefined;
+  profileLoading?: boolean;
 };
 
 function MainLayoutProfileDropDown(
   {
-    closeDropDown, openLogoutModalHandler, profileData
+    closeDropDown, openLogoutModalHandler, profileData, profileLoading
   }: ProfileDropDownProps
 ) {
 
@@ -35,19 +37,21 @@ function MainLayoutProfileDropDown(
           {jobTitle}
         </p>
 
-        <div className='flex flex-col gap-y-1'>
-          <div className='flex items-center gap-x-1'>
-            <BankIcon/>
+        {profileLoading ? <Loading size='sm'/> : (
+          <div className='flex flex-col gap-y-1'>
+            <div className='flex items-center gap-x-1'>
+              <BankIcon/>
 
-            <span className='text-[11px] text-gray-700'>
+              <span className='text-[11px] text-gray-700'>
               {branchName} ({branchCode})
             </span>
-          </div>
+            </div>
 
-          <p className='text-gray-500 text-[11px]'>
-            {placeName}
-          </p>
-        </div>
+            <p className='text-gray-500 text-[11px]'>
+              {placeName}
+            </p>
+          </div>
+        )}
       </div>
 
       <div

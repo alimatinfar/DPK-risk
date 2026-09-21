@@ -9,7 +9,6 @@ import MainLayoutProfileDropDownDeleteModal from "./MainLayoutProfileDropDown/Ma
 import UserIcon from "../../components/svg/UserIcon.tsx";
 import {MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} from "./MainLayoutProfileDropDown/index.constances";
 import useMainLayoutProfileSection from "./hooks/useMainLayoutProfileSection.ts";
-import RenderLogic from "../../components/others/RenderLogic/RenderLogic.tsx";
 import getTokenInfo from "../../utils/authentication/getTokenInfo.ts";
 
 
@@ -38,41 +37,37 @@ function MainLayoutProfileSection(
 
   return (
     <>
-      <RenderLogic
-        isLoading={profileLoading}
+      <DropDown
+        dropDownOpen={dropDownOpen}
+        setDropDownOpen={setDropDownOpen}
+        dropDownElement={
+          <MainLayoutProfileDropDown
+            closeDropDown={() => setDropDownOpen(false)}
+            openLogoutModalHandler={openLogoutModalHandler}
+            profileData={profileData} profileLoading={profileLoading}
+          />
+        }
+        origin="left" offset={5}
       >
-        <DropDown
-          dropDownOpen={dropDownOpen}
-          setDropDownOpen={setDropDownOpen}
-          dropDownElement={
-            <MainLayoutProfileDropDown
-              closeDropDown={() => setDropDownOpen(false)}
-              openLogoutModalHandler={openLogoutModalHandler}
-              profileData={profileData}
-            />
-          }
-          origin="left" offset={5}
-        >
-          <IconClickable
-            className={`
+        <IconClickable
+          className={`
             flex items-center justify-between gap-x-2 px-1.5 bg-white h-10 ${MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} 
             ${removeShadow ? '' : 'shadow-base'}
           `}
-            rounded='rounded-lg'
-            hoverClass='hover:bg-gray-50'
-          >
-            <div className='flex items-center gap-x-1'>
-              <div className='size-6 bg-primary p-1 rounded-lg'>
-                <UserIcon textColor="text-white" width='100%' height='100%' />
-              </div>
-              <span className="px-1 select-none text-sm">
+          rounded='rounded-lg'
+          hoverClass='hover:bg-gray-50'
+        >
+          <div className='flex items-center gap-x-1'>
+            <div className='size-6 bg-primary p-1 rounded-lg'>
+              <UserIcon textColor="text-white" width='100%' height='100%' />
+            </div>
+            <span className="px-1 select-none text-sm">
               {fullName} ({userCode})
             </span>
-            </div>
-            <ArrowIcon/>
-          </IconClickable>
-        </DropDown>
-      </RenderLogic>
+          </div>
+          <ArrowIcon/>
+        </IconClickable>
+      </DropDown>
 
       <DisplayModal shouldBeRemoved={logoutModalShouldBeRemoved}>
         <MainLayoutProfileDropDownDeleteModal onClose={closeLogoutModalHandler} open={logoutModalOpen}/>
