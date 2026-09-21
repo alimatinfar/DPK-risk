@@ -107,7 +107,7 @@ function useAdminInquiryHistories() {
               title: 'حذف سابقه استعلام',
             },
             {
-              onClick: () => setChangeStatusModalState(item),
+              onClick: () => setChangeStatusModalState(item?.id),
               icon: <EditIcon width='100%' height='100%'/>,
               title: 'ویرایش وضعیت',
             }

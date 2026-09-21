@@ -1,14 +1,10 @@
 import Modal, {type ModalProps} from "../../../components/others/Modal/Modal.tsx";
-import ReactHookFormWrapper from "../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import ResponseSubmissionStatusField
-  from "./FormFields/ResponseSubmissionStatusField/ResponseSubmissionStatusField.tsx";
 import Button from "../../../components/Form/Button/Button.tsx";
-import type {AdminInquiryHistoriesResponseItemType} from "./index.types.ts";
 import useAdminInquiryHistoriesChangeStatusModal from "./hooks/useAdminInquiryHistoriesChangeStatusModal.ts";
 
 
 export type AdminInquiryHistoriesChangeStatusModalProps = {
-  modalState: AdminInquiryHistoriesResponseItemType | null;
+  modalState: number | null;
   refetch: () => void;
 } & Pick<ModalProps, 'open' | 'onClose'>
 
@@ -19,24 +15,29 @@ function AdminInquiryHistoriesChangeStatusModal(
 ) {
 
   const {
-    formMethods, onSubmit
+    loading, changeStatusHandler
   } = useAdminInquiryHistoriesChangeStatusModal({
-    modalState, refetch
+    modalState, refetch, onClose
   })
 
   return (
     <Modal
-      open={open} onClose={onClose} title='ویرایش وضعیت'
+      open={open} onClose={onClose}
+      title='ویرایش وضعیت'
+      description='وضعیت نامه به "ارسال پاسخ" تغییر یابد؟'
     >
-      <ReactHookFormWrapper
-        formMethods={formMethods} onSubmit={onSubmit}
-      >
-        <ResponseSubmissionStatusField isRequired/>
-
-        <Button type='submit' fullWidth>
-          ویرایش
+      <div className='grid grid-cols-2 gap-4'>
+        <Button
+          variant='default' color='white' onClick={onClose}
+        >
+          انصراف
         </Button>
-      </ReactHookFormWrapper>
+        <Button
+          loading={loading} onClick={changeStatusHandler}
+        >
+          تایید
+        </Button>
+      </div>
     </Modal>
   );
 }

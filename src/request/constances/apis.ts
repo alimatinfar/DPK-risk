@@ -106,7 +106,7 @@ const APIS = {
   ADMIN_INQUIRY_HISTORIES_DELETE_DOCUMENT: 'InquiryCustomer/DeleteInquiryLetterDocument',
   ADMIN_INQUIRY_HISTORIES_ADD_DOCUMENT: 'InquiryCustomer/InsertInquiryLetterDocument',
   ADMIN_INQUIRY_HISTORIES_DELETE_CUSTOMER: 'InquiryCustomer/DeleteInquiryCustomer',
-  ADMIN_INQUIRY_HISTORIES_CHANGE_RESPONSE_SUBMISSION_STATUS: '',
+  ADMIN_INQUIRY_HISTORIES_CHANGE_RESPONSE_SUBMISSION_STATUS: 'InquiryCustomer/ChangeInquiryLetterStatusSend',
 }
 
 export default APIS;
