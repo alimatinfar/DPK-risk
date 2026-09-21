@@ -10,7 +10,7 @@ export type PanelBankingInfoWithWithdrawalConditionsAccountResponseType = {
   openingDate: number;
   targetOpening: string;
   isCommercial: boolean;
-  isCommercialTitle: string;
+  commercialCodeTitle: string;
   commercialDate: number;
   branchCode: number;
   branchName: string;
