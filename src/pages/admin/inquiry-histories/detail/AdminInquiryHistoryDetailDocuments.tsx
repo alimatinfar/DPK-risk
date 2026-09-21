@@ -29,7 +29,7 @@ function AdminInquiryHistoryDetailDocuments(
     documents, editModalShouldBeRemoved, editModalOpen, openEditModalModalHandler, closeEditModalModalHandler,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     documentFormModalOpen, documentFormModalShouldBeRemoved, closeDocumentFormModalHandler, documentFormModalState,
-    setDocumentFormModalState
+    setDocumentFormModalState, responseStatusSent
   } = useAdminInquiryHistoryDetailDocuments({
     responseData
   })
@@ -43,13 +43,15 @@ function AdminInquiryHistoryDetailDocuments(
           letterDate={displayDate(info?.letterDate)} letterNumber={info?.letterNo}
           reference={info?.letterRefTitle} description={info?.description}
           requestReason={info?.resonTitle} responseSubmissionStatus={info?.statusTitle}
-          openEditModalHandler={openEditModalModalHandler}
+          {...!responseStatusSent && {openEditModalHandler: openEditModalModalHandler}}
         />
 
         <AdminHighRiskIndividualsLettersDetailDocumentsDocs
           documents={documents}
-          setDeleteModalState={setDeleteModalState}
-          setFormModalState={setDocumentFormModalState}
+          {...!responseStatusSent && {
+            setDeleteModalState: setDeleteModalState,
+            setFormModalState: setDocumentFormModalState,
+          }}
         />
       </div>
 

@@ -16,7 +16,7 @@ function AdminInquiryHistoryDetailIndividuals(
 
   const {
     individualsList, deletePersonModalOpen, deletePersonModalShouldBeRemoved, deletePersonModalState,
-    setDeletePersonModalState, closeDeletePersonModal
+    setDeletePersonModalState, closeDeletePersonModal, responseStatusSent
   } = useAdminInquiryHistoryDetailIndividuals({
     responseData
   })
@@ -24,7 +24,8 @@ function AdminInquiryHistoryDetailIndividuals(
   return (
     <>
       <AdminHighRiskIndividualsLettersDetailIndividualsCategories
-        data={individualsList} setDeletePersonModalState={setDeletePersonModalState}
+        data={individualsList}
+        {...!responseStatusSent && {setDeletePersonModalState: setDeletePersonModalState}}
       />
 
       <DisplayModal

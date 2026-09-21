@@ -9,6 +9,7 @@ import useModalOpen from "../../../../../hooks/modal/useModalOpen.tsx";
 import type {
   AdminInquiryHistoryDetailIndividualsDeleteModalProps
 } from "../AdminInquiryHistoryDetailIndividualsDeleteModal.tsx";
+import {responseSubmissionStatusSentId} from "../../FormFields/ResponseSubmissionStatusField/index.constances.ts";
 
 
 function useAdminInquiryHistoryDetailIndividuals(
@@ -42,9 +43,11 @@ function useAdminInquiryHistoryDetailIndividuals(
     closeModal: closeDeletePersonModal
   } = useModalOpen<AdminInquiryHistoryDetailIndividualsDeleteModalProps['modalState']>(false)
 
+  const responseStatusSent = responseData?.data?.letter?.status === responseSubmissionStatusSentId
+
   return {
     individualsList, deletePersonModalOpen, deletePersonModalShouldBeRemoved, deletePersonModalState,
-    setDeletePersonModalState, closeDeletePersonModal
+    setDeletePersonModalState, closeDeletePersonModal, responseStatusSent
   }
 }
 
