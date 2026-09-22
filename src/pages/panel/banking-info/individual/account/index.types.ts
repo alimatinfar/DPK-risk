@@ -8,7 +8,8 @@ export type PanelIndividualBankingInfoAccountResponseType = {
   accountSubTypeTitle: string;
   sayahId: number;
   openingDate: number;
-  targetOpening: string;
+  targetOpening: number;
+  targetOpeningTitle: string;
   isCommercial: boolean;
   commercialCodeTitle: string;
   commercialDate: number;
