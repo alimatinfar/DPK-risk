@@ -21,7 +21,8 @@ function DetailInfoSectionLabelValue(
         {label}
       </span>
       <span className="text-gray-900">
-        {value || <NoDataTag/>}
+        {/*{value || <NoDataTag/>}*/}
+        {value || '-'}
       </span>
     </div>
   );

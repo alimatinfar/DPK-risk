@@ -19,7 +19,8 @@ function DetailInfoSection2(
             {item?.label}
           </span>
           <span className='text-gray-900'>
-            {item?.value || <span className='text-sm text-orange-500'>فاقد اطلاعات</span>}
+            {/*{item?.value || <span className='text-sm text-orange-500'>فاقد اطلاعات</span>}*/}
+            {item?.value || '-'}
           </span>
         </div>
       ))}

@@ -32,7 +32,8 @@ function TableTr(
       {mainColumns.map(({accessor, renderType, tdWidth}, index) => {
         const tdData =
           row[accessor] == null || row[accessor] === ""
-            ? <NoDataTag />
+            // ? <NoDataTag />
+            ? '-'
             : row[accessor];
 
         const isFirstColumn = index === 0;
