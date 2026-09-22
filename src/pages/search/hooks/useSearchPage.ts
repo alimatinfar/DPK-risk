@@ -14,15 +14,20 @@ import checkFormHasAtLeastOneValue
   from "../../../components/Form/FormLayout/ReactHookFormWrapper/utils/checkFormHasAtLeastOneValue";
 import type {CustomResponseType} from "../../../request/types/CustomResponseType.ts";
 import getPersonTypeItem from "../form/utils/getPersonTypeItem.ts";
+import type {SetZustandStoreType} from "../../../types/SetZustandStoreType.ts";
+import type {SearchPageStoreType} from "../store/useSearchStore.ts";
 
 
 export type UseSearchPageProps = {
   onSuccessHandler?: (data: CustomResponseType<SearchFormResponseType>) => void;
   activePersonTypeFromParent?: SearchPageFormPersonType | undefined;
+  setStoreData?: SetZustandStoreType<SearchPageStoreType>;
 }
 
 function useSearchPage(
-  {onSuccessHandler, activePersonTypeFromParent}: UseSearchPageProps = {}
+  {
+    onSuccessHandler, activePersonTypeFromParent, setStoreData
+  }: UseSearchPageProps = {}
 ) {
 
   const [activePersonType, setActivePersonType] = useState<SearchPageFormPersonType | undefined>(undefined)
@@ -41,16 +46,23 @@ function useSearchPage(
     }
   })
 
+  const {
+    getResultData
+  } = useSearchPageResultData()
+
   const [isSubmittedSuccessful, setIsSubmittedSuccessful] = useState(false)
 
   function onSubmitHandler(formData: SearchPageFormDataType) {
     if (!checkFormHasAtLeastOneValue(formData))
       return toastPromise().then(toast => toast.error('تکمیل حداقل یک فیلد الزامی است'))
 
+    setStoreData && setStoreData({formData})
+
     const bodyData = getBodyData(formData)
 
     mutate(bodyData, {
       onSuccess: (data, variables, onMutateResult, context) => {
+        setStoreData && setStoreData({resultData: getResultData({data})})
         if (onSuccessHandler) return onSuccessHandler(data)
 
         setIsSubmittedSuccessful(true)
@@ -65,15 +77,9 @@ function useSearchPage(
     onSubmitHandler
   })
 
-  const {
-    resultData
-  } = useSearchPageResultData({
-    data
-  })
-
   return {
-    formMethods, onSubmit, resultData, isSubmittedSuccessful, activePersonType, setActivePersonType,
-    error, isPending
+    formMethods, onSubmit, getResultData, isSubmittedSuccessful, activePersonType, setActivePersonType,
+    error, isPending, data
   }
 }
 

@@ -53,11 +53,12 @@ function useAdminHighRiskFormStep3Share(
 
   const {
     formMethods: searchUserFormMethods, onSubmit: searchUserOnSubmit,
-    resultData: searchUserResultData, isPending: searchUserLoading
+    getResultData, data, isPending: searchUserLoading
   } = useSearchPage({
     // onSuccessHandler: (data) => (data?.data),
     activePersonTypeFromParent: activeTab as any
   })
+  const searchUserResultData = getResultData({data})
 
   return {
     activeTab, setActiveTab, nextStepHandler, userDuplicateModalOpen, closeUserDuplicateModalHandler,

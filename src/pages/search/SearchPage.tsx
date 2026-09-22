@@ -4,24 +4,40 @@ import SaderatLogoAndTypo from "../../components/svg/logo/SaderatLogoAndTypo.tsx
 import MainLayoutProfileSection from "../../layouts/MainLayout/MainLayoutProfileSection.tsx";
 import ZeroAndOneBg from '../../assets/images/zero&one.svg'
 import useSearchPage from "./hooks/useSearchPage.ts";
-import getUserRoles from "../../utils/authentication/userRoles/getUserRoles.ts";
 import userHasRole from "../../utils/authentication/userRoles/userHasRole.ts";
 import {USER_ROLES} from "../../utils/authentication/userRoles/index.constances.ts";
 import Button from "../../components/Form/Button/Button.tsx";
 import {Link} from "react-router";
 import ROUTER_LINKS from "../../constances/routerLinks.ts";
 import SettingIcon from "../../components/svg/SettingIcon.tsx";
+import useSearchStore from "./store/useSearchStore.ts";
+import {useEffect} from "react";
+import setDefaultValuesFromObject
+  from "../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
 
 
 function SearchPage() {
 
-  const {
-    formMethods, onSubmit, resultData, isSubmittedSuccessful, activePersonType, setActivePersonType,
-    error, isPending
-  } = useSearchPage()
+  const setStoreData = useSearchStore(state => state.setStoreData)
 
-  const userRoles = getUserRoles()
+  const {
+    formMethods, onSubmit, isSubmittedSuccessful, activePersonType, setActivePersonType,
+    error, isPending
+  } = useSearchPage({
+    setStoreData
+  })
+
   const isAdmin = userHasRole(USER_ROLES.ADMIN)
+
+  const storeFormData = useSearchStore(state => state.formData)
+  const resultData = useSearchStore(state => state.resultData)
+
+  useEffect(() => {
+    setDefaultValuesFromObject({
+      setValue: formMethods.setValue,
+      defaultValues: storeFormData
+    })
+  }, [storeFormData]);
 
   return (
     <>
