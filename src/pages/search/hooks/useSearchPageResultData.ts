@@ -49,7 +49,7 @@ function useSearchPageResultData(
       ...data.data.legalCustomers.map(item => ({
         type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
         customerId: item?.customerIdStr,
-        name: item?.legalName,
+        name: `${item?.legalName} ${item?.abbreviationName}`.trim(),
         [legalBrandNameFieldName]: item?.tradeName,
         [legalRegistrationNumberFieldName]: String(item?.legalNationalIDStr),
         [legalTypeFieldName]: item?.legalTypeTitle,
