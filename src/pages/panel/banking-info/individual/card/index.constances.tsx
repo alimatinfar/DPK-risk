@@ -59,14 +59,14 @@ export const PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS: TableColumnType[] = [
     label: 'نام منطقه',
     accessor: PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUE_REGION_NAME,
   },
-  {
-    label: 'کدپرسنلی صادرکننده',
-    accessor: PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUER_PERSONNEL_CODE,
-    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN,
-  },
-  {
-    label: 'نام و نام خانوادگی صادرکننده',
-    accessor: PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUER_NAME,
-    renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN,
-  },
+  // {
+  //   label: 'کدپرسنلی صادرکننده',
+  //   accessor: PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUER_PERSONNEL_CODE,
+  //   renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN,
+  // },
+  // {
+  //   label: 'نام و نام خانوادگی صادرکننده',
+  //   accessor: PANEL_INDIVIDUAL_CARD_INFO_TABLE_COLUMNS_KEYS.ISSUER_NAME,
+  //   renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN,
+  // },
 ]

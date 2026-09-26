@@ -72,7 +72,7 @@ export const PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_COMMON_TABLE_COLUMNS: TableColum
     renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
   {
-    label: 'کدپرسنلی افتتاح کننده',
+    label: 'کد کاربر افتتاح کننده',
     accessor: PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPENER_PERSONNEL_CODE,
     renderType: TABLE_RENDER_TYPES.EXTRA_COLUMN
   },
