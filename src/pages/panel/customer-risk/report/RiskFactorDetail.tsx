@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react';
 import {
   toFa,
   totalOf,
-  type Factor,
+  type Factor, type FactorGroup,
 } from './riskData';
 
 import styles from './RiskCalculation.module.css';
@@ -63,7 +63,10 @@ export function RiskFactorDetail({factor}: Props) {
         {/*</div>*/}
 
         <div className={styles.dGrid}>
-          {factor.groups?.filter(item => item?.items?.some(subItem => subItem?.on)).map(
+          {factor.groups.sort((groupB, groupA) => {
+            const filterFunction = (someGroup: FactorGroup) => someGroup.items?.filter(item => item.on).length
+            return filterFunction(groupA) - filterFunction(groupB)
+          }).map(
             (group) => (
               <div
                 key={group.name}
@@ -82,7 +85,7 @@ export function RiskFactorDetail({factor}: Props) {
                   {group.name}
                 </div>
 
-                {group.items?.filter(item => !!item?.on).map(
+                {group.items?.sort((a, b) => Boolean(b?.on) - Boolean(a?.on)).map(
                   (item) => (
                     <div
                       key={item.t}
