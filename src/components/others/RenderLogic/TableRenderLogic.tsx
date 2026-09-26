@@ -2,6 +2,7 @@ import RenderLogic, {type RenderLogicProps} from "./RenderLogic.tsx";
 import type {TableProps} from "../Table/TableExports.ts";
 import Table from "../Table/Table.tsx";
 import Pagination, {type PaginationProps} from "../Pagination/Pagination.tsx";
+import {useMemo} from "react";
 
 type Props = {
   renderLogicProps: Omit<RenderLogicProps, 'children'>;
@@ -12,11 +13,20 @@ type Props = {
 function TableRenderLogic(
   {renderLogicProps, tableProps, paginationProps}: Props
 ) {
+
+  const tableEmptyProps = useMemo(function () {
+    return {
+      data: [],
+      columns: tableProps.columns
+    }
+  }, [tableProps])
+
   return (
     <RenderLogic
       isEmpty={tableProps?.data?.length === 0}
       removeContainer
-      loadingElement={<Table data={[]} columns={tableProps.columns} loading/>}
+      emptyElement={<Table {...tableEmptyProps} />}
+      loadingElement={<Table {...tableEmptyProps} loading/>}
       {...renderLogicProps}
     >
       <div className='flex flex-col gap-y-4'>

@@ -1,3 +1,4 @@
+import EmptyState from "../../RenderLogic/EmptyState.tsx";
 
 export type TableEmptyStateProps = {
   columnLength: number,
@@ -9,9 +10,9 @@ function TableEmptyState({columnLength}: TableEmptyStateProps) {
       <tr className="">
         <td
           colSpan={columnLength}
-          className="text-center py-20 text-base"
+          className="text-center py-4 text-base"
         >
-          موردی یافت نشد
+          <EmptyState title='موردی یافت نشد' />
         </td>
       </tr>
     </tfoot>
