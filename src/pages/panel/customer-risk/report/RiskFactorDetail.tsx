@@ -85,7 +85,7 @@ export function RiskFactorDetail({factor}: Props) {
                   {group.name}
                 </div>
 
-                {group.items?.sort((a, b) => Boolean(b?.on) - Boolean(a?.on)).map(
+                {group.items?.sort((a, b) => Number(b?.on) - Number(a?.on)).map(
                   (item) => (
                     <div
                       key={item.t}
