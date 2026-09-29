@@ -12,6 +12,7 @@ const QUERY_PARAMS = {
   IS_MAX_COUNT: 'isMaxCount',
   LETTER_ID: 'letterId',
   CUSTOMER_ID: 'customerId',
+  SHARE_CUSTOMER_ID: 'shareCustomerId',
 }
 
 export default QUERY_PARAMS
