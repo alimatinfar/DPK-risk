@@ -69,6 +69,9 @@ export type BasicInformationNaturalResponseType = {
 
   areaCode: string;
   areaName: string;
+
+  jobCode: string | number;
+  jobCodeTitle: string;
 };
 
 
@@ -159,6 +162,9 @@ export type BasicInformationLegalResponseType = {
   branchName: string;
   areaCode: string;
   areaName: string;
+
+  jobCode: string | number;
+  jobCodeTitle: string;
 };
 
 

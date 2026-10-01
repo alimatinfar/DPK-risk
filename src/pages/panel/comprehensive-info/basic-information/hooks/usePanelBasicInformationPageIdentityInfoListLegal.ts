@@ -112,8 +112,7 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: jobFieldLabel,
-        //TODO should set this field from api response
-        value: '',
+        value: data?.jobCodeTitle,
       },
     ]
   }, [activePersonData, isLegal, legalData])

@@ -164,8 +164,7 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       },
       {
         label: jobFieldLabel,
-        //TODO should set this field from api response
-        value: '',
+        value: customerData?.jobCodeTitle,
       },
     ]
   }, [isLegal, isForeignCitizen, activePersonData, naturalData, foreignCitizenData])
