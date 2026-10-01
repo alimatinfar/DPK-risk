@@ -10,13 +10,13 @@ type Props = {
 function TableSort({onClick, sort}: Props) {
 
   function getArrowClass(iconType: TableColumnSortType) {
-    return `stroke-current duration-200 ${sort === iconType ? 'text-gray-700' : 'text-gray-400'}`
+    return `stroke-current duration-200 ${sort === iconType ? 'text-slate-700' : 'text-slate-400'}`
   }
 
   return (
     <IconClickable
       className='flex flex-col justify-center items-center space-y-0.5 w-6 h-6'
-      hoverClass='hover:bg-gray-200'
+      hoverClass='hover:bg-slate-200'
       onClick={onClick}
     >
       <svg

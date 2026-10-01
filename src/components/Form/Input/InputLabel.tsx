@@ -37,7 +37,7 @@ function InputLabel(
 
   const customClasses:InputProps['labelClassName'] = {
     fontWeight: 'font-normal',
-    color: disabled ? 'text-gray-500' : 'text-gray-900',
+    color: disabled ? 'text-slate-500' : 'text-slate-900',
     ...classObject
   }
 

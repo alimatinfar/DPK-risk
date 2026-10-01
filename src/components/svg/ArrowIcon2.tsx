@@ -13,7 +13,7 @@ function ArrowIcon2(
     >
       <path
         d="M8.88861 4.16669L3.33305 10L8.88861 15.8334M3.33305 10L16.6664 10"
-        className={`stroke-current duration-200 ${textColor || 'text-gray-900'}`}
+        className={`stroke-current duration-200 ${textColor || 'text-slate-900'}`}
         strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
       />
     </svg>

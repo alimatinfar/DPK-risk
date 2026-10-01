@@ -83,7 +83,7 @@ function Input(
             <div
               {...typeof justSelectOnClick === 'function' && {onClick: justSelectOnClick}} tabIndex={0}
               className={`w-full h-full absolute inset-0 cursor-pointer  border-1 rounded-lg duration-200 focus:border-primary/50
-             ${errorMessage ? `border-red-500` : `border-gray-300 hover:border-gray-400 `}    `}/>
+             ${errorMessage ? `border-red-500` : `border-slate-300 hover:border-slate-400 `}    `}/>
           )}
         </div>
 

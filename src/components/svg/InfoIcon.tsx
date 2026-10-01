@@ -11,7 +11,7 @@ function InfoIcon({className, textColor, height, width}: IconPropsType) {
       {...className && {className}}
     >
       <path
-        className={`stroke-current duration-200 ${textColor || 'text-gray-400'}`}
+        className={`stroke-current duration-200 ${textColor || 'text-slate-400'}`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"

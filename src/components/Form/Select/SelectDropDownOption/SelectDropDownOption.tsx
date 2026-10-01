@@ -19,7 +19,7 @@ function SelectDropDownOption(
   const justHasDescription = (!optionStartAdornment && !optionEndAdornment) && option.description
 
   const descriptionElement = option.description ? (
-    <span className={`${isActive ? 'text-blue-400' : 'text-gray-500'} mr-2 text-xs`}>
+    <span className={`${isActive ? 'text-blue-400' : 'text-slate-500'} mr-2 text-xs`}>
       {option.description}
     </span>
   ) : null
@@ -70,7 +70,7 @@ function SelectDropDownOption(
       ${
         isActive
           ? `text-primary bg-primary/5 ${mode != 'single' && "cursor-pointer"}`
-          : `hover:bg-gray-100 cursor-pointer text-black`
+          : `hover:bg-slate-100 cursor-pointer text-black`
       }
       `}
       key={String(option.id)}

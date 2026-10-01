@@ -55,7 +55,7 @@ function MainLayoutProfileSection(
             ${removeShadow ? '' : 'shadow-base'}
           `}
           rounded='rounded-lg'
-          hoverClass='hover:bg-gray-50'
+          hoverClass='hover:bg-slate-50'
         >
           <div className='flex items-center gap-x-1'>
             <div className='size-6 bg-primary p-1 rounded-lg'>

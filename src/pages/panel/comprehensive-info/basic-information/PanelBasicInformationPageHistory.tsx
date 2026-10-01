@@ -32,7 +32,7 @@ function PanelBasicInformationPageHistory(
           />
         </div>
       }
-      <div className="flex divide-x divide-gray-300 items-center">
+      <div className="flex divide-x divide-slate-300 items-center">
         {
           activeHistory && !activeHistory.isLasted &&
           <div className="pl-2 ml-2">

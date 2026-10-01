@@ -32,8 +32,8 @@ function MainLayoutProfileDropDown(
 
   return (
     <div className={`flex flex-col p-2 gap-y-2 w-full ${MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH}`}>
-      <div className='bg-gray-100 flex flex-col p-2'>
-        <p className='text-sm text-gray-700 pb-2 mb-2 border-b border-gray-200'>
+      <div className='bg-slate-100 flex flex-col p-2'>
+        <p className='text-sm text-slate-700 pb-2 mb-2 border-b border-slate-200'>
           {jobTitle}
         </p>
 
@@ -42,12 +42,12 @@ function MainLayoutProfileDropDown(
             <div className='flex items-center gap-x-1'>
               <BankIcon/>
 
-              <span className='text-[11px] text-gray-700'>
+              <span className='text-[11px] text-slate-700'>
               {branchName} ({branchCode})
             </span>
             </div>
 
-            <p className='text-gray-500 text-[11px]'>
+            <p className='text-slate-500 text-[11px]'>
               {placeName}
             </p>
           </div>

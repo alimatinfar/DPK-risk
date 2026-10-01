@@ -14,7 +14,7 @@ function ArrowDown({ className, textColor, isOpen }: Props) {
       className={`${isOpen ? "rotate-180" : "rotate-0"} duration-200 ${{ ...(className && { className }) }} `}
     >
       <path
-        className={`stroke-current duration-200 ${textColor || "text-gray-500"}`}
+        className={`stroke-current duration-200 ${textColor || "text-slate-500"}`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"

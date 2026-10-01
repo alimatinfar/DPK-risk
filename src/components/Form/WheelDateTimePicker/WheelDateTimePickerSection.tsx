@@ -10,7 +10,7 @@ function WheelDateTimePickerSection(
 ) {
   return (
     <div className='flex flex-col gap-2'>
-      <p className='font-medium border-b border-gray-300 pb-2 text-gray-500 text-center'>
+      <p className='font-medium border-b border-slate-300 pb-2 text-slate-500 text-center'>
         {title}
       </p>
       <div dir='ltr' className='flex gap-2'>

@@ -21,7 +21,7 @@ function SearchPageFormSelectPerson(
       onClick: () => setActivePersonType(value?.name),
       title: value?.label,
       icon: <value.icon/>,
-      className: activePersonType === value?.name ? 'bg-gray-100' : ''
+      className: activePersonType === value?.name ? 'bg-slate-100' : ''
     }))
   }, [setActivePersonType, activePersonType])
 
