@@ -24,6 +24,9 @@ const AdminInquiryHistoriesForm = lazy(() => import(
 const AdminInquiryHistoryDetailPage = lazy(() => import(
   "../pages/admin/inquiry-histories/detail/AdminInquiryHistoryDetailPage.tsx"
   ));
+const AdminRiskSettingPage = lazy(() => import(
+  "../pages/admin/risk-setting/AdminRiskSettingPage.tsx"
+  ));
 
 
 const adminRouter = [
@@ -59,6 +62,11 @@ const adminRouter = [
   {
     path: ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_FORM,
     element: <AdminInquiryHistoriesForm/>,
+  },
+
+  {
+    path: ROUTER_LINKS.ADMIN_RISK_SETTING,
+    element: <AdminRiskSettingPage/>,
   },
 ]
 
