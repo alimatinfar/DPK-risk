@@ -10,7 +10,7 @@ type TreeItemProps = {
   onClick?: () => void;
   children?: ReactNode;
   setWasChanged: SetStateType<boolean>;
-  isLast: boolean;
+  isLast?: boolean;
 } & Pick<RiskTreeItemCommonType, 'weight' | 'title' | 'id'>
 
 function AdminRiskTreeItem(
