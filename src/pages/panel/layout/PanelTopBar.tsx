@@ -12,6 +12,7 @@ function PanelTopBar() {
 
   const { fields } = useSearchPageResultCard({
     data: activePersonData,
+    hasCustomerIdPagesPathname: [ROUTER_LINKS.PANEL_CUSTOMER_RISK]
   });
 
   return (
