@@ -11,7 +11,7 @@ function PanelCustomerRiskEmptyState(
   {startCalculatingHandler}: Props
 ) {
   return (
-    <div className='bg-gray-300/30'>
+    <div className='bg-slate-300/30'>
       <div
         style={{
           backgroundImage: `
@@ -32,7 +32,7 @@ function PanelCustomerRiskEmptyState(
             محاسبه ریسک مشتری
           </p>
 
-          <p className='text-gray-500 text-center leading-6'>
+          <p className='text-slate-500 text-center leading-6'>
             محاسبه ریسک با پردازش شاخص‌های مختلف انجام می‌شود و ممکن است چند دقیقه زمان ببرد. لطفاً تا تکمیل فرآیند شکیبا باشید.
           </p>
 

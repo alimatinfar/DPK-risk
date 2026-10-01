@@ -11,7 +11,7 @@ function UploadIcon({className, textColor}: IconPropsType) {
       {...className && {className}}
     >
       <path
-        className={`stroke-current duration-200 ${textColor || 'text-gray-900'}`}
+        className={`stroke-current duration-200 ${textColor || 'text-slate-900'}`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

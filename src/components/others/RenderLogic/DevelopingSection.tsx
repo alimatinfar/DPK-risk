@@ -7,11 +7,11 @@ function DevelopingSection() {
       <DevelopingIcon />
 
       <div className='flex flex-col items-center gap-y-2'>
-        <span className='text-gray-900 text-sm'>
+        <span className='text-slate-900 text-sm'>
           در حال توسعه!
         </span>
 
-        <span className='text-gray-500 text-xs'>
+        <span className='text-slate-500 text-xs'>
           لطفا بعدا مراجعه کنید
         </span>
       </div>

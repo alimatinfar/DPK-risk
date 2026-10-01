@@ -24,8 +24,8 @@ function AdminHighRiskFormStep3SelectedIndividuals(
   }
 
   return selectedIndividuals?.length !== 0 ? (
-    <div className='bg-gray-100 rounded-md flex flex-col p-4 gap-4'>
-      <p className='font-medium text-gray-900'>
+    <div className='bg-slate-100 rounded-md flex flex-col p-4 gap-4'>
+      <p className='font-medium text-slate-900'>
         اشخاص انتخاب شده
       </p>
 

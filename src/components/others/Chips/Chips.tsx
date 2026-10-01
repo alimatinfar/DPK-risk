@@ -33,7 +33,7 @@ export default function Chips(
       className={`flex gap-2 justify-center items-center w-auto ${joinObjectValues(badgeStyles)} 
       ${className}`}
     >
-      {props.icon && <props.icon textColor='text-gray-500' />}
+      {props.icon && <props.icon textColor='text-slate-500' />}
 
       <span className='select-none'>
         {text}

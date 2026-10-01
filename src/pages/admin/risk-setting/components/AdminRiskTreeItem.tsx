@@ -24,7 +24,7 @@ function AdminRiskTreeItem(
       className={`
         w-full rounded-lg p-2 text-right transition-colors ${onClick ? 'cursor-pointer' : ''}
         ${
-        selected ? 'bg-gray-100' : `bg-white ${onClick ? 'hover:bg-gray-50' : ''}`
+        selected ? 'bg-slate-100' : `bg-white ${onClick ? 'hover:bg-slate-50' : ''}`
       }
       `}
     >

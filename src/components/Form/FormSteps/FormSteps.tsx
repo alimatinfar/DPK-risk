@@ -26,18 +26,18 @@ function FormSteps(
             <>
               <div className={`
               h-6.5 w-6.5 flex-center rounded-full pt-[1px] duration-200 relative border
-              ${isCurrentStep ? 'border-transparent bg-primary text-white' : isBeforeCurrentStep ? 'border-transparent bg-primary/10' : 'border-gray-300'}
+              ${isCurrentStep ? 'border-transparent bg-primary text-white' : isBeforeCurrentStep ? 'border-transparent bg-primary/10' : 'border-slate-300'}
             `}>
                 {isBeforeCurrentStep ? <TickIcon/> : (index + 1)}
 
-                <div className={`absolute -bottom-10 ${isLast ? 'left-0' : 'right-0'} w-max text-gray-900`}>
+                <div className={`absolute -bottom-10 ${isLast ? 'left-0' : 'right-0'} w-max text-slate-900`}>
                   {step.text}
                 </div>
               </div>
 
               {!isLast && (
                 <div
-                  className={`duration-200 h-px flex-1 ${isBeforeCurrentStep ? 'bg-primary' : 'bg-gray-300'}`}
+                  className={`duration-200 h-px flex-1 ${isBeforeCurrentStep ? 'bg-primary' : 'bg-slate-300'}`}
                 ></div>
               )}
             </>

@@ -27,7 +27,7 @@ function FileDataCard(
 
   return (
     <div
-      className='flex items-center justify-between py-4 px-2 bg-white rounded-lg mt-4 border border-gray-300 overflow-hidden'>
+      className='flex items-center justify-between py-4 px-2 bg-white rounded-lg mt-4 border border-slate-300 overflow-hidden'>
       <div className='flex-1 flex items-center gap-x-2'>
         <FileIcon/>
 
@@ -37,7 +37,7 @@ function FileDataCard(
           </p>
 
           {fileData?.size ? (
-            <div dir='ltr' className='text-gray-500 text-xs space-x-1'>
+            <div dir='ltr' className='text-slate-500 text-xs space-x-1'>
               <span>{fileData?.size}</span>
               <span>KB</span>
             </div>

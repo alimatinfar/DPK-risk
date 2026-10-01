@@ -14,7 +14,7 @@ function AdminHighRiskIndividualsExitLetterContainer(
 
   const childrenRender = (
     <div
-      className={`flex flex-col gap-y-4 p-4 rounded-lg bg-white ${exitType ? '' : 'border border-gray-200'}`}>
+      className={`flex flex-col gap-y-4 p-4 rounded-lg bg-white ${exitType ? '' : 'border border-slate-200'}`}>
       {children}
     </div>
   )

@@ -14,7 +14,7 @@ function HighRiskIndividualsTimeLineHelpSection(
         h-[5px] w-[5px] rounded-full
         ${isGreen ? 'bg-green-500' : 'bg-red-500'}
       `}></span>
-      <p className='text-[10px] text-gray-500'>
+      <p className='text-[10px] text-slate-500'>
         {title}
       </p>
     </div>

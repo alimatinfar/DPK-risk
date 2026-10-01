@@ -6,7 +6,7 @@ export type TableEmptyStateProps = {
 
 function TableEmptyState({columnLength}: TableEmptyStateProps) {
   return (
-    <tfoot className="  text-gray-900 font-normal ">
+    <tfoot className="  text-slate-900 font-normal ">
       <tr className="">
         <td
           colSpan={columnLength}

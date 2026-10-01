@@ -26,7 +26,7 @@ function TableTr(
   return (
     <tr
       className={`
-        ${isLast ? '' : 'border-b border-gray-300'} ${isEven ? '' : 'bg-gray-50'}
+        ${isLast ? '' : 'border-b border-slate-300'} ${isEven ? '' : 'bg-slate-50'}
       `}
     >
       {mainColumns.map(({accessor, renderType, tdWidth}, index) => {
@@ -47,7 +47,7 @@ function TableTr(
         )
 
         return (
-          <td key={accessor} className={`p-2 ${tdWidth} text-sm text-gray-900 text-right`}>
+          <td key={accessor} className={`p-2 ${tdWidth} text-sm text-slate-900 text-right`}>
             {(isFirstColumn && hasExtraTableData) ? (
               <div className='flex items-center'>
                 <IconClickable className='ml-2' onClick={toggleRow}>

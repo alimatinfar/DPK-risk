@@ -40,8 +40,8 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
   const isAdded = individuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])
 
   return (
-    <div className='rounded-lg border border-gray-200 flex flex-col overflow-hidden'>
-      <div className='bg-gray-100 flex items-center justify-between p-2 min-h-12.5'>
+    <div className='rounded-lg border border-slate-200 flex flex-col overflow-hidden'>
+      <div className='bg-slate-100 flex items-center justify-between p-2 min-h-12.5'>
         <p className='flex-1'>
           {data.name}
         </p>
@@ -51,7 +51,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
             <Tag text='اضافه شده' color='gray'/>
           ) : (
             <Button
-              variant='default' color='white' rightIcon={<PlusCircleIcon textColor='text-gray-900'/>}
+              variant='default' color='white' rightIcon={<PlusCircleIcon textColor='text-slate-900'/>}
               size='sm' fullWidth onClick={addHandler} loading={checkExistCustomerLoading}
             >
               افزودن

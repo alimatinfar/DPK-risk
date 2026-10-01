@@ -25,7 +25,7 @@ function AdminHighRiskIndividualsDocumentCard(
 ) {
   return (
     <div
-      className='rounded-lg bg-gray-100 p-2 flex flex-col gap-y-2'
+      className='rounded-lg bg-slate-100 p-2 flex flex-col gap-y-2'
     >
       <div className='flex items-center justify-between gap-x-4'>
         <p>
@@ -55,7 +55,7 @@ function AdminHighRiskIndividualsDocumentCard(
         )}
       </div>
 
-      <p className='text-sm text-gray-500'>
+      <p className='text-sm text-slate-500'>
         {document?.[descriptionFieldName]}
       </p>
 

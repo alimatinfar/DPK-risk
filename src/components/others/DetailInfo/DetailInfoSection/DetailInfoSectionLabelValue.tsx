@@ -17,10 +17,10 @@ function DetailInfoSectionLabelValue(
       className={`flex flex-col gap-y-2 ${className || ''}`}
       {...style && {style}}
     >
-      <span className="text-sm text-gray-500">
+      <span className="text-sm text-slate-500">
         {label}
       </span>
-      <span className="text-gray-900">
+      <span className="text-slate-900">
         {/*{value || <NoDataTag/>}*/}
         {value || '-'}
       </span>

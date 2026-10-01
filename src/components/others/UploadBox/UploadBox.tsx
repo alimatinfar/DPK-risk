@@ -46,11 +46,11 @@ function UploadBox(
     <div className={`flex flex-col gap-y-1 ${uploadBoxClass || ''}`}>
       <div className={`
         relative border border-dashed rounded-md flex flex-col items-center gap-y-2 py-4 px-8
-        ${bgClass || 'bg-gray-50'} ${errorMessage ? 'border-red-500' : 'border-gray-300'}
+        ${bgClass || 'bg-slate-50'} ${errorMessage ? 'border-red-500' : 'border-slate-300'}
       `}>
         <UploadIcon/>
 
-        <div className='flex flex-col items-center gap-y-2 text-gray-900'>
+        <div className='flex flex-col items-center gap-y-2 text-slate-900'>
           <p className='font-bold'>
             {title || 'بارگذاری فایل'}
           </p>
@@ -76,7 +76,7 @@ function UploadBox(
       {formatEndAdornment || accept ? (
         <div className='flex items-center justify-between gap-x-2'>
           {accept ? (
-            <div className='flex items-center gap-x-1 text-gray-700'>
+            <div className='flex items-center gap-x-1 text-slate-700'>
               <span>پسوندهای مجاز:</span>
               <span dir='ltr'>{accept}</span>
             </div>
@@ -105,7 +105,7 @@ function UploadBox(
           <div className='flex items-center space-x-1 space-x-reverse'>
             <InfoIcon/>
 
-            <p className='text-gray-500 text-xs text-justify'>
+            <p className='text-slate-500 text-xs text-justify'>
               {hint}
             </p>
           </div>

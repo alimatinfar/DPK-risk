@@ -54,13 +54,13 @@ function MenuItem(
       key="expanded"
       onClick={onToggle}
       className={`
-        w-full flex items-center justify-between p-2 mb-2 bg-gray-50 hover:bg-gray-100
+        w-full flex items-center justify-between p-2 mb-2 bg-slate-50 hover:bg-slate-100
         ${item.className || ""} ${isFirstItem ? '' : 'mt-2'}
       `}
     >
       <div className="flex items-center gap-2 flex-1">
         {Icon && <Icon textColor={isOpen ? "text-accent" : ""} className="w-5 h-5 transition-colors duration-200" />}
-        <span className={`text-sm text-gray-500 font-medium ${item.titleClass || ""}`}>{item.label}</span>
+        <span className={`text-sm text-slate-500 font-medium ${item.titleClass || ""}`}>{item.label}</span>
       </div>
       <ArrowDown isOpen={isOpen} />
     </button>
@@ -71,7 +71,7 @@ function MenuItem(
       key="collapsed"
       onClick={onToggle}
       className={`
-        w-full flex items-center justify-center p-2 bg-gray-50 hover:bg-gray-100
+        w-full flex items-center justify-center p-2 bg-slate-50 hover:bg-slate-100
         ${item.className || ""}
       `}
       title={item.label}
@@ -83,13 +83,13 @@ function MenuItem(
   return (
     <>
       {(showExpanded && item.label) && (
-        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200'}`}>
+        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-slate-200'}`}>
           {expandedHeader}
         </div>
       )}
 
       {(showCollapsed && item.label) && (
-        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200 pt-2'}`}>
+        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-slate-200 pt-2'}`}>
           {/*{collapsedHeader}*/}
         </div>
       )}

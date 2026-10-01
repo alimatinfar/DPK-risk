@@ -62,7 +62,7 @@ function Pagination(
         <button
           disabled={currentPage === 1}
           onClick={() => handlePageChange(currentPage - 1)}
-          className="rotate-180 border w-10 h-10 border-gray-300 hover:bg-gray-100 duration-200 flex justify-center items-center rounded-l-lg p-2"
+          className="rotate-180 border w-10 h-10 border-slate-300 hover:bg-slate-100 duration-200 flex justify-center items-center rounded-l-lg p-2"
         >
           <ArrowPagination disabled={currentPage === 1}/>
         </button>
@@ -76,9 +76,9 @@ function Pagination(
                   onClick={() => !isThreeDots && handlePageChange(page)}
                   className={`border-y
                    ${isLast ? '' : 'border-l'}
-                   w-10 h-10 border-gray-300 hover:bg-gray-100 duration-200 ${
+                   w-10 h-10 border-slate-300 hover:bg-slate-100 duration-200 ${
                     currentPage === page
-                      ? "bg-gray-100"
+                      ? "bg-slate-100"
                       : ""
                   } ${isThreeDots ? 'cursor-default' : ''}`}
                 >
@@ -91,21 +91,21 @@ function Pagination(
         <button
           disabled={currentPage === totalPages}
           onClick={() => handlePageChange(currentPage + 1)}
-          className="border w-10 h-10 border-gray-300 hover:bg-gray-100 duration-200 flex justify-center items-center rounded-l-lg p-2"
+          className="border w-10 h-10 border-slate-300 hover:bg-slate-100 duration-200 flex justify-center items-center rounded-l-lg p-2"
         >
           <ArrowPagination disabled={currentPage === totalPages}/>
         </button>
       </div>
 
       <div>
-        <span className="ml-6 text-gray-500">
+        <span className="ml-6 text-slate-500">
           تعداد نمایش در صفحه
         </span>
 
         <select
           value={rowsPerPage}
           onChange={handleRowsPerPageChange}
-          className="border border-gray-300 outline-0 rounded px-2 py-1 h-[36px]"
+          className="border border-slate-300 outline-0 rounded px-2 py-1 h-[36px]"
         >
           <option value="10">10</option>
           <option value="20">20</option>

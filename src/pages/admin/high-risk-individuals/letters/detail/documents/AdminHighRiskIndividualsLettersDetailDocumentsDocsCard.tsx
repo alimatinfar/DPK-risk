@@ -28,7 +28,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocsCard(
   return (
     <div
       key={document?.id}
-      className={`flex flex-col gap-y-4 ${index === 0 ? '' : 'pt-4 mt-4 border-t border-gray-200'}`}
+      className={`flex flex-col gap-y-4 ${index === 0 ? '' : 'pt-4 mt-4 border-t border-slate-200'}`}
     >
       <div className='flex items-center justify-between'>
         <DetailInfoSectionLabelValue

@@ -39,7 +39,7 @@ function HighRiskIndividualsTimeLine(
               title='خروج از لیست افراد پر ریسک'
             />
 
-            <span className='h-3 w-[1.5px] bg-gray-300'></span>
+            <span className='h-3 w-[1.5px] bg-slate-300'></span>
 
             <HighRiskIndividualsTimeLineHelpSection
               title='ورود به لیست افراد پر ریسک'
@@ -58,8 +58,8 @@ function HighRiskIndividualsTimeLine(
 
             const subTitleSpan = (
               <span className={`
-                text-[11px] text-gray-500 
-                ${history.subTitleLink ? 'duration-200 border-b border-gray-200 hover:text-gray-700 hover:border-gray-300' : ''}
+                text-[11px] text-slate-500 
+                ${history.subTitleLink ? 'duration-200 border-b border-slate-200 hover:text-slate-700 hover:border-slate-300' : ''}
               `}>
                 {history.subTitle}
               </span>
@@ -77,7 +77,7 @@ function HighRiskIndividualsTimeLine(
                 className='grid grid-cols-2'
               >
                 <div
-                  className='relative flex flex-col items-end justify-center gap-y-1 pl-3 border-l-[3px] border-gray-100 pt-4 pb-4'>
+                  className='relative flex flex-col items-end justify-center gap-y-1 pl-3 border-l-[3px] border-slate-100 pt-4 pb-4'>
                   <span className='text-xs'>
                     {history.title}
                   </span>

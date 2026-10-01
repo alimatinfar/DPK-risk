@@ -60,12 +60,12 @@ function Modal(
         ${showWithAnimation ? "" : "opacity-0 pointer-events-none scale-[0.98]"}
         ${width || "w-dvw md:w-137.5"} ${
           height || "h-min"
-        } rounded-t-2xl md:rounded-2xl border border-gray-300 max-h-[80dvh]`}
+        } rounded-t-2xl md:rounded-2xl border border-slate-300 max-h-[80dvh]`}
       >
         {title && (
           <div className="flex items-center justify-between mb-6">
 
-            <div className="flex items-center font-bold text-lg text-gray-900">
+            <div className="flex items-center font-bold text-lg text-slate-900">
               {backAction && (
                 <IconClickable onClick={backAction} className="ml-2">
                   <ArrowBack/>
@@ -77,7 +77,7 @@ function Modal(
             <button
               type='button'
               onClick={onClose}
-              className="p-1 rounded-md duration-200 hover:bg-gray-100"
+              className="p-1 rounded-md duration-200 hover:bg-slate-100"
             >
               <div className='h-6 w-6'>
                 <CloseIcon/>

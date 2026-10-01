@@ -54,9 +54,9 @@ function AdminRiskTreeColumn(
   return (
     <div className={`
       flex flex-col gap-y-2 min-h-[calc(100vh-95px)]
-      ${isLast ? '' : 'pl-4 ml-4 border-l border-gray-200'}
+      ${isLast ? '' : 'pl-4 ml-4 border-l border-slate-200'}
     `}>
-      <p className='text-gray-500 text-sm'>
+      <p className='text-slate-500 text-sm'>
         {title}
       </p>
 

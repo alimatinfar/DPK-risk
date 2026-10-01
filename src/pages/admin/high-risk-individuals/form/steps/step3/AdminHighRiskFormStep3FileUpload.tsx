@@ -34,7 +34,7 @@ function AdminHighRiskFormStep3FileUpload(
         formMethods={formMethods} onSubmit={onSubmit}
       >
         <div className='flex flex-col gap-y-2'>
-          <p className='text-gray-400'>
+          <p className='text-slate-400'>
             اضافه کردن مشتریان از طریق فایل اکسل
           </p>
 
@@ -62,11 +62,11 @@ function AdminHighRiskFormStep3FileUpload(
       </ReactHookFormWrapper>
 
       <div className='h-6 relative w-full flex items-center justify-center'>
-        <span className='absolute m-auto z-10 bg-white px-2  text-gray-400'>
+        <span className='absolute m-auto z-10 bg-white px-2  text-slate-400'>
           یا جستجو مشتری
         </span>
 
-        <div className='h-[1px] w-full bg-gray-200'>
+        <div className='h-[1px] w-full bg-slate-200'>
 
         </div>
       </div>

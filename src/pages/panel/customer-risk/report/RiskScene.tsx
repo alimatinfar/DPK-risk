@@ -173,7 +173,7 @@ export function RiskScene(
             محاسبه ریسک مشتری
           </p>
 
-          <p className='text-gray-500 text-center leading-6'>
+          <p className='text-slate-500 text-center leading-6'>
             محاسبه ریسک با پردازش شاخص‌های مختلف انجام می‌شود و ممکن است چند دقیقه زمان ببرد. لطفاً تا تکمیل فرآیند شکیبا باشید.
           </p>
 

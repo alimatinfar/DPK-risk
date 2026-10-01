@@ -37,7 +37,7 @@ function AdminHighRiskIndividualsDetailPage() {
           <div className='flex items-start gap-x-4'>
             <CardWithHeader
               title='نامه‌ها' className='flex-1'
-              childrenClassName='flex flex-col gap-y-2 bg-gray-50 p-2'
+              childrenClassName='flex flex-col gap-y-2 bg-slate-50 p-2'
             >
               <AdminHighRiskIndividualsDetailPageLetters
                 setDocListModalState={setDocListModalState}

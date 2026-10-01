@@ -12,13 +12,13 @@ function DetailInfoSection2(
           key={index}
           className={`
             flex flex-col justify-between gap-y-2 text-sm grow px-4
-            ${index === 0 ? '' : 'border-r border-gray-300'}
+            ${index === 0 ? '' : 'border-r border-slate-300'}
           `}
         >
-          <span className='text-gray-500'>
+          <span className='text-slate-500'>
             {item?.label}
           </span>
-          <span className='text-gray-900'>
+          <span className='text-slate-900'>
             {/*{item?.value || <span className='text-sm text-orange-500'>فاقد اطلاعات</span>}*/}
             {item?.value || '-'}
           </span>

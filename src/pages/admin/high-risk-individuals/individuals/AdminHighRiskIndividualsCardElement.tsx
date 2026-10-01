@@ -51,8 +51,8 @@ function AdminHighRiskIndividualsCardElement(
   }, [data])
 
   return (
-    <div className='rounded-lg border border-gray-200 flex flex-col overflow-hidden'>
-      <div className='bg-gray-100 flex items-center justify-between px-2 py-1.5'>
+    <div className='rounded-lg border border-slate-200 flex flex-col overflow-hidden'>
+      <div className='bg-slate-100 flex items-center justify-between px-2 py-1.5'>
         <p>
           {data.name}
         </p>
@@ -77,7 +77,7 @@ function AdminHighRiskIndividualsCardElement(
           return (
             <div
               key={categoryIndex}
-              className={`flex flex-col gap-y-2 pt-2 ${isLast ? '' : 'pb-2'} ${isFirst ? '' : 'border-t border-gray-200'}`}
+              className={`flex flex-col gap-y-2 pt-2 ${isLast ? '' : 'pb-2'} ${isFirst ? '' : 'border-t border-slate-200'}`}
             >
               {fields.map(({label, value}, index) => (
                 <CardTitleValue
