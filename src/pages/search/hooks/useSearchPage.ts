@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import useReactHookFormWrapper
   from "../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import type {SearchPageFormDataType, SearchPageFormPersonType} from "../form/SearchPageForm.types.ts";
@@ -20,22 +20,18 @@ import type {SearchPageStoreType} from "../store/useSearchStore.ts";
 
 export type UseSearchPageProps = {
   onSuccessHandler?: (data: CustomResponseType<SearchFormResponseType>) => void;
-  activePersonTypeFromParent?: SearchPageFormPersonType | undefined;
+  activePersonType?: SearchPageFormPersonType | undefined;
   setStoreData?: SetZustandStoreType<SearchPageStoreType>;
 }
 
 function useSearchPage(
   {
-    onSuccessHandler, activePersonTypeFromParent, setStoreData
+    onSuccessHandler, activePersonType, setStoreData
   }: UseSearchPageProps = {}
 ) {
 
-  const [activePersonType, setActivePersonType] = useState<SearchPageFormPersonType | undefined>(undefined)
-
-  const finalActivePersonType = activePersonTypeFromParent || activePersonType
-
   const {getBodyData} = useSearchPageBodyData({
-    customerType: Number(finalActivePersonType ? getPersonTypeItem(finalActivePersonType)?.id : 0)
+    customerType: Number(activePersonType ? getPersonTypeItem(activePersonType)?.id : 0)
   })
 
   const {
@@ -78,8 +74,7 @@ function useSearchPage(
   })
 
   return {
-    formMethods, onSubmit, getResultData, isSubmittedSuccessful, activePersonType, setActivePersonType,
-    error, isPending, data
+    formMethods, onSubmit, getResultData, isSubmittedSuccessful, error, isPending, data
   }
 }
 

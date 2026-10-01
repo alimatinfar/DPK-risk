@@ -1,4 +1,4 @@
-import SearchPageForm from "./form/SearchPageForm.tsx";
+import SearchPageForm, {type SearchPageFormProps} from "./form/SearchPageForm.tsx";
 import SearchPageResult from "./result/SearchPageResult.tsx";
 import SaderatLogoAndTypo from "../../components/svg/logo/SaderatLogoAndTypo.tsx";
 import MainLayoutProfileSection from "../../layouts/MainLayout/MainLayoutProfileSection.tsx";
@@ -19,18 +19,23 @@ import setDefaultValuesFromObject
 function SearchPage() {
 
   const setStoreData = useSearchStore(state => state.setStoreData)
+  const activePersonType = useSearchStore(state => state.activePersonType)
 
   const {
-    formMethods, onSubmit, isSubmittedSuccessful, activePersonType, setActivePersonType,
+    formMethods, onSubmit, isSubmittedSuccessful,
     error, isPending
   } = useSearchPage({
-    setStoreData
+    setStoreData, activePersonType
   })
 
   const isAdmin = userHasRole(USER_ROLES.ADMIN)
 
   const storeFormData = useSearchStore(state => state.formData)
   const resultData = useSearchStore(state => state.resultData)
+
+  function setActivePersonType(value: SearchPageFormProps['activePersonType']) {
+    setStoreData({activePersonType: value})
+  }
 
   useEffect(() => {
     setDefaultValuesFromObject({

@@ -56,7 +56,7 @@ function useAdminHighRiskFormStep3Share(
     getResultData, data, isPending: searchUserLoading
   } = useSearchPage({
     // onSuccessHandler: (data) => (data?.data),
-    activePersonTypeFromParent: activeTab as any
+    activePersonType: activeTab as any
   })
   const searchUserResultData = getResultData({data})
 
