@@ -3,6 +3,7 @@ import type {DetailInfoSectionProps} from "../../../../../components/others/Deta
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.types.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
+import {jobFieldLabel} from "../index.constances.ts";
 
 
 function usePanelBasicInformationPageIdentityInfoListLegal(
@@ -108,6 +109,11 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       {
         label: 'وبگاه',
         value: data?.webSite,
+      },
+      {
+        label: jobFieldLabel,
+        //TODO should set this field from api response
+        value: '',
       },
     ]
   }, [activePersonData, isLegal, legalData])
