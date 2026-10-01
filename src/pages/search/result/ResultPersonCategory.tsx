@@ -40,7 +40,7 @@ function ResultPersonCategory(
 
   return dataList?.length ? (
     <div className={`
-      flex flex-col rounded-lg overflow-hidden ${wrapperBackground || 'bg-[#F2F4F6]'}
+      flex flex-col rounded-lg overflow-hidden ${wrapperBackground || 'bg-[#F8FAFC]'}
     `}>
       <div
         onClick={toggleOpen}

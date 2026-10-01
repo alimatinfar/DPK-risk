@@ -26,7 +26,7 @@ function SearchPageResultCard(
       `}
       onClick={onCardClickHandler}
     >
-      <div className='bg-[#ECEFF7] p-2 flex items-center justify-between'>
+      <div className='bg-[#EEF3FD] p-2 flex items-center justify-between'>
         <span className='font-medium'>
           {data.name}
         </span>

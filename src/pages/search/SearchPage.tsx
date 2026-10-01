@@ -82,7 +82,7 @@ function SearchPage() {
         <div
           className='z-10 absolute inset-0'
           style={{
-            background: `radial-gradient(50% 398.62% at 50% 50%, #F2F4F6 0%, rgba(242, 244, 246, 0.7) 100%)`
+            background: `radial-gradient(50% 398.62% at 50% 50%, #F8FAFC 0%, rgba(242, 244, 246, 0.7) 100%)`
           }}
         >
         </div>
