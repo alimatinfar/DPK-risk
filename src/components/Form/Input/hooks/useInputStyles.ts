@@ -28,13 +28,14 @@ function useInputStyles(
 
   const inputWrapperStyles = useMemo(() => ({
     default: `
-    flex items-center border block w-full overflow-hidden appearance-none duration-200
+    flex items-center border block overflow-hidden appearance-none duration-200
     `,
     background: isConflict ? 'bg-orange-100' : (disabled || readOnly) ? 'bg-gray-100' : 'bg-white',
     shadow: 'shadow-base',
     border: `border-gray-300 [&:has(input:enabled)]:hover:border-primary-300 [&:has(input:focus)]:border-primary`,
     borderRadius: 'rounded-lg',
     height: rows ? '' : inputSizes[size],
+    width: 'w-full',
     ...wrapperClassName,
     ...(errorMessage || hasError) ? {border:'border-red-500'} : {}
   }), [

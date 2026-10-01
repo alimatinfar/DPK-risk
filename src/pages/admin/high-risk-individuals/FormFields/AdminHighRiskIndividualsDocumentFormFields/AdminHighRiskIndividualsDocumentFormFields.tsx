@@ -27,7 +27,7 @@ function AdminHighRiskIndividualsDocumentFormFields(
       <UploadFileField
         {...uploadFileFieldProps}
         uploadBoxProps={{
-          accept: '.pdf,.jpeg',
+          accept: '.pdf,.jpeg,.jpg,.png,.docx,.doc',
           ...uploadFileFieldProps?.uploadBoxProps,
         }}
       />

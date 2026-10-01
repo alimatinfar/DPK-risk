@@ -18,7 +18,7 @@ function UploadFileField(
   return (
     <UploadBox
       fieldName={uploadFileFieldName}
-      maxFileSize={1000}
+      maxFileSize={15_000}
       rules={{required: `${uploadFileFieldLabel} را آپلود کنید`}}
       errorMessage={errorMessage}
       {...uploadBoxProps}

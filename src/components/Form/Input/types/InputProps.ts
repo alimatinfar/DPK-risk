@@ -11,6 +11,7 @@ type WrapperClassNameType = {
   shadow?: string;
   background?: string;
   height?: string;
+  width?: string;
 }
 
 type InputClassNameType = {
