@@ -2,6 +2,7 @@ import type {ChildrenAndClassNamePropsType} from "../../types/ChildrenPropsType.
 import SidebarToggle from "../../components/svg/sidebar/SidebarToggle.tsx";
 import MainLayoutProfileSection from "../MainLayout/MainLayoutProfileSection.tsx";
 import useDashboardSidebar from "./hooks/useDashboardSidebar.tsx";
+import ThemeSelector from "../MainLayout/ThemeSelector.tsx";
 
 
 type Props = {
@@ -13,7 +14,7 @@ function DashboardTopBar(
   {children, title}: Props
 ) {
 
-  const { toggleSidebar } = useDashboardSidebar();
+  const {toggleSidebar} = useDashboardSidebar();
 
   return (
     <div
@@ -32,7 +33,11 @@ function DashboardTopBar(
           <p className="text-primary font-semibold text-xl">{title}</p>
         </div>
 
-        <MainLayoutProfileSection removeShadow />
+        <div className='flex items-center gap-x-2'>
+          <ThemeSelector/>
+
+          <MainLayoutProfileSection removeShadow/>
+        </div>
       </div>
 
       {children}
