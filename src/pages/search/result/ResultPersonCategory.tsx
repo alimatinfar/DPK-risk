@@ -40,13 +40,14 @@ function ResultPersonCategory(
 
   return dataList?.length ? (
     <div className={`
-      flex flex-col rounded-lg overflow-hidden ${wrapperBackground || 'bg-[#F8FAFC]'}
+      flex flex-col rounded-lg overflow-hidden ${wrapperBackground || 'bg-[#F8FAFC] dark:bg-dark-1'}
+      dark:border dark:border-dark-2
     `}>
       <div
         onClick={toggleOpen}
         className={`
           flex items-center justify-between cursor-pointer p-4 overflow-hidden select-none
-          ${(open ? headerBorderBottomClassName : '') || ''} ${headerClassName || ''}
+          ${(open ? headerBorderBottomClassName : '') || ''} ${headerClassName || 'dark:bg-dark-2'}
         `}
       >
         <div
