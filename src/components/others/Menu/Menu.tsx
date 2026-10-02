@@ -3,6 +3,7 @@ import useMenu from "./hooks/useMenu";
 import MenuItem from "./MenuItem";
 import SaderatLogoAndTypo from "../../svg/logo/SaderatLogoAndTypo";
 import type {ReactNode} from "react";
+import SaderatLogo from "../../svg/logo/SaderatLogo.tsx";
 
 export type MenuProps = {
   items: MenuItemType[];
@@ -27,7 +28,7 @@ function Menu(
   return (
     <div className={`flex flex-col   ${className}`}>
       <div className="pb-4 mb-4 border-b border-slate-200">
-        <SaderatLogoAndTypo />
+        {isExpanded ? <SaderatLogoAndTypo width='220' /> : <SaderatLogo />}
 
         {bottomLogoRender && bottomLogoRender(isExpanded)}
       </div>
