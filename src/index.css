@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: IRANYekan;
   src: url('./assets/fonts/IranYekan/IRANYekanXVFaNumVF.woff2');
@@ -26,6 +28,7 @@
 
   --color-secondary-text: #475569;
 
+  --color-dark-1: #1D1C1F;
 
   --shadow-base: 0 0px 2px 0px rgba(16,24,40,0.06), 0px 0px 3px 0px rgba(16, 24, 40, 0.1);
   --font-IRANYekan: IRANYekan;
@@ -106,7 +109,7 @@
 
 html {
   direction: rtl;
-  @apply bg-white font-IRANYekan;
+  @apply bg-white dark:bg-dark-1 font-IRANYekan;
 }
 
 button {
