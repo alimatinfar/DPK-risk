@@ -10,7 +10,8 @@ const SUB_INDICATOR_MAX_VALUE = 5
 
 type BodyDataType = {
   id: number;
-  riskValue: number;
+  riskValue?: number;
+  weight?: number;
 }[]
 
 function useAdminRiskTreeColumn(
@@ -42,10 +43,10 @@ function useAdminRiskTreeColumn(
   function isWeightTotalValid(bodyData: BodyDataType): boolean{
     const expected = 100;
     const multiplier = 100;
-    const weights = bodyData?.map(item => item.riskValue)
+    const weights = bodyData?.map(item => item.weight)
 
     const total = weights.reduce(
-      (sum, weight) => sum + Math.round(weight * multiplier),
+      (sum, weight) => Number(sum) + Math.round(Number(weight) * multiplier),
       0,
     );
 
@@ -53,13 +54,13 @@ function useAdminRiskTreeColumn(
   }
 
   function checkMaxValue(bodyData: BodyDataType) {
-    return bodyData?.every(item => item.riskValue <= SUB_INDICATOR_MAX_VALUE)
+    return bodyData?.every(item => Number(item?.riskValue) <= SUB_INDICATOR_MAX_VALUE)
   }
 
   function onSubmitHandler(formData: any) {
     const bodyData: BodyDataType = Object.entries(formData).map(([key, value]) => ({
       id: Number(key),
-      riskValue: Number(value)
+      [isLast ? 'riskValue' : 'weight']: Number(value)
     }))
 
     const conditionIsTrue = isLast ? checkMaxValue(bodyData) : isWeightTotalValid(bodyData)
