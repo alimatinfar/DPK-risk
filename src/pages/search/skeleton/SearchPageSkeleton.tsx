@@ -7,7 +7,7 @@ function SearchPageSkeleton(): JSX.Element {
   return (
     <div className={`${SEARCH_PAGE_MAX_WIDTH} w-full pb-4`}>
       <div className="py-4 px-2.5">
-        <Skeleton size="w-[104px] h-[25px] rounded-sm" bgClass="bg-slate-200" />
+        <Skeleton size="w-[104px] h-[25px] rounded-sm" bgClass="bg-slate-200 dark:bg-dark-2" />
       </div>
       <div className="flex flex-col gap-4">
         <SkeletonSection cardRows={2} />
