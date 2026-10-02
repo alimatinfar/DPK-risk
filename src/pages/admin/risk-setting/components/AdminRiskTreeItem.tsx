@@ -41,7 +41,8 @@ function AdminRiskTreeItem(
               wrapperClassName: {width: 'w-13.5', height: 'h-10'},
               inputClassName: {textAlign: 'text-center', fontSize: 'text-[13px]'},
               onClick: (e) => e.stopPropagation(),
-              hasDotKey: !isLast
+              hasDotKey: !isLast,
+              maxLength: isLast ? 1 : 5
             }}
             defaultValue={weight}
             rules={{required: true}}

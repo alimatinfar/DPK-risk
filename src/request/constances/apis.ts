@@ -107,6 +107,8 @@ const APIS = {
   ADMIN_INQUIRY_HISTORIES_ADD_DOCUMENT: 'InquiryCustomer/InsertInquiryLetterDocument',
   ADMIN_INQUIRY_HISTORIES_DELETE_CUSTOMER: 'InquiryCustomer/DeleteInquiryCustomer',
   ADMIN_INQUIRY_HISTORIES_CHANGE_RESPONSE_SUBMISSION_STATUS: 'InquiryCustomer/ChangeInquiryLetterStatusSend',
+
+  ADMIN_RISK_SETTING_TREE_DATA: 'RiskCustomer/GetFullRiskHierarchy',
 }
 
 export default APIS;

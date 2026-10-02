@@ -4,16 +4,15 @@ import type {
   RiskIndicatorType,
   RiskTreeItemCommonType
 } from '../index.types.ts';
+import useAdminRiskTreeFetchData from "./useAdminRiskTreeFetchData.ts";
 
 export type RiskSelectedStateType = string | null
 
-type Props = {
-  tree: RiskIndicatorType[],
-}
-
 function useAdminRiskTree(
-  {tree}: Props
 ) {
+
+  const {tree} = useAdminRiskTreeFetchData()
+
   const [selectedTypeId, setSelectedTypeId] = useState<RiskSelectedStateType>(null)
   const [selectedGroupId, setSelectedGroupId] = useState<RiskSelectedStateType>(null)
   const [selectedIndicatorId, setSelectedIndicatorId] = useState<RiskSelectedStateType>(null)
@@ -61,7 +60,7 @@ function useAdminRiskTree(
   }
 
   return {
-    groups, indicators, subIndicators,
+    groups, indicators, subIndicators, tree,
     selectedTypeId, selectedGroupId, selectedIndicatorId,
     selectTypeHandler, selectGroupHandler, selectIndicatorHandler,
   };

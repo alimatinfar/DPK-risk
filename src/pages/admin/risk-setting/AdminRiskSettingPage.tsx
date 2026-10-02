@@ -1,20 +1,17 @@
 
 import useAdminRiskTree from "./hooks/useAdminRiskTree.ts";
 
-import {riskData} from "./data/riskData.ts";
 import AdminRiskTreeColumn from "./components/AdminRiskTreeColumn.tsx";
 import {indicatorGroupLabel, indicatorLabel, indicatorTypeLabel, subIndicatorLabel} from "./index.constances.ts";
 
 
 function AdminRiskSettingPage() {
 
-  const data = riskData
-
   const {
-    groups, indicators, subIndicators,
+    groups, indicators, subIndicators, tree,
     selectedTypeId, selectedGroupId, selectedIndicatorId,
     selectTypeHandler, selectGroupHandler, selectIndicatorHandler,
-  } = useAdminRiskTree({tree: data});
+  } = useAdminRiskTree();
 
   return (
     <div
@@ -22,7 +19,7 @@ function AdminRiskSettingPage() {
       className="grid grid-cols-4"
     >
       <AdminRiskTreeColumn
-        items={data}
+        items={tree}
         selectedId={selectedTypeId}
         onSelect={selectTypeHandler}
         title={indicatorTypeLabel}
