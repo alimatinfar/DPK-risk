@@ -35,7 +35,7 @@ function useAdminRiskTreeFetchData() {
           subIndicators: indicator.riskSubIndicators.map((subIndicator) => ({
             id: String(subIndicator.id),
             title: subIndicator.subIndicatorName.trim(),
-            weight: subIndicator.riskPoint,
+            weight: subIndicator.riskValue,
           })),
         })),
       })),
