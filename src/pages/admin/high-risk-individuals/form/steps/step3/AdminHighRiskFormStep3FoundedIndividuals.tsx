@@ -17,7 +17,7 @@ function AdminHighRiskFormStep3FoundedIndividuals(
   }: AdminHighRiskFormStep3FoundedIndividualsProps
 ) {
   return foundedIndividuals?.length !== 0 ? (
-    <div className='grid grid-cols-3 gap-4 pt-4 border-t border-slate-200'>
+    <div className='grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-slate-200 dark:border-dark-2'>
       {foundedIndividuals?.map((item, index) => (
         <AdminHighRiskFormStep3FoundedIndividualsCard
           key={item.customerId} data={item} setUserDuplicateModalState={setUserDuplicateModalState}

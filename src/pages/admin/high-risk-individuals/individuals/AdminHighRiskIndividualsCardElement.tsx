@@ -52,7 +52,7 @@ function AdminHighRiskIndividualsCardElement(
 
   return (
     <div className='rounded-lg border border-slate-200 dark:border-dark-2 flex flex-col overflow-hidden'>
-      <div className='bg-slate-100 dark:bg-dark-2 flex items-center justify-between px-2 py-1.5'>
+      <div className='bg-slate-100 dark:bg-dark-6 flex items-center justify-between px-2 py-1.5'>
         <p>
           {data.name}
         </p>

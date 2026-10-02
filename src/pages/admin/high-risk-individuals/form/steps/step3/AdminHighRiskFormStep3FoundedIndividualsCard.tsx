@@ -40,8 +40,8 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
   const isAdded = individuals.some(item => item?.[customerIdFieldName] === data?.[customerIdFieldName])
 
   return (
-    <div className='rounded-lg border border-slate-200 flex flex-col overflow-hidden'>
-      <div className='bg-slate-100 flex items-center justify-between p-2 min-h-12.5'>
+    <div className='rounded-lg border border-slate-200 dark:border-dark-2 flex flex-col overflow-hidden'>
+      <div className='bg-slate-100 dark:bg-dark-6 flex items-center justify-between p-2 min-h-12.5'>
         <p className='flex-1'>
           {data.name}
         </p>
@@ -51,7 +51,8 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
             <Tag text='اضافه شده' color='gray'/>
           ) : (
             <Button
-              variant='default' color='white' rightIcon={<PlusCircleIcon textColor='text-slate-900'/>}
+              variant='default' color='white'
+              rightIcon={<PlusCircleIcon textColor='text-slate-900 dark:text-white'/>}
               size='sm' fullWidth onClick={addHandler} loading={checkExistCustomerLoading}
             >
               افزودن
@@ -60,7 +61,7 @@ function AdminHighRiskFormStep3FoundedIndividualsCard(
         </div>
       </div>
 
-      <div className='p-2 flex flex-col bg-white gap-y-2 flex-1'>
+      <div className='p-2 flex flex-col bg-white dark:bg-dark-1 gap-y-2 flex-1'>
         {fields.map(({label, value}, index) => (
           <CardTitleValue
             key={index} label={label} value={value}

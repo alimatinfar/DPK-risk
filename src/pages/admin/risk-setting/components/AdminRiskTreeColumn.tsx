@@ -38,7 +38,7 @@ function AdminRiskTreeColumn(
   return (
     <div className={`
       flex flex-col gap-y-2 min-h-[calc(100vh-95px)]
-      ${isLast ? '' : 'pl-4 ml-4 border-l border-slate-200'}
+      ${isLast ? '' : 'pl-4 ml-4 border-l border-slate-200 dark:border-dark-2'}
     `}>
       <p className='text-slate-500 text-sm'>
         {title}
@@ -70,7 +70,7 @@ function AdminRiskTreeColumn(
             {wasChanged && (
               <div className='flex flex-col gap-y-2'>
                 {hasError && (
-                  <div className='bg-red-50 p-2 rounded-lg'>
+                  <div className='bg-red-50 dark:bg-transparent p-2 rounded-lg'>
                     <InputErrorMessage
                       errorMessage={errorMessage}
                     />

@@ -30,14 +30,14 @@ function FormSteps(
             `}>
                 {isBeforeCurrentStep ? <TickIcon/> : (index + 1)}
 
-                <div className={`absolute -bottom-10 ${isLast ? 'left-0' : 'right-0'} w-max text-slate-900`}>
+                <div className={`absolute -bottom-10 ${isLast ? 'left-0' : 'right-0'} w-max text-slate-900 dark:text-custom-gray-2`}>
                   {step.text}
                 </div>
               </div>
 
               {!isLast && (
                 <div
-                  className={`duration-200 h-px flex-1 ${isBeforeCurrentStep ? 'bg-primary' : 'bg-slate-300'}`}
+                  className={`duration-200 h-px flex-1 ${isBeforeCurrentStep ? 'bg-primary' : 'bg-slate-300 dark:bg-dark-4'}`}
                 ></div>
               )}
             </>

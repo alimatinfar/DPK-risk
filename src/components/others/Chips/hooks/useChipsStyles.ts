@@ -6,7 +6,7 @@ export type ChipsSizesType = 'sm'
 function  useChipsStyles({color = 'gray', size = 'sm', onClose}: Partial<ChipsProps>) {
 
   const badgeStylesColors: Record<ChipsColorsType, string> = {
-    'gray': `border border-slate-300 ${onClose ? 'bg-slate-100' : 'bg-slate-200'} `,
+    'gray': `border border-slate-300 dark:border-dark-4 ${onClose ? 'bg-slate-100 dark:bg-dark-2' : 'bg-slate-200'} `,
   }
 
   const badgeStylesSizes: Record<ChipsSizesType, string> = {

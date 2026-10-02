@@ -41,7 +41,7 @@ export default function Chips(
 
       {onClose && (
         <div
-          className='p-1 cursor-pointer hover:bg-red-100 duration-200' onClick={onClickHandler}
+          className='p-1 cursor-pointer hover:bg-red-100 dark:hover:bg-dark-4 rounded-md duration-200' onClick={onClickHandler}
         >
           <CrossIcon />
         </div>

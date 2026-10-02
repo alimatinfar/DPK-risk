@@ -62,11 +62,11 @@ function AdminHighRiskFormStep3FileUpload(
       </ReactHookFormWrapper>
 
       <div className='h-6 relative w-full flex items-center justify-center'>
-        <span className='absolute m-auto z-10 bg-white px-2  text-slate-400'>
+        <span className='absolute m-auto z-10 bg-white dark:bg-dark-1 px-2 text-slate-400 dark:text-custom-gray-3'>
           یا جستجو مشتری
         </span>
 
-        <div className='h-[1px] w-full bg-slate-200'>
+        <div className='h-[1px] w-full bg-slate-200 dark:bg-dark-6'>
 
         </div>
       </div>
