@@ -28,7 +28,9 @@ function Menu(
   return (
     <div className={`flex flex-col   ${className}`}>
       <div className="pb-4 mb-4 border-b border-slate-200">
-        {isExpanded ? <SaderatLogoAndTypo width='220' /> : <SaderatLogo />}
+        <div className='w-full flex-center'>
+          {isExpanded ? <SaderatLogoAndTypo width='220' /> : <SaderatLogo />}
+        </div>
 
         {bottomLogoRender && bottomLogoRender(isExpanded)}
       </div>
