@@ -9,7 +9,6 @@ import type {RiskSelectedStateType} from "../hooks/useAdminRiskTree.ts";
 import useAdminRiskTreeColumn from "../hooks/useAdminRiskTreeColumn.ts";
 
 
-
 export type AdminRiskTreeColumnProps = {
   items: RiskTreeItemCommonType[];
   selectedId?: RiskSelectedStateType;
@@ -19,18 +18,21 @@ export type AdminRiskTreeColumnProps = {
   title: string;
   previousLevelTitle?: string;
   previousSelectedId?: RiskSelectedStateType;
+  apiAddress: string;
+  refetch: () => void;
 }
 
 function AdminRiskTreeColumn(
   {
-    selectedId, items, onSelect, isLast, isEmptyState, title, previousLevelTitle, previousSelectedId
+    selectedId, items, onSelect, isLast, isEmptyState, title, previousLevelTitle, previousSelectedId, apiAddress,
+    refetch
   }: AdminRiskTreeColumnProps
 ) {
 
   const {
-    formMethods, onSubmit, setWasChanged, wasChanged, hasError, cancelHandler
+    formMethods, onSubmit, setWasChanged, wasChanged, hasError, cancelHandler, loading, errorMessage
   } = useAdminRiskTreeColumn({
-    previousSelectedId
+    previousSelectedId, apiAddress, refetch, isLast
   })
 
   return (
@@ -69,7 +71,9 @@ function AdminRiskTreeColumn(
               <div className='flex flex-col gap-y-2'>
                 {hasError && (
                   <div className='bg-red-50 p-2 rounded-lg'>
-                    <InputErrorMessage errorMessage='مجموع شاخص های اصلی باید 100 باشد'/>
+                    <InputErrorMessage
+                      errorMessage={errorMessage}
+                    />
                   </div>
                 )}
 
@@ -78,7 +82,7 @@ function AdminRiskTreeColumn(
                     انصراف
                   </Button>
 
-                  <Button type='submit' fullWidth>
+                  <Button type='submit' fullWidth loading={loading}>
                     ذخیره
                   </Button>
                 </div>

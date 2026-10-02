@@ -7,7 +7,7 @@ import {useMemo} from "react";
 function useAdminRiskTreeFetchData() {
 
   const {
-    data, isFetching, error
+    data, isFetching, error, refetch
   } = useFetchData<AdminRiskTreeResponseDataType>({
     axiosConfig: {
       url: APIS.ADMIN_RISK_SETTING_TREE_DATA,
@@ -43,7 +43,7 @@ function useAdminRiskTreeFetchData() {
   }, [data])
 
   return {
-    tree
+    tree, isFetching, error, refetch
   }
 }
 

@@ -11,12 +11,13 @@ export type RiskSelectedStateType = string | null
 function useAdminRiskTree(
 ) {
 
-  const {tree} = useAdminRiskTreeFetchData()
+  const {
+    tree, refetch, error, isFetching
+  } = useAdminRiskTreeFetchData()
 
   const [selectedTypeId, setSelectedTypeId] = useState<RiskSelectedStateType>(null)
   const [selectedGroupId, setSelectedGroupId] = useState<RiskSelectedStateType>(null)
   const [selectedIndicatorId, setSelectedIndicatorId] = useState<RiskSelectedStateType>(null)
-
 
   const selectedType = useMemo(function () {
     return tree.find(item => item.id === selectedTypeId)
@@ -60,7 +61,7 @@ function useAdminRiskTree(
   }
 
   return {
-    groups, indicators, subIndicators, tree,
+    groups, indicators, subIndicators, tree, refetch, error, isFetching,
     selectedTypeId, selectedGroupId, selectedIndicatorId,
     selectTypeHandler, selectGroupHandler, selectIndicatorHandler,
   };
