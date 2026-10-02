@@ -30,7 +30,7 @@ function useInputStyles(
     default: `
     flex items-center border block overflow-hidden appearance-none duration-200
     `,
-    background: isConflict ? 'bg-orange-100' : (disabled || readOnly) ? 'bg-slate-100' : 'bg-white dark:bg-dark-2',
+    background: isConflict ? 'bg-orange-100' : (disabled || readOnly) ? 'bg-slate-100 dark:bg-dark-2' : 'bg-white dark:bg-dark-6',
     shadow: 'shadow-base',
     border: `border-slate-300 dark:border-dark-2 [&:has(input:enabled)]:hover:border-primary-300 [&:has(input:focus)]:border-primary`,
     borderRadius: 'rounded-lg',

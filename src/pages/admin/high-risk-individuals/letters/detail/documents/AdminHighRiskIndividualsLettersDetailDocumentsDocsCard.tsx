@@ -11,6 +11,7 @@ import type {
 } from "./AdminHighRiskIndividualsLettersDetailDocumentsDocs.tsx";
 import useAdminHighRiskIndividualsLettersDetailDocumentsDocsDownloadFile
   from "./hooks/useAdminHighRiskIndividualsLettersDetailDocumentsDocsDownloadFile.ts";
+import useTheme from "../../../../../../components/others/ThemeManager/hooks/useTheme.ts";
 
 type Props = {
   document: AdminHighRiskIndividualsLettersDetailDocumentType;
@@ -24,6 +25,8 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocsCard(
   const {
     downloadFileHandler, isPending
   } = useAdminHighRiskIndividualsLettersDetailDocumentsDocsDownloadFile()
+
+  const {isDarkMode} = useTheme()
 
   return (
     <div
@@ -41,7 +44,7 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocsCard(
               justIcon variant='default' color='red'
               onClick={() => setDeleteModalState(document)}
             >
-              <DeleteIcon textColor='text-red-500'/>
+              <DeleteIcon textColor='text-red-500 dark:text-white'/>
             </Button>
           )}
 
@@ -53,8 +56,10 @@ function AdminHighRiskIndividualsLettersDetailDocumentsDocsCard(
           {/*</Button>*/}
 
           <Button
-            rightIcon={<DownloadIcon/>} variant='outlined' loading={isPending}
+            rightIcon={<DownloadIcon textColor={isDarkMode ? 'text-white' : 'text-primary'} />}
+            variant='outlined' loading={isPending}
             onClick={() => downloadFileHandler(document)}
+            color={isDarkMode ? 'white' : 'primary'}
           >
             دریافت فایل
           </Button>

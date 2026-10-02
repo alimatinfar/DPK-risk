@@ -6,7 +6,7 @@ function WhiteAddButton(props: ButtonProps) {
   return (
     <Button
       {...props}
-      rightIcon={<PlusCircleIcon textColor='text-black' />}
+      rightIcon={<PlusCircleIcon textColor='text-black dark:text-white' />}
       variant='default'
       color='white'
     />

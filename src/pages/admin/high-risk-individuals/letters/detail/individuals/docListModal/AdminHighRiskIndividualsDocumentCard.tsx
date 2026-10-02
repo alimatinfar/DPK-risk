@@ -25,7 +25,7 @@ function AdminHighRiskIndividualsDocumentCard(
 ) {
   return (
     <div
-      className='rounded-lg bg-slate-100 p-2 flex flex-col gap-y-2'
+      className='rounded-lg bg-slate-100 dark:bg-dark-6 p-2 flex flex-col gap-y-2'
     >
       <div className='flex items-center justify-between gap-x-4'>
         <p>
@@ -36,16 +36,16 @@ function AdminHighRiskIndividualsDocumentCard(
           <div className='flex items-center gap-x-2'>
             {editAction && (
               <IconClickable
-                hoverClass='hover:bg-white'
+                hoverClass='hover:bg-white dark:hover:bg-dark-2'
                 onClick={editAction}
               >
-                <EditIcon2/>
+                <EditIcon2 textColor='text-black dark:text-white' />
               </IconClickable>
             )}
 
             {deleteAction && (
               <IconClickable
-                hoverClass='hover:bg-red-100'
+                hoverClass='hover:bg-red-100 dark:hover:bg-dark-2'
                 onClick={deleteAction}
               >
                 <DeleteIcon/>

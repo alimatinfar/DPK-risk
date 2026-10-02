@@ -5,6 +5,7 @@ import DeleteIcon from "../../svg/DeleteIcon.tsx";
 import React from "react";
 import type {UploadFileDataType} from "./hooks/useFileDataCard.ts";
 import downloadFileFromBase64 from "../../../utils/fileOperations/downloadFileFromBase64.ts";
+import useTheme from "../ThemeManager/hooks/useTheme.ts";
 
 
 export type FileDataCardProps = {
@@ -27,9 +28,9 @@ function FileDataCard(
 
   return (
     <div
-      className='flex items-center justify-between py-4 px-2 bg-white rounded-lg mt-4 border border-slate-300 overflow-hidden'>
+      className='flex items-center justify-between py-4 px-2 bg-white dark:bg-dark-6 dark:border-dark-2 rounded-lg mt-4 border border-slate-300 overflow-hidden'>
       <div className='flex-1 flex items-center gap-x-2'>
-        <FileIcon/>
+        <FileIcon textColor='text-black dark:text-white' />
 
         <div className='flex-1 flex flex-col justify-between items-start space-y-1'>
           <p className='text-sm ltr text-right'>
@@ -51,7 +52,10 @@ function FileDataCard(
           onClick={downloadFileHandler || downloadFileData}
           loading={downloadFileLoading}
         >
-          <DownloadIcon2 width='100%' height='100%'/>
+          <DownloadIcon2
+            width='100%' height='100%'
+            textColor={'text-slate-900 dark:text-white'}
+          />
         </IconClickable>
 
         {removeFileData && (

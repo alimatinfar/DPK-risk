@@ -14,6 +14,7 @@ import AdminHighRiskIndividualsDocumentFormFields
 } from "../AdminHighRiskIndividualsDocumentFormFields/AdminHighRiskIndividualsDocumentFormFields.tsx";
 import setDefaultValuesFromObject
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject";
+import useTheme from "../../../../../components/others/ThemeManager/hooks/useTheme.ts";
 
 
 export type AdminHighRiskIndividualsDocumentsListFormProps = {
@@ -59,6 +60,8 @@ function AdminHighRiskIndividualsDocumentsListForm(
     })
   }
 
+  const {isDarkMode} = useTheme()
+
   return (
     <div className='mb-4'>
       <div className='mb-4 pb-4 border-b border-slate-200'>
@@ -71,9 +74,9 @@ function AdminHighRiskIndividualsDocumentsListForm(
 
           <div className={`mt-2 ${buttonClass || ''}`}>
             <Button
-              type='submit'
-              variant='outlined'
+              type='submit' variant='outlined'
               fullWidth={!buttonIsNotFullWidth}
+              color={isDarkMode ? 'white' : 'primary'}
             >
               افزودن
             </Button>

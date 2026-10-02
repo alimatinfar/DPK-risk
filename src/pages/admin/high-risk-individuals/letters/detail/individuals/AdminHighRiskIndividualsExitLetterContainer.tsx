@@ -14,14 +14,14 @@ function AdminHighRiskIndividualsExitLetterContainer(
 
   const childrenRender = (
     <div
-      className={`flex flex-col gap-y-4 p-4 rounded-lg bg-white ${exitType ? '' : 'border border-slate-200'}`}>
+      className={`flex flex-col gap-y-4 p-4 rounded-lg bg-white dark:bg-dark-1 ${exitType ? '' : 'border border-slate-200 dark:border-dark-2'}`}>
       {children}
     </div>
   )
 
   return exitType ? (
-    <div className='flex flex-col border border-red-300 rounded-lg overflow-hidden'>
-      <div className='text-center text-red-500 font-semibold p-2.5 bg-red-50'>
+    <div className='flex flex-col border border-red-300 dark:border-dark-2 rounded-lg overflow-hidden'>
+      <div className='text-center text-red-500 font-semibold p-2.5 bg-red-50 dark:bg-dark-2 '>
         {`خروج با ${EXIT_PERSON_FROM_LETTER_KEYS_LABEL[exitType]}`}
       </div>
 

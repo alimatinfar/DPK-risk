@@ -77,7 +77,7 @@ function HighRiskIndividualsTimeLine(
                 className='grid grid-cols-2'
               >
                 <div
-                  className='relative flex flex-col items-end justify-center gap-y-1 pl-3 border-l-[3px] border-slate-100 pt-4 pb-4'>
+                  className='relative flex flex-col items-end justify-center gap-y-1 pl-3 border-l-[3px] border-slate-100 dark:border-custom-gray-8 pt-4 pb-4'>
                   <span className='text-xs'>
                     {history.title}
                   </span>

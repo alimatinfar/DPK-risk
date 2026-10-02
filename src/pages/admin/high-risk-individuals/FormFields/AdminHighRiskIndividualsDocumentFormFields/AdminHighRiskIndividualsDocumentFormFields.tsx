@@ -19,7 +19,7 @@ function AdminHighRiskIndividualsDocumentFormFields(
 
       <div className={descriptionClass || ''}>
         <DescriptionField
-          isNotRequired placeholder='توضیحات مربوط به فایل بارگزاری شده'
+          isNotRequired placeholder='توضیحات مربوط به فایل بارگذاری شده'
           maxLength={190}
         />
       </div>

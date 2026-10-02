@@ -32,7 +32,7 @@ function useButtonStylesColors({readOnly, longPress}: Props) {
     'red': {
       'filled': `text-white border-transparent bg-red-500 disabled:bg-red-300 ${readOnly ? '' : 'enabled:hover:bg-red-600'}`,
       'link': `text-red-800 border-transparent bg-transparent disabled:text-red-300 ${readOnly ? '' : 'enabled:hover:bg-red-50 dark:enabled:hover:bg-dark-2'}`,
-      'default': `text-red-500 border-red-300 bg-red-50 ${readOnly ? '' : 'enabled:hover:bg-red-100'}`,
+      'default': `text-red-500 border-red-300 bg-red-50 dark:text-white dark:bg-red-800 dark:border-red-800 ${readOnly ? '' : 'enabled:hover:bg-red-100 dark:enabled:hover:bg-red-900'}`,
       'outlined':
         `text-red-500 border-red-500 bg-transparent ${readOnly ? '' : 'enabled:hover:bg-red-50'}
          disabled:bg-red-50 disabled:border-red-200 disabled:text-red-200`,
