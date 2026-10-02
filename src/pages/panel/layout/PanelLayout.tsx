@@ -14,9 +14,9 @@ function PanelLayout() {
       sideBarItems={getPanelSideBarItems()}
       topBar={<PanelTopBar/>}
       bottomLogoRender={(isExpanded) => (
-        <div className='bg-[#E1DEEA] flex flex-col gap-y-2 p-2 rounded-lg mt-4'>
+        <div className='bg-[#E1DEEA] dark:bg-dark-2 flex flex-col gap-y-2 p-2 rounded-lg mt-4'>
           {isExpanded && (
-            <span className='text-slate-700 text-xs text-center'>
+            <span className='text-slate-700 dark:text-custom-gray-2 text-xs text-center'>
               ریسک تعامل کاری
             </span>
           )}

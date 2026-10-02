@@ -6,7 +6,10 @@ type Props = Partial<ButtonProps>
 
 function useButtonStylesColors({readOnly, longPress}: Props) {
 
-  const defaultButtonClass = 'text-slate-900 border-slate-300 bg-white enabled:hover:bg-slate-100 disabled:text-slate-300 shadow-xs'
+  const defaultButtonClass = `
+    text-slate-900 border-slate-300 bg-white enabled:hover:bg-slate-100 disabled:text-slate-300 shadow-xs
+    dark:text-custom-gray-2 dark:bg-dark-2 dark:enabled:hover:bg-dark-4 dark:border-dark-1
+  `
 
   const buttonStylesColors: Record<ButtonColorsType, PartialRecord<ButtonVariantsType, string>> = {
     //TODO should be changed
@@ -36,7 +39,8 @@ function useButtonStylesColors({readOnly, longPress}: Props) {
     },
     'white': {
       'default': defaultButtonClass,
-      'link': `text-slate-900 border-transparent bg-transparent disabled:text-slate-300 ${readOnly ? '' : 'enabled:hover:bg-secondary/5 dark:enabled:hover:bg-dark-2'}`,
+      'link': `text-slate-900 border-transparent bg-transparent disabled:text-slate-300
+       ${readOnly ? '' : 'enabled:hover:bg-secondary/5 dark:enabled:hover:bg-dark-2'}`,
     },
   }
 
