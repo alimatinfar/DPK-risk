@@ -18,7 +18,7 @@ function PanelTopBar() {
   return (
     <DashboardTopBar title='سامانه مدیریت ریسک مشتریان' >
       <div className="flex-1 pt-4 px-3">
-        <div className="h-15 rounded-lg flex items-center justify-between gap-x-4 border-y border-slate-200 dark:border-dark-2 bg-[#DDE8F2] dark:bg-dark-2 px-2">
+        <div className="h-15 rounded-lg flex items-center justify-between gap-x-4 border-y border-slate-200 dark:border-dark-2 bg-[#DDE8F2] dark:bg-dark-6 px-2">
           <div className="flex items-center gap-x-8">
             <div className="flex items-center gap-x-2">
               {getPersonIconByType(activePersonData.type)?.({})}

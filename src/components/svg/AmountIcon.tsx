@@ -2,7 +2,7 @@ import type {IconPropsType} from "./IconPropsType.ts";
 
 function AmountIcon({className, textColor}: IconPropsType) {
 
-  const pathClassName = `stroke-current duration-200 ${textColor || 'text-slate-500'}`
+  const pathClassName = `stroke-current duration-200 ${textColor || 'text-slate-500 dark:text-dark-3'}`
 
   return (
     <svg

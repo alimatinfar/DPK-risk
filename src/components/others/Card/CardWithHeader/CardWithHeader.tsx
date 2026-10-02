@@ -18,7 +18,7 @@ function CardWithHeader(
     <div className={`flex flex-col border border-slate-200 dark:border-dark-2 rounded-lg overflow-hidden ${className || ''}`}>
       <div className={`
         ${customHeaderRender ? '' : 'flex items-center justify-between h-15'} 
-        p-4 border-b border-slate-200 bg-slate-50 dark:bg-dark-2 dark:border-dark-2
+        p-4 border-b border-slate-200 bg-slate-50 dark:bg-dark-6 dark:border-dark-2
       `}>
         {customHeaderRender || (
           <>

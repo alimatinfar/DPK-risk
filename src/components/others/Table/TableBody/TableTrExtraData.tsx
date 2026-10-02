@@ -19,8 +19,8 @@ function TableTrExtraData(
 
   return (
     <div className={`
-      p-4 bg-slate-50 grid grid-cols-5 gap-x-4 gap-y-8
-      ${isLast ? 'border-t' : 'border-b'} border-slate-300
+      p-4 bg-slate-50 dark:bg-dark-1 grid grid-cols-5 gap-x-4 gap-y-8
+      ${isLast ? 'border-t' : 'border-b'} border-slate-300 dark:border-dark-4
     `}>
       {extraColumns.map((column, index) => {
 
@@ -31,13 +31,13 @@ function TableTrExtraData(
             key={column.accessor}
             className={`
                flex flex-col gap-y-2 text-sm px-4
-               ${is5X ? '' : 'border-r border-slate-300'}
+               ${is5X ? '' : 'border-r border-slate-300 dark:border-dark-2'}
             `}
           >
-            <span className='text-slate-500'>
+            <span className='text-slate-500 dark:text-custom-gray-3'>
               {column.label}
             </span>
-            <span className='text-slate-900'>
+            <span className='text-slate-900 dark:text-custom-gray-2'>
               {row[column.accessor] as ReactNode || '-'}
             </span>
           </div>

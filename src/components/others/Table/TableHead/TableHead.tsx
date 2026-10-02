@@ -37,7 +37,7 @@ const TableHead: FC<TableHeadProps> = ({columns, sort, setSort}) => {
 
   return (
     <thead>
-    <tr className="h-9 bg-slate-100 dark:bg-dark-2 border-b border-slate-300 dark:border-dark-6 select-none">
+    <tr className="h-9 bg-slate-100 dark:bg-dark-6 border-b border-slate-300 dark:border-dark-6 select-none">
       {mainColumns.map(({label, accessor, hasSort, textAlign}, index) => {
         return (
           <th

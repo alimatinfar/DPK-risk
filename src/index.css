@@ -137,6 +137,10 @@ html {
   @apply bg-white font-IRANYekan dark:bg-dark-1 dark:text-custom-gray-2;
 }
 
+html.dark {
+  background: var(--color-dark-1) !important;
+}
+
 button {
   @apply cursor-pointer;
 }
