@@ -1,18 +1,16 @@
 import AdminRiskTreeItem from "./AdminRiskTreeItem.tsx";
 import type {RiskTreeItemCommonType} from "../index.types.ts";
-import {useEffect, useState} from "react";
 import Button from "../../../../components/Form/Button/Button.tsx";
 import InputErrorMessage from "../../../../components/Form/Input/InputErrorMessage.tsx";
 import EmptyState from "../../../../components/others/RenderLogic/EmptyState.tsx";
 import SettingEmptyStateIcon from "../../../../components/svg/RenderLogic/SettingEmptyStateIcon.tsx";
 import ReactHookFormWrapper from "../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import useReactHookFormWrapper
-  from "../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import type {RiskSelectedStateType} from "../hooks/useAdminRiskTree.ts";
+import useAdminRiskTreeColumn from "../hooks/useAdminRiskTreeColumn.ts";
 
 
 
-type Props = {
+export type AdminRiskTreeColumnProps = {
   items: RiskTreeItemCommonType[];
   selectedId?: RiskSelectedStateType;
   onSelect?: (item: RiskTreeItemCommonType) => void;
@@ -26,30 +24,14 @@ type Props = {
 function AdminRiskTreeColumn(
   {
     selectedId, items, onSelect, isLast, isEmptyState, title, previousLevelTitle, previousSelectedId
-  }: Props
+  }: AdminRiskTreeColumnProps
 ) {
 
   const {
-    formMethods, onSubmit
-  } = useReactHookFormWrapper({
-    onSubmitHandler
+    formMethods, onSubmit, setWasChanged, wasChanged, hasError, cancelHandler
+  } = useAdminRiskTreeColumn({
+    previousSelectedId
   })
-
-  function onSubmitHandler(formData: any) {
-    console.log({formData})
-  }
-
-  const [wasChanged, setWasChanged] = useState(false)
-  const [hasError, setHasError] = useState(true)
-
-  function cancelHandler() {
-    setWasChanged(false)
-    formMethods.reset()
-  }
-
-  useEffect(() => {
-    cancelHandler()
-  }, [previousSelectedId]);
 
   return (
     <div className={`
