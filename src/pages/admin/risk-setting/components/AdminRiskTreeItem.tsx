@@ -3,6 +3,7 @@ import type {RiskTreeItemCommonType} from "../index.types.ts";
 import ArrowIcon from "../../../../components/svg/ArrowIcon.tsx";
 import type {SetStateType} from "../../../../types/SetStateType.ts";
 import InputForm from "../../../../components/Form/Input/InputForm.tsx";
+import {useFormContext} from "react-hook-form";
 
 
 type TreeItemProps = {
@@ -18,6 +19,13 @@ function AdminRiskTreeItem(
     id, title, weight, selected = false, onClick, children, setWasChanged, isLast
   }: TreeItemProps
 ) {
+
+  const {setValue} = useFormContext()
+
+  useEffect(() => {
+    setValue(id, weight)
+  }, []);
+
   return (
     <div
       onClick={onClick}
@@ -41,7 +49,8 @@ function AdminRiskTreeItem(
               wrapperClassName: {width: 'w-13.5', height: 'h-10'},
               inputClassName: {textAlign: 'text-center', fontSize: 'text-[13px]'},
               onClick: (e) => e.stopPropagation(),
-              hasDotKey: !isLast
+              hasDotKey: !isLast,
+              maxLength: isLast ? 1 : 5
             }}
             defaultValue={weight}
             rules={{required: true}}

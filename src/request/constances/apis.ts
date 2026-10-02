@@ -107,6 +107,12 @@ const APIS = {
   ADMIN_INQUIRY_HISTORIES_ADD_DOCUMENT: 'InquiryCustomer/InsertInquiryLetterDocument',
   ADMIN_INQUIRY_HISTORIES_DELETE_CUSTOMER: 'InquiryCustomer/DeleteInquiryCustomer',
   ADMIN_INQUIRY_HISTORIES_CHANGE_RESPONSE_SUBMISSION_STATUS: 'InquiryCustomer/ChangeInquiryLetterStatusSend',
+
+  ADMIN_RISK_SETTING_TREE_DATA: 'RiskCustomer/GetFullRiskHierarchy',
+  ADMIN_RISK_SETTING_UPDATE_TYPES: 'RiskCustomer/UpdateRiskTypes',
+  ADMIN_RISK_SETTING_UPDATE_GROUPS: 'RiskCustomer/UpdateRiskGroups',
+  ADMIN_RISK_SETTING_UPDATE_INDICATORS: 'RiskCustomer/UpdateRiskIndicators',
+  ADMIN_RISK_SETTING_UPDATE_SUB_INDICATORS: 'RiskCustomer/UpdateRiskSubIndicators',
 }
 
 export default APIS;

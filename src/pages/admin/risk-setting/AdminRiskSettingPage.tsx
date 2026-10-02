@@ -1,66 +1,76 @@
 
 import useAdminRiskTree from "./hooks/useAdminRiskTree.ts";
 
-import {riskData} from "./data/riskData.ts";
 import AdminRiskTreeColumn from "./components/AdminRiskTreeColumn.tsx";
 import {indicatorGroupLabel, indicatorLabel, indicatorTypeLabel, subIndicatorLabel} from "./index.constances.ts";
+import APIS from "../../../request/constances/apis.ts";
+import RenderLogic from "../../../components/others/RenderLogic/RenderLogic.tsx";
 
 
 function AdminRiskSettingPage() {
 
-  const data = riskData
-
   const {
-    groups, indicators, subIndicators,
+    groups, indicators, subIndicators, tree, refetch, error, isFetching,
     selectedTypeId, selectedGroupId, selectedIndicatorId,
     selectTypeHandler, selectGroupHandler, selectIndicatorHandler,
-  } = useAdminRiskTree({tree: data});
+  } = useAdminRiskTree()
 
   return (
-    <div
-      dir="rtl"
-      className="grid grid-cols-4"
+    <RenderLogic
+      error={error} isLoading={isFetching}
     >
-      <AdminRiskTreeColumn
-        items={data}
-        selectedId={selectedTypeId}
-        onSelect={selectTypeHandler}
-        title={indicatorTypeLabel}
-      />
-
-      <AdminRiskTreeColumn
-        items={groups}
-        selectedId={selectedGroupId}
-        onSelect={selectGroupHandler}
-        isEmptyState={!selectedTypeId}
-        title={indicatorGroupLabel}
-        previousLevelTitle={indicatorTypeLabel}
-        previousSelectedId={selectedTypeId}
-      />
-
-      {selectedTypeId && (
+      <div
+        className="grid grid-cols-4"
+      >
         <AdminRiskTreeColumn
-          items={indicators}
-          selectedId={selectedIndicatorId}
-          onSelect={selectIndicatorHandler}
-          isEmptyState={!selectedGroupId}
-          title={indicatorLabel}
-          previousLevelTitle={indicatorGroupLabel}
-          previousSelectedId={selectedGroupId}
+          items={tree}
+          selectedId={selectedTypeId}
+          onSelect={selectTypeHandler}
+          title={indicatorTypeLabel}
+          apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_TYPES}
+          refetch={refetch}
         />
-      )}
 
-      {selectedGroupId && (
         <AdminRiskTreeColumn
-          items={subIndicators}
-          isLast
-          isEmptyState={!selectedIndicatorId}
-          title={subIndicatorLabel}
-          previousLevelTitle={indicatorLabel}
-          previousSelectedId={selectedIndicatorId}
+          items={groups}
+          selectedId={selectedGroupId}
+          onSelect={selectGroupHandler}
+          isEmptyState={!selectedTypeId}
+          title={indicatorGroupLabel}
+          previousLevelTitle={indicatorTypeLabel}
+          previousSelectedId={selectedTypeId}
+          apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_GROUPS}
+          refetch={refetch}
         />
-      )}
-    </div>
+
+        {selectedTypeId && (
+          <AdminRiskTreeColumn
+            items={indicators}
+            selectedId={selectedIndicatorId}
+            onSelect={selectIndicatorHandler}
+            isEmptyState={!selectedGroupId}
+            title={indicatorLabel}
+            previousLevelTitle={indicatorGroupLabel}
+            previousSelectedId={selectedGroupId}
+            apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_INDICATORS}
+            refetch={refetch}
+          />
+        )}
+
+        {selectedGroupId && (
+          <AdminRiskTreeColumn
+            items={subIndicators}
+            isLast
+            isEmptyState={!selectedIndicatorId}
+            title={subIndicatorLabel}
+            previousLevelTitle={indicatorLabel}
+            previousSelectedId={selectedIndicatorId}
+            apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_SUB_INDICATORS}
+            refetch={refetch}
+          />
+        )}
+      </div>
+    </RenderLogic>
   );
 }
 

@@ -1,18 +1,15 @@
 import AdminRiskTreeItem from "./AdminRiskTreeItem.tsx";
 import type {RiskTreeItemCommonType} from "../index.types.ts";
-import {useEffect, useState} from "react";
 import Button from "../../../../components/Form/Button/Button.tsx";
 import InputErrorMessage from "../../../../components/Form/Input/InputErrorMessage.tsx";
 import EmptyState from "../../../../components/others/RenderLogic/EmptyState.tsx";
 import SettingEmptyStateIcon from "../../../../components/svg/RenderLogic/SettingEmptyStateIcon.tsx";
 import ReactHookFormWrapper from "../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import useReactHookFormWrapper
-  from "../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
 import type {RiskSelectedStateType} from "../hooks/useAdminRiskTree.ts";
+import useAdminRiskTreeColumn from "../hooks/useAdminRiskTreeColumn.ts";
 
 
-
-type Props = {
+export type AdminRiskTreeColumnProps = {
   items: RiskTreeItemCommonType[];
   selectedId?: RiskSelectedStateType;
   onSelect?: (item: RiskTreeItemCommonType) => void;
@@ -21,35 +18,22 @@ type Props = {
   title: string;
   previousLevelTitle?: string;
   previousSelectedId?: RiskSelectedStateType;
+  apiAddress: string;
+  refetch: () => void;
 }
 
 function AdminRiskTreeColumn(
   {
-    selectedId, items, onSelect, isLast, isEmptyState, title, previousLevelTitle, previousSelectedId
-  }: Props
+    selectedId, items, onSelect, isLast, isEmptyState, title, previousLevelTitle, previousSelectedId, apiAddress,
+    refetch
+  }: AdminRiskTreeColumnProps
 ) {
 
   const {
-    formMethods, onSubmit
-  } = useReactHookFormWrapper({
-    onSubmitHandler
+    formMethods, onSubmit, setWasChanged, wasChanged, hasError, cancelHandler, loading, errorMessage
+  } = useAdminRiskTreeColumn({
+    previousSelectedId, apiAddress, refetch, isLast
   })
-
-  function onSubmitHandler(formData: any) {
-    console.log({formData})
-  }
-
-  const [wasChanged, setWasChanged] = useState(false)
-  const [hasError, setHasError] = useState(true)
-
-  function cancelHandler() {
-    setWasChanged(false)
-    formMethods.reset()
-  }
-
-  useEffect(() => {
-    cancelHandler()
-  }, [previousSelectedId]);
 
   return (
     <div className={`
@@ -87,7 +71,9 @@ function AdminRiskTreeColumn(
               <div className='flex flex-col gap-y-2'>
                 {hasError && (
                   <div className='bg-red-50 p-2 rounded-lg'>
-                    <InputErrorMessage errorMessage='مجموع شاخص های اصلی باید 100 باشد'/>
+                    <InputErrorMessage
+                      errorMessage={errorMessage}
+                    />
                   </div>
                 )}
 
@@ -96,7 +82,7 @@ function AdminRiskTreeColumn(
                     انصراف
                   </Button>
 
-                  <Button type='submit' fullWidth>
+                  <Button type='submit' fullWidth loading={loading}>
                     ذخیره
                   </Button>
                 </div>
