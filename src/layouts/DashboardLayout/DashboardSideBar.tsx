@@ -37,7 +37,7 @@ function DashboardSideBar(
         ${isExpanded ? SIDEBAR_WIDTHS.EXPANDED : SIDEBAR_WIDTHS.COLLAPSED} 
         ${isExpanded ? 'px-4' : 'px-1.5'} 
         ${Z_INDEXES.SIDEBAR} 
-        h-dvh py-4 flex flex-col bg-slate-50 dark:bg-dark-1 border-l border-slate-200 dark:border-dark-5
+        h-dvh py-4 flex flex-col bg-slate-50 dark:bg-dark-6 border-l border-slate-200 dark:border-dark-5
       `}
     >
       <div className="flex-1 overflow-auto scroll-thin">

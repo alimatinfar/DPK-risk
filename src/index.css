@@ -33,6 +33,7 @@
   --color-dark-3: #374151;
   --color-dark-4: #404040;
   --color-dark-5: #1F2937;
+  --color-dark-6: #19181B;
 
   --color-custom-gray-1: #D1D5DB;
   --color-custom-gray-2: #F5F7FA;
@@ -40,6 +41,7 @@
   --color-custom-gray-4: #F3F4F6;
   --color-custom-gray-5: #8E97A3;
   --color-custom-gray-6: #F9FAFB;
+  --color-custom-gray-7: #C9D0D8;
 
   --shadow-base: 0 0px 2px 0px rgba(16,24,40,0.06), 0px 0px 3px 0px rgba(16, 24, 40, 0.1);
   --font-IRANYekan: IRANYekan;

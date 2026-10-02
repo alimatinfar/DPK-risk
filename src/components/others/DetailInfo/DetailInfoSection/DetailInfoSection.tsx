@@ -41,7 +41,7 @@ function DetailInfoSection(
           key={rowsIndex}
           className={`
               grid ${customGridColsClass || 'grid-cols-5'} gap-4
-              ${rowsIndex === 0 ? '' : 'border-t border-slate-200  pt-3 mt-3'}
+              ${rowsIndex === 0 ? '' : 'border-t border-slate-200 dark:border-dark-2 pt-3 mt-3'}
             `}
         >
           {row.map((item, rowItemIndex) => (

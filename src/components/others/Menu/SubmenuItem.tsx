@@ -92,7 +92,7 @@ function SubmenuItem(
             to={child.link}
             className={`
               flex items-center justify-center rounded-bl-sm rounded-tl-sm w-9 h-9 p-2
-              ${isActive ? "bg-accent border-r-[3px] border-[#9E90CF] dark:bg-dark-2 dark:border-dark-4" : "hover:bg-slate-100"}
+              ${isActive ? "bg-accent border-r-[3px] border-[#9E90CF] dark:bg-dark-2 dark:border-dark-4" : "hover:bg-slate-100 dark:hover:bg-dark-2"}
               ${child.className || ""}
             `}
             title={child.label}
