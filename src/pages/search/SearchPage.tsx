@@ -17,6 +17,7 @@ import useTheme from "../../components/others/ThemeManager/hooks/useTheme.ts";
 
 import ZeroAndOneBg from '../../assets/images/zero&one.svg'
 import ZeroAndOneBgDark from '../../assets/images/zero&one-dark.svg'
+import ThemeSelector from "../../layouts/MainLayout/ThemeSelector.tsx";
 
 
 function SearchPage() {
@@ -59,14 +60,18 @@ function SearchPage() {
               <Link to={ROUTER_LINKS.ADMIN}>
                 <Button
                   variant='outlined' size='sm' className={{extra: 'h-10'}}
-                  rightIcon={<SettingIcon />}
+                  rightIcon={<SettingIcon/>}
                 >
                   ورود به مدیریت سامانه ریسک
                 </Button>
               </Link>
             )}
 
-            <MainLayoutProfileSection/>
+            <div className='flex items-center gap-2'>
+              <ThemeSelector/>
+
+              <MainLayoutProfileSection/>
+            </div>
           </div>
         </div>
 
@@ -88,7 +93,7 @@ function SearchPage() {
           style={{
             background: isDarkMode ?
               'radial-gradient(50% 50% at 50% 50%, #2A2A2A 0%, #1D1C1F 100%)' :
-            `radial-gradient(50% 398.62% at 50% 50%, #F8FAFC 0%, rgba(242, 244, 246, 0.7) 100%)`
+              `radial-gradient(50% 398.62% at 50% 50%, #F8FAFC 0%, rgba(242, 244, 246, 0.7) 100%)`
           }}
         >
         </div>

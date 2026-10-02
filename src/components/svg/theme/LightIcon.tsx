@@ -1,9 +1,16 @@
-function LightIcon() {
+import type {IconPropsType} from "../IconPropsType.ts";
+
+function LightIcon(
+  {textColor, className}: IconPropsType
+) {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      {...className && {className}}
+      width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
+        className={`stroke-current duration-200 ${textColor || 'text-gray-500'}`}
         d="M12 5V6.75M16.9498 7.05022L15.7123 8.28767M19 12H17.25M16.9498 16.9498L15.7123 15.7123M12 17.25V19M8.28767 15.7123L7.05022 16.9498M6.75 12H5M8.28767 8.28767L7.05022 7.05022M14.9167 12C14.9167 12.7735 14.6094 13.5154 14.0624 14.0624C13.5154 14.6094 12.7735 14.9167 12 14.9167C11.2265 14.9167 10.4846 14.6094 9.93761 14.0624C9.39062 13.5154 9.08333 12.7735 9.08333 12C9.08333 11.2265 9.39062 10.4846 9.93761 9.93761C10.4846 9.39062 11.2265 9.08333 12 9.08333C12.7735 9.08333 13.5154 9.39062 14.0624 9.93761C14.6094 10.4846 14.9167 11.2265 14.9167 12Z"
-        stroke="#64748B" stroke-linecap="round" stroke-linejoin="round"
+        strokeLinecap="round" strokeLinejoin="round"
       />
     </svg>
   );
