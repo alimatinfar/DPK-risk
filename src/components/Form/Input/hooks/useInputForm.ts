@@ -18,7 +18,7 @@ function useInputForm(
     name: fieldName,
     control,
     rules,
-    defaultValue: defaultValue || "",
+    defaultValue: defaultValue ?? "",
   });
 
   useEffect(() => {
