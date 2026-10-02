@@ -30,9 +30,9 @@ function useInputStyles(
     default: `
     flex items-center border block overflow-hidden appearance-none duration-200
     `,
-    background: isConflict ? 'bg-orange-100' : (disabled || readOnly) ? 'bg-slate-100' : 'bg-white',
+    background: isConflict ? 'bg-orange-100' : (disabled || readOnly) ? 'bg-slate-100' : 'bg-white dark:bg-dark-2',
     shadow: 'shadow-base',
-    border: `border-slate-300 [&:has(input:enabled)]:hover:border-primary-300 [&:has(input:focus)]:border-primary`,
+    border: `border-slate-300 dark:border-dark-2 [&:has(input:enabled)]:hover:border-primary-300 [&:has(input:focus)]:border-primary`,
     borderRadius: 'rounded-lg',
     height: rows ? '' : inputSizes[size],
     width: 'w-full',
@@ -46,14 +46,14 @@ function useInputStyles(
     default: `
      ${inputLtr ? 'ltr' : ''} ${resizable ? '' : 'resize-none'}
      h-full w-full outline-none text-ellipsis focus:text-clip scroll-thin placeholder:text-right placeholder:rtl
-     placeholder:text-base placeholder:text-slate-400 
+     placeholder:text-base placeholder:text-slate-400  dark:placeholder:text-gray-400 
     `,
     background: 'bg-transparent',
     padding: 'px-2 py-3',
     fontSize: `text-base`,
     fontWeight: `font-medium`,
     textAlign: `text-right`,
-    textColor: `text-slate-700`,
+    textColor: `text-slate-700 dark:text-white`,
     ...inputClassName,
   }), [inputLtr, resizable, inputClassName])
 

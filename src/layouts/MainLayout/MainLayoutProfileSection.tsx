@@ -51,14 +51,14 @@ function MainLayoutProfileSection(
       >
         <IconClickable
           className={`
-            flex items-center justify-between gap-x-2 px-1.5 bg-white h-10 ${MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} 
+            flex items-center justify-between gap-x-2 px-1.5 bg-white dark:bg-dark-2 h-10 ${MAIN_LAYOUT_PROFILE_DROP_DOWN_MIN_WIDTH} 
             ${removeShadow ? '' : 'shadow-base'}
           `}
           rounded='rounded-lg'
-          hoverClass='hover:bg-slate-50'
+          hoverClass='hover:bg-slate-50 dark:hover:bg-dark-1'
         >
           <div className='flex items-center gap-x-1'>
-            <div className='size-6 bg-primary p-1 rounded-lg'>
+            <div className='size-6 bg-primary dark:bg-transparent p-1 rounded-lg'>
               <UserIcon textColor="text-white" width='100%' height='100%' />
             </div>
             <span className="px-1 select-none text-sm">

@@ -19,7 +19,7 @@ function DropDownActionsOptions(
               onClick={onClickHandler}
               key={index}
               className={`
-              flex items-center space-x-2 p-2 hover:bg-slate-100 duration-200 cursor-pointer
+              flex items-center space-x-2 p-2 hover:bg-slate-100 dark:hover:bg-dark-1 duration-200 cursor-pointer
               rounded-md select-none ${action.className || ''}
             `}
             >
@@ -27,7 +27,7 @@ function DropDownActionsOptions(
                 {action.icon}
               </div>
 
-              <p className={action.titleClass || `text-sm text-slate-900`}>
+              <p className={action.titleClass || `text-sm text-slate-900 dark:text-white`}>
                 {action.title}
               </p>
             </div>

@@ -1,11 +1,19 @@
 import type {IconPropsType} from "../IconPropsType.ts";
 
 function EmptyStateIcon({height, width}: IconPropsType) {
+
+  const fillWhiteClass = 'fill-current text-white dark:text-dark-2'
+  const fillCircleClass = 'fill-current text-custom-gray-4 dark:text-dark-2'
+
   return (
     <svg width={width || "150"} height={height || "178"} viewBox="0 0 150 178" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M75 167C116.421 167 150 133.422 150 92.0002C150 50.5787 116.421 17 75 17C33.5786 17 0 50.5787 0 92.0002C0 133.422 33.5786 167 75 167Z" fill="#F3F4F6"/>
+      <path d="M75 167C116.421 167 150 133.422 150 92.0002C150 50.5787 116.421 17 75 17C33.5786 17 0 50.5787 0 92.0002C0 133.422 33.5786 167 75 167Z"
+        className={fillCircleClass}
+      />
       <g filter="url(#filter0_d_13041_7281)">
-        <path d="M118 60H32C29.2386 60 27 62.2386 27 65V170C27 172.762 29.2386 175 32 175H118C120.761 175 123 172.762 123 170V65C123 62.2386 120.761 60 118 60Z" fill="white"/>
+        <path d="M118 60H32C29.2386 60 27 62.2386 27 65V170C27 172.762 29.2386 175 32 175H118C120.761 175 123 172.762 123 170V65C123 62.2386 120.761 60 118 60Z"
+          className={fillWhiteClass}
+        />
       </g>
       <path d="M65.0001 75H39.0001C37.3432 75 36.0001 76.3431 36.0001 78C36.0001 79.6569 37.3432 81 39.0001 81H65.0001C66.6569 81 68.0001 79.6569 68.0001 78C68.0001 76.3431 66.6569 75 65.0001 75Z" fill="#E5E7EB"/>
       <path d="M82.9999 88H38.9999C37.3431 88 35.9999 89.3431 35.9999 91C35.9999 92.6569 37.3431 94 38.9999 94H82.9999C84.6568 94 85.9999 92.6569 85.9999 91C85.9999 89.3431 84.6568 88 82.9999 88Z" fill="#F3F4F6"/>

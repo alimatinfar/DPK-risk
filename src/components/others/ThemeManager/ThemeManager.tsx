@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import {THEME_VALUES, useThemeStore} from "./store/useThemeStore.ts";
+import useTheme from "./hooks/useTheme.ts";
 
 function ThemeManager() {
-  const theme = useThemeStore((state) => state.theme);
+  const {
+    theme, isDarkMode
+  } = useTheme()
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(
@@ -10,9 +13,7 @@ function ThemeManager() {
     )
 
     const applyTheme = () => {
-      const isDark = theme === THEME_VALUES.DARK || (theme === THEME_VALUES.SYSTEM && mediaQuery.matches);
-
-      document.documentElement.classList.toggle(THEME_VALUES.DARK, isDark);
+      document.documentElement.classList.toggle(THEME_VALUES.DARK, isDarkMode);
     }
 
     applyTheme();

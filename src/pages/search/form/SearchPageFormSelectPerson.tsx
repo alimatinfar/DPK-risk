@@ -20,8 +20,8 @@ function SearchPageFormSelectPerson(
     return Object.entries(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).map(([_, value]) => ({
       onClick: () => setActivePersonType(value?.name),
       title: value?.label,
-      icon: <value.icon/>,
-      className: activePersonType === value?.name ? 'bg-slate-100' : ''
+      icon: <value.icon textColor='' />,
+      className: activePersonType === value?.name ? 'bg-slate-100 dark:bg-dark-1' : ''
     }))
   }, [setActivePersonType, activePersonType])
 

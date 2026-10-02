@@ -2,7 +2,6 @@ import SearchPageForm, {type SearchPageFormProps} from "./form/SearchPageForm.ts
 import SearchPageResult from "./result/SearchPageResult.tsx";
 import SaderatLogoAndTypo from "../../components/svg/logo/SaderatLogoAndTypo.tsx";
 import MainLayoutProfileSection from "../../layouts/MainLayout/MainLayoutProfileSection.tsx";
-import ZeroAndOneBg from '../../assets/images/zero&one.svg'
 import useSearchPage from "./hooks/useSearchPage.ts";
 import userHasRole from "../../utils/authentication/userRoles/userHasRole.ts";
 import {USER_ROLES} from "../../utils/authentication/userRoles/index.constances.ts";
@@ -11,15 +10,20 @@ import {Link} from "react-router";
 import ROUTER_LINKS from "../../constances/routerLinks.ts";
 import SettingIcon from "../../components/svg/SettingIcon.tsx";
 import useSearchStore from "./store/useSearchStore.ts";
-import {useEffect} from "react";
+import {lazy, useEffect} from "react";
 import setDefaultValuesFromObject
   from "../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
+import useTheme from "../../components/others/ThemeManager/hooks/useTheme.ts";
+
+import ZeroAndOneBg from '../../assets/images/zero&one.svg'
+import ZeroAndOneBgDark from '../../assets/images/zero&one-dark.svg'
 
 
 function SearchPage() {
 
   const setStoreData = useSearchStore(state => state.setStoreData)
   const activePersonType = useSearchStore(state => state.activePersonType)
+  const {isDarkMode} = useTheme()
 
   const {
     formMethods, onSubmit, isSubmittedSuccessful,
@@ -73,16 +77,18 @@ function SearchPage() {
 
         <div
           style={{
-            backgroundImage: `url(${ZeroAndOneBg})`,
+            backgroundImage: `url(${isDarkMode ? ZeroAndOneBgDark : ZeroAndOneBg})`,
           }}
-          className='z-0 absolute inset-0 bg-repeat bg-center'
+          className={`${isDarkMode ? 'z-[15]' : 'z-0'} absolute inset-0 bg-repeat bg-center`}
         >
         </div>
 
         <div
           className='z-10 absolute inset-0'
           style={{
-            background: `radial-gradient(50% 398.62% at 50% 50%, #F8FAFC 0%, rgba(242, 244, 246, 0.7) 100%)`
+            background: isDarkMode ?
+              'radial-gradient(50% 50% at 50% 50%, #2A2A2A 0%, #1D1C1F 100%)' :
+            `radial-gradient(50% 398.62% at 50% 50%, #F8FAFC 0%, rgba(242, 244, 246, 0.7) 100%)`
           }}
         >
         </div>

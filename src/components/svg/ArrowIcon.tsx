@@ -12,7 +12,7 @@ function ArrowIcon({className, textColor}: IconPropsType) {
       {...className && {className}}
     >
       <path
-        className={`stroke-current duration-200 ${textColor || 'text-slate-500'}`}
+        className={`stroke-current duration-200 ${textColor || 'text-slate-500 dark:text-custom-gray-3'}`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
