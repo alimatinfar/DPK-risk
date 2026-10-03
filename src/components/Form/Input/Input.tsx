@@ -10,7 +10,7 @@ export const inputWrapperId = 'input-wrapper'
 
 function Input(
   {
-    name, label, placeholder, value, defaultValue, autoCompleteOff, type, inputMode, disabled, wrapperClassName,
+    name, label, placeholder, value, defaultValue, autoCompleteOff = true, type, inputMode, disabled, wrapperClassName,
     inputClassName, labelClassName, errorMessage, onChange, onBlur, onKeyDown, inputRef, endAdornment, startAdornment,
     onClick, inputWrapperOnClick, justSelectOnClick, fileInput, endAdornmentOnClick, inputLtr, description, info,
     onKeyPress, rows, required, readOnly, hiddenErrorMessage, endAdornmentType, resizable, hasError, justEnglishLetter,

@@ -168,3 +168,13 @@ button {
   --color-primary-text: #FFFFFF;
   --color-secondary-text: var(--color-custom-gray-1);
 }
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  color-scheme: dark;
+}
