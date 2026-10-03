@@ -580,24 +580,32 @@ export function useRiskAnimation(
            * report.show را render کند.
            */
           requestAnimationFrame(() => {
-            const badge =
-              badgeRef.current;
+            const report = reportRef.current;
+            const badge = badgeRef.current;
 
-            if (!badge) {
+            if (!report || !badge) {
               return;
             }
 
-            const to =
-              badge.getBoundingClientRect();
+            // وضعیت فعلی transition را نگه می‌داریم
+            const previousTransition = report.style.transition;
+
+            // transition خود report را موقتاً خاموش می‌کنیم
+            report.style.transition = 'none';
+
+            // مجبور کردن browser به محاسبه layout
+            report.getBoundingClientRect();
+
+            // حالا badge دقیقاً در موقعیت نهایی خودش است
+            const to = badge.getBoundingClientRect();
 
             flyGhost(
               from,
               to,
               () => {
-                setReportArrived(
-                  true,
-                );
+                report.style.transition = previousTransition;
 
+                setReportArrived(true);
                 countUpReport();
               },
             );

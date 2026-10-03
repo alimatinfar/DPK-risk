@@ -26,7 +26,7 @@ function TableTr(
   return (
     <tr
       className={`
-        ${isLast ? '' : 'border-b border-slate-300 dark:border-dark-2'} ${isEven ? '' : 'bg-slate-50 dark:bg-dark-1'}
+        ${isLast ? '' : 'border-b border-slate-300 dark:border-dark-2'} ${isEven ? '' : 'bg-slate-50 dark:bg-dark-6'}
       `}
     >
       {mainColumns.map(({accessor, renderType, tdWidth}, index) => {
