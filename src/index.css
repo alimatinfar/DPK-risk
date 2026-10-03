@@ -172,9 +172,3 @@ button {
 html.dark {
   color-scheme: dark;
 }
-
-html.dark input,
-html.dark textarea,
-html.dark select {
-  color-scheme: dark;
-}
