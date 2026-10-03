@@ -7,6 +7,7 @@ import SettingEmptyStateIcon from "../../../../components/svg/RenderLogic/Settin
 import ReactHookFormWrapper from "../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
 import type {RiskSelectedStateType} from "../hooks/useAdminRiskTree.ts";
 import useAdminRiskTreeColumn from "../hooks/useAdminRiskTreeColumn.ts";
+import AdminRiskTreeColumnLoading from "./AdminRiskTreeColumnLoading.tsx";
 
 
 export type AdminRiskTreeColumnProps = {
@@ -20,12 +21,13 @@ export type AdminRiskTreeColumnProps = {
   previousSelectedId?: RiskSelectedStateType;
   apiAddress: string;
   refetch: () => void;
+  isFetching: boolean;
 }
 
 function AdminRiskTreeColumn(
   {
     selectedId, items, onSelect, isLast, isEmptyState, title, previousLevelTitle, previousSelectedId, apiAddress,
-    refetch
+    refetch, isFetching
   }: AdminRiskTreeColumnProps
 ) {
 
@@ -58,7 +60,7 @@ function AdminRiskTreeColumn(
             formMethods={formMethods} onSubmit={onSubmit} className='flex-1 flex flex-col justify-between'
           >
             <div className='flex flex-col gap-y-2'>
-              {items.map(item => (
+              {isFetching ? <AdminRiskTreeColumnLoading /> : items.map(item => (
                 <AdminRiskTreeItem
                   key={item.id} setWasChanged={setWasChanged}
                   id={item.id} title={item.title} weight={item.weight} selected={item.id === selectedId}

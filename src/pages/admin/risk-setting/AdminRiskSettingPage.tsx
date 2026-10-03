@@ -17,7 +17,7 @@ function AdminRiskSettingPage() {
 
   return (
     <RenderLogic
-      error={error} isLoading={isFetching}
+      error={error}
     >
       <div
         className="grid grid-cols-4"
@@ -29,6 +29,7 @@ function AdminRiskSettingPage() {
           title={indicatorTypeLabel}
           apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_TYPES}
           refetch={refetch}
+          isFetching={isFetching}
         />
 
         <AdminRiskTreeColumn
@@ -41,6 +42,7 @@ function AdminRiskSettingPage() {
           previousSelectedId={selectedTypeId}
           apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_GROUPS}
           refetch={refetch}
+          isFetching={isFetching}
         />
 
         {selectedTypeId && (
@@ -54,6 +56,7 @@ function AdminRiskSettingPage() {
             previousSelectedId={selectedGroupId}
             apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_INDICATORS}
             refetch={refetch}
+            isFetching={isFetching}
           />
         )}
 
@@ -67,6 +70,7 @@ function AdminRiskSettingPage() {
             previousSelectedId={selectedIndicatorId}
             apiAddress={APIS.ADMIN_RISK_SETTING_UPDATE_SUB_INDICATORS}
             refetch={refetch}
+            isFetching={isFetching}
           />
         )}
       </div>
