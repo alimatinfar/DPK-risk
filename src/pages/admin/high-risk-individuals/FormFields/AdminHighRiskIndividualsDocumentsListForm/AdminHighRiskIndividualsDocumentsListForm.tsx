@@ -64,7 +64,7 @@ function AdminHighRiskIndividualsDocumentsListForm(
 
   return (
     <div className='mb-4'>
-      <div className='mb-4 pb-4 border-b border-slate-200'>
+      <div className='mb-4 pb-4 border-b border-slate-200 dark:border-dark-2'>
         <ReactHookFormWrapper
           formMethods={formMethods} onSubmit={onSubmit} className={formWrapperClass || ''}
         >
