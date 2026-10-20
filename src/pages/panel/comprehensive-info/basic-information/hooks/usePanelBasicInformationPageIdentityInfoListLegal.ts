@@ -48,11 +48,11 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'وضعیت شناسه ملی',
-        value: data?.nationalIdStatus,
+        value: data?.nationalIdStatusTitle,
       },
       {
         label: 'وضعیت شخصیت حقوقی',
-        value: data?.legalEntityStatus,
+        value: data?.legalEntityStatusTitle,
       },
       {
         label: 'شماره مجوز',

@@ -120,7 +120,9 @@ export type BasicInformationLegalResponseType = {
   licenseDate: number;
   establishmentDate: number;
   nationalIdStatus: number;
+  nationalIdStatusTitle: string;
   legalEntityStatus: number;
+  legalEntityStatusTitle: number;
   eNamadStatus: string;
 
   dissolutionDate: number | string | null;
