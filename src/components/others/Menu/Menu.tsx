@@ -21,7 +21,7 @@ function Menu(
 ) {
   const { openItems, toggleItem } = useMenu({
     items,
-    defaultOpenItems: [0, 1, 2],
+    defaultOpenItems: items?.map((_, index) => index),
     onToggle,
   });
 
