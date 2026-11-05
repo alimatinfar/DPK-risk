@@ -36,5 +36,15 @@ export const getAdminSideBarItems: () => DashboardSideBarItemsListType = functio
         },
       ],
     },
+    {
+      label: "",
+      children: [
+        {
+          icon: SettingIcon,
+          label: "گزارش ریسک گروهی",
+          link: ROUTER_LINKS.ADMIN_RISK_GROUP_REPORT,
+        },
+      ],
+    },
   ];
 };

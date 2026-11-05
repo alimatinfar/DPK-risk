@@ -86,6 +86,8 @@ const ROUTER_LINKS = {
   ADMIN_INQUIRY_HISTORIES_FORM: `${ADMIN_INQUIRY_HISTORIES}/form`,
 
   ADMIN_RISK_SETTING: `${ADMIN}/risk-setting`,
+
+  ADMIN_RISK_GROUP_REPORT: `${ADMIN}/risk-group-report`,
 }
 
 export default ROUTER_LINKS

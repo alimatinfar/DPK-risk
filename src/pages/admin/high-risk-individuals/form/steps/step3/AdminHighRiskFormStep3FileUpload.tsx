@@ -1,7 +1,7 @@
 import UploadFileField from "../../../FormFields/UploadFileField/UploadFileField.tsx";
 import ReactHookFormWrapper
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import FILE_TYPES from "../../../../../../constances/fileTypes.ts";
+import {FILE_TYPES, FILE_ACCEPTS} from "../../../../../../constances/fileTypes.ts";
 import AdminHighRiskFormStep3FileUploadModal from "./AdminHighRiskFormStep3FileUploadModal.tsx";
 import useAdminHighRiskFormStep3FileUpload from "./hooks/useAdminHighRiskFormStep3FileUpload.ts";
 import Loading from "../../../../../../components/others/Loading/Loading.tsx";
@@ -42,7 +42,7 @@ function AdminHighRiskFormStep3FileUpload(
             uploadBoxProps={{
               hiddenErrorMessage: true,
               fileTypes: FILE_TYPES.EXCEL,
-              accept: '.xlsx,.csv',
+              accept: FILE_ACCEPTS.EXCEL,
               formatEndAdornment: (
                 <div className='h-8 flex items-center'>
                   {templateFileLoading ? (
