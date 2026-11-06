@@ -11,7 +11,7 @@ export type UploadFileDataType = {
   size: string | number;
   name: string;
   data: any;
-} | undefined
+} | undefined | ""
 
 export type UseFileDataCardProps = {
   fileTypes?: string[];
@@ -51,7 +51,8 @@ function useFileDataCard(
     if (inputRef.current) {
       inputRef.current.value = ""
     }
-    setFileData(undefined)
+    setFileData('')
+    console.log('setFileData(undefined)')
   }
 
   return {
