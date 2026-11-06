@@ -1,8 +1,8 @@
-import Modal, {type ModalProps} from "../../../components/others/Modal/Modal.tsx";
+import Modal, {type ModalProps} from "../../../../components/others/Modal/Modal.tsx";
 import useAdminRiskGroupReportNewReportModal from "./hooks/useAdminRiskGroupReportNewReportModal.ts";
-import ReactHookFormWrapper from "../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import AdminRiskGroupReportDocumentsField from "./AdminRiskGroupReportDocumentsField.tsx";
-import Button from "../../../components/Form/Button/Button.tsx";
+import ReactHookFormWrapper from "../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
+import AdminRiskGroupReportDocumentField from "./AdminRiskGroupReportDocumentField.tsx";
+import Button from "../../../../components/Form/Button/Button.tsx";
 import AdminRiskGroupReportUploadErrorContent from "./AdminRiskGroupReportUploadErrorContent.tsx";
 import AdminRiskGroupReportErrorsList from "./AdminRiskGroupReportErrorsList.tsx";
 import {RISK_GROUP_REPORT_MODAL_STEPS} from "./index.constances.ts";
@@ -26,7 +26,7 @@ function AdminRiskGroupReportNewReportModal(
         <ReactHookFormWrapper
           formMethods={formMethods} onSubmit={onSubmit}
         >
-          <AdminRiskGroupReportDocumentsField/>
+          <AdminRiskGroupReportDocumentField/>
 
           <div className='grid grid-cols-2 gap-x-4 mt-4'>
             <Button

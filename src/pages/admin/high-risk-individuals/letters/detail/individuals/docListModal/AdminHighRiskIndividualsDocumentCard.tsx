@@ -10,6 +10,7 @@ import type {
 import {fileTypeFieldName} from "../../../../FormFields/FileTypeField/index.constances.ts";
 import {uploadFileFieldName} from "../../../../FormFields/UploadFileField/index.constances.ts";
 import {descriptionFieldName} from "../../../../FormFields/DescriptionField/index.constances.ts";
+import DeleteIconClickable from "../../../../../../../components/others/Icon/DeleteIconClickable.tsx";
 
 
 type Props = {
@@ -44,12 +45,7 @@ function AdminHighRiskIndividualsDocumentCard(
             )}
 
             {deleteAction && (
-              <IconClickable
-                hoverClass='hover:bg-red-100 dark:hover:bg-dark-2'
-                onClick={deleteAction}
-              >
-                <DeleteIcon/>
-              </IconClickable>
+              <DeleteIconClickable onClick={deleteAction} />
             )}
           </div>
         )}

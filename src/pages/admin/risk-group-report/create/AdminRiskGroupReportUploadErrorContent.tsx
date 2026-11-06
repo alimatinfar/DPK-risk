@@ -1,7 +1,6 @@
-import Button from "../../../components/Form/Button/Button.tsx";
+import Button from "../../../../components/Form/Button/Button.tsx";
 import {UPLOAD_ERROR_MESSAGE} from "./index.constances.ts";
-import FileIcon from "../../../components/svg/FileIcon.tsx";
-import ListIcon from "../../../components/svg/ListIcon.tsx";
+import ListIcon from "../../../../components/svg/ListIcon.tsx";
 
 
 export type AdminRiskGroupReportUploadErrorContentProps = {

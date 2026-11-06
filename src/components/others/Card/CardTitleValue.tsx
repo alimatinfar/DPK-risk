@@ -2,17 +2,19 @@
 export type CardTitleValueProps = {
   label: string;
   value: string | number;
+  labelClass?: string;
+  valueClass?: string;
 }
 
 function CardTitleValue(
-  {label, value}: CardTitleValueProps
+  {label, value, labelClass, valueClass}: CardTitleValueProps
 ) {
   return (
     <div
       className='flex items-center justify-between text-sm text-secondary-text'
     >
-      <span>{label}</span>
-      <span>{value}</span>
+      <span className={labelClass || ''}>{label}</span>
+      <span className={valueClass || ''}>{value}</span>
     </div>
   );
 }

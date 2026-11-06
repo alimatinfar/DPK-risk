@@ -1,4 +1,4 @@
-import type {TableColumnType} from "../../../components/others/Table/TableExports.ts";
+import type {TableColumnType} from "../../../../components/others/Table/TableExports.ts";
 
 
 export const documentsFieldName = 'documents';

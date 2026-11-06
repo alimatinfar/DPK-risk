@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import useReactHookFormWrapper
-  from "../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
-import type {UploadFileDataType} from "../../../../components/others/FileDataCard/hooks/useFileDataCard.ts";
+  from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/hooks/useReactHookFormWrapper.ts";
+import type {UploadFileDataType} from "../../../../../components/others/FileDataCard/hooks/useFileDataCard.ts";
 import type {RiskGroupReportFileErrorType} from "../index.types.ts";
 import {RISK_GROUP_REPORT_MODAL_STEPS, type RiskGroupReportModalStepType} from "../index.constances.ts";
 

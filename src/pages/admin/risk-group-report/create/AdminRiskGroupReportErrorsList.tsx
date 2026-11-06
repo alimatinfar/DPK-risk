@@ -1,11 +1,10 @@
-import Table from "../../../components/others/Table/Table.tsx";
+import Table from "../../../../components/others/Table/Table.tsx";
 import type {RiskGroupReportFileErrorType} from "./index.types.ts";
 import {
   ADMIN_RISK_GROUP_REPORT_ERRORS_COLUMNS, ERROR_MESSAGE_COLUMN_ACCESSOR, ERROR_ROW_NUMBER_COLUMN_ACCESSOR
 } from "./index.constances.ts";
-import Button from "../../../components/Form/Button/Button.tsx";
-import DownloadIcon from "../../../components/svg/DownloadIcon.tsx";
-import DownloadIcon2 from "../../../components/svg/DownloadIcon2.tsx";
+import Button from "../../../../components/Form/Button/Button.tsx";
+import DownloadIcon2 from "../../../../components/svg/DownloadIcon2.tsx";
 
 
 export type AdminRiskGroupReportErrorsListProps = {
