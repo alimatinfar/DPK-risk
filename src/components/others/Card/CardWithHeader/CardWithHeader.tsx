@@ -2,7 +2,7 @@ import type {PropsWithChildren, ReactNode} from "react";
 
 
 export type CardWithHeaderProps = PropsWithChildren & {
-  title: string;
+  title?: string;
   headerEndAdornment?: ReactNode | string;
   className?: string;
   childrenClassName?: string;

@@ -13,8 +13,9 @@ function DeleteIconClickable(
     <IconClickable
       hoverClass='hover:bg-red-100 dark:hover:bg-dark-2'
       onClick={onClick}
+      className='h-8 w-8'
     >
-      <DeleteIcon/>
+      <DeleteIcon width='100%' height='100%' />
     </IconClickable>
   );
 }

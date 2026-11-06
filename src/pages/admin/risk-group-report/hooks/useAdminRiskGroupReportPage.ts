@@ -12,14 +12,9 @@ function useAdminRiskGroupReportPage() {
     excelUploadQueue, excelProcessing, latestReports
   } = useAdminRiskGroupReportPageData()
 
-  function removeFileHandler() {
-    // TODO should be completed
-  }
-
   return {
     open, closeModalHandler, openModalHandler, shouldBeRemoved,
     excelUploadQueue, excelProcessing, latestReports,
-    removeFileHandler
   }
 }
 

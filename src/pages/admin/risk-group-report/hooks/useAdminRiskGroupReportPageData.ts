@@ -1,5 +1,7 @@
 import {useMemo} from "react";
 import type {AdminRiskGroupReportQueueProps} from "../AdminRiskGroupReportQueue.tsx";
+import type {AdminRiskGroupReportInProgressProps} from "../AdminRiskGroupReportInProgress.tsx";
+import type {AdminRiskGroupReportLastProps} from "../AdminRiskGroupReportLast.tsx";
 
 function useAdminRiskGroupReportPageData() {
 
@@ -29,17 +31,18 @@ function useAdminRiskGroupReportPageData() {
     ]
   }, [])
 
-  const excelProcessing = useMemo(function () {
+  const excelProcessing: AdminRiskGroupReportInProgressProps['data'] = useMemo(function () {
     return {
       id: 4,
       fileName: 'اطلاعات شعب',
-      progress: 65,
+      processedRecordCount: 4,
+      totalRecordCount: 10,
       elapsedTime: '00:20',
       estimatedCompletionTime: '1405/08/14 | 16:45',
     }
   }, [])
 
-  const latestReports = useMemo(function () {
+  const latestReports: AdminRiskGroupReportLastProps['data'] = useMemo(function () {
     return [
       {
         id: 5,
