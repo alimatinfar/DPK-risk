@@ -1,4 +1,4 @@
-import React, {forwardRef, type RefObject, useImperativeHandle, useRef} from "react";
+import React, {forwardRef, type CSSProperties, type RefObject, useImperativeHandle, useRef} from "react";
 import zIndexes from "../../../constances/zIndexes";
 import type {
   SelectOptionOnClickType,
@@ -18,7 +18,7 @@ export type SelectDropDownRefType = {
 type SelectDropDownProps =
   {
     dropDownRef: RefObject<HTMLDivElement | null>,
-    dropDownStyle: object,
+    dropDownStyle: CSSProperties,
     dropDownOpen: boolean,
     filteredOptions: SelectOptionType[],
     mode: SelectProps['mode'],

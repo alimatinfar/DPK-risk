@@ -1,10 +1,14 @@
 import {useEffect, useRef, useState} from "react";
+import type {CSSProperties} from "react";
 import useOutsideClicked from "../../../../hooks/useOutsideClicked";
+import useRecalculateOnViewportChange from "../../../../hooks/useRecalculateOnViewportChange";
 import type {SelectOptionType, SelectProps, SelectOptionOnClickType} from "../select-exports";
 import {multiSelectInputWrapperId} from "../InputForMultiSelectMode";
 import {inputWrapperId} from "../../Input/Input";
-import elementIsVisibleInViewport from "../../../../utils/elementIsVisibleInViewport.ts";
 import useSelectOptionsList from "./useSelectOptionsList";
+
+
+const dropDownOffset = 1
 
 
 function useSelect(
@@ -122,56 +126,74 @@ function useSelect(
     }
   }
 
-  const [dropDownStyle, setDropDownStyle] = useState<Object>({})
+  const [dropDownStyle, setDropDownStyle] = useState<CSSProperties>({})
   const dropDownRef = useRef<HTMLDivElement>(null)
 
-  function getInputPosition() {
-    const inputElement = inputWrapperRef?.current?.querySelector(mode === 'multiple' ? `#${multiSelectInputWrapperId}` : `#${inputWrapperId}`)
-    const position = inputElement?.getBoundingClientRect()
-    return position
+  function getAnchorPositions() {
+    const wrapperElement = inputWrapperRef.current
+    const inputElement = wrapperElement?.querySelector<HTMLElement>(mode === 'multiple' ? `#${multiSelectInputWrapperId}` : `#${inputWrapperId}`)
+
+    const wrapperPosition = wrapperElement?.getBoundingClientRect()
+    const inputPosition = inputElement?.getBoundingClientRect()
+
+    if (!wrapperPosition || !inputPosition) return null
+
+    return {wrapperPosition, inputPosition}
   }
 
+  /**
+   * The dropdown is `position: fixed`, so its coordinates are relative to the viewport.
+   * They have to be recalculated on every scroll/resize, otherwise the dropdown keeps the
+   * coordinates of the moment it was opened and drifts away from the input.
+   */
   function calculateDropDownStyle() {
-    const inputWrapperPosition = inputWrapperRef?.current?.getBoundingClientRect()
-    const inputPosition = getInputPosition()
-    const bodyWidth = document?.body?.clientWidth
+    const positions = getAnchorPositions()
+    if (!positions) return
 
-    if (!inputWrapperPosition || !inputPosition) return {}
-    setDropDownStyle({
-      top: inputPosition.bottom + 1,
-      right: bodyWidth - inputWrapperPosition?.right,
-      width: inputWrapperPosition?.width,
-    })
+    const {wrapperPosition, inputPosition} = positions
+    const dropDownHeight = dropDownRef.current?.offsetHeight || 0
+    const spaceBelowInput = window.innerHeight - inputPosition.bottom
+    const shouldOpenAbove = dropDownHeight > 0 &&
+      spaceBelowInput < dropDownHeight + dropDownOffset &&
+      inputPosition.top > dropDownHeight + dropDownOffset
+
+    const nextStyle: CSSProperties = {
+      left: wrapperPosition.left,
+      width: wrapperPosition.width,
+      top: shouldOpenAbove
+        ? inputPosition.top - dropDownOffset - dropDownHeight
+        : inputPosition.bottom + dropDownOffset,
+    }
+
+    //don't re-render the dropdown (and its options) when the position did not change at all
+    setDropDownStyle((prev) => (
+      prev.top === nextStyle.top && prev.left === nextStyle.left && prev.width === nextStyle.width
+        ? prev
+        : nextStyle
+    ))
   }
 
-  useEffect(() => {
-    if (mode !== 'multiple') return
-    setTimeout(calculateDropDownStyle, 200)
-  }, [value])
+  //keeps the dropdown under the input while the page (or any inner container) scrolls
+  useRecalculateOnViewportChange(calculateDropDownStyle, {enabled: dropDownOpen})
 
   useEffect(function () {
     calculateDropDownStyle()
   }, [dropDownOpen])
 
   useEffect(() => {
-    if (!dropDownStyle || !dropDownOpen) return
+    if (mode !== 'multiple') return
+    setTimeout(calculateDropDownStyle, 200)
+  }, [value])
 
-    setTimeout(function () {
-      if (!dropDownRef.current) return
-      const dropDownIsVisible = elementIsVisibleInViewport(dropDownRef.current)
+  //the dropdown height changes (options load, pagination) and that can change the open direction
+  useEffect(() => {
+    if (!dropDownOpen || !dropDownRef.current) return
 
-      const inputPosition = getInputPosition()
+    const resizeObserver = new ResizeObserver(calculateDropDownStyle)
+    resizeObserver.observe(dropDownRef.current)
 
-      if (dropDownIsVisible || !inputPosition) return
-
-      setDropDownStyle((prev:any) => ({
-        top: inputPosition.top - 1,
-        right: prev?.right,
-        width: prev?.width,
-        transform: 'translateY(-100%)'
-      }))
-    }, 300)
-  }, [dropDownStyle]);
+    return () => resizeObserver.disconnect()
+  }, [dropDownOpen])
 
   //add label to current value when has not label
   useEffect(() => {
