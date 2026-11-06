@@ -3,10 +3,6 @@ import AdminPageTitle from "../layout/AdminPageTitle.tsx";
 import AddButton from "../../../components/Form/Button/inheritedButtons/AddButton.tsx";
 import DisplayModal from "../../../components/others/Modal/DisplayModal.tsx";
 import useAdminRiskGroupReportPage from "./hooks/useAdminRiskGroupReportPage.ts";
-import ListLabel from "./ListLabel.tsx";
-import CardWithHeader from "../../../components/others/Card/CardWithHeader/CardWithHeader.tsx";
-import CardTitleValue, {type CardTitleValueProps} from "../../../components/others/Card/CardTitleValue.tsx";
-import DeleteIconClickable from "../../../components/others/Icon/DeleteIconClickable.tsx";
 import AdminRiskGroupReportQueue from "./AdminRiskGroupReportQueue.tsx";
 
 const AdminRiskGroupReportNewReportModal = lazy(() => import(
