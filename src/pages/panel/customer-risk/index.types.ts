@@ -17,3 +17,11 @@ export type CustomerRiskResponseType = {
     calculate: number;
   }[]
 }
+
+export type CustomerRiskLevelRangeItemResponseType = {
+  id: number;
+  levelNumber: number;
+  levelTitle: string;
+  numberFrom: number;
+  numberTo: number;
+}

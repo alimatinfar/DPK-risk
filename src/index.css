@@ -1,31 +1,48 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: IRANYekan;
   src: url('./assets/fonts/IranYekan/IRANYekanXVFaNumVF.woff2');
 }
 
 :root {
-  --foreground: #161616;
-  --toastify-color-dark: #222433;
+  --foreground: #0F172A;
+  --toastify-color-dark: #1E293B;
 }
 
 @theme {
   --color-background: rgba(248, 250, 252, 1);
   --color-foreground: var(--foreground);
 
-  --color-primary: #29166F;
-  --color-primary-background: #8D91C71A;
-  --color-primary-border: #8D91C74D;
+  --color-primary: #2156DA;
+  --color-primary-background: #8DAEF01A;
+  --color-primary-border: #8DAEF04D;
   --color-primary-text: #0F172A;
 
-  --color-secondary: var(--color-gray-900);
+  --color-secondary: var(--color-slate-900);
 
-  --color-accent: #4E4181;
+  --color-accent: #1B45B5;
   --color-accent-saderat: #DD7373;
 
   --color-secondary-text: #475569;
 
+  --color-dark-1: #1D1C1F;
+  --color-dark-2: #2A2A2A;
+  --color-dark-3: #374151;
+  --color-dark-4: #404040;
+  --color-dark-5: #1F2937;
+  --color-dark-6: #19181B;
+
+  --color-custom-gray-1: #D1D5DB;
+  --color-custom-gray-2: #F5F7FA;
+  --color-custom-gray-3: #A7B0BA;
+  --color-custom-gray-4: #F3F4F6;
+  --color-custom-gray-5: #8E97A3;
+  --color-custom-gray-6: #F9FAFB;
+  --color-custom-gray-7: #C9D0D8;
+  --color-custom-gray-8: #8F8F8F;
 
   --shadow-base: 0 0px 2px 0px rgba(16,24,40,0.06), 0px 0px 3px 0px rgba(16, 24, 40, 0.1);
   --font-IRANYekan: IRANYekan;
@@ -40,6 +57,18 @@
   input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px white inset !important;
     -webkit-text-fill-color: theme('colors.gray.900') !important;
+  }
+
+  .dark input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--color-dark-1) inset !important;
+    -webkit-text-fill-color: theme('colors.gray.50') !important;
+    border-color: var(--color-dark-1) !important;
+  }
+
+  .dark input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--color-dark-1) inset !important;
+    -webkit-text-fill-color: theme('colors.gray.50') !important;
+    border-color: var(--color-dark-1) !important;
   }
 }
 
@@ -106,7 +135,11 @@
 
 html {
   direction: rtl;
-  @apply bg-white font-IRANYekan;
+  @apply bg-white font-IRANYekan dark:bg-dark-1 dark:text-custom-gray-2;
+}
+
+html.dark {
+  background: var(--color-dark-1) !important;
 }
 
 button {
@@ -129,4 +162,13 @@ button {
 
 .fade-in {
   animation-name: fadeIn ;
+}
+
+.dark {
+  --color-primary-text: #FFFFFF;
+  --color-secondary-text: var(--color-custom-gray-1);
+}
+
+html.dark {
+  color-scheme: dark;
 }

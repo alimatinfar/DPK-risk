@@ -25,7 +25,7 @@ function EServicePortalSharedCustomerNumberField(
     axiosConfig: {
       url: APIS.GET_SHARE_CUSTOMER_IDS,
       params: {
-        SharedCustomerId: activePersonData?.customerId
+        customerId: activePersonData?.customerId
       }
     }
   })

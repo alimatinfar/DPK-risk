@@ -19,7 +19,7 @@ function AdminHighRiskFormStep4PrevForm(
     <div className='flex-1 p-4'>
       <ReactHookFormWrapper
         formMethods={formMethods} onSubmit={onSubmit} hiddenButton
-        className='border-b border-gray-200 grid grid-cols-2 gap-4 mb-4'
+        className='border-b border-slate-200 grid grid-cols-2 gap-4 mb-4'
       >
         <ExpireDateField/>
 

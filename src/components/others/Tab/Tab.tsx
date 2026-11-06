@@ -31,7 +31,7 @@ function Tab({ tabs, activeTab, onChange, mobileMode }: TabsProps) {
 
   return (
     <div className={`flex overflow-x-auto ${mobileMode ? 'w-full' : ''}`}>
-      <div className={`bg-gray-100 p-1 border border-gray-300 rounded-lg relative ${mobileMode ? 'w-full' : ''}`}>
+      <div className={`bg-slate-100 dark:bg-dark-2 p-1 border border-slate-300 dark:border-dark-2 rounded-lg relative ${mobileMode ? 'w-full' : ''}`}>
         <div
           className={`
         flex items-end hide-scroll overflow-x-scroll overflow-y-hidden

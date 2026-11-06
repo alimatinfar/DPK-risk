@@ -3,7 +3,7 @@ import type {IconPropsType} from "./IconPropsType.ts";
 
 function UserIcon({className, textColor, width, height}: IconPropsType) {
 
-  const pathClassName = `stroke-current ${textColor || 'text-gray-900'}`
+  const pathClassName = `stroke-current ${textColor || 'text-slate-900'}`
 
   return (
     <svg

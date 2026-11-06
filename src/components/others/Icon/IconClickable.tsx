@@ -25,7 +25,7 @@ function IconClickable(
     ) : (
     <div
       {...(onClick && {onClick})} {...wrapperRef && {ref: wrapperRef}}
-      className={`${className || ""} p-1.5 cursor-pointer ${rounded} duration-200 ${hoverClass || 'hover:bg-gray-100'}`}
+      className={`${className || ""} p-1.5 cursor-pointer ${rounded} duration-200 ${hoverClass || 'hover:bg-slate-100 dark:hover:bg-dark-2'}`}
     >
       {children}
     </div>

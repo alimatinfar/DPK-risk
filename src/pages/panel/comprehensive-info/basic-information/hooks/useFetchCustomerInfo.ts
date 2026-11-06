@@ -14,7 +14,7 @@ function useFetchCustomerInfo(
 ) {
 
   const {
-    getActivePersonNationalId, isLegalBool, isForeignCitizenBool, isNaturalBool
+    activePersonData, isLegalBool, isForeignCitizenBool, isNaturalBool
   } = getActivePersonData()
 
   const isDefaultApi = !activeHistory || activeHistory?.isLasted
@@ -23,7 +23,7 @@ function useFetchCustomerInfo(
 
   const apiParams = useMemo(function () {
     return isDefaultApi ? {
-      nationalID: getActivePersonNationalId()
+      customerId: activePersonData?.customerId
     } : {
       id: activeHistory?.id
     }

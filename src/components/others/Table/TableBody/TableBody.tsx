@@ -52,7 +52,7 @@ const TableBody: FC<Props> = ({data, columns, loading}) => {
       isEmpty={data?.length == 0 || !data} emptyElement={emptyElement} loadingElement={loadingElement}
       isLoading={loading} removeContainer
     >
-      <tbody className="bg-white overflow-x-auto">
+      <tbody className="bg-white dark:bg-dark-1 overflow-x-auto">
         {data?.map((row, index) => {
 
           const isLast = index === data.length - 1;

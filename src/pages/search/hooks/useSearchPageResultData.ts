@@ -14,7 +14,7 @@ import {nationalCodeFieldName} from "../form/formFields/natural/NationalCodeFiel
 import {
   birthCertificationNumberFieldName
 } from "../form/formFields/natural/BirthCertificateNumberField/BirthCertificateNumberField.constances.ts";
-import {useMemo} from "react";
+import {useCallback, useMemo} from "react";
 import type {CustomResponseType} from "../../../request/types/CustomResponseType.ts";
 import type {SearchFormResponseType} from "../SearchPage.types.ts";
 
@@ -23,11 +23,9 @@ type Props = {
   data: CustomResponseType<SearchFormResponseType> | undefined;
 }
 
-function useSearchPageResultData(
-  {data}: Props
-) {
+function useSearchPageResultData() {
 
-  const resultData: SearchPageResultProps['resultData'] = useMemo(function () {
+  const getResultData: ({data}: Props) => SearchPageResultProps['resultData'] = useCallback(function ({data}) {
     if (!data?.data) return []
 
     return [
@@ -49,16 +47,16 @@ function useSearchPageResultData(
       ...data.data.legalCustomers.map(item => ({
         type: SEARCH_PAGE_FORM_PERSON_TYPE_KEYS.LEGAL.name,
         customerId: item?.customerIdStr,
-        name: item?.legalName,
+        name: `${item?.legalName} ${item?.abbreviationName}`.trim(),
         [legalBrandNameFieldName]: item?.tradeName,
         [legalRegistrationNumberFieldName]: String(item?.legalNationalIDStr),
         [legalTypeFieldName]: item?.legalTypeTitle,
       })),
     ]
-  }, [data])
+  }, [])
 
   return {
-    resultData
+    getResultData
   }
 }
 

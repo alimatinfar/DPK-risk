@@ -25,15 +25,15 @@ function CheckBox({name, value, onChange, label, wrapperClass, indeterminate, di
     >
       <div
         className={`w-5 h-5 box-border rounded-sm select-none transition-all border flex items-center justify-center duration-100 overflow-hidden 
-        ${disabled ? "bg-gray-300 border-gray-400" : (value && !indeterminate) ? "bg-primary border-transparent" : "bg-white"} ${indeterminate ? 'p-[3px]' : ''} 
-        ${disabled ? "" : "border-gray-300 hover:border-primary cursor-pointer"}`}
+        ${disabled ? "bg-slate-300 border-slate-400" : (value && !indeterminate) ? "bg-primary border-transparent" : "bg-white"} ${indeterminate ? 'p-[3px]' : ''} 
+        ${disabled ? "" : "border-slate-300 hover:border-primary cursor-pointer"}`}
         onClick={checkHandler}
       >
         <div
           className={`w-full h-full transition-all flex items-center justify-center
-          ${(value || indeterminate) ? "" : "scale-0"} ${indeterminate ? disabled ? "bg-gray-500" : `bg-primary rounded-[1px]` : ''} `}
+          ${(value || indeterminate) ? "" : "scale-0"} ${indeterminate ? disabled ? "bg-slate-500" : `bg-primary rounded-[1px]` : ''} `}
         >
-          {(!indeterminate && value) && <TickIcon textColor={disabled ? "text-gray-500" : "text-white"}/>}
+          {(!indeterminate && value) && <TickIcon textColor={disabled ? "text-slate-500" : "text-white"}/>}
         </div>
       </div>
       {label && (

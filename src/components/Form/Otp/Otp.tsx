@@ -71,7 +71,7 @@ const Otp: React.ForwardRefRenderFunction<OtpRefType, OtpProps> = (
               id={`verify-input-${index}`}
               className={`
               bg-transparent w-full aspect-square focus:outline-none border rounded-lg text-center
-              ${errorMessage ? 'border-red-500' : inputValues[index] === '' ? 'border-gray-200' : 'border-primary'} 
+              ${errorMessage ? 'border-red-500' : inputValues[index] === '' ? 'border-slate-200' : 'border-primary'} 
               `}
               maxLength={1}
             />

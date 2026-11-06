@@ -7,11 +7,13 @@ import useAdminInquiryHistoryDetailDocuments from "./hooks/useAdminInquiryHistor
 import type {AdminInquiryHistoryLetterDetailProps} from "./index.types.ts";
 import {lazy} from "react";
 import DisplayModal from "../../../../components/others/Modal/DisplayModal.tsx";
-import AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal
-  from "../../high-risk-individuals/letters/detail/documents/deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx";
-import AdminHighRiskIndividualsLettersDetailDocumentsFormModal
-  from "../../high-risk-individuals/letters/detail/documents/formModal/AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx";
 
+const AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal = lazy(() => import(
+  "../../high-risk-individuals/letters/detail/documents/deleteModal/AdminHighRiskIndividualsLettersDetailDocumentsDeleteModal.tsx"
+  ));
+const AdminHighRiskIndividualsLettersDetailDocumentsFormModal = lazy(() => import(
+  "../../high-risk-individuals/letters/detail/documents/formModal/AdminHighRiskIndividualsLettersDetailDocumentsFormModal.tsx"
+  ));
 const AdminInquiryHistoryDetailDocumentsEditLetterModal = lazy(() => import(
   "./AdminInquiryHistoryDetailDocumentsEditLetterModal.tsx"
   ));
@@ -27,7 +29,7 @@ function AdminInquiryHistoryDetailDocuments(
     documents, editModalShouldBeRemoved, editModalOpen, openEditModalModalHandler, closeEditModalModalHandler,
     deleteModalOpen, deleteModalShouldBeRemoved, closeDeleteModalHandler, deleteModalState, setDeleteModalState,
     documentFormModalOpen, documentFormModalShouldBeRemoved, closeDocumentFormModalHandler, documentFormModalState,
-    setDocumentFormModalState
+    setDocumentFormModalState, responseStatusSent
   } = useAdminInquiryHistoryDetailDocuments({
     responseData
   })
@@ -41,13 +43,15 @@ function AdminInquiryHistoryDetailDocuments(
           letterDate={displayDate(info?.letterDate)} letterNumber={info?.letterNo}
           reference={info?.letterRefTitle} description={info?.description}
           requestReason={info?.resonTitle} responseSubmissionStatus={info?.statusTitle}
-          openEditModalHandler={openEditModalModalHandler}
+          {...!responseStatusSent && {openEditModalHandler: openEditModalModalHandler}}
         />
 
         <AdminHighRiskIndividualsLettersDetailDocumentsDocs
           documents={documents}
-          setDeleteModalState={setDeleteModalState}
-          setFormModalState={setDocumentFormModalState}
+          {...!responseStatusSent && {
+            setDeleteModalState: setDeleteModalState,
+            setFormModalState: setDocumentFormModalState,
+          }}
         />
       </div>
 

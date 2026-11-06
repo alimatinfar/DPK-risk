@@ -1,7 +1,7 @@
 import UploadFileField from "../../../FormFields/UploadFileField/UploadFileField.tsx";
 import ReactHookFormWrapper
   from "../../../../../../components/Form/FormLayout/ReactHookFormWrapper/ReactHookFormWrapper.tsx";
-import FILE_TYPES from "../../../../../../constances/fileTypes.ts";
+import {FILE_TYPES, FILE_ACCEPTS} from "../../../../../../constances/fileTypes.ts";
 import AdminHighRiskFormStep3FileUploadModal from "./AdminHighRiskFormStep3FileUploadModal.tsx";
 import useAdminHighRiskFormStep3FileUpload from "./hooks/useAdminHighRiskFormStep3FileUpload.ts";
 import Loading from "../../../../../../components/others/Loading/Loading.tsx";
@@ -34,7 +34,7 @@ function AdminHighRiskFormStep3FileUpload(
         formMethods={formMethods} onSubmit={onSubmit}
       >
         <div className='flex flex-col gap-y-2'>
-          <p className='text-gray-400'>
+          <p className='text-slate-400'>
             اضافه کردن مشتریان از طریق فایل اکسل
           </p>
 
@@ -42,7 +42,7 @@ function AdminHighRiskFormStep3FileUpload(
             uploadBoxProps={{
               hiddenErrorMessage: true,
               fileTypes: FILE_TYPES.EXCEL,
-              accept: '.xlsx,.csv',
+              accept: FILE_ACCEPTS.EXCEL,
               formatEndAdornment: (
                 <div className='h-8 flex items-center'>
                   {templateFileLoading ? (
@@ -62,11 +62,11 @@ function AdminHighRiskFormStep3FileUpload(
       </ReactHookFormWrapper>
 
       <div className='h-6 relative w-full flex items-center justify-center'>
-        <span className='absolute m-auto z-10 bg-white px-2  text-gray-400'>
+        <span className='absolute m-auto z-10 bg-white dark:bg-dark-1 px-2 text-slate-400 dark:text-custom-gray-3'>
           یا جستجو مشتری
         </span>
 
-        <div className='h-[1px] w-full bg-gray-200'>
+        <div className='h-[1px] w-full bg-slate-200 dark:bg-dark-6'>
 
         </div>
       </div>

@@ -22,7 +22,7 @@ function TdActions({list}: TdActionsProps) {
     <div className='flex items-center justify-end space-x-3 mr-auto'>
       {rootActionsList.map((item: TdActionType, index) => (
         <Tooltip title={item.title} placement='topLeft'>
-          <IconClickable key={index} onClick={item.onClick} className='w-7.5 h-7.5'>
+          <IconClickable key={index} onClick={item.onClick} className='size-8'>
             {item.icon}
           </IconClickable>
         </Tooltip>

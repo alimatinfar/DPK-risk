@@ -4,6 +4,7 @@ import CalendarIcon from "../../../../components/svg/CalendarIcon";
 import ClockBackwardIcon from "../../../../components/svg/ClockBackwardIcon";
 import VectorIcon from "../../../../components/svg/VectorIcon";
 import type {HistoryDataType} from "./index.types.ts";
+import useTheme from "../../../../components/others/ThemeManager/hooks/useTheme.ts";
 
 export type PanelBasicInformationPageHistoryProps = {
   openHistoryModalHandler: () => void;
@@ -13,6 +14,9 @@ export type PanelBasicInformationPageHistoryProps = {
 function PanelBasicInformationPageHistory(
   {openHistoryModalHandler, activeHistory}: PanelBasicInformationPageHistoryProps
 ) {
+
+  const {isDarkMode} = useTheme()
+
   return (
     <>
       {
@@ -32,7 +36,7 @@ function PanelBasicInformationPageHistory(
           />
         </div>
       }
-      <div className="flex divide-x divide-gray-300 items-center">
+      <div className="flex divide-x divide-slate-300 items-center">
         {
           activeHistory && !activeHistory.isLasted &&
           <div className="pl-2 ml-2">
@@ -43,8 +47,8 @@ function PanelBasicInformationPageHistory(
           </div>
         }
         <Button
-          variant="link"
-          color="secondary"
+          variant={isDarkMode ? "default" : "link"}
+          color={isDarkMode ? "white" : "secondary"}
           size="sm"
           rightIcon={<ClockBackwardIcon width={15} height={15}/>}
           onClick={openHistoryModalHandler}

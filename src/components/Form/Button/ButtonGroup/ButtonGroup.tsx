@@ -36,12 +36,12 @@ function ButtonGroup({buttons, activeButtonIndexes}: ButtonGroupProps) {
           <div
             key={button.id}
             className={`
-              ${hiddenBorderRight ? `border-r ${(prevButtonIsActive || isActive) ? 'border-primary-300' : 'border-gray-300'}` : ''}
+              ${hiddenBorderRight ? `border-r ${(prevButtonIsActive || isActive) ? 'border-primary-300' : 'border-slate-300'}` : ''}
             `}>
             <Button
               variant='default'
               className={{
-                color: isActive ? 'border-primary-300 text-primary bg-primary-100' : 'border-gray-300 text-gray-900 bg-transparent hover:bg-gray-100'
+                color: isActive ? 'border-primary-300 text-primary bg-primary-100' : 'border-slate-300 text-slate-900 bg-transparent hover:bg-slate-100'
               }}
               size='sm'
               hiddenBorderLeft={hiddenBorderLeft} hiddenBorderRight={hiddenBorderRight}

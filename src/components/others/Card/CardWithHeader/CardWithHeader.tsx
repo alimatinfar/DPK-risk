@@ -15,10 +15,10 @@ function CardWithHeader(
   }: CardWithHeaderProps
 ) {
   return (
-    <div className={`flex flex-col border border-gray-200 rounded-lg overflow-hidden ${className || ''}`}>
+    <div className={`flex flex-col border border-slate-200 dark:border-dark-2 rounded-lg overflow-hidden ${className || ''}`}>
       <div className={`
         ${customHeaderRender ? '' : 'flex items-center justify-between h-15'} 
-        p-4 border-b border-gray-200 bg-gray-50
+        p-4 border-b border-slate-200 bg-slate-50 dark:bg-dark-2 dark:border-dark-2
       `}>
         {customHeaderRender || (
           <>
@@ -31,7 +31,7 @@ function CardWithHeader(
         )}
       </div>
 
-      <div className={`${childrenClassName || 'bg-white p-4'}`}>
+      <div className={`${childrenClassName || 'bg-white dark:bg-dark-6 p-4'}`}>
         {children}
       </div>
     </div>

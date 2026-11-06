@@ -6,11 +6,13 @@ import {useMemo} from "react";
 import {JOINT_ACCOUNT_JOINT_ACCOUNT_MEMBERS_TABLE_COLUMNS_KEYS} from "../index.constances.ts";
 import displayAvailableValues from "../../../../../../../../utils/display/displayAvailableValues.ts";
 import displayDate from "../../../../../../../../utils/display/displayDate.ts";
+import useGetQueryParam from "../../../../../../../../hooks/useGetQueryParam.ts";
+import QUERY_PARAMS from "../../../../../../../../constances/queryParams.ts";
 
 
 function useJointBankingAccountDetailMembers() {
 
-  const {activePersonData} = getActivePersonData();
+  const shareCustomerId = useGetQueryParam(QUERY_PARAMS.SHARE_CUSTOMER_ID)
 
   const {
     data, isFetching, error
@@ -18,7 +20,7 @@ function useJointBankingAccountDetailMembers() {
     axiosConfig: {
       url: APIS.BANK_INFO_GET_ACCOUNT_SHARE_MEMBERS,
       params: {
-        customerId: activePersonData?.customerId
+        customerId: shareCustomerId
       }
     }
   })

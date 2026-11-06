@@ -21,12 +21,13 @@ function SearchPageResultCard(
   return (
     <div
       className={`
-        flex flex-col rounded-lg gap-y-2 bg-white shadow-base cursor-pointer
-        hover:shadow-[0px_24px_48px_-12px_rgba(16,24,40,0.18)] duration-200
+        flex flex-col rounded-lg gap-y-2 bg-white shadow-base cursor-pointer overflow-hidden dark:bg-dark-1
+        hover:shadow-[0px_24px_48px_-12px_rgba(16,24,40,0.18)] dark:hover:shadow-[0px_6px_12px_-3px_rgba(0,0,0,0.55)]
+        duration-200 dark:border dark:border-dark-2
       `}
       onClick={onCardClickHandler}
     >
-      <div className='bg-[#ECEFF7] p-2 flex items-center justify-between'>
+      <div className='bg-[#EEF3FD] dark:bg-dark-2 p-2 flex items-center justify-between'>
         <span className='font-medium'>
           {data.name}
         </span>

@@ -29,11 +29,6 @@ export const getPanelSideBarItems: () => DashboardSideBarItemsListType = functio
           label: `اطلاعات نماینده قانونی/مرتبطین`,
           link: ROUTER_LINKS.PANEL_LEGAL_REPRESENTATIVE_INFORMATION,
         },
-        {
-          icon: SearchIcon,
-          label: "سابقه استعلامات",
-          link: ROUTER_LINKS.PANEL_INQUIRY_HISTORIES,
-        },
       ],
     },
     {

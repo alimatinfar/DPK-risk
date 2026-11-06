@@ -57,7 +57,7 @@ const SelectDropDown: React.ForwardRefRenderFunction<SelectDropDownRefType, Sele
       style={dropDownStyle}
       className={`
         fixed ${zIndexes.SELECT_DROPDOWN}
-        p-2 shadow rounded-md duration-200 bg-white origin-top
+        p-2 shadow rounded-md duration-200 bg-white dark:bg-dark-6 origin-top
         ${dropDownOpen ? "" : "opacity-0 pointer-events-none scale-[0.99]"}
       `}
     >

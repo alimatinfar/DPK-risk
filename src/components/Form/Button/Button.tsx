@@ -59,7 +59,6 @@ const Button = (
         </div>
       </div>
 
-
       {longPress && (
         <ButtonLongPressElement
           isPressing={longPressIsPressing}

@@ -3,6 +3,7 @@ import useSaveNavigate from "../hooks/useSaveNavigate.ts";
 import {useEffect} from "react";
 import getToken from "../utils/authentication/getToken.ts";
 import ROUTER_LINKS from "../constances/routerLinks.ts";
+import ThemeManager from "../components/others/ThemeManager/ThemeManager.tsx";
 
 
 function GeneralLayout() {
@@ -14,12 +15,15 @@ function GeneralLayout() {
   useEffect(function () {
     const savedToken = getToken()
 
-    //TODO uncomment login with sso
     if (!savedToken) navigate(ROUTER_LINKS.SSO_LOGIN)
   }, [])
 
   return (
-    <Outlet/>
+    <>
+      <ThemeManager/>
+
+      <Outlet/>
+    </>
   )
 }
 

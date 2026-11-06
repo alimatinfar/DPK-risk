@@ -24,6 +24,8 @@ function AdminHighRiskIndividualsDetailPage() {
     closeExitPersonModalHandler, exitPersonModalState, name, responseData, responseError, responseLoading, refetch
   } = useAdminHighRiskIndividualsDetailPage()
 
+  const firstCustomer = responseData?.data?.[0]
+
   return (
     <>
       <div className='flex flex-col gap-y-4'>
@@ -35,7 +37,7 @@ function AdminHighRiskIndividualsDetailPage() {
           <div className='flex items-start gap-x-4'>
             <CardWithHeader
               title='نامه‌ها' className='flex-1'
-              childrenClassName='flex flex-col gap-y-2 bg-gray-50 p-2'
+              childrenClassName='flex flex-col gap-y-2 bg-slate-50 dark:bg-dark-1 p-2'
             >
               <AdminHighRiskIndividualsDetailPageLetters
                 setDocListModalState={setDocListModalState}
@@ -62,6 +64,9 @@ function AdminHighRiskIndividualsDetailPage() {
           open={exitPersonModalOpen} onClose={closeExitPersonModalHandler}
           modalState={exitPersonModalState}
           personTitle={name || ''} refetch={refetch}
+          referenceValue={{
+            id: firstCustomer?.letterRef || '', name: firstCustomer?.letterRefTitle ||  ''
+          }}
         />
       </DisplayModal>
     </>

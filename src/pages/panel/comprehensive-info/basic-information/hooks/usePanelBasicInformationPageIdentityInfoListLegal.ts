@@ -3,6 +3,7 @@ import type {DetailInfoSectionProps} from "../../../../../components/others/Deta
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.types.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
+import {jobFieldLabel} from "../index.constances.ts";
 
 
 function usePanelBasicInformationPageIdentityInfoListLegal(
@@ -47,11 +48,11 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       },
       {
         label: 'وضعیت شناسه ملی',
-        value: data?.nationalIdStatus,
+        value: data?.nationalIdStatusTitle,
       },
       {
         label: 'وضعیت شخصیت حقوقی',
-        value: data?.legalEntityStatus,
+        value: data?.legalEntityStatusTitle,
       },
       {
         label: 'شماره مجوز',
@@ -108,6 +109,10 @@ function usePanelBasicInformationPageIdentityInfoListLegal(
       {
         label: 'وبگاه',
         value: data?.webSite,
+      },
+      {
+        label: jobFieldLabel,
+        value: data?.jobCodeTitle,
       },
     ]
   }, [activePersonData, isLegal, legalData])

@@ -45,8 +45,8 @@ function usePanelJointBankingInfoAccount() {
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.ACCOUNT_SUB_TYPE]: item?.accountSubTypeTitle,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.SAYYAH_ID]: item?.sayahId,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_DATE]: displayDate(item?.openingDate),
-      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_PURPOSE]: item?.targetOpening,
-      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.BUSINESS_TYPE]: item?.isCommercialTitle,
+      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_PURPOSE]: item?.targetOpeningTitle,
+      [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.BUSINESS_TYPE]: item?.commercialCodeTitle,
       [PANEL_INDIVIDUAL_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.COMMERCIAL_DATE]: displayDate(item?.commercialDate),
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_BRANCH_CODE]: item?.branchCode,
       [PANEL_JOINT_BANK_INFO_ACCOUNT_TABLE_COLUMNS_KEYS.OPEN_BRANCH_NAME]: item?.branchName,
@@ -57,7 +57,8 @@ function usePanelJointBankingInfoAccount() {
       [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
         TableDetailAction(() => {
           const params = {
-            [QUERY_PARAMS.ACCOUNT_NUMBER_STR]: item?.accountNumberStr
+            [QUERY_PARAMS.ACCOUNT_NUMBER_STR]: item?.accountNumberStr,
+            [QUERY_PARAMS.SHARE_CUSTOMER_ID]: item?.shareCustomerIdStr,
           }
           const url = getUrlWithParams(ROUTER_LINKS.PANEL_JOINT_BANKING_INFORMATION_ACCOUNT_DETAIL(item?.accountNumber), params)
           navigate(url)

@@ -47,7 +47,7 @@ function useAdminInquiryHistoryDetailIndividualsDeleteModal(
     const bodyData: BodyDataType = {
       id: modalState?.id,
       inquiryLetterId: Number(letterId),
-      customerId: modalState?.id,
+      customerId: modalState?.customerId,
     }
 
     mutate(bodyData, {

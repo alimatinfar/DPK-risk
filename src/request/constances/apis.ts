@@ -58,6 +58,7 @@ const APIS = {
   BANK_INFO_GET_SPECIAL_CONDITIONS_CARDS: 'BankInfo/GetSpecialConditionsCards',
   BANK_INFO_GET_SERVICE_PORTAL: 'BankInfo/GetCustomerServicePortal',
   BANK_INFO_GET_SERVICE_PORTAL_DETAIL: 'BankInfo/GetCustomerServicePortalDetail',
+  BANK_INFO_GET_BRANCH: 'BankInfo/GetBranch',
   BANK_INFO_GET_MAX_TRANSACTION_HISTORY: 'ExternalService/GetMaxTransactionHistory',
   BANK_INFO_GET_MAX_COUNT_TRANSACTION_HISTORY_BRANCH_INFO: 'ExternalService/GetMaxCountTransactionHistoryBranchInfo',
   BANK_INFO_GET_MAX_AMOUNT_TRANSACTION_HISTORY_BRANCH_INFO: 'ExternalService/GetMaxAmountTransactionHistoryBranchInfo',
@@ -67,6 +68,7 @@ const APIS = {
 
   //customer risk
   CUSTOMER_RISK_CALCULATOR: 'RiskCustomer/RiskCalculator',
+  CUSTOMER_RISK_LEVEL_RANGE: 'RiskCustomer/GetRiskLevelRange',
 
   //authentication
   GET_TOKEN_DATA: 'Account/GetTokenData',
@@ -104,6 +106,13 @@ const APIS = {
   ADMIN_INQUIRY_HISTORIES_DELETE_DOCUMENT: 'InquiryCustomer/DeleteInquiryLetterDocument',
   ADMIN_INQUIRY_HISTORIES_ADD_DOCUMENT: 'InquiryCustomer/InsertInquiryLetterDocument',
   ADMIN_INQUIRY_HISTORIES_DELETE_CUSTOMER: 'InquiryCustomer/DeleteInquiryCustomer',
+  ADMIN_INQUIRY_HISTORIES_CHANGE_RESPONSE_SUBMISSION_STATUS: 'InquiryCustomer/ChangeInquiryLetterStatusSend',
+
+  ADMIN_RISK_SETTING_TREE_DATA: 'RiskCustomer/GetFullRiskHierarchy',
+  ADMIN_RISK_SETTING_UPDATE_TYPES: 'RiskCustomer/UpdateRiskTypes',
+  ADMIN_RISK_SETTING_UPDATE_GROUPS: 'RiskCustomer/UpdateRiskGroups',
+  ADMIN_RISK_SETTING_UPDATE_INDICATORS: 'RiskCustomer/UpdateRiskIndicators',
+  ADMIN_RISK_SETTING_UPDATE_SUB_INDICATORS: 'RiskCustomer/UpdateRiskSubIndicators',
 }
 
 export default APIS;

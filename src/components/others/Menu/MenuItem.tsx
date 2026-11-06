@@ -54,45 +54,47 @@ function MenuItem(
       key="expanded"
       onClick={onToggle}
       className={`
-        w-full flex items-center justify-between p-2 mb-2 bg-gray-50 hover:bg-gray-100
-        ${item.className || ""} ${isFirstItem ? '' : 'mt-2'}
+        w-full flex items-center justify-between p-2 mb-2 bg-slate-50 hover:bg-slate-100 dark:hover:bg-dark-2
+        ${item.className || ""} ${isFirstItem ? '' : 'mt-2'} dark:bg-dark-1 duration-200
       `}
     >
       <div className="flex items-center gap-2 flex-1">
         {Icon && <Icon textColor={isOpen ? "text-accent" : ""} className="w-5 h-5 transition-colors duration-200" />}
-        <span className={`text-sm text-gray-500 font-medium ${item.titleClass || ""}`}>{item.label}</span>
+        <span className={`text-sm text-slate-500 dark:text-custom-gray-2 font-medium ${item.titleClass || ""}`}>
+          {item.label}
+        </span>
       </div>
       <ArrowDown isOpen={isOpen} />
     </button>
   );
 
-  const collapsedHeader = (
-    <button
-      key="collapsed"
-      onClick={onToggle}
-      className={`
-        w-full flex items-center justify-center p-2 bg-gray-50 hover:bg-gray-100
-        ${item.className || ""}
-      `}
-      title={item.label}
-    >
-      {Icon && <Icon textColor={isOpen ? "text-accent" : ""} className="transition-colors duration-200" />}
-    </button>
-  );
+  // const collapsedHeader = (
+  //   <button
+  //     key="collapsed"
+  //     onClick={onToggle}
+  //     className={`
+  //       w-full flex items-center justify-center p-2 bg-slate-50 hover:bg-slate-100
+  //       ${item.className || ""}
+  //     `}
+  //     title={item.label}
+  //   >
+  //     {Icon && <Icon textColor={isOpen ? "text-accent" : ""} className="transition-colors duration-200" />}
+  //   </button>
+  // );
 
   return (
     <>
       {(showExpanded && item.label) && (
-        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200'}`}>
+        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-slate-200 dark:border-dark-5'}`}>
           {expandedHeader}
         </div>
       )}
 
-      {(showCollapsed && item.label) && (
-        <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-gray-200 pt-2'}`}>
-          {/*{collapsedHeader}*/}
-        </div>
-      )}
+      {/*{(showCollapsed && item.label) && (*/}
+      {/*  <div className={`animate-in fade-in duration-200 ${isFirstItem ? '' : 'border-t border-slate-200 pt-2'}`}>*/}
+      {/*    /!*{collapsedHeader}*!/*/}
+      {/*  </div>*/}
+      {/*)}*/}
 
       <SubmenuItem
         isOpen={shouldShowChildren} children={item.children} activeLink={activeLink} isExpanded={isExpanded}

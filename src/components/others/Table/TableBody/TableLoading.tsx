@@ -13,7 +13,7 @@ function TableLoading({columnsLength, rowLength, hasActionsColumn}: Props) {
       {new Array(rowLength).fill('').map((_, rowIndex) => {
 
         const rowIsLast = rowIndex + 1 === rowLength;
-        const borderClassName = rowIsLast ? '' : 'border-b border-gray-300'
+        const borderClassName = rowIsLast ? '' : 'border-b border-slate-300 dark:border-dark-4'
 
         return (
           <tr className={borderClassName}>

@@ -23,7 +23,7 @@ function DashboardLayout(
       />
 
       <div className={`
-        bg-white max-h-dvh flex-1 flex flex-col overflow-x-auto
+        bg-white dark:bg-dark-1 max-h-dvh flex-1 flex flex-col overflow-x-auto
       `}>
         {topBar}
 

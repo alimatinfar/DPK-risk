@@ -7,6 +7,7 @@ import type {InputFormPropsType} from "../../Form/Input/InputForm";
 import useFileDataCard, {type UseFileDataCardProps} from "../FileDataCard/hooks/useFileDataCard";
 import FileDataCard from "../FileDataCard/FileDataCard";
 import InputErrorMessage from "../../Form/Input/InputErrorMessage";
+import useTheme from "../ThemeManager/hooks/useTheme.ts";
 
 
 export type UploadBoxProps = {
@@ -42,15 +43,17 @@ function UploadBox(
     fileTypes, maxFileSize, setFileData: onChange, fileData: value
   })
 
+  const {isDarkMode} = useTheme()
+
   const uploadBoxElement = (
     <div className={`flex flex-col gap-y-1 ${uploadBoxClass || ''}`}>
       <div className={`
         relative border border-dashed rounded-md flex flex-col items-center gap-y-2 py-4 px-8
-        ${bgClass || 'bg-gray-50'} ${errorMessage ? 'border-red-500' : 'border-gray-300'}
+        ${bgClass || 'bg-slate-50 dark:bg-dark-6'} ${errorMessage ? 'border-red-500' : 'border-slate-300 dark:border-dark-2'}
       `}>
-        <UploadIcon/>
+        <UploadIcon textColor={isDarkMode ? 'text-custom-gray-4' : 'text-primary'} />
 
-        <div className='flex flex-col items-center gap-y-2 text-gray-900'>
+        <div className='flex flex-col items-center gap-y-2 text-slate-900 dark:text-custom-gray-4'>
           <p className='font-bold'>
             {title || 'بارگذاری فایل'}
           </p>
@@ -76,7 +79,7 @@ function UploadBox(
       {formatEndAdornment || accept ? (
         <div className='flex items-center justify-between gap-x-2'>
           {accept ? (
-            <div className='flex items-center gap-x-1 text-gray-700'>
+            <div className='flex items-center gap-x-1 text-slate-700 dark:text-custom-gray-3'>
               <span>پسوندهای مجاز:</span>
               <span dir='ltr'>{accept}</span>
             </div>
@@ -105,7 +108,7 @@ function UploadBox(
           <div className='flex items-center space-x-1 space-x-reverse'>
             <InfoIcon/>
 
-            <p className='text-gray-500 text-xs text-justify'>
+            <p className='text-slate-500 text-xs text-justify'>
               {hint}
             </p>
           </div>

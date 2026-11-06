@@ -3,7 +3,11 @@ import {useController, useFormContext} from "react-hook-form";
 import type {InputFormPropsType} from "../InputForm.tsx";
 
 function useInputForm(
-  {defaultValue, fieldName, rules}: Pick<InputFormPropsType, 'defaultValue' | 'fieldName' | 'rules'>
+  {
+    defaultValue, fieldName, rules, onChangeFromParent
+  }: Pick<InputFormPropsType,
+    'defaultValue' | 'fieldName' | 'rules' | 'onChangeFromParent'
+  >
 ) {
 
   const {control, trigger, formState: {isSubmitted}} = useFormContext()
@@ -14,17 +18,22 @@ function useInputForm(
     name: fieldName,
     control,
     rules,
-    defaultValue: defaultValue || "",
+    defaultValue: defaultValue ?? "",
   });
 
   useEffect(() => {
     if (rules?.validate && isSubmitted) trigger(fieldName).then()
   }, [value]);
 
+  function onChangeHandler(value: any) {
+    onChangeFromParent && onChangeFromParent(value)
+    onChange(value)
+  }
+
   return {
     name,
     inputRef:ref,
-    onChange,
+    onChange: onChangeHandler,
     onBlur,
     value,
     required:Boolean(rules?.required),

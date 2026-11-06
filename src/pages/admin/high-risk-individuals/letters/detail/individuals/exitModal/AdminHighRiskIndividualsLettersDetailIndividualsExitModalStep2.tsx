@@ -21,7 +21,10 @@ function AdminHighRiskIndividualsLettersDetailIndividualsExitModalStep2(
       <DescriptionField maxLength={200} customFieldName={exitByUserMistakeDescriptionFieldName} />
     </div>
   ) : (
-    <AdminHighRiskIndividualsBaseFormFields descriptionCustomFieldName={exitCitingTheLetterDescriptionFieldName} />
+    <AdminHighRiskIndividualsBaseFormFields
+      descriptionCustomFieldName={exitCitingTheLetterDescriptionFieldName}
+      disabledReferenceField
+    />
   )
 }
 

@@ -23,6 +23,7 @@ import DeleteIcon from "../../../../../../components/svg/DeleteIcon.tsx";
 import type {
   AdminInquiryHistoryDetailIndividualsDeleteModalProps
 } from "../../../../inquiry-histories/detail/AdminInquiryHistoryDetailIndividualsDeleteModal.tsx";
+import useTheme from "../../../../../../components/others/ThemeManager/hooks/useTheme.ts";
 
 
 type Props = {
@@ -37,6 +38,8 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
     setDocListModalState, setExitPersonModalState, setDeletePersonModalState, data
   }: Props
 ) {
+
+  const {isDarkMode} = useTheme()
 
   const {
     getFields, getExitLetterFields
@@ -58,6 +61,8 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
 
                 const exitLetterFields: DetailInfoSectionLabelValueProps[] = getExitLetterFields(item)
 
+                const textIconColor = isDarkMode ? 'text-white' : ''
+
                 return (
                   <AdminHighRiskIndividualsExitLetterContainer exitType={item.exitType}>
                     <AdminHighRiskIndividualsFieldsWithActions
@@ -73,7 +78,7 @@ function AdminHighRiskIndividualsLettersDetailIndividualsCategories(
                                 setExitPersonModalState ? setExitPersonModalState(item) : null}
                               justIcon variant='default' color='red'
                             >
-                              {setDeletePersonModalState ? <DeleteIcon /> : <LogoutIcon/>}
+                              {setDeletePersonModalState ? <DeleteIcon textColor={textIconColor} /> : <LogoutIcon textColor={textIconColor} />}
                             </Button>
                           )}
                         </>

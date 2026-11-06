@@ -24,6 +24,12 @@ const AdminInquiryHistoriesForm = lazy(() => import(
 const AdminInquiryHistoryDetailPage = lazy(() => import(
   "../pages/admin/inquiry-histories/detail/AdminInquiryHistoryDetailPage.tsx"
   ));
+const AdminRiskSettingPage = lazy(() => import(
+  "../pages/admin/risk-setting/AdminRiskSettingPage.tsx"
+  ));
+const AdminRiskGroupReportPage = lazy(() => import(
+  "../pages/admin/risk-group-report/AdminRiskGroupReportPage.tsx"
+  ));
 
 
 const adminRouter = [
@@ -59,6 +65,16 @@ const adminRouter = [
   {
     path: ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_FORM,
     element: <AdminInquiryHistoriesForm/>,
+  },
+
+  {
+    path: ROUTER_LINKS.ADMIN_RISK_SETTING,
+    element: <AdminRiskSettingPage/>,
+  },
+
+  {
+    path: ROUTER_LINKS.ADMIN_RISK_GROUP_REPORT,
+    element: <AdminRiskGroupReportPage/>,
   },
 ]
 

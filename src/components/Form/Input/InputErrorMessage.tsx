@@ -15,7 +15,7 @@ function InputErrorMessage({errorMessage, description, endErrorMessage}: Props) 
 
     const text = errorMessage || description || ''
     const className = `
-      ${wrapperClass} flex-1 text-[12px] font-medium flex items-center ${errorMessage ? 'text-red-500' : 'text-gray-400'} mt-0.5
+      ${wrapperClass} flex-1 text-[12px] font-medium flex items-center ${errorMessage ? 'text-red-500' : 'text-slate-400'} mt-0.5
     `
 
     return endErrorMessage ? (

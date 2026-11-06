@@ -12,26 +12,6 @@ import {riskListTypeFieldName} from "../../FormFields/RiskListTypeField/index.co
 import getSelectIdValue from "../../../../../components/Form/Select/utils/getSelectIdValue.ts";
 import checkFormHasAtLeastOneValue
   from "../../../../../components/Form/FormLayout/ReactHookFormWrapper/utils/checkFormHasAtLeastOneValue.ts";
-import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "../../../../search/form/SearchPageForm.constances.ts";
-import {
-  birthCertificationNumberFieldName
-} from "../../../../search/form/formFields/natural/BirthCertificateNumberField/BirthCertificateNumberField.constances.ts";
-import {
-  comprehensiveForeignNationalsIdFieldName
-} from "../../../../search/form/formFields/foreignCitizen/ComprehensiveForeignNationalsIdField/ComprehensiveForeignNationalsIdField.constances.ts";
-import {
-  nationalityFieldName
-} from "../../../../search/form/formFields/foreignCitizen/NationalityField/NationalityField.constances.ts";
-import {
-  citizenshipFieldName
-} from "../../../../search/form/formFields/foreignCitizen/CitizenshipField/CitizenshipField.constances.ts";
-import {
-  legalBrandNameFieldName
-} from "../../../../search/form/formFields/legal/LegalBrandNameField/LegalBrandNameField.constances.ts";
-import {
-  legalRegistrationNumberFieldName
-} from "../../../../search/form/formFields/legal/LegalRegistrationNumberField/LegalRegistrationNumberField.constances.ts";
-import {legalTypeFieldName} from "../../../../search/form/formFields/legal/LegalTypeField/LegalTypeField.constances.ts";
 import useAdminHighRiskIndividualsCardsMapData from "./useAdminHighRiskIndividualsCardsMapData.ts";
 
 

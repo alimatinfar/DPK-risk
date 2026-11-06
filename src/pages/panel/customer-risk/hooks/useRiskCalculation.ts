@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {type CalculationState, useRiskAnimation} from "../report/useRiskAnimation.ts";
 import type {RiskCalculationProps} from "../report/RiskCalculation.tsx";
+import useRiskReportLevelRange from "./useRiskReportLevelRange.ts";
 
 function useRiskCalculation(
   {
@@ -16,8 +17,14 @@ function useRiskCalculation(
 
   const [selectedFactor, setSelectedFactor] = useState(0);
 
+  const {
+    levelRangeLoading, levelRangeData
+  } = useRiskReportLevelRange({
+    setCalculationState
+  })
+
   const animation = useRiskAnimation({
-    calculationState, setCalculationState, score, loading, responseData
+    calculationState, setCalculationState, score, loading, responseData, levelRangeData
   });
 
   const handleStart = () => {
@@ -43,11 +50,12 @@ function useRiskCalculation(
 
   useEffect(() => {
     if (!error) return
-    setCalculationState('empty')
+    setCalculationState('error')
   }, [error]);
 
   return {
-    animation, calculationState, handleStart, score, selectedFactor, setSelectedFactor, handleRestart
+    animation, calculationState, handleStart, score, selectedFactor, setSelectedFactor, handleRestart,
+    levelRangeData
   }
 }
 

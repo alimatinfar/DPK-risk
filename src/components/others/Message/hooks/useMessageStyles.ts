@@ -10,7 +10,7 @@ function useMessageStyles({color}: Pick<MessageProps, 'color'>) {
       description: 'text-yellow-600',
     },
     error: {
-      wrapper: 'border-red-400 bg-red-50',
+      wrapper: 'border-red-400 bg-red-50 dark:bg-dark-6 dark:border-dark-2',
       title: 'text-red-700',
       description: 'text-red-600',
     },

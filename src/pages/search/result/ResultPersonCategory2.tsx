@@ -3,8 +3,8 @@ import ResultPersonCategory, {type ResultPersonCategoryProps} from "./ResultPers
 function ResultPersonCategory2(props: ResultPersonCategoryProps) {
   return (
     <ResultPersonCategory
-      wrapperBackground='border border-gray-200 bg-gray-50'
-      headerBorderBottomClassName='border-b border-gray-200'
+      wrapperBackground='border border-slate-200 bg-slate-50 dark:border-dark-2 dark:bg-dark-1'
+      headerBorderBottomClassName='border-b border-slate-200 dark:border-dark-2'
       {...props}
     />
   );

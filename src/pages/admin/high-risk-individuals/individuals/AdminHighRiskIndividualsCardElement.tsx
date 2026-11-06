@@ -51,8 +51,8 @@ function AdminHighRiskIndividualsCardElement(
   }, [data])
 
   return (
-    <div className='rounded-lg border border-gray-200 flex flex-col overflow-hidden'>
-      <div className='bg-gray-100 flex items-center justify-between px-2 py-1.5'>
+    <div className='rounded-lg border border-slate-200 dark:border-dark-2 flex flex-col overflow-hidden'>
+      <div className='bg-slate-100 dark:bg-dark-6 flex items-center justify-between px-2 py-1.5'>
         <p>
           {data.name}
         </p>
@@ -60,7 +60,7 @@ function AdminHighRiskIndividualsCardElement(
         {!hiddenAction && (
           <Link to={detailLink}>
             <IconClickable
-              hoverClass='hover:bg-white'
+              hoverClass='hover:bg-white dark:hover:bg-dark-4'
             >
               <DetailIcon />
             </IconClickable>
@@ -68,7 +68,7 @@ function AdminHighRiskIndividualsCardElement(
         )}
       </div>
 
-      <div className='p-2 flex flex-col bg-white flex-1'>
+      <div className='p-2 flex flex-col bg-white dark:bg-dark-1 flex-1'>
         {categoryFields.map((fields, categoryIndex) => {
 
           const isFirst = categoryIndex === 0
@@ -77,7 +77,7 @@ function AdminHighRiskIndividualsCardElement(
           return (
             <div
               key={categoryIndex}
-              className={`flex flex-col gap-y-2 pt-2 ${isLast ? '' : 'pb-2'} ${isFirst ? '' : 'border-t border-gray-200'}`}
+              className={`flex flex-col gap-y-2 pt-2 ${isLast ? '' : 'pb-2'} ${isFirst ? '' : 'border-t border-slate-200'}`}
             >
               {fields.map(({label, value}, index) => (
                 <CardTitleValue

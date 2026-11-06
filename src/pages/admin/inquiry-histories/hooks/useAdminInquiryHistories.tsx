@@ -3,7 +3,6 @@ import type {AdminInquiryHistoriesFilterType, AdminInquiryHistoriesResponseItemT
 import {useMemo} from "react";
 import TABLE_ACCESSORS from "../../../../components/others/Table/constances/tableAccessors.ts";
 import {TableDetailAction} from "../../../../components/others/Table/constances/actions/TableDetailAction.tsx";
-import EditIcon from "../../../../components/svg/EditIcon.tsx";
 import DeleteIcon from "../../../../components/svg/DeleteIcon.tsx";
 import useFilter from "../../../../components/Form/FilterForm/hooks/useFilter.ts";
 import {useNavigate} from "react-router";
@@ -22,7 +21,10 @@ import {
 } from "../../high-risk-individuals/FormFields/AnnouncingReferenceField/index.constances.ts";
 import getSelectIdValue from "../../../../components/Form/Select/utils/getSelectIdValue.ts";
 import {requestReasonFieldName} from "../FormFields/RequestReasonField/index.constances.ts";
-import {responseSubmissionStatusFieldName} from "../FormFields/ResponseSubmissionStatusField/index.constances.ts";
+import {
+  responseSubmissionStatusFieldName,
+  responseSubmissionStatusSentId
+} from "../FormFields/ResponseSubmissionStatusField/index.constances.ts";
 import {letterNumberFieldName} from "../../high-risk-individuals/FormFields/LetterNumberField/index.constances.ts";
 import {nationalCodeFieldName} from "../../high-risk-individuals/FormFields/NationalCodeField/index.constances.ts";
 import getBodyDataDateField from "../../../../request/utils/getBodyDataDateField.ts";
@@ -31,6 +33,9 @@ import {letterFromDateFieldName} from "../../high-risk-individuals/FormFields/Le
 import Tag from "../../../../components/others/Tag/Tag.tsx";
 import {firstNameFieldName} from "../../high-risk-individuals/FormFields/FirstNameField/index.constances.ts";
 import {lastNameFieldName} from "../../high-risk-individuals/FormFields/LastNameField/index.constances.ts";
+import type {AdminInquiryHistoriesChangeStatusModalProps} from "../AdminInquiryHistoriesChangeStatusModal.tsx";
+import type {AdminInquiryHistoriesDeleteModalProps} from "../AdminInquiryHistoriesDeleteModal.tsx";
+import SettingIcon2 from "../../../../components/svg/SettingIcon2.tsx";
 
 
 function useAdminInquiryHistories() {
@@ -41,7 +46,13 @@ function useAdminInquiryHistories() {
     open: deleteModalOpen, modalState: deleteModalState,
     setModalState: setDeleteModalState, closeModal: closeDeleteModal,
     shouldBeRemoved: deleteModalShouldBeRemoved
-  } = useModalOpen<number | null>(null)
+  } = useModalOpen<AdminInquiryHistoriesDeleteModalProps['modalState']>(null)
+
+  const {
+    open: changeStatusModalOpen, modalState: changeStatusModalState,
+    setModalState: setChangeStatusModalState, closeModal: closeChangeStatusModal,
+    shouldBeRemoved: changeStatusModalShouldBeRemoved
+  } = useModalOpen<AdminInquiryHistoriesChangeStatusModalProps['modalState']>(null)
 
   const {
     filters, setFilters, setCurrentPage, setRowsPerPage
@@ -76,35 +87,48 @@ function useAdminInquiryHistories() {
     // const finalData = ADMIN_INQUIRY_HISTORIES_FAKE_DATA
     if (!finalData) return []
 
-    return finalData?.map((item) => ({
-      id: item?.id,
-      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: item?.letterRefTitle,
-      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: item?.resonTitle,
-      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: item?.letterNo,
-      [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.STATUS]: (
-        <Tag text={item?.statusTitle} color={item?.status === 1 ? 'green' : 'red'} variant='fade' />
-      ),
-      [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
-        TableDetailAction(() => {
-          const url = ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_DETAIL(item.id)
-          const params = {
-            [QUERY_PARAMS.LETTER_NUMBER]: item?.letterNo
-          }
-          navigate(getUrlWithParams(url, params))
-        }, 'مشاهده و ویرایش'),
-        {
-          onClick: () => setDeleteModalState(item?.id),
-          icon: <DeleteIcon width='100%' height='100%'/>,
-          title: 'حذف سابقه استعلام',
-        }
-      ],
-    }))
+    return finalData?.map((item) => {
+
+      const responseStatusSent = item?.status === responseSubmissionStatusSentId
+
+      return {
+        id: item?.id,
+        [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUESTER]: item?.letterRefTitle,
+        [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.REQUEST_REASON]: item?.resonTitle,
+        [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.LETTER_NUMBER]: item?.letterNo,
+        [ADMIN_INQUIRY_HISTORIES_COLUMNS_KEYS.STATUS]: (
+          <Tag text={item?.statusTitle} color={item?.status === 1 ? 'green' : 'red'} variant='fade' />
+        ),
+        [TABLE_ACCESSORS.TD_ACTIONS_ACCESSOR]: [
+          ...!responseStatusSent ? [
+            {
+              onClick: () => setDeleteModalState(item?.id),
+              icon: <DeleteIcon width='100%' height='100%'/>,
+              title: 'حذف سابقه استعلام',
+            },
+            {
+              onClick: () => setChangeStatusModalState(item?.id),
+              icon: <SettingIcon2 width='100%' height='100%'/>,
+              title: 'ویرایش وضعیت',
+            }
+          ] : [],
+          TableDetailAction(() => {
+            const url = ROUTER_LINKS.ADMIN_INQUIRY_HISTORIES_DETAIL(item.id)
+            const params = {
+              [QUERY_PARAMS.LETTER_NUMBER]: item?.letterNo
+            }
+            navigate(getUrlWithParams(url, params))
+          }, `مشاهده${responseStatusSent ? '' : ' و ویرایش'}`),
+        ],
+      }
+    })
   }, [data])
 
   return {
     filters, setFilters, tableData, listLoading, listError, refetchList,
     deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved,
-    setCurrentPage, setRowsPerPage, totalLength: data?.totalCount || 0
+    setCurrentPage, setRowsPerPage, totalLength: data?.totalCount || 0,
+    changeStatusModalOpen, changeStatusModalState, closeChangeStatusModal, changeStatusModalShouldBeRemoved
   }
 }
 

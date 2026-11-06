@@ -12,6 +12,7 @@ import type {ModalStateTypeId} from "../../letters/detail/individuals/index.type
 import {MODAL_STATE_TYPE_KEYS} from "../../letters/detail/individuals/index.constances.ts";
 import type {CustomResponseType} from "../../../../../request/types/CustomResponseType.ts";
 import type {AdminHighRiskIndividualsDetailItemResponseType} from "./index.types.ts";
+import useTheme from "../../../../../components/others/ThemeManager/hooks/useTheme.ts";
 
 
 export type AdminHighRiskIndividualsDetailPageLettersProps = {
@@ -32,6 +33,8 @@ function AdminHighRiskIndividualsDetailPageLetters(
     responseData
   })
 
+  const {isDarkMode} = useTheme()
+
   return lettersData.map((item, index) => {
     return (
       <AdminHighRiskIndividualsExitLetterContainer exitType={item.exitType}>
@@ -45,7 +48,7 @@ function AdminHighRiskIndividualsDetailPageLetters(
                     onClick={() => setExitPersonModalState(item.riskCustomerId)}
                     justIcon variant='default' color='red'
                   >
-                    <LogoutIcon/>
+                    <LogoutIcon textColor={isDarkMode ? 'text-white' : 'text-red-500'} />
                   </Button>
                 </>
               )}

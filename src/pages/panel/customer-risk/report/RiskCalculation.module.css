@@ -166,6 +166,7 @@
       border-color 0.6s;
 }
 
+
 .scene.active .coreBorder {
   border-color: rgba(0, 0, 0, 0.06);
 
@@ -736,8 +737,8 @@ path {
 .scoreBadge {
   position: relative;
 
-  width: 128px;
-  height: 128px;
+  width: 140px;
+  height: 140px;
 
   flex-shrink: 0;
 
@@ -912,7 +913,7 @@ path {
 .scoreBadge b {
   position: relative;
 
-  font-size: 45px;
+  font-size: 40px;
 
   font-weight: 800;
 
@@ -1746,5 +1747,378 @@ path {
 
     transition-duration:
         0.15s !important;
+  }
+}
+
+/* =========================================================
+   Dark Mode
+   ========================================================= */
+
+:global(html.dark) .scene {
+  color: #f4f4f5;
+}
+
+/* =========================
+   Status
+   ========================= */
+
+:global(html.dark) .status {
+  color: #a1a1aa;
+}
+
+:global(html.dark) .scene.active .status {
+  color: #d4d4d8;
+}
+
+:global(html.dark) .sDot {
+  background: #52525b;
+}
+
+
+/* =========================
+   Core
+   ========================= */
+
+:global(html.dark) .coreBorder {
+  background: #1D1C1F;
+  border-color: #404040;
+}
+
+:global(html.dark) .scene.active .coreBorder {
+  border-color: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+      0 18px 46px -16px
+      rgba(0, 0, 0, 0.55);
+}
+
+:global(html.dark) .coreWave {
+  border-color: #404040;
+}
+
+:global(html.dark) .coreInner span {
+  background: #404040;
+}
+
+:global(html.dark) .scene:not(.active) .coreBorder {
+  animation-name: coreidleDark;
+}
+
+@keyframes coreidleDark {
+  50% {
+    box-shadow:
+        0 0 26px -10px
+        rgba(0, 0, 0, 0.55);
+
+    border-color: #525252;
+  }
+}
+
+
+/* =========================
+   Nodes
+   ========================= */
+
+:global(html.dark) .node {
+  background: #2A2A2A;
+  border-color: #404040;
+  color: #71717a;
+}
+
+:global(html.dark) .scene.active .node {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+:global(html.dark) .scene.active .node.lit {
+  border-color: var(--c);
+
+  box-shadow:
+      0 0 0 6px
+      color-mix(
+          in srgb,
+          var(--c) 10%,
+          transparent
+      ),
+      0 0 24px -2px
+      color-mix(
+          in srgb,
+          var(--c) 50%,
+          transparent
+      );
+}
+
+
+/* =========================
+   Button
+   ========================= */
+
+:global(html.dark) .btn {
+  border-color: #404040;
+  background: #19181B;
+  color: #fff;
+}
+
+:global(html.dark) .btn:hover {
+  box-shadow:
+      0 10px 22px -10px
+      rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================
+   Report
+   ========================= */
+
+:global(html.dark) .report {
+  background: #1D1C1F;
+  border-color: #404040;
+
+  box-shadow:
+      0 24px 60px -32px
+      rgba(0, 0, 0, 0.65);
+}
+
+
+/* =========================
+   Report Header
+   ========================= */
+
+:global(html.dark) .repHead {
+  border-bottom-color: #404040;
+
+  background:
+      linear-gradient(
+          150deg,
+          color-mix(
+              in srgb,
+              var(--c) 8%,
+              #1D1C1F
+          ) 0%,
+          #1D1C1F 60%
+      );
+}
+
+:global(html.dark) .lbl {
+  color: #a1a1aa;
+}
+
+:global(html.dark) .repTitle h2 {
+  color: #f4f4f5;
+}
+
+:global(html.dark) .catChip {
+  background:
+      color-mix(
+          in srgb,
+          var(--c) 12%,
+          #1D1C1F
+      );
+
+  border-color:
+      color-mix(
+          in srgb,
+          var(--c) 30%,
+          #404040
+      );
+}
+
+:global(html.dark) .catRange {
+  color: #a1a1aa;
+}
+
+
+/* =========================
+   Scale
+   ========================= */
+
+:global(html.dark) .scaleLabel {
+  color: #a1a1aa;
+}
+
+
+/* =========================
+   Factor List
+   ========================= */
+
+:global(html.dark) .flist {
+  border-left-color: #404040;
+}
+
+:global(html.dark) .fitemHead {
+  background: #2A2A2A;
+  border-color: #404040;
+  color: #f4f4f5;
+}
+
+:global(html.dark) .fitemHead .fIcon {
+  background:
+      color-mix(
+          in srgb,
+          var(--c) 10%,
+          #1D1C1F
+      );
+
+  border-color:
+      color-mix(
+          in srgb,
+          var(--c) 25%,
+          #404040
+      );
+}
+
+:global(html.dark) .fSub {
+  color: #a1a1aa;
+}
+
+:global(html.dark) .fScore span {
+  color: #a1a1aa;
+}
+
+:global(html.dark) .fChev {
+  border-color: #404040;
+  color: #a1a1aa;
+}
+
+:global(html.dark) .fitemHead.sel {
+  background:
+      color-mix(
+          in srgb,
+          var(--c) 7%,
+          #2A2A2A
+      );
+
+  border-color:
+      color-mix(
+          in srgb,
+          var(--c) 55%,
+          #404040
+      );
+}
+
+
+/* =========================
+   Detail
+   ========================= */
+
+:global(html.dark) .detailTop h3 {
+  color: #f4f4f5;
+}
+
+:global(html.dark) .dScore {
+  background:
+      color-mix(
+          in srgb,
+          var(--c) 10%,
+          #1D1C1F
+      );
+
+  border-color:
+      color-mix(
+          in srgb,
+          var(--c) 25%,
+          #404040
+      );
+}
+
+:global(html.dark) .dSummary {
+  color: #a1a1aa;
+  background: #2A2A2A;
+  border-color: #404040;
+}
+
+:global(html.dark) .dGroup {
+  background: #2A2A2A;
+  border-color: #404040;
+}
+
+:global(html.dark) .dGroupTitle {
+  color: #e4e4e7;
+}
+
+:global(html.dark) .dItem {
+  border-bottom-color: #404040;
+}
+
+:global(html.dark) .dot {
+  background: #525252;
+}
+
+:global(html.dark) .t {
+  color: #a1a1aa;
+}
+
+:global(html.dark) .dItem.on .t {
+  color: #e4e4e7;
+}
+
+:global(html.dark) .wnum {
+  color: #a1a1aa;
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+:global(html.dark) .repFoot {
+  background: #19181B;
+  border-top-color: #404040;
+  color: #a1a1aa;
+}
+
+:global(html.dark) .repFoot b {
+  color: #d4d4d8;
+}
+
+:global(html.dark) .reBtn {
+  background: #2A2A2A;
+  border-color: #404040;
+  color: #e4e4e7;
+}
+
+:global(html.dark) .reBtn:hover {
+  border-color: #71717a;
+  color: #fff;
+}
+
+
+/* =========================
+   Ghost
+   ========================= */
+
+:global(html.dark) .ghost {
+  background:
+      color-mix(
+          in srgb,
+          var(--c) 14%,
+          #1D1C1F
+      );
+
+  border-color:
+      color-mix(
+          in srgb,
+          var(--c) 45%,
+          #404040
+      );
+
+  box-shadow:
+      0 0 44px -6px
+      color-mix(
+          in srgb,
+          var(--c) 55%,
+          transparent
+      ),
+      0 18px 40px -18px
+      rgba(0, 0, 0, 0.65);
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+  :global(html.dark) .flist {
+    border-bottom-color: #404040;
   }
 }

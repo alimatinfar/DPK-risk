@@ -53,6 +53,7 @@ function WheelDateTimePickerForm(
         })}
         inputLtr
         // onChange={onChangeInputHandler}
+        autoCompleteOff
         value={inputValue}
         onClick={openModalHandler}
         onBlur={onBlur}

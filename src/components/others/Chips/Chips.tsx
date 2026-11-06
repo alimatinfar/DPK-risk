@@ -33,7 +33,7 @@ export default function Chips(
       className={`flex gap-2 justify-center items-center w-auto ${joinObjectValues(badgeStyles)} 
       ${className}`}
     >
-      {props.icon && <props.icon textColor='text-gray-500' />}
+      {props.icon && <props.icon textColor='text-slate-500' />}
 
       <span className='select-none'>
         {text}
@@ -41,7 +41,7 @@ export default function Chips(
 
       {onClose && (
         <div
-          className='p-1 cursor-pointer hover:bg-red-100 duration-200' onClick={onClickHandler}
+          className='p-1 cursor-pointer hover:bg-red-100 dark:hover:bg-dark-4 rounded-md duration-200' onClick={onClickHandler}
         >
           <CrossIcon />
         </div>

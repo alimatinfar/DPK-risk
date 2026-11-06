@@ -19,7 +19,7 @@ function AdminHighRiskIndividualsDocumentFormFields(
 
       <div className={descriptionClass || ''}>
         <DescriptionField
-          isNotRequired placeholder='توضیحات مربوط به فایل بارگزاری شده'
+          isNotRequired placeholder='توضیحات مربوط به فایل بارگذاری شده'
           maxLength={190}
         />
       </div>
@@ -27,7 +27,7 @@ function AdminHighRiskIndividualsDocumentFormFields(
       <UploadFileField
         {...uploadFileFieldProps}
         uploadBoxProps={{
-          accept: '.pdf,.jpeg',
+          accept: '.pdf,.jpeg,.jpg,.png,.docx,.doc',
           ...uploadFileFieldProps?.uploadBoxProps,
         }}
       />

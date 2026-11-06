@@ -38,7 +38,7 @@ function WheelDateTimePickerColumn(
             key={i}
             // onClick={() => handleClick(i)}
             className={`h-11 flex items-center justify-center rounded-md duration-200
-            ${item === value ? "text-gray-800 font-bold text-lg" : "text-gray-500 text-base"}`}
+            ${item === value ? "text-slate-800 dark:text-custom-gray-2 font-bold text-lg" : "text-slate-500 dark:text-custom-gray-1 text-base"}`}
           >
             {format ? format(item) : item}
           </div>

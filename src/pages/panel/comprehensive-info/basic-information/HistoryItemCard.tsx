@@ -18,14 +18,14 @@ function HistoryItemCard(
   return (
     <div onClick={() => onItemClick(item)}>
       <div className={`
-        border border-gray-200 rounded py-4 px-2
-        flex items-center duration-200 cursor-pointer ${activeId === item.id ? "border-gray-300 bg-gray-100" : "bg-white hover:bg-gray-50"}
+        border border-slate-200 rounded py-4 px-2
+        flex items-center duration-200 cursor-pointer ${activeId === item.id ? "border-slate-300 bg-slate-100" : "bg-white hover:bg-slate-50"}
       `}>
-        <div className="flex divide-x divide-gray-300 gap-3">
+        <div className="flex divide-x divide-slate-300 gap-3">
           <p className="pl-3 text-sm font-medium">
             {item.date}
           </p>
-          <div className="text-gray-500 text-xs flex gap-1 items-center">
+          <div className="text-slate-500 text-xs flex gap-1 items-center">
             <VectorIcon
               width={15}
               height={15}

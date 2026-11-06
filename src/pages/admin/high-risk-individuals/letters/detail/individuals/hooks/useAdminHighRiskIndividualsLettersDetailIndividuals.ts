@@ -42,7 +42,7 @@ function useAdminHighRiskIndividualsLettersDetailIndividuals(
     exitPersonModalOpen, exitPersonModalShouldBeRemoved, closeExitPersonModalHandler,
     exitPersonModalState, setExitPersonModalState
   } = useAdminHighRiskIndividualsExitModalStates<AdminHighRiskIndividualsLettersDetailIndividualsDataItemType | boolean>(false)
-
+  console.log({exitPersonModalState})
   const {
     personTitle
   } = useAdminHighRiskIndividualsLettersDetailIndividualsModalPeronTitle({

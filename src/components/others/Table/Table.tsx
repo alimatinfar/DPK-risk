@@ -9,7 +9,7 @@ function Table<TColumns extends readonly TableColumnType[]>(
   }: TableProps<TColumns> & Pick<TableHeadProps, "sort" | "setSort">
 ) {
   return (
-    <div className="relative overflow-x-auto w-full border border-gray-300 rounded-lg">
+    <div className="relative overflow-x-auto w-full border border-slate-300 dark:border-dark-2 rounded-lg">
       <table className="w-full overflow-hidden">
         <TableHead columns={columns} sort={sort} setSort={setSort} />
         <TableBody columns={columns} data={data} loading={Boolean(loading)} />

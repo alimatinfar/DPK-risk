@@ -11,7 +11,7 @@ function Card(
 ) {
   return (
     <div className={`
-      border border-gray-300 bg-white rounded-lg ${paddingClass || 'p-4'} ${className || ''}
+      border border-slate-300 bg-white dark:bg-dark-1 dark:border-dark-2 rounded-lg ${paddingClass || 'p-4'} ${className || ''}
     `}>
       {children}
     </div>

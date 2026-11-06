@@ -16,7 +16,7 @@ const ArrowPagination = (props: Props) => {
       {...props}
     >
       <path
-        className={getIconPathClassName({mode: 'stroke', textColor: props.disabled ? 'text-gray-300' : 'text-gray-900'})}
+        className={getIconPathClassName({mode: 'stroke', textColor: props.disabled ? 'text-slate-300' : 'text-slate-900 dark:text-custom-gray-2'})}
         d="M7.11095 12.6668L2.6665 8.00016M2.6665 8.00016L7.11095 3.3335M2.6665 8.00016L13.3332 8.00016"
         strokeWidth={2}
         strokeLinecap="round"

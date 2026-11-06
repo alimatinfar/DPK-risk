@@ -10,6 +10,7 @@ export type BasicInformationNaturalResponseType = {
   firstName: string;
   lastName: string;
   shenasnameId: number;
+  shahabId: number | string;
   fathername: string;
   gender: number;
   genderTitle: string;
@@ -23,6 +24,7 @@ export type BasicInformationNaturalResponseType = {
   customerType: number;
   customerTypeTitle: string;
   customerSubType: string;
+  customerSubTypeTitle: string;
 
   educationLevel: number;
   educationLevelTitle: string;
@@ -67,6 +69,9 @@ export type BasicInformationNaturalResponseType = {
 
   areaCode: string;
   areaName: string;
+
+  jobCode: string | number;
+  jobCodeTitle: string;
 };
 
 
@@ -96,6 +101,7 @@ export type BasicInformationForeignCitizenResponseType = {
 
 export type BasicInformationLegalResponseType = {
   customerId: number;
+  shahabId: number | string;
   customerIdStr: string;
   nationalID: number;
   nationalIDStr: string;
@@ -114,7 +120,9 @@ export type BasicInformationLegalResponseType = {
   licenseDate: number;
   establishmentDate: number;
   nationalIdStatus: number;
+  nationalIdStatusTitle: string;
   legalEntityStatus: number;
+  legalEntityStatusTitle: number;
   eNamadStatus: string;
 
   dissolutionDate: number | string | null;
@@ -151,10 +159,14 @@ export type BasicInformationLegalResponseType = {
   changeLastDate: number;
 
   customerSubType: string;
+  customerSubTypeTitle: string;
   branchCode: number;
   branchName: string;
   areaCode: string;
   areaName: string;
+
+  jobCode: string | number;
+  jobCodeTitle: string;
 };
 
 

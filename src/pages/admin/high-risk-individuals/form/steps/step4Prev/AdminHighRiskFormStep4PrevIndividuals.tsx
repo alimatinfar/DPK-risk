@@ -20,7 +20,7 @@ function AdminHighRiskFormStep4PrevIndividuals(
   const individualsExtraData: any = undefined
 
   return (
-    <div className='flex flex-col border-l border-gray-200 w-62.5'>
+    <div className='flex flex-col border-l border-slate-200 w-62.5'>
       {individuals.map((individual, index) => {
 
         const customerId = individual?.[customerIdFieldName]
@@ -39,12 +39,12 @@ function AdminHighRiskFormStep4PrevIndividuals(
             onClick={isActive ? undefined : () => setActivePerson(customerId)}
             className={`
               flex flex-col gap-y-2 p-2 duration-200
-              ${isLast ? '' : 'border-b border-gray-200'} 
-              ${isActive ? 'bg-gray-100' : 'hover:bg-gray-100 cursor-pointer'}
+              ${isLast ? '' : 'border-b border-slate-200'} 
+              ${isActive ? 'bg-slate-100' : 'hover:bg-slate-100 cursor-pointer'}
             `}
           >
             <div className='flex items-center gap-x-1'>
-              {Icon && <Icon textColor='text-gray-500'/>}
+              {Icon && <Icon textColor='text-slate-500'/>}
 
               <p>
                 {individual?.name}

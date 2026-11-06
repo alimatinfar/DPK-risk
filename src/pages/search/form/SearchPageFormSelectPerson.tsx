@@ -3,16 +3,12 @@ import DropDownActions, {
 } from "../../../components/others/DropDown/DropDownActions/DropDownActions.tsx";
 import ArrowIcon from "../../../components/svg/ArrowIcon.tsx";
 import {SEARCH_PAGE_FORM_PERSON_TYPE_KEYS} from "./SearchPageForm.constances.ts";
-import type {SearchPageFormPersonType} from "./SearchPageForm.types.ts";
 import {useMemo, useState} from "react";
-import type {SetStateType} from "../../../types/SetStateType.ts";
 import getPersonTypeItem from "./utils/getPersonTypeItem";
+import type {SearchPageFormProps} from "./SearchPageForm.tsx";
 
 
-type Props = {
-  activePersonType: SearchPageFormPersonType | undefined;
-  setActivePersonType: SetStateType<SearchPageFormPersonType | undefined>;
-}
+type Props = Pick<SearchPageFormProps, 'activePersonType' | 'setActivePersonType'>
 
 function SearchPageFormSelectPerson(
   {activePersonType, setActivePersonType}: Props
@@ -24,8 +20,8 @@ function SearchPageFormSelectPerson(
     return Object.entries(SEARCH_PAGE_FORM_PERSON_TYPE_KEYS).map(([_, value]) => ({
       onClick: () => setActivePersonType(value?.name),
       title: value?.label,
-      icon: <value.icon />,
-      className: activePersonType === value?.name ? 'bg-gray-100' : ''
+      icon: <value.icon textColor='' />,
+      className: activePersonType === value?.name ? 'bg-slate-100 dark:bg-dark-1' : ''
     }))
   }, [setActivePersonType, activePersonType])
 
@@ -41,7 +37,7 @@ function SearchPageFormSelectPerson(
         <span className='font-medium'>
           {`فیلترهای پیشرفته ${activePersonLabel ? `(${activePersonLabel})` : ''}`}
         </span>
-        <ArrowIcon textColor='text-inherit' />
+        <ArrowIcon textColor='text-inherit'/>
       </div>
     </DropDownActions>
   );

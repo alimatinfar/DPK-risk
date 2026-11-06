@@ -71,7 +71,7 @@ function ModalActions(
             key={index}
             onClick={action.hasConfirm ? () => setConfirmId(action.id) : action.onClick}
             className={`
-              flex items-center space-x-2 space-x-reverse p-2 duration-200 hover:bg-gray-100 rounded-lg cursor-pointer
+              flex items-center space-x-2 space-x-reverse p-2 duration-200 hover:bg-slate-100 rounded-lg cursor-pointer
             `}
             >
             {action.iconLoading ? (
@@ -84,7 +84,7 @@ function ModalActions(
               />
             )}
 
-              <p className={action?.textColor || 'text-gray-900'}>
+              <p className={action?.textColor || 'text-slate-900'}>
                 {action.label}
               </p>
             </div>

@@ -34,7 +34,7 @@ function PanelTransactionHistoryEServiceRender(
             <Link
               to={getUrlWithParams(linkUrl, params)}
               key={item.name}
-              className='flex flex-col items-center justify-center gap-y-3 bg-gray-50 hover:bg-gray-100 duration-200 cursor-pointer grow rounded-lg border border-gray-200 p-4 min-w-50 max-w-60 min-h-24'
+              className='flex flex-col items-center justify-center gap-y-3 bg-slate-50 dark:bg-dark-6 hover:bg-slate-100 dark:hover:bg-dark-1 dark:border-dark-2 duration-200 cursor-pointer grow rounded-lg border border-slate-200 p-4 min-w-50 max-w-60 min-h-24'
             >
               <item.icon />
 

@@ -17,21 +17,21 @@ import {
 
 import styles from './RiskCalculation.module.css';
 import type {RiskCalculationProps} from "./RiskCalculation.tsx";
+import type {RiskReportProps} from "./RiskReport.tsx";
 
 export type CalculationState =
   | 'empty'
   | 'calculating'
-  | 'result';
+  | 'result'
+  | 'error';
 
 type Props = {
   calculationState: CalculationState;
-
   setCalculationState: Dispatch<
     SetStateAction<CalculationState>
   >;
-
   score: number;
-} & Pick<RiskCalculationProps, 'responseData' | 'loading'>;
+} & Pick<RiskCalculationProps, 'responseData' | 'loading'> & Pick<RiskReportProps, 'levelRangeData'>;
 
 type Flow = {
   el: SVGPathElement;
@@ -45,7 +45,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 
 export function useRiskAnimation(
   {
-    calculationState, setCalculationState, score, loading, responseData
+    calculationState, setCalculationState, score, loading, responseData, levelRangeData
   }: Props
 ) {
   const stageRef =
@@ -413,64 +413,40 @@ export function useRiskAnimation(
     };
   }, [animationTick]);
 
-  const countUpReport =
-    useCallback(() => {
-      const scoreElement =
-        reportRef.current?.querySelector(
-          '#scoreNum',
-        );
+  const countUpReport = useCallback(() => {
+    const scoreElement =
+      reportRef.current?.querySelector('#scoreNum');
 
-      if (!scoreElement) {
-        return;
+    if (!scoreElement) return;
+
+    if (countTimerRef.current !== null) {
+      clearInterval(countTimerRef.current);
+    }
+
+    let step = 0;
+    const steps = 32;
+
+    countTimerRef.current = window.setInterval(() => {
+      step++;
+
+      const progress = 1 - Math.pow(1 - step / steps, 3);
+
+      const value =
+        step >= steps
+          ? Number(score.toFixed(2))
+          : Math.min(
+            Math.floor(score * progress),
+            Math.floor(score),
+          );
+
+      scoreElement.textContent = toFa(value);
+
+      if (step >= steps) {
+        clearInterval(countTimerRef.current!);
+        countTimerRef.current = null;
       }
-
-      if (
-        countTimerRef.current !==
-        null
-      ) {
-        clearInterval(
-          countTimerRef.current,
-        );
-      }
-
-      let step = 0;
-
-      const steps = 32;
-
-      countTimerRef.current =
-        window.setInterval(() => {
-          step++;
-
-          const value =
-            Math.round(
-              score *
-              (1 -
-                Math.pow(
-                  1 -
-                  step /
-                  steps,
-                  3,
-                )),
-            );
-
-          scoreElement.textContent =
-            toFa(value);
-
-          if (step >= steps) {
-            if (
-              countTimerRef.current !==
-              null
-            ) {
-              clearInterval(
-                countTimerRef.current,
-              );
-
-              countTimerRef.current =
-                null;
-            }
-          }
-        }, 26);
-    }, [score]);
+    }, 26);
+  }, [score]);
 
   const flyGhost = useCallback(
     (
@@ -479,7 +455,7 @@ export function useRiskAnimation(
       done: () => void,
     ) => {
       const categoryIndex =
-        getCategoryIndex(score);
+        getCategoryIndex({score, levelRangeData});
 
       const color =
         CATCOLOR[categoryIndex];
@@ -604,24 +580,32 @@ export function useRiskAnimation(
            * report.show را render کند.
            */
           requestAnimationFrame(() => {
-            const badge =
-              badgeRef.current;
+            const report = reportRef.current;
+            const badge = badgeRef.current;
 
-            if (!badge) {
+            if (!report || !badge) {
               return;
             }
 
-            const to =
-              badge.getBoundingClientRect();
+            // وضعیت فعلی transition را نگه می‌داریم
+            const previousTransition = report.style.transition;
+
+            // transition خود report را موقتاً خاموش می‌کنیم
+            report.style.transition = 'none';
+
+            // مجبور کردن browser به محاسبه layout
+            report.getBoundingClientRect();
+
+            // حالا badge دقیقاً در موقعیت نهایی خودش است
+            const to = badge.getBoundingClientRect();
 
             flyGhost(
               from,
               to,
               () => {
-                setReportArrived(
-                  true,
-                );
+                report.style.transition = previousTransition;
 
+                setReportArrived(true);
                 countUpReport();
               },
             );

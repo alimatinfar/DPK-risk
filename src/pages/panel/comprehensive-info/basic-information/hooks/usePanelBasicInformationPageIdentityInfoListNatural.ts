@@ -3,6 +3,7 @@ import {useMemo} from "react";
 import getActivePersonData from "../../../utils/getActivePersonData.ts";
 import type {BasicInfoDataTypeForEachPersonType} from "../index.types.ts";
 import displayDate from "../../../../../utils/display/displayDate.ts";
+import {jobFieldLabel} from "../index.constances.ts";
 
 
 function usePanelBasicInformationPageIdentityInfoListNatural(
@@ -160,6 +161,10 @@ function usePanelBasicInformationPageIdentityInfoListNatural(
       {
         label: 'تلفن همراه',
         value: customerData?.mobile,
+      },
+      {
+        label: jobFieldLabel,
+        value: customerData?.jobCodeTitle,
       },
     ]
   }, [isLegal, isForeignCitizen, activePersonData, naturalData, foreignCitizenData])

@@ -1,3 +1,5 @@
+import type {RiskReportProps} from "./RiskReport.tsx";
+
 export type FactorItem = {
   t: string;
   w: number;
@@ -26,29 +28,6 @@ export const CATCOLOR = [
   '#F59E0B',
   '#F97316',
   '#EF4444',
-];
-
-export const CATS = [
-  {
-    label:
-      'مشتری با ریسک تعامل کاری خیلی کم',
-  },
-  {
-    label:
-      'مشتری با ریسک تعامل کاری کم',
-  },
-  {
-    label:
-      'مشتری با ریسک تعامل کاری متوسط',
-  },
-  {
-    label:
-      'مشتری با ریسک تعامل کاری بالا',
-  },
-  {
-    label:
-      'مشتری با ریسک تعامل کاری خیلی بالا',
-  },
 ];
 
 export function toFa(
@@ -112,10 +91,11 @@ export function totalOf(
 }
 
 export function getCategoryIndex(
-  score: number,
+  {score, levelRangeData}: {score: number, levelRangeData: RiskReportProps['levelRangeData']}
 ) {
-  return Math.min(
-    4,
-    Math.floor(score / 20),
-  );
+  return levelRangeData?.findIndex(
+    (level) =>
+      score >= level.numberFrom &&
+      score <= level.numberTo
+  ) || 0
 }

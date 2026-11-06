@@ -74,7 +74,6 @@ export function RiskFactorList(
     selectedFactor, responseData
   })
 
-
   return (
     <>
       <div
@@ -156,7 +155,7 @@ export function RiskFactorList(
                   className={styles.fScore}
                 >
                   <b>
-                    {toFa(factor.score)}
+                    {toFa(Number(factor.score.toFixed(2)))}
                   </b>
                 </div>
               </button>
@@ -165,9 +164,11 @@ export function RiskFactorList(
         )}
       </div>
 
-      <RiskFactorDetail
-        factor={selected}
-      />
+      {selected && (
+        <RiskFactorDetail
+          factor={selected}
+        />
+      )}
     </>
   );
 }

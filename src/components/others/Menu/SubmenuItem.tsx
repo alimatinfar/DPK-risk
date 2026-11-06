@@ -48,7 +48,7 @@ function SubmenuItem(
   if (!isOpen) return null;
 
   const expandedContent = (
-    <div className={`${removeLinkPaddingRight ? '' : 'pr-4'} gap-2 mb-2 flex flex-col border-gray-200`}>
+    <div className={`${removeLinkPaddingRight ? '' : 'pr-4'} gap-2 mb-2 flex flex-col border-slate-200`}>
       {children.map((child, childIndex) => {
         const isActive = isChildActive(child.link);
         const ChildIcon = child.icon;
@@ -59,17 +59,19 @@ function SubmenuItem(
             to={child.link}
             className={`
               flex items-center gap-2 rounded-bl-sm rounded-tl-sm
-              text-right p-2 border-r-[3px]
-              ${isActive ? "bg-accent border-[#9E90CF]" : "hover:bg-gray-100 border-transparent"}
+              text-right p-2 border-r-[3px] duration-200
+              ${isActive ? "bg-accent border-[#9E90CF] dark:bg-dark-2 dark:border-dark-4 " : "hover:bg-slate-100 dark:hover:bg-dark-2 border-transparent"}
               ${child.className || ""}
             `}
           >
             {ChildIcon && (
-              <ChildIcon textColor={`${isActive ? "text-white" : "text-gray-500"} duration-200`}
-                         className="w-4 h-4 shrink-0"/>
+              <ChildIcon
+                textColor={`${isActive ? "text-white" : "text-slate-500 dark:text-custom-gray-5"} duration-200`}
+                className="w-4 h-4 shrink-0"
+              />
             )}
             <span
-              className={`flex-1 duration-200 text-sm ${isActive ? "text-white" : "text-gray-700"} ${child.titleClass || ""}`}>
+              className={`flex-1 duration-200 text-sm ${isActive ? "text-white" : "text-slate-700 dark:text-custom-gray-1"} ${child.titleClass || ""}`}>
               {child.label}
             </span>
           </Link>
@@ -79,7 +81,7 @@ function SubmenuItem(
   );
 
   const collapsedContent = (
-    <div className="px-1 gap-1 mb-2 flex flex-col items-center border-gray-200">
+    <div className="px-1 gap-1 mb-2 flex flex-col items-center border-slate-200">
       {children.map((child, childIndex) => {
         const isActive = isChildActive(child.link);
         const ChildIcon = child.icon;
@@ -90,13 +92,13 @@ function SubmenuItem(
             to={child.link}
             className={`
               flex items-center justify-center rounded-bl-sm rounded-tl-sm w-9 h-9 p-2
-              ${isActive ? "bg-accent border-r-[3px] border-[#9E90CF]" : "hover:bg-gray-100"}
+              ${isActive ? "bg-accent border-r-[3px] border-[#9E90CF] dark:bg-dark-2 dark:border-dark-4" : "hover:bg-slate-100 dark:hover:bg-dark-2"}
               ${child.className || ""}
             `}
             title={child.label}
           >
             {ChildIcon && (
-              <ChildIcon textColor={`${isActive ? "text-white" : "text-gray-500"} duration-200`}
+              <ChildIcon textColor={`${isActive ? "text-white" : "text-slate-500"} duration-200`}
                          className="w-5 h-5 shrink-0"/>
             )}
           </Link>

@@ -15,6 +15,9 @@ import {lazy} from "react";
 const AdminInquiryHistoriesDeleteModal = lazy(() => import(
   "./AdminInquiryHistoriesDeleteModal.tsx"
   ));
+const AdminInquiryHistoriesChangeStatusModal = lazy(() => import(
+  "./AdminInquiryHistoriesChangeStatusModal.tsx"
+  ));
 
 
 function AdminInquiryHistories() {
@@ -22,7 +25,8 @@ function AdminInquiryHistories() {
   const {
     filters, setFilters, tableData, listLoading, listError, refetchList,
     deleteModalOpen, deleteModalState, closeDeleteModal, deleteModalShouldBeRemoved,
-    setCurrentPage, setRowsPerPage, totalLength
+    setCurrentPage, setRowsPerPage, totalLength,
+    changeStatusModalOpen, changeStatusModalState, closeChangeStatusModal, changeStatusModalShouldBeRemoved
   } = useAdminInquiryHistories()
 
   return (
@@ -70,6 +74,15 @@ function AdminInquiryHistories() {
       >
         <AdminInquiryHistoriesDeleteModal
           modalState={deleteModalState} onClose={closeDeleteModal} open={deleteModalOpen}
+          refetch={refetchList}
+        />
+      </DisplayModal>
+
+      <DisplayModal
+        shouldBeRemoved={changeStatusModalShouldBeRemoved}
+      >
+        <AdminInquiryHistoriesChangeStatusModal
+          modalState={changeStatusModalState} onClose={closeChangeStatusModal} open={changeStatusModalOpen}
           refetch={refetchList}
         />
       </DisplayModal>

@@ -38,8 +38,8 @@ function usePanelIndividualBankingInfoFacilities() {
       // [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.STATUS]: (
       //   <Tag text='فعال' color='green' variant='fade'/>
       // ),
-      [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.STATUS]: item?.status,
-      [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.FACILITY_TYPE]: item?.facilitiesType,
+      [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.STATUS]: item?.statusTitle,
+      [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.FACILITY_TYPE]: item?.facilitiesTypeTitle,
       [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.FACILITY_SUB_TYPE]: item?.subFacilities,
       [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.ALLOCATION_DATE]: displayDate(item?.allocationDate),
       [PANEL_INDIVIDUAL_FACILITIES_TABLE_COLUMNS_KEYS.END_DATE]: displayDate(item?.endDate),

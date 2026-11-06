@@ -1,27 +1,53 @@
-import SearchPageForm from "./form/SearchPageForm.tsx";
+import SearchPageForm, {type SearchPageFormProps} from "./form/SearchPageForm.tsx";
 import SearchPageResult from "./result/SearchPageResult.tsx";
 import SaderatLogoAndTypo from "../../components/svg/logo/SaderatLogoAndTypo.tsx";
 import MainLayoutProfileSection from "../../layouts/MainLayout/MainLayoutProfileSection.tsx";
-import ZeroAndOneBg from '../../assets/images/zero&one.svg'
 import useSearchPage from "./hooks/useSearchPage.ts";
-import getUserRoles from "../../utils/authentication/userRoles/getUserRoles.ts";
 import userHasRole from "../../utils/authentication/userRoles/userHasRole.ts";
 import {USER_ROLES} from "../../utils/authentication/userRoles/index.constances.ts";
 import Button from "../../components/Form/Button/Button.tsx";
 import {Link} from "react-router";
 import ROUTER_LINKS from "../../constances/routerLinks.ts";
 import SettingIcon from "../../components/svg/SettingIcon.tsx";
+import useSearchStore from "./store/useSearchStore.ts";
+import {lazy, useEffect} from "react";
+import setDefaultValuesFromObject
+  from "../../components/Form/FormLayout/ReactHookFormWrapper/utils/setDefaultValuesFromObject.ts";
+import useTheme from "../../components/others/ThemeManager/hooks/useTheme.ts";
+
+import ZeroAndOneBg from '../../assets/images/zero&one.svg'
+import ZeroAndOneBgDark from '../../assets/images/zero&one-dark.svg'
+import ThemeSelector from "../../layouts/MainLayout/ThemeSelector.tsx";
 
 
 function SearchPage() {
 
-  const {
-    formMethods, onSubmit, resultData, isSubmittedSuccessful, activePersonType, setActivePersonType,
-    error, isPending
-  } = useSearchPage()
+  const setStoreData = useSearchStore(state => state.setStoreData)
+  const activePersonType = useSearchStore(state => state.activePersonType)
+  const {isDarkMode} = useTheme()
 
-  const userRoles = getUserRoles()
+  const {
+    formMethods, onSubmit, isSubmittedSuccessful,
+    error, isPending
+  } = useSearchPage({
+    setStoreData, activePersonType
+  })
+
   const isAdmin = userHasRole(USER_ROLES.ADMIN)
+
+  const storeFormData = useSearchStore(state => state.formData)
+  const resultData = useSearchStore(state => state.resultData)
+
+  function setActivePersonType(value: SearchPageFormProps['activePersonType']) {
+    setStoreData({activePersonType: value})
+  }
+
+  useEffect(() => {
+    setDefaultValuesFromObject({
+      setValue: formMethods.setValue,
+      defaultValues: storeFormData
+    })
+  }, [storeFormData]);
 
   return (
     <>
@@ -34,14 +60,18 @@ function SearchPage() {
               <Link to={ROUTER_LINKS.ADMIN}>
                 <Button
                   variant='outlined' size='sm' className={{extra: 'h-10'}}
-                  rightIcon={<SettingIcon />}
+                  rightIcon={<SettingIcon/>}
                 >
                   ورود به مدیریت سامانه ریسک
                 </Button>
               </Link>
             )}
 
-            <MainLayoutProfileSection/>
+            <div className='flex items-center gap-2'>
+              <ThemeSelector/>
+
+              <MainLayoutProfileSection/>
+            </div>
           </div>
         </div>
 
@@ -52,16 +82,18 @@ function SearchPage() {
 
         <div
           style={{
-            backgroundImage: `url(${ZeroAndOneBg})`,
+            backgroundImage: `url(${isDarkMode ? ZeroAndOneBgDark : ZeroAndOneBg})`,
           }}
-          className='z-0 absolute inset-0 bg-repeat bg-center'
+          className={`${isDarkMode ? 'z-[15]' : 'z-0'} absolute inset-0 bg-repeat bg-center`}
         >
         </div>
 
         <div
           className='z-10 absolute inset-0'
           style={{
-            background: `radial-gradient(50% 398.62% at 50% 50%, #F2F4F6 0%, rgba(242, 244, 246, 0.7) 100%)`
+            background: isDarkMode ?
+              'radial-gradient(50% 50% at 50% 50%, #2A2A2A 0%, #1D1C1F 100%)' :
+              `radial-gradient(50% 398.62% at 50% 50%, #F8FAFC 0%, rgba(242, 244, 246, 0.7) 100%)`
           }}
         >
         </div>

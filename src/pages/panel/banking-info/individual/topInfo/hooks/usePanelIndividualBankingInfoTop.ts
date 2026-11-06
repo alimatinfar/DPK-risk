@@ -18,12 +18,11 @@ function usePanelIndividualBankingInfoTop() {
       },
       {
         label: 'شناسه شهاب',
-        // TODO set from api response
-        value: null,
+        value: commonCustomerData?.shahabId,
       },
       {
         label: 'زیرنوع مشتری',
-        value: commonCustomerData?.customerSubType,
+        value: commonCustomerData?.customerSubTypeTitle,
       },
       {
         label: 'تاریخ آخرین تغییرات تعریف مشتری',

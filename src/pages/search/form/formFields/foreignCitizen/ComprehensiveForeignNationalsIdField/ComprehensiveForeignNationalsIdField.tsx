@@ -7,7 +7,7 @@ import {
 } from "./ComprehensiveForeignNationalsIdField.constances.ts";
 import FORM_PATTERNS from "../../../../../../constances/form/formPatterns.ts";
 
-const SPECIFIC_LENGTH = 12
+const SPECIFIC_LENGTH = 15
 
 function ComprehensiveForeignNationalsIdField() {
   const getErrorMessage = useGetFormErrorMessage();

@@ -33,7 +33,7 @@ function DropDown(
       {!shouldBeRemoved && (
         <div
           style={dropDownStyle} onClick={dropDownOnClick} ref={dropDownRef}
-          className={`fixed duration-200 shadow z-50 bg-white rounded-xl origin-top ${showWithAnimation ? '' : 'opacity-0 scale-95 pointer-events-none'}`}
+          className={`fixed duration-200 shadow z-50 bg-white dark:bg-dark-2 rounded-xl origin-top ${showWithAnimation ? '' : 'opacity-0 scale-95 pointer-events-none'}`}
         >
           {dropDownElement}
         </div>

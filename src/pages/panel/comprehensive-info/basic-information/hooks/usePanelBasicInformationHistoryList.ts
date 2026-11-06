@@ -11,7 +11,7 @@ import displayDate from "../../../../../utils/display/displayDate.ts";
 
 function usePanelBasicInformationHistoryList() {
 
-  const {getActivePersonNationalId, isLegalBool, isNaturalBool} = getActivePersonData()
+  const {activePersonData, isLegalBool, isNaturalBool} = getActivePersonData()
 
   const apiUrl = isNaturalBool ? APIS.GET_NATURAL_CUSTOMER_HISTORY :
     isLegalBool ? APIS.GET_LEGAL_CUSTOMER_HISTORY : APIS.GET_FOREIGN_CITIZEN_CUSTOMER_HISTORY
@@ -23,7 +23,7 @@ function usePanelBasicInformationHistoryList() {
       url: apiUrl,
       method: "GET",
       params: {
-        nationalID: getActivePersonNationalId()
+        customerId: activePersonData?.customerId
       }
     }
   })

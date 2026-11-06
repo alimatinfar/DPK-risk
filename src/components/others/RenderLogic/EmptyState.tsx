@@ -26,7 +26,7 @@ function EmptyState(
       </p>
 
       {description && (
-        <p className='text-xs mt-2 text-gray-500 text-center leading-4'>
+        <p className='text-xs mt-2 text-slate-500 text-center leading-4'>
           {description}
         </p>
       )}

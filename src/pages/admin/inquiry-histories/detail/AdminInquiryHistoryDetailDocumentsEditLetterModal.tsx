@@ -31,7 +31,9 @@ function AdminInquiryHistoryDetailDocumentsEditLetterModal(
       <ReactHookFormWrapper
         formMethods={formMethods} onSubmit={onSubmit}
       >
-        <AdminHighRiskIndividualsBaseFormFields/>
+        <AdminHighRiskIndividualsBaseFormFields
+          isInquiryHistory hiddenResponseSubmissionStatus
+        />
 
         <Button
           fullWidth type='submit' loading={loading}
